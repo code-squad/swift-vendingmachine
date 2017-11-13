@@ -8,39 +8,29 @@
 
 import Foundation
 
-class Drink {
+class Drink: CustomStringConvertible {
     var brand: String
-    var weight: Int
-    var price: Int
+    var weight: String
+    var price: String
     var name: String
-    var dateOfManufacture: Date
+    var dateOfManufacture: String
     
-    init(brand: String, weight: Int, price: Int, name: String) {
+    init(brand: String, weight: String, price: String, name: String, dateOfManufacture: String) {
         self.brand = brand
         self.weight = weight
         self.price = price
         self.name = name
-        dateOfManufacture = Date()
+        self.dateOfManufacture = dateOfManufacture
     }
-}
-
-extension Drink: CustomStringConvertible {
+    
     func printDrinkInfo() {
         var printString = ""
         printString += self.brand
-        printString += self.weight.makeString
-        printString += self.price.makeString
+        printString += self.weight
+        printString += self.price
         printString += self.name
-        printString += "\(self.dateOfManufacture)"
+        printString += self.dateOfManufacture
         print(printString)
     }
-}
 
-extension Int {
-    var makeString: String {
-        get {
-            return "\(self)"
-        }
-    }
 }
-
