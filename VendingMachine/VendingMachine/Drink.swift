@@ -23,3 +23,23 @@ class Drink {
         dateOfManufacture = Date()
     }
 }
+
+extension Drink: CustomStringConvertible {
+    func printDrinkInfo() {
+        var printString = ""
+        printString += self.brand
+        printString += self.weight.makeString
+        printString += self.price.makeString
+        printString += self.name
+        printString += "\(self.dateOfManufacture)"
+        print(printString)
+    }
+}
+
+extension Int {
+    var makeString: String {
+        get {
+            return "\(self)"
+        }
+    }
+}
