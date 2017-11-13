@@ -11,6 +11,7 @@ import Foundation
 class Coffee: Drink {
     var taste: Taste
     enum Taste: String {
+        case original = "커피"
         case top = "TOP"
         case cantata = "칸타타"
         case georgia = "조지아"
@@ -31,7 +32,7 @@ class Coffee: Drink {
     }
     
     override func printDrinkInfo() {
-        print("\(taste) - ", terminator: "")
+        print("\(taste.rawValue) - ", terminator: "")
         super.printDrinkInfo()
     }
 

@@ -32,7 +32,7 @@ class Milk: Drink {
     }
     
     override func printDrinkInfo() {
-        print("\(taste) - ", terminator: "")
+        print("\(taste.rawValue) - ", terminator: "")
         super.printDrinkInfo()
     }
 

@@ -15,7 +15,11 @@ class Drink: CustomStringConvertible {
     var name: String
     var dateOfManufacture: String
     
-    init(brand: String, weight: String, price: String, name: String, dateOfManufacture: String) {
+    init(brand: String,
+         weight: String,
+         price: String,
+         name: String,
+         dateOfManufacture: String) {
         self.brand = brand
         self.weight = weight
         self.price = price
@@ -25,10 +29,10 @@ class Drink: CustomStringConvertible {
     
     func printDrinkInfo() {
         var printString = ""
-        printString += self.brand
-        printString += self.weight
-        printString += self.price
-        printString += self.name
+        printString += self.brand + ", "
+        printString += self.weight + ", "
+        printString += self.price + ", "
+        printString += self.name + ", "
         printString += self.dateOfManufacture
         print(printString)
     }
