@@ -8,8 +8,9 @@
 
 import Foundation
 
-class Milk: Drink { }
+class Milk: Drink {
+}
 
-class StrawBerryMilk: Milk { }
-class BananaMilk: Milk { }
-class ChocolateMilk: Milk { }
+class StrawBerryMilk: Milk {}
+class BananaMilk: Milk {}
+class ChocolateMilk: Milk {}
