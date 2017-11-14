@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
+		C9BAD5591FB991120007F169 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD5581FB991120007F169 /* Drink.swift */; };
+		C9BAD55D1FB994220007F169 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD55C1FB994220007F169 /* Milk.swift */; };
+		C9BAD55F1FB9B4790007F169 /* SoftDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD55E1FB9B4790007F169 /* SoftDrink.swift */; };
+		C9BAD5611FB9B7A70007F169 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD5601FB9B7A70007F169 /* Coffee.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +29,10 @@
 /* Begin PBXFileReference section */
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		C9BAD5581FB991120007F169 /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
+		C9BAD55C1FB994220007F169 /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
+		C9BAD55E1FB9B4790007F169 /* SoftDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoftDrink.swift; sourceTree = "<group>"; };
+		C9BAD5601FB9B7A70007F169 /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +66,10 @@
 			isa = PBXGroup;
 			children = (
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
+				C9BAD5581FB991120007F169 /* Drink.swift */,
+				C9BAD55C1FB994220007F169 /* Milk.swift */,
+				C9BAD55E1FB9B4790007F169 /* SoftDrink.swift */,
+				C9BAD5601FB9B7A70007F169 /* Coffee.swift */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";
@@ -120,7 +132,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9BAD5591FB991120007F169 /* Drink.swift in Sources */,
+				C9BAD55F1FB9B4790007F169 /* SoftDrink.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
+				C9BAD55D1FB994220007F169 /* Milk.swift in Sources */,
+				C9BAD5611FB9B7A70007F169 /* Coffee.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,6 +253,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 			};
@@ -246,6 +263,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 			};
