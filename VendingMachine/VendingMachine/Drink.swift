@@ -9,6 +9,10 @@
 import Foundation
 
 class Drink: CustomStringConvertible {
+    var description: String {
+        return "\(self.brand), \(self.weight), \(self.price), \(self.name), \(self.name), \(self.dateOfManufacture)"
+    }
+    
     var brand: String
     var weight: String
     var price: String
@@ -26,15 +30,4 @@ class Drink: CustomStringConvertible {
         self.name = name
         self.dateOfManufacture = dateOfManufacture
     }
-    
-    func printDrinkInfo() {
-        var printString = ""
-        printString += self.brand + ", "
-        printString += self.weight + ", "
-        printString += self.price + ", "
-        printString += self.name + ", "
-        printString += self.dateOfManufacture
-        print(printString)
-    }
-
 }

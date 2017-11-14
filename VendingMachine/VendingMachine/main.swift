@@ -32,7 +32,3 @@ let coffee = Coffee(taste: .original,
                     price: "3000원",
                     name: "TOP아메리카노",
                     dateOfManufacture: "20171010")
-strawBerryMilk.printDrinkInfo()
-bananaMilk.printDrinkInfo()
-coke.printDrinkInfo()
-coffee.printDrinkInfo()
