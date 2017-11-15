@@ -12,7 +12,7 @@ class Coffee: Drink {
     private(set) var isHot: Bool
     private(set) var amountOfCaffeine: Int
     private(set) var nameOfCoffeeBeans: String
-    
+
     init?(productTpye: String,
           calorie: String,
           brand: String,
@@ -37,8 +37,12 @@ class Coffee: Drink {
     }
     
     func isSuitableAmountOfCaffeine(to age: Int) -> Bool {
-        if age > 19 && self.amountOfCaffeine == 400 { return true }
-        if age <= 19 && self.amountOfCaffeine == 125 { return true }
+        if age > 19 && self.amountOfCaffeine == 400 {
+            return true
+        }
+        if age <= 19 && self.amountOfCaffeine == 125 {
+            return true
+        }
         return false
     }
     

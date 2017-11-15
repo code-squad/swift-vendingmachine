@@ -29,7 +29,7 @@ class Milk: Drink {
         formatter.timeZone = TimeZone(abbreviation: "GMT+0:00")
         return formatter
     }()
-    
+
     init?(productTpye: String,
          brand: String,
          weight: String,
