@@ -16,6 +16,8 @@
 		C9BAD57B1FBC37450007F169 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD57A1FBC37450007F169 /* StringExtension.swift */; };
 		C9BAD57C1FBC3C160007F169 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD5581FB991120007F169 /* Drink.swift */; };
 		C9BAD57D1FBC3CC70007F169 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD57A1FBC37450007F169 /* StringExtension.swift */; };
+		C9BAD57F1FBC57DC0007F169 /* UnitTestMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD57E1FBC57DC0007F169 /* UnitTestMilk.swift */; };
+		C9BAD5801FBC57F30007F169 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD55C1FB994220007F169 /* Milk.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -41,6 +43,7 @@
 		C9BAD5741FBAC2EF0007F169 /* UnitTestVendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestVendingMachine.swift; sourceTree = "<group>"; };
 		C9BAD5761FBAC2EF0007F169 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9BAD57A1FBC37450007F169 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		C9BAD57E1FBC57DC0007F169 /* UnitTestMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestMilk.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				C9BAD5741FBAC2EF0007F169 /* UnitTestVendingMachine.swift */,
+				C9BAD57E1FBC57DC0007F169 /* UnitTestMilk.swift */,
 				C9BAD5761FBAC2EF0007F169 /* Info.plist */,
 			);
 			path = UnitTestVendingMachine;
@@ -206,7 +210,9 @@
 			files = (
 				C9BAD57C1FBC3C160007F169 /* Drink.swift in Sources */,
 				C9BAD5751FBAC2EF0007F169 /* UnitTestVendingMachine.swift in Sources */,
+				C9BAD57F1FBC57DC0007F169 /* UnitTestMilk.swift in Sources */,
 				C9BAD57D1FBC3CC70007F169 /* StringExtension.swift in Sources */,
+				C9BAD5801FBC57F30007F169 /* Milk.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
