@@ -14,6 +14,8 @@
 		C9BAD5611FB9B7A70007F169 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD5601FB9B7A70007F169 /* Coffee.swift */; };
 		C9BAD5751FBAC2EF0007F169 /* UnitTestVendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD5741FBAC2EF0007F169 /* UnitTestVendingMachine.swift */; };
 		C9BAD57B1FBC37450007F169 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD57A1FBC37450007F169 /* StringExtension.swift */; };
+		C9BAD57C1FBC3C160007F169 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD5581FB991120007F169 /* Drink.swift */; };
+		C9BAD57D1FBC3CC70007F169 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD57A1FBC37450007F169 /* StringExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -202,7 +204,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9BAD57C1FBC3C160007F169 /* Drink.swift in Sources */,
 				C9BAD5751FBAC2EF0007F169 /* UnitTestVendingMachine.swift in Sources */,
+				C9BAD57D1FBC3CC70007F169 /* StringExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

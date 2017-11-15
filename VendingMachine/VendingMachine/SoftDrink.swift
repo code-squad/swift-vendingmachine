@@ -18,7 +18,7 @@ class SoftDrink: Drink {
           name: String,
           dateOfManufacture: String,
           amountOfSugar: String) {
-        guard let amountOfSugar = amountOfSugar.convertToGram else { return nil }
+        guard let amountOfSugar = amountOfSugar.convert(to: "g") else { return nil }
         self.amountOfSugar = amountOfSugar
         super.init(productTpye: productTpye,
                    calorie: calorie,
