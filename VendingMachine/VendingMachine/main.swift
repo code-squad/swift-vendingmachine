@@ -8,12 +8,12 @@
 
 import Foundation
 
-//let strawBerryMilk = StrawBerryMilk(productTpye: "딸기우유",
-//                                    brand: "서울우유",
-//                                    weight: "200ml",
-//                                    price: "1000원",
-//                                    name: "날마다딸기우유",
-//                                    dateOfManufacture: "20171009")
+let strawBerryMilk = StrawBerryMilk(productTpye: "딸기우유",
+                                    brand: "서울우유",
+                                    weight: "200ml",
+                                    price: "1000원",
+                                    name: "날마다딸기우유",
+                                    dateOfManufacture: "20171009", calorie: "300kcal")
 //let bananaMilk = BananaMilk(productTpye: "바나나우유",
 //                            brand: "서울우유",
 //                            weight: "200ml",
@@ -32,7 +32,7 @@ import Foundation
 //                    price: "3000원",
 //                    name: "TOP아메리카노",
 //                    dateOfManufacture: "20171010")
-//print(strawBerryMilk)
+print(strawBerryMilk!)
 //print(bananaMilk)
 //print(coke)
 //print(coffee)
