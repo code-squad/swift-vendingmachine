@@ -10,10 +10,10 @@ import Foundation
 
 class Coffee: Drink {
     var isHot: Bool
-    var amountOfCaffeine: String
+    var amountOfCaffeine: Int
     var nameOfCoffeeBeans: String
     
-    init(productTpye: String,
+    init?(productTpye: String,
          brand: String,
          weight: String,
          price: String,
@@ -23,7 +23,10 @@ class Coffee: Drink {
          amountOfCaffeine: String,
          nameOfCoffeeBeans: String) {
         self.isHot = isHot
-        self.amountOfCaffeine = amountOfCaffeine
+        let mg = CharacterSet.init(charactersIn: "mg")
+        let mgString = amountOfCaffeine.trimmingCharacters(in: mg)
+        guard let amountOfCaffeineNumber = Int(mgString) else { return nil }
+        self.amountOfCaffeine = amountOfCaffeineNumber
         self.nameOfCoffeeBeans = nameOfCoffeeBeans
         super.init(productTpye: productTpye,
                    brand: brand,
@@ -31,6 +34,12 @@ class Coffee: Drink {
                    price: price,
                    name: name,
                    dateOfManufacture: dateOfManufacture)
+    }
+    
+    func isSuitableCaffeine(to age: Int) -> Bool {
+        if age > 19 && self.amountOfCaffeine == 400 { return true }
+        if age <= 19 && self.amountOfCaffeine == 125 { return true }
+        return false
     }
 }
 
