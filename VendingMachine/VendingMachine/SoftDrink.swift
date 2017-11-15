@@ -18,10 +18,8 @@ class SoftDrink: Drink {
           name: String,
           dateOfManufacture: String,
           amountOfSugar: String) {
-        let g = CharacterSet.init(charactersIn: "g")
-        let gString = amountOfSugar.trimmingCharacters(in: g)
-        guard let amountOfSugarNumber = Int(gString) else { return nil }
-        self.amountOfSugar = amountOfSugarNumber
+        guard let amountOfSugar = amountOfSugar.convertToGram else { return nil }
+        self.amountOfSugar = amountOfSugar
         super.init(productTpye: productTpye,
                    calorie: calorie,
                    brand: brand,

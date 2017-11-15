@@ -34,10 +34,8 @@ class Drink: CustomStringConvertible {
           name: String,
           dateOfManufacture: String) {
         self.productTpye = productTpye
-        let kcal = CharacterSet.init(charactersIn: "kcal")
-        let calorieString = calorie.trimmingCharacters(in: kcal)
-        guard let calorieNumber = Int(calorieString) else { return nil }
-        self.calorie = calorieNumber
+        guard let kiloCalorie = calorie.convertToKilocalorie else { return nil }
+        self.calorie = kiloCalorie
         self.brand = brand
         self.weight = weight
         self.price = price
