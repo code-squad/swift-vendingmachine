@@ -9,7 +9,6 @@
 import Foundation
 
 class Milk: Drink {
-    var calorie: Int
     var farmCode: String
     var ingredients: [String]
     /// 유통기한: 제조일로부터 45일
@@ -35,13 +34,10 @@ class Milk: Drink {
          calorie: String,
          farmCode: String = "Unknown",
          ingredients: [String] = [String]()) {
-        let kcal = CharacterSet.init(charactersIn: "kcal")
-        let calorieString = calorie.trimmingCharacters(in: kcal)
-        guard let calorieNumber = Int(calorieString) else { return nil }
-        self.calorie = calorieNumber
         self.farmCode = farmCode
         self.ingredients = ingredients
         super.init(productTpye: productTpye,
+                   calorie: calorie,
                    brand: brand,
                    weight: weight,
                    price: price,

@@ -14,14 +14,15 @@ class Coffee: Drink {
     var nameOfCoffeeBeans: String
     
     init?(productTpye: String,
-         brand: String,
-         weight: String,
-         price: String,
-         name: String,
-         dateOfManufacture: String,
-         isHot: Bool,
-         amountOfCaffeine: String,
-         nameOfCoffeeBeans: String) {
+          calorie: String,
+          brand: String,
+          weight: String,
+          price: String,
+          name: String,
+          dateOfManufacture: String,
+          isHot: Bool,
+          amountOfCaffeine: String,
+          nameOfCoffeeBeans: String) {
         self.isHot = isHot
         let mg = CharacterSet.init(charactersIn: "mg")
         let mgString = amountOfCaffeine.trimmingCharacters(in: mg)
@@ -29,6 +30,7 @@ class Coffee: Drink {
         self.amountOfCaffeine = amountOfCaffeineNumber
         self.nameOfCoffeeBeans = nameOfCoffeeBeans
         super.init(productTpye: productTpye,
+                   calorie: calorie,
                    brand: brand,
                    weight: weight,
                    price: price,
@@ -36,11 +38,16 @@ class Coffee: Drink {
                    dateOfManufacture: dateOfManufacture)
     }
     
-    func isSuitableCaffeine(to age: Int) -> Bool {
+    func isSuitableAmountOfCaffeine(to age: Int) -> Bool {
         if age > 19 && self.amountOfCaffeine == 400 { return true }
         if age <= 19 && self.amountOfCaffeine == 125 { return true }
         return false
     }
+    
+    func isLowCalorie() -> Bool {
+        return self.calorie <= 30 ? true : false
+    }
+
 }
 
 class Top: Coffee { }

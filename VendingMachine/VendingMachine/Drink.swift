@@ -19,19 +19,25 @@ class Drink: CustomStringConvertible {
                       self.dateOfManufacture)
     }
     var productTpye: String
+    var calorie: Int
     var brand: String
     var weight: String
     var price: String
     var name: String
     var dateOfManufacture: String
     
-    init(productTpye: String,
-         brand: String,
-         weight: String,
-         price: String,
-         name: String,
-         dateOfManufacture: String) {
+    init?(productTpye: String,
+          calorie: String,
+          brand: String,
+          weight: String,
+          price: String,
+          name: String,
+          dateOfManufacture: String) {
         self.productTpye = productTpye
+        let kcal = CharacterSet.init(charactersIn: "kcal")
+        let calorieString = calorie.trimmingCharacters(in: kcal)
+        guard let calorieNumber = Int(calorieString) else { return nil }
+        self.calorie = calorieNumber
         self.brand = brand
         self.weight = weight
         self.price = price
