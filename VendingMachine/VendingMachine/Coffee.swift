@@ -9,9 +9,9 @@
 import Foundation
 
 class Coffee: Drink {
-    var isHot: Bool
-    var amountOfCaffeine: Int
-    var nameOfCoffeeBeans: String
+    private(set) var isHot: Bool
+    private(set) var amountOfCaffeine: Int
+    private(set) var nameOfCoffeeBeans: String
     
     init?(productTpye: String,
           calorie: String,

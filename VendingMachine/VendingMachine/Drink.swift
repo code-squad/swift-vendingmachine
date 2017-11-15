@@ -19,13 +19,13 @@ class Drink: CustomStringConvertible {
                       self.name,
                       self.dateOfManufacture)
     }
-    var productTpye: String
-    var calorie: Int
-    var brand: String
-    var weight: String
-    var price: String
-    var name: String
-    var dateOfManufacture: String
+    private(set) var productTpye: String
+    private(set) var calorie: Int
+    private(set) var brand: String
+    private(set) var weight: String
+    private(set) var price: String
+    private(set) var name: String
+    private(set) var dateOfManufacture: String
     var className: String {
         get {
             return "Drink"

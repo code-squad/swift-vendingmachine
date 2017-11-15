@@ -14,7 +14,7 @@ class SoftDrink: Drink {
             return "SoftDrink"
         }
     }
-    var amountOfSugar: Int
+    private(set) var amountOfSugar: Int
     init?(productTpye: String,
           calorie: String,
           brand: String,

@@ -14,8 +14,8 @@ class Milk: Drink {
             return "Milk"
         }
     }
-    var farmCode: String
-    var ingredients: [String]
+    private(set) var farmCode: String
+    private(set) var ingredients: [String]
     /// 유통기한: 제조일로부터 45일
     var expirationDate: Date? {
         guard let manufacturingDate = dateFormatter.date(from: self.dateOfManufacture) else {
