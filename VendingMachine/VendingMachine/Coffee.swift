@@ -24,10 +24,8 @@ class Coffee: Drink {
           amountOfCaffeine: String,
           nameOfCoffeeBeans: String) {
         self.isHot = isHot
-        let mg = CharacterSet.init(charactersIn: "mg")
-        let mgString = amountOfCaffeine.trimmingCharacters(in: mg)
-        guard let amountOfCaffeineNumber = Int(mgString) else { return nil }
-        self.amountOfCaffeine = amountOfCaffeineNumber
+        guard let amountOfCaffeine = amountOfCaffeine.convertToMilligram else { return nil }
+        self.amountOfCaffeine = amountOfCaffeine
         self.nameOfCoffeeBeans = nameOfCoffeeBeans
         super.init(productTpye: productTpye,
                    calorie: calorie,

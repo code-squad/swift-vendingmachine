@@ -13,6 +13,7 @@
 		C9BAD55F1FB9B4790007F169 /* SoftDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD55E1FB9B4790007F169 /* SoftDrink.swift */; };
 		C9BAD5611FB9B7A70007F169 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD5601FB9B7A70007F169 /* Coffee.swift */; };
 		C9BAD5751FBAC2EF0007F169 /* UnitTestVendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD5741FBAC2EF0007F169 /* UnitTestVendingMachine.swift */; };
+		C9BAD57B1FBC37450007F169 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD57A1FBC37450007F169 /* StringExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,6 +38,7 @@
 		C9BAD5721FBAC2EF0007F169 /* UnitTestVendingMachine.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTestVendingMachine.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9BAD5741FBAC2EF0007F169 /* UnitTestVendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestVendingMachine.swift; sourceTree = "<group>"; };
 		C9BAD5761FBAC2EF0007F169 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C9BAD57A1FBC37450007F169 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				C9BAD55C1FB994220007F169 /* Milk.swift */,
 				C9BAD55E1FB9B4790007F169 /* SoftDrink.swift */,
 				C9BAD5601FB9B7A70007F169 /* Coffee.swift */,
+				C9BAD57A1FBC37450007F169 /* StringExtension.swift */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 			files = (
 				C9BAD5591FB991120007F169 /* Drink.swift in Sources */,
 				C9BAD55F1FB9B4790007F169 /* SoftDrink.swift in Sources */,
+				C9BAD57B1FBC37450007F169 /* StringExtension.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
 				C9BAD55D1FB994220007F169 /* Milk.swift in Sources */,
 				C9BAD5611FB9B7A70007F169 /* Coffee.swift in Sources */,
