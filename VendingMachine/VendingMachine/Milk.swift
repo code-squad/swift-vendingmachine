@@ -25,7 +25,7 @@ class Milk: Drink {
     }
     private let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyymmdd"
+        formatter.dateFormat = "yyyyMMdd"
         formatter.timeZone = TimeZone(abbreviation: "GMT+0:00")
         return formatter
     }()
