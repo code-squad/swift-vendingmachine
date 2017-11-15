@@ -9,6 +9,11 @@
 import Foundation
 
 class Milk: Drink {
+    override var className: String {
+        get {
+            return "Milk"
+        }
+    }
     var farmCode: String
     var ingredients: [String]
     /// 유통기한: 제조일로부터 45일
@@ -62,6 +67,26 @@ class Milk: Drink {
 
 }
 
-class StrawBerryMilk: Milk {}
-class BananaMilk: Milk {}
-class ChocolateMilk: Milk {}
+class StrawBerryMilk: Milk {
+    override var className: String {
+        get {
+            return "StrawBerryMilk"
+        }
+    }
+}
+
+class BananaMilk: Milk {
+    override var className: String {
+        get {
+            return "BananaMilk"
+        }
+    }
+}
+
+class ChocolateMilk: Milk {
+    override var className: String {
+        get {
+            return "ChocolateMilk"
+        }
+    }
+}

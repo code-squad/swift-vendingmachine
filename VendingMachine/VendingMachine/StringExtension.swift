@@ -10,7 +10,7 @@ import Foundation
 
 extension String {    
     func convert(to measure: String) -> Int? {
-        let startMeasureCharacter = self.index(self.endIndex, offsetBy: (measure.count * (-1))) //k
+        let startMeasureCharacter = self.index(self.endIndex, offsetBy: (measure.count * (-1)))
         let range = startMeasureCharacter...self.index(before: self.endIndex)
         if self[range] != measure { return nil }
         guard let resultNumberOfMeasure = Int(
@@ -18,6 +18,6 @@ extension String {
                 return nil
         }
         return resultNumberOfMeasure
-
     }
+    
 }

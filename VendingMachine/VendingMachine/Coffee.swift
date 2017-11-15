@@ -48,6 +48,27 @@ class Coffee: Drink {
 
 }
 
-class Top: Coffee { }
-class Cantata: Coffee { }
-class Georgia: Coffee { }
+class Top: Coffee {
+    override var className: String {
+        get {
+            return "TOP"
+        }
+    }
+
+}
+
+class Cantata: Coffee {
+    override var className: String {
+        get {
+            return "Cantata"
+        }
+    }
+}
+
+class Georgia: Coffee {
+    override var className: String {
+        get {
+            return "Georgia"
+        }
+    }
+}

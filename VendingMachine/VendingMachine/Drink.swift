@@ -10,8 +10,9 @@ import Foundation
 
 class Drink: CustomStringConvertible {
     var description: String {
-        return String(format: "%@ - %@, %@, %@, %@, %@",
+        return String(format: "%@(%@) - %@, %@, %@, %@, %@",
                       self.productTpye,
+                      self.className,
                       self.brand,
                       self.weight,
                       self.price,
@@ -25,6 +26,11 @@ class Drink: CustomStringConvertible {
     var price: String
     var name: String
     var dateOfManufacture: String
+    var className: String {
+        get {
+            return "Drink"
+        }
+    }
     
     init?(productTpye: String,
           calorie: String,
