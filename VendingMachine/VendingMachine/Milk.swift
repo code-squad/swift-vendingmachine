@@ -11,6 +11,14 @@ import Foundation
 class Milk: Drink {
     var farmCode: String
     var ingredients: [String]
+    /// 유통기한: 제조일로부터 45일
+    var expirationDate: Date? {
+        guard let manufacturingDate = dateFormatter.date(from: self.dateOfManufacture) else {
+            return nil
+        }
+        return Date(timeInterval: 3600 * 24 * 45, since: manufacturingDate)
+    }
+    /// 성분이 초기화 된 이후에 할당
     lazy var isEasyOfDigestion: () -> Bool = {
         if self.ingredients.contains("lactos") {
             return false
@@ -42,18 +50,11 @@ class Milk: Drink {
                    dateOfManufacture: dateOfManufacture)
     }
     
-    // 유통기한: 제조일로부터 45일
     func valid(with date: Date) -> Bool {
-        // date - 제조일이 <= 45
-        guard let manufacturingDate = dateFormatter.date(from: self.dateOfManufacture) else {
+        guard let expirationDay = self.expirationDate else {
             return false
         }
-        let compareDate = date.timeIntervalSince(manufacturingDate)
-        let compareDay = compareDate / (3600 * 24)
-        if compareDay <= 45 {
-            return true
-        }
-        return false
+        return date < expirationDay ? true : false
     }
 
 }
