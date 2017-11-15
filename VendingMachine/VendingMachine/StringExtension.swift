@@ -8,16 +8,19 @@
 
 import Foundation
 
-extension String {    
+extension String {
+
     func convert(to measure: String) -> Int? {
         let startMeasureCharacter = self.index(self.endIndex, offsetBy: (measure.count * (-1)))
         let range = startMeasureCharacter...self.index(before: self.endIndex)
-        if self[range] != measure { return nil }
+        if self[range] != measure {
+            return nil
+        }
         guard let resultNumberOfMeasure = Int(
             self[self.startIndex...self.index(before: startMeasureCharacter)]) else {
                 return nil
         }
         return resultNumberOfMeasure
     }
-    
+
 }

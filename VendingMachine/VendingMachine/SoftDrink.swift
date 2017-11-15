@@ -34,10 +34,11 @@ class SoftDrink: Drink {
                    dateOfManufacture: dateOfManufacture)
 
     }
-    
+
     func isSuitableAmountOfSugar() -> Bool {
         return self.amountOfSugar < 50 ? true : false
     }
+
 }
 
 class Coke: SoftDrink {
