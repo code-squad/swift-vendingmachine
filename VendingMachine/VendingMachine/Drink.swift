@@ -34,7 +34,7 @@ class Drink: CustomStringConvertible {
           name: String,
           dateOfManufacture: String) {
         self.productTpye = productTpye
-        guard let kiloCalorie = calorie.convertToKilocalorie else { return nil }
+        guard let kiloCalorie = calorie.convert(to: "kcal") else { return nil }
         self.calorie = kiloCalorie
         self.brand = brand
         self.weight = weight

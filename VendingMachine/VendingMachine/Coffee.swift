@@ -24,7 +24,7 @@ class Coffee: Drink {
           amountOfCaffeine: String,
           nameOfCoffeeBeans: String) {
         self.isHot = isHot
-        guard let amountOfCaffeine = amountOfCaffeine.convertToMilligram else { return nil }
+        guard let amountOfCaffeine = amountOfCaffeine.convert(to: "mg") else { return nil }
         self.amountOfCaffeine = amountOfCaffeine
         self.nameOfCoffeeBeans = nameOfCoffeeBeans
         super.init(productTpye: productTpye,
