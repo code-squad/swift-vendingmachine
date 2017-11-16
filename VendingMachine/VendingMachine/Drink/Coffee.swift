@@ -52,9 +52,6 @@ class Coffee: Drink {
 
 }
 
-class Top: Coffee {
-}
-
 class Cantata: Coffee {
 }
 
