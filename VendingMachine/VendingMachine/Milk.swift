@@ -9,11 +9,6 @@
 import Foundation
 
 class Milk: Drink {
-    override var className: String {
-        get {
-            return String(describing: Milk.self)
-        }
-    }
     private(set) var farmCode: String
     private(set) var ingredients: [String]
     /// 유통기한: 제조일로부터 45일
@@ -68,25 +63,10 @@ class Milk: Drink {
 }
 
 class StrawBerryMilk: Milk {
-    override var className: String {
-        get {
-            return String(describing: StrawBerryMilk.self)
-        }
-    }
 }
 
 class BananaMilk: Milk {
-    override var className: String {
-        get {
-            return String(describing: BananaMilk.self)
-        }
-    }
 }
 
 class ChocolateMilk: Milk {
-    override var className: String {
-        get {
-            return String(describing: ChocolateMilk.self)
-        }
-    }
 }
