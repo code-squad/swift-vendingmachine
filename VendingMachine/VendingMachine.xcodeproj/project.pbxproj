@@ -97,17 +97,8 @@
 		839DA90B1F8D1F95009E05F3 /* VendingMachine */ = {
 			isa = PBXGroup;
 			children = (
+				C9BAD58D1FBD89A30007F169 /* Drink */,
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
-				C9BAD5581FB991120007F169 /* Drink.swift */,
-				C9BAD55C1FB994220007F169 /* Milk.swift */,
-				C9BAD5811FBD80F60007F169 /* StrawBerryMilk.swift */,
-				C9BAD5831FBD85340007F169 /* BananaMilk.swift */,
-				C9BAD5851FBD86020007F169 /* ChocolateMilk.swift */,
-				C9BAD55E1FB9B4790007F169 /* SoftDrink.swift */,
-				C9BAD5891FBD89500007F169 /* Cider.swift */,
-				C9BAD58B1FBD896C0007F169 /* Fanta.swift */,
-				C9BAD5871FBD893E0007F169 /* Coke.swift */,
-				C9BAD5601FB9B7A70007F169 /* Coffee.swift */,
 				C9BAD57A1FBC37450007F169 /* StringExtension.swift */,
 			);
 			path = VendingMachine;
@@ -121,6 +112,23 @@
 				C9BAD5761FBAC2EF0007F169 /* Info.plist */,
 			);
 			path = UnitTestVendingMachine;
+			sourceTree = "<group>";
+		};
+		C9BAD58D1FBD89A30007F169 /* Drink */ = {
+			isa = PBXGroup;
+			children = (
+				C9BAD5581FB991120007F169 /* Drink.swift */,
+				C9BAD55C1FB994220007F169 /* Milk.swift */,
+				C9BAD5811FBD80F60007F169 /* StrawBerryMilk.swift */,
+				C9BAD5831FBD85340007F169 /* BananaMilk.swift */,
+				C9BAD5851FBD86020007F169 /* ChocolateMilk.swift */,
+				C9BAD55E1FB9B4790007F169 /* SoftDrink.swift */,
+				C9BAD5891FBD89500007F169 /* Cider.swift */,
+				C9BAD58B1FBD896C0007F169 /* Fanta.swift */,
+				C9BAD5871FBD893E0007F169 /* Coke.swift */,
+				C9BAD5601FB9B7A70007F169 /* Coffee.swift */,
+			);
+			path = Drink;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
