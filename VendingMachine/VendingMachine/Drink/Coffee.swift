@@ -51,6 +51,3 @@ class Coffee: Drink {
     }
 
 }
-
-class Georgia: Coffee {
-}
