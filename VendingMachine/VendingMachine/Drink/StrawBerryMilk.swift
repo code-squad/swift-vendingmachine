@@ -17,7 +17,7 @@ class StrawBerryMilk: Milk {
           name: String,
           dateOfManufacture: String,
           calorie: String,
-          farmCode: String,
+          farmCode: String = "Unknown",
           ingredients: [String],
           ratioOfStrawBerrySyrup: String) {
         self.ratioOfStrawBerrySyrup = ratioOfStrawBerrySyrup
