@@ -62,9 +62,6 @@ class Milk: Drink {
 
 }
 
-class StrawBerryMilk: Milk {
-}
-
 class BananaMilk: Milk {
 }
 

@@ -18,6 +18,7 @@
 		C9BAD57D1FBC3CC70007F169 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD57A1FBC37450007F169 /* StringExtension.swift */; };
 		C9BAD57F1FBC57DC0007F169 /* UnitTestMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD57E1FBC57DC0007F169 /* UnitTestMilk.swift */; };
 		C9BAD5801FBC57F30007F169 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD55C1FB994220007F169 /* Milk.swift */; };
+		C9BAD5821FBD80F60007F169 /* StrawBerryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD5811FBD80F60007F169 /* StrawBerryMilk.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -44,6 +45,7 @@
 		C9BAD5761FBAC2EF0007F169 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9BAD57A1FBC37450007F169 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		C9BAD57E1FBC57DC0007F169 /* UnitTestMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestMilk.swift; sourceTree = "<group>"; };
+		C9BAD5811FBD80F60007F169 /* StrawBerryMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrawBerryMilk.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
 				C9BAD5581FB991120007F169 /* Drink.swift */,
 				C9BAD55C1FB994220007F169 /* Milk.swift */,
+				C9BAD5811FBD80F60007F169 /* StrawBerryMilk.swift */,
 				C9BAD55E1FB9B4790007F169 /* SoftDrink.swift */,
 				C9BAD5601FB9B7A70007F169 /* Coffee.swift */,
 				C9BAD57A1FBC37450007F169 /* StringExtension.swift */,
@@ -198,6 +201,7 @@
 				C9BAD5591FB991120007F169 /* Drink.swift in Sources */,
 				C9BAD55F1FB9B4790007F169 /* SoftDrink.swift in Sources */,
 				C9BAD57B1FBC37450007F169 /* StringExtension.swift in Sources */,
+				C9BAD5821FBD80F60007F169 /* StrawBerryMilk.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
 				C9BAD55D1FB994220007F169 /* Milk.swift in Sources */,
 				C9BAD5611FB9B7A70007F169 /* Coffee.swift in Sources */,
