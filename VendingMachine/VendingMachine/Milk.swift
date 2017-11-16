@@ -61,6 +61,3 @@ class Milk: Drink {
     }
 
 }
-
-class ChocolateMilk: Milk {
-}

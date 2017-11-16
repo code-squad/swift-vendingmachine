@@ -1,5 +1,5 @@
 //
-//  BananaMilk.swift
+//  ChocolateMilk.swift
 //  VendingMachine
 //
 //  Created by yangpc on 2017. 11. 16..
@@ -8,8 +8,8 @@
 
 import Foundation
 
-class BananaMilk: Milk {
-    var ratioOfBananaSyrup: String
+class ChocolateMilk: Milk {
+    var ratioOfCocoaPowder: String
     init?(productTpye: String,
           brand: String,
           weight: String,
@@ -19,8 +19,8 @@ class BananaMilk: Milk {
           calorie: String,
           farmCode: String,
           ingredients: [String],
-          ratioOfBananaSyrup: String) {
-        self.ratioOfBananaSyrup = ratioOfBananaSyrup
+          ratioOfCocoaPowder: String) {
+        self.ratioOfCocoaPowder = ratioOfCocoaPowder
         super.init(productTpye: productTpye,
                    brand: brand,
                    weight: weight,
