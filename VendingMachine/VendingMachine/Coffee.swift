@@ -9,11 +9,6 @@
 import Foundation
 
 class Coffee: Drink {
-    override var className: String {
-        get {
-            return String(describing: Coffee.self)
-        }
-    }
     private(set) var isHot: Bool
     private(set) var amountOfCaffeine: Int
     private(set) var nameOfCoffeeBeans: String
@@ -58,26 +53,10 @@ class Coffee: Drink {
 }
 
 class Top: Coffee {
-    override var className: String {
-        get {
-            return String(describing: Top.self)
-        }
-    }
-
 }
 
 class Cantata: Coffee {
-    override var className: String {
-        get {
-            return String(describing: Cantata.self)
-        }
-    }
 }
 
 class Georgia: Coffee {
-    override var className: String {
-        get {
-            return String(describing: Georgia.self)
-        }
-    }
 }

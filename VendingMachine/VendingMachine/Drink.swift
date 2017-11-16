@@ -8,8 +8,15 @@
 
 import Foundation
 
-class Drink: CustomStringConvertible {
-    var description: String {
+class Drink: NSObject {
+    private(set) var productTpye: String
+    private(set) var calorie: Int
+    private(set) var brand: String
+    private(set) var weight: String
+    private(set) var price: String
+    private(set) var name: String
+    private(set) var dateOfManufacture: String
+    override var description: String {
         return String(format: "%@(%@) - %@, %@, %@, %@, %@",
                       self.productTpye,
                       self.className,
@@ -19,19 +26,7 @@ class Drink: CustomStringConvertible {
                       self.name,
                       self.dateOfManufacture)
     }
-    private(set) var productTpye: String
-    private(set) var calorie: Int
-    private(set) var brand: String
-    private(set) var weight: String
-    private(set) var price: String
-    private(set) var name: String
-    private(set) var dateOfManufacture: String
-    var className: String {
-        get {
-            return String(describing: Drink.self)
-        }
-    }
-    
+
     init?(productTpye: String,
           calorie: String,
           brand: String,
@@ -49,4 +44,5 @@ class Drink: CustomStringConvertible {
         self.dateOfManufacture = dateOfManufacture
     }
 }
+
 
