@@ -19,6 +19,7 @@
 		C9BAD57F1FBC57DC0007F169 /* UnitTestMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD57E1FBC57DC0007F169 /* UnitTestMilk.swift */; };
 		C9BAD5801FBC57F30007F169 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD55C1FB994220007F169 /* Milk.swift */; };
 		C9BAD5821FBD80F60007F169 /* StrawBerryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD5811FBD80F60007F169 /* StrawBerryMilk.swift */; };
+		C9BAD5841FBD85340007F169 /* BananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD5831FBD85340007F169 /* BananaMilk.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -46,6 +47,7 @@
 		C9BAD57A1FBC37450007F169 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		C9BAD57E1FBC57DC0007F169 /* UnitTestMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestMilk.swift; sourceTree = "<group>"; };
 		C9BAD5811FBD80F60007F169 /* StrawBerryMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrawBerryMilk.swift; sourceTree = "<group>"; };
+		C9BAD5831FBD85340007F169 /* BananaMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaMilk.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				C9BAD5581FB991120007F169 /* Drink.swift */,
 				C9BAD55C1FB994220007F169 /* Milk.swift */,
 				C9BAD5811FBD80F60007F169 /* StrawBerryMilk.swift */,
+				C9BAD5831FBD85340007F169 /* BananaMilk.swift */,
 				C9BAD55E1FB9B4790007F169 /* SoftDrink.swift */,
 				C9BAD5601FB9B7A70007F169 /* Coffee.swift */,
 				C9BAD57A1FBC37450007F169 /* StringExtension.swift */,
@@ -199,6 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9BAD5591FB991120007F169 /* Drink.swift in Sources */,
+				C9BAD5841FBD85340007F169 /* BananaMilk.swift in Sources */,
 				C9BAD55F1FB9B4790007F169 /* SoftDrink.swift in Sources */,
 				C9BAD57B1FBC37450007F169 /* StringExtension.swift in Sources */,
 				C9BAD5821FBD80F60007F169 /* StrawBerryMilk.swift in Sources */,
