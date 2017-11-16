@@ -1,15 +1,20 @@
 //
-//  SoftDrink.swift
+//  Fanta.swift
 //  VendingMachine
 //
-//  Created by yangpc on 2017. 11. 13..
+//  Created by yangpc on 2017. 11. 16..
 //  Copyright © 2017년 JK. All rights reserved.
 //
 
 import Foundation
 
-class SoftDrink: Drink {
-    private(set) var amountOfSugar: Int
+class Fanta: SoftDrink {
+    var tase: Taste
+    enum Taste {
+        case orange
+        case pineapple
+        case grape
+    }
     init?(productTpye: String,
           calorie: String,
           brand: String,
@@ -17,21 +22,16 @@ class SoftDrink: Drink {
           price: String,
           name: String,
           dateOfManufacture: String,
-          amountOfSugar: String) {
-        guard let amountOfSugar = amountOfSugar.convert(to: "g") else { return nil }
-        self.amountOfSugar = amountOfSugar
+          amountOfSugar: String,
+          taste: Taste) {
+        self.tase = taste
         super.init(productTpye: productTpye,
                    calorie: calorie,
                    brand: brand,
                    weight: weight,
                    price: price,
                    name: name,
-                   dateOfManufacture: dateOfManufacture)
-
+                   dateOfManufacture: dateOfManufacture,
+                   amountOfSugar: amountOfSugar)
     }
-
-    func isSuitableAmountOfSugar() -> Bool {
-        return self.amountOfSugar < 50 ? true : false
-    }
-
 }
