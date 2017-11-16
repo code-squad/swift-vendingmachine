@@ -52,8 +52,5 @@ class Coffee: Drink {
 
 }
 
-class Cantata: Coffee {
-}
-
 class Georgia: Coffee {
 }
