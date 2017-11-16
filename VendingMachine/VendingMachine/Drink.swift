@@ -28,7 +28,7 @@ class Drink: CustomStringConvertible {
     private(set) var dateOfManufacture: String
     var className: String {
         get {
-            return "Drink"
+            return String(describing: Drink.self)
         }
     }
     

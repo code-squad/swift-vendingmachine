@@ -11,7 +11,7 @@ import Foundation
 class Milk: Drink {
     override var className: String {
         get {
-            return "Milk"
+            return String(describing: Milk.self)
         }
     }
     private(set) var farmCode: String
@@ -70,7 +70,7 @@ class Milk: Drink {
 class StrawBerryMilk: Milk {
     override var className: String {
         get {
-            return "StrawBerryMilk"
+            return String(describing: StrawBerryMilk.self)
         }
     }
 }
@@ -78,7 +78,7 @@ class StrawBerryMilk: Milk {
 class BananaMilk: Milk {
     override var className: String {
         get {
-            return "BananaMilk"
+            return String(describing: BananaMilk.self)
         }
     }
 }
@@ -86,7 +86,7 @@ class BananaMilk: Milk {
 class ChocolateMilk: Milk {
     override var className: String {
         get {
-            return "ChocolateMilk"
+            return String(describing: ChocolateMilk.self)
         }
     }
 }

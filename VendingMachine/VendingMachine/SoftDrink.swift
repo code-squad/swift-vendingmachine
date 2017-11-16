@@ -11,7 +11,7 @@ import Foundation
 class SoftDrink: Drink {
     override var className: String {
         get {
-            return "SoftDrink"
+            return String(describing: SoftDrink.self)
         }
     }
     private(set) var amountOfSugar: Int
@@ -44,7 +44,7 @@ class SoftDrink: Drink {
 class Coke: SoftDrink {
     override var className: String {
         get {
-            return "Coke"
+            return String(describing: Coke.self)
         }
     }
 }
@@ -52,7 +52,7 @@ class Coke: SoftDrink {
 class Cider: SoftDrink {
     override var className: String {
         get {
-            return "Cider"
+            return String(describing: Cider.self)
         }
     }
 }
@@ -60,7 +60,7 @@ class Cider: SoftDrink {
 class Fanta: SoftDrink {
     override var className: String {
         get {
-            return "Fanta"
+            return String(describing: Fanta.self)
         }
     }
 }
