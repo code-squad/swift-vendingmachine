@@ -10,6 +10,14 @@ import Foundation
 
 class SoftDrink: Drink {
     private(set) var amountOfSugar: Int
+    // 제조일로부터 24개월
+    override var expirationDate: Date? {
+        guard let manufacturingDate = dateFormatter.date(from: self.dateOfManufacture) else {
+            return nil
+        }
+        return Date(timeInterval: 3600 * 24 * 365 * 24, since: manufacturingDate)
+    }
+
     init?(productTpye: String,
           calorie: String,
           brand: String,

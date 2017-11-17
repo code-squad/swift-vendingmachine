@@ -13,11 +13,14 @@ class Drink: NSObject {
     private(set) var calorie: Int
     private(set) var brand: String
     private(set) var weight: String
-    private(set) var price: String
+    private(set) var price: Int
     private(set) var name: String
     private(set) var dateOfManufacture: String
+    var expirationDate: Date? {
+        return nil
+    }
     override var description: String {
-        return String(format: "%@(%@) - %@, %@, %@, %@, %@",
+        return String(format: "%@(%@) - %@, %@, %d원, %@, %@",
                       self.productTpye,
                       self.className,
                       self.brand,
@@ -35,7 +38,10 @@ class Drink: NSObject {
           name: String,
           dateOfManufacture: String) {
         self.productTpye = productTpye
-        guard let kiloCalorie = calorie.convert(to: "kcal") else { return nil }
+        guard let kiloCalorie = calorie.convert(to: "kcal"),
+            let price = price.convert(to: "원") else {
+            return nil
+        }
         self.calorie = kiloCalorie
         self.brand = brand
         self.weight = weight
@@ -55,3 +61,9 @@ extension NSObject {
     }
 }
 
+let dateFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyyMMdd"
+    formatter.timeZone = TimeZone(abbreviation: "GMT+0:00")
+    return formatter
+}()
