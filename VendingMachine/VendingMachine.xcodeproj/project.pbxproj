@@ -27,6 +27,7 @@
 		C9BAD58F1FBD8A600007F169 /* Top.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD58E1FBD8A600007F169 /* Top.swift */; };
 		C9BAD5911FBD8B470007F169 /* Cantata.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD5901FBD8B470007F169 /* Cantata.swift */; };
 		C9BAD5931FBD8C210007F169 /* Georgia.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD5921FBD8C210007F169 /* Georgia.swift */; };
+		C9BAD5951FBE89720007F169 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD5941FBE89720007F169 /* VendingMachine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -62,6 +63,7 @@
 		C9BAD58E1FBD8A600007F169 /* Top.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top.swift; sourceTree = "<group>"; };
 		C9BAD5901FBD8B470007F169 /* Cantata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cantata.swift; sourceTree = "<group>"; };
 		C9BAD5921FBD8C210007F169 /* Georgia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Georgia.swift; sourceTree = "<group>"; };
+		C9BAD5941FBE89720007F169 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				C9BAD58D1FBD89A30007F169 /* Drink */,
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
 				C9BAD57A1FBC37450007F169 /* StringExtension.swift */,
+				C9BAD5941FBE89720007F169 /* VendingMachine.swift */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
 				C9BAD55D1FB994220007F169 /* Milk.swift in Sources */,
 				C9BAD5611FB9B7A70007F169 /* Coffee.swift in Sources */,
+				C9BAD5951FBE89720007F169 /* VendingMachine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
