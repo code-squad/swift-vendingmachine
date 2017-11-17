@@ -28,6 +28,7 @@
 		C9BAD5911FBD8B470007F169 /* Cantata.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD5901FBD8B470007F169 /* Cantata.swift */; };
 		C9BAD5931FBD8C210007F169 /* Georgia.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD5921FBD8C210007F169 /* Georgia.swift */; };
 		C9BAD5951FBE89720007F169 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD5941FBE89720007F169 /* VendingMachine.swift */; };
+		C9BAD5971FBEFFF10007F169 /* UnitTestStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD5961FBEFFF10007F169 /* UnitTestStringExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -64,6 +65,7 @@
 		C9BAD5901FBD8B470007F169 /* Cantata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cantata.swift; sourceTree = "<group>"; };
 		C9BAD5921FBD8C210007F169 /* Georgia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Georgia.swift; sourceTree = "<group>"; };
 		C9BAD5941FBE89720007F169 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
+		C9BAD5961FBEFFF10007F169 /* UnitTestStringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestStringExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 			children = (
 				C9BAD5741FBAC2EF0007F169 /* UnitTestVendingMachine.swift */,
 				C9BAD57E1FBC57DC0007F169 /* UnitTestMilk.swift */,
+				C9BAD5961FBEFFF10007F169 /* UnitTestStringExtension.swift */,
 				C9BAD5761FBAC2EF0007F169 /* Info.plist */,
 			);
 			path = UnitTestVendingMachine;
@@ -258,6 +261,7 @@
 			files = (
 				C9BAD57C1FBC3C160007F169 /* Drink.swift in Sources */,
 				C9BAD5751FBAC2EF0007F169 /* UnitTestVendingMachine.swift in Sources */,
+				C9BAD5971FBEFFF10007F169 /* UnitTestStringExtension.swift in Sources */,
 				C9BAD57F1FBC57DC0007F169 /* UnitTestMilk.swift in Sources */,
 				C9BAD57D1FBC3CC70007F169 /* StringExtension.swift in Sources */,
 				C9BAD5801FBC57F30007F169 /* Milk.swift in Sources */,
