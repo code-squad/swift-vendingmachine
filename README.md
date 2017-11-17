@@ -1,57 +1,32 @@
-# 진행 방법
+## 음료수 자판기
 
-- 자판기 요구사항에 대해 파악한다.
-- 요구사항에 대한 구현을 완료한 후 자신의 github 아이디에 해당하는 브랜치에 Pull Request(이하 PR)를 통해 코드 리뷰 요청을 한다.
-- 코드 리뷰 피드백에 대한 개선 작업을 하고 다시 PUSH한다.
-- 모든 피드백을 완료하면 다음 단계를 도전하고 앞의 과정을 반복한다.
+### step 1
 
-# 코드 리뷰 과정
-> 저장소 브랜치에 자신의 github 아이디에 해당하는 브랜치가 존재해야 한다.
->
-> 자신의 github 아이디에 해당하는 브랜치가 있는지 확인한다.
+#### 요구사항
 
-1. 자신의 github 아이디에 해당하는 브랜치가 없는 경우 브랜치 생성 요청 채널을 통해 브랜치 생성을 요청한다.
-프로젝트를 자신의 계정으로 fork한다. 저장소 우측 상단의 fork 버튼을 활용한다.
+- 객체지향 프로그래밍 방식으로 예시 음료를 추상화하는 클래스를 설계한다
+  - 예) 우유 - 딸기우유, 초코우유, 바나나우유/ 탄산음료 - 콜라, 사이다, 환타/ 커피 - TOP, 칸타타, 조지아
+- 음료수 클래스를 출력하기 위해 CustomStringConvertible 프로토콜을 채택하고 구현한다.
 
-2. fork한 프로젝트를 자신의 컴퓨터로 clone한다.
-```
-git clone https://github.com/{본인_아이디}/{저장소 아이디}
-ex) https://github.com/godrm/swift-vendingmachine
-```
+#### 해결: 상속과 프로토콜 구현
 
-3. clone한 프로젝트 이동
-```
-cd {저장소 아이디}
-ex) cd swift-vendingmachine
-```
+- 클래스 상속
+  - Drink 클래스를 만들고 Drink를 상속받는 Milk, SoftDrink, Fanta 클래스를 생성하였다.
+  - 딸기우유, 초코우유, 바나나우유를 만들어 Milk를 상속받는다. 탄산음료, 환타도 동일.
+- 프로토콜 구현
+  - CustomStringConvertible의 프로퍼티인 description을 오버라이드 하여 구현.
+  - 출력 형식은 String(format:)을 활용한다.
 
-4. 본인 아이디로 브랜치를 만들기 위한 checkout
-```
-git checkout -t origin/본인_아이디
-ex) git checkout -t origin/godrm
-```
+### step 2
 
-5. commit
-```
-git status //확인
-git rm 파일명 //삭제된 파일
-git add 파일명(or * 모두) // 추가/변경 파일
-git commit -m "메세지" // 커밋
-```
+#### 요구사항
 
-6. 본인 원격 저장소에 올리기
-```
-git push origin 본인_아이디
-ex) git push origin godrm
-```
+- 상속받은 하위 클래스에 고유한 속성 혹은 메소드를 하나 이상 추가
+- 음료수 클래스 인터페이스를 테스트하기 위한 테스트 코드 작성
+- 객체 클래스 명이 출력되도록 개선
 
-7. pull request
-8. pull request는 github 서비스에서 진행할 수 있다.
-9. pull request는 반드시 original 저장소의 브랜치와 fork한 자신의 저장소 브랜치 이름이 같아야 하며, 브랜치 이름은 자신의 github 아이디여야 한다.
-10. code review 및 push
-11. pull request를 통해 피드백을 받는다.
-12. 코드 리뷰 피드백에 대한 개선 작업을 하고 다시 PUSH한다.
+#### 해결
 
-## 앞의 코드 리뷰 과정은 [영상 보기](https://www.youtube.com/watch?v=ZSZoaG0PqLg) 를 통해 참고 가능
-
-## 실습 중 모든 질문은 슬랙 채널에서...
+- 클래스에 고유한 속성과 메소드 추가
+- 유통기한을 확인하는 메소드("20171117"을 Date 형식으로 변경하여 비교하하는 메소드)나 단위 스트링을 인트값으로 변경하는 메소드("200mg"을 200으로 변경하는 메소드)처럼 내부 계산 로직이 들어있는 인터페이스에 대한 테스트 코드 작성
+- 객테 클래스 명을 출력하기 위해 NSObject의 className 활용
