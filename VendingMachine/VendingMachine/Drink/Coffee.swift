@@ -12,6 +12,13 @@ class Coffee: Drink {
     private(set) var isHot: Bool
     private(set) var amountOfCaffeine: Int
     private(set) var nameOfCoffeeBeans: String
+    // 제조일로부터 12개월
+    override var expirationDate: Date? {
+        guard let manufacturingDate = dateFormatter.date(from: self.dateOfManufacture) else {
+            return nil
+        }
+        return Date(timeInterval: 3600 * 24 * 365 * 12, since: manufacturingDate)
+    }
 
     init?(productTpye: String,
           calorie: String,
