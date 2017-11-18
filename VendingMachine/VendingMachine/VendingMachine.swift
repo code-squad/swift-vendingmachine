@@ -11,13 +11,19 @@ import Foundation
 struct VendingMachine {
     typealias Count = (original: Int, buy: Int)
     typealias Price = Int
-    var inventory: [Drink : Count]
-    var money: Int
+    private(set) var inventory: [Drink : Count]
+    private(set) var money: Int
+    subscript(drink: Drink) -> Count? {
+        guard let drinkValue = inventory[drink] else {
+            return nil
+        }
+        return drinkValue
+    }
     init(products: [Drink : Int]) {
         self.inventory = [Drink : Count]()
         money = 0
         products.forEach { products in
-            self.inventory[products.key] = (products.value, 0)
+            self.inventory.updateValue((products.value, 0), forKey: products.key)
         }
     }
     // 자판기 금액을 원하는 금액만큼 올리는 메소드
@@ -25,12 +31,13 @@ struct VendingMachine {
         self.money += money
     }
     // 특정 상품 인스턴스를 넘겨서 재고를 추가하는 메소드
-    mutating func add(product: Drink) {
-        guard let numberOfProduct = inventory[product] else {
-            inventory[product] = (0,0)
-            return
+    @discardableResult mutating func add(product: Drink) -> Int {
+        guard let count = inventory[product] else {
+            inventory[product] = (1,0)
+            return 1
         }
-        inventory[product] = (numberOfProduct.original + 1, numberOfProduct.buy)
+        inventory[product] = (count.original + 1, count.buy)
+        return count.original + 1
     }
     // 현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
     func listOfCanBuy() -> [Drink] {
@@ -39,12 +46,14 @@ struct VendingMachine {
         }
     }
     // 음료수를 구매하는 메소드
-    mutating func buy(product: Drink) -> Price? {
-        guard let buyedProduct = inventory[product] else {
-            return nil
+    mutating func buy(product: Drink) -> Int? {
+        guard let buyedProduct = inventory[product],
+            buyedProduct.original != buyedProduct.buy else {
+                return nil
         }
         inventory[product] = (buyedProduct.original, buyedProduct.buy + 1)
-        return product.price
+        self.money = self.money - product.price
+        return buyedProduct.buy + 1
     }
     // 잔액을 확인하는 메소드
     func howMuchRemainMoney() -> Int {
@@ -55,10 +64,7 @@ struct VendingMachine {
     // 유통기한이 지난 재고만 리턴하는 메소드
     func listOfOverExpirationDate() -> [Drink] {
         return inventory.keys.filter{ drink in
-            if let expirationDate = drink.expirationDate {
-                return expirationDate < Date()
-            }
-            return false
+            return !drink.valid(with: Date())
         }
     }
     // 따뜻한 음료만 리턴하는 메소드
@@ -81,3 +87,4 @@ struct VendingMachine {
         return listOfBuyedProduct
     }
 }
+

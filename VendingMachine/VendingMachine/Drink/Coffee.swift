@@ -17,7 +17,7 @@ class Coffee: Drink {
         guard let manufacturingDate = dateFormatter.date(from: self.dateOfManufacture) else {
             return nil
         }
-        return Date(timeInterval: 3600 * 24 * 365 * 12, since: manufacturingDate)
+        return Date(timeInterval: 3600 * 24 * 365, since: manufacturingDate)
     }
 
     init?(productTpye: String,

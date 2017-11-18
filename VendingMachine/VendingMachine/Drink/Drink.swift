@@ -29,7 +29,7 @@ class Drink: NSObject {
                       self.name,
                       self.dateOfManufacture)
     }
-
+    
     init?(productTpye: String,
           calorie: String,
           brand: String,
@@ -40,7 +40,7 @@ class Drink: NSObject {
         self.productTpye = productTpye
         guard let kiloCalorie = calorie.convert(to: "kcal"),
             let price = price.convert(to: "원") else {
-            return nil
+                return nil
         }
         self.calorie = kiloCalorie
         self.brand = brand
@@ -49,6 +49,14 @@ class Drink: NSObject {
         self.name = name
         self.dateOfManufacture = dateOfManufacture
     }
+    
+    func valid(with date: Date) -> Bool {
+        guard let expirationDay = self.expirationDate else {
+            return false
+        }
+        return date < expirationDay ? true : false
+    }
+    
 }
 
 extension NSObject {
