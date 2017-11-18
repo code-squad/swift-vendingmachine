@@ -20,6 +20,7 @@
 		C94962FD1FC046BD00E14312 /* Cantata.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD5901FBD8B470007F169 /* Cantata.swift */; };
 		C94962FE1FC046C000E14312 /* Top.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD58E1FBD8A600007F169 /* Top.swift */; };
 		C94962FF1FC046C600E14312 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD5941FBE89720007F169 /* VendingMachine.swift */; };
+		C94963011FC09B2900E14312 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94963001FC09B2900E14312 /* InputView.swift */; };
 		C9BAD5591FB991120007F169 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD5581FB991120007F169 /* Drink.swift */; };
 		C9BAD55D1FB994220007F169 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD55C1FB994220007F169 /* Milk.swift */; };
 		C9BAD55F1FB9B4790007F169 /* SoftDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD55E1FB9B4790007F169 /* SoftDrink.swift */; };
@@ -58,6 +59,7 @@
 /* Begin PBXFileReference section */
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		C94963001FC09B2900E14312 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		C9BAD5581FB991120007F169 /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
 		C9BAD55C1FB994220007F169 /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 		C9BAD55E1FB9B4790007F169 /* SoftDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoftDrink.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
 				C9BAD57A1FBC37450007F169 /* StringExtension.swift */,
 				C9BAD5941FBE89720007F169 /* VendingMachine.swift */,
+				C94963001FC09B2900E14312 /* InputView.swift */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				C9BAD58C1FBD896C0007F169 /* Fanta.swift in Sources */,
 				C9BAD58F1FBD8A600007F169 /* Top.swift in Sources */,
 				C9BAD5881FBD893E0007F169 /* Coke.swift in Sources */,
+				C94963011FC09B2900E14312 /* InputView.swift in Sources */,
 				C9BAD5861FBD86020007F169 /* ChocolateMilk.swift in Sources */,
 				C9BAD5911FBD8B470007F169 /* Cantata.swift in Sources */,
 				C9BAD57B1FBC37450007F169 /* StringExtension.swift in Sources */,
