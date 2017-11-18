@@ -19,14 +19,14 @@ class Milk: Drink {
         return Date(timeInterval: 3600 * 24 * 45, since: manufacturingDate)
     }
     init?(productTpye: String,
-         brand: String,
-         weight: String,
-         price: String,
-         name: String,
-         dateOfManufacture: String,
-         calorie: String,
-         farmCode: String = "Unknown",
-         ingredients: [String] = [String]()) {
+          brand: String,
+          weight: String,
+          price: String,
+          name: String,
+          dateOfManufacture: String,
+          calorie: String,
+          farmCode: String = "Unknown",
+          ingredients: [String] = [String]()) {
         self.farmCode = farmCode
         self.ingredients = ingredients
         super.init(productTpye: productTpye,
@@ -38,13 +38,6 @@ class Milk: Drink {
                    dateOfManufacture: dateOfManufacture)
     }
     
-    func valid(with date: Date) -> Bool {
-        guard let expirationDay = self.expirationDate else {
-            return false
-        }
-        return date < expirationDay ? true : false
-    }
-    
     func isEasyOfDigestion() -> Bool {
         return self.ingredients.contains("lactose") ? true : false
     }
@@ -52,5 +45,5 @@ class Milk: Drink {
     func isLowCalorie() -> Bool {
         return self.calorie <= 100 ? true : false
     }
-
+    
 }
