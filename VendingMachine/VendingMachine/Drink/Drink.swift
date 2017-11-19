@@ -56,7 +56,18 @@ class Drink: NSObject {
         }
         return date < expirationDay ? true : false
     }
+
+}
+
+extension Drink: Comparable {
+    static func == (lhs: Drink, rhs: Drink) -> Bool {
+        return lhs.typeName == rhs.typeName && lhs.className == rhs.className
+    }
     
+    static func < (lhs: Drink, rhs: Drink) -> Bool {
+        return lhs.typeName < rhs.typeName ||
+            (lhs.typeName == rhs.typeName && lhs.className<rhs.className)
+    }
 }
 
 extension NSObject {
@@ -66,6 +77,21 @@ extension NSObject {
     
     class var className: String {
         return String(describing: self).components(separatedBy: ".").last!
+    }
+    
+    var typeName: String {
+        var typeName = ""
+        switch self {
+        case is Milk:
+            typeName = Milk.className()
+        case is SoftDrink:
+            typeName = SoftDrink.className()
+        case is Coffee:
+            typeName  = Coffee.className()
+        default:
+            typeName = self.className
+        }
+        return typeName
     }
 }
 
