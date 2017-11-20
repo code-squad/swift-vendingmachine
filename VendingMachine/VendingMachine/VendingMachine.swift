@@ -53,11 +53,11 @@ extension VendingMachine {
         }
         self.inventory[product] = countOfProductInInventory - 1
         self.money -= product.price
-        guard let countOfProductInListOfPurchase = purchases[product.productTpye] else {
-            purchases[product.productTpye] = 1
+        guard let countOfProductInListOfPurchase = purchases[product.typeOfProduct] else {
+            purchases[product.typeOfProduct] = 1
             return product
         }
-        purchases[product.productTpye] = countOfProductInListOfPurchase + 1
+        purchases[product.typeOfProduct] = countOfProductInListOfPurchase + 1
         return product
     }
     

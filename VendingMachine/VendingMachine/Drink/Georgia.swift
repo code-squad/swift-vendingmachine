@@ -14,7 +14,7 @@ class Georgia: Coffee {
         case original
         case max
     }
-    init?(productTpye: String,
+    init?(typeOfProduct: String,
           calorie: String,
           brand: String,
           weight: String,
@@ -26,7 +26,7 @@ class Georgia: Coffee {
           nameOfCoffeeBeans: String,
           size: Size) {
         self.size = size
-        super.init(productTpye: productTpye,
+        super.init(typeOfProduct: typeOfProduct,
                    calorie: calorie,
                    brand: brand,
                    weight: weight,

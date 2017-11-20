@@ -18,7 +18,7 @@ class Milk: Drink {
         }
         return Date(timeInterval: 3600 * 24 * 45, since: manufacturingDate)
     }
-    init?(productTpye: String,
+    init?(typeOfProduct: String,
           brand: String,
           weight: String,
           price: String,
@@ -29,7 +29,7 @@ class Milk: Drink {
           ingredients: [String] = [String]()) {
         self.farmCode = farmCode
         self.ingredients = ingredients
-        super.init(productTpye: productTpye,
+        super.init(typeOfProduct: typeOfProduct,
                    calorie: calorie,
                    brand: brand,
                    weight: weight,

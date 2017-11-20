@@ -10,7 +10,7 @@ import Foundation
 
 class BananaMilk: Milk {
     var ratioOfBananaSyrup: String
-    init?(productTpye: String,
+    init?(typeOfProduct: String,
           brand: String,
           weight: String,
           price: String,
@@ -21,7 +21,7 @@ class BananaMilk: Milk {
           ingredients: [String],
           ratioOfBananaSyrup: String) {
         self.ratioOfBananaSyrup = ratioOfBananaSyrup
-        super.init(productTpye: productTpye,
+        super.init(typeOfProduct: typeOfProduct,
                    brand: brand,
                    weight: weight,
                    price: price,

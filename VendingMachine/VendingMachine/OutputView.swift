@@ -24,7 +24,7 @@ struct Outputview {
     
     func printPurchase(drink: Drink) {
         let purchaseMessage = String(format: "%@를 구매하셨습니다. %d원을 차감합니다.",
-                                    drink.productTpye,
+                                    drink.typeOfProduct,
                                     drink.price)
         print(purchaseMessage)
     }
@@ -33,7 +33,7 @@ struct Outputview {
         var menu = "==>"
         let listOfInventory = vendingMachine.listOfInventory()
         for drink in listOfInventory {
-            menu += String(format: " %@(%d개)", drink.key.productTpye, drink.value)
+            menu += String(format: " %@(%d개)", drink.key.typeOfProduct, drink.value)
         }
         return menu
     }
@@ -45,7 +45,7 @@ struct Outputview {
         for drink in listOfCanBuy {
             menu += String(format: "%d)%@ %d원(%d개)\n",
                            index,
-                           drink.key.productTpye,
+                           drink.key.typeOfProduct,
                            drink.key.price,
                            drink.value)
             index += 1
