@@ -148,4 +148,5 @@ class UnitTestVendingMachine: XCTestCase {
         let listOfPurchase = vendingMachine.listOfPurchase()
         XCTAssertEqual(listOfPurchase.count, 1)
     }
+    
 }

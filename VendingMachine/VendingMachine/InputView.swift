@@ -10,6 +10,7 @@ import Foundation
 
 struct InputView {
     typealias InputFormat = (option: Option, detail: Int)
+
     func read() throws -> InputFormat {
         let inputMessage = String(format: "1. %@ \n2. %@\n3. %@",
                                   "금액추가",

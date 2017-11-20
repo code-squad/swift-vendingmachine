@@ -24,11 +24,12 @@ struct VendingMachine {
 }
 
 extension VendingMachine {
+
     // 자판기 금액을 원하는 금액만큼 올리는 메소드
     mutating func add(money: Int) {
         self.money += money
     }
-    
+
     mutating func extractAllMoney() {
         self.money = 0
     }
@@ -45,7 +46,7 @@ extension VendingMachine {
 
     // 현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
     func listOfCanBuy() -> Array<(key: Drink, value: Count)> {
-        let listOfCanBuy = inventory.filter{ inventory in
+        let listOfCanBuy = inventory.filter { inventory in
             return inventory.key.price <= self.money
         }
         return listOfCanBuy.sorted(by: < )
@@ -91,14 +92,14 @@ extension VendingMachine {
 
     // 유통기한이 지난 재고만 리턴하는 메소드
     func listOfOverExpirationDate() -> [Drink] {
-        return inventory.keys.filter{ drink in
+        return inventory.keys.filter { drink in
             return !drink.valid(with: Date())
         }
     }
 
     // 따뜻한 음료만 리턴하는 메소드
     func listOfHotDrink() -> [Drink] {
-        return inventory.keys.filter{ drink in
+        return inventory.keys.filter { drink in
             guard let coffee = drink as? Coffee else {
                 return false
             }
@@ -120,4 +121,3 @@ extension VendingMachine {
         case invalidProductNumber = "유효하지 않은 음료수 번호 입니다."
     }
 }
-

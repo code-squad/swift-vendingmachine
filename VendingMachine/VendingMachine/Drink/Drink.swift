@@ -88,6 +88,7 @@ extension NSObject {
 }
 
 extension Drink: Comparable {
+
     static func == (lhs: Drink, rhs: Drink) -> Bool {
         return lhs.typeName == rhs.typeName && lhs.typeOfProduct == rhs.typeOfProduct
     }
@@ -96,6 +97,7 @@ extension Drink: Comparable {
         return lhs.typeName < rhs.typeName ||
             (lhs.typeName == rhs.typeName && lhs.typeOfProduct < rhs.typeOfProduct)
     }
+
 }
 
 let dateFormatter: DateFormatter = {
