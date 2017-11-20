@@ -86,7 +86,7 @@ class UnitTestVendingMachine: XCTestCase {
     
     func testBuyProductExistInInventry() {
         vendingMachine.add(product: strawBerryMilk)
-        XCTAssertEqual(vendingMachine.buy(product: strawBerryMilk), 1)
+        XCTAssertEqual(vendingMachine.buy(product: strawBerryMilk), strawBerryMilk)
     }
     
     func testBuyProductNotExistInInventry() {
@@ -124,6 +124,6 @@ class UnitTestVendingMachine: XCTestCase {
         vendingMachine.add(product: strawBerryMilk)
         vendingMachine.add(product: bananaMilk)
         vendingMachine.add(money: 1000)
-        XCTAssertEqual(vendingMachine.listOfCanBuy(), [strawBerryMilk])
+        XCTAssertEqual(vendingMachine.listOfCanBuy().count, 1)
     }
 }

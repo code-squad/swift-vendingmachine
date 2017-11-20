@@ -26,10 +26,9 @@ struct InputView {
             if splitIntoOptionAndDetail.count != 2 {
                 return nil
             }
-            let option = String(describing: splitIntoOptionAndDetail.first)
-            let detail = String(describing: splitIntoOptionAndDetail.last)
-            guard let resultForInput = self.convertStringToInputFormat(option: option,
-                                                                       detail: detail) else {
+            let option = String(splitIntoOptionAndDetail.first!)
+            let detail = String(splitIntoOptionAndDetail.last!)
+            guard let resultForInput = self.convertStringToInputFormat(option: option, detail: detail) else {
                 return nil
             }
             return resultForInput

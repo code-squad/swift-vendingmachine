@@ -61,12 +61,12 @@ class Drink: NSObject {
 
 extension Drink: Comparable {
     static func == (lhs: Drink, rhs: Drink) -> Bool {
-        return lhs.typeName == rhs.typeName && lhs.className == rhs.className
+        return lhs.typeName == rhs.typeName && lhs.productTpye == rhs.productTpye
     }
     
     static func < (lhs: Drink, rhs: Drink) -> Bool {
         return lhs.typeName < rhs.typeName ||
-            (lhs.typeName == rhs.typeName && lhs.className<rhs.className)
+            (lhs.typeName == rhs.typeName && lhs.productTpye < rhs.productTpye)
     }
 }
 
