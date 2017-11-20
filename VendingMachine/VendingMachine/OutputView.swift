@@ -9,6 +9,7 @@
 import Foundation
 
 struct Outputview {
+
     func printMonitor(vendingMachine: VendingMachine) {
         let monitorMessage = String(format: "현재 투입한 금액이 %d원입니다. 다음과 같은 음료가 있습니다.",
                                     vendingMachine.howMuchRemainMoney())
@@ -28,11 +29,11 @@ struct Outputview {
                                     drink.price)
         print(purchaseMessage)
     }
-    
+
     func printListOfAllPurchases(listOfPurchase: Array<(key: Drink, value: Count)>) {
         var listOfAllPurchases = ""
         var index = 1
-        listOfPurchase.forEach{ drink in
+        listOfPurchase.forEach { drink in
             listOfAllPurchases += String(format: "%d)%@ (%d개)\n",
                            index,
                            drink.key.typeOfProduct,

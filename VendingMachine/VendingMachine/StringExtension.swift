@@ -9,6 +9,7 @@
 import Foundation
 
 extension String {
+
     func convertToInt(from measure: String) -> Int? {
         guard let stringWithoutMeasure = self.extractString(except: measure),
             let resultNumberOfMeasure = Int(stringWithoutMeasure) else {
