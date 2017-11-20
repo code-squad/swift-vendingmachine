@@ -21,14 +21,14 @@ struct Outputview {
         }
         print(menu)
     }
-    
+
     func printPurchase(drink: Drink) {
         let purchaseMessage = String(format: "%@를 구매하셨습니다. %d원을 차감합니다.",
                                     drink.typeOfProduct,
                                     drink.price)
         print(purchaseMessage)
     }
-    
+
     private func makeTotalMenu(of vendingMachine: VendingMachine) -> String {
         var menu = "==>"
         let listOfInventory = vendingMachine.listOfInventory()
@@ -37,7 +37,7 @@ struct Outputview {
         }
         return menu
     }
-    
+
     private func makeOnlyCanBuyMenu(of vendingMachine: VendingMachine) -> String {
         var menu = ""
         let listOfCanBuy = vendingMachine.listOfCanBuy()
@@ -53,4 +53,5 @@ struct Outputview {
         menu.removeLast()
         return menu
     }
+
 }

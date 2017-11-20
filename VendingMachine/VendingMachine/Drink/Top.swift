@@ -16,8 +16,7 @@ class Top: Coffee {
         case masterLatte
         case chocolateMocha
     }
-    init?(typeOfProduct: String,
-          calorie: String,
+    init?(calorie: String,
           brand: String,
           weight: String,
           price: String,
@@ -28,8 +27,7 @@ class Top: Coffee {
           nameOfCoffeeBeans: String,
           taste: Taste) {
         self.taste = taste
-        super.init(typeOfProduct: typeOfProduct,
-                   calorie: calorie,
+        super.init(calorie: calorie,
                    brand: brand,
                    weight: weight,
                    price: price,
@@ -38,6 +36,7 @@ class Top: Coffee {
                    isHot: isHot,
                    amountOfCaffeine: amountOfCaffeine,
                    nameOfCoffeeBeans: nameOfCoffeeBeans)
+        self.typeOfProduct = "TOP커피"
     }
 
 }

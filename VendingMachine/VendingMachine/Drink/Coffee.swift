@@ -12,16 +12,7 @@ class Coffee: Drink {
     private(set) var isHot: Bool
     private(set) var amountOfCaffeine: Int
     private(set) var nameOfCoffeeBeans: String
-    // 제조일로부터 12개월
-    override var expirationDate: Date? {
-        guard let manufacturingDate = dateFormatter.date(from: self.dateOfManufacture) else {
-            return nil
-        }
-        return Date(timeInterval: 3600 * 24 * 365, since: manufacturingDate)
-    }
-
-    init?(typeOfProduct: String,
-          calorie: String,
+    init?(calorie: String,
           brand: String,
           weight: String,
           price: String,
@@ -31,18 +22,22 @@ class Coffee: Drink {
           amountOfCaffeine: String,
           nameOfCoffeeBeans: String) {
         self.isHot = isHot
-        guard let amountOfCaffeine = amountOfCaffeine.convert(to: "mg") else { return nil }
+        guard let amountOfCaffeine = amountOfCaffeine.convertToInt(from: "mg") else {
+            return nil
+        }
         self.amountOfCaffeine = amountOfCaffeine
         self.nameOfCoffeeBeans = nameOfCoffeeBeans
-        super.init(typeOfProduct: typeOfProduct,
-                   calorie: calorie,
+        super.init(calorie: calorie,
                    brand: brand,
                    weight: weight,
                    price: price,
                    name: name,
                    dateOfManufacture: dateOfManufacture)
+        self.typeOfProduct = "커피"
+        // 제조일로부터 12개월
+        self.maintenanceDay = 365
     }
-    
+
     func isSuitableAmountOfCaffeine(to age: Int) -> Bool {
         if age > 19 && self.amountOfCaffeine == 400 {
             return true
@@ -52,7 +47,7 @@ class Coffee: Drink {
         }
         return false
     }
-    
+
     func isLowCalorie() -> Bool {
         return self.calorie <= 30 ? true : false
     }

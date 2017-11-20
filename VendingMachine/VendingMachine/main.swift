@@ -8,8 +8,7 @@
 
 import Foundation
 
-let strawBerryMilk = StrawBerryMilk(typeOfProduct: "딸기우유",
-                                    brand: "서울우유",
+let strawBerryMilk = StrawBerryMilk(brand: "서울우유",
                                     weight: "200ml",
                                     price: "1000원",
                                     name: "날마다딸기우유",
@@ -17,8 +16,7 @@ let strawBerryMilk = StrawBerryMilk(typeOfProduct: "딸기우유",
                                     calorie: "300kcal",
                                     ingredients: ["strawBerrySyrup"],
                                     ratioOfStrawBerrySyrup: "3.2%")
-let bananaMilk = BananaMilk(typeOfProduct: "바나나우유",
-                            brand: "서울우유",
+let bananaMilk = BananaMilk(brand: "서울우유",
                             weight: "200ml",
                             price: "1000원",
                             name: "날마다딸기우유",
@@ -26,15 +24,14 @@ let bananaMilk = BananaMilk(typeOfProduct: "바나나우유",
                             calorie: "350kcal",
                             ingredients: ["bananaSyrup"],
                             ratioOfBananaSyrup: "2.5%")
-let coke = Coke(typeOfProduct: "콜라",
-                calorie: "200kcal",
+let coke = Coke(calorie: "200kcal",
                 brand: "팹시",
                 weight: "350ml",
                 price: "2000원",
                 name: "다이어트콜라",
                 dateOfManufacture: "20171005",
                 amountOfSugar: "50g")
-let coffee = Coffee(typeOfProduct: "커피", calorie: "150kcal",
+let coffee = Coffee(calorie: "150kcal",
                     brand: "맥심",
                     weight: "400ml",
                     price: "3000원",
