@@ -36,8 +36,9 @@ struct Outputview {
         print(purchaseMessage)
     }
 
-    func printListOfAllPurchases(listOfPurchase: Array<(key: Drink, value: Count)>) {
-        var listOfAllPurchases = ""
+    func printListOfAllPurchases(listOfPurchase: Array<(key: Drink, value: Count)>, change: Int) {
+        var listOfAllPurchases = String(format: "잔돈은 %d원 입니다. 다음은 구매한 음료 목록입니다.\n",
+                                        change)
         for index in 0..<listOfPurchase.count {
             let purchaseDrink = listOfPurchase[index]
             listOfAllPurchases += String(format: "%d)%@ (%d개)\n",

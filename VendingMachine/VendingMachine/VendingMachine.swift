@@ -30,8 +30,10 @@ extension VendingMachine {
         self.money += money
     }
 
-    mutating func extractAllMoney() {
+    mutating func extractAllMoney() -> Int{
+        let change = self.money
         self.money = 0
+        return change
     }
 
     // 특정 상품 인스턴스를 넘겨서 재고를 추가하는 메소드
