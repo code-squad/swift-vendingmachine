@@ -62,9 +62,9 @@ while(true) {
             let purchaseProduct = try vendingMachine.buy(productIndex: input.detail)
             outputView.printPurchase(drink: purchaseProduct)
         case .extractRemainMoney:
-            vendingMachine.extractAllMoney()
+            let change = vendingMachine.extractAllMoney()
             let listOfPurchase = vendingMachine.listOfPurchase()
-            outputView.printListOfAllPurchases(listOfPurchase: listOfPurchase)
+            outputView.printListOfAllPurchases(listOfPurchase: listOfPurchase, change: change)
         }
         if input.option == .extractRemainMoney { break }
     } catch InputView.InputError.invalidFormat {
