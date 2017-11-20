@@ -8,10 +8,11 @@
 
 import Foundation
 
+typealias DrinkName = String
+typealias Count = Int
+typealias Price = Int
+
 struct VendingMachine {
-    typealias DrinkName = String
-    typealias Count = Int
-    typealias Price = Int
     private var inventory: [Drink : Count]
     private var purchases: [DrinkName : Count]
     private var money: Price
@@ -37,13 +38,14 @@ extension VendingMachine {
         return count + 1
     }
     // 현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
-    func listOfCanBuy() -> [Drink] {
-        return inventory.keys.filter{ drink in
-            return drink.price <= self.money
+    func listOfCanBuy() -> Array<(key: Drink, value: Count)> {
+        let listOfCanBuy = inventory.filter{ inventory in
+            return inventory.key.price <= self.money
         }
+        return listOfCanBuy.sorted(by: < )
     }
     // 음료수를 구매하는 메소드
-    @discardableResult mutating func buy(product: Drink) -> Int? {
+    @discardableResult mutating func buy(product: Drink) -> Drink? {
         // 해당 제품이 처음부터 없었던 제품이거나 (nil) 품절된 제품일 때
         guard let countOfProductInInventory = inventory[product],
             countOfProductInInventory != 0 else {
@@ -53,10 +55,18 @@ extension VendingMachine {
         self.money -= product.price
         guard let countOfProductInListOfPurchase = purchases[product.productTpye] else {
             purchases[product.productTpye] = 1
-            return 1
+            return product
         }
         purchases[product.productTpye] = countOfProductInListOfPurchase + 1
-        return countOfProductInListOfPurchase + 1
+        return product
+    }
+    
+    @discardableResult mutating func buy(productIndex: Int) throws -> Drink {
+        let listOfCanBuy = self.listOfCanBuy()
+        guard let buyProduct = buy(product: listOfCanBuy[productIndex-1].key) else {
+            throw stockError.soldOut
+        }
+        return buyProduct
     }
     // 잔액을 확인하는 메소드
     func howMuchRemainMoney() -> Price {
@@ -103,6 +113,12 @@ extension VendingMachine {
             return nil
         }
         return count
+    }
+}
+
+extension VendingMachine {
+    enum stockError: String, Error {
+        case soldOut = "해당 음료수는 품절되었습니다."
     }
 }
 

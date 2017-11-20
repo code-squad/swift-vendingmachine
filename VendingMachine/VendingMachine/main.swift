@@ -43,8 +43,34 @@ let coffee = Coffee(productTpye: "커피", calorie: "150kcal",
                     isHot: true,
                     amountOfCaffeine: "30mg",
                     nameOfCoffeeBeans: "Colombia")
-print(strawBerryMilk!)
-print(bananaMilk!)
-print(coke!)
-print(coffee!)
+
+var vendingMachine = VendingMachine()
+let inputView = InputView()
+let outputView = Outputview()
+
+vendingMachine.add(product: strawBerryMilk!)
+vendingMachine.add(product: strawBerryMilk!)
+vendingMachine.add(product: bananaMilk!)
+vendingMachine.add(product: coke!)
+vendingMachine.add(product: coffee!)
+outputView.printMonitor(vendingMachine: vendingMachine)
+
+while(true) {
+    do {
+        let input = try inputView.read()
+        switch input.option {
+        case .addMoney:
+            vendingMachine.add(money: input.detail)
+        case .buyDrink:
+            let purchaseProduct = try vendingMachine.buy(productIndex: input.detail)
+            outputView.printPurchase(drink: purchaseProduct)
+        }
+    } catch InputView.InputError.invalidFormat {
+        print(InputView.InputError.invalidFormat)
+    } catch VendingMachine.stockError.soldOut {
+        print(VendingMachine.stockError.soldOut.rawValue)
+    }
+    outputView.printMonitor(vendingMachine: vendingMachine)
+}
+
 
