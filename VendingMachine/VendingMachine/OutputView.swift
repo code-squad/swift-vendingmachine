@@ -9,10 +9,16 @@
 import Foundation
 
 struct Outputview {
+    private let numberFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = NumberFormatter.Style.decimal
+        return formatter
+    }()
 
     func printMonitor(vendingMachine: VendingMachine) {
-        let monitorMessage = String(format: "현재 투입한 금액이 %d원입니다. 다음과 같은 음료가 있습니다.",
-                                    vendingMachine.howMuchRemainMoney())
+        let money = vendingMachine.howMuchRemainMoney()
+        let monitorMessage = String(format: "현재 투입한 금액이 %@원입니다. 다음과 같은 음료가 있습니다.",
+                                    numberFormatter.string(from: NSNumber(value: money))!)
         print(monitorMessage)
         var menu = ""
         if vendingMachine.howMuchRemainMoney() == 0 {
