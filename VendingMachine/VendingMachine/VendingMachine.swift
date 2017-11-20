@@ -14,11 +14,11 @@ typealias Price = Int
 
 struct VendingMachine {
     private var inventory: [Drink : Count]
-    private var purchases: [DrinkName : Count]
+    private var purchases: [Drink : Count]
     private var money: Price
     init() {
         inventory = [Drink : Count]()
-        purchases = [DrinkName : Count]()
+        purchases = [Drink : Count]()
         money = 0
     }
 }
@@ -55,17 +55,17 @@ extension VendingMachine {
         }
         self.inventory[product] = countOfProductInInventory - 1
         self.money -= product.price
-        guard let countOfProductInListOfPurchase = purchases[product.typeOfProduct] else {
-            purchases[product.typeOfProduct] = 1
+        guard let countOfProductInListOfPurchase = purchases[product] else {
+            purchases[product] = 1
             return product
         }
-        purchases[product.typeOfProduct] = countOfProductInListOfPurchase + 1
+        purchases[product] = countOfProductInListOfPurchase + 1
         return product
     }
 
     @discardableResult mutating func buy(productIndex: Int) throws -> Drink {
         let listOfCanBuy = self.listOfCanBuy()
-        if productIndex < 1 || productIndex > listOfCanBuy.count {
+        guard productIndex >= 1 && productIndex <= listOfCanBuy.count else {
             throw stockError.invalidProductNumber
         }
         guard let buyProduct = buy(product: listOfCanBuy[productIndex-1].key) else {
@@ -80,9 +80,8 @@ extension VendingMachine {
     }
 
     // 전체 상품 재고를 (사전으로 표현하는) 종류별로 리턴하는 메소드
-    func listOfInventory() -> Array<(key: Drink, value: Count)> {
-        let sortedInventory = inventory.sorted(by: < )
-        return sortedInventory
+    func listOfInventory() -> [Drink : Count] {
+        return inventory
     }
 
     // 유통기한이 지난 재고만 리턴하는 메소드
@@ -103,26 +102,9 @@ extension VendingMachine {
     }
 
     // 시작이후 구매 상품 이력을 배열로 리턴하는 메소드
-    func listOfPurchase() -> Array<(key: DrinkName, value: Count)> {
+    func listOfPurchase() -> Array<(key: Drink, value: Count)> {
         let sortedListOfPurchase = purchases.sorted(by: < )
         return sortedListOfPurchase
-    }
-
-}
-
-extension VendingMachine {
-    subscript(drink: Drink) -> Count? {
-        guard let drinkValue = inventory[drink] else {
-            return nil
-        }
-        return drinkValue
-    }
-
-    subscript(drinkName: String) -> Count? {
-        guard let count = purchases[drinkName] else {
-            return nil
-        }
-        return count
     }
 
 }

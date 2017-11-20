@@ -62,14 +62,14 @@ while(true) {
             let purchaseProduct = try vendingMachine.buy(productIndex: input.detail)
             outputView.printPurchase(drink: purchaseProduct)
         }
+        outputView.printMonitor(vendingMachine: vendingMachine)
     } catch InputView.InputError.invalidFormat {
-        print(InputView.InputError.invalidFormat)
+        print(InputView.InputError.invalidFormat.rawValue)
     } catch VendingMachine.stockError.soldOut {
         print(VendingMachine.stockError.soldOut.rawValue)
     } catch VendingMachine.stockError.invalidProductNumber {
         print(VendingMachine.stockError.invalidProductNumber.rawValue)
     }
-    outputView.printMonitor(vendingMachine: vendingMachine)
 }
 
 
