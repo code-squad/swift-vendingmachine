@@ -63,7 +63,7 @@ class Drink: NSObject {
         guard let expirationDay = self.expirationDate else {
             return false
         }
-        return date < expirationDay ? true : false
+        return date < expirationDay
     }
 
 }

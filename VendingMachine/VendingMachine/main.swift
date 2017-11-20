@@ -67,7 +67,6 @@ while(true) {
             outputView.printListOfAllPurchases(listOfPurchase: listOfPurchase)
         }
         if input.option == .extractRemainMoney { break }
-        outputView.printMonitor(vendingMachine: vendingMachine)
     } catch InputView.InputError.invalidFormat {
         print(InputView.InputError.invalidFormat.rawValue)
     } catch VendingMachine.stockError.soldOut {
@@ -75,6 +74,7 @@ while(true) {
     } catch VendingMachine.stockError.invalidProductNumber {
         print(VendingMachine.stockError.invalidProductNumber.rawValue)
     }
+    outputView.printMonitor(vendingMachine: vendingMachine)
 }
 
 

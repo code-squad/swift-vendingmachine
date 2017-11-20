@@ -27,7 +27,7 @@ class Coke: SoftDrink {
     }
 
     func isZeroCoke() -> Bool {
-        return self.calorie < 4 ? true : false
+        return self.calorie < 4
     }
 
 }

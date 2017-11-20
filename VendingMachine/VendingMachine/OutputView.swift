@@ -38,13 +38,12 @@ struct Outputview {
 
     func printListOfAllPurchases(listOfPurchase: Array<(key: Drink, value: Count)>) {
         var listOfAllPurchases = ""
-        var index = 1
-        listOfPurchase.forEach { drink in
+        for index in 0..<listOfPurchase.count {
+            let purchaseDrink = listOfPurchase[index]
             listOfAllPurchases += String(format: "%d)%@ (%d개)\n",
-                           index,
-                           drink.key.typeOfProduct,
-                           drink.value)
-            index += 1
+                                         index + 1,
+                                         purchaseDrink.key.typeOfProduct,
+                                         purchaseDrink.value)
         }
         listOfAllPurchases.removeLast()
         print(listOfAllPurchases)
@@ -62,14 +61,13 @@ struct Outputview {
     private func makeOnlyCanBuyMenu(of vendingMachine: VendingMachine) -> String {
         var menu = ""
         let listOfCanBuy = vendingMachine.listOfCanBuy()
-        var index = 1
-        for drink in listOfCanBuy {
+        for index in 0..<listOfCanBuy.count {
+            let currentDrink = listOfCanBuy[index]
             menu += String(format: "%d)%@ %d원(%d개)\n",
-                           index,
-                           drink.key.typeOfProduct,
-                           drink.key.price,
-                           drink.value)
-            index += 1
+                           index + 1,
+                           currentDrink.key.typeOfProduct,
+                           currentDrink.key.price,
+                           currentDrink.value)
         }
         menu.removeLast()
         return menu
