@@ -126,4 +126,30 @@ class UnitTestVendingMachine: XCTestCase {
         vendingMachine.add(money: 1000)
         XCTAssertEqual(vendingMachine.listOfCanBuy().count, 1)
     }
+    
+    func testIntegratedVendingMachineMethods() {
+        vendingMachine.add(product: strawBerryMilk)
+        vendingMachine.add(product: strawBerryMilk)
+        vendingMachine.add(product: strawBerryMilk)
+        vendingMachine.add(product: bananaMilk)
+        vendingMachine.add(product: bananaMilk)
+        vendingMachine.add(product: coke)
+        vendingMachine.add(product: coke)
+        vendingMachine.add(product: coffee)
+        XCTAssertEqual(vendingMachine.listOfInventory().count, 4)
+        vendingMachine.add(money: 10000)
+        XCTAssertEqual(vendingMachine.howMuchRemainMoney(), 10000)
+        XCTAssertEqual(vendingMachine.listOfCanBuy().count, 4)
+        vendingMachine.buy(product: strawBerryMilk)
+        XCTAssertEqual(vendingMachine.howMuchRemainMoney(), 9000)
+        let listOfInventory = vendingMachine.listOfInventory()
+        for product in listOfInventory {
+            if product is StrawBerryMilk {
+                XCTAssertEqual(product.value, 2)
+                break
+            }
+        }
+        let listOfPurchase = vendingMachine.listOfPurchase()
+        XCTAssertEqual(listOfPurchase.count, 1)
+    }
 }
