@@ -11,7 +11,10 @@ import Foundation
 struct InputView {
     typealias InputFormat = (option: Option, detail: Int)
     func read() throws -> InputFormat {
-        let inputMessage = String(format: "1. %@ \n2. %@", "금액추가","음료구매")
+        let inputMessage = String(format: "1. %@ \n2. %@\n3. %@",
+                                  "금액추가",
+                                  "음료구매",
+                                  "잔돈출금")
         print(inputMessage)
         let input = readLine() ?? ""
         guard let resultForInput = makeValidFormat(separator: " ")(input) else {
@@ -22,6 +25,9 @@ struct InputView {
 
     private func makeValidFormat(separator: Character) -> (String) -> InputFormat? {
         return { (input: String) -> InputFormat? in
+            if input == Option.extractRemainMoney.rawValue {
+                return (.extractRemainMoney, -1)
+            }
             let splitIntoOptionAndDetail = input.split(separator: separator)
             if splitIntoOptionAndDetail.count != 2 {
                 return nil
@@ -61,5 +67,6 @@ extension InputView {
     enum Option: String {
         case addMoney = "1"
         case buyDrink = "2"
+        case extractRemainMoney = "3"
     }
 }

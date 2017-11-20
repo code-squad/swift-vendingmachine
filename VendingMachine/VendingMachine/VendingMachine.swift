@@ -28,6 +28,11 @@ extension VendingMachine {
     mutating func add(money: Int) {
         self.money += money
     }
+    
+    mutating func extractAllMoney() {
+        self.money = 0
+    }
+
     // 특정 상품 인스턴스를 넘겨서 재고를 추가하는 메소드
     @discardableResult mutating func add(product: Drink) -> Int {
         guard let count = inventory[product] else {
