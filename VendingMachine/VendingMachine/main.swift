@@ -69,6 +69,8 @@ while(true) {
         print(InputView.InputError.invalidFormat)
     } catch VendingMachine.stockError.soldOut {
         print(VendingMachine.stockError.soldOut.rawValue)
+    } catch VendingMachine.stockError.invalidProductNumber {
+        print(VendingMachine.stockError.invalidProductNumber.rawValue)
     }
     outputView.printMonitor(vendingMachine: vendingMachine)
 }

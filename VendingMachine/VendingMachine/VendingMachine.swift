@@ -63,6 +63,9 @@ extension VendingMachine {
     
     @discardableResult mutating func buy(productIndex: Int) throws -> Drink {
         let listOfCanBuy = self.listOfCanBuy()
+        if productIndex < 1 || productIndex > listOfCanBuy.count {
+            throw stockError.invalidProductNumber
+        }
         guard let buyProduct = buy(product: listOfCanBuy[productIndex-1].key) else {
             throw stockError.soldOut
         }
@@ -119,6 +122,7 @@ extension VendingMachine {
 extension VendingMachine {
     enum stockError: String, Error {
         case soldOut = "해당 음료수는 품절되었습니다."
+        case invalidProductNumber = "유효하지 않은 음료수 번호 입니다."
     }
 }
 
