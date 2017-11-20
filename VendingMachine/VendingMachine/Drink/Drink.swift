@@ -9,7 +9,7 @@
 import Foundation
 
 class Drink: NSObject {
-    private(set) var productTpye: String
+    private(set) var typeOfProduct: String
     private(set) var calorie: Int
     private(set) var brand: String
     private(set) var weight: String
@@ -21,7 +21,7 @@ class Drink: NSObject {
     }
     override var description: String {
         return String(format: "%@(%@) - %@, %@, %d원, %@, %@",
-                      self.productTpye,
+                      self.typeOfProduct,
                       self.className,
                       self.brand,
                       self.weight,
@@ -30,14 +30,14 @@ class Drink: NSObject {
                       self.dateOfManufacture)
     }
     
-    init?(productTpye: String,
+    init?(typeOfProduct: String,
           calorie: String,
           brand: String,
           weight: String,
           price: String,
           name: String,
           dateOfManufacture: String) {
-        self.productTpye = productTpye
+        self.typeOfProduct = typeOfProduct
         guard let kiloCalorie = calorie.convert(to: "kcal"),
             let price = price.convert(to: "원") else {
                 return nil
@@ -59,14 +59,39 @@ class Drink: NSObject {
 
 }
 
+extension NSObject {
+    var className: String {
+        return String(describing: type(of: self)).components(separatedBy: ".").last!
+    }
+    
+    class var className: String {
+        return String(describing: self).components(separatedBy: ".").last!
+    }
+    
+    var typeName: String {
+        var typeName = ""
+        switch self {
+        case is Milk:
+            typeName = Milk.className()
+        case is SoftDrink:
+            typeName = SoftDrink.className()
+        case is Coffee:
+            typeName  = Coffee.className()
+        default:
+            typeName = self.className
+        }
+        return typeName
+    }
+}
+
 extension Drink: Comparable {
     static func == (lhs: Drink, rhs: Drink) -> Bool {
-        return lhs.typeName == rhs.typeName && lhs.productTpye == rhs.productTpye
+        return lhs.typeName == rhs.typeName && lhs.typeOfProduct == rhs.typeOfProduct
     }
     
     static func < (lhs: Drink, rhs: Drink) -> Bool {
         return lhs.typeName < rhs.typeName ||
-            (lhs.typeName == rhs.typeName && lhs.productTpye < rhs.productTpye)
+            (lhs.typeName == rhs.typeName && lhs.typeOfProduct < rhs.typeOfProduct)
     }
 }
 

@@ -18,7 +18,7 @@ class SoftDrink: Drink {
         return Date(timeInterval: 3600 * 24 * 365 * 2, since: manufacturingDate)
     }
 
-    init?(productTpye: String,
+    init?(typeOfProduct: String,
           calorie: String,
           brand: String,
           weight: String,
@@ -28,7 +28,7 @@ class SoftDrink: Drink {
           amountOfSugar: String) {
         guard let amountOfSugar = amountOfSugar.convert(to: "g") else { return nil }
         self.amountOfSugar = amountOfSugar
-        super.init(productTpye: productTpye,
+        super.init(typeOfProduct: typeOfProduct,
                    calorie: calorie,
                    brand: brand,
                    weight: weight,

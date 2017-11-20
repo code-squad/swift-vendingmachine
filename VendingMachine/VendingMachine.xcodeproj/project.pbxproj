@@ -22,7 +22,6 @@
 		C94962FF1FC046C600E14312 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD5941FBE89720007F169 /* VendingMachine.swift */; };
 		C94963011FC09B2900E14312 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94963001FC09B2900E14312 /* InputView.swift */; };
 		C94963031FC15EDE00E14312 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94963021FC15EDE00E14312 /* OutputView.swift */; };
-		C94963071FC273C800E14312 /* NSObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94963061FC273C800E14312 /* NSObjectExtension.swift */; };
 		C9BAD5591FB991120007F169 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD5581FB991120007F169 /* Drink.swift */; };
 		C9BAD55D1FB994220007F169 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD55C1FB994220007F169 /* Milk.swift */; };
 		C9BAD55F1FB9B4790007F169 /* SoftDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD55E1FB9B4790007F169 /* SoftDrink.swift */; };
@@ -63,7 +62,6 @@
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		C94963001FC09B2900E14312 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		C94963021FC15EDE00E14312 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
-		C94963061FC273C800E14312 /* NSObjectExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObjectExtension.swift; sourceTree = "<group>"; };
 		C9BAD5581FB991120007F169 /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
 		C9BAD55C1FB994220007F169 /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 		C9BAD55E1FB9B4790007F169 /* SoftDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoftDrink.swift; sourceTree = "<group>"; };
@@ -128,7 +126,6 @@
 				C9BAD58D1FBD89A30007F169 /* Drink */,
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
 				C9BAD57A1FBC37450007F169 /* StringExtension.swift */,
-				C94963061FC273C800E14312 /* NSObjectExtension.swift */,
 				C9BAD5941FBE89720007F169 /* VendingMachine.swift */,
 				C94963001FC09B2900E14312 /* InputView.swift */,
 				C94963021FC15EDE00E14312 /* OutputView.swift */,
@@ -272,7 +269,6 @@
 				C9BAD5821FBD80F60007F169 /* StrawBerryMilk.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
 				C9BAD55D1FB994220007F169 /* Milk.swift in Sources */,
-				C94963071FC273C800E14312 /* NSObjectExtension.swift in Sources */,
 				C9BAD5611FB9B7A70007F169 /* Coffee.swift in Sources */,
 				C9BAD5951FBE89720007F169 /* VendingMachine.swift in Sources */,
 				C94963031FC15EDE00E14312 /* OutputView.swift in Sources */,
