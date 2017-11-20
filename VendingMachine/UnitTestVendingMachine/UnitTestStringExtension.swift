@@ -36,21 +36,21 @@ class UnitTestStringExtension: XCTestCase {
     func testConvertToKilocalorieFail() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        XCTAssertNil(calorieFail.convert(to: "kcal"))
+        XCTAssertNil(calorieFail.convertToInt(from: "kcal"))
     }
     
     func testConvertToKilocalorieSuccess() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        XCTAssertNotNil(calorieSuccess.convert(to: "kcal"))
+        XCTAssertNotNil(calorieSuccess.convertToInt(from: "kcal"))
     }
     
     func testConvertToGramFail() {
-        XCTAssertNil(gramFail.convert(to: "g"))
+        XCTAssertNil(gramFail.convertToInt(from: "g"))
     }
     
     func testConvertToGramSuccess() {
-        XCTAssertNotNil(gramSuccess.convert(to: "g"))
+        XCTAssertNotNil(gramSuccess.convertToInt(from: "g"))
     }
     
 }

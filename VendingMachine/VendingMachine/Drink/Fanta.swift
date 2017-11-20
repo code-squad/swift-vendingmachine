@@ -15,8 +15,7 @@ class Fanta: SoftDrink {
         case pineapple
         case grape
     }
-    init?(typeOfProduct: String,
-          calorie: String,
+    init?(calorie: String,
           brand: String,
           weight: String,
           price: String,
@@ -25,13 +24,13 @@ class Fanta: SoftDrink {
           amountOfSugar: String,
           taste: Taste) {
         self.tase = taste
-        super.init(typeOfProduct: typeOfProduct,
-                   calorie: calorie,
+        super.init(calorie: calorie,
                    brand: brand,
                    weight: weight,
                    price: price,
                    name: name,
                    dateOfManufacture: dateOfManufacture,
                    amountOfSugar: amountOfSugar)
+        self.typeOfProduct = "환타"
     }
 }

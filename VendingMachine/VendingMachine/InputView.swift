@@ -19,7 +19,7 @@ struct InputView {
         }
         return resultForInput
     }
-    
+
     private func makeValidFormat(separator: Character) -> (String) -> InputFormat? {
         return { (input: String) -> InputFormat? in
             let splitIntoOptionAndDetail = input.split(separator: separator)
@@ -34,7 +34,7 @@ struct InputView {
             return resultForInput
         }
     }
-    
+
     private func convertStringToInputFormat(option: String, detail: String) -> InputFormat? {
         switch option {
         case Option.addMoney.rawValue:
@@ -51,7 +51,7 @@ struct InputView {
             return nil
         }
     }
-    
+
 }
 
 extension InputView {

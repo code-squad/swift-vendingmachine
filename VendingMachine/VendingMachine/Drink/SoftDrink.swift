@@ -10,32 +10,26 @@ import Foundation
 
 class SoftDrink: Drink {
     private(set) var amountOfSugar: Int
-    // 제조일로부터 24개월
-    override var expirationDate: Date? {
-        guard let manufacturingDate = dateFormatter.date(from: self.dateOfManufacture) else {
-            return nil
-        }
-        return Date(timeInterval: 3600 * 24 * 365 * 2, since: manufacturingDate)
-    }
-
-    init?(typeOfProduct: String,
-          calorie: String,
+    init?(calorie: String,
           brand: String,
           weight: String,
           price: String,
           name: String,
           dateOfManufacture: String,
           amountOfSugar: String) {
-        guard let amountOfSugar = amountOfSugar.convert(to: "g") else { return nil }
+        guard let amountOfSugar = amountOfSugar.convertToInt(from: "g") else {
+            return nil
+        }
         self.amountOfSugar = amountOfSugar
-        super.init(typeOfProduct: typeOfProduct,
-                   calorie: calorie,
+        super.init(calorie: calorie,
                    brand: brand,
                    weight: weight,
                    price: price,
                    name: name,
                    dateOfManufacture: dateOfManufacture)
-
+        self.typeOfProduct = "탄산음료"
+        // 제조일로부터 24개월
+        self.maintenanceDay = 365 * 2
     }
 
     func isSuitableAmountOfSugar() -> Bool {

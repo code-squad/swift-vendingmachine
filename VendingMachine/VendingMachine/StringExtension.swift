@@ -9,18 +9,29 @@
 import Foundation
 
 extension String {
+    func convertToInt(from measure: String) -> Int? {
+        guard let stringWithoutMeasure = self.extractString(except: measure),
+            let resultNumberOfMeasure = Int(stringWithoutMeasure) else {
+            return nil
+        }
+        return resultNumberOfMeasure
+    }
 
-    func convert(to measure: String) -> Int? {
+    func convertToFloat(from measure: String) -> Float? {
+        guard let stringWithoutMeasure = self.extractString(except: measure),
+            let resultNumberOfMeasure = Float(stringWithoutMeasure) else {
+                return nil
+        }
+        return resultNumberOfMeasure
+    }
+
+    func extractString(except measure: String) -> String? {
         let startMeasureCharacter = self.index(self.endIndex, offsetBy: (measure.count * (-1)))
         let range = startMeasureCharacter...self.index(before: self.endIndex)
         if self[range] != measure {
             return nil
         }
-        guard let resultNumberOfMeasure = Int(
-            self[self.startIndex...self.index(before: startMeasureCharacter)]) else {
-                return nil
-        }
-        return resultNumberOfMeasure
+        return String(self[self.startIndex...self.index(before: startMeasureCharacter)])
     }
 
 }

@@ -12,5 +12,5 @@ class Cider: SoftDrink {
     func isZeroCider() -> Bool {
         return self.calorie < 4 ? true : false
     }
-    
+
 }

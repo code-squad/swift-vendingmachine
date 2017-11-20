@@ -37,6 +37,7 @@ extension VendingMachine {
         inventory[product] = count + 1
         return count + 1
     }
+
     // 현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
     func listOfCanBuy() -> Array<(key: Drink, value: Count)> {
         let listOfCanBuy = inventory.filter{ inventory in
@@ -44,6 +45,7 @@ extension VendingMachine {
         }
         return listOfCanBuy.sorted(by: < )
     }
+
     // 음료수를 구매하는 메소드
     @discardableResult mutating func buy(product: Drink) -> Drink? {
         // 해당 제품이 처음부터 없었던 제품이거나 (nil) 품절된 제품일 때
@@ -60,7 +62,7 @@ extension VendingMachine {
         purchases[product.typeOfProduct] = countOfProductInListOfPurchase + 1
         return product
     }
-    
+
     @discardableResult mutating func buy(productIndex: Int) throws -> Drink {
         let listOfCanBuy = self.listOfCanBuy()
         if productIndex < 1 || productIndex > listOfCanBuy.count {
@@ -71,22 +73,25 @@ extension VendingMachine {
         }
         return buyProduct
     }
+
     // 잔액을 확인하는 메소드
     func howMuchRemainMoney() -> Price {
         return money
     }
+
     // 전체 상품 재고를 (사전으로 표현하는) 종류별로 리턴하는 메소드
     func listOfInventory() -> Array<(key: Drink, value: Count)> {
         let sortedInventory = inventory.sorted(by: < )
         return sortedInventory
     }
-    
+
     // 유통기한이 지난 재고만 리턴하는 메소드
     func listOfOverExpirationDate() -> [Drink] {
         return inventory.keys.filter{ drink in
             return !drink.valid(with: Date())
         }
     }
+
     // 따뜻한 음료만 리턴하는 메소드
     func listOfHotDrink() -> [Drink] {
         return inventory.keys.filter{ drink in
@@ -96,6 +101,7 @@ extension VendingMachine {
             return coffee.isHot
         }
     }
+
     // 시작이후 구매 상품 이력을 배열로 리턴하는 메소드
     func listOfPurchase() -> Array<(key: DrinkName, value: Count)> {
         let sortedListOfPurchase = purchases.sorted(by: < )
@@ -111,12 +117,14 @@ extension VendingMachine {
         }
         return drinkValue
     }
+
     subscript(drinkName: String) -> Count? {
         guard let count = purchases[drinkName] else {
             return nil
         }
         return count
     }
+
 }
 
 extension VendingMachine {

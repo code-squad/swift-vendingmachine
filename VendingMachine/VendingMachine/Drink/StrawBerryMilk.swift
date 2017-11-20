@@ -9,9 +9,8 @@
 import Foundation
 
 class StrawBerryMilk: Milk {
-    var ratioOfStrawBerrySyrup: String
-    init?(typeOfProduct: String,
-          brand: String,
+    var ratioOfStrawBerrySyrup: Float
+    init?(brand: String,
           weight: String,
           price: String,
           name: String,
@@ -20,9 +19,11 @@ class StrawBerryMilk: Milk {
           farmCode: String = "Unknown",
           ingredients: [String],
           ratioOfStrawBerrySyrup: String) {
+        guard let ratioOfStrawBerrySyrup = ratioOfStrawBerrySyrup.convertToFloat(from: "%") else {
+            return nil
+        }
         self.ratioOfStrawBerrySyrup = ratioOfStrawBerrySyrup
-        super.init(typeOfProduct: typeOfProduct,
-                   brand: brand,
+        super.init(brand: brand,
                    weight: weight,
                    price: price,
                    name: name,
@@ -30,6 +31,7 @@ class StrawBerryMilk: Milk {
                    calorie: calorie,
                    farmCode: farmCode,
                    ingredients: ingredients)
+        self.typeOfProduct = "딸기우유"
     }
-    
+
 }

@@ -16,8 +16,7 @@ class UnitTestVendingMachine: XCTestCase {
     var coffee: Coffee!
     override func setUp() {
         super.setUp()
-        strawBerryMilk = StrawBerryMilk(typeOfProduct: "딸기우유",
-                                        brand: "서울우유",
+        strawBerryMilk = StrawBerryMilk(brand: "서울우유",
                                         weight: "200ml",
                                         price: "1000원",
                                         name: "날마다딸기우유",
@@ -25,8 +24,7 @@ class UnitTestVendingMachine: XCTestCase {
                                         calorie: "300kcal",
                                         ingredients: ["strawBerrySyrup"],
                                         ratioOfStrawBerrySyrup: "3.2%")
-        bananaMilk = BananaMilk(typeOfProduct: "바나나우유",
-                                brand: "서울우유",
+        bananaMilk = BananaMilk(brand: "서울우유",
                                 weight: "200ml",
                                 price: "2000원",
                                 name: "날마다딸기우유",
@@ -34,16 +32,14 @@ class UnitTestVendingMachine: XCTestCase {
                                 calorie: "350kcal",
                                 ingredients: ["bananaSyrup"],
                                 ratioOfBananaSyrup: "2.5%")
-        coke = Coke(typeOfProduct: "콜라",
-                    calorie: "200kcal",
+        coke = Coke(calorie: "200kcal",
                     brand: "팹시",
                     weight: "350ml",
                     price: "2000원",
                     name: "다이어트콜라",
                     dateOfManufacture: "20111005",
                     amountOfSugar: "50g")
-        coffee = Top(typeOfProduct: "TOP커피",
-                     calorie: "150kcal",
+        coffee = Top(calorie: "150kcal",
                      brand: "맥심",
                      weight: "400ml",
                      price: "3000원",
