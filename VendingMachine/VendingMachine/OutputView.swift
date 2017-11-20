@@ -28,6 +28,20 @@ struct Outputview {
                                     drink.price)
         print(purchaseMessage)
     }
+    
+    func printListOfAllPurchases(listOfPurchase: Array<(key: Drink, value: Count)>) {
+        var listOfAllPurchases = ""
+        var index = 1
+        listOfPurchase.forEach{ drink in
+            listOfAllPurchases += String(format: "%d)%@ (%d개)\n",
+                           index,
+                           drink.key.typeOfProduct,
+                           drink.value)
+            index += 1
+        }
+        listOfAllPurchases.removeLast()
+        print(listOfAllPurchases)
+    }
 
     private func makeTotalMenu(of vendingMachine: VendingMachine) -> String {
         var menu = "==>"
