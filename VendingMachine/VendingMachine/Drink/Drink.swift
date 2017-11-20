@@ -30,6 +30,12 @@ class Drink: NSObject {
                       self.name,
                       dateFormatter.string(from: self.dateOfManufacture))
     }
+    private let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+        formatter.timeZone = TimeZone(abbreviation: "GMT+0:00")
+        return formatter
+    }()
 
     init?(calorie: String,
           brand: String,
@@ -100,9 +106,4 @@ extension Drink: Comparable {
 
 }
 
-let dateFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateFormat = "yyyyMMdd"
-    formatter.timeZone = TimeZone(abbreviation: "GMT+0:00")
-    return formatter
-}()
+
