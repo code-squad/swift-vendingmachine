@@ -23,17 +23,11 @@ struct VendingMachine {
     }
 }
 
-extension VendingMachine {
+extension VendingMachine: ManagerMode {
 
     // 자판기 금액을 원하는 금액만큼 올리는 메소드
     mutating func add(money: Int) {
         self.money += money
-    }
-
-    mutating func extractAllMoney() -> Int{
-        let change = self.money
-        self.money = 0
-        return change
     }
 
     // 특정 상품 인스턴스를 넘겨서 재고를 추가하는 메소드
@@ -45,6 +39,22 @@ extension VendingMachine {
         inventory[product] = count + 1
         return count + 1
     }
+
+    // 전체 상품 재고를 (사전으로 표현하는) 종류별로 리턴하는 메소드
+    func listOfInventory() -> [Drink : Count] {
+        return inventory
+    }
+
+    // 유통기한이 지난 재고만 리턴하는 메소드
+    func listOfOverExpirationDate() -> [Drink] {
+        return inventory.keys.filter { drink in
+            return !drink.valid(with: Date())
+        }
+    }
+
+}
+
+extension VendingMachine: UserMode {
 
     // 현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
     func listOfCanBuy() -> Array<(key: Drink, value: Count)> {
@@ -87,18 +97,6 @@ extension VendingMachine {
         return money
     }
 
-    // 전체 상품 재고를 (사전으로 표현하는) 종류별로 리턴하는 메소드
-    func listOfInventory() -> [Drink : Count] {
-        return inventory
-    }
-
-    // 유통기한이 지난 재고만 리턴하는 메소드
-    func listOfOverExpirationDate() -> [Drink] {
-        return inventory.keys.filter { drink in
-            return !drink.valid(with: Date())
-        }
-    }
-
     // 따뜻한 음료만 리턴하는 메소드
     func listOfHotDrink() -> [Drink] {
         return inventory.keys.filter { drink in
@@ -113,6 +111,12 @@ extension VendingMachine {
     func listOfPurchase() -> Array<(key: Drink, value: Count)> {
         let sortedListOfPurchase = purchases.sorted(by: < )
         return sortedListOfPurchase
+    }
+
+    mutating func extractAllMoney() -> Int {
+        let change = self.money
+        self.money = 0
+        return change
     }
 
 }
