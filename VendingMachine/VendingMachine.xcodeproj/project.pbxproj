@@ -25,6 +25,7 @@
 		C949631D1FC3F5A600E14312 /* ManagerMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C949631C1FC3F5A600E14312 /* ManagerMode.swift */; };
 		C94963211FC3FB4800E14312 /* UserMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94963201FC3FB4800E14312 /* UserMode.swift */; };
 		C94963231FC4006C00E14312 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94963221FC4006C00E14312 /* Manager.swift */; };
+		C94963251FC4014100E14312 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94963241FC4014100E14312 /* User.swift */; };
 		C9BAD5591FB991120007F169 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD5581FB991120007F169 /* Drink.swift */; };
 		C9BAD55D1FB994220007F169 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD55C1FB994220007F169 /* Milk.swift */; };
 		C9BAD55F1FB9B4790007F169 /* SoftDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD55E1FB9B4790007F169 /* SoftDrink.swift */; };
@@ -68,6 +69,7 @@
 		C949631C1FC3F5A600E14312 /* ManagerMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerMode.swift; sourceTree = "<group>"; };
 		C94963201FC3FB4800E14312 /* UserMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMode.swift; sourceTree = "<group>"; };
 		C94963221FC4006C00E14312 /* Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
+		C94963241FC4014100E14312 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C9BAD5581FB991120007F169 /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
 		C9BAD55C1FB994220007F169 /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 		C9BAD55E1FB9B4790007F169 /* SoftDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoftDrink.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				C9BAD57A1FBC37450007F169 /* StringExtension.swift */,
 				C9BAD5941FBE89720007F169 /* VendingMachine.swift */,
 				C94963221FC4006C00E14312 /* Manager.swift */,
+				C94963241FC4014100E14312 /* User.swift */,
 				C949631C1FC3F5A600E14312 /* ManagerMode.swift */,
 				C94963201FC3FB4800E14312 /* UserMode.swift */,
 				C94963001FC09B2900E14312 /* InputView.swift */,
@@ -273,6 +276,7 @@
 				C9BAD58F1FBD8A600007F169 /* Top.swift in Sources */,
 				C9BAD5881FBD893E0007F169 /* Coke.swift in Sources */,
 				C94963011FC09B2900E14312 /* InputView.swift in Sources */,
+				C94963251FC4014100E14312 /* User.swift in Sources */,
 				C9BAD5861FBD86020007F169 /* ChocolateMilk.swift in Sources */,
 				C949631D1FC3F5A600E14312 /* ManagerMode.swift in Sources */,
 				C9BAD5911FBD8B470007F169 /* Cantata.swift in Sources */,
