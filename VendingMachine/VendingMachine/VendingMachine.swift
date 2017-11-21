@@ -131,5 +131,13 @@ extension VendingMachine {
         case manager
         case user
     }
+    enum ManagerOption: Int {
+        case addInventory = 1
+        case deleteInventory = 2
+    }
+    enum UserOption: Int {
+        case addMoney = 1
+        case buyDrink = 2
+    }
 }
 

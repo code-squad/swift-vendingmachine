@@ -15,18 +15,20 @@ struct Outputview {
         return formatter
     }()
 
-    func printMonitor(vendingMachine: VendingMachine) {
+    func printMonitor(vendingMachine: VendingMachine, mode: VendingMachineMode) {
         let money = vendingMachine.howMuchRemainMoney()
         let monitorMessage = String(format: "현재 투입한 금액이 %@원입니다. 다음과 같은 음료가 있습니다.",
                                     numberFormatter.string(from: NSNumber(value: money))!)
         print(monitorMessage)
-        var menu = ""
-        if vendingMachine.howMuchRemainMoney() == 0 {
-            menu += makeTotalMenu(of: vendingMachine)
+        var menu: String!
+        if money == 0 {
+            menu = makeTotalMenu(of: vendingMachine)
         } else {
-            menu += makeOnlyCanBuyMenu(of: vendingMachine)
+            menu = makeOnlyCanBuyMenu(of: vendingMachine)
         }
         print(menu)
+        let order = makeOrder(mode: mode)
+        print(order)
     }
 
     func printPurchase(drink: Drink) {
@@ -72,6 +74,22 @@ struct Outputview {
         }
         menu.removeLast()
         return menu
+    }
+    
+    private func makeOrder(mode: VendingMachineMode) -> String {
+        let orderMessage: String!
+        switch mode {
+        case .manager:
+            orderMessage = String(format: "1. %@ \n2. %@\n3. %@",
+                                  "재고추가",
+                                  "재고삭제")
+        case .user:
+            orderMessage = String(format: "1. %@ \n2. %@\n3. %@",
+                                      "금액추가",
+                                      "음료구매",
+                                      "잔돈출금")
+        }
+        return orderMessage
     }
 
 }
