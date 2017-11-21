@@ -46,40 +46,18 @@ let inputView = InputView()
 let outputView = Outputview()
 var manager = Manager()
 var user = User()
-do {
-    let vendingMachineMode = try inputView.start()
-    switch vendingMachineMode {
-    case .manager:
-        manager.delegate = vendingMachine
-    case .user:
-        user.delegate = vendingMachine
-    }
-} catch {
-    
-}
-
-vendingMachine.add(product: strawBerryMilk!)
-vendingMachine.add(product: strawBerryMilk!)
-vendingMachine.add(product: bananaMilk!)
-vendingMachine.add(product: coke!)
-vendingMachine.add(product: coffee!)
-outputView.printMonitor(vendingMachine: vendingMachine)
-
+var vendingMachineMode: VendingMachineMode!
+var start = false
 while(true) {
     do {
-        let input = try inputView.read()
-        switch input.option {
-        case .addMoney:
-            vendingMachine.add(money: input.detail)
-        case .buyDrink:
-            let purchaseProduct = try vendingMachine.buy(productIndex: input.detail)
-            outputView.printPurchase(drink: purchaseProduct)
-        case .extractRemainMoney:
-            let change = vendingMachine.extractAllMoney()
-            let listOfPurchase = vendingMachine.listOfPurchase()
-            outputView.printListOfAllPurchases(listOfPurchase: listOfPurchase, change: change)
+        if !start {
+            // 한번만 실행. 자판기 모드를 할당해준다.
+            vendingMachineMode = try inputView.readMode()
+            start = true
         }
-        if input.option == .extractRemainMoney { break }
+        outputView.printMonitor(vendingMachine: vendingMachine, mode: vendingMachineMode)
+        let input = try inputView.read()
+        
     } catch InputView.InputError.invalidFormat {
         print(InputView.InputError.invalidFormat.rawValue)
     } catch VendingMachine.stockError.soldOut {
@@ -87,7 +65,31 @@ while(true) {
     } catch VendingMachine.stockError.invalidProductNumber {
         print(VendingMachine.stockError.invalidProductNumber.rawValue)
     }
-    outputView.printMonitor(vendingMachine: vendingMachine)
 }
 
+
+//while(true) {
+//    outputView.printMonitor(vendingMachine: vendingMachine, mode: vendingMachineMode)
+//    do {
+//        let input = try inputView.read()
+//        switch input.option {
+//        case .addMoney:
+//            vendingMachine.add(money: input.detail)
+//        case .buyDrink:
+//            let purchaseProduct = try vendingMachine.buy(productIndex: input.detail)
+//            outputView.printPurchase(drink: purchaseProduct)
+//        case .extractRemainMoney:
+//            let change = vendingMachine.extractAllMoney()
+//            let listOfPurchase = vendingMachine.listOfPurchase()
+//            outputView.printListOfAllPurchases(listOfPurchase: listOfPurchase, change: change)
+//        }
+//        if input.option == .extractRemainMoney { break }
+//    } catch InputView.InputError.invalidFormat {
+//        print(InputView.InputError.invalidFormat.rawValue)
+//    } catch VendingMachine.stockError.soldOut {
+//        print(VendingMachine.stockError.soldOut.rawValue)
+//    } catch VendingMachine.stockError.invalidProductNumber {
+//        print(VendingMachine.stockError.invalidProductNumber.rawValue)
+//    }
+//}
 

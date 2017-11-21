@@ -9,6 +9,13 @@
 import Foundation
 
 extension String {
+    
+    var convertToIntValue: Int? {
+        guard let intValue = Int(self) else {
+            return nil
+        }
+        return intValue
+    }
 
     func convertToInt(from measure: String) -> Int? {
         guard let stringWithoutMeasure = self.extractString(except: measure),
