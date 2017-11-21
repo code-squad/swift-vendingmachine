@@ -44,6 +44,19 @@ let coffee = Coffee(calorie: "150kcal",
 var vendingMachine = VendingMachine()
 let inputView = InputView()
 let outputView = Outputview()
+var manager = Manager()
+var user = User()
+do {
+    let vendingMachineMode = try inputView.start()
+    switch vendingMachineMode {
+    case .manager:
+        manager.delegate = vendingMachine
+    case .user:
+        user.delegate = vendingMachine
+    }
+} catch {
+    
+}
 
 vendingMachine.add(product: strawBerryMilk!)
 vendingMachine.add(product: strawBerryMilk!)

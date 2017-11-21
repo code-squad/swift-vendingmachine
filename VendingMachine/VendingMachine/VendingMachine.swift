@@ -8,7 +8,7 @@
 
 import Foundation
 
-typealias VendingMachineMode = Mode
+typealias VendingMachineMode = VendingMachine.Mode
 typealias DrinkName = String
 typealias Count = Int
 typealias Price = Int
