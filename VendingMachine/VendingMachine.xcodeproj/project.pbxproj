@@ -23,6 +23,7 @@
 		C94963011FC09B2900E14312 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94963001FC09B2900E14312 /* InputView.swift */; };
 		C94963031FC15EDE00E14312 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94963021FC15EDE00E14312 /* OutputView.swift */; };
 		C949631D1FC3F5A600E14312 /* ManagerMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C949631C1FC3F5A600E14312 /* ManagerMode.swift */; };
+		C94963211FC3FB4800E14312 /* UserMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94963201FC3FB4800E14312 /* UserMode.swift */; };
 		C9BAD5591FB991120007F169 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD5581FB991120007F169 /* Drink.swift */; };
 		C9BAD55D1FB994220007F169 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD55C1FB994220007F169 /* Milk.swift */; };
 		C9BAD55F1FB9B4790007F169 /* SoftDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD55E1FB9B4790007F169 /* SoftDrink.swift */; };
@@ -64,6 +65,7 @@
 		C94963001FC09B2900E14312 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		C94963021FC15EDE00E14312 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		C949631C1FC3F5A600E14312 /* ManagerMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerMode.swift; sourceTree = "<group>"; };
+		C94963201FC3FB4800E14312 /* UserMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMode.swift; sourceTree = "<group>"; };
 		C9BAD5581FB991120007F169 /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
 		C9BAD55C1FB994220007F169 /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 		C9BAD55E1FB9B4790007F169 /* SoftDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoftDrink.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				C9BAD57A1FBC37450007F169 /* StringExtension.swift */,
 				C9BAD5941FBE89720007F169 /* VendingMachine.swift */,
 				C949631C1FC3F5A600E14312 /* ManagerMode.swift */,
+				C94963201FC3FB4800E14312 /* UserMode.swift */,
 				C94963001FC09B2900E14312 /* InputView.swift */,
 				C94963021FC15EDE00E14312 /* OutputView.swift */,
 			);
@@ -270,6 +273,7 @@
 				C949631D1FC3F5A600E14312 /* ManagerMode.swift in Sources */,
 				C9BAD5911FBD8B470007F169 /* Cantata.swift in Sources */,
 				C9BAD57B1FBC37450007F169 /* StringExtension.swift in Sources */,
+				C94963211FC3FB4800E14312 /* UserMode.swift in Sources */,
 				C9BAD5821FBD80F60007F169 /* StrawBerryMilk.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
 				C9BAD55D1FB994220007F169 /* Milk.swift in Sources */,
