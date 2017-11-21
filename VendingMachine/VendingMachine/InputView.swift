@@ -11,6 +11,23 @@ import Foundation
 struct InputView {
     typealias InputFormat = (option: Option, detail: Int)
 
+    func start() throws -> VendingMachineMode {
+        print("자판기를 시작합니다.")
+        let selectModeMessage = String(format: "1. %@ \n2. %@",
+                                       "관리자 모드",
+                                       "사용자 모드")
+        print(selectModeMessage)
+        let input = readLine() ?? ""
+        switch input {
+        case VendingMachine.Mode.manager.rawValue:
+            return  .manager
+        case VendingMachine.Mode.user.rawValue:
+            return .user
+        default: break
+        }
+        throw InputError.invalidFormat
+    }
+    
     func read() throws -> InputFormat {
         let inputMessage = String(format: "1. %@ \n2. %@\n3. %@",
                                   "금액추가",

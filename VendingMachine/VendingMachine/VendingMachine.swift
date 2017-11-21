@@ -8,6 +8,7 @@
 
 import Foundation
 
+typealias VendingMachineMode = Mode
 typealias DrinkName = String
 typealias Count = Int
 typealias Price = Int
@@ -125,6 +126,10 @@ extension VendingMachine {
     enum stockError: String, Error {
         case soldOut = "해당 음료수는 품절되었습니다."
         case invalidProductNumber = "유효하지 않은 음료수 번호 입니다."
+    }
+    enum Mode: String {
+        case manager
+        case user
     }
 }
 
