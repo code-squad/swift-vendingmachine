@@ -8,24 +8,20 @@
 
 import Foundation
 
-struct InputView {
-    typealias InputFormat = (option: Int, detail: Int)
+typealias InputFormat = (option: Int, detail: Int)
 
-    func readMode() throws -> VendingMachineMode {
+struct InputView {
+    func readMode() throws -> Int {
         print("자판기를 시작합니다.")
         let selectModeMessage = String(format: "1. %@ \n2. %@",
                                        "관리자 모드",
                                        "사용자 모드")
         print(selectModeMessage)
         let input = readLine() ?? ""
-        switch input {
-        case VendingMachine.Mode.manager.rawValue:
-            return  .manager
-        case VendingMachine.Mode.user.rawValue:
-            return .user
-        default: break
+        guard let convertInputToInt = input.convertToIntValue else {
+            throw InputError.invalidFormat
         }
-        throw InputError.invalidFormat
+        return convertInputToInt
     }
     
     func read() throws -> InputFormat {
@@ -60,10 +56,5 @@ struct InputView {
 extension InputView {
     enum InputError: String, Error {
         case invalidFormat = "입력 형식이 올바르지 않습니다."
-    }
-    enum Option: String {
-        case addMoney = "1"
-        case buyDrink = "2"
-        case extractRemainMoney = "3"
     }
 }
