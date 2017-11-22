@@ -158,9 +158,12 @@ extension VendingMachine {
         case soldOut = "해당 음료수는 품절되었습니다."
         case invalidProductNumber = "유효하지 않은 음료수 번호 입니다."
     }
-    enum Mode: String {
-        case manager = "1"
-        case user = "2"
+    enum Mode: Int {
+        case manager = 1
+        case user = 2
+    }
+    enum ModeError: String, Error {
+        case invalidNumber = "유효하지 않은 모드입니다."
     }
 
 }

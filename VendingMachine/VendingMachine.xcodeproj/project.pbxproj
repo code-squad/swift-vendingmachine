@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
-		C9094BD01FC5DFC50047FAFE /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9094BCF1FC5DFC50047FAFE /* Person.swift */; };
+		C9094BD01FC5DFC50047FAFE /* EnableMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9094BCF1FC5DFC50047FAFE /* EnableMode.swift */; };
+		C9094BD21FC5E4360047FAFE /* Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9094BD11FC5E4360047FAFE /* Connector.swift */; };
 		C94962F41FC0469B00E14312 /* StrawBerryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD5811FBD80F60007F169 /* StrawBerryMilk.swift */; };
 		C94962F51FC0469E00E14312 /* BananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD5831FBD85340007F169 /* BananaMilk.swift */; };
 		C94962F61FC046A000E14312 /* ChocolateMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD5851FBD86020007F169 /* ChocolateMilk.swift */; };
@@ -65,7 +66,8 @@
 /* Begin PBXFileReference section */
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		C9094BCF1FC5DFC50047FAFE /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		C9094BCF1FC5DFC50047FAFE /* EnableMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnableMode.swift; sourceTree = "<group>"; };
+		C9094BD11FC5E4360047FAFE /* Connector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connector.swift; sourceTree = "<group>"; };
 		C94963001FC09B2900E14312 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		C94963021FC15EDE00E14312 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		C949631C1FC3F5A600E14312 /* ManagerMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerMode.swift; sourceTree = "<group>"; };
@@ -136,10 +138,11 @@
 				C9BAD58D1FBD89A30007F169 /* Drink */,
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
 				C9BAD57A1FBC37450007F169 /* StringExtension.swift */,
+				C9094BD11FC5E4360047FAFE /* Connector.swift */,
 				C9BAD5941FBE89720007F169 /* VendingMachine.swift */,
 				C94963221FC4006C00E14312 /* Manager.swift */,
 				C94963241FC4014100E14312 /* User.swift */,
-				C9094BCF1FC5DFC50047FAFE /* Person.swift */,
+				C9094BCF1FC5DFC50047FAFE /* EnableMode.swift */,
 				C949631C1FC3F5A600E14312 /* ManagerMode.swift */,
 				C94963201FC3FB4800E14312 /* UserMode.swift */,
 				C94963001FC09B2900E14312 /* InputView.swift */,
@@ -278,7 +281,7 @@
 				C9BAD58C1FBD896C0007F169 /* Fanta.swift in Sources */,
 				C9BAD58F1FBD8A600007F169 /* Top.swift in Sources */,
 				C9BAD5881FBD893E0007F169 /* Coke.swift in Sources */,
-				C9094BD01FC5DFC50047FAFE /* Person.swift in Sources */,
+				C9094BD01FC5DFC50047FAFE /* EnableMode.swift in Sources */,
 				C94963011FC09B2900E14312 /* InputView.swift in Sources */,
 				C94963251FC4014100E14312 /* User.swift in Sources */,
 				C9BAD5861FBD86020007F169 /* ChocolateMilk.swift in Sources */,
@@ -290,6 +293,7 @@
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
 				C9BAD55D1FB994220007F169 /* Milk.swift in Sources */,
 				C9BAD5611FB9B7A70007F169 /* Coffee.swift in Sources */,
+				C9094BD21FC5E4360047FAFE /* Connector.swift in Sources */,
 				C9BAD5951FBE89720007F169 /* VendingMachine.swift in Sources */,
 				C94963031FC15EDE00E14312 /* OutputView.swift in Sources */,
 			);

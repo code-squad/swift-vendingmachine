@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct User: Person {
+struct User: EnableMode {
     var delegate: UserMode
     enum Option: Int {
         case addMoney = 1

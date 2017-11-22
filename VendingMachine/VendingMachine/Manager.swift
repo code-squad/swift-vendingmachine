@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Manager: Person {
+struct Manager: EnableMode {
     var delegate: ManagerMode
     enum Option: Int {
         case addInventory = 1

@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol Person {
+protocol EnableMode {
     mutating func action(option: Int, detail: Int) throws -> Drink?
 }
