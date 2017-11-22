@@ -9,20 +9,20 @@
 import Foundation
 
 typealias VendingMachineMode = VendingMachine.Mode
-typealias DrinkName = String
 typealias Count = Int
 typealias Price = Int
 
 struct VendingMachine {
     private var inventory: [Drink : Count]
     private var purchases: [Drink : Count]
-    private var money: Price
-    private var mode: VendingMachineMode?
+    private var inputMoney: Price
+    private var income: Price
     // 인덱스로 음료수를 추가하기 위해 자판기의 음료 목록 초기화
     init(drinkList : [Drink]) {
         inventory = [Drink : Count]()
         purchases = [Drink : Count]()
-        money = 0
+        inputMoney = 0
+        income = 0
         drinkList.forEach { drink in
             inventory[drink] = 0
         }
@@ -67,6 +67,10 @@ extension VendingMachine: ManagerMode {
         return delete(product: listOfDrink[productIndex-1])
     }
     
+    func howMuchIncome() -> Price {
+        return income
+    }
+    
     // 전체 상품 재고를 (사전으로 표현하는) 종류별로 리턴하는 메소드
     func listOfInventory() -> [Drink : Count] {
         return inventory
@@ -85,26 +89,27 @@ extension VendingMachine: UserMode {
     
     // 자판기 금액을 원하는 금액만큼 올리는 메소드
     mutating func add(money: Int) {
-        self.money += money
+        inputMoney = money
     }
     
     // 현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
-    func listOfCanBuy() -> Array<(key: Drink, value: Count)> {
+    func listOfCanBuy() -> [Drink : Int] {
         let listOfCanBuy = inventory.filter { inventory in
-            return inventory.key.price <= self.money
+            return inventory.key.price <= inputMoney
         }
-        return listOfCanBuy.sorted(by: < )
+        return listOfCanBuy
     }
 
     // 음료수를 구매하는 메소드
     @discardableResult mutating func buy(product: Drink) -> Drink? {
         // 해당 제품이 처음부터 없었던 제품이거나 (nil) 품절된 제품일 때
         guard let countOfProductInInventory = inventory[product],
-            countOfProductInInventory != 0 else {
+            countOfProductInInventory > 0 else {
                 return nil
         }
         self.inventory[product] = countOfProductInInventory - 1
-        self.money -= product.price
+        inputMoney -= product.price
+        income += product.price
         guard let countOfProductInListOfPurchase = purchases[product] else {
             purchases[product] = 1
             return product
@@ -114,11 +119,11 @@ extension VendingMachine: UserMode {
     }
 
     @discardableResult mutating func buy(productIndex: Int) throws -> Drink {
-        let listOfCanBuy = self.listOfCanBuy()
-        guard productIndex >= 1 && productIndex <= listOfCanBuy.count else {
+        let listOfDrink = Array(listOfCanBuy().keys)
+        guard productIndex >= 1 && productIndex <= listOfDrink.count else {
             throw stockError.invalidProductNumber
         }
-        guard let buyProduct = buy(product: listOfCanBuy[productIndex-1].key) else {
+        guard let buyProduct = buy(product: listOfDrink[productIndex-1]) else {
             throw stockError.soldOut
         }
         return buyProduct
@@ -126,7 +131,7 @@ extension VendingMachine: UserMode {
 
     // 잔액을 확인하는 메소드
     func howMuchRemainMoney() -> Price {
-        return money
+        return inputMoney
     }
 
     // 따뜻한 음료만 리턴하는 메소드
@@ -146,8 +151,8 @@ extension VendingMachine: UserMode {
     }
 
     mutating func extractAllMoney() -> Int {
-        let change = self.money
-        self.money = 0
+        let change = inputMoney
+        inputMoney = 0
         return change
     }
 

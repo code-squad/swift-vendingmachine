@@ -9,5 +9,6 @@
 import Foundation
 
 protocol EnableMode {
+    mutating func makeMenu() -> (money: Int, menu: [Drink : Int])
     mutating func action(option: Int, detail: Int) throws -> Drink?
 }

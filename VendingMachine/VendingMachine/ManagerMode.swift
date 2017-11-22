@@ -13,6 +13,7 @@ protocol ManagerMode {
     @discardableResult mutating func add(productIndex: Int) throws -> Int
     @discardableResult mutating func delete(product: Drink) -> Drink?
     @discardableResult mutating func delete(productIndex: Int) throws -> Drink?
+    func howMuchIncome() -> Price
     func listOfInventory() -> [Drink : Count]
     func listOfOverExpirationDate() -> [Drink]
 }
