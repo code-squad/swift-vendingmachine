@@ -44,7 +44,7 @@ let drinkList = [strawBerryMilk!, bananaMilk!, coke!, coffee!]
 var vendingMachine = VendingMachine(drinkList: drinkList)
 let inputView = InputView()
 let outputView = Outputview()
-
+var modeOfVendingMachine: EnableMode!
 var start = false
 while(true) {
     do {
@@ -52,6 +52,7 @@ while(true) {
             // 한번만 실행. 자판기 모드를 할당해준다.
             let mode = try inputView.readMode()
             start = true
+            modeOfVendingMachine = try Connector.assignMode(target: vendingMachine, mode: mode)
         }
         
         let input = try inputView.read()
