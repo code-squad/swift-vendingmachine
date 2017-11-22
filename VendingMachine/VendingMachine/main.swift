@@ -40,8 +40,8 @@ let coffee = Coffee(calorie: "150kcal",
                     isHot: true,
                     amountOfCaffeine: "30mg",
                     nameOfCoffeeBeans: "Colombia")
-
-var vendingMachine: VendingMachine!
+let drinkList = [strawBerryMilk!, bananaMilk!, coke!, coffee!]
+var vendingMachine = VendingMachine(drinkList: drinkList)
 let inputView = InputView()
 let outputView = Outputview()
 
