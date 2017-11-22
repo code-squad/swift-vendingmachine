@@ -18,6 +18,12 @@ struct User: EnableMode {
         delegate = userMode
     }
     
+    mutating func makeMenu() -> (money: Int, menu: [Drink : Int]) {
+        let income = delegate.howMuchRemainMoney()
+        let userMenu = delegate.listOfCanBuy()
+        return (income, userMenu)
+    }
+    
     mutating func action(option: Int, detail: Int) throws -> Drink? {
         switch option {
         case Option.addMoney.rawValue:

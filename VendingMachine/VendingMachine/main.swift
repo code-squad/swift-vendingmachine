@@ -54,6 +54,7 @@ while(true) {
             start = true
             modeOfVendingMachine = try Connector.assignMode(target: vendingMachine, mode: mode)
         }
+        let menu = modeOfVendingMachine.makeMenu()
         
         let input = try inputView.read()
         

@@ -63,7 +63,7 @@ struct Outputview {
 
     private func makeOnlyCanBuyMenu(of vendingMachine: VendingMachine) -> String {
         var menu = ""
-        let listOfCanBuy = vendingMachine.listOfCanBuy()
+        let listOfCanBuy = Array(vendingMachine.listOfCanBuy())
         for index in 0..<listOfCanBuy.count {
             let currentDrink = listOfCanBuy[index]
             menu += String(format: "%d)%@ %d원(%d개)\n",
