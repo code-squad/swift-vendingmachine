@@ -17,28 +17,54 @@ struct VendingMachine {
     private var inventory: [Drink : Count]
     private var purchases: [Drink : Count]
     private var money: Price
-    init() {
+    private var mode: VendingMachineMode?
+    // 인덱스로 음료수를 추가하기 위해 자판기의 음료 목록 초기화
+    init(drinkList : [Drink]) {
         inventory = [Drink : Count]()
         purchases = [Drink : Count]()
         money = 0
+        drinkList.forEach { drink in
+            inventory[drink] = 0
+        }
     }
 }
 
 extension VendingMachine: ManagerMode {
-    
-    // 자판기 금액을 원하는 금액만큼 올리는 메소드
-    mutating func add(money: Int) {
-        self.money += money
-    }
 
     // 특정 상품 인스턴스를 넘겨서 재고를 추가하는 메소드
     @discardableResult mutating func add(product: Drink) -> Int {
         guard let count = inventory[product] else {
-            inventory[product] = 1
-            return 1
+            return 0
         }
         inventory[product] = count + 1
         return count + 1
+    }
+    
+    // 음료수 인덱스를 넘겨서 재고를 추가하는 메소드
+    @discardableResult mutating func add(productIndex: Int) throws -> Int {
+        let listOfDrink = Array(listOfInventory().keys)
+        guard productIndex >= 1 && productIndex <= listOfDrink.count else {
+            throw stockError.invalidProductNumber
+        }
+        return add(product: listOfDrink[productIndex-1])
+    }
+    
+    @discardableResult mutating func delete(product: Drink) -> Drink? {
+        guard let count = inventory[product],
+            count > 0 else {
+            return nil
+        }
+        inventory[product] = count - 1
+        return product
+    }
+    
+    // 음료수 인덱스를 넘겨서 재고의 음료수를 삭제하는 메소드
+    @discardableResult mutating func delete(productIndex: Int) throws -> Drink? {
+        let listOfDrink = Array(listOfInventory().keys)
+        guard productIndex >= 1 && productIndex <= listOfDrink.count else {
+            throw stockError.invalidProductNumber
+        }
+        return delete(product: listOfDrink[productIndex-1])
     }
     
     // 전체 상품 재고를 (사전으로 표현하는) 종류별로 리턴하는 메소드
@@ -56,7 +82,12 @@ extension VendingMachine: ManagerMode {
 }
 
 extension VendingMachine: UserMode {
-
+    
+    // 자판기 금액을 원하는 금액만큼 올리는 메소드
+    mutating func add(money: Int) {
+        self.money += money
+    }
+    
     // 현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
     func listOfCanBuy() -> Array<(key: Drink, value: Count)> {
         let listOfCanBuy = inventory.filter { inventory in
