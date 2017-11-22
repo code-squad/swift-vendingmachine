@@ -25,7 +25,7 @@ struct VendingMachine {
 }
 
 extension VendingMachine: ManagerMode {
-
+    
     // 자판기 금액을 원하는 금액만큼 올리는 메소드
     mutating func add(money: Int) {
         self.money += money
@@ -40,7 +40,7 @@ extension VendingMachine: ManagerMode {
         inventory[product] = count + 1
         return count + 1
     }
-
+    
     // 전체 상품 재고를 (사전으로 표현하는) 종류별로 리턴하는 메소드
     func listOfInventory() -> [Drink : Count] {
         return inventory
@@ -128,16 +128,8 @@ extension VendingMachine {
         case invalidProductNumber = "유효하지 않은 음료수 번호 입니다."
     }
     enum Mode: String {
-        case manager
-        case user
+        case manager = "1"
+        case user = "2"
     }
-    enum ManagerOption: Int {
-        case addInventory = 1
-        case deleteInventory = 2
-    }
-    enum UserOption: Int {
-        case addMoney = 1
-        case buyDrink = 2
-    }
-}
 
+}

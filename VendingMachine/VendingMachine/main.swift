@@ -44,18 +44,17 @@ let coffee = Coffee(calorie: "150kcal",
 var vendingMachine = VendingMachine()
 let inputView = InputView()
 let outputView = Outputview()
-var manager = Manager()
-var user = User()
-var vendingMachineMode: VendingMachineMode!
+
 var start = false
 while(true) {
     do {
         if !start {
             // 한번만 실행. 자판기 모드를 할당해준다.
-            vendingMachineMode = try inputView.readMode()
+            let mode = try inputView.readMode()
             start = true
         }
         outputView.printMonitor(vendingMachine: vendingMachine, mode: vendingMachineMode)
+        
         let input = try inputView.read()
         
     } catch InputView.InputError.invalidFormat {
@@ -66,30 +65,3 @@ while(true) {
         print(VendingMachine.stockError.invalidProductNumber.rawValue)
     }
 }
-
-
-//while(true) {
-//    outputView.printMonitor(vendingMachine: vendingMachine, mode: vendingMachineMode)
-//    do {
-//        let input = try inputView.read()
-//        switch input.option {
-//        case .addMoney:
-//            vendingMachine.add(money: input.detail)
-//        case .buyDrink:
-//            let purchaseProduct = try vendingMachine.buy(productIndex: input.detail)
-//            outputView.printPurchase(drink: purchaseProduct)
-//        case .extractRemainMoney:
-//            let change = vendingMachine.extractAllMoney()
-//            let listOfPurchase = vendingMachine.listOfPurchase()
-//            outputView.printListOfAllPurchases(listOfPurchase: listOfPurchase, change: change)
-//        }
-//        if input.option == .extractRemainMoney { break }
-//    } catch InputView.InputError.invalidFormat {
-//        print(InputView.InputError.invalidFormat.rawValue)
-//    } catch VendingMachine.stockError.soldOut {
-//        print(VendingMachine.stockError.soldOut.rawValue)
-//    } catch VendingMachine.stockError.invalidProductNumber {
-//        print(VendingMachine.stockError.invalidProductNumber.rawValue)
-//    }
-//}
-
