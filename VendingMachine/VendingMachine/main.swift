@@ -41,7 +41,7 @@ let coffee = Coffee(calorie: "150kcal",
                     amountOfCaffeine: "30mg",
                     nameOfCoffeeBeans: "Colombia")
 
-var vendingMachine = VendingMachine()
+var vendingMachine: VendingMachine!
 let inputView = InputView()
 let outputView = Outputview()
 
@@ -53,7 +53,6 @@ while(true) {
             let mode = try inputView.readMode()
             start = true
         }
-        outputView.printMonitor(vendingMachine: vendingMachine, mode: vendingMachineMode)
         
         let input = try inputView.read()
         

@@ -9,6 +9,7 @@
 import Foundation
 
 protocol UserMode {
+    mutating func add(money: Int)
     func listOfCanBuy() -> Array<(key: Drink, value: Count)>
     @discardableResult mutating func buy(product: Drink) -> Drink?
     @discardableResult mutating func buy(productIndex: Int) throws -> Drink
