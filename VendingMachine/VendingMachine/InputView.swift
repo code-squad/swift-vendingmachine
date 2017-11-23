@@ -13,10 +13,7 @@ typealias InputFormat = (option: Int, detail: Int)
 struct InputView {
     func readMode() throws -> Int {
         print("자판기를 시작합니다.")
-        let selectModeMessage = String(format: "1. %@ \n2. %@",
-                                       "관리자 모드",
-                                       "사용자 모드")
-        print(selectModeMessage)
+        print("1. 관리자 모드\n2. 사용자 모드")
         let input = readLine() ?? ""
         guard let convertInputToInt = input.convertToIntValue else {
             throw InputError.invalidFormat
