@@ -55,9 +55,13 @@ while(true) {
             modeOfVendingMachine = try Connector.assignMode(target: vendingMachine, mode: mode)
         }
         let menu = modeOfVendingMachine.makeMenu()
-        
+        outputView.printMonitor(mode: menu.mode, money:menu.money, menu: menu.menu)
         let input = try inputView.read()
-        
+        if input.option == 3 {
+            start = false
+        } else {
+            let action = try modeOfVendingMachine.action(option: input.option, detail: input.detail)
+        }
     } catch InputView.InputError.invalidFormat {
         print(InputView.InputError.invalidFormat.rawValue)
     } catch VendingMachine.stockError.soldOut {
