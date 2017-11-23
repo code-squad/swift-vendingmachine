@@ -1,5 +1,5 @@
 //
-//  ManagerMode.swift
+//  ManagerModeDelegateProtocol.swift
 //  VendingMachine
 //
 //  Created by yangpc on 2017. 11. 21..
@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol ManagerMode {
+protocol ManagerModeDelegateProtocol {
     @discardableResult func add(product: Drink) -> Int
     @discardableResult func add(productIndex: Int) throws -> Int
     @discardableResult func delete(product: Drink) -> Drink?

@@ -9,14 +9,14 @@
 import Foundation
 
 struct Manager: EnableMode {
-    var delegate: ManagerMode
+    var delegate: ManagerModeDelegateProtocol
     enum Option: Int {
         case addInventory = 1
         case deleteInventory = 2
         case exit = 3
     }
     
-    init(managerMode: ManagerMode) {
+    init(managerMode: ManagerModeDelegateProtocol) {
         delegate = managerMode
     }
     

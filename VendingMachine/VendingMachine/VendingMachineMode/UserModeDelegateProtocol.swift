@@ -1,5 +1,5 @@
 //
-//  UserMode.swift
+//  UserModeDelegateProtocol.swift
 //  VendingMachine
 //
 //  Created by yangpc on 2017. 11. 21..
@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol UserMode {
+protocol UserModeDelegateProtocol {
     mutating func add(money: Int)
     func listOfCanBuy() -> [Drink : Count]
     @discardableResult func buy(product: Drink) -> Drink?
