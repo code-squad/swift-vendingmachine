@@ -19,10 +19,10 @@ struct Manager: EnableMode {
         delegate = managerMode
     }
     
-    mutating func makeMenu() -> (money: Int, menu: [Drink : Int]) {
+    mutating func makeMenu() -> (mode: VendingMachineMode ,money: Int, menu: [Drink : Int]) {
         let income = delegate.howMuchIncome()
         let managerMenu = delegate.listOfInventory()
-        return (income, managerMenu)
+        return ( .manager, income, managerMenu)
     }
     
     mutating func action(option: Int, detail: Int) throws -> Drink? {

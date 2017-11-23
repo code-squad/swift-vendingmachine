@@ -11,10 +11,10 @@ import Foundation
 protocol UserMode {
     mutating func add(money: Int)
     func listOfCanBuy() -> [Drink : Count]
-    @discardableResult mutating func buy(product: Drink) -> Drink?
-    @discardableResult mutating func buy(productIndex: Int) throws -> Drink
+    @discardableResult func buy(product: Drink) -> Drink?
+    @discardableResult func buy(productIndex: Int) throws -> Drink
     func howMuchRemainMoney() -> Price
     func listOfHotDrink() -> [Drink] 
     func listOfPurchase() -> Array<(key: Drink, value: Count)>
-    mutating func extractAllMoney() -> Int
+    func extractAllMoney() -> Int
 }

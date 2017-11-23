@@ -15,18 +15,11 @@ struct Outputview {
         return formatter
     }()
 
-    func printMonitor(vendingMachine: VendingMachine, mode: VendingMachineMode) {
-        let money = vendingMachine.howMuchRemainMoney()
-        let monitorMessage = String(format: "현재 투입한 금액이 %@원입니다. 다음과 같은 음료가 있습니다.",
-                                    numberFormatter.string(from: NSNumber(value: money))!)
-        print(monitorMessage)
-        var menu: String!
-        if money == 0 {
-            menu = makeTotalMenu(of: vendingMachine)
-        } else {
-            menu = makeOnlyCanBuyMenu(of: vendingMachine)
-        }
-        print(menu)
+    func printMonitor(mode: VendingMachineMode, money: Int, menu: [Drink : Count]) {
+        var menuString = ""
+        menuString += moneyMessage(mode: mode, money: money)
+        menuString += makeMenu(menu: menu)
+        print(menuString)
         let order = makeOrder(mode: mode)
         print(order)
     }
@@ -52,28 +45,32 @@ struct Outputview {
         print(listOfAllPurchases)
     }
 
-    private func makeTotalMenu(of vendingMachine: VendingMachine) -> String {
-        var menu = "==>"
-        let listOfInventory = vendingMachine.listOfInventory()
-        for drink in listOfInventory {
-            menu += String(format: " %@(%d개)", drink.key.typeOfProduct, drink.value)
+    private func moneyMessage(mode: VendingMachineMode, money: Int) -> String {
+        var message = ""
+        switch mode {
+        case .manager:
+            message = "총 수입은"
+        case .user:
+            message = "현재 투입한 금액은"
         }
-        return menu
+        let moneyMessage = String(format: "%@ %@원입니다. ",
+                                  message,
+                                  numberFormatter.string(from: NSNumber(value: money))!)
+        return moneyMessage
     }
-
-    private func makeOnlyCanBuyMenu(of vendingMachine: VendingMachine) -> String {
-        var menu = ""
-        let listOfCanBuy = Array(vendingMachine.listOfCanBuy())
-        for index in 0..<listOfCanBuy.count {
-            let currentDrink = listOfCanBuy[index]
-            menu += String(format: "%d)%@ %d원(%d개)\n",
-                           index + 1,
-                           currentDrink.key.typeOfProduct,
-                           currentDrink.key.price,
-                           currentDrink.value)
+    
+    private func makeMenu(menu: [Drink : Count]) -> String {
+        var menuString = "다음과 같은 음료가 있습니다.\n"
+        let listOfCanBuy = Array(menu)
+        for drink in listOfCanBuy.enumerated() {
+            menuString += String(format: "%d)%@ %d원(%d개)\n",
+                                 drink.offset + 1,
+                                 drink.element.key.typeOfProduct,
+                                 drink.element.key.price,
+                                 drink.element.value)
         }
-        menu.removeLast()
-        return menu
+        menuString.removeLast()
+        return menuString
     }
     
     private func makeOrder(mode: VendingMachineMode) -> String {
@@ -82,7 +79,8 @@ struct Outputview {
         case .manager:
             orderMessage = String(format: "1. %@ \n2. %@\n3. %@",
                                   "재고추가",
-                                  "재고삭제")
+                                  "재고삭제",
+                                  "나가기")
         case .user:
             orderMessage = String(format: "1. %@ \n2. %@\n3. %@",
                                       "금액추가",

@@ -12,7 +12,7 @@ typealias VendingMachineMode = VendingMachine.Mode
 typealias Count = Int
 typealias Price = Int
 
-struct VendingMachine {
+class VendingMachine {
     private var inventory: [Drink : Count]
     private var purchases: [Drink : Count]
     private var inputMoney: Price
@@ -32,7 +32,7 @@ struct VendingMachine {
 extension VendingMachine: ManagerMode {
 
     // 특정 상품 인스턴스를 넘겨서 재고를 추가하는 메소드
-    @discardableResult mutating func add(product: Drink) -> Int {
+    @discardableResult func add(product: Drink) -> Int {
         guard let count = inventory[product] else {
             return 0
         }
@@ -41,7 +41,7 @@ extension VendingMachine: ManagerMode {
     }
     
     // 음료수 인덱스를 넘겨서 재고를 추가하는 메소드
-    @discardableResult mutating func add(productIndex: Int) throws -> Int {
+    @discardableResult func add(productIndex: Int) throws -> Int {
         let listOfDrink = Array(listOfInventory().keys)
         guard productIndex >= 1 && productIndex <= listOfDrink.count else {
             throw stockError.invalidProductNumber
@@ -49,7 +49,7 @@ extension VendingMachine: ManagerMode {
         return add(product: listOfDrink[productIndex-1])
     }
     
-    @discardableResult mutating func delete(product: Drink) -> Drink? {
+    @discardableResult func delete(product: Drink) -> Drink? {
         guard let count = inventory[product],
             count > 0 else {
             return nil
@@ -59,7 +59,7 @@ extension VendingMachine: ManagerMode {
     }
     
     // 음료수 인덱스를 넘겨서 재고의 음료수를 삭제하는 메소드
-    @discardableResult mutating func delete(productIndex: Int) throws -> Drink? {
+    @discardableResult func delete(productIndex: Int) throws -> Drink? {
         let listOfDrink = Array(listOfInventory().keys)
         guard productIndex >= 1 && productIndex <= listOfDrink.count else {
             throw stockError.invalidProductNumber
@@ -88,7 +88,7 @@ extension VendingMachine: ManagerMode {
 extension VendingMachine: UserMode {
     
     // 자판기 금액을 원하는 금액만큼 올리는 메소드
-    mutating func add(money: Int) {
+    func add(money: Int) {
         inputMoney = money
     }
     
@@ -101,7 +101,7 @@ extension VendingMachine: UserMode {
     }
 
     // 음료수를 구매하는 메소드
-    @discardableResult mutating func buy(product: Drink) -> Drink? {
+    @discardableResult func buy(product: Drink) -> Drink? {
         // 해당 제품이 처음부터 없었던 제품이거나 (nil) 품절된 제품일 때
         guard let countOfProductInInventory = inventory[product],
             countOfProductInInventory > 0 else {
@@ -118,7 +118,7 @@ extension VendingMachine: UserMode {
         return product
     }
 
-    @discardableResult mutating func buy(productIndex: Int) throws -> Drink {
+    @discardableResult func buy(productIndex: Int) throws -> Drink {
         let listOfDrink = Array(listOfCanBuy().keys)
         guard productIndex >= 1 && productIndex <= listOfDrink.count else {
             throw stockError.invalidProductNumber
@@ -150,7 +150,7 @@ extension VendingMachine: UserMode {
         return sortedListOfPurchase
     }
 
-    mutating func extractAllMoney() -> Int {
+    func extractAllMoney() -> Int {
         let change = inputMoney
         inputMoney = 0
         return change
