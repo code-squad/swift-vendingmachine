@@ -57,16 +57,22 @@ while(true) {
         let menu = modeOfVendingMachine.makeMenu()
         outputView.printMonitor(mode: menu.mode, money:menu.money, menu: menu.menu)
         let input = try inputView.read()
-        if input.option == 3 {
-            start = false
-        } else {
-            let action = try modeOfVendingMachine.action(option: input.option, detail: input.detail)
-        }
+        let action = try modeOfVendingMachine.action(option: input.option, detail: input.detail)
     } catch InputView.InputError.invalidFormat {
         print(InputView.InputError.invalidFormat.rawValue)
     } catch VendingMachine.stockError.soldOut {
         print(VendingMachine.stockError.soldOut.rawValue)
     } catch VendingMachine.stockError.invalidProductNumber {
         print(VendingMachine.stockError.invalidProductNumber.rawValue)
+    } catch VendingMachine.ModeError.invalidNumber {
+        print(VendingMachine.ModeError.invalidNumber.rawValue)
+    } catch Manager.OptionError.invalidAction {
+        print(Manager.OptionError.invalidAction.rawValue)
+    } catch User.OptionError.invalidAction {
+        print(User.OptionError.invalidAction.rawValue)
+    } catch Manager.OptionError.exitManager {
+        start = false
+    } catch User.OptionError.exitUser {
+        start = false
     }
 }

@@ -13,6 +13,7 @@ struct User: EnableMode {
     enum Option: Int {
         case addMoney = 1
         case buyDrink = 2
+        case exit = 3
     }
     init(userMode: UserMode) {
         delegate = userMode
@@ -32,14 +33,17 @@ struct User: EnableMode {
         case Option.buyDrink.rawValue:
             let drink = try delegate.buy(productIndex: detail)
             return drink
-        default: break
+        case Option.exit.rawValue:
+            throw OptionError.exitUser
+        default:
+            throw OptionError.invalidAction
         }
-        throw OptionError.invalidAction
     }
 }
 
 extension User {
     enum OptionError: String, Error {
         case invalidAction = "유효하지 않은 명령입니다."
+        case exitUser = "유저 모드 나가기"
     }
 }
