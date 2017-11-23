@@ -39,7 +39,7 @@ extension VendingMachine: ManagerModeDelegateProtocol {
         inventory[product] = count + 1
         return count + 1
     }
-    
+
     // 음료수 인덱스를 넘겨서 재고를 추가하는 메소드
     @discardableResult func add(productIndex: Int) throws -> Int {
         let listOfDrink = Array(listOfInventory().keys)
@@ -48,7 +48,7 @@ extension VendingMachine: ManagerModeDelegateProtocol {
         }
         return add(product: listOfDrink[productIndex-1])
     }
-    
+
     @discardableResult func delete(product: Drink) -> Drink? {
         guard let count = inventory[product],
             count > 0 else {
@@ -57,7 +57,7 @@ extension VendingMachine: ManagerModeDelegateProtocol {
         inventory[product] = count - 1
         return product
     }
-    
+
     // 음료수 인덱스를 넘겨서 재고의 음료수를 삭제하는 메소드
     @discardableResult func delete(productIndex: Int) throws -> Drink? {
         let listOfDrink = Array(listOfInventory().keys)
@@ -66,11 +66,11 @@ extension VendingMachine: ManagerModeDelegateProtocol {
         }
         return delete(product: listOfDrink[productIndex-1])
     }
-    
+
     func howMuchIncome() -> Price {
         return income
     }
-    
+
     // 전체 상품 재고를 (사전으로 표현하는) 종류별로 리턴하는 메소드
     func listOfInventory() -> [Drink : Count] {
         return inventory
@@ -86,12 +86,12 @@ extension VendingMachine: ManagerModeDelegateProtocol {
 }
 
 extension VendingMachine: UserModeDelegateProtocol {
-    
+
     // 자판기 금액을 원하는 금액만큼 올리는 메소드
     func add(money: Int) {
         inputMoney = money
     }
-    
+
     // 현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
     func listOfCanBuy() -> [Drink : Int] {
         let listOfCanBuy = inventory.filter { inventory in

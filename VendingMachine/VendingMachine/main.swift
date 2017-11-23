@@ -45,13 +45,13 @@ var vendingMachine = VendingMachine(drinkList: drinkList)
 let inputView = InputView()
 let outputView = Outputview()
 var modeOfVendingMachine: EnableMode!
-var start = false
+var hasMode = false
 while(true) {
     do {
-        if !start {
-            // 한번만 실행. 자판기 모드를 할당해준다.
+        if !hasMode {
+            // 모드가 할당되지 않을 때 실행
             let mode = try inputView.readMode()
-            start = true
+            hasMode = true
             modeOfVendingMachine = try Connector.assignMode(target: vendingMachine, mode: mode)
         }
         let menu = modeOfVendingMachine.makeMenu()
@@ -71,8 +71,8 @@ while(true) {
     } catch User.OptionError.invalidAction {
         print(User.OptionError.invalidAction.rawValue)
     } catch Manager.OptionError.exitManager {
-        start = false
+        hasMode = false
     } catch User.OptionError.exitUser {
-        start = false
+        hasMode = false
     }
 }

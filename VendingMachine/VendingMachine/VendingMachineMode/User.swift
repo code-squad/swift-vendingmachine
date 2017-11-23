@@ -18,13 +18,13 @@ struct User: EnableMode {
     init(userMode: UserModeDelegateProtocol) {
         delegate = userMode
     }
-    
+
     mutating func makeMenu() -> (mode: VendingMachineMode, money: Int, menu: [Drink : Int]) {
         let income = delegate.howMuchRemainMoney()
         let userMenu = delegate.listOfCanBuy()
         return (.user, income, userMenu)
     }
-    
+
     mutating func action(option: Int, detail: Int) throws -> Drink? {
         switch option {
         case Option.addMoney.rawValue:
@@ -39,6 +39,7 @@ struct User: EnableMode {
             throw OptionError.invalidAction
         }
     }
+
 }
 
 extension User {

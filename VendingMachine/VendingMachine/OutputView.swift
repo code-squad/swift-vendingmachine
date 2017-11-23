@@ -55,7 +55,7 @@ struct Outputview {
         }
         return "\(message) \(numberFormatter.string(from: NSNumber(value: money))!)원 입니다.)"
     }
-    
+
     private func makeMenu(menu: [Drink : Count]) -> String {
         var menuString = "다음과 같은 음료가 있습니다.\n"
         let listOfCanBuy = Array(menu)

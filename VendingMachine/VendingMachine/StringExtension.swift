@@ -9,7 +9,7 @@
 import Foundation
 
 extension String {
-    
+
     var convertToIntValue: Int? {
         guard let intValue = Int(self) else {
             return nil
