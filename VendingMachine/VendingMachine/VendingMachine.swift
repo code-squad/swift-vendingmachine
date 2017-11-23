@@ -29,7 +29,7 @@ class VendingMachine {
     }
 }
 
-extension VendingMachine: ManagerMode {
+extension VendingMachine: ManagerModeDelegateProtocol {
 
     // 특정 상품 인스턴스를 넘겨서 재고를 추가하는 메소드
     @discardableResult func add(product: Drink) -> Int {
@@ -85,7 +85,7 @@ extension VendingMachine: ManagerMode {
 
 }
 
-extension VendingMachine: UserMode {
+extension VendingMachine: UserModeDelegateProtocol {
     
     // 자판기 금액을 원하는 금액만큼 올리는 메소드
     func add(money: Int) {

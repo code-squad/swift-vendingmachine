@@ -24,8 +24,8 @@
 		C94962FF1FC046C600E14312 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD5941FBE89720007F169 /* VendingMachine.swift */; };
 		C94963011FC09B2900E14312 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94963001FC09B2900E14312 /* InputView.swift */; };
 		C94963031FC15EDE00E14312 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94963021FC15EDE00E14312 /* OutputView.swift */; };
-		C949631D1FC3F5A600E14312 /* ManagerMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C949631C1FC3F5A600E14312 /* ManagerMode.swift */; };
-		C94963211FC3FB4800E14312 /* UserMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94963201FC3FB4800E14312 /* UserMode.swift */; };
+		C949631D1FC3F5A600E14312 /* ManagerModeDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C949631C1FC3F5A600E14312 /* ManagerModeDelegateProtocol.swift */; };
+		C94963211FC3FB4800E14312 /* UserModeDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94963201FC3FB4800E14312 /* UserModeDelegateProtocol.swift */; };
 		C94963231FC4006C00E14312 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94963221FC4006C00E14312 /* Manager.swift */; };
 		C94963251FC4014100E14312 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94963241FC4014100E14312 /* User.swift */; };
 		C9BAD5591FB991120007F169 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD5581FB991120007F169 /* Drink.swift */; };
@@ -70,8 +70,8 @@
 		C9094BD11FC5E4360047FAFE /* Connector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connector.swift; sourceTree = "<group>"; };
 		C94963001FC09B2900E14312 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		C94963021FC15EDE00E14312 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
-		C949631C1FC3F5A600E14312 /* ManagerMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerMode.swift; sourceTree = "<group>"; };
-		C94963201FC3FB4800E14312 /* UserMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMode.swift; sourceTree = "<group>"; };
+		C949631C1FC3F5A600E14312 /* ManagerModeDelegateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerModeDelegateProtocol.swift; sourceTree = "<group>"; };
+		C94963201FC3FB4800E14312 /* UserModeDelegateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModeDelegateProtocol.swift; sourceTree = "<group>"; };
 		C94963221FC4006C00E14312 /* Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
 		C94963241FC4014100E14312 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C9BAD5581FB991120007F169 /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
@@ -153,8 +153,8 @@
 				C9094BCF1FC5DFC50047FAFE /* EnableMode.swift */,
 				C94963221FC4006C00E14312 /* Manager.swift */,
 				C94963241FC4014100E14312 /* User.swift */,
-				C949631C1FC3F5A600E14312 /* ManagerMode.swift */,
-				C94963201FC3FB4800E14312 /* UserMode.swift */,
+				C949631C1FC3F5A600E14312 /* ManagerModeDelegateProtocol.swift */,
+				C94963201FC3FB4800E14312 /* UserModeDelegateProtocol.swift */,
 			);
 			path = VendingMachineMode;
 			sourceTree = "<group>";
@@ -293,10 +293,10 @@
 				C94963011FC09B2900E14312 /* InputView.swift in Sources */,
 				C94963251FC4014100E14312 /* User.swift in Sources */,
 				C9BAD5861FBD86020007F169 /* ChocolateMilk.swift in Sources */,
-				C949631D1FC3F5A600E14312 /* ManagerMode.swift in Sources */,
+				C949631D1FC3F5A600E14312 /* ManagerModeDelegateProtocol.swift in Sources */,
 				C9BAD5911FBD8B470007F169 /* Cantata.swift in Sources */,
 				C9BAD57B1FBC37450007F169 /* StringExtension.swift in Sources */,
-				C94963211FC3FB4800E14312 /* UserMode.swift in Sources */,
+				C94963211FC3FB4800E14312 /* UserModeDelegateProtocol.swift in Sources */,
 				C9BAD5821FBD80F60007F169 /* StrawBerryMilk.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
 				C9BAD55D1FB994220007F169 /* Milk.swift in Sources */,
