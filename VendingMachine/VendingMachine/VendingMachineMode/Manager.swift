@@ -15,17 +15,17 @@ struct Manager: EnableMode {
         case deleteInventory = 2
         case exit = 3
     }
-    
+
     init(managerMode: ManagerModeDelegateProtocol) {
         delegate = managerMode
     }
-    
+
     mutating func makeMenu() -> (mode: VendingMachineMode ,money: Int, menu: [Drink : Int]) {
         let income = delegate.howMuchIncome()
         let managerMenu = delegate.listOfInventory()
         return ( .manager, income, managerMenu)
     }
-    
+
     mutating func action(option: Int, detail: Int) throws -> Drink? {
         switch option {
         case Option.addInventory.rawValue:
@@ -40,7 +40,7 @@ struct Manager: EnableMode {
             throw OptionError.invalidAction
         }
     }
-    
+
 }
 
 extension Manager {

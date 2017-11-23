@@ -11,6 +11,7 @@ import Foundation
 typealias InputFormat = (option: Int, detail: Int)
 
 struct InputView {
+
     func readMode() throws -> Int {
         print("자판기를 시작합니다.")
         print("1. 관리자 모드\n2. 사용자 모드")
@@ -20,7 +21,7 @@ struct InputView {
         }
         return convertInputToInt
     }
-    
+
     func read() throws -> InputFormat {
         let input = readLine() ?? ""
         guard let resultForInput = makeValidFormat(separator: " ")(input) else {
