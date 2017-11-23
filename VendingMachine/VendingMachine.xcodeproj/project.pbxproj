@@ -135,20 +135,28 @@
 		839DA90B1F8D1F95009E05F3 /* VendingMachine */ = {
 			isa = PBXGroup;
 			children = (
+				C9094BD31FC65FFA0047FAFE /* VendingMachineMode */,
 				C9BAD58D1FBD89A30007F169 /* Drink */,
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
 				C9BAD57A1FBC37450007F169 /* StringExtension.swift */,
-				C9094BD11FC5E4360047FAFE /* Connector.swift */,
 				C9BAD5941FBE89720007F169 /* VendingMachine.swift */,
-				C94963221FC4006C00E14312 /* Manager.swift */,
-				C94963241FC4014100E14312 /* User.swift */,
-				C9094BCF1FC5DFC50047FAFE /* EnableMode.swift */,
-				C949631C1FC3F5A600E14312 /* ManagerMode.swift */,
-				C94963201FC3FB4800E14312 /* UserMode.swift */,
 				C94963001FC09B2900E14312 /* InputView.swift */,
 				C94963021FC15EDE00E14312 /* OutputView.swift */,
 			);
 			path = VendingMachine;
+			sourceTree = "<group>";
+		};
+		C9094BD31FC65FFA0047FAFE /* VendingMachineMode */ = {
+			isa = PBXGroup;
+			children = (
+				C9094BD11FC5E4360047FAFE /* Connector.swift */,
+				C9094BCF1FC5DFC50047FAFE /* EnableMode.swift */,
+				C94963221FC4006C00E14312 /* Manager.swift */,
+				C94963241FC4014100E14312 /* User.swift */,
+				C949631C1FC3F5A600E14312 /* ManagerMode.swift */,
+				C94963201FC3FB4800E14312 /* UserMode.swift */,
+			);
+			path = VendingMachineMode;
 			sourceTree = "<group>";
 		};
 		C9BAD5731FBAC2EF0007F169 /* UnitTestVendingMachine */ = {

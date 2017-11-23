@@ -9,6 +9,7 @@
 import Foundation
 
 struct Connector {
+
     static func assignMode(target: VendingMachine, mode: Int) throws -> EnableMode {
         switch mode {
         case VendingMachineMode.manager.rawValue:
@@ -19,4 +20,5 @@ struct Connector {
             throw VendingMachine.ModeError.invalidNumber
         }
     }
+
 }
