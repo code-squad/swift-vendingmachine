@@ -13,6 +13,7 @@ struct Manager: EnableMode {
     enum Option: Int {
         case addInventory = 1
         case deleteInventory = 2
+        case exit = 3
     }
     
     init(managerMode: ManagerMode) {
@@ -33,6 +34,8 @@ struct Manager: EnableMode {
         case Option.deleteInventory.rawValue:
             let drink = try delegate.delete(productIndex: detail)
             return drink
+        case Option.exit.rawValue:
+            throw OptionError.exitManager
         default:
             throw OptionError.invalidAction
         }
@@ -43,5 +46,6 @@ struct Manager: EnableMode {
 extension Manager {
     enum OptionError: String, Error {
         case invalidAction = "유효하지 않은 명령입니다."
+        case exitManager = "매니저 모드 나가기"
     }
 }
