@@ -9,42 +9,34 @@
 import Foundation
 
 struct User: EnableMode {
-    var delegate: UserModeDelegateProtocol
+    var delegate: UserModeDelegateProtocol?
     enum Option: Int {
         case addMoney = 1
         case buyDrink = 2
         case exit = 3
     }
-    init(userMode: UserModeDelegateProtocol) {
-        delegate = userMode
+    init(target: UserModeDelegateProtocol) {
+        delegate = target
     }
 
     mutating func makeMenu() -> (mode: VendingMachineMode, money: Int, menu: [Drink : Int]) {
-        let income = delegate.howMuchRemainMoney()
-        let userMenu = delegate.listOfCanBuy()
-        return (.user, income, userMenu)
+        let income = delegate?.howMuchRemainMoney()
+        let userMenu = delegate?.listOfCanBuy()
+        return (.user, income!, userMenu!)
     }
 
-    mutating func action(option: Int, detail: Int) throws -> Drink? {
+    mutating func action(option: Int, detail: Int) throws {
         switch option {
         case Option.addMoney.rawValue:
-            delegate.add(money: detail)
-            return nil
+            delegate?.add(money: detail)
         case Option.buyDrink.rawValue:
-            let drink = try delegate.buy(productIndex: detail)
-            return drink
-        case Option.exit.rawValue:
-            throw OptionError.exitUser
-        default:
-            throw OptionError.invalidAction
+            do {
+                try delegate?.buy(productIndex: detail)
+            } catch let error {
+                throw error
+            }
+        default: break
         }
     }
 
-}
-
-extension User {
-    enum OptionError: String, Error {
-        case invalidAction = "유효하지 않은 명령입니다."
-        case exitUser = "유저 모드 나가기"
-    }
 }

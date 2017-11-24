@@ -170,5 +170,8 @@ extension VendingMachine {
     enum ModeError: String, Error {
         case invalidNumber = "유효하지 않은 모드입니다."
     }
+    enum OptionError: String, Error {
+        case invalidNumber = "유효하지 않은 명령입니다."
+    }
 
 }
