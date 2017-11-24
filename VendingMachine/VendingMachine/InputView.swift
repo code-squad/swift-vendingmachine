@@ -21,7 +21,7 @@ struct InputView {
         }
         return convertInputToInt
     }
-    
+
     func read() throws -> InputFormat {
         let input = readLine() ?? ""
         guard let resultForInput = makeValidFormat(separator: " ")(input) else {
