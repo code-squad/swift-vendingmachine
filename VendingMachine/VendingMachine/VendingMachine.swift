@@ -93,7 +93,7 @@ extension VendingMachine: UserModeDelegate {
     }
 
     // 현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
-    func listOfCanBuy() -> [Drink : Int] {
+    func listOfCanBuy() -> [Drink : Count] {
         let listOfCanBuy = inventory.filter { inventory in
             return inventory.key.price <= inputMoney
         }

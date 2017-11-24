@@ -45,7 +45,6 @@ var vendingMachine = VendingMachine(drinkList: drinkList)
 var inputView = InputView()
 let outputView = Outputview()
 var connector = Connector()
-var hasMode = false
 while(true) {
     do {
         if !connector.hasMode {
