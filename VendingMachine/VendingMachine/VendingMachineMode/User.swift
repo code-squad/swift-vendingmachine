@@ -9,14 +9,14 @@
 import Foundation
 
 struct User: EnableMode {
-    private var delegate: UserModeDelegateProtocol?
+    private var delegate: UserModeDelegate?
     private var drink: Drink?
     enum Option: Int {
         case addMoney = 1
         case buyDrink = 2
         case exit = 3
     }
-    init(target: UserModeDelegateProtocol) {
+    init(target: UserModeDelegate) {
         delegate = target
     }
 
