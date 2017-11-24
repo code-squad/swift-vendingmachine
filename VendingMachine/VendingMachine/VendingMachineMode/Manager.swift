@@ -16,8 +16,8 @@ struct Manager: EnableMode {
         case exit = 3
     }
 
-    init(managerMode: ManagerModeDelegateProtocol) {
-        delegate = managerMode
+    init(target: ManagerModeDelegateProtocol) {
+        delegate = target
     }
 
     mutating func makeMenu() -> (mode: VendingMachineMode ,money: Int, menu: [Drink : Int]) {
@@ -26,26 +26,18 @@ struct Manager: EnableMode {
         return ( .manager, income, managerMenu)
     }
 
-    mutating func action(option: Int, detail: Int) throws -> Drink? {
-        switch option {
-        case Option.addInventory.rawValue:
-            try delegate.add(productIndex: detail)
-            return nil
-        case Option.deleteInventory.rawValue:
-            let drink = try delegate.delete(productIndex: detail)
-            return drink
-        case Option.exit.rawValue:
-            throw OptionError.exitManager
-        default:
-            throw OptionError.invalidAction
+    mutating func action(option: Int, detail: Int) throws {
+        do {
+            switch option {
+            case Option.addInventory.rawValue:
+                try delegate.add(productIndex: detail)
+            case Option.deleteInventory.rawValue:
+                try delegate.delete(productIndex: detail)
+            default: break
+            }
+        } catch let error {
+            throw error
         }
     }
 
-}
-
-extension Manager {
-    enum OptionError: String, Error {
-        case invalidAction = "유효하지 않은 명령입니다."
-        case exitManager = "매니저 모드 나가기"
-    }
 }

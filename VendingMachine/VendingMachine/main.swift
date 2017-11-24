@@ -42,22 +42,21 @@ let coffee = Coffee(calorie: "150kcal",
                     nameOfCoffeeBeans: "Colombia")
 let drinkList = [strawBerryMilk!, bananaMilk!, coke!, coffee!]
 var vendingMachine = VendingMachine(drinkList: drinkList)
-let inputView = InputView()
+var inputView = InputView()
 let outputView = Outputview()
-var modeOfVendingMachine: EnableMode!
+var connector = Connector()
 var hasMode = false
 while(true) {
     do {
-        if !hasMode {
-            // 모드가 할당되지 않을 때 실행
+        if !connector.hasMode {
             let mode = try inputView.readMode()
-            hasMode = true
-            modeOfVendingMachine = try Connector.assignMode(target: vendingMachine, mode: mode)
+            try connector.assignMode(target: vendingMachine, mode: mode)
         }
-        let menu = modeOfVendingMachine.makeMenu()
-        outputView.printMonitor(mode: menu.mode, money:menu.money, menu: menu.menu)
+        if let menu = connector.makeMenu() {
+            outputView.printMonitor(mode: menu.mode, money:menu.money, menu: menu.menu)
+        }
         let input = try inputView.read()
-        let action = try modeOfVendingMachine.action(option: input.option, detail: input.detail)
+        try connector.action(option: input.option, detail: input.detail)
     } catch InputView.InputError.invalidFormat {
         print(InputView.InputError.invalidFormat.rawValue)
     } catch VendingMachine.stockError.soldOut {
@@ -66,13 +65,5 @@ while(true) {
         print(VendingMachine.stockError.invalidProductNumber.rawValue)
     } catch VendingMachine.ModeError.invalidNumber {
         print(VendingMachine.ModeError.invalidNumber.rawValue)
-    } catch Manager.OptionError.invalidAction {
-        print(Manager.OptionError.invalidAction.rawValue)
-    } catch User.OptionError.invalidAction {
-        print(User.OptionError.invalidAction.rawValue)
-    } catch Manager.OptionError.exitManager {
-        hasMode = false
-    } catch User.OptionError.exitUser {
-        hasMode = false
     }
 }

@@ -53,7 +53,7 @@ struct Outputview {
         case .user:
             message = "현재 투입한 금액은"
         }
-        return "\(message) \(numberFormatter.string(from: NSNumber(value: money))!)원 입니다.)"
+        return "\(message) \(numberFormatter.string(from: NSNumber(value: money))!)원 입니다."
     }
 
     private func makeMenu(menu: [Drink : Count]) -> String {
@@ -76,7 +76,7 @@ struct Outputview {
         case .manager:
             orderMessage = "1. 재고추가\n2. 재고삭제\n3. 나가기"
         case .user:
-            orderMessage = "1. 금액추가\n2.음료구매\n3. 잔돈출금"
+            orderMessage = "1. 금액추가\n2. 음료구매\n3. 잔돈출금"
         }
         return orderMessage
     }
