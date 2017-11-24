@@ -9,7 +9,7 @@
 import Foundation
 
 struct Connector {
-    var enableMode: EnableMode?
+    private var enableMode: EnableMode?
     var hasMode: Bool {
         return enableMode != nil
     }
@@ -46,6 +46,13 @@ struct Connector {
         default:
             throw VendingMachine.OptionError.invalidNumber
         }
+    }
+    
+    func makeResultOfOrder() -> Drink? {
+        if let mode = self.enableMode as? User {
+            return mode.selectDrink()
+        }
+        return nil
     }
 
 }

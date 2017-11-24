@@ -57,6 +57,9 @@ while(true) {
         }
         let input = try inputView.read()
         try connector.action(option: input.option, detail: input.detail)
+        if let resultOfAction = connector.makeResultOfOrder() {
+            outputView.printPurchase(drink: resultOfAction)
+        }
     } catch InputView.InputError.invalidFormat {
         print(InputView.InputError.invalidFormat.rawValue)
     } catch VendingMachine.stockError.soldOut {

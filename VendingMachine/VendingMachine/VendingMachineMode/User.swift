@@ -9,7 +9,8 @@
 import Foundation
 
 struct User: EnableMode {
-    var delegate: UserModeDelegateProtocol?
+    private var delegate: UserModeDelegateProtocol?
+    private var drink: Drink?
     enum Option: Int {
         case addMoney = 1
         case buyDrink = 2
@@ -31,12 +32,16 @@ struct User: EnableMode {
             delegate?.add(money: detail)
         case Option.buyDrink.rawValue:
             do {
-                try delegate?.buy(productIndex: detail)
+                self.drink = try delegate?.buy(productIndex: detail)
             } catch let error {
                 throw error
             }
         default: break
         }
+    }
+    
+    func selectDrink() -> Drink? {
+        return self.drink
     }
 
 }
