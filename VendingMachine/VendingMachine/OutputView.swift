@@ -69,7 +69,7 @@ struct Outputview {
         menuString.removeLast()
         return menuString
     }
-    
+
     private func makeOrder(mode: VendingMachineMode) -> String {
         let orderMessage: String!
         switch mode {
