@@ -45,8 +45,12 @@ struct VendingMachine {
         case VendingMachineMode.manager.rawValue, VendingMachineMode.user.rawValue:
             do {
                 try self.enableMode?.action(option: option, detail: detail)
-            } catch let error {
-                throw error
+            } catch CoreVendingMachine.stockError.soldOut {
+                print(CoreVendingMachine.stockError.soldOut.rawValue)
+            } catch CoreVendingMachine.stockError.invalidProductNumber {
+                print(CoreVendingMachine.stockError.invalidProductNumber.rawValue)
+            } catch CoreVendingMachine.stockError.empty {
+                print(CoreVendingMachine.stockError.empty.rawValue)
             }
         case state.exit.rawValue:
             self.enableMode = nil

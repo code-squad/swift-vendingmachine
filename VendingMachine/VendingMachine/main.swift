@@ -28,12 +28,6 @@ while(true) {
         }
     } catch InputView.InputError.invalidFormat {
         print(InputView.InputError.invalidFormat.rawValue)
-    } catch CoreVendingMachine.stockError.soldOut {
-        print(CoreVendingMachine.stockError.soldOut.rawValue)
-    } catch CoreVendingMachine.stockError.invalidProductNumber {
-        print(CoreVendingMachine.stockError.invalidProductNumber.rawValue)
-    } catch CoreVendingMachine.stockError.empty {
-        print(CoreVendingMachine.stockError.empty.rawValue)
     } catch VendingMachine.ModeError.invalidNumber {
         print(VendingMachine.ModeError.invalidNumber.rawValue)
     }
