@@ -26,7 +26,7 @@ struct Connector {
         }
     }
 
-    func makeMenu() -> (mode: VendingMachineMode ,money: Int, menu: [Drink : Count])? {
+    func makeMenu() -> (mode: VendingMachineMode ,money: Int, menu: [Drink], inventory: [Drink:Count])? {
         if var enableMode = self.enableMode {
             return enableMode.makeMenu()
         }

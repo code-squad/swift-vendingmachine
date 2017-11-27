@@ -15,10 +15,10 @@ struct Outputview {
         return formatter
     }()
 
-    func printMonitor(mode: VendingMachineMode, money: Int, menu: [Drink : Count]) {
+    func printMonitor(mode: VendingMachineMode, money: Int, menu: [Drink], inventory: [Drink : Count]) {
         var menuString = ""
         menuString += moneyMessage(mode: mode, money: money)
-        menuString += makeMenu(menu: menu)
+        menuString += makeMenu(menu: menu, inventory: inventory)
         print(menuString)
         let order = makeOrder(mode: mode)
         print(order)
@@ -56,18 +56,30 @@ struct Outputview {
         return "\(message) \(numberFormatter.string(from: NSNumber(value: money))!)원 입니다."
     }
 
-    private func makeMenu(menu: [Drink : Count]) -> String {
+
+    private func makeMenu(menu: [Drink], inventory: [Drink:Count]) -> String {
         var menuString = "다음과 같은 음료가 있습니다.\n"
-        let listOfCanBuy = Array(menu)
-        for drink in listOfCanBuy.enumerated() {
+        for drink in menu.enumerated() {
+            let count = inventory[drink.element] ?? 0
             menuString += String(format: "%d)%@ %d원(%d개)\n",
                                  drink.offset + 1,
-                                 drink.element.key.typeOfProduct,
-                                 drink.element.key.price,
-                                 drink.element.value)
+                                 drink.element.typeOfProduct,
+                                 drink.element.price,
+                                 count)
         }
         menuString.removeLast()
         return menuString
+    }
+
+    private func countDrinks(menu: [Drink]) -> [Drink : Count] {
+        var countDictionary = [Drink : Count]()
+        for drink in menu {
+            if let drinkCount = countDictionary[drink] {
+                countDictionary[drink] = drinkCount + 1
+            }
+            countDictionary[drink] = 0
+        }
+        return countDictionary
     }
 
     private func makeOrder(mode: VendingMachineMode) -> String {

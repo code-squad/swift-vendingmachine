@@ -9,7 +9,7 @@
 import Foundation
 
 struct User: EnableMode {
-    private var delegate: UserModeDelegate?
+    private var delegate: UserModeDelegate
     private var drink: Drink?
     enum Option: Int {
         case addMoney = 1
@@ -20,19 +20,20 @@ struct User: EnableMode {
         delegate = target
     }
 
-    mutating func makeMenu() -> (mode: VendingMachineMode, money: Int, menu: [Drink : Count]) {
-        let income = delegate?.howMuchRemainMoney()
-        let userMenu = delegate?.listOfCanBuy()
-        return (.user, income!, userMenu!)
+    mutating func makeMenu() -> (mode: VendingMachineMode, money: Int, menu: [Drink], inventory: [Drink:Count]) {
+        let income = delegate.howMuchRemainMoney()
+        let userMenu = delegate.listOfCanBuy()
+        let userInventory = delegate.listOfInventory()
+        return (.user, income, userMenu, userInventory)
     }
 
     mutating func action(option: Int, detail: Int) throws {
         switch option {
         case Option.addMoney.rawValue:
-            delegate?.add(money: detail)
+            delegate.add(money: detail)
         case Option.buyDrink.rawValue:
             do {
-                self.drink = try delegate?.buy(productIndex: detail)
+                self.drink = try delegate.buy(productIndex: detail)
             } catch let error {
                 throw error
             }

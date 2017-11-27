@@ -9,47 +9,8 @@
 import XCTest
 @testable import VendingMachine
 class UnitTestVendingMachine: XCTestCase {
-    var vendingMachine: VendingMachine!
-    var strawBerryMilk: StrawBerryMilk!
-    var bananaMilk: BananaMilk!
-    var coke: Coke!
-    var coffee: Coffee!
     override func setUp() {
         super.setUp()
-        strawBerryMilk = StrawBerryMilk(brand: "서울우유",
-                                        weight: "200ml",
-                                        price: "1000원",
-                                        name: "날마다딸기우유",
-                                        dateOfManufacture: "20171109",
-                                        calorie: "300kcal",
-                                        ingredients: ["strawBerrySyrup"],
-                                        ratioOfStrawBerrySyrup: "3.2%")
-        bananaMilk = BananaMilk(brand: "서울우유",
-                                weight: "200ml",
-                                price: "2000원",
-                                name: "날마다딸기우유",
-                                dateOfManufacture: "20171112",
-                                calorie: "350kcal",
-                                ingredients: ["bananaSyrup"],
-                                ratioOfBananaSyrup: "2.5%")
-        coke = Coke(calorie: "200kcal",
-                    brand: "팹시",
-                    weight: "350ml",
-                    price: "2000원",
-                    name: "다이어트콜라",
-                    dateOfManufacture: "20111005",
-                    amountOfSugar: "50g")
-        coffee = Top(calorie: "150kcal",
-                     brand: "맥심",
-                     weight: "400ml",
-                     price: "3000원",
-                     name: "TOP아메리카노",
-                     dateOfManufacture: "20171110",
-                     isHot: true,
-                     amountOfCaffeine: "30mg",
-                     nameOfCoffeeBeans: "Colombia",
-                     taste: .chocolateMocha)
-        
         vendingMachine = VendingMachine()
     }
     

@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
+		C9069DE41FCBB62F001BBC82 /* Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9094BD11FC5E4360047FAFE /* Connector.swift */; };
+		C9069DE51FCBB633001BBC82 /* EnableMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9094BCF1FC5DFC50047FAFE /* EnableMode.swift */; };
+		C9069DE61FCBB635001BBC82 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94963221FC4006C00E14312 /* Manager.swift */; };
+		C9069DE71FCBB639001BBC82 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94963241FC4014100E14312 /* User.swift */; };
+		C9069DE81FCBB63C001BBC82 /* ManagerModeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C949631C1FC3F5A600E14312 /* ManagerModeDelegate.swift */; };
+		C9069DE91FCBB63E001BBC82 /* UserModeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94963201FC3FB4800E14312 /* UserModeDelegate.swift */; };
 		C9094BD01FC5DFC50047FAFE /* EnableMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9094BCF1FC5DFC50047FAFE /* EnableMode.swift */; };
 		C9094BD21FC5E4360047FAFE /* Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9094BD11FC5E4360047FAFE /* Connector.swift */; };
 		C94962F41FC0469B00E14312 /* StrawBerryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAD5811FBD80F60007F169 /* StrawBerryMilk.swift */; };
@@ -311,13 +317,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9069DE91FCBB63E001BBC82 /* UserModeDelegate.swift in Sources */,
 				C94962FA1FC046B400E14312 /* Coke.swift in Sources */,
 				C9BAD57C1FBC3C160007F169 /* Drink.swift in Sources */,
 				C94962FC1FC046BA00E14312 /* Georgia.swift in Sources */,
 				C94962F51FC0469E00E14312 /* BananaMilk.swift in Sources */,
+				C9069DE61FCBB635001BBC82 /* Manager.swift in Sources */,
 				C94962FD1FC046BD00E14312 /* Cantata.swift in Sources */,
+				C9069DE41FCBB62F001BBC82 /* Connector.swift in Sources */,
 				C9BAD5751FBAC2EF0007F169 /* UnitTestVendingMachine.swift in Sources */,
+				C9069DE51FCBB633001BBC82 /* EnableMode.swift in Sources */,
 				C94962F81FC046A700E14312 /* Cider.swift in Sources */,
+				C9069DE71FCBB639001BBC82 /* User.swift in Sources */,
 				C94962F91FC046AA00E14312 /* Fanta.swift in Sources */,
 				C94962F61FC046A000E14312 /* ChocolateMilk.swift in Sources */,
 				C9BAD5971FBEFFF10007F169 /* UnitTestStringExtension.swift in Sources */,
@@ -325,6 +336,7 @@
 				C94962F71FC046A400E14312 /* SoftDrink.swift in Sources */,
 				C9BAD57F1FBC57DC0007F169 /* UnitTestMilk.swift in Sources */,
 				C94962FE1FC046C000E14312 /* Top.swift in Sources */,
+				C9069DE81FCBB63C001BBC82 /* ManagerModeDelegate.swift in Sources */,
 				C9BAD57D1FBC3CC70007F169 /* StringExtension.swift in Sources */,
 				C9BAD5801FBC57F30007F169 /* Milk.swift in Sources */,
 				C94962FB1FC046B800E14312 /* Coffee.swift in Sources */,
