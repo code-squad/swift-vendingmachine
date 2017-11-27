@@ -48,7 +48,7 @@ extension CoreVendingMachine: ManagerModeDelegate {
         }
         let deleteDrink = listOfDrink[productIndex - 1]
         for drink in inventory.enumerated() {
-            if drink.element === deleteDrink  {
+            if drink.element === deleteDrink {
                 inventory.remove(at: drink.offset)
                 return drink.element
             }
