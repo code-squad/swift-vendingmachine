@@ -8,7 +8,7 @@
 
 import Foundation
 
-typealias VendingMachineMode = VendingMachine.Mode
+typealias Mode = VendingMachine.Mode
 
 struct VendingMachine {
     private var enableMode: EnableMode?
@@ -24,9 +24,9 @@ struct VendingMachine {
     // 입력한 모드에 대한 처리. 모드에 따라 메니저와 자판기, 유저와 자판기 연결
     mutating func assignMode(mode: Int) throws {
         switch mode {
-        case VendingMachineMode.manager.rawValue:
+        case Mode.manager.rawValue:
             self.enableMode = Manager(target: core)
-        case VendingMachineMode.user.rawValue:
+        case Mode.user.rawValue:
             self.enableMode = User(target: core)
         default:
             throw VendingMachine.ModeError.invalidNumber

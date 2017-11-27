@@ -12,10 +12,6 @@ struct User: EnableMode {
     private var delegate: UserModeDelegate
     private var drink: Drink?
 
-    enum Option: Int {
-        case addMoney = 1
-        case buyDrink = 2
-    }
     init(target: UserModeDelegate) {
         delegate = target
     }
