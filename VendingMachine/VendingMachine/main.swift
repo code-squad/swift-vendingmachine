@@ -21,8 +21,8 @@ while(true) {
         if let menuContents = vendingMachine.makeMenu() {
             outputView.printMonitor(menuContents: menuContents)
         }
-        let input = try inputView.read()
-        try vendingMachine.action(option: input.option, detail: input.detail)
+        let inputAction = try inputView.read()
+        try vendingMachine.action(action: inputAction)
         if let resultOfBuy = vendingMachine.makeResultOfOrder() {
             outputView.printPurchase(drink: resultOfBuy)
         }

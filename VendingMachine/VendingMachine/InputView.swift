@@ -51,6 +51,6 @@ struct InputView {
 
 extension InputView {
     enum InputError: String, Error {
-        case invalidFormat = "입력 형식이 올바르지 않습니다."
+        case invalidFormat = "입력이 유효하지 않습니다."
     }
 }

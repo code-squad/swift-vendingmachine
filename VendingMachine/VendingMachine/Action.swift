@@ -9,11 +9,23 @@
 import Foundation
 
 struct Action {
-    var option: Int
-    var detail: Int
+    private(set) var option: Option
+    enum Option: Int {
+        case add = 1
+        case delete, exit
+    }
+    private(set) var detail: Int
 
-    init(option: Int, detail: Int) {
-        self.option = option
+    init?(option: Int, detail: Int) {
+        switch option {
+        case Option.add.rawValue:
+            self.option = .add
+        case Option.delete.rawValue:
+            self.option = .delete
+        case Option.exit.rawValue:
+            self.option = .exit
+        default: return nil
+        }
         self.detail = detail
     }
 }

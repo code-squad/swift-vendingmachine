@@ -12,5 +12,5 @@ typealias MenuContents = (mode: VendingMachineMode, money: Int, menu: [Drink], i
 
 protocol EnableMode {
     mutating func makeMenu() -> MenuContents
-    mutating func action(option: Int, detail: Int) throws
+    mutating func action(action: Action) throws
 }

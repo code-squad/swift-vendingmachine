@@ -9,7 +9,7 @@
 import Foundation
 
 struct Menu {
-    var drinkList: [Drink]
+    private(set) var drinkList: [Drink]
 
     init() {
         let strawBerryMilk = StrawBerryMilk(brand: "서울우유",
