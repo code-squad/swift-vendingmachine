@@ -54,7 +54,7 @@ struct Outputview {
         return countDictionary
     }
 
-    private func moneyMessage(mode: VendingMachineMode, money: Int) -> String {
+    private func moneyMessage(mode: Mode, money: Int) -> String {
         var message = ""
         switch mode {
         case .manager:
@@ -91,7 +91,7 @@ struct Outputview {
         return countDictionary
     }
 
-    private func makeOrder(mode: VendingMachineMode) -> String {
+    private func makeOrder(mode: Mode) -> String {
         let orderMessage: String!
         switch mode {
         case .manager:

@@ -10,10 +10,6 @@ import Foundation
 
 struct Manager: EnableMode {
     var delegate: ManagerModeDelegate
-    enum Option: Int {
-        case addInventory = 1
-        case deleteInventory = 2
-    }
 
     init(target: ManagerModeDelegate) {
         delegate = target
