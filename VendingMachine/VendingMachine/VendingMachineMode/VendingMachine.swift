@@ -8,6 +8,8 @@
 
 import Foundation
 
+typealias VendingMachineMode = VendingMachine.Mode
+
 struct VendingMachine {
     private var enableMode: EnableMode?
     private var core: CoreVendingMachine
