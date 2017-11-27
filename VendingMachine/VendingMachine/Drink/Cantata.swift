@@ -11,7 +11,7 @@ import Foundation
 class Cantata: Coffee {
     var taste: Taste
     enum Taste {
-        case ameriano
+        case americano
         case primiumLatte
     }
     init?(calorie: String,

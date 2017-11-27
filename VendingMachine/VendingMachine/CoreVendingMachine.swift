@@ -8,7 +8,7 @@
 
 import Foundation
 
-typealias VendingMachineMode = VendingMachine.Mode
+
 typealias Count = Int
 typealias Price = Int
 
@@ -87,15 +87,16 @@ extension CoreVendingMachine: UserModeDelegate {
 
     // 자판기 금액을 원하는 금액만큼 올리는 메소드
     func add(money: Int) {
-        inputMoney = money
+        inputMoney += money
     }
 
     // 현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
     func listOfCanBuy() -> [Drink] {
-        let listOfCanBuy = inventory.filter { inventory in
+        let setInventory = Set(inventory)
+        let listOfCanBuy = setInventory.filter { inventory in
             return inventory.price <= inputMoney
         }
-        return listOfCanBuy
+        return Array(listOfCanBuy)
     }
 
     @discardableResult func buy(productIndex: Int) throws -> Drink {
@@ -153,47 +154,3 @@ extension CoreVendingMachine {
     }
 
 }
-
-struct Menu {
-    var drinkList: [Drink]
-
-    init() {
-        let strawBerryMilk = StrawBerryMilk(brand: "서울우유",
-                                            weight: "200ml",
-                                            price: "1000원",
-                                            name: "날마다딸기우유",
-                                            dateOfManufacture: "20171009",
-                                            calorie: "300kcal",
-                                            ingredients: ["strawBerrySyrup"],
-                                            ratioOfStrawBerrySyrup: "3.2%")
-        let bananaMilk = BananaMilk(brand: "서울우유",
-                                    weight: "200ml",
-                                    price: "1000원",
-                                    name: "날마다딸기우유",
-                                    dateOfManufacture: "20171012",
-                                    calorie: "350kcal",
-                                    ingredients: ["bananaSyrup"],
-                                    ratioOfBananaSyrup: "2.5%")
-        let coke = Coke(calorie: "200kcal",
-                        brand: "팹시",
-                        weight: "350ml",
-                        price: "2000원",
-                        name: "다이어트콜라",
-                        dateOfManufacture: "20171005",
-                        amountOfSugar: "50g")
-        let coffee = Coffee(calorie: "150kcal",
-                            brand: "맥심",
-                            weight: "400ml",
-                            price: "3000원",
-                            name: "TOP아메리카노",
-                            dateOfManufacture: "20171010",
-                            isHot: true,
-                            amountOfCaffeine: "30mg",
-                            nameOfCoffeeBeans: "Colombia")
-        drinkList = [ strawBerryMilk!, bananaMilk!, coke!, coffee!]
-    }
-
-
-
-}
-
