@@ -13,14 +13,13 @@ struct Manager: EnableMode {
     enum Option: Int {
         case addInventory = 1
         case deleteInventory = 2
-        case exit = 3
     }
 
     init(target: ManagerModeDelegate) {
         delegate = target
     }
 
-    mutating func makeMenu() -> (mode: VendingMachineMode ,money: Int, menu: [Drink], inventory: [Drink : Count]) {
+    mutating func makeMenu() -> MenuContents {
         let income = delegate.howMuchIncome()
         let managerMenu = delegate.AllDrinkList()
         let managerInventory = delegate.listOfInventory()
