@@ -1,5 +1,5 @@
 //
-//  VendingMachine.swift
+//  CoreVendingMachine.swift
 //  VendingMachine
 //
 //  Created by yangpc on 2017. 11. 17..
@@ -12,7 +12,7 @@ typealias VendingMachineMode = VendingMachine.Mode
 typealias Count = Int
 typealias Price = Int
 
-class VendingMachine {
+class CoreVendingMachine {
     private var inventory: [Drink]
     private var purchases: [Drink]
     private var inputMoney: Price
@@ -29,7 +29,7 @@ class VendingMachine {
 
 }
 
-extension VendingMachine: ManagerModeDelegate {
+extension CoreVendingMachine: ManagerModeDelegate {
 
     // 음료수 인덱스를 넘겨서 재고를 추가하는 메소드
     func add(productIndex: Int) throws {
@@ -83,7 +83,7 @@ extension VendingMachine: ManagerModeDelegate {
 
 }
 
-extension VendingMachine: UserModeDelegate {
+extension CoreVendingMachine: UserModeDelegate {
 
     // 자판기 금액을 원하는 금액만큼 올리는 메소드
     func add(money: Int) {
@@ -145,21 +145,11 @@ extension VendingMachine: UserModeDelegate {
 
 }
 
-extension VendingMachine {
+extension CoreVendingMachine {
     enum stockError: String, Error {
         case soldOut = "해당 음료수는 품절되었습니다."
         case invalidProductNumber = "유효하지 않은 음료수 번호 입니다."
         case empty = "재고가 하나도 없습니다."
-    }
-    enum Mode: Int {
-        case manager = 1
-        case user = 2
-    }
-    enum ModeError: String, Error {
-        case invalidNumber = "유효하지 않은 모드입니다."
-    }
-    enum OptionError: String, Error {
-        case invalidNumber = "유효하지 않은 명령입니다."
     }
 
 }
