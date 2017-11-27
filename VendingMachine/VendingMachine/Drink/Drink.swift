@@ -93,17 +93,17 @@ extension NSObject {
     }
 }
 
-extension Drink: Comparable {
+extension Drink {
 
     static func == (lhs: Drink, rhs: Drink) -> Bool {
-        return lhs.typeName == rhs.typeName && lhs.typeOfProduct == rhs.typeOfProduct
+        return lhs.className == rhs.className
     }
 
-    static func < (lhs: Drink, rhs: Drink) -> Bool {
-        return lhs.typeName < rhs.typeName ||
-            (lhs.typeName == rhs.typeName && lhs.typeOfProduct < rhs.typeOfProduct)
+    override var hashValue: Int {
+        return className.hashValue
     }
 
 }
+
 
 
