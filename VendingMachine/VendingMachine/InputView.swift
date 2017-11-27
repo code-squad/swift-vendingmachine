@@ -8,8 +8,6 @@
 
 import Foundation
 
-typealias InputFormat = (option: Int, detail: Int)
-
 struct InputView {
 
     func readMode() throws -> Int {
@@ -22,7 +20,7 @@ struct InputView {
         return convertInputToInt
     }
 
-    func read() throws -> InputFormat {
+    func read() throws -> Action {
         let input = readLine() ?? ""
         guard let resultForInput = makeValidFormat(separator: " ")(input) else {
             throw InputError.invalidFormat
@@ -30,10 +28,10 @@ struct InputView {
         return resultForInput
     }
 
-    private func makeValidFormat(separator: Character) -> (String) -> InputFormat? {
-        return { (input: String) -> InputFormat? in
+    private func makeValidFormat(separator: Character) -> (String) -> Action? {
+        return { (input: String) -> Action? in
             if input.convertToIntValue == 3 {
-                return (3, -1)
+                return Action(option: 3, detail: -1)
             }
             let splitIntoOptionAndDetail = input.split(separator: separator)
             if splitIntoOptionAndDetail.count != 2 {
@@ -45,7 +43,7 @@ struct InputView {
                 let detailInteger = detail.convertToIntValue else {
                 return nil
             }
-            return (optionInteger, detailInteger)
+            return Action(option: optionInteger, detail: detailInteger)
         }
     }
 
