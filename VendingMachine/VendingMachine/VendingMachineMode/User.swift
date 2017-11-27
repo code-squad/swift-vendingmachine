@@ -27,17 +27,17 @@ struct User: EnableMode {
         return (.user, income, userMenu, userInventory)
     }
 
-    mutating func action(option: Int, detail: Int) throws {
-        switch option {
-        case Option.addMoney.rawValue:
-            delegate.add(money: detail)
-        case Option.buyDrink.rawValue:
+    mutating func action(action: Action) throws {
+        switch action.option {
+        case .add:
+            delegate.add(money: action.detail)
+        case .delete:
             do {
-                self.drink = try delegate.buy(productIndex: detail)
+                self.drink = try delegate.buy(productIndex: action.detail)
             } catch let error {
                 throw error
             }
-        default: break
+        case .exit: break
         }
     }
     

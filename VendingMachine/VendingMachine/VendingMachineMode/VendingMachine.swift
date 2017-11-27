@@ -40,11 +40,11 @@ struct VendingMachine {
         return nil
     }
 
-    mutating func action(option: Int, detail: Int) throws {
-        switch option {
-        case VendingMachineMode.manager.rawValue, VendingMachineMode.user.rawValue:
+    mutating func action(action: Action) throws {
+        switch action.option {
+        case .add, .delete:
             do {
-                try self.enableMode?.action(option: option, detail: detail)
+                try self.enableMode?.action(action: action)
             } catch CoreVendingMachine.stockError.soldOut {
                 print(CoreVendingMachine.stockError.soldOut.rawValue)
             } catch CoreVendingMachine.stockError.invalidProductNumber {
@@ -52,10 +52,8 @@ struct VendingMachine {
             } catch CoreVendingMachine.stockError.empty {
                 print(CoreVendingMachine.stockError.empty.rawValue)
             }
-        case state.exit.rawValue:
+        case .exit:
             self.enableMode = nil
-        default:
-            throw VendingMachine.OptionError.invalidNumber
         }
     }
     
@@ -75,11 +73,5 @@ extension VendingMachine {
     }
     enum ModeError: String, Error {
         case invalidNumber = "유효하지 않은 모드입니다."
-    }
-    enum OptionError: String, Error {
-        case invalidNumber = "유효하지 않은 명령입니다."
-    }
-    enum state: Int {
-        case exit = 3
     }
 }
