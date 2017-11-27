@@ -18,13 +18,13 @@ while(true) {
             let mode = try inputView.readMode()
             try vendingMachine.assignMode(mode: mode)
         }
-        if let menu = vendingMachine.makeMenu() {
-            outputView.printMonitor(mode: menu.mode, money:menu.money, menu: menu.menu, inventory: menu.inventory)
+        if let menuContents = vendingMachine.makeMenu() {
+            outputView.printMonitor(menuContents: menuContents)
         }
         let input = try inputView.read()
         try vendingMachine.action(option: input.option, detail: input.detail)
-        if let resultOfAction = vendingMachine.makeResultOfOrder() {
-            outputView.printPurchase(drink: resultOfAction)
+        if let resultOfBuy = vendingMachine.makeResultOfOrder() {
+            outputView.printPurchase(drink: resultOfBuy)
         }
     } catch InputView.InputError.invalidFormat {
         print(InputView.InputError.invalidFormat.rawValue)

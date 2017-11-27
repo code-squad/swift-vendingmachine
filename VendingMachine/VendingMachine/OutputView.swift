@@ -15,12 +15,12 @@ struct Outputview {
         return formatter
     }()
 
-    func printMonitor(mode: VendingMachineMode, money: Int, menu: [Drink], inventory: [Drink : Count]) {
+    func printMonitor(menuContents: MenuContents) {
         var menuString = ""
-        menuString += moneyMessage(mode: mode, money: money)
-        menuString += makeMenu(menu: menu, inventory: inventory)
+        menuString += moneyMessage(mode: menuContents.mode, money: menuContents.money)
+        menuString += makeMenu(menu: menuContents.menu, inventory: menuContents.inventory)
         print(menuString)
-        let order = makeOrder(mode: mode)
+        let order = makeOrder(mode: menuContents.mode)
         print(order)
     }
 
@@ -31,18 +31,27 @@ struct Outputview {
         print(purchaseMessage)
     }
 
-    func printListOfAllPurchases(listOfPurchase: Array<(key: Drink, value: Count)>, change: Int) {
+    func printListOfAllPurchases(listOfPurchase: [Drink], change: Int) {
         var listOfAllPurchases = String(format: "잔돈은 %d원 입니다. 다음은 구매한 음료 목록입니다.\n",
                                         change)
-        for index in 0..<listOfPurchase.count {
-            let purchaseDrink = listOfPurchase[index]
+        let countDictionary = makeDrinkCount(listOfPurchase: listOfPurchase)
+        for drink in countDictionary.enumerated() {
             listOfAllPurchases += String(format: "%d)%@ (%d개)\n",
-                                         index + 1,
-                                         purchaseDrink.key.typeOfProduct,
-                                         purchaseDrink.value)
+                                         drink.offset+1,
+                                         drink.element.key.typeOfProduct,
+                                         drink.element.value)
         }
         listOfAllPurchases.removeLast()
         print(listOfAllPurchases)
+    }
+
+    private func makeDrinkCount(listOfPurchase: [Drink]) -> [Drink:Count] {
+        var countDictionary = [Drink:Count]()
+        listOfPurchase.forEach { drink in
+            let count = countDictionary[drink] ?? 0
+            countDictionary[drink] = count + 1
+        }
+        return countDictionary
     }
 
     private func moneyMessage(mode: VendingMachineMode, money: Int) -> String {

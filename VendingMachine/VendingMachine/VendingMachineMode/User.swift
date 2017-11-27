@@ -11,16 +11,16 @@ import Foundation
 struct User: EnableMode {
     private var delegate: UserModeDelegate
     private var drink: Drink?
+
     enum Option: Int {
         case addMoney = 1
         case buyDrink = 2
-        case exit = 3
     }
     init(target: UserModeDelegate) {
         delegate = target
     }
 
-    mutating func makeMenu() -> (mode: VendingMachineMode, money: Int, menu: [Drink], inventory: [Drink:Count]) {
+    mutating func makeMenu() -> MenuContents {
         let income = delegate.howMuchRemainMoney()
         let userMenu = delegate.listOfCanBuy()
         let userInventory = delegate.listOfInventory()

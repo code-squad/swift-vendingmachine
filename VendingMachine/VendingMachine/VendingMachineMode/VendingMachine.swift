@@ -33,7 +33,7 @@ struct VendingMachine {
         }
     }
 
-    func makeMenu() -> (mode: VendingMachineMode ,money: Int, menu: [Drink], inventory: [Drink:Count])? {
+    func makeMenu() -> MenuContents? {
         if var enableMode = self.enableMode {
             return enableMode.makeMenu()
         }
@@ -48,8 +48,8 @@ struct VendingMachine {
             } catch let error {
                 throw error
             }
-        case Manager.Option.exit.rawValue, User.Option.exit.rawValue:
-            enableMode = nil
+        case state.exit.rawValue:
+            self.enableMode = nil
         default:
             throw VendingMachine.OptionError.invalidNumber
         }
@@ -74,5 +74,8 @@ extension VendingMachine {
     }
     enum OptionError: String, Error {
         case invalidNumber = "유효하지 않은 명령입니다."
+    }
+    enum state: Int {
+        case exit = 3
     }
 }
