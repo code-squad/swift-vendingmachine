@@ -70,11 +70,21 @@ class Drink: NSObject {
 
 extension NSObject {
     var className: String {
-        return String(describing: type(of: self)).components(separatedBy: ".").last!
+        guard let _className = String(describing: type(of: self))
+            .components(separatedBy: ".")
+            .last else {
+                return ""
+        }
+        return _className
     }
 
     class var className: String {
-        return String(describing: self).components(separatedBy: ".").last!
+        guard let _className = String(describing: self)
+            .components(separatedBy: ".")
+            .last else {
+                return ""
+        }
+        return _className
     }
 
     var typeName: String {
