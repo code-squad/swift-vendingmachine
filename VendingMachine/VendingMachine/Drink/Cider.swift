@@ -10,7 +10,7 @@ import Foundation
 
 class Cider: SoftDrink {
     func isZeroCider() -> Bool {
-        return self.calorie < 4
+        return calorie < 4
     }
 
 }

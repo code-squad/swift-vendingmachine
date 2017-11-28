@@ -25,9 +25,9 @@ struct VendingMachine {
     mutating func assignMode(mode: Int) throws {
         switch mode {
         case Mode.manager.rawValue:
-            self.enableMode = Manager(target: core)
+            enableMode = Manager(target: core)
         case Mode.user.rawValue:
-            self.enableMode = User(target: core)
+            enableMode = User(target: core)
         default:
             throw VendingMachine.ModeError.invalidNumber
         }
@@ -44,7 +44,7 @@ struct VendingMachine {
         switch action.option {
         case .add, .delete:
             do {
-                try self.enableMode?.action(action: action)
+                try enableMode?.action(action: action)
             } catch CoreVendingMachine.stockError.soldOut {
                 print(CoreVendingMachine.stockError.soldOut.rawValue)
             } catch CoreVendingMachine.stockError.invalidProductNumber {
@@ -53,12 +53,12 @@ struct VendingMachine {
                 print(CoreVendingMachine.stockError.empty.rawValue)
             }
         case .exit:
-            self.enableMode = nil
+            enableMode = nil
         }
     }
     
     func makeResultOfOrder() -> Drink? {
-        if let mode = self.enableMode as? User {
+        if let mode = enableMode as? User {
             return mode.selectDrink()
         }
         return nil
