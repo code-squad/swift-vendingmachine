@@ -22,13 +22,13 @@ class Drink: NSObject {
     }
     override var description: String {
         return String(format: "%@(%@) - %@, %dml, %d원, %@, %@",
-                      self.typeOfProduct,
-                      self.className,
-                      self.brand,
-                      self.weight,
-                      self.price,
-                      self.name,
-                      dateFormatter.string(from: self.dateOfManufacture))
+                      typeOfProduct,
+                      className,
+                      brand,
+                      weight,
+                      price,
+                      name,
+                      dateFormatter.string(from: dateOfManufacture))
     }
     private let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()

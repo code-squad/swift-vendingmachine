@@ -19,11 +19,11 @@ struct Action {
     init?(option: Int, detail: Int) {
         switch option {
         case Option.add.rawValue:
-            self.option = .add
+            option = .add
         case Option.delete.rawValue:
-            self.option = .delete
+            option = .delete
         case Option.exit.rawValue:
-            self.option = .exit
+            option = .exit
         default: return nil
         }
         self.detail = detail

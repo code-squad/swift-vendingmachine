@@ -33,7 +33,7 @@ class SoftDrink: Drink {
     }
 
     func isSuitableAmountOfSugar() -> Bool {
-        return self.amountOfSugar < 50
+        return amountOfSugar < 50
     }
 
 }

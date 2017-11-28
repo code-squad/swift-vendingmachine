@@ -29,7 +29,7 @@ struct User: EnableMode {
             delegate.add(money: action.detail)
         case .delete:
             do {
-                self.drink = try delegate.buy(productIndex: action.detail)
+                drink = try delegate.buy(productIndex: action.detail)
             } catch let error {
                 throw error
             }
@@ -38,7 +38,7 @@ struct User: EnableMode {
     }
     
     func selectDrink() -> Drink? {
-        return self.drink
+        return drink
     }
 
 }

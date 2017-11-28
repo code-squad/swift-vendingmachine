@@ -39,12 +39,12 @@ class Coffee: Drink {
     }
 
     func isSuitableAmountOfCaffeine(to age: Int) -> Bool {
-        return (age > 19 && self.amountOfCaffeine == 400) ||
-            (age <= 19 && self.amountOfCaffeine == 125)
+        return (age > 19 && amountOfCaffeine == 400) ||
+            (age <= 19 && amountOfCaffeine == 125)
     }
 
     func isLowCalorie() -> Bool {
-        return self.calorie <= 30
+        return calorie <= 30
     }
 
 }

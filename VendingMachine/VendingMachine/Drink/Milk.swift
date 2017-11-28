@@ -33,11 +33,11 @@ class Milk: Drink {
     }
 
     func isEasyOfDigestion() -> Bool {
-        return self.ingredients.contains("lactose")
+        return ingredients.contains("lactose")
     }
 
     func isLowCalorie() -> Bool {
-        return self.calorie <= 100
+        return calorie <= 100
     }
 
 }
