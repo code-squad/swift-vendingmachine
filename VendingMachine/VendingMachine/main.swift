@@ -19,8 +19,10 @@ while(true) {
             try vendingMachine.assignMode(mode: mode)
         } catch VendingMachine.ModeError.invalidNumber {
             print(VendingMachine.ModeError.invalidNumber.rawValue)
+            continue
         } catch InputView.InputError.invalidFormat {
             print(InputView.InputError.invalidFormat.rawValue)
+            continue
         }
     }
     if let menuContents = vendingMachine.makeMenu() {
