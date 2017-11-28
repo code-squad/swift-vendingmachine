@@ -15,6 +15,6 @@ protocol UserModeDelegate {
     func howMuchRemainMoney() -> Price
     func listOfHotDrink() -> [Drink]
     func listOfPurchase() -> Array<Drink>
-    func listOfInventory() -> [Drink : Count]
+    func listOfInventory() -> [Drink: Count]
     func extractAllMoney() -> Int
 }

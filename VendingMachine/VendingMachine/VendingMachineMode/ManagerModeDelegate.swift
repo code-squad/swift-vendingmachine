@@ -12,7 +12,7 @@ protocol ManagerModeDelegate {
     func add(productIndex: Int) throws
     @discardableResult func delete(productIndex: Int) throws -> Drink
     func howMuchIncome() -> Price
-    func listOfInventory() -> [Drink : Count]
+    func listOfInventory() -> [Drink: Count]
     func listOfOverExpirationDate() -> [Drink]
     func AllDrinkList() -> [Drink]
 }

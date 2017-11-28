@@ -62,7 +62,7 @@ struct Outputview {
         case .user:
             message = "현재 투입한 금액은"
         }
-        return "\(message) \(numberFormatter.string(from: NSNumber(value: money))!)원 입니다."
+        return "\(message) \(numberFormatter.string(from: NSNumber(value: money)) ?? "0")원 입니다."
     }
 
 
@@ -80,8 +80,8 @@ struct Outputview {
         return menuString
     }
 
-    private func countDrinks(menu: [Drink]) -> [Drink : Count] {
-        var countDictionary = [Drink : Count]()
+    private func countDrinks(menu: [Drink]) -> [Drink: Count] {
+        var countDictionary = [Drink: Count]()
         for drink in menu {
             if let drinkCount = countDictionary[drink] {
                 countDictionary[drink] = drinkCount + 1
@@ -92,12 +92,12 @@ struct Outputview {
     }
 
     private func makeOrder(mode: Mode) -> String {
-        let orderMessage: String!
+        var orderMessage = ""
         switch mode {
         case .manager:
-            orderMessage = "1. 재고추가\n2. 재고삭제\n3. 나가기"
+            orderMessage += "1. 재고추가\n2. 재고삭제\n3. 나가기"
         case .user:
-            orderMessage = "1. 금액추가\n2. 음료구매\n3. 잔돈출금"
+            orderMessage += "1. 금액추가\n2. 음료구매\n3. 잔돈출금"
         }
         return orderMessage
     }
