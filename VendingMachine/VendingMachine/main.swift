@@ -23,12 +23,12 @@ while(true) {
         }
         let inputAction = try inputView.read()
         vendingMachine.action(action: inputAction)
-        if let resultOfBuy = vendingMachine.makeResultOfOrder() {
-            outputView.printPurchase(drink: resultOfBuy)
-        }
     } catch InputView.InputError.invalidFormat {
         print(InputView.InputError.invalidFormat.rawValue)
     } catch VendingMachine.ModeError.invalidNumber {
         print(VendingMachine.ModeError.invalidNumber.rawValue)
+    }
+    if let resultOfBuy = vendingMachine.makeResultOfOrder() {
+        outputView.printPurchase(drink: resultOfBuy)
     }
 }
