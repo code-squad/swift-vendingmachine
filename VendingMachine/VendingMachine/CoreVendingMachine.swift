@@ -12,7 +12,7 @@ import Foundation
 typealias Count = Int
 typealias Price = Int
 
-class CoreVendingMachine {
+final class CoreVendingMachine {
     private var inventory: [Drink]
     private var purchases: [Drink]
     private var inputMoney: Price
@@ -61,8 +61,8 @@ extension CoreVendingMachine: ManagerModeDelegate {
     }
 
     // 전체 상품 재고를 (사전으로 표현하는) 종류별로 리턴하는 메소드
-    func listOfInventory() -> [Drink : Count] {
-        var countDictionary = [Drink : Count]()
+    func listOfInventory() -> [Drink: Count] {
+        var countDictionary = [ Drink: Count ]()
         for drink in inventory {
             let count = countDictionary[drink] ?? 0
             countDictionary[drink] = count + 1

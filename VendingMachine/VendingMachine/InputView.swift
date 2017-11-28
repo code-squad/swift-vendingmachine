@@ -34,13 +34,10 @@ struct InputView {
                 return Action(option: 3, detail: -1)
             }
             let splitIntoOptionAndDetail = input.split(separator: separator)
-            if splitIntoOptionAndDetail.count != 2 {
-                return nil
-            }
-            let option = String(splitIntoOptionAndDetail.first!)
-            let detail = String(splitIntoOptionAndDetail.last!)
-            guard let optionInteger = option.convertToIntValue,
-                let detailInteger = detail.convertToIntValue else {
+            guard let option = splitIntoOptionAndDetail.first,
+                let detail = splitIntoOptionAndDetail.last,
+                let optionInteger = String(option).convertToIntValue,
+                let detailInteger = String(detail).convertToIntValue else {
                 return nil
             }
             return Action(option: optionInteger, detail: detailInteger)

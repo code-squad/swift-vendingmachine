@@ -8,7 +8,7 @@
 
 import Foundation
 
-typealias MenuContents = (mode: Mode, money: Int, menu: [Drink], inventory: [Drink:Count])
+typealias MenuContents = (mode: Mode, money: Int, menu: [Drink], inventory: [Drink: Count])
 
 protocol EnableMode {
     mutating func makeMenu() -> MenuContents

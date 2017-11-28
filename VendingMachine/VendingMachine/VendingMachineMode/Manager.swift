@@ -9,7 +9,7 @@
 import Foundation
 
 struct Manager: EnableMode {
-    var delegate: ManagerModeDelegate
+    private var delegate: ManagerModeDelegate
 
     init(target: ManagerModeDelegate) {
         delegate = target

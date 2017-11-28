@@ -22,7 +22,7 @@ while(true) {
             outputView.printMonitor(menuContents: menuContents)
         }
         let inputAction = try inputView.read()
-        try vendingMachine.action(action: inputAction)
+        vendingMachine.action(action: inputAction)
         if let resultOfBuy = vendingMachine.makeResultOfOrder() {
             outputView.printPurchase(drink: resultOfBuy)
         }

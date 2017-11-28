@@ -40,7 +40,7 @@ struct VendingMachine {
         return nil
     }
 
-    mutating func action(action: Action) throws {
+    mutating func action(action: Action) {
         switch action.option {
         case .add, .delete:
             do {
@@ -51,6 +51,8 @@ struct VendingMachine {
                 print(CoreVendingMachine.stockError.invalidProductNumber.rawValue)
             } catch CoreVendingMachine.stockError.empty {
                 print(CoreVendingMachine.stockError.empty.rawValue)
+            } catch let error {
+                print(error)
             }
         case .exit:
             enableMode = nil
