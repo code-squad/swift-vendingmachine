@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Beverage {
+class Beverage: CustomStringConvertible {
     let brand: String
     let weight: Int
     let price: Int
@@ -21,6 +21,16 @@ class Beverage {
         self.price = price
         self.name = name
         self.dateOfManufacture = Date()
+    }
+
+    var description: String {
+        return "\(brand), \(weight)ml, \(price)원, \(name), \(getStringFromDate(date: dateOfManufacture))"
+    }
+
+    private func getStringFromDate(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMdd"
+        return dateFormatter.string(from: date)
     }
 
 }

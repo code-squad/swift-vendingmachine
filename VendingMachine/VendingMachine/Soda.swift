@@ -1,4 +1,14 @@
 //
+//  Soda.swift
+//  VendingMachine
+//
+//  Created by TaeHyeonLee on 2017. 12. 7..
+//  Copyright © 2017년 JK. All rights reserved.
+//
+
+import Foundation
+
+//
 //  Milk.swift
 //  VendingMachine
 //
@@ -8,16 +18,16 @@
 
 import Foundation
 
-class Milk: Beverage {
+class Soda: Beverage {
     let category: Category
 
     enum Category: String {
-        case strawberry = "딸기우유"
-        case choco = "초코우유"
-        case banana = "바나나우유"
+        case coke = "콜라"
+        case sprite = "사이다"
+        case fanta = "환타"
     }
 
-    init(category: Milk.Category, brand: String, weight: Int, price: Int, name: String) {
+    init(category: Soda.Category, brand: String, weight: Int, price: Int, name: String) {
         self.category = category
         super.init(brand: brand, weight: weight, price: price, name: name)
     }
