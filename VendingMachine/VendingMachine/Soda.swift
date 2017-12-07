@@ -3,17 +3,7 @@
 //  VendingMachine
 //
 //  Created by TaeHyeonLee on 2017. 12. 7..
-//  Copyright © 2017년 JK. All rights reserved.
-//
-
-import Foundation
-
-//
-//  Milk.swift
-//  VendingMachine
-//
-//  Created by TaeHyeonLee on 2017. 12. 7..
-//  Copyright © 2017년 JK. All rights reserved.
+//  Copyright © 2017 ChocOZerO. All rights reserved.
 //
 
 import Foundation
