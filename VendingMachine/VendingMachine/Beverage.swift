@@ -9,11 +9,11 @@
 import Foundation
 
 class Beverage: CustomStringConvertible {
-    let brand: String
-    let weight: Int
-    let price: Int
-    let name: String
-    let dateOfManufacture: Date
+    private let brand: String
+    private let weight: Int
+    private let price: Int
+    private let name: String
+    private let dateOfManufacture: Date
 
     init(brand: String, weight: Int, price: Int, name: String) {
         self.brand = brand
