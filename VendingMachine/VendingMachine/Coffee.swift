@@ -9,7 +9,7 @@
 import Foundation
 
 class Coffee: Beverage {
-    let category: Category
+    private let category: Category
 
     enum Category: String {
         case top = "T.O.P"

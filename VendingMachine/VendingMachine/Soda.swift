@@ -9,7 +9,7 @@
 import Foundation
 
 class Soda: Beverage {
-    let category: Category
+    private let category: Category
 
     enum Category: String {
         case coke = "콜라"
