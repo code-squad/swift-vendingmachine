@@ -16,4 +16,8 @@ class Coffee: Beverage {
         super.init(brand: brand, weight: weight, price: price, name: name)
     }
 
+    func isHot() -> Bool {
+        return hot
+    }
+
 }
