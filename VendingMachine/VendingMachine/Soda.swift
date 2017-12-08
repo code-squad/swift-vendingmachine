@@ -9,22 +9,11 @@
 import Foundation
 
 class Soda: Beverage {
-    private let category: Category
+    private let lowCalorie: Bool
 
-    enum Category: String {
-        case coke = "콜라"
-        case sprite = "사이다"
-        case fanta = "환타"
-    }
-
-    init(category: Soda.Category, brand: String, weight: Int, price: Int, name: String) {
-        self.category = category
+    init(brand: String, weight: Int, price: Int, name: String, lowCalorie: Bool) {
+        self.lowCalorie = lowCalorie
         super.init(brand: brand, weight: weight, price: price, name: name)
-    }
-
-
-    override var description: String {
-        return "\(category.rawValue) - " + super.description
     }
 
 }
