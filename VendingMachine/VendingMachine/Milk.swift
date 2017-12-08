@@ -9,22 +9,22 @@
 import Foundation
 
 class Milk: Beverage {
-    private let category: Category
+    private var validate: Date
 
-    enum Category: String {
-        case strawberry = "딸기우유"
-        case choco = "초코우유"
-        case banana = "바나나우유"
-    }
-
-    init(category: Milk.Category, brand: String, weight: Int, price: Int, name: String) {
-        self.category = category
+    init(brand: String, weight: Int, price: Int, name: String, validate: String) {
+        self.validate = Milk.getDateFromString(validate: validate)
         super.init(brand: brand, weight: weight, price: price, name: name)
     }
 
-
-    override var description: String {
-        return "\(category.rawValue) - " + super.description
+    private static func getDateFromString(validate: String) -> Date {
+        var dateComponents = DateComponents()
+        dateComponents.year = Int(validate.prefix(4))!
+        dateComponents.month = Int(validate.suffix(4).prefix(2))!
+        dateComponents.day = Int(validate.suffix(2))
+        dateComponents.timeZone = TimeZone(abbreviation: "KST")
+        let calendar = Calendar.current
+        let date = calendar.date(from: dateComponents)!
+        return date
     }
 
 }
