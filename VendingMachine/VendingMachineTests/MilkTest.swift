@@ -21,10 +21,18 @@ class MilkTest: XCTestCase {
     }
 
     func testMilkDescription() {
-        let strawberryMilk: Beverage = Milk.init(category: .strawberry, brand: "서울우유", weight: 200, price: 1000, name: "날마다딸기우유")
-        XCTAssertEqual(strawberryMilk.description, "딸기우유 - 서울우유, 200ml, 1000원, 날마다딸기우유, 20171207")
-        let bananaMilk: Beverage = Milk.init(category: .banana, brand: "서울우유", weight: 200, price: 1000, name: "날마다바나나우유")
-        XCTAssertEqual(bananaMilk.description, "바나나우유 - 서울우유, 200ml, 1000원, 날마다바나나우유, 20171207")
+        let strawberryMilk = Milk.init(brand: "서울우유", weight: 200, price: 1000, name: "날마다딸기우유", validate: "20171212")
+        XCTAssertEqual(strawberryMilk.description, "서울우유, 200ml, 1000원, 날마다딸기우유, 20171208")
+        let bananaMilk = Milk.init(brand: "서울우유", weight: 200, price: 1000, name: "날마다바나나우유", validate: "20171212")
+        XCTAssertEqual(bananaMilk.description, "서울우유, 200ml, 1000원, 날마다바나나우유, 20171208")
+    }
+
+    func testValidate() {
+        let strawberryMilk = Milk.init(brand: "서울우유", weight: 200, price: 1000, name: "날마다딸기우유", validate: "20171212")
+        XCTAssertTrue(strawberryMilk.validate(with: Date()))
+
+        let bananaMilk = Milk.init(brand: "서울우유", weight: 200, price: 1000, name: "날마다바나나우유", validate: "20171201")
+        XCTAssertFalse(bananaMilk.validate(with: Date()))
     }
 
 }

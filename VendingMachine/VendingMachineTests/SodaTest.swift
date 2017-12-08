@@ -21,8 +21,15 @@ class SodaTest: XCTestCase {
     }
 
     func testSodaDescription() {
-        let cola: Beverage = Soda.init(category: .coke, brand: "펩시", weight: 350, price: 2000, name: "다이어트콜라")
-        XCTAssertEqual(cola.description, "콜라 - 펩시, 350ml, 2000원, 다이어트콜라, 20171207")
+        let cola = Soda.init(brand: "펩시", weight: 350, price: 2000, name: "다이어트콜라", lowCalorie: true)
+        XCTAssertEqual(cola.description, "펩시, 350ml, 2000원, 다이어트콜라, 20171208")
+    }
+
+    func testLowCalorie() {
+        let lowSoda = Soda.init(brand: "펩시", weight: 350, price: 2000, name: "다이어트콜라", lowCalorie: true)
+        XCTAssertTrue(lowSoda.isLowCalorie())
+        let notLowSoda = Soda.init(brand: "펩시", weight: 350, price: 2000, name: "콜라", lowCalorie: false)
+        XCTAssertFalse(notLowSoda.isLowCalorie())
     }
 
 }
