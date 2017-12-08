@@ -27,4 +27,8 @@ class Milk: Beverage {
         return date
     }
 
+    func validate(with data: Date) -> Bool {
+        return data < validate
+    }
+
 }
