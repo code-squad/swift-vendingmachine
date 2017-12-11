@@ -24,6 +24,6 @@ class SoftDrink: Beverage {
     }
 
     override var description: String {
-        return self.selectedMenu.description + "-" + super.description
+        return self.selectedMenu.description + " - " + super.description
     }
 }
