@@ -13,5 +13,17 @@ protocol Drinkable {
 }
 
 class Beverage: Drinkable {
-    
+    // 브랜드(String), 무게(Int), 가격(Int), 이름(String), 제조일자(Date)
+    private let brand: String
+    private let weight: Int
+    private let price: Int
+    private let productName: String
+    private let manufacturedDate: Date
+    init(brand: String, weight: Int, price: Int, productName: String, manufacturedDate: Date) {
+        self.brand = brand
+        self.weight = weight
+        self.price = price
+        self.productName = productName
+        self.manufacturedDate = manufacturedDate
+    }
 }
