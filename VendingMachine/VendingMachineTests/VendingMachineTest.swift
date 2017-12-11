@@ -33,7 +33,7 @@ class VendingMachineTest: XCTestCase {
         let dateOfManufacture: Date = "20171211".getDateFromString()
         let validate: Date = "20171220".getDateFromString()
         let strawberryMilk = StrawberryMilk.init(brand: "서울우유", weight: 200, price: 1000, name: "딸기우유", dateOfManufacture: dateOfManufacture, validate: validate)
-        vendingMachine.addProduct(strawberryMilk)
+        vendingMachine.addProduct(category: String(strawberryMilk.description.split(separator: "(")[0]), product: strawberryMilk)
         XCTAssertEqual(vendingMachine.getInventory().count, 1)
     }
 
@@ -45,8 +45,8 @@ class VendingMachineTest: XCTestCase {
         let validate: Date = "20171220".getDateFromString()
         let strawberryMilk = StrawberryMilk.init(brand: "서울우유", weight: 200, price: 1000, name: "딸기우유", dateOfManufacture: dateOfManufacture, validate: validate)
         let pepciCoke = PepciCoke.init(brand: "펩시", weight: 350, price: 2000, name: "다이어트콜라", dateOfManufacture: dateOfManufacture, lowCalorie: true)
-        vendingMachine.addProduct(strawberryMilk)
-        vendingMachine.addProduct(pepciCoke)
+        vendingMachine.addProduct(category: String(strawberryMilk.description.split(separator: "(")[0]), product: strawberryMilk)
+        vendingMachine.addProduct(category: String(pepciCoke.description.split(separator: "(")[0]), product: pepciCoke)
         XCTAssertEqual(vendingMachine.getBuyableProducts().count, 1)
     }
 
@@ -58,9 +58,10 @@ class VendingMachineTest: XCTestCase {
         let validate: Date = "20171220".getDateFromString()
         let strawberryMilk = StrawberryMilk.init(brand: "서울우유", weight: 200, price: 1000, name: "딸기우유", dateOfManufacture: dateOfManufacture, validate: validate)
         let pepciCoke = PepciCoke.init(brand: "펩시", weight: 350, price: 2000, name: "다이어트콜라", dateOfManufacture: dateOfManufacture, lowCalorie: true)
-        vendingMachine.addProduct(strawberryMilk)
-        vendingMachine.addProduct(pepciCoke)
-        vendingMachine.buy(index: 1)
+        let strawBerryCategory = String(strawberryMilk.description.split(separator: "(")[0])
+        vendingMachine.addProduct(category: strawBerryCategory, product: strawberryMilk)
+        vendingMachine.addProduct(category: String(pepciCoke.description.split(separator: "(")[0]), product: pepciCoke)
+        vendingMachine.buy(category: strawBerryCategory)
         XCTAssertEqual(vendingMachine.getInventory().count, 1)
         XCTAssertEqual(vendingMachine.getBuyableProducts().count, 0)
         XCTAssertEqual(vendingMachine.getBalance(), 0)
@@ -81,23 +82,23 @@ class VendingMachineTest: XCTestCase {
         let validate: Date = "20171220".getDateFromString()
         let strawberryMilk = StrawberryMilk.init(brand: "서울우유", weight: 200, price: 1000, name: "딸기우유", dateOfManufacture: dateOfManufacture, validate: validate)
         let pepciCoke = PepciCoke.init(brand: "펩시", weight: 350, price: 2000, name: "다이어트콜라", dateOfManufacture: dateOfManufacture, lowCalorie: true)
-        vendingMachine.addProduct(strawberryMilk)
-        vendingMachine.addProduct(pepciCoke)
+        vendingMachine.addProduct(category: String(strawberryMilk.description.split(separator: "(")[0]), product: strawberryMilk)
+        vendingMachine.addProduct(category: String(pepciCoke.description.split(separator: "(")[0]), product: pepciCoke)
         XCTAssertEqual(vendingMachine.getInventory().count, 2)
     }
 
     //    유통기한이 지난 재고만 리턴하는 메소드
     func testGetExpiredProducts() {
         var vendingMachine: VendingMachine = VendingMachine.init()
-        let dateOfManufacture: Date = "20171211".getDateFromString()
+        var dateOfManufacture: Date = "20171211".getDateFromString()
         let validate: Date = "20171220".getDateFromString()
         let strawberryMilk = StrawberryMilk.init(brand: "서울우유", weight: 200, price: 1000, name: "딸기우유", dateOfManufacture: dateOfManufacture, validate: validate)
 
         dateOfManufacture = "20171207".getDateFromString()
         let expiredValidate: Date = "20171209".getDateFromString()
         let bananaMilk = BananaMilk.init(brand: "서울우유", weight: 200, price: 1000, name: "날마다바나나우유", dateOfManufacture: dateOfManufacture, validate: expiredValidate)
-        vendingMachine.addProduct(strawberryMilk)
-        vendingMachine.addProduct(bananaMilk)
+        vendingMachine.addProduct(category: String(strawberryMilk.description.split(separator: "(")[0]), product: strawberryMilk)
+        vendingMachine.addProduct(category: String(bananaMilk.description.split(separator: "(")[0]), product: bananaMilk)
         XCTAssertEqual(vendingMachine.getExpiredProducts(date: "20171210".getDateFromString()).count, 1)
     }
 
@@ -108,9 +109,9 @@ class VendingMachineTest: XCTestCase {
         let topCoffee = TOPCoffee.init(brand: "맥심", weight: 400, price: 3000, name: "TOP아메리카노", dateOfManufacture: dateOfManufacture, hot: true)
         let kantata = Kantata.init(brand: "Kantata", weight: 400, price: 3000, name: "칸타타", dateOfManufacture: dateOfManufacture, hot: true)
         let georgia = Georgia.init(brand: "코카콜라", weight: 400, price: 3000, name: "죠지아", dateOfManufacture: dateOfManufacture, hot: false)
-        vendingMachine.addProduct(topCoffee)
-        vendingMachine.addProduct(kantata)
-        vendingMachine.addProduct(georgia)
+        vendingMachine.addProduct(category: String(topCoffee.description.split(separator: "(")[0]), product: topCoffee)
+        vendingMachine.addProduct(category: String(kantata.description.split(separator: "(")[0]), product: kantata)
+        vendingMachine.addProduct(category: String(georgia.description.split(separator: "(")[0]), product: georgia)
         XCTAssertEqual(vendingMachine.getHotProducts().count, 2)
     }
 
@@ -121,10 +122,11 @@ class VendingMachineTest: XCTestCase {
         let topCoffee = TOPCoffee.init(brand: "맥심", weight: 400, price: 3000, name: "TOP아메리카노", dateOfManufacture: dateOfManufacture, hot: true)
         let kantata = Kantata.init(brand: "Kantata", weight: 400, price: 3000, name: "칸타타", dateOfManufacture: dateOfManufacture, hot: true)
         let georgia = Georgia.init(brand: "코카콜라", weight: 400, price: 3000, name: "죠지아", dateOfManufacture: dateOfManufacture, hot: false)
-        vendingMachine.addProduct(topCoffee)
-        vendingMachine.addProduct(kantata)
-        vendingMachine.buy(index:1)
-        vendingMachine.addProduct(georgia)
+        let topCategory: String = String(topCoffee.description.split(separator: "(")[0])
+        vendingMachine.addProduct(category: topCategory, product: topCoffee)
+        vendingMachine.addProduct(category: String(kantata.description.split(separator: "(")[0]), product: kantata)
+        vendingMachine.buy(category: topCategory)
+        vendingMachine.addProduct(category: String(georgia.description.split(separator: "(")[0]), product: georgia)
         XCTAssertEqual(vendingMachine.getSalesHistory().count, 1)
     }
 
