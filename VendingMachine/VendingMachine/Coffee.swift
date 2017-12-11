@@ -9,7 +9,7 @@
 import Foundation
 
 class Coffee: Beverage {
-    let selectedMenu: Menus
+    private let selectedMenu: Menus
     enum Menus: String, CustomStringConvertible {
         case top = "TOP"
         case cantata = "칸타타"
