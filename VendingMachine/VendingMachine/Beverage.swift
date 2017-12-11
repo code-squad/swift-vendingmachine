@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+protocol Drinkable {
+
+}
+
+class Beverage: Drinkable {
+    
+}
