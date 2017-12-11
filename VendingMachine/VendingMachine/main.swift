@@ -47,7 +47,7 @@ vendingMachine.add(product: georgia)
 print("남은 금액: \(vendingMachine.getBalance())")
 vendingMachine.insertCoins(2000)
 print("남은 금액: \(vendingMachine.getBalance())")
-let beverage: Beverage? = vendingMachine.buy(category: String(bananaMilk.description.split(separator: "(")[0]))
+
 print("남은 금액: \(vendingMachine.getBalance())")
 print("살 수 있는 제품 : \(vendingMachine.getBuyableProducts())")
 print("유통기한 지난 제품 : \(vendingMachine.getExpiredProducts(date: "20171217".getDateFromString()))")
@@ -56,6 +56,33 @@ print("판매 제품 : \(vendingMachine.getSalesHistory())")
 print("모든 제품 :\(vendingMachine.getInventory())")
 
 let outputView = OutputView()
-outputView.show(balance: vendingMachine.getBalance())
-outputView.show(inventory: vendingMachine.getInventory())
-outputView.showMenu()
+let inputView = InputView()
+var inputs: (Int, Int) = (0, 0)
+while inputs == (0, 0) {
+    let inventory: Inventory = vendingMachine.getInventory()
+    let buyableProducts: Array<Category> = vendingMachine.getBuyableProducts()
+    guard buyableProducts.count > 0 else { break }
+    outputView.show(balance: vendingMachine.getBalance())
+    outputView.show(inventory: inventory, buyableProducts: buyableProducts)
+    outputView.showMenu()
+    do {
+        try inputs = inputView.readInput()
+    } catch InputView.Errors.invalidInput {
+        print(InputView.Errors.invalidInput.rawValue)
+        inputs = (0, 0)
+        continue
+    } catch InputView.Errors.quit {
+        print(InputView.Errors.quit.rawValue)
+        break
+    }
+    switch inputs.0 {
+    case 1:
+        vendingMachine.insertCoins(inputs.1)
+    case 2 where inputs.1 <= buyableProducts.count:
+        vendingMachine.buy(category: buyableProducts[(inputs.1)-1])
+        print("\(buyableProducts[(inputs.1)-1])를 구매하셨습니다. \(String(describing: inventory[buyableProducts[(inputs.1)-1]]![0].price))원을 차감합니다.")
+    default:
+        print(InputView.Errors.notInMenu.rawValue)
+    }
+    inputs = (0, 0)
+}

@@ -34,24 +34,23 @@ struct VendingMachine {
     }
 
     //    현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
-    func getBuyableProducts() -> Products {
-        var result: Products = []
-        for (_, value) in inventory {
-            result.append(contentsOf: value.filter { $0.isBuyable(with: coins) })
+    func getBuyableProducts() -> Array<Category> {
+        var result: Array<Category> = []
+        for (key, value) in inventory {
+            let count = value.filter { $0.isBuyable(with: coins) }.count
+            if count > 0 {
+                result.append(key)
+            }
         }
         return result
     }
 
     //    음료수를 구매하는 메소드
-    mutating func buy(category: Category) -> Beverage? {
+    mutating func buy(category: Category) {
         if inventory[category] != nil {
             salesHistory.append(inventory[category]!.removeFirst())
-            coins -= Int(salesHistory.last!.description
-                        .split(separator: ",").filter { $0.hasSuffix("원") }[0]
-                        .trimmingCharacters(in: .whitespaces)
-                        .split(separator: "원")[0])!
+            coins -= salesHistory.last!.price
         }
-        return salesHistory.last
     }
 
     //    잔액을 확인하는 메소드

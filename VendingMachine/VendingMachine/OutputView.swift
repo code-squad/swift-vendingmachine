@@ -3,7 +3,7 @@
 //  VendingMachine
 //
 //  Created by TaeHyeonLee on 2017. 12. 11..
-//  Copyright © 2017년 JK. All rights reserved.
+//  Copyright © 2017 ChocOZerO. All rights reserved.
 //
 
 import Foundation
@@ -18,12 +18,10 @@ struct OutputView {
         print(products)
     }
 
-    func show(inventory: Inventory) {
+    func show(inventory: Inventory, buyableProducts: Array<Category>) {
         print("다음과 같은 음료가 있습니다.")
-        var count: Int = 0
-        for (key, value) in inventory {
-            count += 1
-            print("\(count)) \(key) \(value[0].description.split(separator: ",").filter { $0.hasSuffix("원") }[0].trimmingCharacters(in: .whitespaces))(\(value.count)개)")
+        for i in 0..<buyableProducts.count {
+            print("\(i+1)) \(buyableProducts[i]) \(inventory[buyableProducts[i]]![0].description.split(separator: ",").filter { $0.hasSuffix("원") }[0].trimmingCharacters(in: .whitespaces))(\(inventory[buyableProducts[i]]!.count)개)")
         }
     }
 

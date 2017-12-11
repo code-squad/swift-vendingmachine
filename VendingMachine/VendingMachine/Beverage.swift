@@ -11,7 +11,7 @@ import Foundation
 class Beverage: CustomStringConvertible {
     private let brand: String
     private let weight: Int
-    private let price: Int
+    let price: Int
     private let name: String
     private let dateOfManufacture: Date
 
