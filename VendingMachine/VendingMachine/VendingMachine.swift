@@ -22,7 +22,8 @@ struct VendingMachine {
     }
 
     //    특정 상품 인스턴스를 넘겨서 재고를 추가하는 메소드
-    mutating func addProduct(category: Category, product: Beverage) {
+    mutating func add(product: Beverage) {
+        let category: Category = String(product.description.split(separator: "(")[0])
         if inventory[category] != nil {
             inventory[category]!.append(product)
         } else {
