@@ -22,7 +22,7 @@ class BananaMilkTest: XCTestCase {
 
     func testBananaMilk() {
         let bananaMilk = BananaMilk.init(brand: "서울우유", weight: 200, price: 1000, name: "바나나우유", validate: "20171220")
-        XCTAssertEqual(bananaMilk.description, "바나나우유(BananaMilk) - 서울우유, 200ml, 1000원, 바나나우유, 20171208")
+        XCTAssertEqual(bananaMilk.description, "바나나우유(BananaMilk) - 서울우유, 200ml, 1000원, 바나나우유, 20171211")
     }
 
 }
