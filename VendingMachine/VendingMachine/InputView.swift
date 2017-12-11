@@ -22,6 +22,9 @@ struct InputView {
             throw Errors.quit
         }
         let inputs = input.split(separator: " ").flatMap { String($0) }.filter { Int($0) != nil }.map { Int($0)! }
+        if inputs.count == 1, inputs[0] == 3 {
+            return (3, 0)
+        }
         guard inputs.count == 2 else {
             throw Errors.invalidInput
         }
