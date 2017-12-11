@@ -21,19 +21,6 @@ let topCoffee = TOPCoffee.init(brand: "맥심", weight: 400, price: 3000, name: 
 let kantata = Kantata.init(brand: "Kantata", weight: 400, price: 3000, name: "칸타타", dateOfManufacture: dateOfManufacture, hot: true)
 let georgia = Georgia.init(brand: "코카콜라", weight: 400, price: 3000, name: "죠지아", dateOfManufacture: dateOfManufacture, hot: false)
 
-print(strawberryMilk)
-print(chocolateMilk)
-print(bananaMilk)
-print(pepciCoke)
-print(sprite)
-print(fanta)
-print(topCoffee)
-print(kantata)
-print(georgia)
-print(strawberryMilk.validate(with: Date()))
-print(pepciCoke.isLowCalorie())
-print(topCoffee.isHot())
-
 var vendingMachine = VendingMachine()
 vendingMachine.add(product: strawberryMilk)
 vendingMachine.add(product: chocolateMilk)
@@ -44,16 +31,6 @@ vendingMachine.add(product: fanta)
 vendingMachine.add(product: topCoffee)
 vendingMachine.add(product: kantata)
 vendingMachine.add(product: georgia)
-print("남은 금액: \(vendingMachine.getBalance())")
-vendingMachine.insertCoins(2000)
-print("남은 금액: \(vendingMachine.getBalance())")
-
-print("남은 금액: \(vendingMachine.getBalance())")
-print("살 수 있는 제품 : \(vendingMachine.getBuyableProducts())")
-print("유통기한 지난 제품 : \(vendingMachine.getExpiredProducts(date: "20171217".getDateFromString()))")
-print("따뜻한 음료 : \(vendingMachine.getHotProducts())")
-print("판매 제품 : \(vendingMachine.getSalesHistory())")
-print("모든 제품 :\(vendingMachine.getInventory())")
 
 let outputView = OutputView()
 let inputView = InputView()
@@ -61,9 +38,13 @@ var inputs: (Int, Int) = (0, 0)
 while inputs == (0, 0) {
     let inventory: Inventory = vendingMachine.getInventory()
     let buyableProducts: Array<Category> = vendingMachine.getBuyableProducts()
-    guard buyableProducts.count > 0 else { break }
-    outputView.show(balance: vendingMachine.getBalance())
-    outputView.show(inventory: inventory, buyableProducts: buyableProducts)
+    if buyableProducts.count == 0 {
+        print("현재 금액으로 살 수 있는 음료가 없습니다.")
+        outputView.show(inventory: inventory)
+    } else {
+        outputView.show(balance: vendingMachine.getBalance())
+        outputView.show(inventory: inventory, buyableProducts: buyableProducts)
+    }
     outputView.showMenu()
     do {
         try inputs = inputView.readInput()
@@ -81,6 +62,9 @@ while inputs == (0, 0) {
     case 2 where inputs.1 <= buyableProducts.count:
         vendingMachine.buy(category: buyableProducts[(inputs.1)-1])
         print("\(buyableProducts[(inputs.1)-1])를 구매하셨습니다. \(String(describing: inventory[buyableProducts[(inputs.1)-1]]![0].price))원을 차감합니다.")
+    case 3:
+        print("현재까지 구매 내역입니다.")
+        outputView.show(products: vendingMachine.getSalesHistory())
     default:
         print(InputView.Errors.notInMenu.rawValue)
     }
