@@ -10,10 +10,11 @@ import Foundation
 
 typealias Products = Array<Beverage>
 typealias Category = String
+typealias Inventory = Dictionary<Category, Products>
 
 struct VendingMachine {
     private var coins: Int = 0
-    private var inventory: Dictionary<Category, Products> = [:]
+    private var inventory: Inventory = [:]
     private var salesHistory: Products = []
 
     //    자판기 금액을 원하는 금액만큼 올리는 메소드
@@ -42,7 +43,7 @@ struct VendingMachine {
     }
 
     //    음료수를 구매하는 메소드
-    mutating func buy(category: Category) {
+    mutating func buy(category: Category) -> Beverage? {
         if inventory[category] != nil {
             salesHistory.append(inventory[category]!.removeFirst())
             coins -= Int(salesHistory.last!.description
@@ -50,6 +51,7 @@ struct VendingMachine {
                         .trimmingCharacters(in: .whitespaces)
                         .split(separator: "원")[0])!
         }
+        return salesHistory.last
     }
 
     //    잔액을 확인하는 메소드
@@ -58,7 +60,7 @@ struct VendingMachine {
     }
 
     //    전체 상품 재고를 (사전으로 표현하는) 종류별로 리턴하는 메소드
-    func getInventory() -> Dictionary<Category, Products> {
+    func getInventory() -> Inventory {
         return inventory.filter { $0.value.count > 0 }
     }
 
