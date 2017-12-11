@@ -27,4 +27,8 @@ class Beverage: CustomStringConvertible {
         return "\(brand), \(weight)ml, \(price)원, \(name), \(dateOfManufacture.getStringFromDate())"
     }
 
+    func isBuyable(with: Int) -> Bool {
+        return with >= price
+    }
+
 }
