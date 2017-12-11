@@ -17,13 +17,9 @@ class Milk: Beverage {
     }
 
     private static func getDateFromString(validate: String) -> Date {
-        var dateComponents = DateComponents()
-        dateComponents.year = Int(validate.prefix(4))!
-        dateComponents.month = Int(validate.suffix(4).prefix(2))!
-        dateComponents.day = Int(validate.suffix(2))
-        dateComponents.timeZone = TimeZone(abbreviation: "KST")
-        let calendar = Calendar.current
-        let date = calendar.date(from: dateComponents)!
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMdd"
+        let date = dateFormatter.date(from:validate) ?? Date()
         return date
     }
 

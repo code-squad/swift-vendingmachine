@@ -21,8 +21,8 @@ class StrawberryMilkTest: XCTestCase {
     }
 
     func testStrawberryMilk() {
-        let strawberryMilk = StrawberryMilk.init(brand: "서울우유", weight: 200, price: 1000, name: "딸기우유", validate: "20171210")
-        XCTAssertEqual(strawberryMilk.description, "딸기우유(StrawberryMilk) - 서울우유, 200ml, 1000원, 딸기우유, 20171208")
+        let strawberryMilk = StrawberryMilk.init(brand: "서울우유", weight: 200, price: 1000, name: "딸기우유", validate: "20171220")
+        XCTAssertEqual(strawberryMilk.description, "딸기우유(StrawberryMilk) - 서울우유, 200ml, 1000원, 딸기우유, 20171211")
     }
 
 }

@@ -22,9 +22,9 @@ class MilkTest: XCTestCase {
 
     func testMilkDescription() {
         let strawberryMilk = Milk.init(brand: "서울우유", weight: 200, price: 1000, name: "날마다딸기우유", validate: "20171212")
-        XCTAssertEqual(strawberryMilk.description, "서울우유, 200ml, 1000원, 날마다딸기우유, 20171208")
+        XCTAssertEqual(strawberryMilk.description, "서울우유, 200ml, 1000원, 날마다딸기우유, 20171211")
         let bananaMilk = Milk.init(brand: "서울우유", weight: 200, price: 1000, name: "날마다바나나우유", validate: "20171212")
-        XCTAssertEqual(bananaMilk.description, "서울우유, 200ml, 1000원, 날마다바나나우유, 20171208")
+        XCTAssertEqual(bananaMilk.description, "서울우유, 200ml, 1000원, 날마다바나나우유, 20171211")
     }
 
     func testValidate() {
