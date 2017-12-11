@@ -21,8 +21,9 @@ class GeorgiaTest: XCTestCase {
     }
 
     func testGeorgia() {
-        let georgia = Georgia.init(brand: "코카콜라", weight: 400, price: 3000, name: "Georgia", hot: true)
-        XCTAssertEqual(georgia.description, "죠지아커피(Georgia) - 코카콜라, 400ml, 3000원, Georgia, 20171208")
+        let dateOfManufacture: Date = "20171211".getDateFromString()
+        let georgia = Georgia.init(brand: "코카콜라", weight: 400, price: 3000, name: "Georgia", dateOfManufacture: dateOfManufacture, hot: true)
+        XCTAssertEqual(georgia.description, "죠지아커피(Georgia) - 코카콜라, 400ml, 3000원, Georgia, 20171211")
     }
 
 }

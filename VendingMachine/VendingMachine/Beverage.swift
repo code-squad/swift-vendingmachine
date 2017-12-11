@@ -15,22 +15,16 @@ class Beverage: CustomStringConvertible {
     private let name: String
     private let dateOfManufacture: Date
 
-    init(brand: String, weight: Int, price: Int, name: String) {
+    init(brand: String, weight: Int, price: Int, name: String, dateOfManufacture: Date) {
         self.brand = brand
         self.weight = weight
         self.price = price
         self.name = name
-        self.dateOfManufacture = Date()
+        self.dateOfManufacture = dateOfManufacture
     }
 
     var description: String {
-        return "\(brand), \(weight)ml, \(price)원, \(name), \(getStringFromDate(date: dateOfManufacture))"
-    }
-
-    private func getStringFromDate(date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyyMMdd"
-        return dateFormatter.string(from: date)
+        return "\(brand), \(weight)ml, \(price)원, \(name), \(dateOfManufacture.getStringFromDate())"
     }
 
 }
