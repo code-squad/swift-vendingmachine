@@ -21,7 +21,9 @@ class ChocolateMilkTest: XCTestCase {
     }
 
     func testChocolateMilk() {
-        let chocolateMilk = ChocolateMilk.init(brand: "서울우유", weight: 1000, price: 2000, name: "초코우유", validate: "20171225")
+        let dateOfManufacture: Date = "20171211".getDateFromString()
+        let validate: Date = "20171220".getDateFromString()
+        let chocolateMilk = ChocolateMilk.init(brand: "서울우유", weight: 1000, price: 2000, name: "초코우유", dateOfManufacture: dateOfManufacture, validate: validate)
         XCTAssertEqual(chocolateMilk.description, "초코우유(ChocolateMilk) - 서울우유, 1000ml, 2000원, 초코우유, 20171211")
     }
 

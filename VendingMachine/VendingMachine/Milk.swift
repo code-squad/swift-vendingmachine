@@ -11,16 +11,9 @@ import Foundation
 class Milk: Beverage {
     private var validate: Date
 
-    init(brand: String, weight: Int, price: Int, name: String, validate: String) {
-        self.validate = Milk.getDateFromString(validate: validate)
-        super.init(brand: brand, weight: weight, price: price, name: name)
-    }
-
-    private static func getDateFromString(validate: String) -> Date {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyyMMdd"
-        let date = dateFormatter.date(from:validate) ?? Date()
-        return date
+    init(brand: String, weight: Int, price: Int, name: String, dateOfManufacture: Date, validate: Date) {
+        self.validate = validate
+        super.init(brand: brand, weight: weight, price: price, name: name, dateOfManufacture: dateOfManufacture)
     }
 
     func validate(with data: Date) -> Bool {

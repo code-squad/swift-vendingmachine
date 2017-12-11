@@ -21,15 +21,17 @@ class CoffeeTest: XCTestCase {
     }
 
     func testCoffeeDescription() {
-        let coffee = Coffee.init(brand: "맥심", weight: 400, price: 3000, name: "TOP아메리카노", hot: true)
-        XCTAssertEqual(coffee.description, "맥심, 400ml, 3000원, TOP아메리카노, 20171208")
+        let dateOfManufacture: Date = "20171211".getDateFromString()
+        let coffee = Coffee.init(brand: "맥심", weight: 400, price: 3000, name: "TOP아메리카노", dateOfManufacture: dateOfManufacture, hot: true)
+        XCTAssertEqual(coffee.description, "맥심, 400ml, 3000원, TOP아메리카노, 20171211")
     }
 
     func testIsHot() {
-        let hotCoffee = Coffee.init(brand: "맥심", weight: 400, price: 3000, name: "TOP아메리카노", hot: true)
+        let dateOfManufacture: Date = "20171211".getDateFromString()
+        let hotCoffee = Coffee.init(brand: "맥심", weight: 400, price: 3000, name: "TOP아메리카노", dateOfManufacture: dateOfManufacture, hot: true)
         XCTAssertTrue(hotCoffee.isHot())
 
-        let noHotCoffee = Coffee.init(brand: "맥심", weight: 400, price: 3000, name: "TOP아메리카노", hot: false)
+        let noHotCoffee = Coffee.init(brand: "맥심", weight: 400, price: 3000, name: "TOP아메리카노", dateOfManufacture: dateOfManufacture, hot: false)
         XCTAssertFalse(noHotCoffee.isHot())
     }
 

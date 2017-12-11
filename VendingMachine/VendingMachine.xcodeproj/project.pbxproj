@@ -35,6 +35,11 @@
 		8E56C6B61FDA76640015E210 /* TOPCoffeeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E56C6B51FDA76640015E210 /* TOPCoffeeTest.swift */; };
 		8E56C6B81FDA76800015E210 /* KantataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E56C6B71FDA76800015E210 /* KantataTest.swift */; };
 		8E56C6BA1FDA76960015E210 /* GeorgiaTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E56C6B91FDA76960015E210 /* GeorgiaTest.swift */; };
+		8E56C6BC1FDE28190015E210 /* DateUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E56C6BB1FDE28190015E210 /* DateUtility.swift */; };
+		8E56C6BE1FDE28DC0015E210 /* BeverageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E56C6BD1FDE28DC0015E210 /* BeverageTest.swift */; };
+		8E56C6BF1FDE28EC0015E210 /* DateUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E56C6BB1FDE28190015E210 /* DateUtility.swift */; };
+		8E56C6C11FDE29B90015E210 /* StringUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E56C6C01FDE29B90015E210 /* StringUtility.swift */; };
+		8E56C6C21FDE29E20015E210 /* StringUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E56C6C01FDE29B90015E210 /* StringUtility.swift */; };
 		8E8956AD1FD928CC00114B63 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8956AC1FD928CC00114B63 /* Beverage.swift */; };
 		8E8956AF1FD93A5300114B63 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8956AE1FD93A5300114B63 /* Milk.swift */; };
 		8E8956B11FD93DE800114B63 /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8956B01FD93DE800114B63 /* Soda.swift */; };
@@ -81,6 +86,9 @@
 		8E56C6B51FDA76640015E210 /* TOPCoffeeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOPCoffeeTest.swift; sourceTree = "<group>"; };
 		8E56C6B71FDA76800015E210 /* KantataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KantataTest.swift; sourceTree = "<group>"; };
 		8E56C6B91FDA76960015E210 /* GeorgiaTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeorgiaTest.swift; sourceTree = "<group>"; };
+		8E56C6BB1FDE28190015E210 /* DateUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtility.swift; sourceTree = "<group>"; };
+		8E56C6BD1FDE28DC0015E210 /* BeverageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageTest.swift; sourceTree = "<group>"; };
+		8E56C6C01FDE29B90015E210 /* StringUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtility.swift; sourceTree = "<group>"; };
 		8E8956AC1FD928CC00114B63 /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 		8E8956AE1FD93A5300114B63 /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 		8E8956B01FD93DE800114B63 /* Soda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soda.swift; sourceTree = "<group>"; };
@@ -145,6 +153,8 @@
 				8E56C69A1FDA3E610015E210 /* TOPCoffee.swift */,
 				8E56C69C1FDA3E6F0015E210 /* Kantata.swift */,
 				8E56C69E1FDA3E850015E210 /* Georgia.swift */,
+				8E56C6BB1FDE28190015E210 /* DateUtility.swift */,
+				8E56C6C01FDE29B90015E210 /* StringUtility.swift */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";
@@ -152,6 +162,7 @@
 		8E8956B91FD940B200114B63 /* VendingMachineTests */ = {
 			isa = PBXGroup;
 			children = (
+				8E56C6BD1FDE28DC0015E210 /* BeverageTest.swift */,
 				8E56C6B91FDA76960015E210 /* GeorgiaTest.swift */,
 				8E56C6B71FDA76800015E210 /* KantataTest.swift */,
 				8E56C6B51FDA76640015E210 /* TOPCoffeeTest.swift */,
@@ -268,7 +279,9 @@
 				8E56C6991FDA3E3E0015E210 /* Fanta.swift in Sources */,
 				8E8956B11FD93DE800114B63 /* Soda.swift in Sources */,
 				8E56C68F1FDA3DAE0015E210 /* StrawberryMilk.swift in Sources */,
+				8E56C6C11FDE29B90015E210 /* StringUtility.swift in Sources */,
 				8E56C69B1FDA3E610015E210 /* TOPCoffee.swift in Sources */,
+				8E56C6BC1FDE28190015E210 /* DateUtility.swift in Sources */,
 				8E8956AD1FD928CC00114B63 /* Beverage.swift in Sources */,
 				8E8956AF1FD93A5300114B63 /* Milk.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
@@ -287,10 +300,13 @@
 				8E56C6B41FDA76570015E210 /* FantaTest.swift in Sources */,
 				8E56C6A21FDA5EFE0015E210 /* BananaMilk.swift in Sources */,
 				8E56C6A01FDA5EF80015E210 /* StrawberryMilk.swift in Sources */,
+				8E56C6BF1FDE28EC0015E210 /* DateUtility.swift in Sources */,
 				8E8956C11FD940BF00114B63 /* Milk.swift in Sources */,
 				8E56C6A81FDA5F120015E210 /* Georgia.swift in Sources */,
 				8E56C6BA1FDA76960015E210 /* GeorgiaTest.swift in Sources */,
+				8E56C6BE1FDE28DC0015E210 /* BeverageTest.swift in Sources */,
 				8E56C6A31FDA5F020015E210 /* PepciCoke.swift in Sources */,
+				8E56C6C21FDE29E20015E210 /* StringUtility.swift in Sources */,
 				8E56C6A11FDA5EFB0015E210 /* ChocolateMilk.swift in Sources */,
 				8E8956C91FD9410900114B63 /* SodaTest.swift in Sources */,
 				8E56C6B21FDA764A0015E210 /* SpriteTest.swift in Sources */,
