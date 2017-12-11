@@ -31,6 +31,8 @@ class Beverage: Drinkable, CustomStringConvertible {
         self.manufacturedDate = manufacturedDate
     }
     var description: String {
-        return "\(self.brand), \(self.volume), \(self.price), \(self.productName), \(self.manufacturedDate)"
+        let dateFormatter = DateFormatter()
+        dateFormatter.setLocalizedDateFormatFromTemplate("YYYYMMdd")
+        return "\(self.brand), \(self.volume)ml, \(self.price)원, \(self.productName), \(dateFormatter.string(from: self.manufacturedDate))"
     }
 }
