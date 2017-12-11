@@ -9,7 +9,7 @@
 import Foundation
 
 class Milk: Beverage {
-    let selectedMenu: Menus
+    private let selectedMenu: Menus
     enum Menus: String, CustomStringConvertible {
         case strawberry = "딸기우유"
         case banana = "바나나우유"
