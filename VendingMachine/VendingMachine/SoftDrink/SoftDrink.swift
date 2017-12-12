@@ -23,13 +23,13 @@ class SoftDrink: Beverage {
 
 extension SoftDrink {
     var containsCarbonicGas: Bool {
-        guard let carbon = self.carbonContent, carbon > 0 else { return false }
+        guard let carbon = self.carbonContent, carbon > 10 else { return false }
         return true
     }
     
-    func validate(with date:Date) -> Bool {
-        guard self.expirationDate <= date else { return false }
-        return true
+    func validate(with date: Date) -> Bool {
+        guard self.expirationDate <= date else { return true }
+        return false
     }
 
     func isLowCalorie() -> Bool {
