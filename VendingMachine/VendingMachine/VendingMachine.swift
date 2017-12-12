@@ -66,10 +66,8 @@ struct VendingMachine {
     //    유통기한이 지난 재고만 리턴하는 메소드
     func getExpiredProducts(date: Date) -> Products {
         var result: Products = []
-        let milkInventory = inventory.filter { $0.key.hasSuffix("우유") }
-        for (_, value) in milkInventory {
-            let milkProducts: Array<Milk> = value.map { $0 as! Milk }
-            result.append(contentsOf: milkProducts
+        inventory.filter { $0.key.hasSuffix("우유") }.forEach { _, value in
+            result.append(contentsOf: value.map { $0 as! Milk }
                                         .filter { !$0.validate(with: date) }
                                         .map { $0 as Beverage })
         }
