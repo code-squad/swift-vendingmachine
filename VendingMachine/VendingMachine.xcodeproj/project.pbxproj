@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		407656771FDF81B500B36450 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407656761FDF81B500B36450 /* Beverage.swift */; };
+		407656791FDF96A000B36450 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407656781FDF96A000B36450 /* Milk.swift */; };
+		4076567D1FDF9ACE00B36450 /* SodaPop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4076567C1FDF9ACE00B36450 /* SodaPop.swift */; };
+		4076567F1FDF9AED00B36450 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4076567E1FDF9AED00B36450 /* Coffee.swift */; };
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +28,9 @@
 
 /* Begin PBXFileReference section */
 		407656761FDF81B500B36450 /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
+		407656781FDF96A000B36450 /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
+		4076567C1FDF9ACE00B36450 /* SodaPop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SodaPop.swift; sourceTree = "<group>"; };
+		4076567E1FDF9AED00B36450 /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -61,6 +67,9 @@
 			children = (
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
 				407656761FDF81B500B36450 /* Beverage.swift */,
+				407656781FDF96A000B36450 /* Milk.swift */,
+				4076567C1FDF9ACE00B36450 /* SodaPop.swift */,
+				4076567E1FDF9AED00B36450 /* Coffee.swift */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";
@@ -124,7 +133,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
+				407656791FDF96A000B36450 /* Milk.swift in Sources */,
+				4076567D1FDF9ACE00B36450 /* SodaPop.swift in Sources */,
 				407656771FDF81B500B36450 /* Beverage.swift in Sources */,
+				4076567F1FDF9AED00B36450 /* Coffee.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
