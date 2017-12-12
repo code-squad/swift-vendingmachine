@@ -25,8 +25,8 @@ struct VendingMachine {
     //    특정 상품 인스턴스를 넘겨서 재고를 추가하는 메소드
     mutating func add(product: Beverage) {
         let category: Category = String(product.description.split(separator: "(")[0])
-        if inventory[category] != nil {
-            inventory[category]!.append(product)
+        if var products = inventory[category] {
+            products.append(product)
         } else {
             inventory[category] = []
             inventory[category]!.append(product)
@@ -66,25 +66,22 @@ struct VendingMachine {
     //    유통기한이 지난 재고만 리턴하는 메소드
     func getExpiredProducts(date: Date) -> Products {
         var result: Products = []
-        inventory.filter { $0.key.hasSuffix("우유") }.forEach { _, value in
-            result.append(contentsOf: value.filter { $0 is Milk }
-                                        .flatMap { $0 as? Milk }
+        inventory.filter { $0.key.hasSuffix("우유") }.forEach({ _, value in
+            result.append(contentsOf: value.flatMap { $0 as? Milk }
                                         .filter { !$0.validate(with: date) }
                                         .map { $0 as Beverage })
-        }
+        })
         return result
     }
 
     //    따뜻한 음료만 리턴하는 메소드
     func getHotProducts() -> Products {
         var result: Products = []
-        let coffeeInventory = inventory.filter { $0.key.hasSuffix("커피") }
-        for (_, value) in coffeeInventory {
-            let coffeeProducts: Array<Coffee> = value.map { $0 as! Coffee }
-            result.append(contentsOf: coffeeProducts
+        inventory.filter { $0.key.hasSuffix("커피") }.forEach({ _, value in
+            result.append(contentsOf: value.flatMap { $0 as? Coffee }
                                         .filter { $0.isHot() }
                                         .map { $0 as Beverage })
-        }
+        })
         return result
     }
 
