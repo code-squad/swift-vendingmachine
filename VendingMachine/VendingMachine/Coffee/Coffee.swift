@@ -10,11 +10,11 @@ import Foundation
 
 class Coffee: Beverage {
     // 카페인 함유량, 뜨거운음료여부, 무가당여부, 유통기한, 칼로리
-    private(set) var caffeineLevels: Int
-    private(set) var isHot: Bool?
-    private(set) var isSweetened: Bool?
-    private(set) var expirationDate: Date
-    private(set) var calories: Int?
+    private let caffeineLevels: Int
+    private let isHot: Bool?
+    private let isSweetened: Bool?
+    private let expirationDate: Date
+    private let calories: Int?
     init(caffeineLevels: Int, isHot: Bool?, isSweetened: Bool?, expirationDate: Date, calories: Int?, _ brand: String, _ volume: Int, _ price: Int, _ productName: String, _ manufacturedDate: Date) {
         self.caffeineLevels = caffeineLevels
         self.isHot = isHot
@@ -26,6 +26,16 @@ class Coffee: Beverage {
 }
 
 extension Coffee {
+    func isDecaffeinated() -> Bool {
+        guard caffeineLevels <= 10 else { return false }
+        return true
+    }
+
+    func isUnSweetened() -> Bool {
+        guard let sweetened = self.isSweetened else { return false }
+        return !sweetened
+    }
+
     func validate(with date:Date) -> Bool {
         guard self.expirationDate <= date else { return false }
         return true

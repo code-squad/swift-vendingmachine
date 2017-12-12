@@ -10,11 +10,11 @@ import Foundation
 
 class SoftDrink: Beverage {
     // 탄산첨가여부, 유통기한, 칼로리
-    private(set) var containsCarbonicGas: Bool
-    private(set) var expirationDate: Date
-    private(set) var calories: Int?
-    init(_ brand: String, _ volume: Int, _ price: Int, _ productName: String, _ manufacturedDate: Date, containsCarbonicGas: Bool, expirationDate: Date, calories: Int?) {
-        self.containsCarbonicGas = containsCarbonicGas
+    private let carbonContent: Int?
+    private let expirationDate: Date
+    private let calories: Int?
+    init(_ brand: String, _ volume: Int, _ price: Int, _ productName: String, _ manufacturedDate: Date, carbonContent: Int?, expirationDate: Date, calories: Int?) {
+        self.carbonContent = carbonContent
         self.expirationDate = expirationDate
         self.calories = calories
         super.init(brand, volume, price, productName, manufacturedDate)
@@ -22,6 +22,11 @@ class SoftDrink: Beverage {
 }
 
 extension SoftDrink {
+    var containsCarbonicGas: Bool {
+        guard let carbon = self.carbonContent, carbon > 0 else { return false }
+        return true
+    }
+    
     func validate(with date:Date) -> Bool {
         guard self.expirationDate <= date else { return false }
         return true
