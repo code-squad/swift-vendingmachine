@@ -28,8 +28,7 @@ struct VendingMachine {
         if var products = inventory[category] {
             products.append(product)
         } else {
-            inventory[category] = []
-            inventory[category]!.append(product)
+            inventory[category] = [product]
         }
     }
 

@@ -33,6 +33,7 @@ class VendingMachineTest: XCTestCase {
         let dateOfManufacture: Date = "20171211".getDateFromString()
         let validate: Date = "20171220".getDateFromString()
         let strawberryMilk = StrawberryMilk.init(brand: "서울우유", weight: 200, price: 1000, name: "딸기우유", dateOfManufacture: dateOfManufacture, validate: validate)
+        XCTAssertEqual(vendingMachine.getInventory().count, 0)
         vendingMachine.add(product: strawberryMilk)
         XCTAssertEqual(vendingMachine.getInventory().count, 1)
     }
