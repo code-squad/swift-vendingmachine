@@ -14,4 +14,7 @@ class ChocoMilk: Milk {
         self.ingredients = "코코아분말"
         super.init(brand, volume, price, productName, manufacturedDate, expirationDate, calories, manufacturerCode: manufacturerCode, packingMaterial: packingMaterial)
     }
+    override var description: String {
+        return "초코우유(" + String.init(describing: type(of: self)) + ") - " + super.description
+    }
 }
