@@ -10,10 +10,10 @@ import Foundation
 
 class Milk: Beverage {
     // 우유 농장 코드, 뜨거운음료여부, 포장재질, 유통기한, 칼로리
-    private(set) var manufacturerCode: Int
-    private(set) var packingMaterial: String?
-    private(set) var expirationDate: Date
-    private(set) var calories: Int?
+    private let manufacturerCode: Int
+    private let packingMaterial: String?
+    private let expirationDate: Date
+    private let calories: Int?
     init(_ brand: String, _ volume: Int, _ price: Int, _ productName: String, _ manufacturedDate: Date, _ manufacturerCode: Int, packingMaterial: String?, expirationDate: Date, calories: Int?) {
         self.manufacturerCode = manufacturerCode
         self.packingMaterial = packingMaterial
@@ -24,6 +24,11 @@ class Milk: Beverage {
 }
 
 extension Milk {
+    func manufactured(from factory: Int) -> Bool {
+        guard self.manufacturerCode == factory else { return false }
+        return true
+    }
+
     func validate(with date:Date) -> Bool {
         guard self.expirationDate <= date else { return false }
         return true
