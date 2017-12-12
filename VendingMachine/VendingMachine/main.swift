@@ -18,4 +18,5 @@ func executeMain() {
     print(coke)
     print(coffee)
 }
+
 executeMain()
