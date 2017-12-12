@@ -35,9 +35,9 @@ vendingMachine.add(product: georgia)
 let outputView = OutputView()
 let inputView = InputView()
 let validationChecker = ValidationChecker()
-var selector: (Int, Int) = (0, 0)
-while selector == (0, 0) {
-    print("======= 자판기 =======")
+var selector: (ValidationChecker.VendingMenu, Int) = (ValidationChecker.VendingMenu.none, 0)
+while selector.0 == ValidationChecker.VendingMenu.none {
+    print("\n======= 자판기 =======")
     let inventory: Inventory = vendingMachine.getInventory()
     let buyableProducts: Array<Category> = vendingMachine.getBuyableProducts()
     if buyableProducts.count == 0 {
@@ -58,16 +58,16 @@ while selector == (0, 0) {
         break
     }
     switch selector.0 {
-    case 1:
+    case .insertCoins:
         vendingMachine.insertCoins(selector.1)
-    case 2 where selector.1 <= buyableProducts.count:
+    case .buyProduct where selector.1 <= buyableProducts.count:
         vendingMachine.buy(category: buyableProducts[selector.1-1])
         print("\(buyableProducts[selector.1-1])를 구매하셨습니다. \(String(describing: inventory[buyableProducts[selector.1-1]]![0].price))원을 차감합니다.")
-    case 3:
+    case .salesHistory:
         print("현재까지 구매 내역입니다.")
         outputView.show(products: vendingMachine.getSalesHistory())
     default:
-        print(ValidationChecker.Errors.notInMenu)
+        continue
     }
-    selector = (0, 0)
+    selector = (ValidationChecker.VendingMenu.none, 0)
 }
