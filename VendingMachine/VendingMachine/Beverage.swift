@@ -9,20 +9,26 @@
 import Foundation
 
 class Beverage: CustomStringConvertible {
-    private (set) var brand: String
-    private (set) var volume: Int
-    private (set) var price: Int
-    private (set) var name: String
-    private (set) var manufacturingDate: Date
+    private var brand: String
+    private var volume: Int
+    private var price: Int
+    private var name: String
+    private var manufacturingDate: Date
+    
     var description: String {
-        return "\(brand), \(volume)ml, \(price)원, \(name), \(manufacturingDate)"
+        let adjustedDate = Date(timeInterval: 9 * 60 * 60, since: self.manufacturingDate)
+        let date = DateFormatter()
+        date.dateFormat = "yyyyMMdd"
+        return "\(brand), \(volume)ml, \(price)원, \(name), \(date.string(from: adjustedDate))"
     }
     
-    init(brand: String, volume: Int, price: Int, name: String, manufacturingDate: Date) {
+    init(brand: String, volume: Int, price: Int, name: String, manufacturingDate: String) {
         self.brand = brand
         self.volume = volume
         self.price = price
         self.name = name
-        self.manufacturingDate = manufacturingDate
+        let date = DateFormatter()
+        date.dateFormat = "yyyyMMdd"
+        self.manufacturingDate = date.date(from: manufacturingDate)!
     }
 }
