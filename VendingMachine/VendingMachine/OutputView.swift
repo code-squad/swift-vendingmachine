@@ -39,7 +39,7 @@ struct OutputView {
     func showMenu() {
         print("\n1. 금액추가 (예: 1 10000)")
         print("2. 음료구매 (예: 2 2)")
-        print("3. 구매내역확인\n")
+        print("3. 구매내역확인")
     }
 
 }

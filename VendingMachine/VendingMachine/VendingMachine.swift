@@ -66,22 +66,22 @@ struct VendingMachine {
     //    유통기한이 지난 재고만 리턴하는 메소드
     func getExpiredProducts(date: Date) -> Products {
         var result: Products = []
-        inventory.filter { $0.key.hasSuffix("우유") }.forEach({ _, value in
-            result.append(contentsOf: value.flatMap { $0 as? Milk }
-                                        .filter { !$0.validate(with: date) }
-                                        .map { $0 as Beverage })
-        })
+        inventory.filter { $0.key.hasSuffix("우유") }
+                 .forEach { _, value in
+                     result.append(contentsOf: value.flatMap { $0 as? Milk }
+                                                    .filter { !$0.validate(with: date) }
+                                                    .map { $0 as Beverage })}
         return result
     }
 
     //    따뜻한 음료만 리턴하는 메소드
     func getHotProducts() -> Products {
         var result: Products = []
-        inventory.filter { $0.key.hasSuffix("커피") }.forEach({ _, value in
-            result.append(contentsOf: value.flatMap { $0 as? Coffee }
-                                        .filter { $0.isHot() }
-                                        .map { $0 as Beverage })
-        })
+        inventory.filter { $0.key.hasSuffix("커피") }
+                 .forEach { _, value in
+                     result.append(contentsOf: value.flatMap { $0 as? Coffee }
+                                                    .filter { $0.isHot() }
+                                                    .map { $0 as Beverage })}
         return result
     }
 
