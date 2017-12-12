@@ -9,7 +9,7 @@
 import Foundation
 
 class FantaSoftDrink: SoftDrink {
-    private let ingredients: String
+    private(set) var ingredients: String
     override init(_ brand: String, _ volume: Int, _ price: Int, _ productName: String, _ manufacturedDate: Date, containsCarbonicGas: Bool, expirationDate: Date, calories: Int?) {
         self.ingredients = "합성착향료(오렌지)"
         super.init(brand, volume, price, productName, manufacturedDate, containsCarbonicGas: containsCarbonicGas, expirationDate: expirationDate, calories: calories)
