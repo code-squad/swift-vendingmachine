@@ -10,12 +10,12 @@ import Foundation
 
 class Milk: Beverage {
     private let kind: String
-    init(kind:String, brand: String, volume: Int, price: Int, name: String, manufacturingDate: Date) {
+    init(kind:String, brand: String, volume: Int, price: Int, name: String, manufacturingDate: String) {
         self.kind = kind
         super.init(brand: brand, volume: volume, price: price, name: name, manufacturingDate: manufacturingDate)
     }
     
     override var description: String {
-        return "\(kind) - " + super.description
+        return "\(kind)우유 - " + super.description
     }
 }
