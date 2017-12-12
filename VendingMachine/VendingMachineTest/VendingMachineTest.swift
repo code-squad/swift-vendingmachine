@@ -50,7 +50,7 @@ class VendingMachineTest: XCTestCase {
         XCTAssertEqual(isTodayValidate, true)
     }
 
-    func test_Is_Cantata() {
+    func test_IsDecaffeinated_Cantata() {
         let cantata = CantataCoffee("롯데칠성음료", 200, 2000, "칸타타", Date(timeIntervalSinceNow: 0), caffeineLevels: 10, isHot: false, isSweetened: true, expirationDate: Date(timeIntervalSinceNow: 60*60*24*14), calories: 250)
         XCTAssertEqual(cantata.isDecaffeinated(), true)
     }
