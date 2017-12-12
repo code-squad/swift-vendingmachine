@@ -13,19 +13,13 @@ class Coffee: Beverage {
     private let caffeineLevels: Int
     private let isHot: Bool?
     private let isSweetened: Bool?
-    private let expirationDate: Date
-    private let calories: Int?
-    init(_ brand: String, _ volume: Int, _ price: Int, _ productName: String, _ manufacturedDate: Date, caffeineLevels: Int, isHot: Bool?, isSweetened: Bool?, expirationDate: Date, calories: Int?) {
+    init(_ brand: String, _ volume: Int, _ price: Int, _ productName: String, _ manufacturedDate: Date, _ expirationDate: Date, _ calories: Int?, caffeineLevels: Int, isHot: Bool?, isSweetened: Bool?) {
         self.caffeineLevels = caffeineLevels
         self.isHot = isHot
         self.isSweetened = isSweetened
-        self.expirationDate = expirationDate
-        self.calories = calories
-        super.init(brand, volume, price, productName, manufacturedDate)
+        super.init(brand, volume, price, productName, manufacturedDate, expirationDate, calories)
     }
-}
 
-extension Coffee {
     func isDecaffeinated() -> Bool {
         guard caffeineLevels <= 10 else { return false }
         return true
@@ -36,14 +30,10 @@ extension Coffee {
         return !sweetened
     }
 
-    func validate(with date: Date) -> Bool {
-        guard self.expirationDate <= date else { return true }
-        return false
-    }
-
-    func isLowCalorie() -> Bool {
-        guard let calories = self.calories else { return false }
+    override func isLowCalorie() -> Bool {
+        guard let calories = super.calories else { return false }
         if calories < 150 { return true }
         else { return false }
     }
+
 }
