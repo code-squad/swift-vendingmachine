@@ -38,11 +38,11 @@ class ValidationCheckerTest: XCTestCase {
     }
 
     func testGetSelector_return() {
-        XCTAssertEqual(try validationChecker.getSelector(input: "1 2000").0, 1)
+        XCTAssertEqual(try validationChecker.getSelector(input: "1 2000").0, ValidationChecker.VendingMenu.insertCoins)
         XCTAssertEqual(try validationChecker.getSelector(input: "1 2000").1, 2000)
-        XCTAssertEqual(try validationChecker.getSelector(input: "2 4").0, 2)
+        XCTAssertEqual(try validationChecker.getSelector(input: "2 4").0, ValidationChecker.VendingMenu.buyProduct)
         XCTAssertEqual(try validationChecker.getSelector(input: "2 4").1, 4)
-        XCTAssertEqual(try validationChecker.getSelector(input: "3").0, 3)
+        XCTAssertEqual(try validationChecker.getSelector(input: "3").0, ValidationChecker.VendingMenu.salesHistory)
         XCTAssertEqual(try validationChecker.getSelector(input: "3").1, 0)
     }
 

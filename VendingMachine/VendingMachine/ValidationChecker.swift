@@ -10,6 +10,11 @@ import Foundation
 
 struct ValidationChecker {
 
+    enum VendingMenu: Int {
+        case none
+        case insertCoins = 1, buyProduct, salesHistory
+    }
+
     enum Errors: CustomStringConvertible, Error {
         case invalidInput
         case quit
@@ -31,9 +36,9 @@ struct ValidationChecker {
         return (inputs.count == 1 && inputs[0] == 3) || (inputs.count == 2)
     }
 
-    func getSelector(input: String) throws -> (Int, Int) {
+    func getSelector(input: String) throws -> (VendingMenu, Int) {
         guard input != "q" && input != "quit" else {
-            throw ValidationChecker.Errors.quit
+            throw Errors.quit
         }
         let inputs = input.split(separator: " ")
                           .flatMap { String($0) }
@@ -42,10 +47,13 @@ struct ValidationChecker {
         guard validate(inputs: inputs) else {
             throw Errors.invalidInput
         }
+        guard let vendingMenu = VendingMenu.init(rawValue: inputs[0]) else {
+            throw Errors.notInMenu
+        }
         if inputs.count == 1, inputs[0] == 3 {
-            return (inputs[0], 0)
+            return (vendingMenu, 0)
         } else {
-            return (inputs[0], inputs[1])
+            return (vendingMenu, inputs[1])
         }
     }
 
