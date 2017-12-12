@@ -14,7 +14,6 @@ class Beverage: CustomStringConvertible {
     private var price: Int
     private var name: String
     private var manufacturingDate: Date
-    
     var description: String {
         let adjustedDate = Date(timeInterval: 9 * 60 * 60, since: self.manufacturingDate)
         let date = DateFormatter()

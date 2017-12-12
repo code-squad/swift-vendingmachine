@@ -14,7 +14,6 @@ class Milk: Beverage {
         self.kind = kind
         super.init(brand: brand, volume: volume, price: price, name: name, manufacturingDate: manufacturingDate)
     }
-    
     override var description: String {
         return "\(kind)우유 - " + super.description
     }
