@@ -24,14 +24,14 @@ class Milk: Beverage {
 }
 
 extension Milk {
-    func manufactured(from factory: Int) -> Bool {
+    func isManufacturedFrom(_ factory: Int) -> Bool {
         guard self.manufacturerCode == factory else { return false }
         return true
     }
 
-    func validate(with date:Date) -> Bool {
-        guard self.expirationDate <= date else { return false }
-        return true
+    func validate(with date: Date) -> Bool {
+        guard self.expirationDate <= date else { return true }
+        return false
     }
 
     func isLowCalorie() -> Bool {
