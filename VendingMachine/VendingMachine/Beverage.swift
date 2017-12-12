@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Beverage: CustomStringConvertible {
+class Beverage {
     // 브랜드(String), 무게(Int), 가격(Int), 이름(String), 제조일자(Date)
     private let brand: String
     private let volume: Int
@@ -22,6 +22,9 @@ class Beverage: CustomStringConvertible {
         self.productName = productName
         self.manufacturedDate = manufacturedDate
     }
+}
+
+extension Beverage: CustomStringConvertible {
     var description: String {
         let dateFormatter = DateFormatter()
         dateFormatter.setLocalizedDateFormatFromTemplate("YYYYMMdd")

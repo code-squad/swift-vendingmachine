@@ -9,21 +9,18 @@
 import Foundation
 
 class Coffee: Beverage {
-    private let selectedMenu: Menus
-    enum Menus: String, CustomStringConvertible {
-        case top = "TOP"
-        case cantata = "칸타타"
-        case georgia = "조지아"
-        var description: String {
-            return self.rawValue
-        }
-    }
-    init(selectedMenu: Menus, _ brand: String, _ volume: Int, _ price: Int, _ productName: String, _ manufacturedDate: Date) {
-        self.selectedMenu = selectedMenu
+    // 카페인 함유량, 뜨거운음료여부, 무가당여부, 유통기한, 칼로리
+    let caffeineLevels: Int
+    let isHot: Bool
+    let isSweetened: Bool
+    let expirationDate: Date
+    let calories: Int
+    init(caffeineLevels: Int, isHot: Bool, isSweetened: Bool, expirationDate: Date, calories: Int, _ brand: String, _ volume: Int, _ price: Int, _ productName: String, _ manufacturedDate: Date) {
+        self.caffeineLevels = caffeineLevels
+        self.isHot = isHot
+        self.isSweetened = isSweetened
+        self.expirationDate = expirationDate
+        self.calories = calories
         super.init(brand, volume, price, productName, manufacturedDate)
-    }
-
-    override var description: String {
-        return self.selectedMenu.description + " - " + super.description
     }
 }
