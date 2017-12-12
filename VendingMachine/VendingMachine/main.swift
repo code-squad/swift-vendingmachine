@@ -34,8 +34,10 @@ vendingMachine.add(product: georgia)
 
 let outputView = OutputView()
 let inputView = InputView()
-var inputs: (Int, Int) = (0, 0)
-while inputs == (0, 0) {
+let validationChecker = ValidationChecker()
+var selector: (Int, Int) = (0, 0)
+while selector == (0, 0) {
+    print("======= 자판기 =======")
     let inventory: Inventory = vendingMachine.getInventory()
     let buyableProducts: Array<Category> = vendingMachine.getBuyableProducts()
     if buyableProducts.count == 0 {
@@ -47,26 +49,25 @@ while inputs == (0, 0) {
     }
     outputView.showMenu()
     do {
-        try inputs = inputView.readInput()
-    } catch InputView.Errors.invalidInput {
-        print(InputView.Errors.invalidInput.rawValue)
-        inputs = (0, 0)
+        selector = try validationChecker.getSelector(input: inputView.readInput())
+    } catch ValidationChecker.Errors.invalidInput {
+        print(ValidationChecker.Errors.invalidInput)
         continue
-    } catch InputView.Errors.quit {
-        print(InputView.Errors.quit.rawValue)
+    } catch ValidationChecker.Errors.quit {
+        print(ValidationChecker.Errors.quit)
         break
     }
-    switch inputs.0 {
+    switch selector.0 {
     case 1:
-        vendingMachine.insertCoins(inputs.1)
-    case 2 where inputs.1 <= buyableProducts.count:
-        vendingMachine.buy(category: buyableProducts[(inputs.1)-1])
-        print("\(buyableProducts[(inputs.1)-1])를 구매하셨습니다. \(String(describing: inventory[buyableProducts[(inputs.1)-1]]![0].price))원을 차감합니다.")
+        vendingMachine.insertCoins(selector.1)
+    case 2 where selector.1 <= buyableProducts.count:
+        vendingMachine.buy(category: buyableProducts[selector.1-1])
+        print("\(buyableProducts[selector.1-1])를 구매하셨습니다. \(String(describing: inventory[buyableProducts[selector.1-1]]![0].price))원을 차감합니다.")
     case 3:
         print("현재까지 구매 내역입니다.")
         outputView.show(products: vendingMachine.getSalesHistory())
     default:
-        print(InputView.Errors.notInMenu.rawValue)
+        print(ValidationChecker.Errors.notInMenu)
     }
-    inputs = (0, 0)
+    selector = (0, 0)
 }
