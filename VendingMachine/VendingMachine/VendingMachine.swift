@@ -68,7 +68,7 @@ struct VendingMachine {
         var result: Products = []
         inventory.filter { $0.key.hasSuffix("우유") }.forEach { _, value in
             result.append(contentsOf: value.filter { $0 is Milk }
-                                        .map { $0 as! Milk }
+                                        .flatMap { $0 as? Milk }
                                         .filter { !$0.validate(with: date) }
                                         .map { $0 as Beverage })
         }
