@@ -11,30 +11,20 @@ import Foundation
 class SoftDrink: Beverage {
     // 탄산첨가여부, 유통기한, 칼로리
     private let carbonContent: Int?
-    private let expirationDate: Date
-    private let calories: Int?
-    init(_ brand: String, _ volume: Int, _ price: Int, _ productName: String, _ manufacturedDate: Date, carbonContent: Int?, expirationDate: Date, calories: Int?) {
+    init(_ brand: String, _ volume: Int, _ price: Int, _ productName: String, _ manufacturedDate: Date, _ expirationDate: Date, _ calories: Int?, carbonContent: Int?) {
         self.carbonContent = carbonContent
-        self.expirationDate = expirationDate
-        self.calories = calories
-        super.init(brand, volume, price, productName, manufacturedDate)
+        super.init(brand, volume, price, productName, manufacturedDate, expirationDate, calories)
     }
-}
 
-extension SoftDrink {
     var containsCarbonicGas: Bool {
         guard let carbon = self.carbonContent, carbon > 10 else { return false }
         return true
     }
-    
-    func validate(with date: Date) -> Bool {
-        guard self.expirationDate <= date else { return true }
-        return false
-    }
 
-    func isLowCalorie() -> Bool {
-        guard let calories = self.calories else { return false }
+    override func isLowCalorie() -> Bool {
+        guard let calories = super.calories else { return false }
         if calories < 250 { return true }
         else { return false }
     }
+
 }
