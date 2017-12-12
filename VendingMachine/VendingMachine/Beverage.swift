@@ -20,7 +20,6 @@ class Beverage: CustomStringConvertible {
         date.dateFormat = "yyyyMMdd"
         return "\(brand), \(volume)ml, \(price)원, \(name), \(date.string(from: adjustedDate))"
     }
-    
     init(brand: String, volume: Int, price: Int, name: String, manufacturingDate: String) {
         self.brand = brand
         self.volume = volume
