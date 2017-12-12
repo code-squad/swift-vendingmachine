@@ -8,12 +8,15 @@
 
 import Foundation
 
-class Beverage {
-    private let brand: String
-    private let volume: Int
-    private let price: Int
-    private let name: String
-    private let manufacturingDate: Date
+class Beverage: CustomStringConvertible {
+    private (set) var brand: String
+    private (set) var volume: Int
+    private (set) var price: Int
+    private (set) var name: String
+    private (set) var manufacturingDate: Date
+    var description: String {
+        return "\(brand), \(volume)ml, \(price)원, \(name), \(manufacturingDate)"
+    }
     
     init(brand: String, volume: Int, price: Int, name: String, manufacturingDate: Date) {
         self.brand = brand
@@ -21,11 +24,5 @@ class Beverage {
         self.price = price
         self.name = name
         self.manufacturingDate = manufacturingDate
-    }
-}
-
-extension Beverage: CustomStringConvertible {
-    var description: String {
-        return "\(brand), \(volume)ml, \(price)원, \(name), \(manufacturingDate)"
     }
 }
