@@ -14,4 +14,7 @@ class TopCoffee: Coffee {
         self.ingredients = "커피추출액(콜럼비아산)"
         super.init(brand, volume, price, productName, manufacturedDate, expirationDate, calories, caffeineLevels: caffeineLevels, isHot: isHot, isSweetened: isSweetened)
     }
+    override var description: String {
+        return "TOP커피(" + String.init(describing: type(of: self)) + ") - " + super.description
+    }
 }

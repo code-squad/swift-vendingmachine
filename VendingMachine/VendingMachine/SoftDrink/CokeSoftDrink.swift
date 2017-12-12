@@ -14,4 +14,7 @@ class CokeSoftDrink: SoftDrink {
         self.ingredients = "합성착향료(콜라향)"
         super.init(brand, volume, price, productName, manufacturedDate, expirationDate, calories, carbonContent: carbonContent)
     }
+    override var description: String {
+        return "코카콜라(" + String.init(describing: type(of: self)) + ") - " + super.description
+    }
 }

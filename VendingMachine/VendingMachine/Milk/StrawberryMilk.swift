@@ -14,4 +14,7 @@ class StrawBerryMilk: Milk {
         self.ingredients = "딸기농축액"
         super.init(brand, volume, price, productName, manufacturedDate, expirationDate, calories, manufacturerCode: manufacturerCode, packingMaterial: packingMaterial)
     }
+    override var description: String {
+        return "딸기우유(" + String.init(describing: type(of: self)) + ") - " + super.description
+    }
 }

@@ -14,4 +14,7 @@ class CiderSoftDrink: SoftDrink {
         self.ingredients = "합성착향료(레몬라임향)"
         super.init(brand, volume, price, productName, manufacturedDate, expirationDate, calories, carbonContent: carbonContent)
     }
+    override var description: String {
+        return "사이다(" + String.init(describing: type(of: self)) + ") - " + super.description
+    }
 }

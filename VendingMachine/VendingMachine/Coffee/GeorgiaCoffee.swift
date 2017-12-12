@@ -14,4 +14,7 @@ class GeorgiaCoffee: Coffee {
         self.ingredients = "에메랄드 마운틴 블렌드 커피 추출액"
         super.init(brand, volume, price, productName, manufacturedDate, expirationDate, calories, caffeineLevels: caffeineLevels, isHot: isHot, isSweetened: isSweetened)
     }
+    override var description: String {
+        return "조지아커피(" + String.init(describing: type(of: self)) + ") - " + super.description
+    }
 }
