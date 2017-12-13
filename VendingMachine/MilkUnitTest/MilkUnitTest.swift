@@ -10,11 +10,11 @@ import XCTest
 @testable import VendingMachine
 
 class MilkUnitTest: XCTestCase {
-    let lightMilk = LightBananaMilk(brand: "빙그레", volume: 230, price: 1300, name: "저지방바나나우유", manufacturingDate: "20171213")
-    let realMilk = RealBananaMilk(brand: "매일우유", volume: 270, price: 1200, name: "원래 바나나우유는 하얗다", manufacturingDate: "20171211")
+    let lightMilk = LightBananaMilk(volume: 270, price: 1400, manufacturingDate: "20171210")
+    let realMilk = RealBananaMilk(volume: 270, price: 1200, manufacturingDate: "20171209")
     
     func testLightMilkIslowMilk() {
-        XCTAssertTrue(lightMilk.isLowFact())
+        XCTAssertTrue(lightMilk.isLowFat())
     }
     
     func testLightMilkHasBlueCap() {
@@ -27,7 +27,7 @@ class MilkUnitTest: XCTestCase {
     }
     
     func testValidateIfValidatePassed() {
-        let lightMilk = LightBananaMilk(brand: "빙그레", volume: 230, price: 2000, name: "저지방바나나우유", manufacturingDate: "20171206")
+        let lightMilk = LightBananaMilk(volume: 270, price: 1400, manufacturingDate: "20171206")
         XCTAssertFalse(lightMilk.validate(with: Date()))
     }
     

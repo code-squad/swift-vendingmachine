@@ -10,25 +10,22 @@ import Foundation
 
 class Coke: SodaPop {
     private let bottelLabelColor: String
-    private var sugarContent: Int // g, 8fl
     private var businessUse: Bool
     
-    init(brand: String, volume: Int, price: Int, name: String, manufacturingDate: String, sugarContent: Int, labelColor: String, forWhere used: Bool) {
-        self.sugarContent = sugarContent
+    init(sugarContent: Double, volume: Int, price: Int, name: String, manufacturingDate: String, labelColor: String, forBusiness used: Bool) {
         self.bottelLabelColor = labelColor
         self.businessUse = used
-        super.init(kind: "콜라", brand: brand, volume: volume, price: price, name: name, manufacturingDate: manufacturingDate)
+        super.init("콜라", sugarContent, "코카콜라", volume, price, name, manufacturingDate)
     }
-    
-    func isLowCoke() -> Bool {
-        return 27 >= sugarContent
+    override var description: String {
+        return "\(super.kind)(\(String(describing: type(of: self)))) - " + super.description
     }
-    
+
     func isBusinessUse() -> Bool {
         return businessUse
     }
     
-    func isLabelColor() -> String {
+    func isLabelOriginalColor() -> String {
         return bottelLabelColor
     }
     

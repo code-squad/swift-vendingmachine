@@ -9,13 +9,16 @@
 import Foundation
 
 class SodaPop: Beverage, BeveragePorotocol {
-    private let kind: String
-    init(kind:String, brand: String, volume: Int, price: Int, name: String, manufacturingDate: String) {
+    private (set) var kind: String
+    private let sugarContent: Double
+    init(_ kind:String, _ sugarContent: Double , _ brand: String, _ volume: Int, _ price: Int, _ name: String, _ manufacturingDate: String) {
         self.kind = kind
+        self.sugarContent = sugarContent
         super.init(brand, volume, price, name, manufacturingDate)
     }
-    override var description: String {
-        return "\(kind) - " + super.description
+
+    func isHighSugar() -> Bool {
+        return sugarContent > 5
     }
     
     // 탄산음료의 유통기한은 제조일로부터 1년입니다.

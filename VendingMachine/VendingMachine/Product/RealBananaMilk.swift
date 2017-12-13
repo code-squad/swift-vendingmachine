@@ -9,12 +9,23 @@
 import Foundation
 
 class RealBananaMilk: Milk {
-    private let bananMilkColor = "WHITE"
-    init(brand: String, volume: Int, price: Int, name: String, manufacturingDate: String) {
-        super.init(kind: "바나나", brand: brand, volume: volume, price: price, name: name, manufacturingDate: manufacturingDate)
+    private let bananMilkColor: String
+    private let flavor: String
+    init(volume: Int, price: Int, manufacturingDate: String) {
+        self.bananMilkColor = "WHITE"
+        self.flavor = "바나나향"
+        super.init("바나나", 7, "매일우유", volume, price, "바나나는 원래 하얗다", manufacturingDate)
+    }
+    override var description: String {
+        return "\(super.kind)우유(\(String(describing: type(of: self)))) - " + super.description
     }
     
     func isRealBanana() -> Bool {
         return bananMilkColor == "WHITE"
     }
+    
+    func hasBananaFlavor() -> Bool {
+        return flavor == "바나나향"
+    }
+    
 }

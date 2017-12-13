@@ -9,17 +9,15 @@
 import Foundation
 
 class LightBananaMilk: Milk {
-    private let fatContent = 1.5 // %
-    private let bottleCapColor = "BLUE"
-    
-    init(brand: String, volume: Int, price: Int, name: String, manufacturingDate: String) {
-        super.init(kind: "바나나", brand: brand, volume: volume, price: price, name: name, manufacturingDate: manufacturingDate)
+    private var bottleCapColor: String
+    init(volume: Int, price: Int, manufacturingDate: String) {
+        self.bottleCapColor = "BLUE"
+        super.init("바나나", 1.5, "빙그레", volume, price, "저지방 바나나우유", manufacturingDate)
     }
-    
-    func isLowFact() -> Bool {
-        return fatContent < 2
+    override var description: String {
+        return "\(super.kind)우유(\(String(describing: type(of: self)))) - " + super.description
     }
-    
+
     func hasBlueCap() -> Bool {
         return bottleCapColor == "BLUE"
     }

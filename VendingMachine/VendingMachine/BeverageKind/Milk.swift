@@ -9,13 +9,16 @@
 import Foundation
 
 class Milk: Beverage, BeveragePorotocol {
-    private let kind: String
-    init(kind:String, brand: String, volume: Int, price: Int, name: String, manufacturingDate: String) {
+    private (set) var kind: String
+    private let fatContent: Double
+    init(_ kind:String, _ fatContent: Double, _ brand: String, _ volume: Int, _ price: Int, _ name: String, _ manufacturingDate: String) {
         self.kind = kind
+        self.fatContent = fatContent
         super.init(brand, volume, price, name, manufacturingDate)
     }
-    override var description: String {
-        return "\(kind)우유 - " + super.description
+    
+    func isLowFat() -> Bool {
+        return fatContent <= 1.5
     }
     
     // 유제품은 제조일로부터 7일이내에 드셔야합니다.
