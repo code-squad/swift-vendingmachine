@@ -1,5 +1,5 @@
 //
-//  SodaPop.swift
+//  Milk.swift
 //  VendingMachine
 //
 //  Created by Mrlee on 2017. 12. 12..
@@ -8,13 +8,13 @@
 
 import Foundation
 
-class SodaPop: Beverage {
+class Milk: Beverage {
     private let kind: String
     init(kind:String, brand: String, volume: Int, price: Int, name: String, manufacturingDate: String) {
         self.kind = kind
-        super.init(brand: brand, volume: volume, price: price, name: name, manufacturingDate: manufacturingDate)
+        super.init(brand, volume, price, name, manufacturingDate)
     }
     override var description: String {
-        return "\(kind) - " + super.description
+        return "\(kind)우유 - " + super.description
     }
 }

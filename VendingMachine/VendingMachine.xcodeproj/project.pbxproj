@@ -46,6 +46,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		40E250DB1FE0D48D0003FC79 /* BeverageKind */ = {
+			isa = PBXGroup;
+			children = (
+				407656761FDF81B500B36450 /* Beverage.swift */,
+				407656781FDF96A000B36450 /* Milk.swift */,
+				4076567C1FDF9ACE00B36450 /* SodaPop.swift */,
+				4076567E1FDF9AED00B36450 /* Coffee.swift */,
+			);
+			path = BeverageKind;
+			sourceTree = "<group>";
+		};
+		40E250DC1FE0D4E30003FC79 /* Product */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Product;
+			sourceTree = "<group>";
+		};
 		839DA9001F8D1F95009E05F3 = {
 			isa = PBXGroup;
 			children = (
@@ -65,11 +83,9 @@
 		839DA90B1F8D1F95009E05F3 /* VendingMachine */ = {
 			isa = PBXGroup;
 			children = (
+				40E250DC1FE0D4E30003FC79 /* Product */,
+				40E250DB1FE0D48D0003FC79 /* BeverageKind */,
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
-				407656761FDF81B500B36450 /* Beverage.swift */,
-				407656781FDF96A000B36450 /* Milk.swift */,
-				4076567C1FDF9ACE00B36450 /* SodaPop.swift */,
-				4076567E1FDF9AED00B36450 /* Coffee.swift */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";
