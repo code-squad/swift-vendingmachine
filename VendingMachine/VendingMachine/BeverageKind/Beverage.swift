@@ -8,17 +8,20 @@
 
 import Foundation
 
+protocol BeveragePorotocol {
+    func validate(with: Date) -> Bool
+}
+
 class Beverage: CustomStringConvertible {
     private var brand: String
     private var volume: Int
     private var price: Int
     private var name: String
-    private var manufacturingDate: Date
+    private (set) var manufacturingDate: Date
     var description: String {
-        let adjustedDate = Date(timeInterval: 9 * 60 * 60, since: self.manufacturingDate)
         let date = DateFormatter()
         date.dateFormat = "yyyyMMdd"
-        return "\(brand), \(volume)ml, \(price)원, \(name), \(date.string(from: adjustedDate))"
+        return "\(brand), \(volume)ml, \(price)원, \(name), \(date.string(from: manufacturingDate))"
     }
     init(_ brand: String, _ volume: Int, _ price: Int, _ name: String, _ manufacturingDate: String) {
         self.brand = brand
@@ -27,6 +30,6 @@ class Beverage: CustomStringConvertible {
         self.name = name
         let date = DateFormatter()
         date.dateFormat = "yyyyMMdd"
-        self.manufacturingDate = date.date(from: manufacturingDate)!
+        self.manufacturingDate = Date(timeInterval: 9 * 60 * 60, since:date.date(from: manufacturingDate)!)
     }
 }

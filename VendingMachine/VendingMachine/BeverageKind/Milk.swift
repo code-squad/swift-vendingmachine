@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Milk: Beverage {
+class Milk: Beverage, BeveragePorotocol {
     private let kind: String
     init(kind:String, brand: String, volume: Int, price: Int, name: String, manufacturingDate: String) {
         self.kind = kind
@@ -16,5 +16,10 @@ class Milk: Beverage {
     }
     override var description: String {
         return "\(kind)우유 - " + super.description
+    }
+    
+    // 유제품은 제조일로부터 7일이내에 드셔야합니다.
+    func validate(with: Date) -> Bool {
+        return Date(timeInterval: 24 * 60 * 60 * 7, since: self.manufacturingDate) > Date(timeInterval: 9 * 60 * 60, since: with)
     }
 }
