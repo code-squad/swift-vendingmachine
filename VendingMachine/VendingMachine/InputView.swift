@@ -10,7 +10,7 @@ import Foundation
 
 struct InputView {
 
-    func readInput() -> String {
+    static func readInput() -> String {
         return readLine() ?? ""
     }
 

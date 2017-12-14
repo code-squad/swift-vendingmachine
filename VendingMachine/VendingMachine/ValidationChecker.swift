@@ -12,7 +12,11 @@ struct ValidationChecker {
 
     enum VendingMenu: Int {
         case none
-        case insertCoins = 1, buyProduct, salesHistory
+        case insertCoins = 1, buyProduct, purchaseList
+    }
+
+    enum AdminMenu: Int {
+        case none, addProducts, removeExpired, salesHistory
     }
 
     enum Errors: CustomStringConvertible, Error {
@@ -32,11 +36,11 @@ struct ValidationChecker {
         }
     }
 
-    private func validate(inputs: [Int]) -> Bool {
+    static private func validate(inputs: [Int]) -> Bool {
         return (inputs.count == 1 && inputs[0] == 3) || (inputs.count == 2)
     }
 
-    func getSelector(input: String) throws -> (VendingMenu, Int) {
+    static func getSelector(input: String) throws -> (VendingMenu, Int) {
         guard input != "q" && input != "quit" else {
             throw Errors.quit
         }
@@ -55,6 +59,17 @@ struct ValidationChecker {
         } else {
             return (vendingMenu, inputs[1])
         }
+    }
+
+    static func getAdminSelector(input: String) throws -> AdminMenu {
+        guard input != "q" && input != "quit" else {
+            throw Errors.quit
+        }
+        let selector = Int(input) ?? 0
+        guard selector >= 1 && selector <= 3 else {
+            throw Errors.notInMenu
+        }
+        return AdminMenu.init(rawValue: selector) ?? .none
     }
 
 }
