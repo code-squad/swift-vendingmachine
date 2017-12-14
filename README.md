@@ -1,57 +1,42 @@
-# 진행 방법
+## Unit Test 란
+> 코드의 특정 모듈이 의도된 대로 정확히 작동하는지 검증하는 절차로, 모든 함수와 메소드에 대한 테스트 케이스를 작성하는 절차
 
-- 자판기 요구사항에 대해 파악한다.
-- 요구사항에 대한 구현을 완료한 후 자신의 github 아이디에 해당하는 브랜치에 Pull Request(이하 PR)를 통해 코드 리뷰 요청을 한다.
-- 코드 리뷰 피드백에 대한 개선 작업을 하고 다시 PUSH한다.
-- 모든 피드백을 완료하면 다음 단계를 도전하고 앞의 과정을 반복한다.
+### 작성 시 주의사항
+- 모든 테스트 케이스는 서로 분리되어야 함
+- 전역변수를 만들어두고 setup(), tearDown()을 활용하는 것보다는 각 테스트 케이스 내에서 데이터를 따로 만들어 사용하는 편이 안전
+- 가짜 객체(Mock object)를 생성하는 것도 좋은 방법
+	- method 호출 유무 테스트 시: bool 보다는 count 를 통해 몇번 호출되는지를 확인
+	- multiple assertiontest 시: 파라미터에 message, file name, line number 추가하여 에러메시지를 구체화
+	- 배열이 같은지 확인할 시: 순서 유무는 상관 없으므로 contains 의 참거짓을 판별하는 코드로 교체. 
+	- 에러메시지 더욱 구체화하기 위해 Swift Hamcrest matcher를 사용:
+		- XCTAssertEqual ➔ XCTAssertTrue ➔ Swift Hamcrest matcher
 
-# 코드 리뷰 과정
-> 저장소 브랜치에 자신의 github 아이디에 해당하는 브랜치가 존재해야 한다.
->
-> 자신의 github 아이디에 해당하는 브랜치가 있는지 확인한다.
+## TDD(Test Driven Development) 란
+> TDD = Test First Development + 리팩토링
 
-1. 자신의 github 아이디에 해당하는 브랜치가 없는 경우 브랜치 생성 요청 채널을 통해 브랜치 생성을 요청한다.
-프로젝트를 자신의 계정으로 fork한다. 저장소 우측 상단의 fork 버튼을 활용한다.
+> Test Fails ➔ Test Success ➔ Refactoring (반복)
 
-2. fork한 프로젝트를 자신의 컴퓨터로 clone한다.
-```
-git clone https://github.com/{본인_아이디}/{저장소 아이디}
-ex) https://github.com/godrm/swift-vendingmachine
-```
+### 작성 과정
+1. 테스트 케이스부터 작성: 입력에 따른 출력만 확인
+2. 역으로, 해당 함수 작성: **fail** 확인 후 빠르게 **pass** 하도록 리팩토링 (메소드명, 변수명 등)
+3. 리팩토링: 리팩토링 메뉴, 함수형 프로그래밍 등 사용.
+	- 리팩토링은 극단적으로 해야 좋음
 
-3. clone한 프로젝트 이동
-```
-cd {저장소 아이디}
-ex) cd swift-vendingmachine
-```
+### 장점
+- 한 번에 한 가지에만 집중할 수 있다: 
+    - 로직 구현에 집중
+    - 테스트를 통과하기 위해 어떠한 행위도 허용
+    - 테스트에서는 함수명 등에 관심가질 필요가 없다. 리팩토링을 통해 설계를 개선하면 되므로..
+- 심적으로 안정감을 얻을 수 있다.
+- 점점 테스트코드 작성하는 시간이 줄어들어, 삽질을 많이 할 수 있게 됨 -> 효율을 높일 수 있다.
 
-4. 본인 아이디로 브랜치를 만들기 위한 checkout
-```
-git checkout -t origin/본인_아이디
-ex) git checkout -t origin/godrm
-```
+### 발전
+- 다른 활동에도 응용가능
+    - 책쓰기: 현재 상태에서 쓸 수 있는 내용 위주로 빠르게 작성 -> 편집자에게 피드백 -> 퇴고
+    - 창업 등...
+    - 린스타트업과 비슷
+- 정답이 없는 환경에서 돌파해나갈 때 필요한 자세: 삽질하고 피드백 받아 개선하는 사이클
 
-5. commit
-```
-git status //확인
-git rm 파일명 //삭제된 파일
-git add 파일명(or * 모두) // 추가/변경 파일
-git commit -m "메세지" // 커밋
-```
+<br/>
 
-6. 본인 원격 저장소에 올리기
-```
-git push origin 본인_아이디
-ex) git push origin godrm
-```
-
-7. pull request
-8. pull request는 github 서비스에서 진행할 수 있다.
-9. pull request는 반드시 original 저장소의 브랜치와 fork한 자신의 저장소 브랜치 이름이 같아야 하며, 브랜치 이름은 자신의 github 아이디여야 한다.
-10. code review 및 push
-11. pull request를 통해 피드백을 받는다.
-12. 코드 리뷰 피드백에 대한 개선 작업을 하고 다시 PUSH한다.
-
-## 앞의 코드 리뷰 과정은 [영상 보기](https://www.youtube.com/watch?v=ZSZoaG0PqLg) 를 통해 참고 가능
-
-## 실습 중 모든 질문은 슬랙 채널에서...
+**[출처]제1회 마스터즈 세미나 - '나는 왜 TDD에 집착하는가(by.포비)' 중에서...**
