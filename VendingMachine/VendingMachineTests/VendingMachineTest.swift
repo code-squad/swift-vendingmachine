@@ -22,14 +22,14 @@ class VendingMachineTest: XCTestCase {
 
     //    자판기 금액을 원하는 금액만큼 올리는 메소드
     func testInsertCoins() {
-        var vendingMachine: VendingMachine = VendingMachine.init()
+        let vendingMachine: VendingMachine = VendingMachine.init()
         vendingMachine.insertCoins(1000)
         XCTAssertEqual(vendingMachine.getBalance(), 1000)
     }
 
     //    특정 상품 인스턴스를 넘겨서 재고를 추가하는 메소드
     func testAddProduct() {
-        var vendingMachine: VendingMachine = VendingMachine.init()
+        let vendingMachine: VendingMachine = VendingMachine.init()
         let dateOfManufacture: Date = "20171211".getDateFromString()
         let validate: Date = "20171220".getDateFromString()
         let strawberryMilk = StrawberryMilk.init(brand: "서울우유", weight: 200, price: 1000, name: "딸기우유", dateOfManufacture: dateOfManufacture, validate: validate)
@@ -40,7 +40,7 @@ class VendingMachineTest: XCTestCase {
 
     //    현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
     func testGetBuyableProducts() {
-        var vendingMachine: VendingMachine = VendingMachine.init()
+        let vendingMachine: VendingMachine = VendingMachine.init()
         vendingMachine.insertCoins(1000)
         let dateOfManufacture: Date = "20171211".getDateFromString()
         let validate: Date = "20171220".getDateFromString()
@@ -53,7 +53,7 @@ class VendingMachineTest: XCTestCase {
 
     //    음료수를 구매하는 메소드
     func testBuy() {
-        var vendingMachine: VendingMachine = VendingMachine.init()
+        let vendingMachine: VendingMachine = VendingMachine.init()
         vendingMachine.insertCoins(1000)
         let dateOfManufacture: Date = "20171211".getDateFromString()
         let validate: Date = "20171220".getDateFromString()
@@ -70,7 +70,7 @@ class VendingMachineTest: XCTestCase {
 
     //    잔액을 확인하는 메소드
     func testGetBalance() {
-        var vendingMachine: VendingMachine = VendingMachine.init()
+        let vendingMachine: VendingMachine = VendingMachine.init()
         XCTAssertEqual(vendingMachine.getBalance(), 0)
         vendingMachine.insertCoins(1000)
         XCTAssertEqual(vendingMachine.getBalance(), 1000)
@@ -78,7 +78,7 @@ class VendingMachineTest: XCTestCase {
 
     //    전체 상품 재고를 (사전으로 표현하는) 종류별로 리턴하는 메소드
     func testGetInventory() {
-        var vendingMachine: VendingMachine = VendingMachine.init()
+        let vendingMachine: VendingMachine = VendingMachine.init()
         let dateOfManufacture: Date = "20171211".getDateFromString()
         let validate: Date = "20171220".getDateFromString()
         let strawberryMilk = StrawberryMilk.init(brand: "서울우유", weight: 200, price: 1000, name: "딸기우유", dateOfManufacture: dateOfManufacture, validate: validate)
@@ -90,7 +90,7 @@ class VendingMachineTest: XCTestCase {
 
     //    유통기한이 지난 재고만 리턴하는 메소드
     func testGetExpiredProducts() {
-        var vendingMachine: VendingMachine = VendingMachine.init()
+        let vendingMachine: VendingMachine = VendingMachine.init()
         var dateOfManufacture: Date = "20171211".getDateFromString()
         let validate: Date = "20171220".getDateFromString()
         let strawberryMilk = StrawberryMilk.init(brand: "서울우유", weight: 200, price: 1000, name: "딸기우유", dateOfManufacture: dateOfManufacture, validate: validate)
@@ -105,7 +105,7 @@ class VendingMachineTest: XCTestCase {
 
     //    따뜻한 음료만 리턴하는 메소드
     func testGetHotProducts() {
-        var vendingMachine: VendingMachine = VendingMachine.init()
+        let vendingMachine: VendingMachine = VendingMachine.init()
         let dateOfManufacture: Date = "20171211".getDateFromString()
         let topCoffee = TOPCoffee.init(brand: "맥심", weight: 400, price: 3000, name: "TOP아메리카노", dateOfManufacture: dateOfManufacture, hot: true)
         let kantata = Kantata.init(brand: "Kantata", weight: 400, price: 3000, name: "칸타타", dateOfManufacture: dateOfManufacture, hot: true)
@@ -118,7 +118,7 @@ class VendingMachineTest: XCTestCase {
 
     //    시작이후 구매 상품 이력을 배열로 리턴하는 메소드
     func testGetSalesHistory() {
-        var vendingMachine: VendingMachine = VendingMachine.init()
+        let vendingMachine: VendingMachine = VendingMachine.init()
         let dateOfManufacture: Date = "20171211".getDateFromString()
         let topCoffee = TOPCoffee.init(brand: "맥심", weight: 400, price: 3000, name: "TOP아메리카노", dateOfManufacture: dateOfManufacture, hot: true)
         let kantata = Kantata.init(brand: "Kantata", weight: 400, price: 3000, name: "칸타타", dateOfManufacture: dateOfManufacture, hot: true)

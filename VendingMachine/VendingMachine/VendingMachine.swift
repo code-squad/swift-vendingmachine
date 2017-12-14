@@ -12,18 +12,18 @@ typealias Products = Array<Beverage>
 typealias Category = String
 typealias Inventory = Dictionary<Category, Products>
 
-struct VendingMachine {
+class VendingMachine {
     private var coins: Int = 0
     private var inventory: Inventory = [:]
     private var salesHistory: Products = []
 
     //    자판기 금액을 원하는 금액만큼 올리는 메소드
-    mutating func insertCoins(_ amount: Int) {
+    func insertCoins(_ amount: Int) {
         coins += amount
     }
 
     //    특정 상품 인스턴스를 넘겨서 재고를 추가하는 메소드
-    mutating func add(product: Beverage) {
+    func add(product: Beverage) {
         let category: Category = String(product.description.split(separator: "(")[0])
         if var products = inventory[category] {
             products.append(product)
@@ -45,7 +45,7 @@ struct VendingMachine {
     }
 
     //    음료수를 구매하는 메소드
-    mutating func buy(category: Category) {
+    func buy(category: Category) {
         if inventory[category] != nil {
             salesHistory.append(inventory[category]!.removeFirst())
             coins -= salesHistory.last!.price
