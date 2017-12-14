@@ -32,3 +32,11 @@ class Beverage: CustomStringConvertible {
     }
 
 }
+
+extension Beverage: Equatable {
+
+    static func ==(lhs: Beverage, rhs: Beverage) -> Bool {
+        return lhs.description == rhs.description
+    }
+
+}
