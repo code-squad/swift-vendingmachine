@@ -12,7 +12,7 @@ typealias Products = Array<Beverage>
 typealias Category = String
 typealias Inventory = Dictionary<Category, Products>
 
-class VendingMachine: CustomStringConvertible{
+class VendingMachine: CustomStringConvertible {
     fileprivate var coins: Int
     fileprivate var inventory: Inventory
     fileprivate var salesHistory: Products = []
@@ -53,10 +53,11 @@ struct VendingMachineAdmin {
     //    유통기한이 지난 재고만 리턴하는 메소드
     func getExpiredProducts(date: Date) -> Products {
         var result: Products = []
-        vendingMachine.inventory.filter { $0.key.hasSuffix("우유") }.forEach({ _, value in
-            result.append(contentsOf: value.flatMap { $0 as? Milk }
-                .filter { !$0.validate(with: date) }
-                .map { $0 as Beverage })
+        vendingMachine.inventory.filter({ $0.key.hasSuffix("우유") }).forEach({
+            _, value in
+            result.append(contentsOf: value.flatMap({ $0 as? Milk })
+                                           .filter({ !$0.validate(with: date) })
+                                           .map({ $0 as Beverage }))
         })
         print("check::: \(result)")
         return result
@@ -91,6 +92,7 @@ struct VendingMachineUser {
     init(vendingMachine: VendingMachine) {
         self.vendingMachine = vendingMachine
     }
+
     //    자판기 금액을 원하는 금액만큼 올리는 메소드
     func insertCoins(_ amount: Int) {
         vendingMachine.coins += amount

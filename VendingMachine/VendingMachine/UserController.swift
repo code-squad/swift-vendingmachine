@@ -58,4 +58,5 @@ struct UserController {
             selector = (ValidationChecker.VendingMenu.none, 0)
         }
     }
+
 }
