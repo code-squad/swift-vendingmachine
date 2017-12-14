@@ -14,4 +14,3 @@ enum DateInterval: TimeInterval {
     case twoDays = 172_800
     case oneWeek = 604_800
 }
-
