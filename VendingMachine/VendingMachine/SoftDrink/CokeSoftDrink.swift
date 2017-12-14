@@ -10,7 +10,7 @@ import Foundation
 
 class CokeSoftDrink: SoftDrink {
     private let ingredients: String
-    override init(_ brand: String, _ volume: Int, _ price: Int, _ productName: String, _ manufacturedDate: Date, _ expirationDate: Date, _ calories: Int?, carbonContent: Int?) {
+    override init(_ brand: String, _ volume: Int, _ price: Int, _ productName: String, _ manufacturedDate: Date, _ expirationDate: Date, _ calories: Int, carbonContent: Int) {
         self.ingredients = "합성착향료(콜라향)"
         super.init(brand, volume, price, productName, manufacturedDate, expirationDate, calories, carbonContent: carbonContent)
     }

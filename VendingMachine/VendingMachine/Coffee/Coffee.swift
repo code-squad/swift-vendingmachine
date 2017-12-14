@@ -11,9 +11,9 @@ import Foundation
 class Coffee: Beverage {
     // 카페인 함유량, 뜨거운음료여부, 무가당여부, 유통기한, 칼로리
     private let caffeineLevels: Int
-    private let isHot: Bool?
-    private let isSweetened: Bool?
-    init(_ brand: String, _ volume: Int, _ price: Int, _ productName: String, _ manufacturedDate: Date, _ expirationDate: Date, _ calories: Int?, caffeineLevels: Int, isHot: Bool?, isSweetened: Bool?) {
+    private let isHot: Bool
+    private let isSweetened: Bool
+    init(_ brand: String, _ volume: Int, _ price: Int, _ productName: String, _ manufacturedDate: Date, _ expirationDate: Date, _ calories: Int, caffeineLevels: Int, isHot: Bool, isSweetened: Bool) {
         self.caffeineLevels = caffeineLevels
         self.isHot = isHot
         self.isSweetened = isSweetened
@@ -21,19 +21,15 @@ class Coffee: Beverage {
     }
 
     func isDecaffeinated() -> Bool {
-        guard caffeineLevels <= 10 else { return false }
-        return true
+        return caffeineLevels <= 10
     }
 
     func isUnSweetened() -> Bool {
-        guard let sweetened = self.isSweetened else { return false }
-        return !sweetened
+        return !self.isSweetened
     }
 
     override func isLowCalorie() -> Bool {
-        guard let calories = super.calories else { return false }
-        if calories < 150 { return true }
-        else { return false }
+        return super.calories < 150
     }
 
 }

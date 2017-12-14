@@ -10,7 +10,7 @@ import Foundation
 
 class StrawBerryMilk: Milk {
     private(set) var ingredients: String
-    override init(_ brand: String, _ volume: Int, _ price: Int, _ productName: String, _ manufacturedDate: Date, _ expirationDate: Date, _ calories: Int?, manufacturerCode: Int, packingMaterial: String?) {
+    override init(_ brand: String, _ volume: Int, _ price: Int, _ productName: String, _ manufacturedDate: Date, _ expirationDate: Date, _ calories: Int, manufacturerCode: Int, packingMaterial: String) {
         self.ingredients = "딸기농축액"
         super.init(brand, volume, price, productName, manufacturedDate, expirationDate, calories, manufacturerCode: manufacturerCode, packingMaterial: packingMaterial)
     }
