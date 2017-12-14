@@ -8,7 +8,7 @@
 
 import XCTest
 
-class VendingMachineTest: XCTestCase {
+class BeverageTest: XCTestCase {
 
     func test_ManufacturerCode_StrawberryMilk() {
         let strawberryMilk = StrawBerryMilk("서울우유", 200, 1000, "날마다딸기우유", Date.init(timeIntervalSinceNow: 0), Date.init(timeIntervalSinceNow: 60*60*24*7), 210, manufacturerCode: 1001, packingMaterial: "종이")
