@@ -71,6 +71,16 @@ struct VendingMachineAdmin {
         return vendingMachine.inventory.filter { $0.value.count > 0 }
     }
 
+    //    특정 상품 인스턴스를 넘겨서 재고를 제거하는 메소드
+    func remove(product: Beverage) {
+        let category: Category = String(product.description.split(separator: "(")[0])
+        if var products = vendingMachine.inventory[category] {
+            for i in 0..<products.count where products[i] == product {
+                vendingMachine.inventory[category]!.remove(at: i)
+            }
+        }
+    }
+
 }
 
 struct VendingMachineUser {
