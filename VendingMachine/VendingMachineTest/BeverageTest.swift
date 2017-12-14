@@ -18,7 +18,7 @@ class BeverageTest: XCTestCase {
 
     func test_Validation_BananaMilk() {
         let bananaMilk = BananaMilk("서울우유", 200, 1000, "날마다바나나우유", Date.init(timeIntervalSinceNow: 0), Date.init(timeIntervalSinceNow: 60*60*24*7), 220, manufacturerCode: 1001, packingMaterial: "종이")
-        let isTodayValidate = bananaMilk.expired(with: Date(timeIntervalSinceNow: 60*60*24*8))
+        let isTodayValidate = bananaMilk.isExpired(with: Date(timeIntervalSinceNow: 60*60*24*8))
         XCTAssertEqual(isTodayValidate, true)
     }
 
@@ -30,7 +30,7 @@ class BeverageTest: XCTestCase {
 
     func test_Validation_Coke() {
         let coke = CokeSoftDrink("펩시", 350, 2000, "다이어트콜라", Date.init(timeIntervalSinceNow: 0), Date.init(timeIntervalSinceNow: 60*60*24*30*6), 250, carbonContent: 50)
-        let isTodayValidate = coke.expired(with: Date(timeIntervalSinceNow: 60*60*24*30*3))
+        let isTodayValidate = coke.isExpired(with: Date(timeIntervalSinceNow: 60*60*24*30*3))
         XCTAssertEqual(isTodayValidate, false)
     }
 
@@ -46,7 +46,7 @@ class BeverageTest: XCTestCase {
 
     func test_Validation_TOP() {
         let top = TopCoffee("맥심", 200, 2200, "티오피", Date.init(timeIntervalSinceNow: 0), Date.init(timeIntervalSinceNow: 60*60*24*14), 240, caffeineLevels: 20, isHot: false, isSweetened: true)
-        let isTodayValidate = top.expired(with: Date(timeIntervalSinceNow: 60*60*24*4))
+        let isTodayValidate = top.isExpired(with: Date(timeIntervalSinceNow: 60*60*24*4))
         XCTAssertEqual(isTodayValidate, false)
     }
 

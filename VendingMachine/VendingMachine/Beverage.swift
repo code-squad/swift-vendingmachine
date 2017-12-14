@@ -27,7 +27,7 @@ class Beverage: CustomStringConvertible {
         self.calories = calories
     }
 
-    func expired(with date: Date) -> Bool {
+    func isExpired(with date: Date) -> Bool {
         return self.expirationDate < date
     }
 
