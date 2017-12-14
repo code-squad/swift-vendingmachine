@@ -40,10 +40,11 @@ struct OutputView {
         print("\n1. 금액추가 (예: 1 10000)")
         print("2. 음료구매 (예: 2 2)")
         print("3. 구매내역확인")
+        print("(종료: q, quit)")
     }
 
     static func showMode() {
-        print("\n자판기를 시작합니다.")
+        print("\n자판기를 시작합니다. (종료: q, quit)")
         print("1. 관리자 모드")
         print("2. 사용자 모드")
     }
@@ -52,6 +53,7 @@ struct OutputView {
         print("\n1. 음료 채우기")
         print("2. 유통기한 지난 음료 제거")
         print("3. 판매내역확인")
+        print("(종료: q, quit)")
     }
 
 }

@@ -43,8 +43,8 @@ struct VendingMachineAdmin {
     //    특정 상품 인스턴스를 넘겨서 재고를 추가하는 메소드
     func add(product: Beverage) {
         let category: Category = String(product.description.split(separator: "(")[0])
-        if var products = vendingMachine.inventory[category] {
-            products.append(product)
+        if vendingMachine.inventory[category] != nil {
+            vendingMachine.inventory[category]!.append(product)
         } else {
             vendingMachine.inventory[category] = [product]
         }
@@ -58,6 +58,7 @@ struct VendingMachineAdmin {
                 .filter { !$0.validate(with: date) }
                 .map { $0 as Beverage })
         })
+        print("check::: \(result)")
         return result
     }
 
@@ -74,8 +75,8 @@ struct VendingMachineAdmin {
     //    특정 상품 인스턴스를 넘겨서 재고를 제거하는 메소드
     func remove(product: Beverage) {
         let category: Category = String(product.description.split(separator: "(")[0])
-        if var products = vendingMachine.inventory[category] {
-            for i in 0..<products.count where products[i] == product {
+        if vendingMachine.inventory[category] != nil {
+            for i in 0..<vendingMachine.inventory[category]!.count where vendingMachine.inventory[category]![i] == product {
                 vendingMachine.inventory[category]!.remove(at: i)
             }
         }
