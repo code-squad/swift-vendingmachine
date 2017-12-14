@@ -15,7 +15,7 @@ class Coke: SodaPop {
     init(sugarContent: Double, volume: Int, price: Int, name: String, manufacturingDate: String, labelColor: String, forBusiness used: Bool) {
         self.bottelLabelColor = labelColor
         self.businessUse = used
-        super.init("콜라", sugarContent, "코카콜라", volume, price, name, manufacturingDate)
+        super.init(kind: "콜라", sugarContent: sugarContent, brand: "코카콜라", volume: volume, price: price, name: name, manufacturingDate: manufacturingDate)
     }
     override var description: String {
         return "\(super.kind)(\(String(describing: type(of: self)))) - " + super.description

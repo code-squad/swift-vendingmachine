@@ -11,10 +11,10 @@ import Foundation
 class SodaPop: Beverage, BeveragePorotocol {
     private (set) var kind: String
     private let sugarContent: Double
-    init(_ kind:String, _ sugarContent: Double , _ brand: String, _ volume: Int, _ price: Int, _ name: String, _ manufacturingDate: String) {
+    init(kind:String, sugarContent: Double , brand: String, volume: Int, price: Int, name: String, manufacturingDate: String) {
         self.kind = kind
         self.sugarContent = sugarContent
-        super.init(brand, volume, price, name, manufacturingDate)
+        super.init(brand: brand, volume: volume, price: price, name: name, manufacturingDate: manufacturingDate)
     }
 
     func isHighSugar() -> Bool {
@@ -23,6 +23,6 @@ class SodaPop: Beverage, BeveragePorotocol {
     
     // 탄산음료의 유통기한은 제조일로부터 1년입니다.
     func validate(with: Date) -> Bool {
-        return Date(timeInterval: 24 * 60 * 60 * 365, since: self.manufacturingDate) > Date(timeInterval: 9 * 60 * 60, since: with)
+        return Date(timeInterval: DateInterval.year.rawValue, since: self.manufacturingDate) > Date(timeInterval: DateInterval.today.rawValue, since: with)
     }
 }

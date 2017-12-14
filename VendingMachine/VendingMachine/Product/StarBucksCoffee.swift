@@ -12,7 +12,7 @@ class StarBucksCoffee: Coffee {
     private let reserve: Bool
     init(reserve: Bool, caffeine: Bool, temperature: Double, volume: Int, price: Int, name: String, manufacturingDate: String) {
         self.reserve = reserve
-        super.init("커피", caffeine, temperature, "스타벅스", volume, price, name, manufacturingDate)
+        super.init(kind: "커피", caffeine: caffeine, temperature: 98, brand: "스타벅스", volume: 700, price: 2000, name: name, manufacturingDate: manufacturingDate)
     }
     override var description: String {
         return "\(super.kind)(\(String(describing: type(of: self)))) - " + super.description

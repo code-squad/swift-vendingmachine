@@ -23,13 +23,13 @@ class Beverage: CustomStringConvertible {
         date.dateFormat = "yyyyMMdd"
         return "\(brand), \(volume)ml, \(price)원, \(name), \(date.string(from: manufacturingDate))"
     }
-    init(_ brand: String, _ volume: Int, _ price: Int, _ name: String, _ manufacturingDate: String) {
+    init(brand: String, volume: Int, price: Int, name: String, manufacturingDate: String) {
         self.brand = brand
         self.volume = volume
         self.price = price
         self.name = name
         let date = DateFormatter()
         date.dateFormat = "yyyyMMdd"
-        self.manufacturingDate = Date(timeInterval: 9 * 60 * 60, since:date.date(from: manufacturingDate)!)
+        self.manufacturingDate = Date(timeInterval: DateInterval.today.rawValue, since:date.date(from: manufacturingDate)!)
     }
 }

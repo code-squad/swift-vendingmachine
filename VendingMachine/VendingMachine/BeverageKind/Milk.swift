@@ -11,10 +11,10 @@ import Foundation
 class Milk: Beverage, BeveragePorotocol {
     private (set) var kind: String
     private let fatContent: Double
-    init(_ kind:String, _ fatContent: Double, _ brand: String, _ volume: Int, _ price: Int, _ name: String, _ manufacturingDate: String) {
+    init(kind:String, fatContent: Double, brand: String, volume: Int, price: Int, name: String, manufacturingDate: String) {
         self.kind = kind
         self.fatContent = fatContent
-        super.init(brand, volume, price, name, manufacturingDate)
+        super.init(brand: brand, volume: volume, price: price, name: name, manufacturingDate: manufacturingDate)
     }
     
     func isLowFat() -> Bool {
@@ -23,6 +23,6 @@ class Milk: Beverage, BeveragePorotocol {
     
     // 유제품은 제조일로부터 7일이내에 드셔야합니다.
     func validate(with: Date) -> Bool {
-        return Date(timeInterval: 24 * 60 * 60 * 7, since: self.manufacturingDate) > Date(timeInterval: 9 * 60 * 60, since: with)
+        return Date(timeInterval: DateInterval.oneWeek.rawValue, since: self.manufacturingDate) > Date(timeInterval: DateInterval.today.rawValue, since: with)
     }
 }
