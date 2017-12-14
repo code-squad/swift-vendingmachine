@@ -16,8 +16,8 @@ class Beverage: CustomStringConvertible {
     private let productName: String
     private let manufacturedDate: Date
     private let expirationDate: Date
-    private(set) var calories: Int?
-    init(_ brand: String, _ volume: Int, _ price: Int, _ productName: String, _ manufacturedDate: Date, _ expirationDate: Date, _ calories: Int?) {
+    private(set) var calories: Int
+    init(_ brand: String, _ volume: Int, _ price: Int, _ productName: String, _ manufacturedDate: Date, _ expirationDate: Date, _ calories: Int) {
         self.brand = brand
         self.volume = volume
         self.price = price
@@ -27,15 +27,12 @@ class Beverage: CustomStringConvertible {
         self.calories = calories
     }
 
-    func validate(with date: Date) -> Bool {
-        guard self.expirationDate <= date else { return true }
-        return false
+    func expired(with date: Date) -> Bool {
+        return self.expirationDate < date
     }
 
     func isLowCalorie() -> Bool {
-        guard let calories = self.calories else { return false }
-        if calories < 100 { return true }
-        else { return false }
+        return self.calories < 100
     }
 
     var description: String {
