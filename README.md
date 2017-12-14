@@ -18,6 +18,8 @@
 	- 에러메시지 더욱 구체화하기 위해 Swift Hamcrest matcher를 사용:
 		- XCTAssertEqual ➔ XCTAssertTrue ➔ Swift Hamcrest matcher
 
+**[출처] [위키피디아](https://ko.wikipedia.org/wiki/유닛_테스트), [TDD를 위한 mock 객체(fake object)만들기](https://medium.com/@bestofhandsomes/tdd를-위한-mock-객체-fake-object-만들기-ab008de7f1ab)**
+
 ## TDD(Test Driven Development) 란
 > TDD = Test First Development + 리팩토링
 
@@ -46,4 +48,4 @@
 
 <br/>
 
-**[출처]제1회 마스터즈 세미나 - '나는 왜 TDD에 집착하는가(by.포비)' 중에서...**
+**[출처] 제1회 마스터즈 세미나 - '나는 왜 TDD에 집착하는가(by.포비)' 중에서...**
