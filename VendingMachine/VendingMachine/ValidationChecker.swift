@@ -40,7 +40,7 @@ struct ValidationChecker {
         return (inputs.count == 1 && inputs[0] == 3) || (inputs.count == 2)
     }
 
-    static func getSelector(input: String) throws -> (VendingMenu, Int) {
+    static func getSelector(input: String) throws -> Selector {
         guard input != "q" && input != "quit" else {
             throw Errors.quit
         }
@@ -55,9 +55,9 @@ struct ValidationChecker {
             throw Errors.notInMenu
         }
         if inputs.count == 1, inputs[0] == 3 {
-            return (vendingMenu, 0)
+            return (menu: vendingMenu, contents: 0)
         } else {
-            return (vendingMenu, inputs[1])
+            return (menu: vendingMenu, contents: inputs[1])
         }
     }
 

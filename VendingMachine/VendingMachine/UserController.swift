@@ -8,6 +8,7 @@
 
 import Foundation
 
+typealias Selector = (menu: ValidationChecker.VendingMenu, contents: Int)
 struct UserController {
     let vendingMachine: VendingMachine
     var user: VendingMachineUser
@@ -18,8 +19,8 @@ struct UserController {
     }
 
     mutating func use() {
-        var selector: (ValidationChecker.VendingMenu, Int) = (ValidationChecker.VendingMenu.none, 0)
-        while selector.0 == ValidationChecker.VendingMenu.none {
+        var selector: Selector = (menu: ValidationChecker.VendingMenu.none, contents: 0)
+        while selector.menu == ValidationChecker.VendingMenu.none {
             print("\n======= 자판기 =======")
             let inventory: Inventory = user.getInventory()
             let buyableProducts: Array<Category> = user.getBuyableProducts()
@@ -43,19 +44,19 @@ struct UserController {
                 print(ValidationChecker.Errors.invalidInput)
                 continue
             }
-            switch selector.0 {
+            switch selector.menu {
             case .insertCoins:
-                user.insertCoins(selector.1)
-            case .buyProduct where selector.1 <= buyableProducts.count:
-                user.buy(category: buyableProducts[selector.1-1])
-                print("\(buyableProducts[selector.1-1])를 구매하셨습니다. \(String(describing: inventory[buyableProducts[selector.1-1]]![0].price))원을 차감합니다.")
+                user.insertCoins(selector.contents)
+            case .buyProduct where selector.contents <= buyableProducts.count:
+                user.buy(category: buyableProducts[selector.contents-1])
+                print("\(buyableProducts[selector.contents-1])를 구매하셨습니다. \(String(describing: inventory[buyableProducts[selector.contents-1]]![0].price))원을 차감합니다.")
             case .purchaseList:
                 print("현재까지 구매 내역입니다.")
                 OutputView.show(products: user.purchaseList)
             default:
                 continue
             }
-            selector = (ValidationChecker.VendingMenu.none, 0)
+            selector = (menu: ValidationChecker.VendingMenu.none, contents: 0)
         }
     }
 
