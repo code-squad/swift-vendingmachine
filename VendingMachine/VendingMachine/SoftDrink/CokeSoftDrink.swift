@@ -15,6 +15,7 @@ class CokeSoftDrink: SoftDrink {
         super.init(brand, volume, price, productName, manufacturedDate, expirationDate, calories, carbonContent: carbonContent)
     }
     override var description: String {
-        return "코카콜라(" + String.init(describing: type(of: self)) + ") - " + super.description
+        return String.init(describing: type(of: self))
+//        return "코카콜라(" + String.init(describing: type(of: self)) + ") - " + super.description
     }
 }
