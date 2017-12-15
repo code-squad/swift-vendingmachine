@@ -12,15 +12,18 @@ let vendingMachine: VendingMachine = VendingMachine.init()
 
 while true {
     OutputView.showMode()
-    let mode = InputView.readInput()
-    guard mode != "q" && mode != "quit" else {
+    let input = InputView.readInput()
+    guard input != "q" && input != "quit" else {
         break
     }
-    if mode == "1" {
+    switch vendingMachine.getMode(input: input) {
+    case .admin:
         let admin = AdminController.init(vendingMachine: vendingMachine)
         admin.manage()
-    } else {
+    case .user:
         var user = UserController.init(vendingMachine: vendingMachine)
         user.use()
+    case .none:
+        print(ValidationChecker.Errors.notInMenu)
     }
 }

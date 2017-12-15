@@ -17,6 +17,12 @@ class VendingMachine: CustomStringConvertible {
     fileprivate var inventory: Inventory
     fileprivate var salesHistory: Products = []
 
+    enum Mode {
+        case admin
+        case user
+        case none
+    }
+
     init() {
         coins = 0
         inventory = [:]
@@ -29,6 +35,16 @@ class VendingMachine: CustomStringConvertible {
 
     var description: String {
         return "coins: \(String(coins))원, inventory: \(String(describing: inventory))"
+    }
+
+    func getMode(input: String) -> Mode {
+        if input == "1" {
+            return Mode.admin
+        } else if input == "2" {
+            return Mode.user
+        } else {
+            return Mode.none
+        }
     }
 
 }
