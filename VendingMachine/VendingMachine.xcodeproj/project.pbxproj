@@ -48,10 +48,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		407656761FDF81B500B36450 /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
-		407656781FDF96A000B36450 /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
-		4076567C1FDF9ACE00B36450 /* SodaPop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SodaPop.swift; sourceTree = "<group>"; };
-		4076567E1FDF9AED00B36450 /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
+		407656761FDF81B500B36450 /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Beverage.swift; path = ../Beverage.swift; sourceTree = "<group>"; };
+		407656781FDF96A000B36450 /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Milk.swift; path = ../Milk.swift; sourceTree = "<group>"; };
+		4076567C1FDF9ACE00B36450 /* SodaPop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SodaPop.swift; path = ../SodaPop.swift; sourceTree = "<group>"; };
+		4076567E1FDF9AED00B36450 /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Coffee.swift; path = ../Coffee.swift; sourceTree = "<group>"; };
 		40D9EBDE1FE24B8300859597 /* DateInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateInterval.swift; sourceTree = "<group>"; };
 		40E250DD1FE0E92E0003FC79 /* LightBananaMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightBananaMilk.swift; sourceTree = "<group>"; };
 		40E251001FE10B280003FC79 /* RealBananaMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealBananaMilk.swift; sourceTree = "<group>"; };
@@ -188,10 +188,6 @@
 				40E250DC1FE0D4E30003FC79 /* Product */,
 				40E250DB1FE0D48D0003FC79 /* BeverageKind */,
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
-				407656761FDF81B500B36450 /* Beverage.swift */,
-				407656781FDF96A000B36450 /* Milk.swift */,
-				4076567C1FDF9ACE00B36450 /* SodaPop.swift */,
-				4076567E1FDF9AED00B36450 /* Coffee.swift */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";

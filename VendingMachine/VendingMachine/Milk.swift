@@ -6,15 +6,24 @@
 //  Copyright © 2017년 Napster. All rights reserved.
 //
 
+
 import Foundation
 
-class Milk: Beverage {
-    private let kind: String
-    init(kind:String, brand: String, volume: Int, price: Int, name: String, manufacturingDate: String) {
+class Milk: Beverage, BeveragePorotocol {
+    private (set) var kind: String
+    private let fatContent: Double
+    init(kind:String, fatContent: Double, brand: String, volume: Int, price: Int, name: String, manufacturingDate: String) {
         self.kind = kind
+        self.fatContent = fatContent
         super.init(brand: brand, volume: volume, price: price, name: name, manufacturingDate: manufacturingDate)
     }
-    override var description: String {
-        return "\(kind)우유 - " + super.description
+    
+    func isLowFat() -> Bool {
+        return fatContent <= 1.5
+    }
+    
+    // 유제품은 제조일로부터 7일이내에 드셔야합니다.
+    func validate(with: Date) -> Bool {
+        return Date(timeInterval: DateInterval.oneWeek.rawValue, since: self.manufacturingDate) > Date(timeInterval: DateInterval.today.rawValue, since: with)
     }
 }
