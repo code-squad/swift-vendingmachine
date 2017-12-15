@@ -9,13 +9,15 @@
 import Foundation
 
 func executeMain() {
-    let strawberryMilk = Milk(kind: "딸기", brand: "서울우유", volume: 200, price: 1000, name: "날마다딸기우유", manufacturingDate: "20171009")
-    let bananaMilk = Milk(kind: "바나나", brand: "서울우유", volume: 200, price: 1000, name: "날마다바나나우유", manufacturingDate: "20171012")
-    let coke = SodaPop(kind: "콜라", brand: "팹시", volume: 350, price: 2000, name: "다이어트콜라", manufacturingDate: "20171005")
-    let coffee = Coffee(kind: "커피", brand: "맥심", volume: 400, price: 3000, name: "TOP아메리카노", manufacturingDate: "20171010")
-    print(strawberryMilk)
-    print(bananaMilk)
-    print(coke)
+    let lightBananaMilk = LightBananaMilk(volume: 270, price: 1200, manufacturingDate: "20171213")
+    let realBananaMilk = RealBananaMilk(volume: 270, price: 1400, manufacturingDate: "20171212")
+    let originalCoke = Coke(sugarContent: 80, volume: 250, price: 700, name: "CoCaCola", manufacturingDate: "20171213", labelColor: "RED", forBusiness: false)
+    let zeroCoke = Coke(sugarContent: 0, volume: 250, price: 700, name: "ZeroCoke", manufacturingDate: "20171013", labelColor: "BLACK", forBusiness: true)
+    let coffee = StarBucksCoffee(reserve: true, caffeine: true, temperature: 97, volume: 500, price: 5600, name: "스타벅스아메리카노", manufacturingDate: "20101213")
+    print(lightBananaMilk)
+    print(realBananaMilk)
+    print(originalCoke)
+    print(zeroCoke)
     print(coffee)
 }
 
