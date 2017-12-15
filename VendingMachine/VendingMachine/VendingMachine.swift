@@ -21,8 +21,9 @@ class VendingMachine {
     // 재고 리스트 반환.
     var inventoryHistory: [Menu:Stock]? {
         // 자판기의 음료수 리스트를 Counter가 받아서 종류별로 재고 카운트.
-        return [:]
+        return stockCounter?.count(self.inventory)
     }
+    var stockCounter: Counter?
 
     // 선택 가능한 메뉴.
     enum Menu: String, CustomStringConvertible {
