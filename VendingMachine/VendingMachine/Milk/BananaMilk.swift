@@ -15,6 +15,7 @@ class BananaMilk: Milk {
         super.init(brand, volume, price, productName, manufacturedDate, expirationDate, calories, manufacturerCode: manufacturerCode, packingMaterial: packingMaterial)
     }
     override var description: String {
-        return "바나나우유(" + String.init(describing: type(of: self)) + ") - " + super.description
+        return String.init(describing: type(of: self))
+//        return "바나나우유(" + String.init(describing: type(of: self)) + ") - " + super.description
     }
 }

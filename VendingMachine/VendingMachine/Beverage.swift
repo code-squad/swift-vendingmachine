@@ -12,11 +12,20 @@ class Beverage: CustomStringConvertible {
     // 브랜드(String), 무게(Int), 가격(Int), 이름(String), 제조일자(Date)
     private let brand: String
     private let volume: Int
-    private let price: Int
+    private(set) var price: Int
     private let productName: String
     private let manufacturedDate: Date
     private let expirationDate: Date
     private(set) var calories: Int
+    init() {
+        self.brand = ""
+        self.volume = 0
+        self.price = 0
+        self.productName = ""
+        self.manufacturedDate = Date(timeIntervalSinceNow: 0)
+        self.expirationDate = Date(timeIntervalSinceNow: 0)
+        self.calories = 0
+    }
     init(_ brand: String, _ volume: Int, _ price: Int, _ productName: String, _ manufacturedDate: Date, _ expirationDate: Date, _ calories: Int) {
         self.brand = brand
         self.volume = volume

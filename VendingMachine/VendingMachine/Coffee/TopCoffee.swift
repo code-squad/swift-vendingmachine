@@ -15,6 +15,7 @@ class TopCoffee: Coffee {
         super.init(brand, volume, price, productName, manufacturedDate, expirationDate, calories, caffeineLevels: caffeineLevels, isHot: isHot, isSweetened: isSweetened)
     }
     override var description: String {
-        return "TOP커피(" + String.init(describing: type(of: self)) + ") - " + super.description
+        return String.init(describing: type(of: self))
+//        return "TOP커피(" + String.init(describing: type(of: self)) + ") - " + super.description
     }
 }

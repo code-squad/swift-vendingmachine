@@ -15,6 +15,7 @@ class CantataCoffee: Coffee {
         super.init(brand, volume, price, productName, manufacturedDate, expirationDate, calories, caffeineLevels: caffeineLevels, isHot: isHot, isSweetened: isSweetened)
     }
     override var description: String {
-        return "칸타타커피(" + String.init(describing: type(of: self)) + ") - " + super.description
+        return String.init(describing: type(of: self))
+//        return "칸타타커피(" + String.init(describing: type(of: self)) + ") - " + super.description
     }
 }
