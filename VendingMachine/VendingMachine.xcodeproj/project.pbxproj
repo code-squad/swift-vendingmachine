@@ -27,6 +27,7 @@
 		EE3730B31FDF74B90034082C /* GeorgiaCoffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3730B21FDF74B90034082C /* GeorgiaCoffee.swift */; };
 		EE3730B41FDF74B90034082C /* GeorgiaCoffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3730B21FDF74B90034082C /* GeorgiaCoffee.swift */; };
 		EE3730D21FE2BA630034082C /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3730D11FE2BA630034082C /* VendingMachine.swift */; };
+		EE3730D41FE357930034082C /* StockCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3730D31FE357930034082C /* StockCounter.swift */; };
 		EEC61AD11FDE69C0001698A4 /* BeverageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC61AD01FDE69C0001698A4 /* BeverageTest.swift */; };
 		EEC61AD71FDE69D0001698A4 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC61AD61FDE69D0001698A4 /* Beverage.swift */; };
 		EEC61AD81FDE69D0001698A4 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC61AD61FDE69D0001698A4 /* Beverage.swift */; };
@@ -63,6 +64,7 @@
 		EE3730AF1FDF74AF0034082C /* CantataCoffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CantataCoffee.swift; sourceTree = "<group>"; };
 		EE3730B21FDF74B90034082C /* GeorgiaCoffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeorgiaCoffee.swift; sourceTree = "<group>"; };
 		EE3730D11FE2BA630034082C /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
+		EE3730D31FE357930034082C /* StockCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockCounter.swift; sourceTree = "<group>"; };
 		EEC61ACE1FDE69C0001698A4 /* VendingMachineTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEC61AD01FDE69C0001698A4 /* BeverageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageTest.swift; sourceTree = "<group>"; };
 		EEC61AD21FDE69C0001698A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			children = (
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
 				EE3730D11FE2BA630034082C /* VendingMachine.swift */,
+				EE3730D31FE357930034082C /* StockCounter.swift */,
 				EEC61AD61FDE69D0001698A4 /* Beverage.swift */,
 				EE3730B51FDF74C60034082C /* Milk */,
 				EE3730B61FDF74CE0034082C /* SoftDrink */,
@@ -254,6 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE37309E1FDF746A0034082C /* BananaMilk.swift in Sources */,
+				EE3730D41FE357930034082C /* StockCounter.swift in Sources */,
 				EEC61AD71FDE69D0001698A4 /* Beverage.swift in Sources */,
 				EE37309B1FDF74590034082C /* StrawberryMilk.swift in Sources */,
 				EE3730B01FDF74AF0034082C /* CantataCoffee.swift in Sources */,
