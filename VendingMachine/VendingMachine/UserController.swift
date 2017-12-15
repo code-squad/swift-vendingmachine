@@ -9,12 +9,11 @@
 import Foundation
 
 typealias Selector = (menu: ValidationChecker.VendingMenu, contents: Int)
+
 struct UserController {
-    let vendingMachine: VendingMachine
     var user: VendingMachineUser
 
     init(vendingMachine: VendingMachine) {
-        self.vendingMachine = vendingMachine
         user = VendingMachineUser.init(vendingMachine: vendingMachine)
     }
 

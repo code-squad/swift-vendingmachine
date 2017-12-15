@@ -69,7 +69,7 @@ struct VendingMachineAdmin {
     //    유통기한이 지난 재고만 리턴하는 메소드
     func getExpiredProducts(date: Date) -> Products {
         var result: Products = []
-        vendingMachine.inventory.filter({ $0.key.hasSuffix("우유") }).forEach({ _, value in
+        vendingMachine.inventory.filter { $0.key.hasSuffix("우유") }.forEach({ _, value in
             result.append(contentsOf: value.flatMap { $0 as? Milk }
                                            .filter { !$0.validate(with: date) }
                                            .map { $0 as Beverage })

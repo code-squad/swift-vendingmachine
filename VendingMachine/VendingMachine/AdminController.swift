@@ -9,11 +9,9 @@
 import Foundation
 
 struct AdminController {
-    let vendingMachine: VendingMachine
     var admin: VendingMachineAdmin
 
     init(vendingMachine: VendingMachine) {
-        self.vendingMachine = vendingMachine
         admin = VendingMachineAdmin.init(vendingMachine: vendingMachine)
     }
 
