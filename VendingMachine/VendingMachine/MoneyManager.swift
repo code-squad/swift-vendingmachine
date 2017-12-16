@@ -45,9 +45,9 @@ class MoneyManager {
     }
 
     // 현재 잔액으로 구입가능한 음료수 리스트 반환.
-    func showAffordableList(from notSoldOutList: [VendingMachine.Menu]) -> [VendingMachine.Menu] {
+    func showAffordableList(from sellingList: [VendingMachine.Menu]) -> [VendingMachine.Menu] {
         // 품절이 아닌 음료수 중에서
-        return notSoldOutList.filter {
+        return sellingList.filter {
             // 가격이 잔액보다 같거나 작은 음료수들만 반환.
             return self.balance >= $0.price
         }

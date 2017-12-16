@@ -92,8 +92,10 @@ class VendingMachine: Collection {
 
     // 선택한 음료수를 반환. 자판기 내에서 제거.
     func popBeverage(_ menu: Menu) -> Beverage? {
-        // 품절인 경우, nil 반환. (아무일도 일어나지 않음)
-        guard self.stockManager.isSoldOut(menu.description) else { return nil }
+        // 품절이 아닌 상품 중, 현재 금액으로 살 수 있는 메뉴 리스트를 받아옴.
+        let affordableList = self.moneyManager.showAffordableList(from: self.stockManager.showSellingList())
+        // 리스트에 선택한 상품이 있는 경우, 해당 음료수 반환. 없는 경우, nil 반환. (아무일도 일어나지 않음)
+        guard affordableList.contains(menu) else { return nil }
         return pop(menu)
     }
 
