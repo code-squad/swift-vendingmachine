@@ -18,13 +18,10 @@ class MoneyManager {
     }
 
     // 삽입 가능한 돈 단위.
-    enum Unit: Balance, CustomStringConvertible {
+    enum Unit: Balance {
         case oneHundred = 100
         case fiveHundred = 500
         case oneThousand = 1000
-        var description: String {
-            return String(self.rawValue)
-        }
     }
 
     // 잔액 차감.
