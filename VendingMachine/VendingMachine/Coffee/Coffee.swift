@@ -11,7 +11,7 @@ import Foundation
 class Coffee: Beverage {
     // 카페인 함유량, 뜨거운음료여부, 무가당여부, 유통기한, 칼로리
     private let caffeineLevels: Int
-    private let isHot: Bool
+    private(set) var isHot: Bool
     private let isSweetened: Bool
     init(_ brand: String, _ volume: Int, _ price: Int, _ productName: String, _ manufacturedDate: Date, _ expirationDate: Date, _ calories: Int, caffeineLevels: Int, isHot: Bool, isSweetened: Bool) {
         self.caffeineLevels = caffeineLevels
