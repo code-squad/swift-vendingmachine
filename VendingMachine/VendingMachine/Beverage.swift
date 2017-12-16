@@ -8,10 +8,19 @@
 
 import Foundation
 
-class Beverage: CustomStringConvertible {
+class Beverage: CustomStringConvertible, Hashable {
+    var hashValue: Int {
+        return ObjectIdentifier(self).hashValue
+    }
+
+    static func ==(lhs: Beverage, rhs: Beverage) -> Bool {
+        return lhs.hashValue == rhs.hashValue
+    }
+
     // 브랜드(String), 무게(Int), 가격(Int), 이름(String), 제조일자(Date)
     private let brand: String
     private let volume: Int
+    // 가격은 노출 가능.
     private(set) var price: Int
     private let productName: String
     private let manufacturedDate: Date
