@@ -10,7 +10,7 @@ import XCTest
 @testable import VendingMachine
 
 class MilkUnitTest: XCTestCase {
-    let lightMilk = LightBananaMilk(volume: 270, price: 1400, manufacturingDate: "20171210")
+    let lightMilk = LightBananaMilk(volume: 270, price: 1400, manufacturingDate: "20171215")
     let realMilk = RealBananaMilk(volume: 270, price: 1200, manufacturingDate: "20171209")
     
     func testLightMilkIslowMilk() {

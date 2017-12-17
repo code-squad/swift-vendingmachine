@@ -14,6 +14,7 @@ class VendingMachineUnitTest: XCTestCase {
     let orignalCoke2 = Coke(sugarContent: 40, volume: 250, price: 700, name: "CocaCola", manufacturingDate: "20171213", labelColor: "RED", forBusiness: false)
     let lightMilk = LightBananaMilk(volume: 270, price: 1400, manufacturingDate: "20171210")
     let badLightMilk = LightBananaMilk(volume: 270, price: 1400, manufacturingDate: "20171101")
+    let starBucksCoffe = StarBucksCoffee(reserve: false, caffeine: true, temperature: 90, volume: 700, price: 2000, name: "스타벅스 커피", manufacturingDate: "20171217")
     
     func test자판기금액올리기() {
         var vendingMachine = VendingMachine(stock: emptyStock)
@@ -42,6 +43,21 @@ class VendingMachineUnitTest: XCTestCase {
         XCTAssertEqual(1, vendingMachine.getValidBuyingBeverage().count)
         let beverage = vendingMachine.getValidBuyingBeverage()
         XCTAssertEqual(orignalCoke, beverage[0])
+    }
+    
+    func test상품을구매할때() {
+        var vendingMachine = VendingMachine(stock: emptyStock)
+        vendingMachine.addBeverage(orignalCoke)
+        vendingMachine.insertMoney(1000)
+        XCTAssertEqual(orignalCoke, try! vendingMachine.buyBeverage(orignalCoke))
+    }
+    
+    func test상품을구매할때_재고확인() {
+        var vendingMachine = VendingMachine(stock: emptyStock)
+        vendingMachine.addBeverage(orignalCoke)
+        vendingMachine.insertMoney(1000)
+        try! vendingMachine.buyBeverage(orignalCoke)
+        XCTAssertEqual(0, vendingMachine.stock.count)
     }
     
     func test상품을구매할때_재고가없을때() {
@@ -85,5 +101,11 @@ class VendingMachineUnitTest: XCTestCase {
         let beverage = vendingMachine.getPassedValidateBeverage()[0]
         XCTAssertEqual(1, vendingMachine.getPassedValidateBeverage().count)
         XCTAssertEqual(false, beverage.validate(with: Date()))
+    }
+    
+    func test뜨거운음료확인() {
+        let beverageBox = [orignalCoke, orignalCoke2, lightMilk, badLightMilk, starBucksCoffe]
+        let vendingMachine = VendingMachine(stock: beverageBox)
+        XCTAssertEqual(1, vendingMachine.getHotBeverage().count)
     }
 }
