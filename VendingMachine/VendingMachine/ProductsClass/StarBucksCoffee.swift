@@ -15,7 +15,7 @@ class StarBucksCoffee: Coffee {
         super.init(kind: "커피", caffeine: caffeine, temperature: 98, brand: "스타벅스", volume: 700, price: 2000, name: name, manufacturingDate: manufacturingDate)
     }
     override var description: String {
-        return "\(super.kind)(\(String(describing: type(of: self)))) - " + super.description
+        return "\(String(describing: type(of: self)))"
     }
     
     func isReserve() -> Bool {

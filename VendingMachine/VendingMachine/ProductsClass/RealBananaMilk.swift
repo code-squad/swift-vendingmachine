@@ -14,10 +14,10 @@ class RealBananaMilk: Milk {
     init(volume: Int, price: Int, manufacturingDate: String) {
         self.bananMilkColor = "WHITE"
         self.flavor = "바나나향"
-        super.init(kind: "바나나", fatContent: 7, brand: "매일우유", volume: volume, price: price, name: "바나나는 원래 하얗다", manufacturingDate: manufacturingDate)
+        super.init(kind: "바나나", fatContent: 7, temperature: 4, brand: "매일우유", volume: volume, price: price, name: "바나나는 원래 하얗다", manufacturingDate: manufacturingDate)
     }
     override var description: String {
-        return "\(super.kind)우유(\(String(describing: type(of: self)))) - " + super.description
+        return "\(String(describing: type(of: self)))"
     }
     
     func isRealBanana() -> Bool {
