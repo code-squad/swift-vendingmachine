@@ -9,14 +9,17 @@
 import Foundation
 
 struct VendingMachine {
-    private var balance = 0
-    private (set) var stock = [Beverage]()
+    private var balance: Int
+    private (set) var stock: [Beverage]
     private var sortedStockList = [Beverage:Int]()
     private (set) var recepit: String
+    private var buyingCount: Int
     
     init(stock: [Beverage]) {
         self.stock = stock
         self.recepit = "#### Recepit ####"
+        self.balance = 0
+        self.buyingCount = 0
         for item in stock {
             makeBeverageList(item)
         }
@@ -43,15 +46,21 @@ struct VendingMachine {
         return balance
     }
     
+    mutating func buyBeverage(number: Int) throws -> Beverage {
+        let item = sortedStockList[sortedStockList.index(sortedStockList.startIndex, offsetBy: number - 1)].key
+        balance -= item.price
+        return try buyBeverage(item)
+    }
+    
     mutating func buyBeverage(_ selectedValue: Beverage) throws -> Beverage {
         guard let item = stock.index(where: { $0.name == selectedValue.name }) else {
             throw ErrorCode.noStock
         }
-        guard !selectedValue.checkAvailableList(with: balance) else {
+        guard selectedValue.checkAvailableList(with: balance) else {
             throw ErrorCode.noMoney
         }
         sortedStockList[selectedValue]! -= 1
-        recepit += "\(selectedValue.description)"
+        recepit += "\(buyingCount + 1)\(selectedValue.description)"
         return stock.remove(at: item)
     }
     
@@ -61,7 +70,7 @@ struct VendingMachine {
     
     func getValidBuyingBeverage() -> [Beverage] {
         let keys = sortedStockList.keys.map{ $0 }
-        return keys.filter{ !$0.checkAvailableList(with: balance) }
+        return keys.filter{ $0.checkAvailableList(with: balance) }
     }
     
     func getPassedValidateBeverage() -> [BeverageCheck] {

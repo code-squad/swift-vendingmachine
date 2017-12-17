@@ -16,7 +16,7 @@ protocol BeverageCheck {
 class Beverage: CustomStringConvertible, Hashable {
     private var brand: String
     private var volume: Int
-    private var price: Int
+    private (set) var price: Int
     private (set) var temperature: Double
     private (set) var name: String
     private (set) var manufacturingDate: Date
@@ -46,18 +46,7 @@ class Beverage: CustomStringConvertible, Hashable {
     }
     
     func checkAvailableList(with balance: Int) -> Bool {
-        return balance <= price
+        return balance >= price
     }
-    // Bed Small...
-//    func validate(with: Date) -> Bool {
-//        if let temp = self as? Milk {
-//            return temp.validate(with: with)
-//        } else if let temp = self as? SodaPop {
-//            return temp.validate(with: with)
-//        } else if let temp = self as? Coffee {
-//            return temp.validate(with: with)
-//        }
-//        return false
-//    }
 }
 
