@@ -7,3 +7,21 @@
 //
 
 import Foundation
+
+struct InputView {
+    static func read() throws -> [Int] {
+        OutputView.printSelectMenu()
+        guard let selectedMenu = readLine() else {
+            throw ErrorCode.validInputString
+        }
+        return try separateMenu(selectedMenu)
+    }
+    
+    private static func separateMenu(_ value: String) throws -> [Int] {
+        let menuAndValue = value.split(separator: " ").flatMap{ Int($0) }
+        guard !menuAndValue.isEmpty else {
+            throw ErrorCode.invalidMenu
+        }
+        return menuAndValue
+    }
+}

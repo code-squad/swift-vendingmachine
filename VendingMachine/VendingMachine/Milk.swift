@@ -21,7 +21,7 @@ class Milk: Beverage, BeverageCheck {
     func isLowFat() -> Bool {
         return fatContent <= 1.5
     }
-    
+        
     func isHot() -> Bool {
         return super.temperature > 60
     }
