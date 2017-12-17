@@ -10,11 +10,13 @@ import Foundation
 
 struct VendingMachine {
     private var balance = 0
-    private var stock = [Beverage]()
-    private (set) var sortedStockList = [Beverage:Int]()
+    private (set) var stock = [Beverage]()
+    private var sortedStockList = [Beverage:Int]()
+    private (set) var recepit: String
     
     init(stock: [Beverage]) {
         self.stock = stock
+        self.recepit = "#### Recepit ####"
         for item in stock {
             makeBeverageList(item)
         }
@@ -49,6 +51,7 @@ struct VendingMachine {
             throw ErrorCode.noMoney
         }
         sortedStockList[selectedValue]! -= 1
+        recepit += "\(selectedValue.description)"
         return stock.remove(at: item)
     }
     
