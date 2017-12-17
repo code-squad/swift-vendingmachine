@@ -9,17 +9,21 @@
 
 import Foundation
 
-class Milk: Beverage, BeveragePorotocol {
+class Milk: Beverage, BeverageCheck {
     private (set) var kind: String
     private let fatContent: Double
-    init(kind:String, fatContent: Double, brand: String, volume: Int, price: Int, name: String, manufacturingDate: String) {
+    init(kind:String, fatContent: Double, temperature: Double, brand: String, volume: Int, price: Int, name: String, manufacturingDate: String) {
         self.kind = kind
         self.fatContent = fatContent
-        super.init(brand: brand, volume: volume, price: price, name: name, manufacturingDate: manufacturingDate)
+        super.init(brand: brand, volume: volume, price: price, name: name, manufacturingDate: manufacturingDate, temperature: temperature)
     }
     
     func isLowFat() -> Bool {
         return fatContent <= 1.5
+    }
+    
+    func isHot() -> Bool {
+        return super.temperature > 60
     }
     
     // 유제품은 제조일로부터 7일이내에 드셔야합니다.

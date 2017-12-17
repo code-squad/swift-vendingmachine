@@ -8,24 +8,23 @@
 
 import Foundation
 
-class Coffee: Beverage, BeveragePorotocol {
+class Coffee: Beverage, BeverageCheck {
     private (set) var kind: String
     private let caffeine: Bool
-    private let temperature: Double
     init(kind:String, caffeine: Bool, temperature: Double, brand: String, volume: Int, price: Int, name: String, manufacturingDate: String) {
         self.kind = kind
         self.caffeine = caffeine
-        self.temperature = temperature
-        super.init(brand: brand, volume: volume, price: price, name: name, manufacturingDate: manufacturingDate)
-    }
-    
-    func isHot() -> Bool {
-        return temperature > 80
+        super.init(brand: brand, volume: volume, price: price, name: name, manufacturingDate: manufacturingDate, temperature: temperature)
     }
     
     func isCaffeine() -> Bool {
         return caffeine
     }
+    
+    func isHot() -> Bool {
+        return super.temperature > 80
+    }
+    
     // 커피의 유통기한은 2일입니다.
     func validate(with: Date) -> Bool {
         return Date(timeInterval: DateInterval.twoDays.rawValue, since: self.manufacturingDate) > Date(timeInterval: DateInterval.today.rawValue, since: with)

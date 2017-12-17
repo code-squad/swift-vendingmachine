@@ -8,28 +8,56 @@
 
 import Foundation
 
-protocol BeveragePorotocol {
+protocol BeverageCheck {
     func validate(with: Date) -> Bool
+    func isHot() -> Bool
 }
 
-class Beverage: CustomStringConvertible {
+class Beverage: CustomStringConvertible, Hashable {
     private var brand: String
     private var volume: Int
     private var price: Int
-    private var name: String
+    private (set) var temperature: Double
+    private (set) var name: String
     private (set) var manufacturingDate: Date
+    
+    var hashValue: Int {
+        return name.hashValue
+    }
+    
+    static func ==(lhs: Beverage, rhs: Beverage) -> Bool {
+        return lhs.name == rhs.name
+    }
+    
     var description: String {
         let date = DateFormatter()
         date.dateFormat = "yyyyMMdd"
         return "\(brand), \(volume)ml, \(price)원, \(name), \(date.string(from: manufacturingDate))"
     }
-    init(brand: String, volume: Int, price: Int, name: String, manufacturingDate: String) {
+    init(brand: String, volume: Int, price: Int, name: String, manufacturingDate: String, temperature: Double) {
         self.brand = brand
         self.volume = volume
         self.price = price
         self.name = name
+        self.temperature = temperature
         let date = DateFormatter()
         date.dateFormat = "yyyyMMdd"
         self.manufacturingDate = Date(timeInterval: DateInterval.today.rawValue, since:date.date(from: manufacturingDate)!)
     }
+    
+    func checkAvailableList(with balance: Int) -> Bool {
+        return balance <= price
+    }
+    // Bed Small...
+//    func validate(with: Date) -> Bool {
+//        if let temp = self as? Milk {
+//            return temp.validate(with: with)
+//        } else if let temp = self as? SodaPop {
+//            return temp.validate(with: with)
+//        } else if let temp = self as? Coffee {
+//            return temp.validate(with: with)
+//        }
+//        return false
+//    }
 }
+
