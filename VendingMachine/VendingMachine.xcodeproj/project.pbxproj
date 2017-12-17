@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		402BA1CE1FE62E9F00882206 /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402BA1CD1FE62E9F00882206 /* Sprite.swift */; };
+		402BA1D01FE62F6E00882206 /* CeylonTea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402BA1CF1FE62F6E00882206 /* CeylonTea.swift */; };
 		407656771FDF81B500B36450 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407656761FDF81B500B36450 /* Beverage.swift */; };
 		407656791FDF96A000B36450 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407656781FDF96A000B36450 /* Milk.swift */; };
 		4076567D1FDF9ACE00B36450 /* SodaPop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4076567C1FDF9ACE00B36450 /* SodaPop.swift */; };
@@ -63,6 +65,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		402BA1CD1FE62E9F00882206 /* Sprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sprite.swift; sourceTree = "<group>"; };
+		402BA1CF1FE62F6E00882206 /* CeylonTea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CeylonTea.swift; sourceTree = "<group>"; };
 		407656761FDF81B500B36450 /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Beverage.swift; path = ../Beverage.swift; sourceTree = "<group>"; };
 		407656781FDF96A000B36450 /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Milk.swift; path = ../Milk.swift; sourceTree = "<group>"; };
 		4076567C1FDF9ACE00B36450 /* SodaPop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SodaPop.swift; path = ../SodaPop.swift; sourceTree = "<group>"; };
@@ -166,6 +170,8 @@
 				40E251001FE10B280003FC79 /* RealBananaMilk.swift */,
 				40E251131FE111570003FC79 /* Coke.swift */,
 				40E251261FE12A9C0003FC79 /* StarBucksCoffee.swift */,
+				402BA1CD1FE62E9F00882206 /* Sprite.swift */,
+				402BA1CF1FE62F6E00882206 /* CeylonTea.swift */,
 			);
 			path = ProductsClass;
 			sourceTree = "<group>";
@@ -471,12 +477,14 @@
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
 				40E251271FE12A9C0003FC79 /* StarBucksCoffee.swift in Sources */,
 				407656791FDF96A000B36450 /* Milk.swift in Sources */,
+				402BA1CE1FE62E9F00882206 /* Sprite.swift in Sources */,
 				40D9EBFF1FE38ABE00859597 /* VendingMachine.swift in Sources */,
 				4076567D1FDF9ACE00B36450 /* SodaPop.swift in Sources */,
 				40D9EC1A1FE6053300859597 /* BeverageBox.swift in Sources */,
 				407656771FDF81B500B36450 /* Beverage.swift in Sources */,
 				40E250DE1FE0E92E0003FC79 /* LightBananaMilk.swift in Sources */,
 				4076567F1FDF9AED00B36450 /* Coffee.swift in Sources */,
+				402BA1D01FE62F6E00882206 /* CeylonTea.swift in Sources */,
 				40E251011FE10B280003FC79 /* RealBananaMilk.swift in Sources */,
 				40E251141FE111570003FC79 /* Coke.swift in Sources */,
 				40D9EC171FE3AA7700859597 /* ErrorCode.swift in Sources */,
