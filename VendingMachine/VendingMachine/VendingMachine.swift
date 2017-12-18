@@ -47,6 +47,12 @@ class VendingMachine: Collection {
         }
     }
 
+    func fullSupply() {
+        for menu in Menu.allValues {
+            supply(beverageType: menu, 10)
+        }
+    }
+
     // 특정상품의 재고를 N개 채우는 함수.
     func supply(beverageType: Menu, _ addCount: Stock) {
         for _ in 0..<addCount {
@@ -89,6 +95,10 @@ class VendingMachine: Collection {
         return self.stockManager.showStockList()
     }
 
+    func showAffordableBeverages() -> [VendingMachine.Menu] {
+        return self.moneyManager.showAffordableList(from: self.stockManager.showSellingList())
+    }
+
     // 유통기한이 지난 재고 리스트 반환.
     func showExpiredBeverages(on day: Date) -> [Menu.RawValue:Stock] {
         return self.stockManager.showExpiredList(on: day)
@@ -110,15 +120,15 @@ class VendingMachine: Collection {
 
     // 선택 가능한 메뉴.
     enum Menu: String, CustomStringConvertible, EnumCollection {
-        case strawberryMilk
-        case bananaMilk
-        case chocoMilk
-        case coke
-        case cider
-        case fanta
-        case top
-        case cantata
-        case georgia
+        case strawberryMilk = "날마다딸기우유"
+        case bananaMilk = "날마다바나나우유"
+        case chocoMilk = "날마다초코우유"
+        case coke = "다이어트콜라"
+        case cider = "사이다"
+        case fanta = "환타"
+        case top = "티오피"
+        case cantata = "칸타타"
+        case georgia = "조지아"
 
         init?(_ beverageType: String) {
             switch beverageType {
@@ -150,15 +160,15 @@ class VendingMachine: Collection {
         fileprivate func generate() -> Beverage {
             var beverage = Beverage()
             switch self {
-            case .strawberryMilk: beverage = StrawBerryMilk("서울우유", 200, 1000, "날마다딸기우유", Date(timeIntervalSinceNow: 0), Date(timeIntervalSinceNow: 60*60*24*7), 210, manufacturerCode: 1001, packingMaterial: "종이")
-            case .bananaMilk: beverage = BananaMilk("서울우유", 200, 1000, "날마다바나나우유", Date(timeIntervalSinceNow: 0), Date(timeIntervalSinceNow: 60*60*24*7), 220, manufacturerCode: 1001, packingMaterial: "종이")
-            case .chocoMilk: beverage = ChocoMilk("서울우유", 200, 1000, "날마다초코우유", Date(timeIntervalSinceNow: 0), Date(timeIntervalSinceNow: 60*60*24*7), 240, manufacturerCode: 1001, packingMaterial: "종이")
-            case .coke: beverage = CokeSoftDrink("펩시", 350, 2000, "다이어트콜라", Date(timeIntervalSinceNow: 0), Date(timeIntervalSinceNow: 60*60*24*30*6), 250, carbonContent: 50)
-            case .cider: beverage = CiderSoftDrink("롯데칠성음료", 350, 2000, "사이다", Date(timeIntervalSinceNow: 0), Date(timeIntervalSinceNow: 60*60*24*30*6), 250, carbonContent: 60)
-            case .fanta: beverage = FantaSoftDrink("코카콜라컴퍼니", 350, 2000, "환타", Date(timeIntervalSinceNow: 0), Date(timeIntervalSinceNow: 60*60*24*30*7), 300, carbonContent: 40)
-            case .top: beverage = TopCoffee("맥심", 200, 2200, "티오피", Date(timeIntervalSinceNow: 0), Date(timeIntervalSinceNow: 60*60*24*14), 240, caffeineLevels: 20, isHot: true, isSweetened: true)
-            case .cantata: beverage = CantataCoffee("롯데칠성음료", 200, 2200, "칸타타", Date(timeIntervalSinceNow: 0), Date(timeIntervalSinceNow: 60*60*24*14), 250, caffeineLevels: 10, isHot: false, isSweetened: true)
-            case .georgia: beverage = GeorgiaCoffee("코카콜라", 200, 2200, "조지아커피", Date(timeIntervalSinceNow: 0), Date(timeIntervalSinceNow: 60*60*24*2), 100, caffeineLevels: 25, isHot: true, isSweetened: false)
+            case .strawberryMilk: beverage = StrawBerryMilk("서울우유", 200, 1000, self.rawValue, Date(timeIntervalSinceNow: 0), Date(timeIntervalSinceNow: 60*60*24*7), 210, manufacturerCode: 1001, packingMaterial: "종이")
+            case .bananaMilk: beverage = BananaMilk("서울우유", 200, 1000, self.rawValue, Date(timeIntervalSinceNow: 0), Date(timeIntervalSinceNow: 60*60*24*7), 220, manufacturerCode: 1001, packingMaterial: "종이")
+            case .chocoMilk: beverage = ChocoMilk("서울우유", 200, 1000, self.rawValue, Date(timeIntervalSinceNow: 0), Date(timeIntervalSinceNow: 60*60*24*7), 240, manufacturerCode: 1001, packingMaterial: "종이")
+            case .coke: beverage = CokeSoftDrink("펩시", 350, 2000, self.rawValue, Date(timeIntervalSinceNow: 0), Date(timeIntervalSinceNow: 60*60*24*30*6), 250, carbonContent: 50)
+            case .cider: beverage = CiderSoftDrink("롯데칠성음료", 350, 2000, self.rawValue, Date(timeIntervalSinceNow: 0), Date(timeIntervalSinceNow: 60*60*24*30*6), 250, carbonContent: 60)
+            case .fanta: beverage = FantaSoftDrink("코카콜라컴퍼니", 350, 2000, self.rawValue, Date(timeIntervalSinceNow: 0), Date(timeIntervalSinceNow: 60*60*24*30*7), 300, carbonContent: 40)
+            case .top: beverage = TopCoffee("맥심", 200, 2200, self.rawValue, Date(timeIntervalSinceNow: 0), Date(timeIntervalSinceNow: 60*60*24*14), 240, caffeineLevels: 20, isHot: true, isSweetened: true)
+            case .cantata: beverage = CantataCoffee("롯데칠성음료", 200, 2200, self.rawValue, Date(timeIntervalSinceNow: 0), Date(timeIntervalSinceNow: 60*60*24*14), 250, caffeineLevels: 10, isHot: false, isSweetened: true)
+            case .georgia: beverage = GeorgiaCoffee("코카콜라", 200, 2200, self.rawValue, Date(timeIntervalSinceNow: 0), Date(timeIntervalSinceNow: 60*60*24*2), 100, caffeineLevels: 25, isHot: true, isSweetened: false)
             }
             return beverage
         }
