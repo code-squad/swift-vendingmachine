@@ -10,18 +10,13 @@ import Foundation
 
 struct OutputView {
     
-    static func printSelectMenu() {
-        print("1. 금액추가")
-        print("2. 음료구매")
-    }
-    
-    static private func printBalance(_ machine: VendingMachine) {
+    static private func printBalance(_ machine: VendingMachineGetInfo) {
         print("")
         print("현재 투입한 금액은 \(machine.getBalance())원 입니다.", terminator: "")
         print("다음과 같은 음료가 있습니다.")
     }
     
-    static func printMainMenu(machine: VendingMachine) {
+    static func printMainMenu(machine: VendingMachineGetInfo) {
         printBalance(machine)
         print("\n")
         for element in machine.getStockList() {
@@ -30,7 +25,7 @@ struct OutputView {
         print("\n")
     }
     
-    static func printAfterInsertMoney(machine: VendingMachine) {
+    static func printAfterInsertMoney(machine: VendingMachineGetInfo) {
         printBalance(machine)
         for element in machine.getStockList() {
             print("\(element.key.name)\(element.key.price)원 (\(element.value)개)")

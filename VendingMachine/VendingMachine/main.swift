@@ -26,7 +26,7 @@ func executeMain(box: [Beverage]) {
     OutputView.printMainMenu(machine: vendingMachine)
     while condition {
         do {
-            vendingMachine = try Controller.executeVandingMachine(machine: vendingMachine, inputSelector: try InputView.read())
+            vendingMachine = try VendingMachineController.executeVandingMachine(machine: vendingMachine, inputSelector: try InputView.read())
         } catch let error as ErrorCode {
             OutputView.printError(error.description)
         } catch {

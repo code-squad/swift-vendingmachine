@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Controller {
+struct VendingMachineController {
     
     static func executeVandingMachine(machine: VendingMachine, inputSelector: [Int]) throws -> VendingMachine {
         var vendingMachine = machine
@@ -16,11 +16,11 @@ struct Controller {
             throw ErrorCode.validInputString
         }
         switch inputSelector[0] {
-        case 1:
+        case MenuSelector.insertMode.rawValue:
             vendingMachine.insertMoney(inputSelector[1])
             OutputView.printAfterInsertMoney(machine: vendingMachine)
             return vendingMachine
-        case 2:
+        case MenuSelector.purchaseMode.rawValue:
             OutputView.printAfterBuyingBeverage(beverage: try vendingMachine.buyBeverage(number: inputSelector[1]))
             OutputView.printAfterInsertMoney(machine: vendingMachine)
             return vendingMachine
