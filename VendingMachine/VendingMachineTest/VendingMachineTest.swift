@@ -97,6 +97,7 @@ class VendingMachineTest: XCTestCase {
             VendingMachine.Menu.bananaMilk.description:5,
             VendingMachine.Menu.strawberryMilk.description:5
         ]
+        // Date 비교 때문에 에러날 수 있음. 이 함수만 따로 테스트하기.
         XCTAssertEqual(expiredList, expectResult)
     }
 
