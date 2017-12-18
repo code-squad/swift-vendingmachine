@@ -15,7 +15,7 @@ struct AdminController {
         admin = VendingMachineAdmin.init(vendingMachine: vendingMachine)
     }
 
-    func manage() {
+    mutating func manage() {
         var selector: ValidationChecker.AdminMenu = .none
         while selector == .none {
             print("\n======= 관리자모드 =======")
@@ -53,7 +53,7 @@ struct AdminController {
 
     }
 
-    private func addProducts() {
+    mutating private func addProducts() {
         let dateOfManufacture: Date = "20171211".getDateFromString()
         var validate: Date = "20171220".getDateFromString()
         let strawberryMilk = StrawberryMilk.init(brand: "서울우유", weight: 200, price: 1000, name: "날마다딸기우유", dateOfManufacture: dateOfManufacture, validate: validate)

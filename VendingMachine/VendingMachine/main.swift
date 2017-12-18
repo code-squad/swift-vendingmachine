@@ -18,7 +18,7 @@ while true {
     }
     switch vendingMachine.getMode(input: input) {
     case .admin:
-        let admin = AdminController.init(vendingMachine: vendingMachine)
+        var admin = AdminController.init(vendingMachine: vendingMachine)
         admin.manage()
     case .user:
         var user = UserController.init(vendingMachine: vendingMachine)
