@@ -57,7 +57,6 @@ struct ValidationChecker {
             throw Errors.notInMenu
         }
         if inputs.count == 1, inputs[0] == 3 {
-            
             return (menu: vendingMenu, contents: 0)
         } else {
             return (menu: vendingMenu, contents: inputs[1])
