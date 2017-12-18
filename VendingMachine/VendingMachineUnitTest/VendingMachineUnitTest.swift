@@ -14,7 +14,7 @@ class VendingMachineUnitTest: XCTestCase {
     let orignalCoke2 = Coke(sugarContent: 40, volume: 250, price: 700, name: "CocaCola", manufacturingDate: "20171213", labelColor: "RED", forBusiness: false)
     let lightMilk = LightBananaMilk(volume: 270, price: 1400, manufacturingDate: "20171210")
     let badLightMilk = LightBananaMilk(volume: 270, price: 1400, manufacturingDate: "20171101")
-    let starBucksCoffe = StarBucksCoffee(reserve: false, caffeine: true, temperature: 90, volume: 700, price: 2000, name: "스타벅스 커피", manufacturingDate: "20171217")
+    let starBucksCoffee = StarBucksCoffee(reserve: false, caffeine: true, temperature: 90, volume: 700, price: 2000, name: "스타벅스 커피", manufacturingDate: "20171217")
     
     func test자판기금액올리기() {
         var vendingMachine = VendingMachine(stock: emptyStock)
@@ -56,7 +56,7 @@ class VendingMachineUnitTest: XCTestCase {
         var vendingMachine = VendingMachine(stock: emptyStock)
         vendingMachine.addBeverage(orignalCoke)
         vendingMachine.insertMoney(1000)
-        try! vendingMachine.buyBeverage(orignalCoke)
+        _ = try! vendingMachine.buyBeverage(orignalCoke)
         XCTAssertEqual(0, vendingMachine.stock.count)
     }
     
@@ -104,8 +104,17 @@ class VendingMachineUnitTest: XCTestCase {
     }
     
     func test뜨거운음료확인() {
-        let beverageBox = [orignalCoke, orignalCoke2, lightMilk, badLightMilk, starBucksCoffe]
+        let beverageBox = [orignalCoke, orignalCoke2, lightMilk, badLightMilk, starBucksCoffee]
         let vendingMachine = VendingMachine(stock: beverageBox)
         XCTAssertEqual(1, vendingMachine.getHotBeverage().count)
+    }
+    
+    func test영수증_출력() {
+        let box = [orignalCoke, orignalCoke2, lightMilk, badLightMilk, starBucksCoffee]
+        var vendingMachine = VendingMachine(stock: box)
+        vendingMachine.addBeverage(orignalCoke)
+        vendingMachine.insertMoney(1000)
+        _ = try! vendingMachine.buyBeverage(orignalCoke)
+        XCTAssertEqual(1, vendingMachine.getRecepit().count)
     }
 }
