@@ -52,7 +52,7 @@ struct VendingMachineAdmin {
         let category: Category = String(product.description.split(separator: "(")[0])
         if let inventory = vendingMachine.getInventory()[category] {
             for i in 0..<inventory.count where inventory[i] == product {
-                vendingMachine.remove(category: category, at: i)
+                vendingMachine.remove(category: category, index: i)
             }
         }
     }

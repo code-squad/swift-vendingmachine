@@ -22,7 +22,8 @@ class SpriteTest: XCTestCase {
 
     func testSprite() {
         let dateOfManufacture: Date = "20171211".getDateFromString()
-        let sprite = Sprite.init(brand: "Sprite", weight: 500, price: 2000, name: "스프라이트", dateOfManufacture: dateOfManufacture, lowCalorie: false)
+        let sprite = Sprite.init(brand: "Sprite", weight: 500, price: 2000, name: "스프라이트",
+                                 dateOfManufacture: dateOfManufacture, lowCalorie: false)
         XCTAssertEqual(sprite.description, "사이다(Sprite) - Sprite, 500ml, 2000원, 스프라이트, 20171211")
     }
 

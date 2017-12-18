@@ -22,7 +22,8 @@ class BeverageTest: XCTestCase {
 
     func testBeverage() {
         let dateOfManufacture: Date = "20171211".getDateFromString()
-        let beverage: Beverage = Beverage.init(brand: "test", weight: 100, price: 1000, name: "tester", dateOfManufacture: dateOfManufacture)
+        let beverage: Beverage = Beverage.init(brand: "test", weight: 100, price: 1000,
+                                               name: "tester", dateOfManufacture: dateOfManufacture)
         XCTAssertEqual(beverage.description, "test, 100ml, 1000원, tester, 20171211")
     }
 

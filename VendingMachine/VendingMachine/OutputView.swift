@@ -29,10 +29,12 @@ struct OutputView {
         }
     }
 
-    static func show(inventory: Inventory, buyableProducts: Array<Category>) {
+    static func show(inventory: Inventory, buyableProducts: [Category]) {
         print("다음과 같은 음료를 살 수 있습니다.")
         for i in 0..<buyableProducts.count {
-            print("\(i+1)) \(buyableProducts[i]) \(inventory[buyableProducts[i]]![0].price)원(\(inventory[buyableProducts[i]]!.count)개)")
+            print("\(i+1)) \(buyableProducts[i]) ", terminator: "")
+            print("\(inventory[buyableProducts[i]]![0].price)원", terminator: "")
+            print("(\(inventory[buyableProducts[i]]!.count)개)")
         }
     }
 
