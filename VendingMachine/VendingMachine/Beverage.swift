@@ -20,7 +20,6 @@ class Beverage: CustomStringConvertible, Hashable {
     private (set) var temperature: Double
     private (set) var name: String
     private (set) var manufacturingDate: Date
-    
     var hashValue: Int {
         return name.hashValue
     }
@@ -49,4 +48,3 @@ class Beverage: CustomStringConvertible, Hashable {
         return balance >= price
     }
 }
-

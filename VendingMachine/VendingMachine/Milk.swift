@@ -17,7 +17,6 @@ class Milk: Beverage, BeverageCheck {
         self.fatContent = fatContent
         super.init(brand: brand, volume: volume, price: price, name: name, manufacturingDate: manufacturingDate, temperature: temperature)
     }
-    
     func isLowFat() -> Bool {
         return fatContent <= 1.5
     }
