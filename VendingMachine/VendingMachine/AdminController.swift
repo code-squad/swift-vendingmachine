@@ -18,14 +18,7 @@ struct AdminController {
     mutating func manage() {
         var selector: ValidationChecker.AdminMenu = .none
         while selector == .none {
-            print("\n======= 관리자모드 =======")
-            let inventory: Inventory = admin.getInventory()
-            if inventory.count == 0 {
-                print("현재 자판기에 음료가 없습니다.")
-            } else {
-                OutputView.show(inventory: inventory)
-            }
-            OutputView.showAdminMenu()
+            showVendingMachine()
             do {
                 selector = try ValidationChecker.getAdminSelector(input: InputView.readInput())
             } catch ValidationChecker.Errors.notInMenu {
@@ -38,19 +31,33 @@ struct AdminController {
                 print(ValidationChecker.Errors.invalidInput)
                 continue
             }
-            switch selector {
-            case .addProducts:
-                addProducts()
-            case .removeExpired:
-                removeExpired(date: getDate())
-            case .salesHistory:
-                showSalesHistory()
-            default:
-                continue
-            }
+            selectMenu(selector: selector)
             selector = ValidationChecker.AdminMenu.none
         }
+    }
 
+    private func showVendingMachine() {
+        print("\n======= 관리자모드 =======")
+        let inventory: Inventory = admin.getInventory()
+        if inventory.count == 0 {
+            print("현재 자판기에 음료가 없습니다.")
+        } else {
+            OutputView.show(inventory: inventory)
+        }
+        OutputView.showAdminMenu()
+    }
+
+    mutating private func selectMenu(selector: ValidationChecker.AdminMenu) {
+        switch selector {
+        case .addProducts:
+            addProducts()
+        case .removeExpired:
+            removeExpired(date: getDate())
+        case .salesHistory:
+            showSalesHistory()
+        default:
+            return
+        }
     }
 
     mutating private func addProducts() {
