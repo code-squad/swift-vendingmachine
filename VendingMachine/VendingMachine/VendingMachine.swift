@@ -12,7 +12,7 @@ protocol VendingMachineGetInfo {
     func getBalance() -> Int
     func getStockList() -> [Beverage:Int]
 }
-
+ 
 protocol VendingMachineExecute {
     mutating func insertMoney(_ money: Int)
     mutating func buyBeverage(number: Int) throws -> Beverage
