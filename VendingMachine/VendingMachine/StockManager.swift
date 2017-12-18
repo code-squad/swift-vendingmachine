@@ -20,14 +20,19 @@ class StockManager {
 
     // 인벤토리 상태에 따라 장부 업데이트.
     func updateStock(_ oldStock: Set<Beverage>) {
+        // 음료수가 더해졌는지, 빠졌는지 확인하기 위함.
+        var isAdded = false
+        if oldStock.isSubset(of: self.vendingMachine) {
+            isAdded = true
+        }
         // 인벤토리 상태의 차이를 장부에 기록.
-        record(for: oldStock.symmetricDifference(self.vendingMachine))
+        record(for: oldStock.symmetricDifference(self.vendingMachine), isAdded)
     }
 
     // 변경된 부분을 장부에 기록.
-    private func record(for changes: Set<Beverage>) {
+    private func record(for changes: Set<Beverage>, _ isAdded: Bool) {
         for change in changes {
-            self.stock.update(forKey: change.description)
+            self.stock.update(forKey: change.description, isAdded)
         }
     }
 
@@ -56,7 +61,7 @@ class StockManager {
             // 유통기한이 현재 날짜 기준으로 지난 경우,
             guard beverage.isExpired(with: checkingDay) else { break }
             // 리스트에 해당 음료수의 이름과 개수 기록.
-            expiredList.update(forKey: beverage.description)
+            expiredList.update(forKey: beverage.description, true)
         }
         return expiredList
     }

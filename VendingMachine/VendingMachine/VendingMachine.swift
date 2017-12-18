@@ -36,7 +36,7 @@ class VendingMachine: Collection {
     }
 
     // 자판기 내 음료수 인스턴스 저장.
-    private(set) var inventory: Set<Beverage> = Set<Beverage>() {
+    private var inventory: Set<Beverage> = Set<Beverage>() {
         // 상태변화가 생길 때마다 장부 및 잔액을 업데이트.
         didSet(oldInventory) {
             // 재고를 넣을 때와 음료수를 빼먹을 때 둘 다 업데이트.
