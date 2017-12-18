@@ -36,14 +36,14 @@ class VendingMachine: Collection {
     }
 
     // 자판기 내 음료수 인스턴스 저장.
-    private var inventory: Set<Beverage> = Set<Beverage>() {
+    private(set) var inventory: Set<Beverage> = Set<Beverage>() {
         // 상태변화가 생길 때마다 장부 및 잔액을 업데이트.
-        didSet {
+        didSet(oldInventory) {
             // 재고를 넣을 때와 음료수를 빼먹을 때 둘 다 업데이트.
-            self.stockManager.updateStock(oldValue)
-            self.stockManager.recordHistory(oldValue)
+            self.stockManager.updateStock(oldInventory)
+            self.stockManager.recordHistory(oldInventory)
             // 잔액은 음료수를 빼먹을 때만 업데이트.
-            self.moneyManager.updateBalance(oldValue)
+            self.moneyManager.updateBalance(oldInventory)
         }
     }
 
@@ -55,48 +55,28 @@ class VendingMachine: Collection {
         }
     }
 
-    // 자판기에서 특정 메뉴의 음료수 제거.
-    private func pop(_ menu: Menu) -> Beverage? {
-        var selected: Beverage?
-        switch menu {
-        case .strawberryMilk:
-            guard let position = self.inventory.index(where: { $0 is StrawBerryMilk }) else { break }
-            selected = self.inventory.remove(at: position)
-        case .bananaMilk:
-            guard let position = self.inventory.index(where: { $0 is BananaMilk }) else { break }
-            selected = self.inventory.remove(at: position)
-        case .chocoMilk:
-            guard let position = self.inventory.index(where: { $0 is ChocoMilk }) else { break }
-            selected = self.inventory.remove(at: position)
-        case .coke:
-            guard let position = self.inventory.index(where: { $0 is CokeSoftDrink }) else { break }
-            selected = self.inventory.remove(at: position)
-        case .cider:
-            guard let position = self.inventory.index(where: { $0 is CiderSoftDrink }) else { break }
-            selected = self.inventory.remove(at: position)
-        case .fanta:
-            guard let position = self.inventory.index(where: { $0 is FantaSoftDrink }) else { break }
-            selected = self.inventory.remove(at: position)
-        case .top:
-            guard let position = self.inventory.index(where: { $0 is TopCoffee }) else { break }
-            selected = self.inventory.remove(at: position)
-        case .cantata:
-            guard let position = self.inventory.index(where: { $0 is CantataCoffee }) else { break }
-            selected = self.inventory.remove(at: position)
-        case .georgia:
-            guard let position = self.inventory.index(where: { $0 is GeorgiaCoffee }) else { break }
-            selected = self.inventory.remove(at: position)
-        }
-        return selected
-    }
-
-    // 선택한 음료수를 반환. 자판기 내에서 제거.
+    // 구매가능한 음료 중 선택한 음료수를 반환.
     func popBeverage(_ menu: Menu) -> Beverage? {
         // 품절이 아닌 상품 중, 현재 금액으로 살 수 있는 메뉴 리스트를 받아옴.
         let affordableList = self.moneyManager.showAffordableList(from: self.stockManager.showSellingList())
         // 리스트에 선택한 상품이 있는 경우, 해당 음료수 반환. 없는 경우, nil 반환. (아무일도 일어나지 않음)
         guard affordableList.contains(menu) else { return nil }
         return pop(menu)
+    }
+
+    // 자판기 인벤토리에서 특정 메뉴의 음료수를 반환.
+    private func pop(_ menu: VendingMachine.Menu) -> Beverage? {
+        for beverage in self.inventory {
+            if menu.description == beverage.description {
+                return self.inventory.remove(beverage)
+            }
+        }
+        return nil
+    }
+
+    // 주화 삽입.
+    func insertMoney(_ money: MoneyManager.Unit) {
+        self.moneyManager.insert(money: money)
     }
 
     // 잔액을 확인.
@@ -130,6 +110,21 @@ class VendingMachine: Collection {
         case top
         case cantata
         case georgia
+
+        init?(_ beverageType: String) {
+            switch beverageType {
+            case Menu.strawberryMilk.description: self = .strawberryMilk
+            case Menu.bananaMilk.description: self = .bananaMilk
+            case Menu.chocoMilk.description: self = .chocoMilk
+            case Menu.coke.description: self = .coke
+            case Menu.cider.description: self = .cider
+            case Menu.fanta.description: self = .fanta
+            case Menu.top.description: self = .top
+            case Menu.cantata.description: self = .cantata
+            case Menu.georgia.description: self = .georgia
+            default: return nil
+            }
+        }
 
         // Menu 열거형과 클래스들을 이어주는 역할.
         var description: String {
