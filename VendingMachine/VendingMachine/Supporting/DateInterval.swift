@@ -14,3 +14,8 @@ enum DateInterval: TimeInterval {
     case twoDays = 172_800
     case oneWeek = 604_800
 }
+
+enum MenuSelector: Int {
+    case insertMode = 1
+    case purchaseMode = 2
+}

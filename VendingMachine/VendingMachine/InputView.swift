@@ -11,7 +11,8 @@ import Foundation
 struct InputView {
     
     static func read() throws -> [Int] {
-        OutputView.printSelectMenu()
+        print("1. 금액추가")
+        print("2. 음료구매")
         guard let selectedMenu = readLine() else {
             throw ErrorCode.validInputString
         }

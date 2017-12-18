@@ -8,7 +8,12 @@
 
 import Foundation
 
-struct VendingMachine {
+protocol VendingMachineGetInfo {
+    func getBalance() -> Int
+    func getStockList() -> [Beverage:Int]
+}
+
+struct VendingMachine: VendingMachineGetInfo {
     private var balance: Int
     private (set) var stock: [Beverage]
     private var sortedStockList = [Beverage:Int]()
