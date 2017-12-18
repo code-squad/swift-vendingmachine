@@ -41,11 +41,10 @@ class StockManager {
         return self.stock
     }
 
-    // 품절이 아닌 상품 리스트 반환.
+    // 품절이 아닌 메뉴 리스트 반환.
     func showSellingList() -> [VendingMachine.Menu] {
-        return stock.filter { return !isSoldOut($0.key) }.flatMap {
-            return VendingMachine.Menu(rawValue: $0.key)
-        }
+        let notSoldOutList = self.stock.filter { !isSoldOut($0.key) }
+        return notSoldOutList.flatMap { VendingMachine.Menu.init($0.key) }
     }
 
     // 유통기한이 지난 재고 리스트 반환.
