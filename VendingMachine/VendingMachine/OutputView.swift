@@ -15,17 +15,18 @@ struct OutputView {
     }
     
     static private func printBalance(_ machine: VendingMachine) {
+        print("")
         print("현재 투입한 금액은 \(machine.getBalance())원 입니다.", terminator: "")
         print("다음과 같은 음료가 있습니다.")
     }
     
     static func printMainMenu(machine: VendingMachine) {
         printBalance(machine)
-        print("=========================================")
+        print("\n")
         for element in machine.getStockList() {
             print("\(element.key.name)(\(element.value)개)  ", terminator:"")
         }
-        print("")
+        print("\n")
     }
     
     static func printAfterInsertMoney(machine: VendingMachine) {

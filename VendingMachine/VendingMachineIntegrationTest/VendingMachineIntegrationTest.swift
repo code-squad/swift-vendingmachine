@@ -7,29 +7,28 @@
 //
 
 import XCTest
+@testable import VendingMachine
 
 class VendingMachineIntegrationTest: XCTestCase {
+    let orignalCoke = Coke(sugarContent: 40, volume: 250, price: 700, name: "CocaCola", manufacturingDate: "20171213", labelColor: "RED", forBusiness: false)
+    let sprite = Sprite(sugarContent: 0, volume: 200, price: 800, name: "스프라이트", manufacturingDate: "20171215", labelColor: "GREEN", forBusiness: false)
+    let lightMilk = LightBananaMilk(volume: 270, price: 1400, manufacturingDate: "20171210")
+    let badLightMilk = LightBananaMilk(volume: 270, price: 1400, manufacturingDate: "20171101")
+    let starBucksCoffee = StarBucksCoffee(reserve: false, caffeine: true, temperature: 90, volume: 700, price: 2000, name: "스타벅스 커피", manufacturingDate: "20171217")
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    // 시나리오1 : 통합테스트 모든 재고를 추가하고 1000원을 넣었을때, 구매 가능한 음료 반환 테스트
+    //           잔액확인, 재고확인, 구매이력 확인
+    func test통합테스트_시나리오1() {
+        let stockBox = [orignalCoke, lightMilk, badLightMilk, starBucksCoffee]
+        var machine = VendingMachine(stock: stockBox)
+        machine.insertMoney(1000)
+        machine.addBeverage(sprite)
+        var validStock = machine.getValidBuyingBeverage()
+        XCTAssertEqual(orignalCoke.description, validStock[0].description)
+        XCTAssertEqual(sprite.description, validStock[1].description)
+        _ = try! machine.buyBeverage(sprite)
+        XCTAssertEqual(200 ,machine.getBalance())
+        XCTAssertEqual(0, machine.getStockList()[sprite]!)
+        XCTAssertEqual("Sprite", machine.getRecepit()[0])
     }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-    
 }
