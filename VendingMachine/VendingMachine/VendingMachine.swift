@@ -90,8 +90,8 @@ class VendingMachine: Collection {
     }
 
     // 유통기한이 지난 재고 리스트 반환.
-    func showExpiredBeverages() -> [Menu.RawValue:Stock] {
-        return self.stockManager.showExpiredList()
+    func showExpiredBeverages(on day: Date) -> [Menu.RawValue:Stock] {
+        return self.stockManager.showExpiredList(on: day)
     }
 
     // 시작이후 구매 상품 이력 반환.

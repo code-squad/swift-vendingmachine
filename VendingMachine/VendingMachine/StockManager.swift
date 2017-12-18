@@ -53,13 +53,12 @@ class StockManager {
     }
 
     // 유통기한이 지난 재고 리스트 반환.
-    func showExpiredList() -> [VendingMachine.Menu.RawValue:Stock] {
+    func showExpiredList(on checkingDay: Date) -> [VendingMachine.Menu.RawValue:Stock] {
         var expiredList: [VendingMachine.Menu.RawValue:Stock] = [:]
-        let checkingDay = Date(timeIntervalSinceNow: 0)
         // 현재 자판기 내 음료수 중
         for beverage in self.vendingMachine {
             // 유통기한이 현재 날짜 기준으로 지난 경우,
-            guard beverage.isExpired(with: checkingDay) else { break }
+            guard beverage.isExpired(with: checkingDay) else { continue }
             // 리스트에 해당 음료수의 이름과 개수 기록.
             expiredList.update(forKey: beverage.description, true)
         }
