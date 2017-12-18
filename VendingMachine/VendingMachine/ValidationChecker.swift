@@ -67,11 +67,10 @@ struct ValidationChecker {
         guard input != "q" && input != "quit" else {
             throw Errors.quit
         }
-        let selector = Int(input) ?? 0
-        guard selector >= 1 && selector <= 3 else {
+        guard let selector = Int(input), let adminMenu = AdminMenu.init(rawValue: selector) else {
             throw Errors.notInMenu
         }
-        return AdminMenu.init(rawValue: selector) ?? .none
+        return adminMenu
     }
 
 }
