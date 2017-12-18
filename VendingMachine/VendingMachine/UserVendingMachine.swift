@@ -1,8 +1,8 @@
 //
-//  VendingMachine.swift
+//  UserVendingMachine.swift
 //  VendingMachine
 //
-//  Created by Mrlee on 2017. 12. 15..
+//  Created by Mrlee on 2017. 12. 18..
 //  Copyright © 2017년 Napster. All rights reserved.
 //
 
@@ -12,39 +12,22 @@ protocol VendingMachineGetInfo {
     func getBalance() -> Int
     func getStockList() -> [Beverage:Int]
 }
- 
+
 protocol VendingMachineExecute {
     mutating func insertMoney(_ money: Int)
     mutating func buyBeverage(number: Int) throws -> Beverage
 }
 
-struct VendingMachine: VendingMachineGetInfo, VendingMachineExecute {
-    private var balance: Int
-    private (set) var stock: [Beverage]
-    private var sortedStockList = [Beverage:Int]()
+struct UserVendingMachine:VendingMachineGetInfo, VendingMachineExecute {
     private var recepit = [String]()
-    private var buyingCount: Int
+    private (set) var stock: [Beverage]
+    private var sortedStockList: [Beverage:Int]
+    private var balance: Int
     
-    init(stock: [Beverage]) {
+    init(stock: [Beverage], stockList: [Beverage:Int], balance: Int) {
         self.stock = stock
-        self.balance = 0
-        self.buyingCount = 0
-        for item in stock {
-            makeBeverageList(item)
-        }
-    }
-    
-    mutating func addBeverage(_ item: Beverage) {
-        stock.append(item)
-        makeBeverageList(item)
-    }
-    
-    private mutating func makeBeverageList(_ item: Beverage) {
-        if sortedStockList[item] != nil {
-            sortedStockList[item]! += 1
-        } else {
-            sortedStockList[item] = 1
-        }
+        self.sortedStockList = stockList
+        self.balance = balance
     }
     
     mutating func insertMoney(_ money: Int) {
@@ -82,11 +65,6 @@ struct VendingMachine: VendingMachineGetInfo, VendingMachineExecute {
         return keys.filter{ $0.checkAvailableList(with: balance) }
     }
     
-    func getPassedValidateBeverage() -> [BeverageCheck] {
-        let checkingStock = stock.flatMap{ $0 as? BeverageCheck }
-        return checkingStock.filter{ !$0.validate(with: Date()) }
-    }
-    
     func getHotBeverage() -> [BeverageCheck] {
         let keys = sortedStockList.keys.map{ $0 }.flatMap{ $0 as? BeverageCheck }
         return keys.filter{ $0.isHot() }
@@ -96,4 +74,7 @@ struct VendingMachine: VendingMachineGetInfo, VendingMachineExecute {
         return recepit
     }
     
+    func endUserMode() -> VendingMachineData {
+        return VendingMachineData(stock: stock, stockList: sortedStockList, balance: balance)
+    }
 }

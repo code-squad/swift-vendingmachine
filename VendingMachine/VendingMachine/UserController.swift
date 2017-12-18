@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct VendingMachineController {
+struct UserController {
     private var machine: VendingMachineExecute
     private var outputView: OutputView
     init(machine: VendingMachineExecute, view outputView: OutputView) {

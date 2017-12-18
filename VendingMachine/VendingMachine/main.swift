@@ -23,13 +23,13 @@ func getBox() -> [Beverage] {
 func executeMain(box: [Beverage]) {
     let vendingMachine = VendingMachine(stock: box)
     let outputView = OutputView(vendingMachine)
-    var vendingMachineController = VendingMachineController(machine: vendingMachine, view: outputView)
+    var userController = UserController(machine: vendingMachine, view: outputView)
     outputView.printMainMenu()
     
     var condition = true
     while condition {
         do {
-            try vendingMachineController.executeMachine(inputSelector: try InputView.read())
+            try userController.executeMachine(inputSelector: try InputView.read())
         } catch ErrorCode.endCode {
             condition = false
         } catch let error as ErrorCode {

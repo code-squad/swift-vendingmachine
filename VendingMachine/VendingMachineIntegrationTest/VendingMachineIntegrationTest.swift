@@ -11,6 +11,7 @@ import XCTest
 
 class VendingMachineIntegrationTest: XCTestCase {
     let orignalCoke = Coke(sugarContent: 40, volume: 250, price: 700, name: "CocaCola", manufacturingDate: "20171213", labelColor: "RED", forBusiness: false)
+    let orignalCoke2 = Coke(sugarContent: 40, volume: 250, price: 700, name: "CocaCola", manufacturingDate: "20171213", labelColor: "RED", forBusiness: false)
     let sprite = Sprite(sugarContent: 0, volume: 200, price: 800, name: "스프라이트", manufacturingDate: "20171215", labelColor: "GREEN", forBusiness: false)
     let lightMilk = LightBananaMilk(volume: 270, price: 1400, manufacturingDate: "20171210")
     let badLightMilk = LightBananaMilk(volume: 270, price: 1400, manufacturingDate: "20171101")
@@ -19,7 +20,7 @@ class VendingMachineIntegrationTest: XCTestCase {
     //           잔액확인, 재고확인, 구매이력 확인
     func test통합테스트_시나리오1() {
         let stockBox = [orignalCoke, lightMilk, badLightMilk, starBucksCoffee]
-        var machine = VendingMachine(stock: stockBox)
+        var machine = UserMode(stock: stockBox)
         machine.insertMoney(1000)
         machine.addBeverage(sprite)
         var validStock = machine.getValidBuyingBeverage()
