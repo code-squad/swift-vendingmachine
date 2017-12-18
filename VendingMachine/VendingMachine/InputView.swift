@@ -16,6 +16,9 @@ struct InputView {
         guard let selectedMenu = readLine() else {
             throw ErrorCode.validInputString
         }
+        guard selectedMenu == "q" else {
+            throw ErrorCode.endCode
+        }
         return try separateMenu(selectedMenu)
     }
     private static func separateMenu(_ value: String) throws -> [Int] {

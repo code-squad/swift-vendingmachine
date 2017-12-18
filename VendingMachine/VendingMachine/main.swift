@@ -21,16 +21,21 @@ func getBox() -> [Beverage] {
 }
 
 func executeMain(box: [Beverage]) {
-    var vendingMachine = VendingMachine(stock: box)
-    let condition = true
-    OutputView.printMainMenu(machine: vendingMachine)
+    let vendingMachine = VendingMachine(stock: box)
+    let outputView = OutputView(vendingMachine)
+    var vendingMachineController = VendingMachineController(machine: vendingMachine, view: outputView)
+    outputView.printMainMenu()
+    
+    var condition = true
     while condition {
         do {
-            vendingMachine = try VendingMachineController.executeVandingMachine(machine: vendingMachine, inputSelector: try InputView.read())
+            try vendingMachineController.executeMachine(inputSelector: try InputView.read())
+        } catch ErrorCode.endCode {
+            condition = false
         } catch let error as ErrorCode {
-            OutputView.printError(error.description)
+            outputView.printError(error.description)
         } catch {
-            OutputView.printError(ErrorCode.inValidError.description)
+            outputView.printError(ErrorCode.inValidError.description)
         }
     }
 }

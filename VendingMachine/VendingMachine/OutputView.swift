@@ -9,34 +9,39 @@
 import Foundation
 
 struct OutputView {
+    var vendingMachinInfo: VendingMachineGetInfo
     
-    static private func printBalance(_ machine: VendingMachineGetInfo) {
+    init(_ machine: VendingMachineGetInfo) {
+        self.vendingMachinInfo = machine
+    }
+    
+    private func printBalance() {
         print("")
-        print("현재 투입한 금액은 \(machine.getBalance())원 입니다.", terminator: "")
+        print("현재 투입한 금액은 \(vendingMachinInfo.getBalance())원 입니다.", terminator: "")
         print("다음과 같은 음료가 있습니다.")
     }
     
-    static func printMainMenu(machine: VendingMachineGetInfo) {
-        printBalance(machine)
+    func printMainMenu() {
+        printBalance()
         print("\n")
-        for element in machine.getStockList() {
+        for element in vendingMachinInfo.getStockList() {
             print("\(element.key.name)(\(element.value)개)  ", terminator:"")
         }
         print("\n")
     }
     
-    static func printAfterInsertMoney(machine: VendingMachineGetInfo) {
-        printBalance(machine)
-        for element in machine.getStockList() {
+    func printAfterInsertMoney() {
+        printBalance()
+        for element in vendingMachinInfo.getStockList() {
             print("\(element.key.name)\(element.key.price)원 (\(element.value)개)")
         }
     }
     
-    static func printAfterBuyingBeverage(beverage: Beverage) {
+    func printAfterBuyingBeverage(beverage: Beverage) {
         print("\(beverage.name)를 구매하셨습니다. \(beverage.price)원을 차감합니다.")
     }
     
-    static func printError(_ error: String) {
+    func printError(_ error: String) {
         print(error)
     }
     
