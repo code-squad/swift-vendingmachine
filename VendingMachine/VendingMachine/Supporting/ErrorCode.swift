@@ -14,6 +14,7 @@ enum ErrorCode: Error, CustomStringConvertible {
     case noMoney
     case validInputString
     case invalidMenu
+    case endCode
     var description: String {
         switch self {
         case .noStock:
@@ -26,6 +27,8 @@ enum ErrorCode: Error, CustomStringConvertible {
             return "메뉴의 입력값을 확인해주세요."
         case .inValidError:
             return "알수없는 에러입니다."
+        case .endCode:
+            return "시스템을 종료합니다."
         }
     }
 }

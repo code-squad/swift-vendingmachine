@@ -13,7 +13,12 @@ protocol VendingMachineGetInfo {
     func getStockList() -> [Beverage:Int]
 }
 
-struct VendingMachine: VendingMachineGetInfo {
+protocol VendingMachineExecute {
+    mutating func insertMoney(_ money: Int)
+    mutating func buyBeverage(number: Int) throws -> Beverage
+}
+
+struct VendingMachine: VendingMachineGetInfo, VendingMachineExecute {
     private var balance: Int
     private (set) var stock: [Beverage]
     private var sortedStockList = [Beverage:Int]()

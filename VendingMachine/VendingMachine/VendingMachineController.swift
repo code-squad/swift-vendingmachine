@@ -9,21 +9,24 @@
 import Foundation
 
 struct VendingMachineController {
+    private var machine: VendingMachineExecute
+    private var outputView: OutputView
+    init(machine: VendingMachineExecute, view outputView: OutputView) {
+        self.machine = machine
+        self.outputView = outputView
+    }
     
-    static func executeVandingMachine(machine: VendingMachine, inputSelector: [Int]) throws -> VendingMachine {
-        var vendingMachine = machine
+    mutating func executeMachine(inputSelector: [Int]) throws {
         guard inputSelector.count > 1 else {
             throw ErrorCode.validInputString
         }
         switch inputSelector[0] {
         case MenuSelector.insertMode.rawValue:
-            vendingMachine.insertMoney(inputSelector[1])
-            OutputView.printAfterInsertMoney(machine: vendingMachine)
-            return vendingMachine
+            machine.insertMoney(inputSelector[1])
+            outputView.printAfterInsertMoney()
         case MenuSelector.purchaseMode.rawValue:
-            OutputView.printAfterBuyingBeverage(beverage: try vendingMachine.buyBeverage(number: inputSelector[1]))
-            OutputView.printAfterInsertMoney(machine: vendingMachine)
-            return vendingMachine
+            outputView.printAfterBuyingBeverage(beverage: try machine.buyBeverage(number: inputSelector[1]))
+            outputView.printAfterInsertMoney()
         default:
             throw ErrorCode.invalidMenu
         }
