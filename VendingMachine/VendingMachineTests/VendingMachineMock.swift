@@ -22,13 +22,21 @@ class VendingMachineMock: VendingMachineProtocol, CustomStringConvertible {
     convenience init() {
         let dateOfManufacture: Date = "20171207".getDateFromString()
         let validate: Date = "20171220".getDateFromString()
-        let strawberryMilk = StrawberryMilk.init(brand: "서울우유", weight: 200, price: 1000, name: "딸기우유", dateOfManufacture: dateOfManufacture, validate: validate)
+        let strawberryMilk = StrawberryMilk.init(brand: "서울우유", weight: 200, price: 1000,
+                                                 name: "딸기우유",
+                                                 dateOfManufacture: dateOfManufacture,
+                                                 validate: validate)
         let expiredValidate: Date = "20171209".getDateFromString()
-        let bananaMilk = BananaMilk.init(brand: "서울우유", weight: 200, price: 1000, name: "날마다바나나우유", dateOfManufacture: dateOfManufacture, validate: expiredValidate)
-        let pepciCoke = PepciCoke.init(brand: "펩시", weight: 350, price: 2000, name: "다이어트콜라", dateOfManufacture: dateOfManufacture, lowCalorie: true)
-        let topCoffee = TOPCoffee.init(brand: "맥심", weight: 400, price: 3000, name: "TOP아메리카노", dateOfManufacture: dateOfManufacture, hot: true)
-        let kantata = Kantata.init(brand: "Kantata", weight: 400, price: 3000, name: "칸타타", dateOfManufacture: dateOfManufacture, hot: true)
-        let georgia = Georgia.init(brand: "코카콜라", weight: 400, price: 3000, name: "죠지아", dateOfManufacture: dateOfManufacture, hot: false)
+        let bananaMilk = BananaMilk.init(brand: "서울우유", weight: 200, price: 1000, name: "날마다바나나우유",
+                                         dateOfManufacture: dateOfManufacture, validate: expiredValidate)
+        let pepciCoke = PepciCoke.init(brand: "펩시", weight: 350, price: 2000,
+                                       name: "다이어트콜라", dateOfManufacture: dateOfManufacture, lowCalorie: true)
+        let topCoffee = TOPCoffee.init(brand: "맥심", weight: 400, price: 3000,
+                                       name: "TOP아메리카노", dateOfManufacture: dateOfManufacture, hot: true)
+        let kantata = Kantata.init(brand: "Kantata", weight: 400, price: 3000,
+                                   name: "칸타타", dateOfManufacture: dateOfManufacture, hot: true)
+        let georgia = Georgia.init(brand: "코카콜라", weight: 400, price: 3000,
+                                   name: "죠지아", dateOfManufacture: dateOfManufacture, hot: false)
         var inventoryMock: Inventory = [:]
         inventoryMock[String(strawberryMilk.description.split(separator: "(")[0])] = [strawberryMilk]
         inventoryMock[String(bananaMilk.description.split(separator: "(")[0])] = [bananaMilk]
@@ -78,8 +86,8 @@ class VendingMachineMock: VendingMachineProtocol, CustomStringConvertible {
         coins += amount
     }
 
-    func remove(category: Category, at i: Int) {
-        inventory[category]?.remove(at: i)
+    func remove(category: Category, index: Int) {
+        inventory[category]?.remove(at: index)
     }
 
     func buy(category: Category) {

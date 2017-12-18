@@ -22,8 +22,8 @@ struct VendingMachineUser {
     }
 
     //    현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
-    func getBuyableProducts() -> Array<Category> {
-        var result: Array<Category> = []
+    func getBuyableProducts() -> [Category] {
+        var result: [Category] = []
         for (key, value) in vendingMachine.getInventory() {
             let count = value.filter { $0.isBuyable(with: vendingMachine.getBalance()) }.count
             if count > 0 {

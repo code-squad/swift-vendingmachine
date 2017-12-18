@@ -8,9 +8,9 @@
 
 import Foundation
 
-typealias Products = Array<Beverage>
+typealias Products = [Beverage]
 typealias Category = String
-typealias Inventory = Dictionary<Category, Products>
+typealias Inventory = [Category: Products]
 
 class VendingMachine: VendingMachineProtocol, CustomStringConvertible {
     private var coins: Int
@@ -67,8 +67,8 @@ class VendingMachine: VendingMachineProtocol, CustomStringConvertible {
         coins += amount
     }
 
-    func remove(category: Category, at i: Int) {
-        inventory[category]?.remove(at: i)
+    func remove(category: Category, index: Int) {
+        inventory[category]?.remove(at: index)
     }
 
     func buy(category: Category) {

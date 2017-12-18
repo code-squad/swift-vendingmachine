@@ -22,7 +22,8 @@ class FantaTest: XCTestCase {
 
     func testFanta() {
         let dateOfManufacture: Date = "20171211".getDateFromString()
-        let fanta = Fanta.init(brand: "Fanta", weight: 350, price: 1500, name: "환타", dateOfManufacture: dateOfManufacture, lowCalorie: false)
+        let fanta = Fanta.init(brand: "Fanta", weight: 350, price: 1500, name: "환타",
+                               dateOfManufacture: dateOfManufacture, lowCalorie: false)
         XCTAssertEqual(fanta.description, "환타(Fanta) - Fanta, 350ml, 1500원, 환타, 20171211")
     }
 

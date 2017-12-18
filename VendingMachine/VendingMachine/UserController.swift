@@ -8,8 +8,6 @@
 
 import Foundation
 
-
-
 struct UserController {
     var user: VendingMachineUser
 
@@ -21,7 +19,7 @@ struct UserController {
         var selector: Selector = (menu: ValidationChecker.VendingMenu.none, contents: 0)
         while selector.menu == ValidationChecker.VendingMenu.none {
             let inventory: Inventory = user.getInventory()
-            let buyableProducts: Array<Category> = user.getBuyableProducts()
+            let buyableProducts: [Category] = user.getBuyableProducts()
             showVendingMachine(inventory: inventory, buyableProducts: buyableProducts)
             do {
                 selector = try ValidationChecker.getSelector(input: InputView.readInput())
@@ -37,7 +35,7 @@ struct UserController {
         }
     }
 
-    private func showVendingMachine(inventory: Inventory, buyableProducts: Array<Category>) {
+    private func showVendingMachine(inventory: Inventory, buyableProducts: [Category]) {
         print("\n======= 자판기 =======")
         if buyableProducts.count == 0 {
             print("현재 금액으로 살 수 있는 음료가 없습니다.")
@@ -49,13 +47,14 @@ struct UserController {
         OutputView.showMenu()
     }
 
-    mutating private func selectMenu(selector: Selector, inventory: Inventory, buyableProducts: Array<Category>) {
+    mutating private func selectMenu(selector: Selector, inventory: Inventory, buyableProducts: [Category]) {
         switch selector.menu {
         case .insertCoins:
             user.insertCoins(selector.contents)
         case .buyProduct where selector.contents <= buyableProducts.count:
             user.buy(category: buyableProducts[selector.contents-1])
-            print("\(buyableProducts[selector.contents-1])를 구매하셨습니다. \(String(describing: inventory[buyableProducts[selector.contents-1]]![0].price))원을 차감합니다.")
+            print("\(buyableProducts[selector.contents-1])를 구매하셨습니다. ", terminator: "")
+            print("\(String(describing: inventory[buyableProducts[selector.contents-1]]![0].price))원을 차감합니다.")
         case .purchaseList:
             print("현재까지 구매 내역입니다.")
             OutputView.show(products: user.purchaseList)

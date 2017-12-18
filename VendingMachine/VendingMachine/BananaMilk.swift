@@ -12,7 +12,8 @@ class BananaMilk: Milk {
     private let taste: String = "바나나우유"
 
     override init(brand: String, weight: Int, price: Int, name: String, dateOfManufacture: Date, validate: Date) {
-        super.init(brand: brand, weight: weight, price: price, name: name, dateOfManufacture: dateOfManufacture, validate: validate)
+        super.init(brand: brand, weight: weight, price: price, name: name,
+                   dateOfManufacture: dateOfManufacture, validate: validate)
     }
 
     override var description: String {

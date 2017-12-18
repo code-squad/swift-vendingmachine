@@ -12,7 +12,8 @@ class Sprite: Soda {
     private let taste: String = "사이다"
 
     override init(brand: String, weight: Int, price: Int, name: String, dateOfManufacture: Date, lowCalorie: Bool) {
-        super.init(brand: brand, weight: weight, price: price, name: name, dateOfManufacture: dateOfManufacture, lowCalorie: lowCalorie)
+        super.init(brand: brand, weight: weight, price: price, name: name,
+                   dateOfManufacture: dateOfManufacture, lowCalorie: lowCalorie)
     }
 
     override var description: String {
