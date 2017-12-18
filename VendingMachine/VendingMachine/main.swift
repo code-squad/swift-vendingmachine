@@ -23,7 +23,6 @@ func getBox() -> [Beverage] {
 func executeMain(box: [Beverage]) {
     var vendingMachine = VendingMachine(stock: box)
     OutputView.printMainMenu(machine: vendingMachine)
-    //OutputView.printSelectMenu()
     let condition = true
     while condition {
         do {

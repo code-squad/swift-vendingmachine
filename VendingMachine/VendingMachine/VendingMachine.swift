@@ -12,12 +12,11 @@ struct VendingMachine {
     private var balance: Int
     private (set) var stock: [Beverage]
     private var sortedStockList = [Beverage:Int]()
-    private (set) var recepit: String
+    private var recepit = [String]()
     private var buyingCount: Int
     
     init(stock: [Beverage]) {
         self.stock = stock
-        self.recepit = "#### Recepit ####"
         self.balance = 0
         self.buyingCount = 0
         for item in stock {
@@ -60,7 +59,7 @@ struct VendingMachine {
             throw ErrorCode.noMoney
         }
         sortedStockList[selectedValue]! -= 1
-        recepit += "\(buyingCount + 1)\(selectedValue.description)"
+        recepit.append(selectedValue.description)
         return stock.remove(at: item)
     }
     
@@ -82,4 +81,9 @@ struct VendingMachine {
         let keys = sortedStockList.keys.map{ $0 }.flatMap{ $0 as? BeverageCheck }
         return keys.filter{ $0.isHot() }
     }
+    
+    func getRecepit() -> [String] {
+        return recepit
+    }
+    
 }
