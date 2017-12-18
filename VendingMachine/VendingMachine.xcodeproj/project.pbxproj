@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
+		8E0E685B1FE3AFC000C384AA /* VendingMachineProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0E685A1FE3AFC000C384AA /* VendingMachineProtocol.swift */; };
 		8E56C68F1FDA3DAE0015E210 /* StrawberryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E56C68E1FDA3DAE0015E210 /* StrawberryMilk.swift */; };
 		8E56C6911FDA3DD90015E210 /* ChocolateMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E56C6901FDA3DD90015E210 /* ChocolateMilk.swift */; };
 		8E56C6931FDA3DED0015E210 /* BananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E56C6921FDA3DED0015E210 /* BananaMilk.swift */; };
@@ -63,6 +64,12 @@
 		8E8956C71FD940F900114B63 /* MilkTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8956C61FD940F900114B63 /* MilkTest.swift */; };
 		8E8956C91FD9410900114B63 /* SodaTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8956C81FD9410900114B63 /* SodaTest.swift */; };
 		8E8956CA1FD943A200114B63 /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8956B01FD93DE800114B63 /* Soda.swift */; };
+		8EC570D41FE75B4A00BFB3F1 /* VendingMachineProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0E685A1FE3AFC000C384AA /* VendingMachineProtocol.swift */; };
+		8EC570D81FE75D9A00BFB3F1 /* VendingMachineMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC570D71FE75D9A00BFB3F1 /* VendingMachineMock.swift */; };
+		8EC570DA1FE767DA00BFB3F1 /* VendingMachineAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC570D91FE767DA00BFB3F1 /* VendingMachineAdmin.swift */; };
+		8EC570DB1FE767DC00BFB3F1 /* VendingMachineAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC570D91FE767DA00BFB3F1 /* VendingMachineAdmin.swift */; };
+		8EC570DD1FE767FC00BFB3F1 /* VendingMachineUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC570DC1FE767FC00BFB3F1 /* VendingMachineUser.swift */; };
+		8EC570DE1FE7696B00BFB3F1 /* VendingMachineUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC570DC1FE767FC00BFB3F1 /* VendingMachineUser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -80,6 +87,7 @@
 /* Begin PBXFileReference section */
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		8E0E685A1FE3AFC000C384AA /* VendingMachineProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineProtocol.swift; sourceTree = "<group>"; };
 		8E56C68E1FDA3DAE0015E210 /* StrawberryMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrawberryMilk.swift; sourceTree = "<group>"; };
 		8E56C6901FDA3DD90015E210 /* ChocolateMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocolateMilk.swift; sourceTree = "<group>"; };
 		8E56C6921FDA3DED0015E210 /* BananaMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaMilk.swift; sourceTree = "<group>"; };
@@ -120,6 +128,9 @@
 		8E8956C41FD940ED00114B63 /* CoffeeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeTest.swift; sourceTree = "<group>"; };
 		8E8956C61FD940F900114B63 /* MilkTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilkTest.swift; sourceTree = "<group>"; };
 		8E8956C81FD9410900114B63 /* SodaTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SodaTest.swift; sourceTree = "<group>"; };
+		8EC570D71FE75D9A00BFB3F1 /* VendingMachineMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineMock.swift; sourceTree = "<group>"; };
+		8EC570D91FE767DA00BFB3F1 /* VendingMachineAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineAdmin.swift; sourceTree = "<group>"; };
+		8EC570DC1FE767FC00BFB3F1 /* VendingMachineUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineUser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +194,9 @@
 				8E56C6D11FDF95AD0015E210 /* ValidationChecker.swift */,
 				8E56C6EB1FE26B2B0015E210 /* UserController.swift */,
 				8E56C6ED1FE26B6A0015E210 /* AdminController.swift */,
+				8E0E685A1FE3AFC000C384AA /* VendingMachineProtocol.swift */,
+				8EC570D91FE767DA00BFB3F1 /* VendingMachineAdmin.swift */,
+				8EC570DC1FE767FC00BFB3F1 /* VendingMachineUser.swift */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";
@@ -208,6 +222,7 @@
 				8E8956C61FD940F900114B63 /* MilkTest.swift */,
 				8E8956C41FD940ED00114B63 /* CoffeeTest.swift */,
 				8E8956BC1FD940B200114B63 /* Info.plist */,
+				8EC570D71FE75D9A00BFB3F1 /* VendingMachineMock.swift */,
 			);
 			path = VendingMachineTests;
 			sourceTree = "<group>";
@@ -303,8 +318,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E56C69F1FDA3E850015E210 /* Georgia.swift in Sources */,
+				8EC570DD1FE767FC00BFB3F1 /* VendingMachineUser.swift in Sources */,
 				8E56C6971FDA3E300015E210 /* Sprite.swift in Sources */,
 				8E56C6951FDA3E240015E210 /* PepciCoke.swift in Sources */,
+				8E0E685B1FE3AFC000C384AA /* VendingMachineProtocol.swift in Sources */,
 				8E56C69D1FDA3E6F0015E210 /* Kantata.swift in Sources */,
 				8E56C6911FDA3DD90015E210 /* ChocolateMilk.swift in Sources */,
 				8E56C6931FDA3DED0015E210 /* BananaMilk.swift in Sources */,
@@ -314,6 +331,7 @@
 				8E56C6C81FDE5BEC0015E210 /* VendingMachine.swift in Sources */,
 				8E56C6C11FDE29B90015E210 /* StringUtility.swift in Sources */,
 				8E56C69B1FDA3E610015E210 /* TOPCoffee.swift in Sources */,
+				8EC570DA1FE767DA00BFB3F1 /* VendingMachineAdmin.swift in Sources */,
 				8E56C6D01FDEA04A0015E210 /* InputView.swift in Sources */,
 				8E56C6BC1FDE28190015E210 /* DateUtility.swift in Sources */,
 				8E8956AD1FD928CC00114B63 /* Beverage.swift in Sources */,
@@ -336,6 +354,7 @@
 				8E56C6A51FDA5F090015E210 /* Fanta.swift in Sources */,
 				8E56C6AA1FDA75AF0015E210 /* StrawberryMilkTest.swift in Sources */,
 				8E56C6D31FDFA14C0015E210 /* ValidationChecker.swift in Sources */,
+				8EC570D41FE75B4A00BFB3F1 /* VendingMachineProtocol.swift in Sources */,
 				8E56C6B41FDA76570015E210 /* FantaTest.swift in Sources */,
 				8E56C6CC1FDE7F470015E210 /* VendingMachine.swift in Sources */,
 				8E56C6A21FDA5EFE0015E210 /* BananaMilk.swift in Sources */,
@@ -350,6 +369,7 @@
 				8E56C6A11FDA5EFB0015E210 /* ChocolateMilk.swift in Sources */,
 				8E8956C91FD9410900114B63 /* SodaTest.swift in Sources */,
 				8E56C6B21FDA764A0015E210 /* SpriteTest.swift in Sources */,
+				8EC570DB1FE767DC00BFB3F1 /* VendingMachineAdmin.swift in Sources */,
 				8E8956CA1FD943A200114B63 /* Soda.swift in Sources */,
 				8E8956C51FD940ED00114B63 /* CoffeeTest.swift in Sources */,
 				8E56C6B01FDA76020015E210 /* PepciCokeTest.swift in Sources */,
@@ -359,7 +379,9 @@
 				8E8956C71FD940F900114B63 /* MilkTest.swift in Sources */,
 				8E56C6A61FDA5F0C0015E210 /* TOPCoffee.swift in Sources */,
 				8E56C6A41FDA5F060015E210 /* Sprite.swift in Sources */,
+				8EC570D81FE75D9A00BFB3F1 /* VendingMachineMock.swift in Sources */,
 				8E56C6EA1FE24EF30015E210 /* VendingMachineUserTest.swift in Sources */,
+				8EC570DE1FE7696B00BFB3F1 /* VendingMachineUser.swift in Sources */,
 				8E56C6B61FDA76640015E210 /* TOPCoffeeTest.swift in Sources */,
 				8E56C6C61FDE4CED0015E210 /* VendingMachineTest.swift in Sources */,
 				8E8956C31FD940C600114B63 /* Coffee.swift in Sources */,

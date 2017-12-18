@@ -8,7 +8,7 @@
 
 import Foundation
 
-typealias Selector = (menu: ValidationChecker.VendingMenu, contents: Int)
+
 
 struct UserController {
     var user: VendingMachineUser
