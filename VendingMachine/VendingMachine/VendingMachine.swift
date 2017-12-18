@@ -47,7 +47,6 @@ struct VendingMachine {
     
     mutating func buyBeverage(number: Int) throws -> Beverage {
         let item = sortedStockList[sortedStockList.index(sortedStockList.startIndex, offsetBy: number - 1)].key
-        balance -= item.price
         return try buyBeverage(item)
     }
     
@@ -60,6 +59,7 @@ struct VendingMachine {
         }
         sortedStockList[selectedValue]! -= 1
         recepit.append(selectedValue.description)
+        balance -= selectedValue.price
         return stock.remove(at: item)
     }
     
