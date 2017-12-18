@@ -99,6 +99,15 @@ class VendingMachine: Collection {
         return self.stockManager.showPurchasedHistory()
     }
 
+    // 따뜻한 음료 리스트 리턴.
+    func showHotBeverages() -> [Menu] {
+        // 커피타입인 경우만 해당.
+        return Menu.allValues.filter {
+            guard let coffee = $0.generate() as? Coffee else { return false }
+            return coffee.isHot
+        }
+    }
+
     // 선택 가능한 메뉴.
     enum Menu: String, CustomStringConvertible, EnumCollection {
         case strawberryMilk
@@ -135,15 +144,6 @@ class VendingMachine: Collection {
         // 각 메뉴의 가격은 노출 가능.
         var price: Int {
             return self.generate().price
-        }
-
-        // 따뜻한 음료 리스트 리턴.
-        func showHotBeverages() -> [Menu] {
-            // 커피타입인 경우만 해당.
-            return Menu.allValues.filter {
-                guard let coffee = $0.generate() as? Coffee else { return false }
-                return coffee.isHot
-            }
         }
 
         // 각 메뉴별 Beverage 인스턴스 생성.
