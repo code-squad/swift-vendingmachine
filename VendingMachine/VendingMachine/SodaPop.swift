@@ -16,7 +16,6 @@ class SodaPop: Beverage, BeverageCheck {
         self.sugarContent = sugarContent
         super.init(brand: brand, volume: volume, price: price, name: name, manufacturingDate: manufacturingDate, temperature: temperature)
     }
-    
     func isHighSugar() -> Bool {
         return sugarContent > 5
     }

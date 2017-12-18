@@ -14,7 +14,6 @@ enum ErrorCode: Error, CustomStringConvertible {
     case noMoney
     case validInputString
     case invalidMenu
-    
     var description: String {
         switch self {
         case .noStock:

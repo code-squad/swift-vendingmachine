@@ -9,6 +9,7 @@
 import Foundation
 
 struct OutputView {
+    
     static func printSelectMenu() {
         print("1. 금액추가")
         print("2. 음료구매")
@@ -43,4 +44,5 @@ struct OutputView {
     static func printError(_ error: String) {
         print(error)
     }
+    
 }

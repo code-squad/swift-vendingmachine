@@ -15,7 +15,6 @@ class VendingMachineIntegrationTest: XCTestCase {
     let lightMilk = LightBananaMilk(volume: 270, price: 1400, manufacturingDate: "20171210")
     let badLightMilk = LightBananaMilk(volume: 270, price: 1400, manufacturingDate: "20171101")
     let starBucksCoffee = StarBucksCoffee(reserve: false, caffeine: true, temperature: 90, volume: 700, price: 2000, name: "스타벅스 커피", manufacturingDate: "20171217")
-    
     // 시나리오1 : 통합테스트 모든 재고를 추가하고 1000원을 넣었을때, 구매 가능한 음료 반환 테스트
     //           잔액확인, 재고확인, 구매이력 확인
     func test통합테스트_시나리오1() {
@@ -31,4 +30,5 @@ class VendingMachineIntegrationTest: XCTestCase {
         XCTAssertEqual(0, machine.getStockList()[sprite]!)
         XCTAssertEqual("Sprite", machine.getRecepit()[0])
     }
+    
 }

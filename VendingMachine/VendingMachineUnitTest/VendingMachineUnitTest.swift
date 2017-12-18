@@ -15,7 +15,6 @@ class VendingMachineUnitTest: XCTestCase {
     let lightMilk = LightBananaMilk(volume: 270, price: 1400, manufacturingDate: "20171210")
     let badLightMilk = LightBananaMilk(volume: 270, price: 1400, manufacturingDate: "20171101")
     let starBucksCoffee = StarBucksCoffee(reserve: false, caffeine: true, temperature: 90, volume: 700, price: 2000, name: "스타벅스 커피", manufacturingDate: "20171217")
-    
     func test자판기금액올리기() {
         var vendingMachine = VendingMachine(stock: emptyStock)
         vendingMachine.insertMoney(1000)
@@ -117,4 +116,5 @@ class VendingMachineUnitTest: XCTestCase {
         _ = try! vendingMachine.buyBeverage(orignalCoke)
         XCTAssertEqual(1, vendingMachine.getRecepit().count)
     }
+    
 }

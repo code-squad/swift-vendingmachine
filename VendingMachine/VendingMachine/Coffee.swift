@@ -16,7 +16,6 @@ class Coffee: Beverage, BeverageCheck {
         self.caffeine = caffeine
         super.init(brand: brand, volume: volume, price: price, name: name, manufacturingDate: manufacturingDate, temperature: temperature)
     }
-    
     func isCaffeine() -> Bool {
         return caffeine
     }
@@ -30,4 +29,3 @@ class Coffee: Beverage, BeverageCheck {
         return Date(timeInterval: DateInterval.twoDays.rawValue, since: self.manufacturingDate) > Date(timeInterval: DateInterval.today.rawValue, since: with)
     }
 }
-

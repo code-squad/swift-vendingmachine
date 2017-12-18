@@ -10,7 +10,7 @@ import XCTest
 @testable import VendingMachine
 
 class CoffeeUnitTest: XCTestCase {
-    let starBucks = StarBucksCoffee(reserve: true, caffeine: false, temperature: 98, volume: 500, price: 5600, name: "스타벅스 아메리카노", manufacturingDate: "20171216")
+    let starBucks = StarBucksCoffee(reserve: true, caffeine: false, temperature: 98, volume: 500, price: 5600, name: "스타벅스 아메리카노", manufacturingDate: "20171218")
     
     func testDeCaffeineCoffee() {
         XCTAssertFalse(starBucks.isCaffeine())

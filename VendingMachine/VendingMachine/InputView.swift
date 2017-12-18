@@ -9,6 +9,7 @@
 import Foundation
 
 struct InputView {
+    
     static func read() throws -> [Int] {
         OutputView.printSelectMenu()
         guard let selectedMenu = readLine() else {
@@ -16,7 +17,6 @@ struct InputView {
         }
         return try separateMenu(selectedMenu)
     }
-    
     private static func separateMenu(_ value: String) throws -> [Int] {
         let menuAndValue = value.split(separator: " ").flatMap{ Int($0) }
         guard !menuAndValue.isEmpty else {
@@ -24,4 +24,5 @@ struct InputView {
         }
         return menuAndValue
     }
+    
 }
