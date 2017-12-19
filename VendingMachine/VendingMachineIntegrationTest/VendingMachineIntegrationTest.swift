@@ -20,10 +20,9 @@ class VendingMachineIntegrationTest: XCTestCase {
     //           잔액확인, 재고확인, 구매이력 확인
     func test통합테스트_시나리오1() {
         let stockBox = [orignalCoke, lightMilk, badLightMilk, starBucksCoffee]
-        var beverageData = VendingMachineData(stock: stockBox)
+        let beverageData = VendingMachineData(stock: stockBox)
         var adminMachine = AdminVendingMachine(with: beverageData)
         adminMachine.addBeverage(sprite)
-        beverageData = adminMachine.getVendingMachineData()
         var userMachine = UserVendingMachine(with: beverageData)
         userMachine.insertMoney(1000)
         var validStock = userMachine.getValidBuyingBeverage()

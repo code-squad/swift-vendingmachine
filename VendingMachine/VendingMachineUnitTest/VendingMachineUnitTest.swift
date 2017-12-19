@@ -57,7 +57,7 @@ class VendingMachineUnitTest: XCTestCase {
         var vendingMachine = UserVendingMachine(with: beverageData)
         vendingMachine.insertMoney(1000)
         _ = try! vendingMachine.buyBeverage(orignalCoke)
-        XCTAssertEqual(0, vendingMachine.stock.count)
+        XCTAssertEqual(0, vendingMachine.getStockList()[orignalCoke])
     }
     
     func test상품을구매할때_재고가없을때() {

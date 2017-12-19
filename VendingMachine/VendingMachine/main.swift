@@ -33,14 +33,14 @@ func getSpareBox() -> [Beverage] {
 
 func executeMain(box: [Beverage]) {
     let vendingMachineData = VendingMachineData(stock: box)
-    var spareBox = getSpareBox()
+    let spareBox = getSpareBox()
     var condition = true
     while condition {
         do {
             switch try InputView.readMode() {
             case .adminMode:
                 var adminController = AdminController(with: vendingMachineData)
-                try adminController.executeMachine(spareStock: &spareBox)
+                try adminController.executeMachine(spareStock: spareBox)
             case .userMode:
                 var userController = UserController(with: vendingMachineData)
                 try userController.executeMachine()
