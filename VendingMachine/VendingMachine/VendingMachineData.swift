@@ -9,9 +9,25 @@
 import Foundation
 
 struct VendingMachineData {
-    private var stock: [Beverage]
-    private var sortedStockList = [Beverage:Int]()
-    private var balance: Int
+    private (set) var stock: [Beverage]
+    private (set) var sortedStockList = [Beverage:Int]()
+    private (set) var balance: Int
+    
+    init(stock: [Beverage]) {
+        self.stock = stock
+        self.balance = 0
+        for item in stock {
+            self.makeBeverageList(item)
+        }
+    }
+    
+    private mutating func makeBeverageList(_ item: Beverage) {
+        if sortedStockList[item] != nil {
+            sortedStockList[item]! += 1
+        } else {
+            sortedStockList[item] = 1
+        }
+    }
     
     init(stock: [Beverage], stockList: [Beverage:Int], balance: Int) {
         self.stock = stock

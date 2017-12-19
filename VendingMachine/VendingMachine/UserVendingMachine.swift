@@ -8,26 +8,17 @@
 
 import Foundation
 
-protocol VendingMachineGetInfo {
-    func getBalance() -> Int
-    func getStockList() -> [Beverage:Int]
-}
-
-protocol VendingMachineExecute {
-    mutating func insertMoney(_ money: Int)
-    mutating func buyBeverage(number: Int) throws -> Beverage
-}
-
-struct UserVendingMachine:VendingMachineGetInfo, VendingMachineExecute {
-    private var recepit = [String]()
-    private (set) var stock: [Beverage]
-    private var sortedStockList: [Beverage:Int]
+struct UserVendingMachine: UserDelegate {
     private var balance: Int
+    private var stock: [Beverage]
+    private var sortedStockList: [Beverage:Int]
+    private var recepit: [String]
     
-    init(stock: [Beverage], stockList: [Beverage:Int], balance: Int) {
-        self.stock = stock
-        self.sortedStockList = stockList
-        self.balance = balance
+    init(with vendingMachineData: VendingMachineData) {
+        self.balance = vendingMachineData.balance
+        self.stock = vendingMachineData.stock
+        self.sortedStockList = vendingMachineData.sortedStockList
+        self.recepit = [""]
     }
     
     mutating func insertMoney(_ money: Int) {
@@ -74,7 +65,8 @@ struct UserVendingMachine:VendingMachineGetInfo, VendingMachineExecute {
         return recepit
     }
     
-    func endUserMode() -> VendingMachineData {
+    func getVendingMachineData() -> VendingMachineData {
         return VendingMachineData(stock: stock, stockList: sortedStockList, balance: balance)
     }
+    
 }

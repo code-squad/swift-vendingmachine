@@ -15,7 +15,17 @@ enum DateInterval: TimeInterval {
     case oneWeek = 604_800
 }
 
-enum MenuSelector: Int {
+enum MenuSelectorUser: Int {
     case insertMode = 1
     case purchaseMode = 2
+}
+
+enum MenuSelectorAdmin: Int {
+    case addstock = 1
+    case removeStock = 2
+}
+
+enum ModeSelector: Int {
+    case adminMode = 1
+    case userMode = 2
 }

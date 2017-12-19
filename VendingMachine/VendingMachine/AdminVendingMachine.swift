@@ -8,15 +8,13 @@
 
 import Foundation
 
-struct AdminVendingMachine {
-    private (set) var stock: [Beverage]
-    private var sortedStockList = [Beverage:Int]()
+struct AdminVendingMachine: AdminDelegate {
+    private var stock: [Beverage]
+    private var sortedStockList: [Beverage:Int]
     
-    init(stock: [Beverage]) {
-        self.stock = stock
-        for item in stock {
-            makeBeverageList(item)
-        }
+    init(with VendingMachineData: VendingMachineData) {
+        self.stock = VendingMachineData.stock
+        self.sortedStockList = VendingMachineData.sortedStockList
     }
     
     private mutating func makeBeverageList(_ item: Beverage) {
@@ -44,7 +42,7 @@ struct AdminVendingMachine {
         return checkingStock.filter{ !$0.validate(with: Date()) }
     }
     
-    func endAdminMode() -> VendingMachineData {
+    func getVendingMachineData() -> VendingMachineData {
         return VendingMachineData(stock: stock, stockList: sortedStockList)
     }
     

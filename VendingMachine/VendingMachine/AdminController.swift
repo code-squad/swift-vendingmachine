@@ -1,0 +1,50 @@
+//
+//  Admin.swift
+//  VendingMachine
+//
+//  Created by Mrlee on 2017. 12. 19..
+//  Copyright © 2017년 Napster. All rights reserved.
+//
+
+import Foundation
+
+struct AdminController {
+    private var machine: AdminVendingMachine
+
+    init(with vendingMachineData: VendingMachineData) {
+        self.machine = AdminVendingMachine(with: vendingMachineData)
+    }
+    
+    mutating func executeMachine(spareStock: inout [Beverage]) throws -> VendingMachineData {
+        let condition = true
+        while condition {
+            do {
+                try seperateAdminExecution(with: &spareStock)
+            } catch ErrorCode.endCode {
+                AdminOutputView.printError(ErrorCode.endCode.description)
+                return machine.getVendingMachineData()
+            }
+        }
+    }
+    
+    private mutating func seperateAdminExecution(with spareStock: inout [Beverage]) throws {
+        switch try InputView.readAdminMenu() {
+        case .addstock:
+            AdminOutputView.printStockList(spareStock)
+            addStock(try InputView.readSelectedBeverage(), with: &spareStock)
+            AdminOutputView.printAddMsg()
+        case .removeStock:
+            AdminOutputView.printStockList(machine.getPassedValidateBeverage() as! [Beverage])
+            try removeStock(try InputView.readSelectedBeverage(), with: machine.getPassedValidateBeverage())
+        }
+    }
+    
+    private mutating func addStock(_ itemNumber: Int, with spareStock: inout [Beverage]) {
+        machine.addBeverage(spareStock.remove(at: itemNumber - 1))
+    }
+    
+    private mutating func removeStock(_ itemNumber: Int, with passedStock: [BeverageCheck]) throws {
+        try machine.removeBeverage(passedStock[itemNumber - 1] as! Beverage)
+    }
+    
+}
