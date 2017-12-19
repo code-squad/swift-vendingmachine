@@ -19,8 +19,8 @@ class InputView {
         var screen = "=> "
         // 자판기 메뉴명, 재고만 표시.
         for (beverageClassName, stock) in self.vendingMachine.checkTheStock() {
-            let productName = VendingMachine.Menu.allValues.filter({ $0.description == beverageClassName })[0].rawValue
-            screen += "\(productName)(\(stock)개) "
+            guard let product = VendingMachine.Menu.allValues.filter({ $0.description == beverageClassName }).first else { return "" }
+            screen += "\(product.rawValue)(\(stock)개) "
         }
         screen += "\n"
         return screen
