@@ -8,21 +8,14 @@
 
 import Foundation
 
-typealias Stock = Int
-typealias Balance = Int
-typealias Purchased = Int
-
-protocol Singleton {
-    static var sharedInstance: Self { get }
-}
-
 // inventory를 Collection 프로토콜로 캡슐화.
-final class VendingMachine: Singleton {
-    static var sharedInstance = VendingMachine()
+final class VendingMachine: Machine, Sequence {
+    var sharedInstance: VendingMachine
     private var stockManager: StockManager!
     private var moneyManager: MoneyManager!
     let start = 0
-    private init() {
+    init() {
+        self.sharedInstance = VendingMachine()
         // 장부기록, 돈관리의 책임을 위임.
         self.stockManager = StockManager(self)
         self.moneyManager = MoneyManager(self)
@@ -39,6 +32,20 @@ final class VendingMachine: Singleton {
         }
     }
 
+    func makeIterator() -> ClassIteratorOf<Beverage> {
+        return ClassIteratorOf(inventory)
+    }
+
+    var count: Int {
+        return inventory.count
+    }
+    var last: Beverage? {
+        return inventory.last
+    }
+    typealias Menu = BeverageMenu
+}
+
+extension VendingMachine: Managable {
     // 모든 메뉴의 재고를 10개씩 자판기에 공급.
     func fullSupply() {
         for menu in Menu.allValues {
@@ -54,6 +61,18 @@ final class VendingMachine: Singleton {
         }
     }
 
+    // 전체 상품 재고를 (사전으로 표현하는) 종류별로 반환.
+    func checkTheStock() -> [Menu:Stock] {
+        return stockManager.showStockList()
+    }
+
+    // 시작이후 구매 상품 이력 반환.
+    func showPurchasedList() -> [HistoryInfo] {
+        return stockManager.showPurchasedHistory()
+    }
+}
+
+extension VendingMachine: UserServable {
     // 구매가능한 음료 중 선택한 음료수를 반환.
     func popBeverage(_ menu: Menu) -> Beverage? {
         // 품절이 아닌 상품 중, 현재 금액으로 살 수 있는 메뉴 리스트를 받아옴.
@@ -83,23 +102,13 @@ final class VendingMachine: Singleton {
         return moneyManager.balance
     }
 
-    // 전체 상품 재고를 (사전으로 표현하는) 종류별로 반환.
-    func checkTheStock() -> [Menu:Stock] {
-        return stockManager.showStockList()
-    }
-
-    func showAffordableBeverages() -> [VendingMachine.Menu] {
+    func showAffordableBeverages() -> [Menu] {
         return moneyManager.showAffordableList(from: stockManager.showSellingList())
     }
 
     // 유통기한이 지난 재고 리스트 반환.
     func showExpiredBeverages(on day: Date) -> [Menu:Stock] {
         return stockManager.showExpiredList(on: day)
-    }
-
-    // 시작이후 구매 상품 이력 반환.
-    func showPurchasedList() -> [HistoryInfo] {
-        return stockManager.showPurchasedHistory()
     }
 
     // 따뜻한 음료 리스트 리턴.
@@ -115,7 +124,7 @@ final class VendingMachine: Singleton {
 
 extension VendingMachine {
     // 선택 가능한 메뉴.
-    enum Menu: EnumCollection {
+    enum BeverageMenu: EnumCollection {
         case strawberryMilk
         case bananaMilk
         case chocoMilk
@@ -152,18 +161,5 @@ extension VendingMachine {
             return beverage
         }
 
-    }
-}
-
-extension VendingMachine: Sequence {
-    func makeIterator() -> ClassIteratorOf<Beverage> {
-        return ClassIteratorOf(inventory)
-    }
-
-    var count: Int {
-        return inventory.count
-    }
-    var last: Beverage? {
-        return inventory.last
     }
 }
