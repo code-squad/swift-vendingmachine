@@ -9,40 +9,38 @@
 import Foundation
 
 struct OutputView {
-    var vendingMachinInfo: VendingMachineGetInfo
+//    var vendingMachinInfo: UserDelegate
+//
+//    init(_ machine: UserDelegate) {
+//        self.vendingMachinInfo = machine
+//    }
     
-    init(_ machine: VendingMachineGetInfo) {
-        self.vendingMachinInfo = machine
-    }
-    
-    private func printBalance() {
-        print("")
-        print("현재 투입한 금액은 \(vendingMachinInfo.getBalance())원 입니다.", terminator: "")
-        print("다음과 같은 음료가 있습니다.")
-    }
-    
-    func printMainMenu() {
-        printBalance()
-        print("\n")
-        for element in vendingMachinInfo.getStockList() {
+    func printMainMenu(machine: UserDelegate) {
+        printBalance(machine)
+        for element in machine.getStockList() {
             print("\(element.key.name)(\(element.value)개)  ", terminator:"")
         }
         print("\n")
     }
     
-    func printAfterInsertMoney() {
-        printBalance()
-        for element in vendingMachinInfo.getStockList() {
-            print("\(element.key.name)\(element.key.price)원 (\(element.value)개)")
+    func printAfterInsertMoney(machine: UserDelegate) {
+        printBalance(machine)
+        var index = 1
+        for element in machine.getStockList() {
+            print("\(index))" + "\(element.key.name) \(element.key.price)원 (\(element.value)개)")
+            index += 1
         }
+        print("")
+    }
+    
+    private func printBalance(_ machine: UserDelegate) {
+        print("")
+        print("현재 투입한 금액은 \(machine.getBalance())원 입니다.", terminator: "")
+        print("다음과 같은 음료가 있습니다.")
     }
     
     func printAfterBuyingBeverage(beverage: Beverage) {
         print("\(beverage.name)를 구매하셨습니다. \(beverage.price)원을 차감합니다.")
-    }
-    
-    func printError(_ error: String) {
-        print(error)
     }
     
 }
