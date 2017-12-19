@@ -14,7 +14,6 @@ typealias Purchased = Int
 
 protocol Machine {
     associatedtype Menu: EnumCollection
-    var sharedInstance: Self { get }
 }
 
 protocol Managable: Machine {

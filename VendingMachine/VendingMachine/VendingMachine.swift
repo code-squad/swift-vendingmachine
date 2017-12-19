@@ -9,13 +9,13 @@
 import Foundation
 
 // inventory를 Collection 프로토콜로 캡슐화.
-final class VendingMachine: Machine, Sequence {
-    var sharedInstance: VendingMachine
+class VendingMachine: Machine, Sequence {
     private var stockManager: StockManager!
     private var moneyManager: MoneyManager!
     let start = 0
+    var recentChanged: Beverage
     init() {
-        self.sharedInstance = VendingMachine()
+        self.recentChanged = Beverage()
         // 장부기록, 돈관리의 책임을 위임.
         self.stockManager = StockManager(self)
         self.moneyManager = MoneyManager(self)
@@ -24,12 +24,18 @@ final class VendingMachine: Machine, Sequence {
     private var inventory: [Beverage] = [] {
         // 상태변화가 생길 때마다 장부 및 잔액을 업데이트.
         didSet(oldInventory) {
+            let purchased = isPurchased(oldInventory, inventory)
             // 재고를 넣을 때와 음료수를 빼먹을 때 둘 다 업데이트.
-            stockManager.updateStock(oldInventory)
-            stockManager.recordHistory(oldInventory)
+            stockManager.updateStock(recentChanged, isPurchased: purchased)
+            stockManager.recordPurchasedHistory(recentChanged, isPurchased: purchased)
             // 잔액은 음료수를 빼먹을 때만 업데이트.
-            moneyManager.updateBalance(oldInventory)
+            moneyManager.updateBalance(recentChanged, isPurchased: purchased)
         }
+    }
+
+    // 구입된 경우 true 반환.
+    private func isPurchased(_ oldStock: [Beverage], _ currStock: [Beverage]) -> Bool {
+        return oldStock.count > currStock.count
     }
 
     func makeIterator() -> ClassIteratorOf<Beverage> {
@@ -57,7 +63,8 @@ extension VendingMachine: Managable {
     func supply(beverageType: Menu, _ addCount: Stock) {
         for _ in 0..<addCount {
             // 인벤토리에 추가.
-            inventory.append(beverageType.generate())
+            self.recentChanged = beverageType.generate()
+            inventory.append(recentChanged)
         }
     }
 
@@ -86,6 +93,7 @@ extension VendingMachine: UserServable {
     private func pop(_ menu: VendingMachine.Menu) -> Beverage? {
         for (position, beverage) in inventory.enumerated() {
             if menu == beverage.menuType {
+                self.recentChanged = beverage
                 return inventory.remove(at: position)
             }
         }

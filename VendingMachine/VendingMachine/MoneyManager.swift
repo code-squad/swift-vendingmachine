@@ -24,19 +24,11 @@ class MoneyManager {
         case oneThousand = 1000
     }
 
-    // 구입된 경우 true 반환.
-    private func isPurchased(_ oldStockCount: Int, _ currStockCount: Int) -> Bool {
-        return oldStockCount > currStockCount
-    }
-
     // 잔액 차감.
-    func updateBalance(_ oldStock: [Beverage]) {
-        // 음료수를 빼먹은 경우(이전 상태가 현재 상태를 포함하는 관계). oldStock과 현재 vendingMachine 내 inventory의 count로도 비교 가능.
-        if isPurchased(oldStock.count, vendingMachine.count) {
-            // 두 집합 사이의 차이 = 빼먹은 음료수
-            guard let beverage = oldStock.last else { return }
+    func updateBalance(_ recentChanged: Beverage, isPurchased: Bool) {
+        if isPurchased {
             // 현재 잔액에서 빼먹은 음료수의 가격만큼을 차감.
-            balance -= beverage.price
+            balance -= recentChanged.price
         }
     }
 
