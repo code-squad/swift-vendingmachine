@@ -30,11 +30,11 @@ struct AdminController {
     private mutating func seperateAdminExecution(with spareStock: inout [Beverage]) throws {
         switch try InputView.readAdminMenu() {
         case .addstock:
-            AdminOutputView.printStockList(spareStock)
+            AdminOutputView.printAddStockList(spareStock)
             addStock(try InputView.readSelectedBeverage(), with: &spareStock)
             AdminOutputView.printAddMsg()
         case .removeStock:
-            AdminOutputView.printStockList(machine.getPassedValidateBeverage() as! [Beverage])
+            AdminOutputView.printPassedValidateStockList(machine.getPassedValidateBeverage() as! [Beverage])
             try removeStock(try InputView.readSelectedBeverage(), with: machine.getPassedValidateBeverage())
         }
     }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct AdminVendingMachine: AdminDelegate {
+struct AdminVendingMachine {
     private var stock: [Beverage]
     private var sortedStockList: [Beverage:Int]
     
@@ -34,6 +34,10 @@ struct AdminVendingMachine: AdminDelegate {
         guard let index = stock.index(where: { $0.name == item.name }) else {
             throw ErrorCode.noStock
         }
+        guard index != 0 else {
+            throw ErrorCode.noStock
+        }
+        sortedStockList[item]! -= 1
         stock.remove(at: index)
     }
     
