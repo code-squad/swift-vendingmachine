@@ -13,11 +13,11 @@ class Coffee: Beverage {
     private let caffeineLevels: Int
     private(set) var isHot: Bool
     private let isSweetened: Bool
-    init(_ brand: String, _ volume: Int, _ price: Int, _ productName: String, _ manufacturedDate: Date, _ expirationDate: Date, _ calories: Int, caffeineLevels: Int, isHot: Bool, isSweetened: Bool) {
+    init(_ brand: String, _ volume: Int, _ price: Int, _ productName: String, _ manufacturedDate: Date, _ expirationDate: Date, _ calories: Int, _ menuType: VendingMachine.Menu, caffeineLevels: Int, isHot: Bool, isSweetened: Bool) {
         self.caffeineLevels = caffeineLevels
         self.isHot = isHot
         self.isSweetened = isSweetened
-        super.init(brand, volume, price, productName, manufacturedDate, expirationDate, calories)
+        super.init(brand, volume, price, productName, manufacturedDate, expirationDate, calories, menuType)
     }
 
     func isDecaffeinated() -> Bool {

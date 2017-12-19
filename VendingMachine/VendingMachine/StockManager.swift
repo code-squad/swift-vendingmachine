@@ -11,7 +11,7 @@ import Foundation
 class StockManager {
     private weak var vendingMachine: VendingMachine!
     // 자판기 메뉴별 남은 재고 기록.
-    private var stock: [VendingMachine.Menu.RawValue:Stock]
+    private var stock: [VendingMachine.Menu:Stock]
     // 구입이력 기록.
     private var purchasedHistory: [HistoryInfo]
     init(_ vendingMachine: VendingMachine) {
@@ -40,36 +40,36 @@ class StockManager {
 
     // 변경된 부분을 장부에 기록.
     private func record(for change: Beverage?, _ isAdded: Bool) {
-        guard let change = change else { return }
-        stock.update(forKey: change.description, isAdded)
+        guard let changedBeverage = change else { return }
+        stock = stock.update(forKey: changedBeverage.menuType, isAdded)
     }
 
     // 품절 여부 반환.
-    func isSoldOut(_ beverageType: String) -> Bool {
+    func isSoldOut(_ beverageType: VendingMachine.Menu) -> Bool {
         guard let stock = stock[beverageType] else { return true }
         return stock < 1
     }
 
     // 재고 기록 반환.
-    func showStockList() -> [VendingMachine.Menu.RawValue:Stock] {
+    func showStockList() -> [VendingMachine.Menu:Stock] {
         return stock
     }
 
     // 품절이 아닌 메뉴 리스트 반환.
     func showSellingList() -> [VendingMachine.Menu] {
         let notSoldOutList = stock.filter { !isSoldOut($0.key) }
-        return notSoldOutList.flatMap { VendingMachine.Menu.init($0.key) }
+        return notSoldOutList.flatMap { $0.key }
     }
 
     // 유통기한이 지난 재고 리스트 반환.
-    func showExpiredList(on checkingDay: Date) -> [VendingMachine.Menu.RawValue:Stock] {
-        var expiredList: [VendingMachine.Menu.RawValue:Stock] = [:]
+    func showExpiredList(on checkingDay: Date) -> [VendingMachine.Menu:Stock] {
+        var expiredList: [VendingMachine.Menu:Stock] = [:]
         // 현재 자판기 내 음료수 중
         for beverage in vendingMachine {
             // 유통기한이 현재 날짜 기준으로 지난 경우,
             guard beverage.isExpired(with: checkingDay) else { continue }
             // 리스트에 해당 음료수의 이름과 개수 기록.
-            expiredList.update(forKey: beverage.description, true)
+            expiredList = expiredList.update(forKey: beverage.menuType, true)
         }
         return expiredList
     }
@@ -85,7 +85,7 @@ class StockManager {
         if isPurchased(oldStock.count, vendingMachine.count) {
             guard let purchased = oldStock.last else { return }
             // 현재 구입된 음료수의 구입이력 생성.
-            let purchasedInfo = HistoryInfo(purchasingDate: Date(timeIntervalSinceNow: 0), purchasedMenu: purchased.description, count: 1)
+            let purchasedInfo = HistoryInfo(purchasingDate: Date(timeIntervalSinceNow: 0), purchasedMenu: purchased.productName, count: 1)
             // 기록.
             purchasedHistory.append(purchasedInfo)
         }

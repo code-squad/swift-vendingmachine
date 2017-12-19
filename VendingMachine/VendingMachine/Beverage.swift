@@ -19,14 +19,15 @@ class Beverage: CustomStringConvertible, Hashable {
     }
 
     // 브랜드(String), 무게(Int), 가격(Int), 이름(String), 제조일자(Date)
-    private let brand: String
-    private let volume: Int
+    private(set) var brand: String
+    private(set) var volume: Int
     // 가격은 노출 가능.
     private(set) var price: Int
-    private let productName: String
-    private let manufacturedDate: Date
-    private let expirationDate: Date
+    private(set) var productName: String
+    private(set) var manufacturedDate: Date
+    private(set) var expirationDate: Date
     private(set) var calories: Int
+    private(set) var menuType: VendingMachine.Menu
     init() {
         brand = ""
         volume = 0
@@ -35,8 +36,9 @@ class Beverage: CustomStringConvertible, Hashable {
         manufacturedDate = Date(timeIntervalSinceNow: 0)
         expirationDate = Date(timeIntervalSinceNow: 0)
         calories = 0
+        menuType = .strawberryMilk
     }
-    init(_ brand: String, _ volume: Int, _ price: Int, _ productName: String, _ manufacturedDate: Date, _ expirationDate: Date, _ calories: Int) {
+    init(_ brand: String, _ volume: Int, _ price: Int, _ productName: String, _ manufacturedDate: Date, _ expirationDate: Date, _ calories: Int, _ menuType: VendingMachine.Menu) {
         self.brand = brand
         self.volume = volume
         self.price = price
@@ -44,6 +46,7 @@ class Beverage: CustomStringConvertible, Hashable {
         self.manufacturedDate = manufacturedDate
         self.expirationDate = expirationDate
         self.calories = calories
+        self.menuType = menuType
     }
 
     func isExpired(with date: Date) -> Bool {
