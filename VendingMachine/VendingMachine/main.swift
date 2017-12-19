@@ -13,8 +13,8 @@ func main() {
     machine.fullSupply()
     let inputView = InputView(machine)
     let outputView = OutputView(machine)
-    while true {
-        outputView.showResult(inputView.prompt())
+    while let input = inputView.prompt() {
+        outputView.showResult(input)
     }
 }
 
