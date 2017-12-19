@@ -13,7 +13,8 @@ class OutputView {
     init(_ vendingMachine: VendingMachine) {
         self.vendingMachine = vendingMachine
     }
-    
+
+    // 사용자 입력 메뉴에 따라 결과값 반환.
     func showResult(_ userInput: (behavior: InputView.InputMenu, specifiedInput: Int)) {
         switch userInput.behavior {
         case .insert: showInsertResult(userInput.specifiedInput)
@@ -21,11 +22,13 @@ class OutputView {
         }
     }
 
+    // 화폐 삽입 시 결과 표시.
     private func showInsertResult(_ userInput: Int) {
         guard let insertedCoin = MoneyManager.Unit(rawValue: userInput) else { return }
         self.vendingMachine.insertMoney(insertedCoin)
     }
 
+    // 음료 구입 시 결과 표시.
     private func showBuyResult(_ userInput: Int) {
         guard 0 < userInput && userInput <= VendingMachine.Menu.allValues.count else { return }
         let selectedMenu = VendingMachine.Menu.allValues[userInput-1]

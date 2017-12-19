@@ -9,6 +9,7 @@
 import Foundation
 
 class Beverage: CustomStringConvertible, Hashable {
+    // VendingMachine 내 Beverage Set을 만들기 위해 Beverage 객체를 hashValue로 구분.
     var hashValue: Int {
         return ObjectIdentifier(self).hashValue
     }

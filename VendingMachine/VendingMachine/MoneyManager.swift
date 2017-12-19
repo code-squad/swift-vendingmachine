@@ -10,7 +10,7 @@ import Foundation
 
 class MoneyManager {
     private weak var vendingMachine: VendingMachine!
-    // 잔액
+    // 현재 잔액
     private(set) var balance: Balance
     init(_ vendingMachine: VendingMachine) {
         self.balance = 0
@@ -26,9 +26,8 @@ class MoneyManager {
 
     // 잔액 차감.
     func updateBalance(_ oldStock: Set<Beverage>) {
-        // 음료수를 빼먹은 경우(이전 상태가 현재 상태를 포함하는 관계) - self.vendingMachine을 Set 타입으로 직접 쓸 수 없어서 이렇게 사용함.
+        // 음료수를 빼먹은 경우(이전 상태가 현재 상태를 포함하는 관계). oldStock과 현재 vendingMachine 내 inventory의 count로도 비교 가능.
         if oldStock.isSuperset(of: self.vendingMachine) {
-//        if oldStock.count > self.vendingMachine.count {
             // 두 집합 사이의 차이 = 빼먹은 음료수
             for beverage in oldStock.symmetricDifference(vendingMachine) {
                 // 현재 잔액에서 빼먹은 음료수의 가격만큼을 차감.
