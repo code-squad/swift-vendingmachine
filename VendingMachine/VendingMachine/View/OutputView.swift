@@ -14,18 +14,24 @@ class OutputView {
         self.vendingMachine = vendingMachine
     }
     
-    func showResult(_ userInput: (behavior: InputView.InputMenu, specifiedInput: Int)?) {
-        guard let userInput = userInput else { return }
+    func showResult(_ userInput: (behavior: InputView.InputMenu, specifiedInput: Int)) {
         switch userInput.behavior {
-        case .insert:
-            guard let insertedCoin = MoneyManager.Unit(rawValue: userInput.specifiedInput) else { break }
-            self.vendingMachine.insertMoney(insertedCoin)
-        case .buy:
-            guard 0 < userInput.specifiedInput && userInput.specifiedInput <= VendingMachine.Menu.allValues.count else { break }
-            let selectedMenu = VendingMachine.Menu.allValues[userInput.specifiedInput-1]
-            guard let purchasedBeverage = self.vendingMachine.popBeverage(selectedMenu) else { break }
-            guard let purchasedMenu = VendingMachine.Menu(purchasedBeverage.description) else { break }
-            print("\(purchasedMenu.rawValue) 음료를 구매하셨습니다. \(purchasedBeverage.price)원을 차감합니다.")
+        case .insert: showInsertResult(userInput.specifiedInput)
+        case .buy: showBuyResult(userInput.specifiedInput)
         }
     }
+
+    private func showInsertResult(_ userInput: Int) {
+        guard let insertedCoin = MoneyManager.Unit(rawValue: userInput) else { return }
+        self.vendingMachine.insertMoney(insertedCoin)
+    }
+
+    private func showBuyResult(_ userInput: Int) {
+        guard 0 < userInput && userInput <= VendingMachine.Menu.allValues.count else { return }
+        let selectedMenu = VendingMachine.Menu.allValues[userInput-1]
+        guard let purchasedBeverage = self.vendingMachine.popBeverage(selectedMenu) else { return }
+        guard let purchasedMenu = VendingMachine.Menu(purchasedBeverage.description) else { return }
+        print("\(purchasedMenu.rawValue) 음료를 구매하셨습니다. \(purchasedBeverage.price)원을 차감합니다.")
+    }
+
 }
