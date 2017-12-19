@@ -10,7 +10,7 @@ import Foundation
 
 func main() {
     let machine = VendingMachine()
-    machine.fullSupply()
+    machine.fullSupply(10)
     let inputView = InputView(machine)
     let outputView = OutputView(machine)
     while let input = inputView.prompt() {

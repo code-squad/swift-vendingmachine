@@ -52,10 +52,10 @@ class VendingMachine: Machine, Sequence {
 }
 
 extension VendingMachine: Managable {
-    // 모든 메뉴의 재고를 10개씩 자판기에 공급.
-    func fullSupply() {
+    // 모든 메뉴의 재고를 count개씩 자판기에 공급.
+    func fullSupply(_ count: Int) {
         for menu in Menu.allValues {
-            supply(beverageType: menu, 10)
+            supply(beverageType: menu, count)
         }
     }
 
