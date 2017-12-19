@@ -45,6 +45,10 @@
 		EE3730FF1FE902860034082C /* CustomIterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3730FD1FE902860034082C /* CustomIterator.swift */; };
 		EE3731011FE902B50034082C /* EnumExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3731001FE902B50034082C /* EnumExtension.swift */; };
 		EE3731021FE902B50034082C /* EnumExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3731001FE902B50034082C /* EnumExtension.swift */; };
+		EE3731071FE975CE0034082C /* AdminMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3731061FE975CE0034082C /* AdminMode.swift */; };
+		EE3731081FE975CE0034082C /* AdminMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3731061FE975CE0034082C /* AdminMode.swift */; };
+		EE37310A1FE975D70034082C /* UserMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3731091FE975D70034082C /* UserMode.swift */; };
+		EE37310B1FE975D70034082C /* UserMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3731091FE975D70034082C /* UserMode.swift */; };
 		EEC61AD11FDE69C0001698A4 /* BeverageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC61AD01FDE69C0001698A4 /* BeverageTest.swift */; };
 		EEC61AD71FDE69D0001698A4 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC61AD61FDE69D0001698A4 /* Beverage.swift */; };
 		EEC61AD81FDE69D0001698A4 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC61AD61FDE69D0001698A4 /* Beverage.swift */; };
@@ -91,6 +95,8 @@
 		EE3730F91FE902450034082C /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		EE3730FD1FE902860034082C /* CustomIterator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomIterator.swift; sourceTree = "<group>"; };
 		EE3731001FE902B50034082C /* EnumExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumExtension.swift; sourceTree = "<group>"; };
+		EE3731061FE975CE0034082C /* AdminMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminMode.swift; sourceTree = "<group>"; };
+		EE3731091FE975D70034082C /* UserMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMode.swift; sourceTree = "<group>"; };
 		EEC61ACE1FDE69C0001698A4 /* VendingMachineTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEC61AD01FDE69C0001698A4 /* BeverageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageTest.swift; sourceTree = "<group>"; };
 		EEC61AD21FDE69C0001698A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -192,6 +198,8 @@
 			children = (
 				EE3730F11FE783C30034082C /* InputView.swift */,
 				EE3730F31FE7ABBB0034082C /* OutputView.swift */,
+				EE3731061FE975CE0034082C /* AdminMode.swift */,
+				EE3731091FE975D70034082C /* UserMode.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -313,6 +321,7 @@
 				EE3730D41FE357930034082C /* DictionaryExtension.swift in Sources */,
 				EE3730F41FE7ABBB0034082C /* OutputView.swift in Sources */,
 				EE3730FA1FE902450034082C /* Protocols.swift in Sources */,
+				EE3731071FE975CE0034082C /* AdminMode.swift in Sources */,
 				EE3730EC1FE533390034082C /* HistoryInfo.swift in Sources */,
 				EEC61AD71FDE69D0001698A4 /* Beverage.swift in Sources */,
 				EE37309B1FDF74590034082C /* StrawberryMilk.swift in Sources */,
@@ -323,6 +332,7 @@
 				EE3730A11FDF74740034082C /* ChocoMilk.swift in Sources */,
 				EEC61ADA1FDE6C8C001698A4 /* Milk.swift in Sources */,
 				EE3730AD1FDF74A40034082C /* TopCoffee.swift in Sources */,
+				EE37310A1FE975D70034082C /* UserMode.swift in Sources */,
 				EEC61ADD1FDE6C96001698A4 /* SoftDrink.swift in Sources */,
 				EE3730A71FDF748D0034082C /* CiderSoftDrink.swift in Sources */,
 				EE3730AA1FDF74970034082C /* FantaSoftDrink.swift in Sources */,
@@ -341,6 +351,7 @@
 				EE37309F1FDF746A0034082C /* BananaMilk.swift in Sources */,
 				EEC61AD81FDE69D0001698A4 /* Beverage.swift in Sources */,
 				EE37309C1FDF74590034082C /* StrawberryMilk.swift in Sources */,
+				EE37310B1FE975D70034082C /* UserMode.swift in Sources */,
 				EE3730B11FDF74AF0034082C /* CantataCoffee.swift in Sources */,
 				EE3730E51FE3A8DB0034082C /* MoneyManager.swift in Sources */,
 				EE3730B41FDF74B90034082C /* GeorgiaCoffee.swift in Sources */,
@@ -354,6 +365,7 @@
 				EE3730E21FE3A73F0034082C /* VendingMachineTest.swift in Sources */,
 				EE3731021FE902B50034082C /* EnumExtension.swift in Sources */,
 				EE3730A81FDF748D0034082C /* CiderSoftDrink.swift in Sources */,
+				EE3731081FE975CE0034082C /* AdminMode.swift in Sources */,
 				EE3730AB1FDF74970034082C /* FantaSoftDrink.swift in Sources */,
 				EEC61AD11FDE69C0001698A4 /* BeverageTest.swift in Sources */,
 				EE3730FF1FE902860034082C /* CustomIterator.swift in Sources */,

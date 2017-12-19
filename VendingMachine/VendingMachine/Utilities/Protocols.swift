@@ -13,26 +13,26 @@ typealias Balance = Int
 typealias Purchased = Int
 
 protocol Machine {
-    associatedtype Menu: EnumCollection
+    associatedtype MenuType: EnumCollection
 }
 
 protocol Managable: Machine {
     func fullSupply(_ count: Int)
-    func supply(beverageType: Menu, _ addCount: Stock)
-    func checkTheStock() -> [Menu:Stock]
+    func supply(beverageType: MenuType, _ addCount: Stock)
+    func checkTheStock() -> [MenuType:Stock]
     func showPurchasedList() -> [HistoryInfo]
 }
 
 protocol UserServable: Machine {
-    func popBeverage(_ menu: Menu) -> Beverage?
+    func popBeverage(_ menu: MenuType) -> Beverage?
     func insertMoney(_ money: MoneyManager.Unit)
     func showBalance() -> Balance
-    func showAffordableBeverages() -> [Menu]
-    func showExpiredBeverages(on day: Date) -> [Menu:Stock]
-    func showHotBeverages() -> [Menu]
+    func showAffordableBeverages() -> [MenuType]
+    func showExpiredBeverages(on day: Date) -> [MenuType:Stock]
+    func showHotBeverages() -> [MenuType]
 }
 
-protocol ActivateMode {
+protocol ActivateMode: Machine {
     func perform()
     func showResult()
 }

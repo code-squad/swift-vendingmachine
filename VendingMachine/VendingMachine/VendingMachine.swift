@@ -48,7 +48,7 @@ class VendingMachine: Machine, Sequence {
     var last: Beverage? {
         return inventory.last
     }
-    typealias Menu = BeverageMenu
+    typealias MenuType = Menu
 }
 
 extension VendingMachine: Managable {
@@ -69,7 +69,7 @@ extension VendingMachine: Managable {
     }
 
     // 전체 상품 재고를 (사전으로 표현하는) 종류별로 반환.
-    func checkTheStock() -> [Menu:Stock] {
+    func checkTheStock() -> [Menu : Stock] {
         return stockManager.showStockList()
     }
 
@@ -90,7 +90,7 @@ extension VendingMachine: UserServable {
     }
 
     // 자판기 인벤토리에서 특정 메뉴의 음료수를 반환.
-    private func pop(_ menu: VendingMachine.Menu) -> Beverage? {
+    private func pop(_ menu: Menu) -> Beverage? {
         for (position, beverage) in inventory.enumerated() {
             if menu == beverage.menuType {
                 self.recentChanged = beverage
@@ -132,7 +132,7 @@ extension VendingMachine: UserServable {
 
 extension VendingMachine {
     // 선택 가능한 메뉴.
-    enum BeverageMenu: EnumCollection {
+    enum Menu: EnumCollection {
         case strawberryMilk
         case bananaMilk
         case chocoMilk
