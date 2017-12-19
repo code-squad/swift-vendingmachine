@@ -10,15 +10,14 @@ import Foundation
 
 struct UserVendingMachine: UserDelegate {
     private var balance: Int
-    private var stock: [Beverage]
+    private (set) var stock: [Beverage]
     private var sortedStockList: [Beverage:Int]
-    private var recepit: [String]
+    private var recepit = [String]()
     
     init(with vendingMachineData: VendingMachineData) {
         self.balance = vendingMachineData.balance
         self.stock = vendingMachineData.stock
         self.sortedStockList = vendingMachineData.sortedStockList
-        self.recepit = [""]
     }
     
     mutating func insertMoney(_ money: Int) {

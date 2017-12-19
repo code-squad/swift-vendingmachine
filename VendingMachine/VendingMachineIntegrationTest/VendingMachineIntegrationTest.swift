@@ -20,16 +20,19 @@ class VendingMachineIntegrationTest: XCTestCase {
     //           잔액확인, 재고확인, 구매이력 확인
     func test통합테스트_시나리오1() {
         let stockBox = [orignalCoke, lightMilk, badLightMilk, starBucksCoffee]
-        var machine = UserMode(stock: stockBox)
-        machine.insertMoney(1000)
-        machine.addBeverage(sprite)
-        var validStock = machine.getValidBuyingBeverage()
+        var beverageData = VendingMachineData(stock: stockBox)
+        var adminMachine = AdminVendingMachine(with: beverageData)
+        adminMachine.addBeverage(sprite)
+        beverageData = adminMachine.getVendingMachineData()
+        var userMachine = UserVendingMachine(with: beverageData)
+        userMachine.insertMoney(1000)
+        var validStock = userMachine.getValidBuyingBeverage()
         XCTAssertEqual(orignalCoke.description, validStock[0].description)
         XCTAssertEqual(sprite.description, validStock[1].description)
-        _ = try! machine.buyBeverage(sprite)
-        XCTAssertEqual(200 ,machine.getBalance())
-        XCTAssertEqual(0, machine.getStockList()[sprite]!)
-        XCTAssertEqual("Sprite", machine.getRecepit()[0])
+        _ = try! userMachine.buyBeverage(sprite)
+        XCTAssertEqual(200 ,userMachine.getBalance())
+        XCTAssertEqual(0, userMachine.getStockList()[sprite]!)
+        XCTAssertEqual("Sprite", userMachine.getRecepit()[0])
     }
     
 }

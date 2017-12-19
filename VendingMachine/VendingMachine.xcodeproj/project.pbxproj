@@ -13,6 +13,16 @@
 		4004369E1FE7A8B50007E109 /* AdminVendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4004369A1FE7A8B50007E109 /* AdminVendingMachine.swift */; };
 		4004369F1FE7A8B50007E109 /* AdminVendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4004369A1FE7A8B50007E109 /* AdminVendingMachine.swift */; };
 		400436A11FE7A8F10007E109 /* AdminVendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4004369A1FE7A8B50007E109 /* AdminVendingMachine.swift */; };
+		4009EE5C1FE911B7005F7383 /* AdminOuputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40152AC31FE8AAC4008CB7D6 /* AdminOuputView.swift */; };
+		4009EE5D1FE911B7005F7383 /* VendingMachineData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402BA1F21FE7A69A00882206 /* VendingMachineData.swift */; };
+		4009EE5E1FE911B7005F7383 /* AdminController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40152AC11FE89D62008CB7D6 /* AdminController.swift */; };
+		4009EE5F1FE911B7005F7383 /* UserVendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406660FC1FE7DC0500D4A3C5 /* UserVendingMachine.swift */; };
+		4009EE601FE9190C005F7383 /* ErrorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D9EC161FE3AA7700859597 /* ErrorCode.swift */; };
+		4009EE611FE9190C005F7383 /* VendingMachineData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402BA1F21FE7A69A00882206 /* VendingMachineData.swift */; };
+		4009EE621FE91912005F7383 /* ErrorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D9EC161FE3AA7700859597 /* ErrorCode.swift */; };
+		4009EE631FE91912005F7383 /* VendingMachineData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402BA1F21FE7A69A00882206 /* VendingMachineData.swift */; };
+		4009EE641FE91917005F7383 /* ErrorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D9EC161FE3AA7700859597 /* ErrorCode.swift */; };
+		4009EE651FE91917005F7383 /* VendingMachineData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402BA1F21FE7A69A00882206 /* VendingMachineData.swift */; };
 		40152ABE1FE89D3E008CB7D6 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D9EC191FE6053300859597 /* UserController.swift */; };
 		40152ABF1FE89D3E008CB7D6 /* VendingMachineData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402BA1F21FE7A69A00882206 /* VendingMachineData.swift */; };
 		40152AC01FE89D3E008CB7D6 /* UserVendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406660FC1FE7DC0500D4A3C5 /* UserVendingMachine.swift */; };
@@ -515,6 +525,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4009EE5C1FE911B7005F7383 /* AdminOuputView.swift in Sources */,
+				4009EE5D1FE911B7005F7383 /* VendingMachineData.swift in Sources */,
+				4009EE5E1FE911B7005F7383 /* AdminController.swift in Sources */,
+				4009EE5F1FE911B7005F7383 /* UserVendingMachine.swift in Sources */,
 				400436A11FE7A8F10007E109 /* AdminVendingMachine.swift in Sources */,
 				402BA1E11FE75AF300882206 /* SupportingEnum.swift in Sources */,
 				402BA1E21FE75AF300882206 /* ErrorCode.swift in Sources */,
@@ -568,6 +582,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4009EE601FE9190C005F7383 /* ErrorCode.swift in Sources */,
+				4009EE611FE9190C005F7383 /* VendingMachineData.swift in Sources */,
 				40D9EBE01FE24FC000859597 /* SupportingEnum.swift in Sources */,
 				40E251121FE1111A0003FC79 /* Milk.swift in Sources */,
 				40E2510F1FE111160003FC79 /* LightBananaMilk.swift in Sources */,
@@ -582,6 +598,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4009EE621FE91912005F7383 /* ErrorCode.swift in Sources */,
+				4009EE631FE91912005F7383 /* VendingMachineData.swift in Sources */,
 				40D9EBE11FE24FC300859597 /* SupportingEnum.swift in Sources */,
 				40E251251FE12A320003FC79 /* SodaPop.swift in Sources */,
 				40E251241FE1297A0003FC79 /* Beverage.swift in Sources */,
@@ -595,6 +613,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4009EE641FE91917005F7383 /* ErrorCode.swift in Sources */,
+				4009EE651FE91917005F7383 /* VendingMachineData.swift in Sources */,
 				40D9EBE21FE24FC700859597 /* SupportingEnum.swift in Sources */,
 				40E251361FE12CA60003FC79 /* Beverage.swift in Sources */,
 				40E251351FE12CA30003FC79 /* Coffee.swift in Sources */,
