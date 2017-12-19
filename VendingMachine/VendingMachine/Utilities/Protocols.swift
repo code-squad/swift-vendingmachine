@@ -17,7 +17,7 @@ protocol Machine {
 }
 
 protocol Managable: Machine {
-    func fullSupply()
+    func fullSupply(_ count: Int)
     func supply(beverageType: Menu, _ addCount: Stock)
     func checkTheStock() -> [Menu:Stock]
     func showPurchasedList() -> [HistoryInfo]
