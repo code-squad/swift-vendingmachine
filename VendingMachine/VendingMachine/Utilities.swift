@@ -15,15 +15,32 @@ extension Dictionary where Value == Int {
         if let prevNumberCount = self[key] {
             // isAdded 상태에 따라 +/-1
             if isAdded {
-                self.updateValue(prevNumberCount+1, forKey: key)
+                updateValue(prevNumberCount+1, forKey: key)
             }else {
-                self.updateValue(prevNumberCount-1, forKey: key)
+                updateValue(prevNumberCount-1, forKey: key)
             }
         }else {
             // 첫 값인 경우, 해당 키의 값에 1 저장.
-            self.updateValue(1, forKey: key)
+            updateValue(1, forKey: key)
         }
     }
+}
+
+class ClassIteratorOf<Type>: IteratorProtocol {
+    typealias Element = Type
+    private let elements: [Element]
+    private var nextIndex: Int
+    init(_ elements: [Element]) {
+        nextIndex = 0
+        self.elements = elements
+    }
+
+    func next() -> Element? {
+        defer { nextIndex += 1 }
+        guard nextIndex < elements.count else { return nil }
+        return elements[nextIndex]
+    }
+
 }
 
 // EnumCollection을 채택한 타입은 Hashable도 구현해야 함. Enum은 이미 Hashable이므로 hashValue를 따로 구현해줄 필요 없음.
@@ -37,7 +54,7 @@ protocol EnumCollection: Hashable {
 extension EnumCollection {
     // 시퀀스를 배열로 캐스팅 후 반환.
     static var allValues: [Self] {
-        return Array(self.cases())
+        return Array(cases())
     }
 
     // 내부 값의 시퀀스 반환.

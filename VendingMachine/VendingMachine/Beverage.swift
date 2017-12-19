@@ -28,13 +28,13 @@ class Beverage: CustomStringConvertible, Hashable {
     private let expirationDate: Date
     private(set) var calories: Int
     init() {
-        self.brand = ""
-        self.volume = 0
-        self.price = 0
-        self.productName = ""
-        self.manufacturedDate = Date(timeIntervalSinceNow: 0)
-        self.expirationDate = Date(timeIntervalSinceNow: 0)
-        self.calories = 0
+        brand = ""
+        volume = 0
+        price = 0
+        productName = ""
+        manufacturedDate = Date(timeIntervalSinceNow: 0)
+        expirationDate = Date(timeIntervalSinceNow: 0)
+        calories = 0
     }
     init(_ brand: String, _ volume: Int, _ price: Int, _ productName: String, _ manufacturedDate: Date, _ expirationDate: Date, _ calories: Int) {
         self.brand = brand
@@ -47,17 +47,17 @@ class Beverage: CustomStringConvertible, Hashable {
     }
 
     func isExpired(with date: Date) -> Bool {
-        return self.expirationDate < date
+        return expirationDate < date
     }
 
     func isLowCalorie() -> Bool {
-        return self.calories < 100
+        return calories < 100
     }
 
     var description: String {
         let dateFormatter = DateFormatter()
         dateFormatter.setLocalizedDateFormatFromTemplate("YYYYMMdd")
-        return "\(self.brand), \(self.volume)ml, \(self.price)원, \(self.productName), \(dateFormatter.string(from: self.manufacturedDate))"
+        return "\(brand), \(volume)ml, \(price)원, \(productName), \(dateFormatter.string(from: manufacturedDate))"
     }
     
 }
