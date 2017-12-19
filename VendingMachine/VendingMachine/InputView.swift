@@ -9,7 +9,7 @@
 import Foundation
 
 struct InputView {
-    //BedSmall...
+    // 자판기 모드를 선택한다.
     static func readMode() throws -> ModeSelector {
         print("###자판기를 실행### > 안녕하세요?, 모드를 선택해주세요.")
         print("1. 관리자모드")

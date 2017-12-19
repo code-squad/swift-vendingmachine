@@ -9,16 +9,8 @@
 import Foundation
 
 protocol UserDelegate {
-    mutating func insertMoney(_ money: Int)
-    mutating func buyBeverage(number: Int) throws -> Beverage
     func getBalance() -> Int
     func getStockList() -> [Beverage:Int]
-}
-
-protocol AdminDelegate {
-    mutating func addBeverage(_ item: Beverage)
-    mutating func removeBeverage(_ item: Beverage) throws
-    func getPassedValidateBeverage() -> [BeverageCheck]
 }
 
 struct UserController {
@@ -38,6 +30,8 @@ struct UserController {
             } catch ErrorCode.endCode {
                 AdminOutputView.printError(ErrorCode.endCode.description)
                 return machine.getVendingMachineData()
+            } catch let Error as ErrorCode {
+                AdminOutputView.printError(Error.description)
             }
         }
     }
