@@ -20,7 +20,7 @@ struct UserController {
         self.machine = UserVendingMachine(with: vendingMachineData)
     }
     
-    mutating func executeMachine() throws -> VendingMachineData{
+    mutating func executeMachine() throws {
         let condition = true
         let outputView = OutputView()
         outputView.printMainMenu(machine: machine)
@@ -29,7 +29,6 @@ struct UserController {
                 try separateVendingMachineExecution(selector: try InputView.readUserMenu(), view: outputView)
             } catch ErrorCode.endCode {
                 AdminOutputView.printError(ErrorCode.endCode.description)
-                return machine.getVendingMachineData()
             } catch let Error as ErrorCode {
                 AdminOutputView.printError(Error.description)
             }

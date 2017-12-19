@@ -15,14 +15,13 @@ struct AdminController {
         self.machine = AdminVendingMachine(with: vendingMachineData)
     }
     
-    mutating func executeMachine(spareStock: inout [Beverage]) throws -> VendingMachineData {
+    mutating func executeMachine(spareStock: inout [Beverage]) throws {
         let condition = true
         while condition {
             do {
                 try seperateAdminExecution(with: &spareStock)
             } catch ErrorCode.endCode {
                 AdminOutputView.printError(ErrorCode.endCode.description)
-                return machine.getVendingMachineData()
             }
         }
     }

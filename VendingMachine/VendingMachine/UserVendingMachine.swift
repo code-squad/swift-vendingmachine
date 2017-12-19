@@ -9,63 +9,48 @@
 import Foundation
 
 struct UserVendingMachine: UserDelegate {
-    private var balance: Int
-    private (set) var stock: [Beverage]
-    private var sortedStockList: [Beverage:Int]
+    private var vendingMachineData: VendingMachineData
     private var recepit = [String]()
     
     init(with vendingMachineData: VendingMachineData) {
-        self.balance = vendingMachineData.balance
-        self.stock = vendingMachineData.stock
-        self.sortedStockList = vendingMachineData.sortedStockList
+        self.vendingMachineData = vendingMachineData
     }
     
     mutating func insertMoney(_ money: Int) {
-        balance += money
+        vendingMachineData.insertMoney(money)
     }
     
     func getBalance() -> Int {
-        return balance
+        return vendingMachineData.balance
     }
     
     mutating func buyBeverage(number: Int) throws -> Beverage {
-        let item = sortedStockList[sortedStockList.index(sortedStockList.startIndex, offsetBy: number - 1)].key
+        let stockList = vendingMachineData.sortedStockList
+        let item = stockList[stockList.index(stockList.startIndex, offsetBy: number - 1)].key
         return try buyBeverage(item)
     }
     
     mutating func buyBeverage(_ selectedValue: Beverage) throws -> Beverage {
-        guard let item = stock.index(where: { $0.name == selectedValue.name }) else {
-            throw ErrorCode.noStock
-        }
-        guard selectedValue.checkAvailableList(with: balance) else {
-            throw ErrorCode.noMoney
-        }
-        sortedStockList[selectedValue]! -= 1
         recepit.append(selectedValue.description)
-        balance -= selectedValue.price
-        return stock.remove(at: item)
+        return try vendingMachineData.processBuying(selectedValue)
     }
     
     func getStockList() -> [Beverage:Int] {
-        return sortedStockList
+        return vendingMachineData.sortedStockList
     }
     
     func getValidBuyingBeverage() -> [Beverage] {
-        let keys = sortedStockList.keys.map{ $0 }
-        return keys.filter{ $0.checkAvailableList(with: balance) }
+        let keys = vendingMachineData.sortedStockList.keys.map{ $0 }
+        return keys.filter{ $0.checkAvailableList(with: vendingMachineData.balance) }
     }
     
     func getHotBeverage() -> [BeverageCheck] {
-        let keys = sortedStockList.keys.map{ $0 }.flatMap{ $0 as? BeverageCheck }
+        let keys = vendingMachineData.sortedStockList.keys.map{ $0 }.flatMap{ $0 as? BeverageCheck }
         return keys.filter{ $0.isHot() }
     }
     
     func getRecepit() -> [String] {
         return recepit
-    }
-    
-    func getVendingMachineData() -> VendingMachineData {
-        return VendingMachineData(stock: stock, stockList: sortedStockList, balance: balance)
     }
     
 }
