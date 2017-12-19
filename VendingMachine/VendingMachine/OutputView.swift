@@ -8,13 +8,7 @@
 
 import Foundation
 
-struct OutputView {
-//    var vendingMachinInfo: UserDelegate
-//
-//    init(_ machine: UserDelegate) {
-//        self.vendingMachinInfo = machine
-//    }
-    
+struct OutputView {    
     func printMainMenu(machine: UserDelegate) {
         printBalance(machine)
         for element in machine.getStockList() {
