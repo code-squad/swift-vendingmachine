@@ -1,51 +1,12 @@
 //
-//  Extensions.swift
+//  EnumExtension.swift
 //  VendingMachine
 //
-//  Created by 심 승민 on 2017. 12. 15..
+//  Created by 심 승민 on 2017. 12. 19..
 //  Copyright © 2017년 JK. All rights reserved.
 //
 
 import Foundation
-
-extension Dictionary where Value == Int {
-    // 딕셔너리 값이 Int인 경우, 결과값을 누적해서 업데이트 가능.
-    mutating func update(forKey key: Key, _ isAdded: Bool) -> [Key:Value] {
-        var newDictionary = self
-        var newValue: Int = 0
-        // 해당 키의 기존 값이 있는 경우.
-        if let prevNumberCount = self[key] {
-            // isAdded 상태에 따라 +/-1
-            if isAdded {
-                newValue = prevNumberCount+1
-            }else {
-                newValue = prevNumberCount-1
-            }
-        }else {
-            // 첫 값인 경우, 해당 키의 값에 1 저장.
-            newValue = 1
-        }
-        newDictionary.updateValue(newValue, forKey: key)
-        return newDictionary
-    }
-}
-
-class ClassIteratorOf<Type>: IteratorProtocol {
-    typealias Element = Type
-    private let elements: [Element]
-    private var nextIndex: Int
-    init(_ elements: [Element]) {
-        nextIndex = 0
-        self.elements = elements
-    }
-
-    func next() -> Element? {
-        defer { nextIndex += 1 }
-        guard nextIndex < elements.count else { return nil }
-        return elements[nextIndex]
-    }
-
-}
 
 // EnumCollection을 채택한 타입은 Hashable도 구현해야 함. Enum은 이미 Hashable이므로 hashValue를 따로 구현해줄 필요 없음.
 protocol EnumCollection: Hashable {
