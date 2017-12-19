@@ -20,7 +20,7 @@ class InputView {
         // 자판기 메뉴명, 재고만 표시.
         for (beverageType, stock) in self.vendingMachine.checkTheStock() {
             guard let product = VendingMachine.Menu.allValues.filter({ $0 == beverageType }).first else { return "" }
-            screen += "\(product)(\(stock)개) "
+            screen += "\(product.productName)(\(stock)개) "
         }
         screen += "\n"
         return screen

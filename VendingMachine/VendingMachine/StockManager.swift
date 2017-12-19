@@ -21,27 +21,8 @@ class StockManager {
     }
 
     // 인벤토리 상태에 따라 장부 업데이트.
-    func updateStock(_ oldStock: [Beverage]) {
-        // 음료수가 더해졌는지, 빠졌는지 확인하기 위함.
-        var difference: Beverage?
-        let purchased = isPurchased(oldStock.count, vendingMachine.count)
-        if purchased {
-            difference = oldStock.last
-        }else {
-            difference = vendingMachine.last
-        }
-        record(for: difference, purchased)
-    }
-
-    // 구입된 경우 true 반환.
-    private func isPurchased(_ oldStockCount: Int, _ currStockCount: Int) -> Bool {
-        return oldStockCount > currStockCount
-    }
-
-    // 변경된 부분을 장부에 기록.
-    private func record(for change: Beverage?, _ isAdded: Bool) {
-        guard let changedBeverage = change else { return }
-        stock = stock.update(forKey: changedBeverage.menuType, isAdded)
+    func updateStock(_ recentChanged: Beverage, isPurchased: Bool) {
+        stock = stock.update(forKey: recentChanged.menuType, !isPurchased)
     }
 
     // 품절 여부 반환.
@@ -80,12 +61,11 @@ class StockManager {
     }
 
     // 구입 이력 기록.
-    func recordHistory(_ oldStock: [Beverage]) {
+    func recordPurchasedHistory(_ recentChanged: Beverage, isPurchased: Bool) {
         // 음료수를 빼먹은 경우, 구입 이력 생성 및 기록.
-        if isPurchased(oldStock.count, vendingMachine.count) {
-            guard let purchased = oldStock.last else { return }
+        if isPurchased {
             // 현재 구입된 음료수의 구입이력 생성.
-            let purchasedInfo = HistoryInfo(purchasingDate: Date(timeIntervalSinceNow: 0), purchasedMenu: purchased.productName, count: 1)
+            let purchasedInfo = HistoryInfo(purchasingDate: Date(timeIntervalSinceNow: 0), purchasedMenu: recentChanged.productName, count: 1)
             // 기록.
             purchasedHistory.append(purchasedInfo)
         }
