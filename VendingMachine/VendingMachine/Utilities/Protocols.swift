@@ -31,3 +31,8 @@ protocol UserServable: Machine {
     func showExpiredBeverages(on day: Date) -> [Menu:Stock]
     func showHotBeverages() -> [Menu]
 }
+
+protocol ActivateMode {
+    func perform()
+    func showResult()
+}
