@@ -9,7 +9,7 @@
 import Foundation
 
 func main() {
-    let machine = VendingMachine.sharedMachine
+    let machine = VendingMachine.sharedInstance
     machine.fullSupply()
     let inputView = InputView(machine)
     let outputView = OutputView(machine)

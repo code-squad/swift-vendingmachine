@@ -11,9 +11,9 @@ import Foundation
 class SoftDrink: Beverage {
     // 탄산첨가여부, 유통기한, 칼로리
     private let carbonContent: Int
-    init(_ brand: String, _ volume: Int, _ price: Int, _ productName: String, _ manufacturedDate: Date, _ expirationDate: Date, _ calories: Int, carbonContent: Int) {
+    init(_ brand: String, _ volume: Int, _ price: Int, _ productName: String, _ manufacturedDate: Date, _ expirationDate: Date, _ calories: Int, _ menuType: VendingMachine.Menu, carbonContent: Int) {
         self.carbonContent = carbonContent
-        super.init(brand, volume, price, productName, manufacturedDate, expirationDate, calories)
+        super.init(brand, volume, price, productName, manufacturedDate, expirationDate, calories, menuType)
     }
 
     var containsCarbonicGas: Bool {

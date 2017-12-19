@@ -18,9 +18,9 @@ class InputView {
     private func showDefaultMenus() -> String {
         var screen = "=> "
         // 자판기 메뉴명, 재고만 표시.
-        for (beverageClassName, stock) in self.vendingMachine.checkTheStock() {
-            guard let product = VendingMachine.Menu.allValues.filter({ $0.description == beverageClassName }).first else { return "" }
-            screen += "\(product.rawValue)(\(stock)개) "
+        for (beverageType, stock) in self.vendingMachine.checkTheStock() {
+            guard let product = VendingMachine.Menu.allValues.filter({ $0 == beverageType }).first else { return "" }
+            screen += "\(product)(\(stock)개) "
         }
         screen += "\n"
         return screen
@@ -31,9 +31,9 @@ class InputView {
         var screen = ""
         for menu in VendingMachine.Menu.allValues {
             // 현재 메뉴의 재고.
-            guard let stock = self.vendingMachine.checkTheStock().filter({ $0.key == menu.description })[menu.description] else { break }
+            guard let stock = self.vendingMachine.checkTheStock().filter({ $0.key == menu })[menu] else { break }
             // 현재 메뉴의 번호, 이름, 가격, 재고 표시.
-            screen += "\(menu.hashValue+1)) \(menu.rawValue) \(menu.price)원 (\(stock)개)\n"
+            screen += "\(menu.hashValue+1)) \(menu.productName) \(menu.price)원 (\(stock)개)\n"
         }
         return screen
     }

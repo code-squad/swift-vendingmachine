@@ -33,8 +33,7 @@ class OutputView {
         guard 0 < userInput && userInput <= VendingMachine.Menu.allValues.count else { return }
         let selectedMenu = VendingMachine.Menu.allValues[userInput-1]
         guard let purchasedBeverage = self.vendingMachine.popBeverage(selectedMenu) else { return }
-        guard let purchasedMenu = VendingMachine.Menu(purchasedBeverage.description) else { return }
-        print("\(purchasedMenu.rawValue) 음료를 구매하셨습니다. \(purchasedBeverage.price)원을 차감합니다.")
+        print("\(purchasedBeverage.productName) 음료를 구매하셨습니다. \(purchasedBeverage.price)원을 차감합니다.")
     }
 
 }
