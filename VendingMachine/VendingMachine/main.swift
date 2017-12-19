@@ -32,7 +32,7 @@ func getSpareBox() -> [Beverage] {
 }
 
 func executeMain(box: [Beverage]) {
-    var vendingMachineData = VendingMachineData(stock: box)
+    let vendingMachineData = VendingMachineData(stock: box)
     var spareBox = getSpareBox()
     var condition = true
     while condition {
@@ -40,10 +40,10 @@ func executeMain(box: [Beverage]) {
             switch try InputView.readMode() {
             case .adminMode:
                 var adminController = AdminController(with: vendingMachineData)
-                vendingMachineData = try adminController.executeMachine(spareStock: &spareBox)
+                try adminController.executeMachine(spareStock: &spareBox)
             case .userMode:
                 var userController = UserController(with: vendingMachineData)
-                vendingMachineData = try userController.executeMachine()
+                try userController.executeMachine()
             }
         } catch ErrorCode.endCode {
             AdminOutputView.printError(ErrorCode.endCode.description)
