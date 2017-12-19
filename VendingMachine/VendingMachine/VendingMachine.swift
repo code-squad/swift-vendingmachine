@@ -12,9 +12,13 @@ typealias Stock = Int
 typealias Balance = Int
 typealias Purchased = Int
 
+protocol Singleton {
+    static var sharedMachine: Self { get }
+}
+
 // self.inventory를 Collection 프로토콜로 캡슐화.
-class VendingMachine: Collection {
-    static let sharedMachine = VendingMachine()
+final class VendingMachine: Singleton, Collection {
+    static var sharedMachine = VendingMachine()
     private var stockManager: StockManager!
     private var moneyManager: MoneyManager!
     private init() {
