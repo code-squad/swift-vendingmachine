@@ -10,7 +10,9 @@ import Foundation
 
 class StockManager {
     private weak var vendingMachine: VendingMachine!
+    // 자판기 메뉴별 남은 재고 기록.
     private var stock: [VendingMachine.Menu.RawValue:Stock]
+    // 구입이력 기록.
     private var purchasedHistory: [HistoryInfo]
     init(_ vendingMachine: VendingMachine) {
         self.vendingMachine = vendingMachine
@@ -42,6 +44,7 @@ class StockManager {
         return stock < 1
     }
 
+    // 재고 기록 반환.
     func showStockList() -> [VendingMachine.Menu.RawValue:Stock] {
         return self.stock
     }
@@ -65,26 +68,31 @@ class StockManager {
         return expiredList
     }
 
+    // 구입 이력 반환.
     func showPurchasedHistory() -> [HistoryInfo] {
         return self.purchasedHistory
     }
 
+    // 구입 이력 기록.
     func recordHistory(_ oldStock: Set<Beverage>) {
         // 음료수를 빼먹은 경우.
         if isPurchased(oldStock) {
+            // 빼먹은 음료수 각각의 이력 기록.
             recordHistoryOfEach(oldStock)
         }
     }
 
+    // 구입된 경우 true 반환.
     private func isPurchased(_ oldStock: Set<Beverage>) -> Bool {
-        // 이전 상태가 현재 상태를 포함하는 관계이면 음료수를 빼먹은 상황으로 판단. - self.vendingMachine을 Set 타입으로 직접 쓸 수 없어서 이렇게 사용함.
+        // 이전 상태가 현재 상태를 포함하는 관계이면 음료수를 빼먹은 상황으로 판단. oldStock과 현재 vendingMachine 내 inventory의 count로도 비교 가능.
         return oldStock.isSuperset(of: self.vendingMachine)
     }
 
+    // 구입된 음료수 각각의 이력 생성 및 기록.
     private func recordHistoryOfEach(_ oldStock: Set<Beverage>) {
         // 빼먹은 음료수들을 돌면서
         for beverage in oldStock.symmetricDifference(vendingMachine) {
-            // 빼먹은 음료수의 히스토리를 생성.
+            // 빼먹은 음료수의 히스토리 생성.
             let purchasedInfo = HistoryInfo(purchasingDate: Date(timeIntervalSinceNow: 0), purchasedMenu: beverage.description, count: 1)
             // 기록.
             self.purchasedHistory.append(purchasedInfo)

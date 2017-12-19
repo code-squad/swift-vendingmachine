@@ -8,6 +8,7 @@
 
 import XCTest
 
+// 자판기 동작 테스트.
 class VendingMachineTest: XCTestCase {
 
     func testSupply_Single_Menu() {

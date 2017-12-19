@@ -8,6 +8,7 @@
 
 import Foundation
 
+// 구입이력 포맷.
 struct HistoryInfo {
     private(set) var purchasingDate: Date
     private(set) var purchasedMenu: VendingMachine.Menu.RawValue

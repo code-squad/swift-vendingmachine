@@ -47,13 +47,14 @@ class VendingMachine: Collection {
         }
     }
 
+    // 모든 메뉴의 재고를 10개씩 자판기에 공급.
     func fullSupply() {
         for menu in Menu.allValues {
             supply(beverageType: menu, 10)
         }
     }
 
-    // 특정상품의 재고를 N개 채우는 함수.
+    // 특정상품의 재고를 N개 공급.
     func supply(beverageType: Menu, _ addCount: Stock) {
         for _ in 0..<addCount {
             // 인벤토리에 추가.

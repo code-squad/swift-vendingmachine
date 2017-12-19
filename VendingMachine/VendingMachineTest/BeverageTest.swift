@@ -8,6 +8,7 @@
 
 import XCTest
 
+// 음료수 객체 테스트.
 class BeverageTest: XCTestCase {
 
     func test_ManufacturerCode_StrawberryMilk() {
