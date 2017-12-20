@@ -28,10 +28,9 @@ class VendingMachineIntegrationTest: XCTestCase {
         var validStock = userMachine.getValidBuyingBeverage()
         XCTAssertEqual(orignalCoke.description, validStock[0].description)
         XCTAssertEqual(sprite.description, validStock[1].description)
-        _ = try! userMachine.buyBeverage(sprite)
-        XCTAssertEqual(200 ,userMachine.getBalance())
+        _ = try? userMachine.buyBeverage(sprite)
+        XCTAssertEqual(200, userMachine.getBalance())
         XCTAssertEqual(0, userMachine.getStockList()[sprite]!)
         XCTAssertEqual("Sprite", userMachine.getRecepit()[0])
     }
-    
 }

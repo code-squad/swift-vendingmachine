@@ -8,18 +8,16 @@
 
 import Foundation
 
-protocol UserDelegate {
+protocol UserMachine {
     func getBalance() -> Int
-    func getStockList() -> [Beverage:Int]
+    func getStockList() -> [Beverage: Int]
 }
 
 struct UserController {
     private var machine: UserVendingMachine
-    
     init(with vendingMachineData: VendingMachineData) {
         self.machine = UserVendingMachine(with: vendingMachineData)
     }
-    
     mutating func executeMachine() throws {
         let condition = true
         let outputView = OutputView()
@@ -34,7 +32,6 @@ struct UserController {
             }
         }
     }
-    
     private mutating func separateVendingMachineExecution(selector: [Int], view: OutputView) throws {
         guard selector.count > 1 else {
             throw ErrorCode.validInputString
@@ -51,5 +48,4 @@ struct UserController {
             throw ErrorCode.invalidMenu
         }
     }
-    
 }

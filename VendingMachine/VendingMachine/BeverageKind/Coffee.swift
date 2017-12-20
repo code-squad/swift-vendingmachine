@@ -12,17 +12,15 @@ class Coffee: Beverage, BeveragePorotocol {
     private (set) var kind: String
     private let caffeine: Bool
     private let temperature: Double
-    init(kind:String, caffeine: Bool, temperature: Double, brand: String, volume: Int, price: Int, name: String, manufacturingDate: String) {
+    init(kind: String, caffeine: Bool, temperature: Double, brand: String, volume: Int, price: Int, name: String, manufacturingDate: String) {
         self.kind = kind
         self.caffeine = caffeine
         self.temperature = temperature
         super.init(brand: brand, volume: volume, price: price, name: name, manufacturingDate: manufacturingDate)
     }
-    
     func isHot() -> Bool {
         return temperature > 80
     }
-    
     func isCaffeine() -> Bool {
         return caffeine
     }

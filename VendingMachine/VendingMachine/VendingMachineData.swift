@@ -8,12 +8,10 @@
 
 import Foundation
 
-
 class VendingMachineData {
     private (set) var stock: [Beverage]
-    private (set) var sortedStockList = [Beverage:Int]()
+    private (set) var sortedStockList = [Beverage: Int]()
     private (set) var balance: Int
-    
     init(stock: [Beverage]) {
         self.stock = stock
         self.balance = 0
@@ -21,7 +19,6 @@ class VendingMachineData {
             self.makeBeverageList(item)
         }
     }
-    
     private func makeBeverageList(_ item: Beverage) {
         if sortedStockList[item] != nil {
             sortedStockList[item]! += 1
@@ -29,21 +26,17 @@ class VendingMachineData {
             sortedStockList[item] = 1
         }
     }
-    
-    init(stock: [Beverage], stockList: [Beverage:Int], balance: Int) {
+    init(stock: [Beverage], stockList: [Beverage: Int], balance: Int) {
         self.stock = stock
         self.sortedStockList = stockList
         self.balance = balance
     }
-    
-    convenience init(stock: [Beverage], stockList: [Beverage:Int]) {
+    convenience init(stock: [Beverage], stockList: [Beverage: Int]) {
         self.init(stock: stock, stockList: stockList, balance: 0)
     }
-    
     func insertMoney(_ money: Int) {
         balance += money
     }
-    
     func processBuying(_ selectedValue: Beverage) throws -> Beverage {
         guard let item = stock.index(where: { $0.name == selectedValue.name }) else {
             throw ErrorCode.noStock
@@ -55,12 +48,10 @@ class VendingMachineData {
         balance -= selectedValue.price
         return stock.remove(at: item)
     }
-    
     func addBeverage(_ item: Beverage) {
         stock.append(item)
         makeBeverageList(item)
     }
-    
     func removeBeverage(_ item: Beverage) throws {
         guard let index = stock.index(where: { $0.name == item.name }) else {
             throw ErrorCode.noStock

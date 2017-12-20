@@ -17,7 +17,6 @@ class StarBucksCoffee: Coffee {
     override var description: String {
         return "\(String(describing: type(of: self)))"
     }
-    
     func isReserve() -> Bool {
         return reserve
     }

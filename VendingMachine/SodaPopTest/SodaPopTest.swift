@@ -12,19 +12,15 @@ import XCTest
 class SodaPopTest: XCTestCase {
     let orignalCoke = Coke(sugarContent: 40, volume: 250, price: 700, name: "CocaCola", manufacturingDate: "20171213", labelColor: "RED", forBusiness: false)
     let zeroCoke = Coke(sugarContent: 10, volume: 250, price: 800, name: "ZeroCoke", manufacturingDate: "20151213", labelColor: "BLACK", forBusiness: true)
-    
     func testCokeisLowCoke() {
         XCTAssertTrue(orignalCoke.isHighSugar())
     }
-    
     func testIsForBusiness() {
         XCTAssertFalse(orignalCoke.isBusinessUse())
     }
-    
     func testIsZeroCoke() {
         XCTAssertTrue(zeroCoke.isHighSugar())
     }
-    
     func testInvalidate() {
         XCTAssertFalse(zeroCoke.validate(with: Date()))
     }

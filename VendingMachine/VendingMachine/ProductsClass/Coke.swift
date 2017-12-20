@@ -11,7 +11,6 @@ import Foundation
 class Coke: SodaPop {
     private let bottelLabelColor: String
     private var businessUse: Bool
-    
     init(sugarContent: Double, volume: Int, price: Int, name: String, manufacturingDate: String, labelColor: String, forBusiness used: Bool) {
         self.bottelLabelColor = labelColor
         self.businessUse = used
@@ -24,9 +23,7 @@ class Coke: SodaPop {
     func isBusinessUse() -> Bool {
         return businessUse
     }
-    
     func isLabelOriginalColor() -> String {
         return bottelLabelColor
     }
-    
 }

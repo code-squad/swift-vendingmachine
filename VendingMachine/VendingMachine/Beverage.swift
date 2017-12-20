@@ -23,11 +23,9 @@ class Beverage: CustomStringConvertible, Hashable {
     var hashValue: Int {
         return name.hashValue
     }
-    
-    static func ==(lhs: Beverage, rhs: Beverage) -> Bool {
+    static func == (lhs: Beverage, rhs: Beverage) -> Bool {
         return lhs.name == rhs.name
     }
-    
     var description: String {
         let date = DateFormatter()
         date.dateFormat = "yyyyMMdd"
@@ -41,9 +39,8 @@ class Beverage: CustomStringConvertible, Hashable {
         self.temperature = temperature
         let date = DateFormatter()
         date.dateFormat = "yyyyMMdd"
-        self.manufacturingDate = Date(timeInterval: DateInterval.today.rawValue, since:date.date(from: manufacturingDate)!)
+        self.manufacturingDate = Date(timeInterval: DateInterval.today.rawValue, since: date.date(from: manufacturingDate)!)
     }
-    
     func checkAvailableList(with balance: Int) -> Bool {
         return balance >= price
     }
