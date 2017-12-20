@@ -19,13 +19,10 @@ class RealBananaMilk: Milk {
     override var description: String {
         return "\(String(describing: type(of: self)))"
     }
-    
     func isRealBanana() -> Bool {
         return bananMilkColor == "WHITE"
     }
-    
     func hasBananaFlavor() -> Bool {
         return flavor == "바나나향"
     }
-    
 }

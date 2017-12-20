@@ -14,7 +14,6 @@ struct AdminController {
     init(with vendingMachineData: VendingMachineData) {
         self.machine = AdminVendingMachine(with: vendingMachineData)
     }
-    
     mutating func executeMachine(spareStock: [Beverage]) throws {
         let condition = true
         while condition {
@@ -25,7 +24,6 @@ struct AdminController {
             }
         }
     }
-    
     private mutating func seperateAdminExecution(with spareStock: [Beverage]) throws {
         switch try InputView.readAdminMenu() {
         case .addstock:
@@ -33,17 +31,14 @@ struct AdminController {
             addStock(try InputView.readSelectedBeverage(), with: spareStock)
             AdminOutputView.printAddMsg()
         case .removeStock:
-            AdminOutputView.printPassedValidateStockList(machine.getPassedValidateBeverage() as! [Beverage])
+            AdminOutputView.printPassedValidateStockList((machine.getPassedValidateBeverage() as? [Beverage])!)
             try removeStock(try InputView.readSelectedBeverage(), with: machine.getPassedValidateBeverage())
         }
     }
-    
     private mutating func addStock(_ itemNumber: Int, with spareStock: [Beverage]) {
         machine.addBeverage(spareStock[itemNumber - 1])
     }
-    
     private mutating func removeStock(_ itemNumber: Int, with passedStock: [BeverageCheck]) throws {
-        try machine.removeBeverage(passedStock[itemNumber - 1] as! Beverage)
+        try machine.removeBeverage((passedStock[itemNumber - 1] as? Beverage)!)
     }
-    
 }

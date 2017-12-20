@@ -21,5 +21,4 @@ class CeylonTea: Milk {
     func hasFlavor() -> Bool {
         return flavor == "홍차향"
     }
-    
 }

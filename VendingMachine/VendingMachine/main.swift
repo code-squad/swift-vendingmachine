@@ -54,7 +54,6 @@ func executeMain(box: [Beverage]) {
             AdminOutputView.printError(ErrorCode.inValidError.description)
         }
     }
-    
 }
 
 executeMain(box: getBox())

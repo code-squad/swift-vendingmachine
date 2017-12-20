@@ -11,7 +11,6 @@ import Foundation
 class Sprite: SodaPop {
     private let bottelLabelColor: String
     private var businessUse: Bool
-    
     init(sugarContent: Double, volume: Int, price: Int, name: String, manufacturingDate: String, labelColor: String, forBusiness used: Bool) {
         self.bottelLabelColor = labelColor
         self.businessUse = used
@@ -20,11 +19,9 @@ class Sprite: SodaPop {
     override var description: String {
         return "\(String(describing: type(of: self)))"
     }
-    
     func isBusinessUse() -> Bool {
         return businessUse
     }
-    
     func isLabelOriginalColor() -> String {
         return bottelLabelColor
     }

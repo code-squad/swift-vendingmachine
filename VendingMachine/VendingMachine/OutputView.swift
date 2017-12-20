@@ -8,16 +8,15 @@
 
 import Foundation
 
-struct OutputView {    
-    func printMainMenu(machine: UserDelegate) {
+struct OutputView {
+    func printMainMenu(machine: UserMachine) {
         printBalance(machine)
         for element in machine.getStockList() {
-            print("\(element.key.name)(\(element.value)개)  ", terminator:"")
+            print("\(element.key.name)(\(element.value)개)  ", terminator: "")
         }
         print("\n")
     }
-    
-    func printAfterInsertMoney(machine: UserDelegate) {
+    func printAfterInsertMoney(machine: UserMachine) {
         printBalance(machine)
         var index = 1
         for element in machine.getStockList() {
@@ -26,15 +25,12 @@ struct OutputView {
         }
         print("")
     }
-    
-    private func printBalance(_ machine: UserDelegate) {
+    private func printBalance(_ machine: UserMachine) {
         print("")
         print("현재 투입한 금액은 \(machine.getBalance())원 입니다.", terminator: "")
         print("다음과 같은 음료가 있습니다.")
     }
-    
     func printAfterBuyingBeverage(beverage: Beverage) {
         print("\(beverage.name)를 구매하셨습니다. \(beverage.price)원을 차감합니다.")
     }
-    
 }

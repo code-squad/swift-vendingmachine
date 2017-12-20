@@ -12,27 +12,21 @@ import XCTest
 class MilkUnitTest: XCTestCase {
     let lightMilk = LightBananaMilk(volume: 270, price: 1400, manufacturingDate: "20171215")
     let realMilk = RealBananaMilk(volume: 270, price: 1200, manufacturingDate: "20171209")
-    
     func testLightMilkIslowMilk() {
         XCTAssertTrue(lightMilk.isLowFat())
     }
-    
     func testLightMilkHasBlueCap() {
         XCTAssertTrue(lightMilk.hasBlueCap())
     }
-    
     //20171213
     func testValidateToday() {
         XCTAssertTrue(lightMilk.validate(with: Date()))
     }
-    
     func testValidateIfValidatePassed() {
         let lightMilk = LightBananaMilk(volume: 270, price: 1400, manufacturingDate: "20171206")
         XCTAssertFalse(lightMilk.validate(with: Date()))
     }
-    
     func testRealMilkColor() {
         XCTAssertTrue(realMilk.isRealBanana())
     }
-    
 }

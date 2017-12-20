@@ -30,6 +30,6 @@ class Beverage: CustomStringConvertible {
         self.name = name
         let date = DateFormatter()
         date.dateFormat = "yyyyMMdd"
-        self.manufacturingDate = Date(timeInterval: DateInterval.today.rawValue, since:date.date(from: manufacturingDate)!)
+        self.manufacturingDate = Date(timeInterval: DateInterval.today.rawValue, since: date.date(from: manufacturingDate)!)
     }
 }
