@@ -21,8 +21,8 @@ class StockManager {
     }
 
     // 인벤토리 상태에 따라 장부 업데이트.
-    func updateStock(_ recentChanged: Beverage, isPurchased: Bool) {
-        stock = stock.update(forKey: recentChanged.menuType, !isPurchased)
+    func updateStock(_ recentChanged: Beverage, isRemoved: Bool) {
+        stock = stock.update(forKey: recentChanged.menuType, !isRemoved)
     }
 
     // 품절 여부 반환.
