@@ -9,7 +9,7 @@
 import Foundation
 
 // inventory를 Collection 프로토콜로 캡슐화.
-class VendingMachine: Machine, Sequence {
+class VendingMachine: Sequence {
     private var stockManager: StockManager!
     private var moneyManager: MoneyManager!
     let start = 0
@@ -48,91 +48,12 @@ class VendingMachine: Machine, Sequence {
     var last: Beverage? {
         return inventory.last
     }
+}
+
+extension VendingMachine: Machine {
     typealias MenuType = Menu
-}
-
-extension VendingMachine: Managable {
-    // 모든 메뉴의 재고를 count개씩 자판기에 공급.
-    func fullSupply(_ count: Int) {
-        for menu in Menu.allValues {
-            supply(beverageType: menu, count)
-        }
-    }
-
-    // 특정상품의 재고를 N개 공급.
-    func supply(beverageType: Menu, _ addCount: Stock) {
-        for _ in 0..<addCount {
-            // 인벤토리에 추가.
-            self.recentChanged = beverageType.generate()
-            inventory.append(recentChanged)
-        }
-    }
-
-    // 전체 상품 재고를 (사전으로 표현하는) 종류별로 반환.
-    func checkTheStock() -> [Menu : Stock] {
-        return stockManager.showStockList()
-    }
-
-    // 시작이후 구매 상품 이력 반환.
-    func showPurchasedList() -> [HistoryInfo] {
-        return stockManager.showPurchasedHistory()
-    }
-}
-
-extension VendingMachine: UserServable {
-    // 구매가능한 음료 중 선택한 음료수를 반환.
-    func popBeverage(_ menu: Menu) -> Beverage? {
-        // 품절이 아닌 상품 중, 현재 금액으로 살 수 있는 메뉴 리스트를 받아옴.
-        let affordableList = moneyManager.showAffordableList(from: stockManager.showSellingList())
-        // 리스트에 선택한 상품이 있는 경우, 해당 음료수 반환. 없는 경우, nil 반환. (아무일도 일어나지 않음)
-        guard affordableList.contains(menu) else { return nil }
-        return pop(menu)
-    }
-
-    // 자판기 인벤토리에서 특정 메뉴의 음료수를 반환.
-    private func pop(_ menu: Menu) -> Beverage? {
-        for (position, beverage) in inventory.enumerated() {
-            if menu == beverage.menuType {
-                self.recentChanged = beverage
-                return inventory.remove(at: position)
-            }
-        }
-        return nil
-    }
-
-    // 주화 삽입.
-    func insertMoney(_ money: MoneyManager.Unit) {
-        moneyManager.insert(money: money)
-    }
-
-    // 잔액을 확인.
-    func showBalance() -> Balance {
-        return moneyManager.balance
-    }
-
-    func showAffordableBeverages() -> [Menu] {
-        return moneyManager.showAffordableList(from: stockManager.showSellingList())
-    }
-
-    // 유통기한이 지난 재고 리스트 반환.
-    func showExpiredBeverages(on day: Date) -> [Menu:Stock] {
-        return stockManager.showExpiredList(on: day)
-    }
-
-    // 따뜻한 음료 리스트 리턴.
-    func showHotBeverages() -> [Menu] {
-        // 커피타입인 경우만 해당.
-        return Menu.allValues.filter {
-            guard let coffee = $0.generate() as? Coffee else { return false }
-            return coffee.isHot
-        }
-    }
-
-}
-
-extension VendingMachine {
     // 선택 가능한 메뉴.
-    enum Menu: EnumCollection {
+    enum Menu: EnumCollection, Purchasable {
         case strawberryMilk
         case bananaMilk
         case chocoMilk
@@ -170,4 +91,83 @@ extension VendingMachine {
         }
 
     }
+}
+
+extension VendingMachine: Managable {
+    // 모든 메뉴의 재고를 count개씩 자판기에 공급.
+    func fullSupply(_ count: Int) {
+        for menu in MenuType.allValues {
+            supply(beverageType: menu, count)
+        }
+    }
+
+    // 특정상품의 재고를 N개 공급.
+    func supply(beverageType: MenuType, _ addCount: Stock) {
+        for _ in 0..<addCount {
+            // 인벤토리에 추가.
+            self.recentChanged = beverageType.generate()
+            inventory.append(recentChanged)
+        }
+    }
+
+    // 시작이후 구매 상품 이력 반환.
+    func showPurchasedList() -> [HistoryInfo] {
+        return stockManager.showPurchasedHistory()
+    }
+}
+
+extension VendingMachine: UserServable {
+    // 구매가능한 음료 중 선택한 음료수를 반환.
+    func popBeverage(_ menu: MenuType) -> Beverage? {
+        // 품절이 아닌 상품 중, 현재 금액으로 살 수 있는 메뉴 리스트를 받아옴.
+        let affordableList = moneyManager.showAffordableList(from: stockManager.showSellingList())
+        // 리스트에 선택한 상품이 있는 경우, 해당 음료수 반환. 없는 경우, nil 반환. (아무일도 일어나지 않음)
+        guard affordableList.contains(menu) else { return nil }
+        return pop(menu)
+    }
+
+    // 자판기 인벤토리에서 특정 메뉴의 음료수를 반환.
+    private func pop(_ menu: MenuType) -> Beverage? {
+        for (position, beverage) in inventory.enumerated() {
+            if menu == beverage.menuType {
+                self.recentChanged = beverage
+                return inventory.remove(at: position)
+            }
+        }
+        return nil
+    }
+
+    // 주화 삽입.
+    func insertMoney(_ money: MoneyManager.Unit) {
+        moneyManager.insert(money: money)
+    }
+
+    // 잔액을 확인.
+    func showBalance() -> Balance {
+        return moneyManager.balance
+    }
+
+    // 전체 상품 재고를 (사전으로 표현하는) 종류별로 반환.
+    func checkTheStock() -> [MenuType : Stock] {
+        return stockManager.showStockList()
+    }
+
+    func showAffordableBeverages() -> [MenuType] {
+        return moneyManager.showAffordableList(from: stockManager.showSellingList())
+    }
+
+    // 유통기한이 지난 재고 리스트 반환.
+    func showExpiredBeverages(on day: Date) -> [MenuType:Stock] {
+        return stockManager.showExpiredList(on: day)
+    }
+
+    // 따뜻한 음료 리스트 리턴.
+    func showHotBeverages() -> [MenuType] {
+        // 커피타입인 경우만 해당.
+        return MenuType.allValues.filter {
+            guard let coffee = $0.generate() as? Coffee else { return false }
+            return coffee.isHot
+        }
+    }
+
 }
