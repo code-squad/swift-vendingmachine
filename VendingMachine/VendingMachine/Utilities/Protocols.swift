@@ -14,12 +14,7 @@ typealias Purchased = Int
 
 protocol Machine {
     associatedtype MenuType: EnumCollection, Purchasable
-}
-
-protocol Purchasable {
-    var price: Int { get }
-
-    var productName: String { get }
+    func checkTheStock() -> [MenuType:Stock]
 }
 
 protocol Managable: Machine {
@@ -37,8 +32,6 @@ protocol UserServable: Machine {
 
     func showBalance() -> Balance
 
-    func checkTheStock() -> [MenuType:Stock]
-
     func showAffordableBeverages() -> [MenuType]
 
     func showExpiredBeverages(on day: Date) -> [MenuType:Stock]
@@ -50,4 +43,10 @@ protocol ActivateMode {
     func prompt()
     
     func perform()
+}
+
+protocol Purchasable {
+    var price: Int { get }
+
+    var productName: String { get }
 }
