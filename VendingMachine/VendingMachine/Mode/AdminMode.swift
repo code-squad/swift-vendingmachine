@@ -92,7 +92,7 @@ private extension AdminMode {
     }
 
     func performCheckPurchasedList() -> String? {
-        var screen = "\n=================구매이력================="
+        var screen = "\n=====================구매이력====================="
         for purchased in machine.showPurchasedList() {
             screen += "\n\(purchased.purchasingDate) | \(purchased.purchasedMenu) | \(purchased.count)"
         }
@@ -101,7 +101,8 @@ private extension AdminMode {
 
     // 사용자 스크린 표시.
     func showScreen() -> String {
-        var screen = "\n현재 자판기에 있는 음료수는 아래와 같습니다.\n "
+        var screen = "\n===============================================\n"
+        screen += "현재 자판기에 있는 음료수는 아래와 같습니다.\n "
         screen += showStockInOrder()
         for inputMenu in Modes.allValues {
             screen += "\n\(inputMenu.description)"
@@ -118,10 +119,10 @@ private extension AdminMode {
 
     // 잔액에 따라 메뉴 포맷 달라짐.
     func showStockInOrder() -> String {
-        var screen = ""
+        var screen = "\n"
         let stock = machine.checkTheStock()
         if isStockEmpty(stock) {
-            screen += "\n(재고없음)\n"
+            screen += "(재고없음)\n"
         }else {
             for menu in MachineType.MenuType.allValues {
                 // 현재 메뉴의 재고.

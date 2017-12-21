@@ -67,7 +67,7 @@ private extension UserMode {
     func performInsert(_ arguments: [Argument]) -> String? {
         guard let numberOfCoins = arguments.first, let insertedCoin = MoneyManager.Unit(rawValue: numberOfCoins) else { return nil }
         machine.insertMoney(insertedCoin)
-        return "\n\(insertedCoin)원이 삽입되었습니다."
+        return "\n\(insertedCoin.rawValue)원이 삽입되었습니다."
     }
 
     // 음료 구입 시 결과 표시.
@@ -77,12 +77,13 @@ private extension UserMode {
         guard 0 < beverageMenuNumber && beverageMenuNumber <= MachineType.MenuType.allValues.count else { return nil }
         let selectedMenu = MachineType.MenuType.allValues[beverageMenuNumber-1]
         guard let purchasedBeverage = machine.popBeverage(selectedMenu) else { return nil }
-        return "\n\(purchasedBeverage.productName) 음료를 구매하셨습니다. \(purchasedBeverage.price)원을 차감합니다."
+        return "\n\(purchasedBeverage.productName)를 구매하셨습니다. \(purchasedBeverage.price)원을 차감합니다."
     }
 
     // 사용자 스크린 표시.
     func showScreen() -> String {
-        var screen = "\n현재 투입한 금액이 \(machine.showBalance())원입니다.\n"
+        var screen = "\n===============================================\n"
+        screen += "현재 투입한 금액이 \(machine.showBalance())원입니다.\n"
         if isStockEmpty() {
             screen += "재고가 하나도 없습니다. 관리자모드에서 재고를 먼저 추가해주세요.\n"
         }else {
