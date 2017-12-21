@@ -13,18 +13,20 @@ class InputView {
     enum Menu: Int, CustomStringConvertible, EnumCollection {
         case adminMode = 1
         case userMode
+        case exit
         var description: String {
             var menuName = ""
             switch self {
             case .adminMode: menuName = "관리자 모드"
             case .userMode: menuName = "사용자 모드"
+            case .exit: menuName = "종료"
             }
             return String(rawValue) + ". " + menuName
         }
     }
 
     private static func showScreen() -> String {
-        var screen = "자판기를 시작합니다.\n"
+        var screen = "\n자판기를 시작합니다.\n"
         for menu in Menu.allValues {
             screen += menu.description + "\n"
         }
@@ -39,6 +41,7 @@ class InputView {
         switch inputMode {
         case .adminMode: return AdminMode(machine)
         case .userMode: return UserMode(machine)
+        case .exit: return nil
         }
     }
     
