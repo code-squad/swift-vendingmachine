@@ -10,11 +10,12 @@ import Foundation
 
 func main() {
     let machine = VendingMachine()
-    machine.fullSupply(10)
-    let inputView = InputView(machine)
-    let outputView = OutputView(machine)
-    while let input = inputView.prompt() {
-        outputView.showResult(input)
+    while let activatedMode = InputView.prompt(machine) {
+        while let userArgs = activatedMode.prompt() {
+            guard let result = activatedMode.perform(userArgs) else { break }
+            OutputView.showResult(result)
+            continue
+        }
     }
 }
 

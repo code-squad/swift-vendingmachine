@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
+		EE36F89B1FEBA8FD00DD4215 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE36F89A1FEBA8FD00DD4215 /* OutputView.swift */; };
 		EE37309B1FDF74590034082C /* StrawberryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE37309A1FDF74590034082C /* StrawberryMilk.swift */; };
 		EE37309C1FDF74590034082C /* StrawberryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE37309A1FDF74590034082C /* StrawberryMilk.swift */; };
 		EE37309E1FDF746A0034082C /* BananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE37309D1FDF746A0034082C /* BananaMilk.swift */; };
@@ -38,7 +39,6 @@
 		EE3730EC1FE533390034082C /* HistoryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3730EB1FE533390034082C /* HistoryInfo.swift */; };
 		EE3730ED1FE533390034082C /* HistoryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3730EB1FE533390034082C /* HistoryInfo.swift */; };
 		EE3730F21FE783C30034082C /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3730F11FE783C30034082C /* InputView.swift */; };
-		EE3730F41FE7ABBB0034082C /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3730F31FE7ABBB0034082C /* OutputView.swift */; };
 		EE3730FA1FE902450034082C /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3730F91FE902450034082C /* Protocols.swift */; };
 		EE3730FB1FE9024F0034082C /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3730F91FE902450034082C /* Protocols.swift */; };
 		EE3730FE1FE902860034082C /* CustomIterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3730FD1FE902860034082C /* CustomIterator.swift */; };
@@ -75,6 +75,7 @@
 /* Begin PBXFileReference section */
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		EE36F89A1FEBA8FD00DD4215 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		EE37309A1FDF74590034082C /* StrawberryMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrawberryMilk.swift; sourceTree = "<group>"; };
 		EE37309D1FDF746A0034082C /* BananaMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaMilk.swift; sourceTree = "<group>"; };
 		EE3730A01FDF74740034082C /* ChocoMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocoMilk.swift; sourceTree = "<group>"; };
@@ -91,7 +92,6 @@
 		EE3730E11FE3A73F0034082C /* VendingMachineTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineTest.swift; sourceTree = "<group>"; };
 		EE3730EB1FE533390034082C /* HistoryInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryInfo.swift; sourceTree = "<group>"; };
 		EE3730F11FE783C30034082C /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
-		EE3730F31FE7ABBB0034082C /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		EE3730F91FE902450034082C /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		EE3730FD1FE902860034082C /* CustomIterator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomIterator.swift; sourceTree = "<group>"; };
 		EE3731001FE902B50034082C /* EnumExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumExtension.swift; sourceTree = "<group>"; };
@@ -150,14 +150,32 @@
 				EE3730DD1FE39C940034082C /* MoneyManager.swift */,
 				EE3730DB1FE39C0F0034082C /* StockManager.swift */,
 				EE3730EB1FE533390034082C /* HistoryInfo.swift */,
+				EE36F8981FEBA8A200DD4215 /* Mode */,
+				EE3730F51FE7AF0D0034082C /* View */,
+				EE36F8991FEBA8BE00DD4215 /* Beverage */,
 				EE3730FC1FE9025F0034082C /* Utilities */,
+			);
+			path = VendingMachine;
+			sourceTree = "<group>";
+		};
+		EE36F8981FEBA8A200DD4215 /* Mode */ = {
+			isa = PBXGroup;
+			children = (
+				EE3731061FE975CE0034082C /* AdminMode.swift */,
+				EE3731091FE975D70034082C /* UserMode.swift */,
+			);
+			path = Mode;
+			sourceTree = "<group>";
+		};
+		EE36F8991FEBA8BE00DD4215 /* Beverage */ = {
+			isa = PBXGroup;
+			children = (
 				EEC61AD61FDE69D0001698A4 /* Beverage.swift */,
 				EE3730B51FDF74C60034082C /* Milk */,
 				EE3730B61FDF74CE0034082C /* SoftDrink */,
 				EE3730B71FDF74D50034082C /* Coffee */,
-				EE3730F51FE7AF0D0034082C /* View */,
 			);
-			path = VendingMachine;
+			path = Beverage;
 			sourceTree = "<group>";
 		};
 		EE3730B51FDF74C60034082C /* Milk */ = {
@@ -197,9 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				EE3730F11FE783C30034082C /* InputView.swift */,
-				EE3730F31FE7ABBB0034082C /* OutputView.swift */,
-				EE3731061FE975CE0034082C /* AdminMode.swift */,
-				EE3731091FE975D70034082C /* UserMode.swift */,
+				EE36F89A1FEBA8FD00DD4215 /* OutputView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -319,7 +335,6 @@
 				EE37309E1FDF746A0034082C /* BananaMilk.swift in Sources */,
 				EE3730FE1FE902860034082C /* CustomIterator.swift in Sources */,
 				EE3730D41FE357930034082C /* DictionaryExtension.swift in Sources */,
-				EE3730F41FE7ABBB0034082C /* OutputView.swift in Sources */,
 				EE3730FA1FE902450034082C /* Protocols.swift in Sources */,
 				EE3731071FE975CE0034082C /* AdminMode.swift in Sources */,
 				EE3730EC1FE533390034082C /* HistoryInfo.swift in Sources */,
@@ -329,6 +344,7 @@
 				EE3730B01FDF74AF0034082C /* CantataCoffee.swift in Sources */,
 				EE3730B31FDF74B90034082C /* GeorgiaCoffee.swift in Sources */,
 				EE3730D21FE2BA630034082C /* VendingMachine.swift in Sources */,
+				EE36F89B1FEBA8FD00DD4215 /* OutputView.swift in Sources */,
 				EE3730A11FDF74740034082C /* ChocoMilk.swift in Sources */,
 				EEC61ADA1FDE6C8C001698A4 /* Milk.swift in Sources */,
 				EE3730AD1FDF74A40034082C /* TopCoffee.swift in Sources */,
