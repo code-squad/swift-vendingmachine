@@ -14,8 +14,10 @@ class VendingMachine: Sequence {
     private var moneyManager: MoneyManager!
     let start = 0
     var recentChanged: Beverage
+    var isManagerRemoved: Bool
     init() {
         self.recentChanged = Beverage()
+        self.isManagerRemoved = false
         // 장부기록, 돈관리의 책임을 위임.
         self.stockManager = StockManager(self)
         self.moneyManager = MoneyManager(self)
@@ -24,17 +26,26 @@ class VendingMachine: Sequence {
     private var inventory: [Beverage] = [] {
         // 상태변화가 생길 때마다 장부 및 잔액을 업데이트.
         didSet(oldInventory) {
-            let purchased = isPurchased(oldInventory, inventory)
+            // 음료수 단순 제거 시 (구입 + 관리 시 제거)
+            let removed = isRemoved(oldInventory, inventory)
+            // 음료수 구입 시
+            let purchased = isPurchased(removed)
             // 재고를 넣을 때와 음료수를 빼먹을 때 둘 다 업데이트.
-            stockManager.updateStock(recentChanged, isPurchased: purchased)
+            stockManager.updateStock(recentChanged, isRemoved: removed)
+            // manager가 제거한 음료수 개수는 업데이트 안 함.
             stockManager.recordPurchasedHistory(recentChanged, isPurchased: purchased)
-            // 잔액은 음료수를 빼먹을 때만 업데이트.
+            // 잔액은 음료수를 빼먹을 때만 업데이트. manager가 제거한 음료수 가격은 업데이트 안 함.
             moneyManager.updateBalance(recentChanged, isPurchased: purchased)
+            isManagerRemoved = false
         }
     }
 
+    private func isPurchased(_ isRemoved: Bool) -> Bool {
+        return (isRemoved && !isManagerRemoved)
+    }
+
     // 구입된 경우 true 반환.
-    private func isPurchased(_ oldStock: [Beverage], _ currStock: [Beverage]) -> Bool {
+    private func isRemoved(_ oldStock: [Beverage], _ currStock: [Beverage]) -> Bool {
         return oldStock.count > currStock.count
     }
 
@@ -107,6 +118,14 @@ extension VendingMachine: Managable {
             // 인벤토리에 추가.
             self.recentChanged = beverageType.generate()
             inventory.append(recentChanged)
+        }
+    }
+
+    // 특정상품의 재고를 N개 제거.
+    func remove(beverageType: MenuType, _ addCount: Stock) {
+        for _ in 0..<addCount {
+            isManagerRemoved = true
+            _ = self.pop(beverageType)
         }
     }
 
