@@ -42,15 +42,13 @@ class UserMode<MachineType: UserServable>: ActivateMode {
     func perform(_ arguments: [Argument]) -> String? {
         guard !isStockEmpty() else { return nil }
         guard let preprocessed = preprocessArguments(using: arguments) else { return nil }
-        var result: String?
         switch preprocessed.mode {
-        case .insert: result = performInsert(preprocessed.leftArgs)
-        case .buy: result = performPurchase(preprocessed.leftArgs)
+        case .insert: return performInsert(preprocessed.leftArgs)
+        case .buy: return performPurchase(preprocessed.leftArgs)
         case .restart: return nil
         }
-        return result
     }
-    
+
 }
 
 private extension UserMode {
@@ -113,7 +111,7 @@ private extension UserMode {
         }
         return screen
     }
-    
+
     // 잔액이 0원인 경우, 디폴트 메뉴 표시.
     func showDefaultMenus() -> String {
         var screen = "=> "
@@ -137,5 +135,5 @@ private extension UserMode {
         }
         return screen
     }
-    
+
 }
