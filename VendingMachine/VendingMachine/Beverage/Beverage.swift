@@ -8,15 +8,8 @@
 
 import Foundation
 
-class Beverage: CustomStringConvertible, Hashable {
-    // VendingMachine 내 Beverage Set을 만들기 위해 Beverage 객체를 hashValue로 구분.
-    var hashValue: Int {
-        return ObjectIdentifier(self).hashValue
-    }
-
-    static func ==(lhs: Beverage, rhs: Beverage) -> Bool {
-        return lhs.hashValue == rhs.hashValue
-    }
+class Beverage: Product, CustomStringConvertible {
+    typealias MenuType = VendingMachine.MenuType
 
     // 브랜드(String), 무게(Int), 가격(Int), 이름(String), 제조일자(Date)
     private(set) var brand: String
@@ -27,7 +20,7 @@ class Beverage: CustomStringConvertible, Hashable {
     private(set) var manufacturedDate: Date
     private(set) var expirationDate: Date
     private(set) var calories: Int
-    private(set) var menuType: VendingMachine.Menu
+    private(set) var menuType: VendingMachine.MenuType
     init() {
         brand = ""
         volume = 0

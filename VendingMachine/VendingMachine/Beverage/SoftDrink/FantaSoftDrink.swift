@@ -16,7 +16,7 @@ class FantaSoftDrink: SoftDrink {
     }
 
     convenience init(_ menu: VendingMachine.Menu) {
-        self.init(stringData["brand"]![menu]!, intData["volume"]![menu]!, intData["price"]![menu]!, stringData["productName"]![menu]!, Date(timeIntervalSinceNow: 0), Date(timeIntervalSinceNow: TimeInterval(intData["expirationDate"]![menu]!)), intData["calories"]![menu]!, menu, carbonContent: intData["carbonContent"]![menu]!)
+        self.init(stringData["brands"]![menu]!, intData["volume"]![menu]!, intData["price"]![menu]!, stringData["productName"]![menu]!, Date(timeIntervalSinceNow: 0), Date(timeIntervalSinceNow: TimeInterval(intData["expirationDate"]![menu]!)), intData["calories"]![menu]!, menu, carbonContent: intData["carbonContent"]![menu]!)
     }
 
     override var description: String {
