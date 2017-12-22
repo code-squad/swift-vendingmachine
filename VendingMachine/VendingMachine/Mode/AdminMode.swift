@@ -45,15 +45,13 @@ class AdminMode<MachineType: Managable>: ActivateMode {
 
     func perform(_ arguments: [Argument]) -> String? {
         guard let preprocessed = preprocessArguments(using: arguments) else { return nil }
-        var result: String?
         switch preprocessed.mode {
-        case .supplyAll: result = performSupplyAll(preprocessed.leftArgs)
-        case .supplyEach: result = performSupplyEach(preprocessed.leftArgs)
-        case .remove: result = performRemove(preprocessed.leftArgs)
-        case .checkPurchasedList: result = performCheckPurchasedList()
+        case .supplyAll: return performSupplyAll(preprocessed.leftArgs)
+        case .supplyEach: return performSupplyEach(preprocessed.leftArgs)
+        case .remove: return performRemove(preprocessed.leftArgs)
+        case .checkPurchasedList: return performCheckPurchasedList()
         case .restart: return nil
         }
-        return result
     }
 }
 
