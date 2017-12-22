@@ -25,7 +25,7 @@ class MoneyManager<MachineType: Machine> {
     }
 
     // 잔액 차감.
-    func updateBalance<Product: Beverage>(_ recentChanged: Product, isPurchased: Bool) {
+    func updateBalance<ProductType: Product>(_ recentChanged: ProductType, isPurchased: Bool) {
         if isPurchased {
             // 현재 잔액에서 빼먹은 음료수의 가격만큼을 차감.
             balance -= recentChanged.price
