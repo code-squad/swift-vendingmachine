@@ -14,6 +14,11 @@ class CokeSoftDrink: SoftDrink {
         self.ingredients = "합성착향료(콜라향)"
         super.init(brand, volume, price, productName, manufacturedDate, expirationDate, calories, menuType, carbonContent: carbonContent)
     }
+
+    convenience init(_ menu: VendingMachine.Menu) {
+        self.init("펩시", 350, 2000, "다이어트콜라", Date(timeIntervalSinceNow: 0), Date(timeIntervalSinceNow: 60*60*24*30*6), 250, menu, carbonContent: 50)
+    }
+
     override var description: String {
         return String.init(describing: type(of: self))
 //        return "코카콜라(" + String.init(describing: type(of: self)) + ") - " + super.description

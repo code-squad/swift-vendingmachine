@@ -14,6 +14,11 @@ class FantaSoftDrink: SoftDrink {
         self.ingredients = "합성착향료(오렌지향)"
         super.init(brand, volume, price, productName, manufacturedDate, expirationDate, calories, menuType, carbonContent: carbonContent)
     }
+
+    convenience init(_ menu: VendingMachine.Menu) {
+        self.init("코카콜라컴퍼니", 350, 2000, "환타", Date(timeIntervalSinceNow: 0), Date(timeIntervalSinceNow: 60*60*24*30*7), 300, menu, carbonContent: 40)
+    }
+
     override var description: String {
         return String.init(describing: type(of: self))
 //        return "환타(" + String.init(describing: type(of: self)) + ") - " + super.description
