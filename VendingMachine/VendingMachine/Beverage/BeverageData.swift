@@ -20,7 +20,7 @@ let stringData = [
         VendingMachine.MenuType.cantata: "롯데칠성음료",
         VendingMachine.MenuType.georgia: "코카콜라"
     ],
-    "produceName": [
+    "productName": [
         VendingMachine.MenuType.strawberryMilk: "날마다딸기우유",
         VendingMachine.MenuType.bananaMilk: "날마다바나나우유",
         VendingMachine.MenuType.chocoMilk: "날마다초코우유",

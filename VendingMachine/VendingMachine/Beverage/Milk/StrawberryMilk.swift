@@ -16,7 +16,7 @@ class StrawBerryMilk: Milk {
     }
 
     convenience init(_ menu: VendingMachine.Menu) {
-        self.init(stringData["brand"]![menu]!, intData["volume"]![menu]!, intData["price"]![menu]!, stringData["productName"]![menu]!, Date(timeIntervalSinceNow: 0), Date(timeIntervalSinceNow: TimeInterval(intData["expirationDate"]![menu]!)), intData["calories"]![menu]!, menu, manufacturerCode: intData["manufacturerCode"]![menu]!, packingMaterial: stringData["packingMaterial"]![menu]!)
+        self.init(stringData["brands"]![menu]!, intData["volume"]![menu]!, intData["price"]![menu]!, stringData["productName"]![menu]!, Date(timeIntervalSinceNow: 0), Date(timeIntervalSinceNow: TimeInterval(intData["expirationDate"]![menu]!)), intData["calories"]![menu]!, menu, manufacturerCode: intData["manufacturerCode"]![menu]!, packingMaterial: stringData["packingMaterial"]![menu]!)
     }
 
     override var description: String {
