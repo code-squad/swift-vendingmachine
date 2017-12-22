@@ -88,15 +88,15 @@ extension VendingMachine: Machine {
         fileprivate func generate() -> Beverage {
             var beverage = Beverage()
             switch self {
-            case .strawberryMilk: beverage = StrawBerryMilk("서울우유", 200, 1000, "날마다딸기우유", Date(timeIntervalSinceNow: 0), Date(timeIntervalSinceNow: 60*60*24*7), 210, Menu.strawberryMilk, manufacturerCode: 1001, packingMaterial: "종이")
-            case .bananaMilk: beverage = BananaMilk("서울우유", 200, 1000, "날마다바나나우유", Date(timeIntervalSinceNow: 0), Date(timeIntervalSinceNow: 60*60*24*7), 220, Menu.bananaMilk, manufacturerCode: 1001, packingMaterial: "종이")
-            case .chocoMilk: beverage = ChocoMilk("서울우유", 200, 1000, "날마다초코우유", Date(timeIntervalSinceNow: 0), Date(timeIntervalSinceNow: 60*60*24*7), 240, Menu.chocoMilk, manufacturerCode: 1001, packingMaterial: "종이")
-            case .coke: beverage = CokeSoftDrink("펩시", 350, 2000, "다이어트콜라", Date(timeIntervalSinceNow: 0), Date(timeIntervalSinceNow: 60*60*24*30*6), 250, Menu.coke, carbonContent: 50)
-            case .cider: beverage = CiderSoftDrink("롯데칠성음료", 350, 2000, "사이다", Date(timeIntervalSinceNow: 0), Date(timeIntervalSinceNow: 60*60*24*30*6), 250, Menu.cider, carbonContent: 60)
-            case .fanta: beverage = FantaSoftDrink("코카콜라컴퍼니", 350, 2000, "환타", Date(timeIntervalSinceNow: 0), Date(timeIntervalSinceNow: 60*60*24*30*7), 300, Menu.fanta, carbonContent: 40)
-            case .top: beverage = TopCoffee("맥심", 200, 2200, "티오피", Date(timeIntervalSinceNow: 0), Date(timeIntervalSinceNow: 60*60*24*14), 240, Menu.top, caffeineLevels: 20, isHot: true, isSweetened: true)
-            case .cantata: beverage = CantataCoffee("롯데칠성음료", 200, 2200, "칸타타", Date(timeIntervalSinceNow: 0), Date(timeIntervalSinceNow: 60*60*24*14), 250, Menu.cantata, caffeineLevels: 10, isHot: false, isSweetened: true)
-            case .georgia: beverage = GeorgiaCoffee("코카콜라", 200, 2200, "조지아", Date(timeIntervalSinceNow: 0), Date(timeIntervalSinceNow: 60*60*24*2), 100, Menu.georgia, caffeineLevels: 25, isHot: true, isSweetened: false)
+            case .strawberryMilk: beverage = StrawBerryMilk(self)
+            case .bananaMilk: beverage = BananaMilk(self)
+            case .chocoMilk: beverage = ChocoMilk(self)
+            case .coke: beverage = CokeSoftDrink(self)
+            case .cider: beverage = CiderSoftDrink(self)
+            case .fanta: beverage = FantaSoftDrink(self)
+            case .top: beverage = TopCoffee(self)
+            case .cantata: beverage = CantataCoffee(self)
+            case .georgia: beverage = GeorgiaCoffee(self)
             }
             return beverage
         }

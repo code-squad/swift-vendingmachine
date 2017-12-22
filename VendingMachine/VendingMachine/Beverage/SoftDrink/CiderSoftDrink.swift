@@ -14,6 +14,11 @@ class CiderSoftDrink: SoftDrink {
         self.ingredients = "합성착향료(레몬라임향)"
         super.init(brand, volume, price, productName, manufacturedDate, expirationDate, calories, menuType, carbonContent: carbonContent)
     }
+
+    convenience init(_ menu: VendingMachine.Menu) {
+        self.init("롯데칠성음료", 350, 2000, "사이다", Date(timeIntervalSinceNow: 0), Date(timeIntervalSinceNow: 60*60*24*30*6), 250, menu, carbonContent: 60)
+    }
+
     override var description: String {
         return String.init(describing: type(of: self))
 //        return "사이다(" + String.init(describing: type(of: self)) + ") - " + super.description
