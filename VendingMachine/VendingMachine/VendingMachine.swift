@@ -9,13 +9,15 @@
 import Foundation
 
 // inventory를 Collection 프로토콜로 캡슐화.
-class VendingMachine: Sequence {
-    private var stockManager: StockManager!
-    private var moneyManager: MoneyManager!
-    let start = 0
-    var recentChanged: Beverage
-    var isManagerRemoved: Bool
+class VendingMachine: Machine, Sequence {
+    typealias Element = Beverage
+    private var stockManager: StockManager<VendingMachine, Beverage>!
+    private var moneyManager: MoneyManager<VendingMachine>!
+    let start: Int
+    private var recentChanged: Beverage
+    private var isManagerRemoved: Bool
     init() {
+        self.start = 0
         self.recentChanged = Beverage()
         self.isManagerRemoved = false
         // 장부기록, 돈관리의 책임을 위임.
@@ -61,7 +63,7 @@ class VendingMachine: Sequence {
     }
 }
 
-extension VendingMachine: Machine {
+extension VendingMachine {
     typealias MenuType = Menu
     // 선택 가능한 메뉴.
     enum Menu: EnumCollection, Purchasable {
@@ -136,6 +138,11 @@ extension VendingMachine: Managable {
 }
 
 extension VendingMachine: UserServable {
+    // 주화 삽입.
+    func insertMoney<MachineType>(_ money: MoneyManager<MachineType>.Unit) {
+        moneyManager.insert(money: money as! MoneyManager<VendingMachine>.Unit)
+    }
+
     // 구매가능한 음료 중 선택한 음료수를 반환.
     func popBeverage(_ menu: MenuType) -> Beverage? {
         // 품절이 아닌 상품 중, 현재 금액으로 살 수 있는 메뉴 리스트를 받아옴.
@@ -154,11 +161,6 @@ extension VendingMachine: UserServable {
             }
         }
         return nil
-    }
-
-    // 주화 삽입.
-    func insertMoney(_ money: MoneyManager.Unit) {
-        moneyManager.insert(money: money)
     }
 
     // 잔액을 확인.

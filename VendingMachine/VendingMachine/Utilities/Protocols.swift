@@ -13,7 +13,16 @@ typealias Balance = Int
 typealias Purchased = Int
 typealias Argument = Int
 
-protocol Machine {
+protocol Product {
+    associatedtype MenuType: EnumCollection, Purchasable
+    var menuType: MenuType { get }
+    func isExpired(with date: Date) -> Bool
+    func isLowCalorie() -> Bool
+    var productName: String { get }
+    var price: Int { get }
+}
+
+protocol Machine: Sequence {
     associatedtype MenuType: EnumCollection, Purchasable
     func checkTheStock() -> [MenuType:Stock]
 }
@@ -31,7 +40,7 @@ protocol Managable: Machine {
 protocol UserServable: Machine {
     func popBeverage(_ menu: MenuType) -> Beverage?
 
-    func insertMoney(_ money: MoneyManager.Unit)
+    func insertMoney<MachineType>(_ money: MoneyManager<MachineType>.Unit)
 
     func showBalance() -> Balance
 

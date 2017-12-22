@@ -8,13 +8,13 @@
 
 import Foundation
 
-class MoneyManager {
-    private weak var vendingMachine: VendingMachine!
+class MoneyManager<MachineType: Machine> {
+    private var machine: MachineType
     // 현재 잔액
     private(set) var balance: Balance
-    init(_ vendingMachine: VendingMachine) {
+    init(_ machine: MachineType) {
         self.balance = 0
-        self.vendingMachine = vendingMachine
+        self.machine = machine
     }
 
     // 삽입 가능한 돈 단위.
@@ -25,7 +25,7 @@ class MoneyManager {
     }
 
     // 잔액 차감.
-    func updateBalance(_ recentChanged: Beverage, isPurchased: Bool) {
+    func updateBalance<Product: Beverage>(_ recentChanged: Product, isPurchased: Bool) {
         if isPurchased {
             // 현재 잔액에서 빼먹은 음료수의 가격만큼을 차감.
             balance -= recentChanged.price
@@ -38,7 +38,7 @@ class MoneyManager {
     }
 
     // 현재 잔액으로 구입가능한 음료수 리스트 반환.
-    func showAffordableList(from sellingList: [VendingMachine.Menu]) -> [VendingMachine.Menu] {
+    func showAffordableList(from sellingList: [MachineType.MenuType]) -> [MachineType.MenuType] {
         // 품절이 아닌 음료수 중에서 가격이 잔액보다 같거나 작은 메뉴만 반환.
         return sellingList.filter { balance >= $0.price }
     }
