@@ -24,31 +24,33 @@ protocol Product {
 
 protocol Machine: Sequence {
     associatedtype MenuType: EnumCollection, Purchasable
+    associatedtype ProductType: Product
     func checkTheStock() -> [MenuType:Stock]
 }
 
 protocol Managable: Machine {
     func fullSupply(_ count: Int)
 
-    func supply(beverageType: MenuType, _ addCount: Stock)
+    func supply(productType: MenuType, _ addCount: Stock)
 
-    func remove(beverageType: MenuType, _ addCount: Stock)
+    func remove(productType: MenuType, _ addCount: Stock)
 
     func showPurchasedList() -> [HistoryInfo]
 }
 
 protocol UserServable: Machine {
-    func popBeverage(_ menu: MenuType) -> Beverage?
+
+    func popProduct(_ menu: MenuType) -> ProductType?
 
     func insertMoney<MachineType>(_ money: MoneyManager<MachineType>.Unit)
 
     func showBalance() -> Balance
 
-    func showAffordableBeverages() -> [MenuType]
+    func showAffordableProducts() -> [MenuType]
 
-    func showExpiredBeverages(on day: Date) -> [MenuType:Stock]
+    func showExpiredProducts(on day: Date) -> [MenuType:Stock]
 
-    func showHotBeverages() -> [MenuType]
+    func showHotProducts() -> [MenuType]
 }
 
 protocol ActivateMode {
