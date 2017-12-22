@@ -31,7 +31,7 @@ class VendingMachine: Sequence {
             // 음료수 구입 시
             let purchased = isPurchased(removed)
             // 재고를 넣을 때와 음료수를 빼먹을 때 둘 다 업데이트.
-            stockManager.updateStock(recentChanged, isRemoved: removed)
+            stockManager.updateStock(recentChanged, isNewArrival: !removed)
             // manager가 제거한 음료수 개수는 업데이트 안 함.
             stockManager.recordPurchasedHistory(recentChanged, isPurchased: purchased)
             // 잔액은 음료수를 빼먹을 때만 업데이트. manager가 제거한 음료수 가격은 업데이트 안 함.
