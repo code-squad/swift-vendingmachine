@@ -10,7 +10,9 @@ import Foundation
 
 // inventory를 Collection 프로토콜로 캡슐화.
 class VendingMachine: Machine, Sequence {
+    // Iterator.Element의 타입앨리아스
     typealias Element = Beverage
+    typealias ProductType = Beverage
     private var stockManager: StockManager<VendingMachine, Beverage>!
     private var moneyManager: MoneyManager<VendingMachine>!
     let start: Int
@@ -110,24 +112,24 @@ extension VendingMachine: Managable {
     // 모든 메뉴의 재고를 count개씩 자판기에 공급.
     func fullSupply(_ count: Int) {
         for menu in MenuType.allValues {
-            supply(beverageType: menu, count)
+            supply(productType: menu, count)
         }
     }
 
     // 특정상품의 재고를 N개 공급.
-    func supply(beverageType: MenuType, _ addCount: Stock) {
+    func supply(productType: MenuType, _ addCount: Stock) {
         for _ in 0..<addCount {
             // 인벤토리에 추가.
-            self.recentChanged = beverageType.generate()
+            self.recentChanged = productType.generate()
             inventory.append(recentChanged)
         }
     }
 
     // 특정상품의 재고를 N개 제거.
-    func remove(beverageType: MenuType, _ addCount: Stock) {
+    func remove(productType: MenuType, _ addCount: Stock) {
         for _ in 0..<addCount {
             isManagerRemoved = true
-            _ = self.pop(beverageType)
+            _ = self.pop(productType)
         }
     }
 
@@ -144,7 +146,7 @@ extension VendingMachine: UserServable {
     }
 
     // 구매가능한 음료 중 선택한 음료수를 반환.
-    func popBeverage(_ menu: MenuType) -> Beverage? {
+    func popProduct(_ menu: MenuType) -> ProductType? {
         // 품절이 아닌 상품 중, 현재 금액으로 살 수 있는 메뉴 리스트를 받아옴.
         let affordableList = moneyManager.showAffordableList(from: stockManager.showSellingList())
         // 리스트에 선택한 상품이 있는 경우, 해당 음료수 반환. 없는 경우, nil 반환. (아무일도 일어나지 않음)
@@ -173,17 +175,17 @@ extension VendingMachine: UserServable {
         return stockManager.showStockList()
     }
 
-    func showAffordableBeverages() -> [MenuType] {
+    func showAffordableProducts() -> [MenuType] {
         return moneyManager.showAffordableList(from: stockManager.showSellingList())
     }
 
     // 유통기한이 지난 재고 리스트 반환.
-    func showExpiredBeverages(on day: Date) -> [MenuType:Stock] {
+    func showExpiredProducts(on day: Date) -> [MenuType:Stock] {
         return stockManager.showExpiredList(on: day)
     }
 
     // 따뜻한 음료 리스트 리턴.
-    func showHotBeverages() -> [MenuType] {
+    func showHotProducts() -> [MenuType] {
         // 커피타입인 경우만 해당.
         return MenuType.allValues.filter {
             guard let coffee = $0.generate() as? Coffee else { return false }

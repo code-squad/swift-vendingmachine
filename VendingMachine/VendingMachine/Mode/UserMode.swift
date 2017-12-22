@@ -72,12 +72,12 @@ private extension UserMode {
 
     // 음료 구입 시 결과 표시.
     func performPurchase(_ arguments: [Argument]) -> String? {
-        guard let beverageMenuNumber = arguments.first else { return nil }
+        guard let productMenuNumber = arguments.first else { return nil }
         // 메뉴 번호가 음료수 메뉴 범위 안에 있는 지 확인.
-        guard 0 < beverageMenuNumber && beverageMenuNumber <= MachineType.MenuType.allValues.count else { return nil }
-        let selectedMenu = MachineType.MenuType.allValues[beverageMenuNumber-1]
-        guard let purchasedBeverage = machine.popBeverage(selectedMenu) else { return nil }
-        return "\n\(purchasedBeverage.productName)를 구매하셨습니다. \(purchasedBeverage.price)원을 차감합니다."
+        guard 0 < productMenuNumber && productMenuNumber <= MachineType.MenuType.allValues.count else { return nil }
+        let selectedMenu = MachineType.MenuType.allValues[productMenuNumber-1]
+        guard let purchased = machine.popProduct(selectedMenu) else { return nil }
+        return "\n\(purchased.productName)를 구매하셨습니다. \(purchased.price)원을 차감합니다."
     }
 
     // 사용자 스크린 표시.
@@ -118,8 +118,8 @@ private extension UserMode {
     func showDefaultMenus() -> String {
         var screen = "=> "
         // 자판기 메뉴명, 재고만 표시.
-        for (beverageType, stock) in machine.checkTheStock() {
-            guard let product = MachineType.MenuType.allValues.filter({ $0 == beverageType }).first else { return "" }
+        for (productType, stock) in machine.checkTheStock() {
+            guard let product = MachineType.MenuType.allValues.filter({ $0 == productType }).first else { return "" }
             screen += "\(product.productName)(\(stock)개) "
         }
         screen += "\n"

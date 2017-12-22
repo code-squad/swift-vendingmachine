@@ -78,7 +78,7 @@ private extension AdminMode {
         guard 0 < firstArg && firstArg <= MachineType.MenuType.allValues.count else { return nil }
         let supplyMenu = MachineType.MenuType.allValues[firstArg-1]
         let supplyCount = arguments[arguments.index(after: firstIndex)]
-        machine.supply(beverageType: supplyMenu, supplyCount)
+        machine.supply(productType: supplyMenu, supplyCount)
         return "\n\(supplyMenu) 상품의 재고가 \(supplyCount)개 추가되었습니다."
     }
 
@@ -87,7 +87,7 @@ private extension AdminMode {
         guard 0 < firstArg && firstArg <= MachineType.MenuType.allValues.count else { return nil }
         let removeMenu = MachineType.MenuType.allValues[firstArg-1]
         let removeCount = arguments[arguments.index(after: firstIndex)]
-        machine.remove(beverageType: removeMenu, removeCount)
+        machine.remove(productType: removeMenu, removeCount)
         return "\n\(removeMenu) 상품의 재고가 \(removeCount)개 제거되었습니다."
     }
 
