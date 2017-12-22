@@ -65,7 +65,7 @@ private extension UserMode {
 
     // 화폐 삽입 시 결과 표시.
     func performInsert(_ arguments: [Argument]) -> String? {
-        guard let numberOfCoins = arguments.first, let insertedCoin = MoneyManager.Unit(rawValue: numberOfCoins) else { return nil }
+        guard let numberOfCoins = arguments.first, let insertedCoin = MoneyManager<MachineType>.Unit(rawValue: numberOfCoins) else { return nil }
         machine.insertMoney(insertedCoin)
         return "\n\(insertedCoin.rawValue)원이 삽입되었습니다."
     }
