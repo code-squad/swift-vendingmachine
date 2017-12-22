@@ -16,7 +16,7 @@ class CantataCoffee: Coffee {
     }
 
     convenience init(_ menu: VendingMachine.Menu) {
-        self.init("롯데칠성음료", 200, 2200, "칸타타", Date(timeIntervalSinceNow: 0), Date(timeIntervalSinceNow: 60*60*24*14), 250, menu, caffeineLevels: 10, isHot: false, isSweetened: true)
+        self.init(stringData["brand"]![menu]!, intData["volume"]![menu]!, intData["price"]![menu]!, stringData["productName"]![menu]!, Date(timeIntervalSinceNow: 0), Date(timeIntervalSinceNow: TimeInterval(intData["expirationDate"]![menu]!)), intData["calories"]![menu]!, menu, caffeineLevels: intData["caffeineLevels"]![menu]!, isHot: false, isSweetened: true)
     }
 
     override var description: String {

@@ -16,7 +16,7 @@ class TopCoffee: Coffee {
     }
 
     convenience init(_ menu: VendingMachine.Menu) {
-        self.init("맥심", 200, 2200, "티오피", Date(timeIntervalSinceNow: 0), Date(timeIntervalSinceNow: 60*60*24*14), 240, menu, caffeineLevels: 20, isHot: true, isSweetened: true)
+        self.init(stringData["brand"]![menu]!, intData["volume"]![menu]!, intData["price"]![menu]!, stringData["productName"]![menu]!, Date(timeIntervalSinceNow: 0), Date(timeIntervalSinceNow: TimeInterval(intData["expirationDate"]![menu]!)), intData["calories"]![menu]!, menu, caffeineLevels: intData["caffeineLevels"]![menu]!, isHot: true, isSweetened: true)
     }
     
     override var description: String {

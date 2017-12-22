@@ -16,7 +16,7 @@ class StrawBerryMilk: Milk {
     }
 
     convenience init(_ menu: VendingMachine.Menu) {
-        self.init("서울우유", 200, 1000, "날마다딸기우유", Date(timeIntervalSinceNow: 0), Date(timeIntervalSinceNow: 60*60*24*7), 210, menu, manufacturerCode: 1001, packingMaterial: "종이")
+        self.init(stringData["brand"]![menu]!, intData["volume"]![menu]!, intData["price"]![menu]!, stringData["productName"]![menu]!, Date(timeIntervalSinceNow: 0), Date(timeIntervalSinceNow: TimeInterval(intData["expirationDate"]![menu]!)), intData["calories"]![menu]!, menu, manufacturerCode: intData["manufacturerCode"]![menu]!, packingMaterial: stringData["packingMaterial"]![menu]!)
     }
 
     override var description: String {

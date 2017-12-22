@@ -16,7 +16,7 @@ class CokeSoftDrink: SoftDrink {
     }
 
     convenience init(_ menu: VendingMachine.Menu) {
-        self.init("펩시", 350, 2000, "다이어트콜라", Date(timeIntervalSinceNow: 0), Date(timeIntervalSinceNow: 60*60*24*30*6), 250, menu, carbonContent: 50)
+        self.init(stringData["brand"]![menu]!, intData["volume"]![menu]!, intData["price"]![menu]!, stringData["productName"]![menu]!, Date(timeIntervalSinceNow: 0), Date(timeIntervalSinceNow: TimeInterval(intData["expirationDate"]![menu]!)), intData["calories"]![menu]!, menu, carbonContent: intData["carbonContent"]![menu]!)
     }
 
     override var description: String {

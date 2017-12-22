@@ -16,7 +16,7 @@ class GeorgiaCoffee: Coffee {
     }
 
     convenience init(_ menu: VendingMachine.Menu) {
-        self.init("코카콜라", 200, 2200, "조지아", Date(timeIntervalSinceNow: 0), Date(timeIntervalSinceNow: 60*60*24*2), 100, menu, caffeineLevels: 25, isHot: true, isSweetened: false)
+        self.init(stringData["brand"]![menu]!, intData["volume"]![menu]!, intData["price"]![menu]!, stringData["productName"]![menu]!, Date(timeIntervalSinceNow: 0), Date(timeIntervalSinceNow: TimeInterval(intData["expirationDate"]![menu]!)), intData["calories"]![menu]!, menu, caffeineLevels: intData["caffeineLevels"]![menu]!, isHot: true, isSweetened: false)
     }
 
     override var description: String {
