@@ -14,14 +14,14 @@ class VendingMachineTest: XCTestCase {
     func testSupply_Single_Menu() {
         let machine = VendingMachine().sharedInstance
         machine.supply(beverageType: .bananaMilk, 5)
-        XCTAssertNotEqual(machine.checkTheStock(), [VendingMachine.Menu.bananaMilk:5])
+        XCTAssertNotEqual(machine.checkTheStock(), [VendingMachine.Menu.bananaMilk: 5])
     }
 
     func testSupply_Multiple_Menus() {
         let machine = VendingMachine().sharedInstance
         machine.supply(beverageType: .bananaMilk, 5)
         machine.supply(beverageType: .strawberryMilk, 5)
-        XCTAssertNotEqual(machine.checkTheStock(), [VendingMachine.Menu.strawberryMilk:5])
+        XCTAssertNotEqual(machine.checkTheStock(), [VendingMachine.Menu.strawberryMilk: 5])
     }
 
     func testSupply_Multiple_Menus2() {
@@ -30,9 +30,9 @@ class VendingMachineTest: XCTestCase {
         machine.supply(beverageType: .strawberryMilk, 5)
         machine.supply(beverageType: .fanta, 5)
         let expectResult = [
-            VendingMachine.Menu.bananaMilk:5,
-            VendingMachine.Menu.strawberryMilk:5,
-            VendingMachine.Menu.fanta:5
+            VendingMachine.Menu.bananaMilk: 5,
+            VendingMachine.Menu.strawberryMilk: 5,
+            VendingMachine.Menu.fanta: 5
         ]
         XCTAssertNotEqual(machine.checkTheStock(), expectResult)
     }
@@ -67,9 +67,9 @@ class VendingMachineTest: XCTestCase {
         _ = machine.popBeverage(.fanta)
         _ = machine.popBeverage(.fanta)
         let expectResult = [
-            VendingMachine.Menu.bananaMilk:5,
-            VendingMachine.Menu.strawberryMilk:4,
-            VendingMachine.Menu.fanta:5
+            VendingMachine.Menu.bananaMilk: 5,
+            VendingMachine.Menu.strawberryMilk: 4,
+            VendingMachine.Menu.fanta: 5
         ]
         XCTAssertEqual(machine.checkTheStock(), expectResult)
     }
@@ -95,8 +95,8 @@ class VendingMachineTest: XCTestCase {
         _ = machine.popBeverage(.strawberryMilk)
         let expiredList = machine.showExpiredBeverages(on: Date(timeIntervalSinceNow: 60*60*24*20))
         let expectResult = [
-            VendingMachine.Menu.bananaMilk:5,
-            VendingMachine.Menu.strawberryMilk:5
+            VendingMachine.Menu.bananaMilk: 5,
+            VendingMachine.Menu.strawberryMilk: 5
         ]
         // Date 비교 때문에 에러날 수 있음. 이 함수만 따로 테스트하기.
         XCTAssertEqual(expiredList, expectResult)

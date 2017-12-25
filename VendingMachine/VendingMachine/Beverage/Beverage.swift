@@ -31,7 +31,8 @@ class Beverage: Product, CustomStringConvertible {
         calories = 0
         menuType = .strawberryMilk
     }
-    init(_ brand: String, _ volume: Int, _ price: Int, _ productName: String, _ manufacturedDate: Date, _ expirationDate: Date, _ calories: Int, _ menuType: VendingMachine.Menu) {
+    init(_ brand: String, _ volume: Int, _ price: Int, _ productName: String,
+         _ manufacturedDate: Date, _ expirationDate: Date, _ calories: Int, _ menuType: VendingMachine.Menu) {
         self.brand = brand
         self.volume = volume
         self.price = price
@@ -55,5 +56,4 @@ class Beverage: Product, CustomStringConvertible {
         dateFormatter.setLocalizedDateFormatFromTemplate("YYYYMMdd")
         return "\(brand), \(volume)ml, \(price)원, \(productName), \(dateFormatter.string(from: manufacturedDate))"
     }
-    
 }

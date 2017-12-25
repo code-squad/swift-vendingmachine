@@ -12,7 +12,9 @@ class Milk: Beverage {
     // 우유 농장 코드, 뜨거운음료여부, 포장재질, 유통기한, 칼로리
     private let manufacturerCode: Int
     private let packingMaterial: String
-    init(_ brand: String, _ volume: Int, _ price: Int, _ productName: String, _ manufacturedDate: Date, _ expirationDate: Date, _ calories: Int, _ menuType: VendingMachine.Menu, manufacturerCode: Int, packingMaterial: String) {
+    init(_ brand: String, _ volume: Int, _ price: Int, _ productName: String,
+         _ manufacturedDate: Date, _ expirationDate: Date, _ calories: Int,
+         _ menuType: VendingMachine.Menu, manufacturerCode: Int, packingMaterial: String) {
         self.manufacturerCode = manufacturerCode
         self.packingMaterial = packingMaterial
         super.init(brand, volume, price, productName, manufacturedDate, expirationDate, calories, menuType)
@@ -25,5 +27,4 @@ class Milk: Beverage {
     override func isLowCalorie() -> Bool {
         return super.calories < 150
     }
-    
 }
