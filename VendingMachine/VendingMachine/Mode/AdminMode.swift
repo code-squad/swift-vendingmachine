@@ -121,7 +121,7 @@ private extension AdminMode {
         let stock = machine.checkTheStock()
         if isStockEmpty(stock) {
             screen += "(재고없음)\n"
-        }else {
+        } else {
             for menu in MachineType.MenuType.allValues {
                 // 현재 메뉴의 재고.
                 guard let stock = stock.filter({ $0.key == menu })[menu] else { break }

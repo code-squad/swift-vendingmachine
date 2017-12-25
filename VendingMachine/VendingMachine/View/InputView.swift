@@ -44,5 +44,4 @@ class InputView {
         case .exit: return nil
         }
     }
-    
 }

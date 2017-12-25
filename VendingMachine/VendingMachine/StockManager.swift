@@ -46,7 +46,8 @@ class StockManager<MachineType: Machine, ProductType: Product> {
     func showExpiredList(on checkingDay: Date) -> [ProductType.MenuType:Stock] {
         var expiredList: [ProductType.MenuType:Stock] = [:]
         // 현재 자판기 내 음료수 중
-        for product in machine as! [ProductType] {
+        guard let machine = machine as? [ProductType] else { return [:] }
+        for product in machine {
             // 유통기한이 현재 날짜 기준으로 지난 경우,
             guard product.isExpired(with: checkingDay) else { continue }
             // 리스트에 해당 음료수의 이름과 개수 기록.
@@ -65,7 +66,9 @@ class StockManager<MachineType: Machine, ProductType: Product> {
         // 음료수를 빼먹은 경우, 구입 이력 생성 및 기록.
         if isPurchased {
             // 현재 구입된 음료수의 구입이력 생성.
-            let purchasedInfo = HistoryInfo(purchasingDate: Date(timeIntervalSinceNow: 0), purchasedMenu: recentChanged.productName, count: 1)
+            let purchasedInfo = HistoryInfo(purchasingDate: Date(timeIntervalSinceNow: 0),
+                                            purchasedMenu: recentChanged.productName,
+                                            count: 1)
             // 기록.
             purchasedHistory.append(purchasedInfo)
         }

@@ -142,7 +142,8 @@ extension VendingMachine: Managable {
 extension VendingMachine: UserServable {
     // 주화 삽입.
     func insertMoney<MachineType>(_ money: MoneyManager<MachineType>.Unit) {
-        moneyManager.insert(money: money as! MoneyManager<VendingMachine>.Unit)
+        guard let moneyUnit = money as? MoneyManager<VendingMachine>.Unit else { return }
+        moneyManager.insert(money: moneyUnit)
     }
 
     // 구매가능한 음료 중 선택한 음료수를 반환.
@@ -156,11 +157,9 @@ extension VendingMachine: UserServable {
 
     // 자판기 인벤토리에서 특정 메뉴의 음료수를 반환.
     private func pop(_ menu: MenuType) -> Beverage? {
-        for (position, beverage) in inventory.enumerated() {
-            if menu == beverage.menuType {
-                self.recentChanged = beverage
-                return inventory.remove(at: position)
-            }
+        for (position, beverage) in inventory.enumerated() where menu == beverage.menuType {
+            self.recentChanged = beverage
+            return inventory.remove(at: position)
         }
         return nil
     }

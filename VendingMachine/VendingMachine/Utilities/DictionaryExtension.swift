@@ -18,10 +18,10 @@ extension Dictionary where Value == Int {
             // isAdded 상태에 따라 +/-1
             if isAdded {
                 newValue = prevNumberCount+1
-            }else {
+            } else {
                 newValue = prevNumberCount-1
             }
-        }else {
+        } else {
             // 첫 값인 경우, 해당 키의 값에 1 저장.
             newValue = 1
         }

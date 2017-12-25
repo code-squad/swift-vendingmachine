@@ -63,7 +63,8 @@ private extension UserMode {
 
     // 화폐 삽입 시 결과 표시.
     func performInsert(_ arguments: [Argument]) -> String? {
-        guard let numberOfCoins = arguments.first, let insertedCoin = MoneyManager<MachineType>.Unit(rawValue: numberOfCoins) else { return nil }
+        guard let numberOfCoins = arguments.first,
+            let insertedCoin = MoneyManager<MachineType>.Unit(rawValue: numberOfCoins) else { return nil }
         machine.insertMoney(insertedCoin)
         return "\n\(insertedCoin.rawValue)원이 삽입되었습니다."
     }
@@ -84,7 +85,7 @@ private extension UserMode {
         screen += "현재 투입한 금액이 \(machine.showBalance())원입니다.\n"
         if isStockEmpty() {
             screen += "재고가 하나도 없습니다. 관리자모드에서 재고를 먼저 추가해주세요.\n"
-        }else {
+        } else {
             screen += "다음과 같은 음료가 있습니다.\n"
             screen += showMenus()
             for inputMenu in Modes.allValues {
@@ -106,7 +107,7 @@ private extension UserMode {
         var screen = ""
         if machine.showBalance() == 0 {
             screen += showDefaultMenus()
-        }else {
+        } else {
             screen += showMenusInOrder()
         }
         return screen

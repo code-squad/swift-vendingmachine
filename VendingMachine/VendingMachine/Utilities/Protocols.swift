@@ -55,7 +55,6 @@ protocol UserServable: Machine {
 
 protocol ActivateMode {
     func prompt() -> [Argument]?
-    
     func perform(_ arguments: [Argument]) -> String?
 }
 
