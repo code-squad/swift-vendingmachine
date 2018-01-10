@@ -9,13 +9,28 @@
 import Foundation
 
 class Milk: Beverage {
+    enum Menu: Int, CustomStringConvertible {
+        case Strawberry, Choco, Banana
+        var description: String {
+            switch self {
+            case .Strawberry:
+                return "딸기우유"
+            case .Choco:
+                return "초코우유"
+            case .Banana:
+                return "바나나우유"
+            }
+        }
+    }
+    var menu: Menu
     var brand: String
     var weight: Int
     var price: Int
     var name: String
     var manufactureDate: Date
     
-    init(brand: String, weight: Int, price: Int, name: String, manufactureDate: Date) {
+    init(menu: Menu, brand: String, weight: Int, price: Int, name: String, manufactureDate: Date) {
+        self.menu = menu
         self.brand = brand
         self.weight = weight
         self.price = price
