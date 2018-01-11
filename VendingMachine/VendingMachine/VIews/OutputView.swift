@@ -9,9 +9,9 @@
 import Foundation
 
 struct OutputView {
-    private let printingData: [OutputPrintable]
+    private let printingData: [CustomStringConvertible]
     
-    init(data: [OutputPrintable]) {
+    init(data: [CustomStringConvertible]) {
         self.printingData = data
     }
     
