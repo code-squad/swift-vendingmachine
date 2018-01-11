@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Beverage: TypeName, OutputPrintable {
+class Beverage: TypeName, CustomStringConvertible {
     private let brand: String
     private let volume: Int
     private let price: Int
@@ -37,8 +37,4 @@ class Beverage: TypeName, OutputPrintable {
     func isLowCalorie() -> Bool {
         return self.calorie <= 200
     }
-}
-
-protocol OutputPrintable: CustomStringConvertible {
-    var description: String { get }
 }
