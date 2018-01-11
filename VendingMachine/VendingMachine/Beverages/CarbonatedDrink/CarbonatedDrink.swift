@@ -12,7 +12,7 @@ class CarbonatedDrink: Beverage {
     private let carbonicAcid: String
 
     init(brand: String, volume: Int, price: Int, productName: String, expiryDate: Date, calorie: Int, carbonicAcid: String) {
-        self.carbonicAcid = "탄산없음"
+        self.carbonicAcid = carbonicAcid
         super.init(brand: brand, volume: volume, price: price, productName: productName, expiryDate: expiryDate, calorie: calorie)
     }
 }
