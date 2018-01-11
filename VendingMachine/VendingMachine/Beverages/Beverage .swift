@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Beverage: ResultPrintable {
+class Beverage: OutputPrintable {
     private let brand: String
     private let volume: Int
     private let price: Int
@@ -27,4 +27,8 @@ class Beverage: ResultPrintable {
         let dateFormatter = DateUtility.formatDate(format: "yyyyMMdd")
         return "\(self.brand), \(self.volume)ml, \(self.price)원, \(self.productName), \(dateFormatter.string(from: self.expiryDate))"
     }
+}
+
+protocol OutputPrintable: CustomStringConvertible {
+    var description: String { get }
 }
