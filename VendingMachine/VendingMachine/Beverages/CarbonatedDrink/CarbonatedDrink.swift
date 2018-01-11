@@ -9,31 +9,10 @@
 import Foundation
 
 class CarbonatedDrink: Beverage {
-    private let menu: Menu
-    
-    init(_ menu: Menu, _ brand: String, _ volume: Int, _ price: Int, _ productName: String, _ expiryDate: Date) {
-        self.menu = menu
-        super.init(brand: brand, volume: volume, price: price, productName: productName, expiryDate: expiryDate)
-    }
-    
-    override var description: String {
-        return "\(self.menu.description) - \(super.description)"
-    }
-}
+    private let carbonicAcid: String
 
-extension CarbonatedDrink {
-    enum Menu: CustomStringConvertible {
-        case cola, sprite, fanta
-        
-        var description: String {
-            switch self {
-            case .cola:
-                return "콜라"
-            case .sprite:
-                return "스프라이트"
-            case .fanta:
-                return "환타"
-            }
-        }
+    init(brand: String, volume: Int, price: Int, productName: String, expiryDate: Date, calorie: Int, carbonicAcid: String) {
+        self.carbonicAcid = "탄산없음"
+        super.init(brand: brand, volume: volume, price: price, productName: productName, expiryDate: expiryDate, calorie: calorie)
     }
 }
