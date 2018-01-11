@@ -18,6 +18,11 @@
 		450A436320077AA3006A0CE9 /* Kantata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450A436220077AA3006A0CE9 /* Kantata.swift */; };
 		450A436520077AAC006A0CE9 /* Georgia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450A436420077AAC006A0CE9 /* Georgia.swift */; };
 		450A437120077D8B006A0CE9 /* UnitTestVendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450A437020077D8B006A0CE9 /* UnitTestVendingMachine.swift */; };
+		450A437620078D4C006A0CE9 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F328DC2006599100EC1EE0 /* Beverage.swift */; };
+		450A437720078ECE006A0CE9 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F328DE200670E800EC1EE0 /* Milk.swift */; };
+		450A437820079002006A0CE9 /* StrawberryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450A435420076E2D006A0CE9 /* StrawberryMilk.swift */; };
+		450A437920079005006A0CE9 /* ChocoMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450A435620077A62006A0CE9 /* ChocoMilk.swift */; };
+		450A437A20079007006A0CE9 /* BananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450A435820077A72006A0CE9 /* BananaMilk.swift */; };
 		45F328DD2006599100EC1EE0 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F328DC2006599100EC1EE0 /* Beverage.swift */; };
 		45F328DF200670E800EC1EE0 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F328DE200670E800EC1EE0 /* Milk.swift */; };
 		45F328E12006745F00EC1EE0 /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F328E02006745F00EC1EE0 /* Soda.swift */; };
@@ -248,7 +253,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				450A437620078D4C006A0CE9 /* Beverage.swift in Sources */,
+				450A437820079002006A0CE9 /* StrawberryMilk.swift in Sources */,
+				450A437920079005006A0CE9 /* ChocoMilk.swift in Sources */,
+				450A437720078ECE006A0CE9 /* Milk.swift in Sources */,
 				450A437120077D8B006A0CE9 /* UnitTestVendingMachine.swift in Sources */,
+				450A437A20079007006A0CE9 /* BananaMilk.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
