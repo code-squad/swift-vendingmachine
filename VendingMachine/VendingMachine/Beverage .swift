@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Beverage {
+class Beverage: ResultPrintable {
     private let brand: String
     private let volume: Int
     private let price: Int
