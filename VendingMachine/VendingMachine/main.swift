@@ -9,27 +9,20 @@
 import Foundation
 
 func run() {
-    //    딸기우유 - 서울우유, 200ml, 1000원, 날마다딸기우유, 20171009
-    //    바나나우유 - 서울우유, 200ml, 1000원, 날마다딸기우유, 20171012
-    //    콜라 - 팹시, 350ml, 2000원, 다이어트콜라, 20171005
-    //    커피 - 맥심, 400ml, 3000원, TOP아메리카노, 20171010
     let formatter = DateFormatter()
     formatter.dateFormat = "yyyyMMdd"
     
-    if let date = formatter.date(from: "20161009") {
-        let strawberryMilk = Milk(menu: .Strawberry, brand: "서울우유", weight: 200, price: 1000, name: "날마다딸기우유", manufactureDate: date)
-        print(strawberryMilk.description)
-    }
-    if let date = formatter.date(from: "20171012") {
-        let bananaMilk = Milk(menu: .Banana, brand: "서울우유", weight: 200, price: 1000, name: "날마다딸기우유", manufactureDate: date)
-        print(bananaMilk.description)
-    }
-//    if let date = formatter.date(from: "20161008") {
-//        let menu3 = Soda(menu: , brand: "서울우유", weight: 200, price: 1000, name: "날마다딸기우유", manufactureDate: date)
-//    }
-//    if let date = formatter.date(from: "20161008") {
-//        let menu4 = Coffee(menu: , brand: "서울우유", weight: 200, price: 1000, name: "날마다딸기우유", manufactureDate: date)
-//    }
+    let strawberryMilk = Milk(menu: .Strawberry, brand: "서울우유", weight: 200, price: 1000, name: "날마다딸기우유", manufactureDate: formatter.date(from: "20161009") ?? Date())
+    print(strawberryMilk.description)
+    
+    let bananaMilk = Milk(menu: .Banana, brand: "서울우유", weight: 200, price: 1000, name: "날마다딸기우유", manufactureDate: formatter.date(from: "20171012") ?? Date())
+    print(bananaMilk.description)
+    
+    let coke = Soda(menu: .Coke, brand: "팹시", weight: 350, price: 2000, name: "다이어트콜라", manufactureDate: formatter.date(from: "20171005") ?? Date())
+    print(coke.description)
+    
+    let coffee = Coffee(menu: .Top, brand: "맥심", weight: 400, price: 3000, name: "아메리카노", manufactureDate: formatter.date(from: "20171010") ?? Date()) //nil coalescing optional
+    print(coffee.description)
     
 }
 run()

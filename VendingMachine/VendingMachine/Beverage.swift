@@ -14,7 +14,6 @@ class Beverage: CustomStringConvertible {
     var price: Int
     var name: String
     var manufactureDate: Date
-    
     init(brand: String, weight: Int, price: Int, name: String, manufactureDate: Date) {
         self.brand = brand
         self.weight = weight
