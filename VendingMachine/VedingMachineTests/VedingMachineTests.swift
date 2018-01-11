@@ -21,4 +21,22 @@ class VedingMachineTests: XCTestCase {
         XCTAssertFalse(pepci.isLowCalorie())
     }
     
+    func test_딸기우유_인스턴스_생성() {
+        let today = DateUtility.today()
+        let strawberryMilk = StrawberryMilk(brand: "서울우유", volume: 200, price: 1000, productName: "날마다딸기우유", expiryDate: today, calorie: 250, fatRate: 40)
+        XCTAssertFalse(strawberryMilk.isLowFat())
+    }
+    
+    func test_바나나우유_인스턴스_생성() {
+        let today = DateUtility.today()
+        let bananaMilk = BananaMilk(brand: "서울우유", volume: 200, price: 1000, productName: "날마다바나나우유", expiryDate: today, calorie: 250, fatRate: 20)
+        XCTAssertTrue(bananaMilk.isLowFat())
+    }
+    
+    func test_조지아커피_인스턴스_생성() {
+        let today = DateUtility.today()
+        let georgia = Georgia(brand: "조지아커피", volume: 150, price: 1000, productName: "조지아 아메리카노", expiryDate: today, calorie: 250, temperature: 90)
+        XCTAssertTrue(georgia.isHot())
+    }
+    
 }
