@@ -10,6 +10,7 @@ import Foundation
 
 class StrawberryMilk: Milk {
     var kindOfMilk: String = "딸기우유"
+    var strawberrySyrup: Int = 1
     override init(brand: String, weight: Int, price: Int, name: String, manufactureDate: Date) {
         super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate)
     }
