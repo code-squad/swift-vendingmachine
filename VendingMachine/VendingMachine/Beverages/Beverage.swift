@@ -8,34 +8,13 @@
 
 import Foundation
 
-class Beverage: OutputPrintable {
+class Beverage: TypeName, OutputPrintable {
     private let brand: String
     private let volume: Int
     private let price: Int
     private let productName: String
     private let expiryDate: Date
-    private let temperature: Int
     private let calorie: Int
-    
-    init(brand: String, volume: Int, price: Int, productName: String, expiryDate: Date) {
-        self.brand = brand
-        self.volume = volume
-        self.price = price
-        self.productName = productName
-        self.expiryDate = expiryDate
-        self.temperature = 0
-        self.calorie = 0
-    }
-    
-    init(brand: String, volume: Int, price: Int, productName: String, expiryDate: Date, temperature: Int) {
-        self.brand = brand
-        self.volume = volume
-        self.price = price
-        self.productName = productName
-        self.expiryDate = expiryDate
-        self.temperature = temperature
-        self.calorie = 0
-    }
     
     init(brand: String, volume: Int, price: Int, productName: String, expiryDate: Date, calorie: Int) {
         self.brand = brand
@@ -43,17 +22,6 @@ class Beverage: OutputPrintable {
         self.price = price
         self.productName = productName
         self.expiryDate = expiryDate
-        self.temperature = 0
-        self.calorie = calorie
-    }
-    
-    init(brand: String, volume: Int, price: Int, productName: String, expiryDate: Date, temperature: Int, calorie: Int) {
-        self.brand = brand
-        self.volume = volume
-        self.price = price
-        self.productName = productName
-        self.expiryDate = expiryDate
-        self.temperature = temperature
         self.calorie = calorie
     }
     
@@ -64,10 +32,6 @@ class Beverage: OutputPrintable {
     
     func isExpired(with date: Date) -> Bool {
         return date <= self.expiryDate
-    }
-
-    func isHot() -> Bool {
-        return self.temperature > 60
     }
     
     func isLowCalorie() -> Bool {
