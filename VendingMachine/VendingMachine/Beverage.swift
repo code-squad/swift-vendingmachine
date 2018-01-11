@@ -8,10 +8,21 @@
 
 import Foundation
 
-protocol Beverage {
-    var brand: String {get set}
-    var weight: Int {get set}
-    var price: Int {get set}
-    var name: String {get set}
-    var manufactureDate: Date {get set}
+class Beverage: CustomStringConvertible {
+    var brand: String
+    var weight: Int
+    var price: Int
+    var name: String
+    var manufactureDate: Date
+    
+    init(brand: String, weight: Int, price: Int, name: String, manufactureDate: Date) {
+        self.brand = brand
+        self.weight = weight
+        self.price = price
+        self.name = name
+        self.manufactureDate = manufactureDate
+    }
+    var description: String {
+        return "\(self.brand), \(self.weight)ml, \(self.price)원, \(self.name), \(self.manufactureDate)"
+    }
 }
