@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Coffee: Beverage { 
+class Coffee: Beverage, CustomStringConvertible {
     enum Menu: Int, CustomStringConvertible {
         case Top, Kantata, Georgia
         var description: String {
@@ -36,5 +36,8 @@ class Coffee: Beverage {
         self.price = price
         self.name = name
         self.manufactureDate = manufactureDate
+    }
+    var description: String {
+        return "\(self.menu) - \(self.brand), \(self.weight)ml, \(self.price)원, \(self.name), \(self.manufactureDate)"
     }
 }
