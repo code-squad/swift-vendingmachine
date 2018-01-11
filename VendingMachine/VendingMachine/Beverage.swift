@@ -20,9 +20,12 @@ class Beverage: CustomStringConvertible {
         self.weight = weight
         self.price = price
         self.name = name
-        self.manufactureDate = manufactureDate
+        self.manufactureDate = manufactureDate.addingTimeInterval(21600)
     }
     var description: String {
-        return "\(self.brand), \(self.weight)ml, \(self.price)원, \(self.name), \(self.manufactureDate)"
+        let dateFormat = DateFormatter()
+        dateFormat.dateFormat = "yyyyMMdd"
+        let manufactureDateByFormat = dateFormat.string(from: self.manufactureDate as Date)
+        return "\(self.brand), \(self.weight)ml, \(self.price)원, \(self.name), \(manufactureDateByFormat)"
     }
 }
