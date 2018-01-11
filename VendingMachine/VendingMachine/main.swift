@@ -9,7 +9,7 @@
 import Foundation
 
 func main() {
-    let printingData = InputView.makeIntances()
+    let printingData = BeverageData.makeIntances()
     OutputView(data: printingData).printResult()
 }
 
