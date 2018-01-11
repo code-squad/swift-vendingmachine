@@ -8,8 +8,9 @@
 
 import Foundation
 
-class Coffee: Beverage {
-    enum Menu: Int, CustomStringConvertible {
+class Coffee: Beverage, BeverageMenu {
+    typealias T = CoffeeMenu
+    enum CoffeeMenu: Int, CustomStringConvertible {
         case Top, Kantata, Georgia
         var description: String {
             switch self {
@@ -22,8 +23,8 @@ class Coffee: Beverage {
             }
         }
     }
-    var menu: Menu
-    init(menu: Menu, brand: String, weight: Int, price: Int, name: String, manufactureDate: Date) {
+    var menu: CoffeeMenu
+    init(menu: CoffeeMenu, brand: String, weight: Int, price: Int, name: String, manufactureDate: Date) {
         self.menu = menu
         super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate)
     }
