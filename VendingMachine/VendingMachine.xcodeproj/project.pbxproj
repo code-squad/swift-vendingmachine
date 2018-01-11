@@ -13,6 +13,7 @@
 		876E463320048DB10073FABB /* DateUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876E463220048DB10073FABB /* DateUtility.swift */; };
 		876E46372004956A0073FABB /* CarbonatedDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876E46362004956A0073FABB /* CarbonatedDrink.swift */; };
 		876E463920049B720073FABB /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876E463820049B720073FABB /* Coffee.swift */; };
+		87D79EAF20070E5F00A3A4FE /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D79EAE20070E5F00A3A4FE /* OutputView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,6 +36,7 @@
 		876E463220048DB10073FABB /* DateUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtility.swift; sourceTree = "<group>"; };
 		876E46362004956A0073FABB /* CarbonatedDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonatedDrink.swift; sourceTree = "<group>"; };
 		876E463820049B720073FABB /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
+		87D79EAE20070E5F00A3A4FE /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
 				876E4630200485720073FABB /* Milk.swift */,
 				876E463820049B720073FABB /* Coffee.swift */,
+				87D79EAE20070E5F00A3A4FE /* OutputView.swift */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";
@@ -137,6 +140,7 @@
 			files = (
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
 				876E462F200484770073FABB /* Beverage .swift in Sources */,
+				87D79EAF20070E5F00A3A4FE /* OutputView.swift in Sources */,
 				876E463320048DB10073FABB /* DateUtility.swift in Sources */,
 				876E46372004956A0073FABB /* CarbonatedDrink.swift in Sources */,
 				876E4631200485720073FABB /* Milk.swift in Sources */,
