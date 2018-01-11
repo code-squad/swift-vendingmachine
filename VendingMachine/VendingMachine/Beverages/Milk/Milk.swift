@@ -9,31 +9,14 @@
 import Foundation
 
 class Milk: Beverage {
-    private let menu: Menu
+    private let fatRate: Int
     
-    init(_ menu: Menu, _ brand: String, _ volume: Int, _ price: Int, _ productName: String, _ expiryDate: Date) {
-        self.menu = menu
-        super.init(brand: brand, volume: volume, price: price, productName: productName, expiryDate: expiryDate)
+    init(brand: String, volume: Int, price: Int, productName: String, expiryDate: Date, calorie: Int, fatRate: Int) {
+        self.fatRate = fatRate
+        super.init(brand: brand, volume: volume, price: price, productName: productName, expiryDate: expiryDate, calorie: calorie)
     }
     
-    override var description: String {
-        return "\(self.menu.description) - \(super.description)"
-    }
-}
-
-extension Milk {
-    enum Menu: CustomStringConvertible {
-        case banana, strawberry, choco
-        
-        var description: String {
-            switch self {
-            case .banana:
-                return "바나나우유"
-            case .strawberry:
-                return "딸기우유"
-            case .choco:
-                return "초코우유"
-            }
-        }
+    func isLowFat() -> Bool {
+        return self.fatRate <= 30
     }
 }
