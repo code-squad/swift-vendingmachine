@@ -17,6 +17,7 @@
 		450A436120077A98006A0CE9 /* Top.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450A436020077A98006A0CE9 /* Top.swift */; };
 		450A436320077AA3006A0CE9 /* Kantata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450A436220077AA3006A0CE9 /* Kantata.swift */; };
 		450A436520077AAC006A0CE9 /* Georgia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450A436420077AAC006A0CE9 /* Georgia.swift */; };
+		450A437120077D8B006A0CE9 /* UnitTestVendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450A437020077D8B006A0CE9 /* UnitTestVendingMachine.swift */; };
 		45F328DD2006599100EC1EE0 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F328DC2006599100EC1EE0 /* Beverage.swift */; };
 		45F328DF200670E800EC1EE0 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F328DE200670E800EC1EE0 /* Milk.swift */; };
 		45F328E12006745F00EC1EE0 /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F328E02006745F00EC1EE0 /* Soda.swift */; };
@@ -47,6 +48,9 @@
 		450A436020077A98006A0CE9 /* Top.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top.swift; sourceTree = "<group>"; };
 		450A436220077AA3006A0CE9 /* Kantata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kantata.swift; sourceTree = "<group>"; };
 		450A436420077AAC006A0CE9 /* Georgia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Georgia.swift; sourceTree = "<group>"; };
+		450A436E20077D8B006A0CE9 /* UnitTestVendingMachine.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTestVendingMachine.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		450A437020077D8B006A0CE9 /* UnitTestVendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestVendingMachine.swift; sourceTree = "<group>"; };
+		450A437220077D8B006A0CE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45F328DC2006599100EC1EE0 /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 		45F328DE200670E800EC1EE0 /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 		45F328E02006745F00EC1EE0 /* Soda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soda.swift; sourceTree = "<group>"; };
@@ -56,6 +60,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		450A436B20077D8B006A0CE9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		839DA9061F8D1F95009E05F3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -66,10 +77,60 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		450A436620077BE7006A0CE9 /* BeverageGroup */ = {
+			isa = PBXGroup;
+			children = (
+				45F328DE200670E800EC1EE0 /* Milk.swift */,
+				45F328E02006745F00EC1EE0 /* Soda.swift */,
+				45F328E2200674D400EC1EE0 /* Coffee.swift */,
+			);
+			path = BeverageGroup;
+			sourceTree = "<group>";
+		};
+		450A436720077C30006A0CE9 /* MilkGroup */ = {
+			isa = PBXGroup;
+			children = (
+				450A435420076E2D006A0CE9 /* StrawberryMilk.swift */,
+				450A435620077A62006A0CE9 /* ChocoMilk.swift */,
+				450A435820077A72006A0CE9 /* BananaMilk.swift */,
+			);
+			path = MilkGroup;
+			sourceTree = "<group>";
+		};
+		450A436820077C82006A0CE9 /* SodaGroup */ = {
+			isa = PBXGroup;
+			children = (
+				450A435A20077A7F006A0CE9 /* Coke.swift */,
+				450A435C20077A88006A0CE9 /* Sprite.swift */,
+				450A435E20077A90006A0CE9 /* Fanta.swift */,
+			);
+			path = SodaGroup;
+			sourceTree = "<group>";
+		};
+		450A436920077C99006A0CE9 /* CoffeeGroup */ = {
+			isa = PBXGroup;
+			children = (
+				450A436420077AAC006A0CE9 /* Georgia.swift */,
+				450A436020077A98006A0CE9 /* Top.swift */,
+				450A436220077AA3006A0CE9 /* Kantata.swift */,
+			);
+			path = CoffeeGroup;
+			sourceTree = "<group>";
+		};
+		450A436F20077D8B006A0CE9 /* UnitTestVendingMachine */ = {
+			isa = PBXGroup;
+			children = (
+				450A437020077D8B006A0CE9 /* UnitTestVendingMachine.swift */,
+				450A437220077D8B006A0CE9 /* Info.plist */,
+			);
+			path = UnitTestVendingMachine;
+			sourceTree = "<group>";
+		};
 		839DA9001F8D1F95009E05F3 = {
 			isa = PBXGroup;
 			children = (
 				839DA90B1F8D1F95009E05F3 /* VendingMachine */,
+				450A436F20077D8B006A0CE9 /* UnitTestVendingMachine */,
 				839DA90A1F8D1F95009E05F3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -78,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				839DA9091F8D1F95009E05F3 /* VendingMachine */,
+				450A436E20077D8B006A0CE9 /* UnitTestVendingMachine.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -85,21 +147,13 @@
 		839DA90B1F8D1F95009E05F3 /* VendingMachine */ = {
 			isa = PBXGroup;
 			children = (
+				450A436920077C99006A0CE9 /* CoffeeGroup */,
+				450A436820077C82006A0CE9 /* SodaGroup */,
+				450A436720077C30006A0CE9 /* MilkGroup */,
+				450A436620077BE7006A0CE9 /* BeverageGroup */,
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
 				45F328DC2006599100EC1EE0 /* Beverage.swift */,
-				45F328DE200670E800EC1EE0 /* Milk.swift */,
-				45F328E02006745F00EC1EE0 /* Soda.swift */,
-				45F328E2200674D400EC1EE0 /* Coffee.swift */,
 				450A435220072F96006A0CE9 /* BeverageMenu.swift */,
-				450A435420076E2D006A0CE9 /* StrawberryMilk.swift */,
-				450A435620077A62006A0CE9 /* ChocoMilk.swift */,
-				450A435820077A72006A0CE9 /* BananaMilk.swift */,
-				450A435A20077A7F006A0CE9 /* Coke.swift */,
-				450A435C20077A88006A0CE9 /* Sprite.swift */,
-				450A435E20077A90006A0CE9 /* Fanta.swift */,
-				450A436020077A98006A0CE9 /* Top.swift */,
-				450A436220077AA3006A0CE9 /* Kantata.swift */,
-				450A436420077AAC006A0CE9 /* Georgia.swift */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";
@@ -107,6 +161,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		450A436D20077D8B006A0CE9 /* UnitTestVendingMachine */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 450A437320077D8B006A0CE9 /* Build configuration list for PBXNativeTarget "UnitTestVendingMachine" */;
+			buildPhases = (
+				450A436A20077D8B006A0CE9 /* Sources */,
+				450A436B20077D8B006A0CE9 /* Frameworks */,
+				450A436C20077D8B006A0CE9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UnitTestVendingMachine;
+			productName = UnitTestVendingMachine;
+			productReference = 450A436E20077D8B006A0CE9 /* UnitTestVendingMachine.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		839DA9081F8D1F95009E05F3 /* VendingMachine */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 839DA9101F8D1F95009E05F3 /* Build configuration list for PBXNativeTarget "VendingMachine" */;
@@ -130,10 +201,14 @@
 		839DA9011F8D1F95009E05F3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0900;
+				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = JK;
 				TargetAttributes = {
+					450A436D20077D8B006A0CE9 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
 					839DA9081F8D1F95009E05F3 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
@@ -153,11 +228,30 @@
 			projectRoot = "";
 			targets = (
 				839DA9081F8D1F95009E05F3 /* VendingMachine */,
+				450A436D20077D8B006A0CE9 /* UnitTestVendingMachine */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		450A436C20077D8B006A0CE9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		450A436A20077D8B006A0CE9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				450A437120077D8B006A0CE9 /* UnitTestVendingMachine.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		839DA9051F8D1F95009E05F3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -183,6 +277,34 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		450A437420077D8B006A0CE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = UnitTestVendingMachine/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = codesquad.UnitTestVendingMachine;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		450A437520077D8B006A0CE9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = UnitTestVendingMachine/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = codesquad.UnitTestVendingMachine;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
 		839DA90E1F8D1F95009E05F3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -312,6 +434,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		450A437320077D8B006A0CE9 /* Build configuration list for PBXNativeTarget "UnitTestVendingMachine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				450A437420077D8B006A0CE9 /* Debug */,
+				450A437520077D8B006A0CE9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		839DA9041F8D1F95009E05F3 /* Build configuration list for PBXProject "VendingMachine" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
