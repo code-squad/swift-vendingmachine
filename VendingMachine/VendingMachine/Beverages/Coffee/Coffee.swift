@@ -9,31 +9,14 @@
 import Foundation
 
 class Coffee: Beverage {
-    private let menu: Menu
+    private let temperature: Int
     
-    init(_ menu: Menu, _ brand: String, _ volume: Int, _ price: Int, _ productName: String, _ expiryDate: Date) {
-        self.menu = menu
-        super.init(brand: brand, volume: volume, price: price, productName: productName, expiryDate: expiryDate)
+    init(brand: String, volume: Int, price: Int, productName: String, expiryDate: Date, calorie: Int, temperature: Int) {
+        self.temperature = temperature
+        super.init(brand: brand, volume: volume, price: price, productName: productName, expiryDate: expiryDate, calorie: calorie)
     }
     
-    override var description: String {
-        return "\(self.menu.description) - \(super.description)"
-    }
-}
-
-extension Coffee {
-    enum Menu: CustomStringConvertible {
-        case cantata, top, georgia
-        
-        var description: String {
-            switch self {
-            case .cantata:
-                return "칸타타"
-            case .top:
-                return "TOP"
-            case .georgia:
-                return "조지아"
-            }
-        }
+    func isHot() -> Bool {
+        return self.temperature > 50
     }
 }

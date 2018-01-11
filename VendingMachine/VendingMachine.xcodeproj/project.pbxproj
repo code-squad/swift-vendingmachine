@@ -24,6 +24,14 @@
 		87D79EC920072AAF00A3A4FE /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876E463820049B720073FABB /* Coffee.swift */; };
 		87D79ECB20073A3E00A3A4FE /* Pepci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D79ECA20073A3E00A3A4FE /* Pepci.swift */; };
 		87D79ECC20073A3E00A3A4FE /* Pepci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D79ECA20073A3E00A3A4FE /* Pepci.swift */; };
+		87D79ECE200745B500A3A4FE /* StrawberryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D79ECD200745B500A3A4FE /* StrawberryMilk.swift */; };
+		87D79ECF200745B500A3A4FE /* StrawberryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D79ECD200745B500A3A4FE /* StrawberryMilk.swift */; };
+		87D79ED120074E3400A3A4FE /* BananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D79ED020074E3400A3A4FE /* BananaMilk.swift */; };
+		87D79ED220074E3400A3A4FE /* BananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D79ED020074E3400A3A4FE /* BananaMilk.swift */; };
+		87D79ED420074FF900A3A4FE /* Georgia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D79ED320074FF900A3A4FE /* Georgia.swift */; };
+		87D79ED520074FF900A3A4FE /* Georgia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D79ED320074FF900A3A4FE /* Georgia.swift */; };
+		87D79ED82007526D00A3A4FE /* CustomExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D79ED72007526D00A3A4FE /* CustomExtension.swift */; };
+		87D79ED92007526D00A3A4FE /* CustomExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D79ED72007526D00A3A4FE /* CustomExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -52,6 +60,10 @@
 		87D79EBE200726A700A3A4FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87D79EC220072A9200A3A4FE /* CocaCola.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocaCola.swift; sourceTree = "<group>"; };
 		87D79ECA20073A3E00A3A4FE /* Pepci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pepci.swift; sourceTree = "<group>"; };
+		87D79ECD200745B500A3A4FE /* StrawberryMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrawberryMilk.swift; sourceTree = "<group>"; };
+		87D79ED020074E3400A3A4FE /* BananaMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaMilk.swift; sourceTree = "<group>"; };
+		87D79ED320074FF900A3A4FE /* Georgia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Georgia.swift; sourceTree = "<group>"; };
+		87D79ED72007526D00A3A4FE /* CustomExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +105,7 @@
 		839DA90B1F8D1F95009E05F3 /* VendingMachine */ = {
 			isa = PBXGroup;
 			children = (
+				87D79ED62007525600A3A4FE /* Extensions */,
 				87D79EB52007263A00A3A4FE /* VIews */,
 				87D79EB42007260900A3A4FE /* Utilities */,
 				87D79EB02007255A00A3A4FE /* Beverages */,
@@ -116,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				876E463820049B720073FABB /* Coffee.swift */,
+				87D79ED320074FF900A3A4FE /* Georgia.swift */,
 			);
 			path = Coffee;
 			sourceTree = "<group>";
@@ -124,6 +138,8 @@
 			isa = PBXGroup;
 			children = (
 				876E4630200485720073FABB /* Milk.swift */,
+				87D79ECD200745B500A3A4FE /* StrawberryMilk.swift */,
+				87D79ED020074E3400A3A4FE /* BananaMilk.swift */,
 			);
 			path = Milk;
 			sourceTree = "<group>";
@@ -161,6 +177,14 @@
 				87D79EBE200726A700A3A4FE /* Info.plist */,
 			);
 			path = VedingMachineTests;
+			sourceTree = "<group>";
+		};
+		87D79ED62007525600A3A4FE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				87D79ED72007526D00A3A4FE /* CustomExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,11 +279,15 @@
 			files = (
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
 				876E462F200484770073FABB /* Beverage.swift in Sources */,
+				87D79ED420074FF900A3A4FE /* Georgia.swift in Sources */,
+				87D79ECE200745B500A3A4FE /* StrawberryMilk.swift in Sources */,
 				87D79EAF20070E5F00A3A4FE /* OutputView.swift in Sources */,
 				87D79ECB20073A3E00A3A4FE /* Pepci.swift in Sources */,
 				876E463320048DB10073FABB /* DateUtility.swift in Sources */,
+				87D79ED120074E3400A3A4FE /* BananaMilk.swift in Sources */,
 				876E46372004956A0073FABB /* CarbonatedDrink.swift in Sources */,
 				876E4631200485720073FABB /* Milk.swift in Sources */,
+				87D79ED82007526D00A3A4FE /* CustomExtension.swift in Sources */,
 				87D79EC320072A9200A3A4FE /* CocaCola.swift in Sources */,
 				876E463920049B720073FABB /* Coffee.swift in Sources */,
 			);
@@ -269,8 +297,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87D79ED92007526D00A3A4FE /* CustomExtension.swift in Sources */,
+				87D79ECF200745B500A3A4FE /* StrawberryMilk.swift in Sources */,
+				87D79ED220074E3400A3A4FE /* BananaMilk.swift in Sources */,
 				87D79EC420072A9200A3A4FE /* CocaCola.swift in Sources */,
 				87D79EC520072A9800A3A4FE /* DateUtility.swift in Sources */,
+				87D79ED520074FF900A3A4FE /* Georgia.swift in Sources */,
 				87D79ECC20073A3E00A3A4FE /* Pepci.swift in Sources */,
 				87D79EC620072AA300A3A4FE /* Beverage.swift in Sources */,
 				87D79EC720072AA500A3A4FE /* CarbonatedDrink.swift in Sources */,
