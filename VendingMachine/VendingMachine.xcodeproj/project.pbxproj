@@ -80,6 +80,9 @@
 		450A436620077BE7006A0CE9 /* BeverageGroup */ = {
 			isa = PBXGroup;
 			children = (
+				450A436720077C30006A0CE9 /* MilkGroup */,
+				450A436920077C99006A0CE9 /* CoffeeGroup */,
+				450A436820077C82006A0CE9 /* SodaGroup */,
 				45F328DE200670E800EC1EE0 /* Milk.swift */,
 				45F328E02006745F00EC1EE0 /* Soda.swift */,
 				45F328E2200674D400EC1EE0 /* Coffee.swift */,
@@ -147,9 +150,6 @@
 		839DA90B1F8D1F95009E05F3 /* VendingMachine */ = {
 			isa = PBXGroup;
 			children = (
-				450A436920077C99006A0CE9 /* CoffeeGroup */,
-				450A436820077C82006A0CE9 /* SodaGroup */,
-				450A436720077C30006A0CE9 /* MilkGroup */,
 				450A436620077BE7006A0CE9 /* BeverageGroup */,
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
 				45F328DC2006599100EC1EE0 /* Beverage.swift */,
