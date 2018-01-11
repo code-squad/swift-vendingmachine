@@ -8,19 +8,15 @@
 
 import Foundation
 
-protocol ResultPrintable: CustomStringConvertible {
-    var description: String { get }
-}
-
 struct OutputView {
-    private let printData: [ResultPrintable]
+    private let printingData: [OutputPrintable]
     
-    init(data: [ResultPrintable]) {
-        self.printData = data
+    init(data: [OutputPrintable]) {
+        self.printingData = data
     }
     
     func printResult() {
-        for data in printData {
+        for data in printingData {
             print(data.description)
         }
     }

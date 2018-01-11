@@ -69,15 +69,63 @@
 		839DA90B1F8D1F95009E05F3 /* VendingMachine */ = {
 			isa = PBXGroup;
 			children = (
-				876E462E200484770073FABB /* Beverage .swift */,
-				876E46362004956A0073FABB /* CarbonatedDrink.swift */,
-				876E463220048DB10073FABB /* DateUtility.swift */,
+				87D79EB52007263A00A3A4FE /* VIews */,
+				87D79EB42007260900A3A4FE /* Utilities */,
+				87D79EB02007255A00A3A4FE /* Beverages */,
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
-				876E4630200485720073FABB /* Milk.swift */,
-				876E463820049B720073FABB /* Coffee.swift */,
-				87D79EAE20070E5F00A3A4FE /* OutputView.swift */,
 			);
 			path = VendingMachine;
+			sourceTree = "<group>";
+		};
+		87D79EB02007255A00A3A4FE /* Beverages */ = {
+			isa = PBXGroup;
+			children = (
+				876E462E200484770073FABB /* Beverage .swift */,
+				87D79EB3200725FB00A3A4FE /* CarbonatedDrink */,
+				87D79EB22007256D00A3A4FE /* Milk */,
+				87D79EB12007256700A3A4FE /* Coffee */,
+			);
+			path = Beverages;
+			sourceTree = "<group>";
+		};
+		87D79EB12007256700A3A4FE /* Coffee */ = {
+			isa = PBXGroup;
+			children = (
+				876E463820049B720073FABB /* Coffee.swift */,
+			);
+			path = Coffee;
+			sourceTree = "<group>";
+		};
+		87D79EB22007256D00A3A4FE /* Milk */ = {
+			isa = PBXGroup;
+			children = (
+				876E4630200485720073FABB /* Milk.swift */,
+			);
+			path = Milk;
+			sourceTree = "<group>";
+		};
+		87D79EB3200725FB00A3A4FE /* CarbonatedDrink */ = {
+			isa = PBXGroup;
+			children = (
+				876E46362004956A0073FABB /* CarbonatedDrink.swift */,
+			);
+			path = CarbonatedDrink;
+			sourceTree = "<group>";
+		};
+		87D79EB42007260900A3A4FE /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				876E463220048DB10073FABB /* DateUtility.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		87D79EB52007263A00A3A4FE /* VIews */ = {
+			isa = PBXGroup;
+			children = (
+				87D79EAE20070E5F00A3A4FE /* OutputView.swift */,
+			);
+			path = VIews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
