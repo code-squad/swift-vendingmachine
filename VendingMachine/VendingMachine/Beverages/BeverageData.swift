@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct InputView {
+struct BeverageData {
     static func makeIntances() -> [OutputPrintable] {
         let today = DateUtility.today()
         let cocaCola = CocaCola(brand: "코카콜라", volume: 350, price: 2000, productName: "다이어트콜라", expiryDate: today, calorie: 100, carbonicAcid: "탄산낮음")

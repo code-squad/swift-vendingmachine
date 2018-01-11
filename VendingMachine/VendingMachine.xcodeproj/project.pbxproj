@@ -32,8 +32,8 @@
 		87D79ED520074FF900A3A4FE /* Georgia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D79ED320074FF900A3A4FE /* Georgia.swift */; };
 		87D79ED82007526D00A3A4FE /* CustomExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D79ED72007526D00A3A4FE /* CustomExtension.swift */; };
 		87D79ED92007526D00A3A4FE /* CustomExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D79ED72007526D00A3A4FE /* CustomExtension.swift */; };
-		87D79EDB2007551400A3A4FE /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D79EDA2007551400A3A4FE /* InputView.swift */; };
-		87D79EDC2007551400A3A4FE /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D79EDA2007551400A3A4FE /* InputView.swift */; };
+		87D79EDB2007551400A3A4FE /* BeverageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D79EDA2007551400A3A4FE /* BeverageData.swift */; };
+		87D79EDC2007551400A3A4FE /* BeverageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D79EDA2007551400A3A4FE /* BeverageData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -66,7 +66,7 @@
 		87D79ED020074E3400A3A4FE /* BananaMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaMilk.swift; sourceTree = "<group>"; };
 		87D79ED320074FF900A3A4FE /* Georgia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Georgia.swift; sourceTree = "<group>"; };
 		87D79ED72007526D00A3A4FE /* CustomExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomExtension.swift; sourceTree = "<group>"; };
-		87D79EDA2007551400A3A4FE /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		87D79EDA2007551400A3A4FE /* BeverageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +120,7 @@
 		87D79EB02007255A00A3A4FE /* Beverages */ = {
 			isa = PBXGroup;
 			children = (
+				87D79EDA2007551400A3A4FE /* BeverageData.swift */,
 				876E462E200484770073FABB /* Beverage.swift */,
 				87D79EB3200725FB00A3A4FE /* CarbonatedDrink */,
 				87D79EB22007256D00A3A4FE /* Milk */,
@@ -169,7 +170,6 @@
 			isa = PBXGroup;
 			children = (
 				87D79EAE20070E5F00A3A4FE /* OutputView.swift */,
-				87D79EDA2007551400A3A4FE /* InputView.swift */,
 			);
 			path = VIews;
 			sourceTree = "<group>";
@@ -282,7 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
-				87D79EDB2007551400A3A4FE /* InputView.swift in Sources */,
+				87D79EDB2007551400A3A4FE /* BeverageData.swift in Sources */,
 				876E462F200484770073FABB /* Beverage.swift in Sources */,
 				87D79ED420074FF900A3A4FE /* Georgia.swift in Sources */,
 				87D79ECE200745B500A3A4FE /* StrawberryMilk.swift in Sources */,
@@ -302,7 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87D79EDC2007551400A3A4FE /* InputView.swift in Sources */,
+				87D79EDC2007551400A3A4FE /* BeverageData.swift in Sources */,
 				87D79ED92007526D00A3A4FE /* CustomExtension.swift in Sources */,
 				87D79ECF200745B500A3A4FE /* StrawberryMilk.swift in Sources */,
 				87D79ED220074E3400A3A4FE /* BananaMilk.swift in Sources */,
