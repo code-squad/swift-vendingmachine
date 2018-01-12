@@ -9,8 +9,15 @@
 import Foundation
 
 class BananaMilk: Milk {
-    override init(brand: String, volume: Int, price: Int, productName: String, expiryDate: Date, calorie: Int, fatRate: Int) {
+    private let _smell: String
+    
+    init(brand: String, volume: Int, price: Int, productName: String, expiryDate: Date, calorie: Int, fatRate: Int, smell: String) {
+        self._smell = smell
         super.init(brand: brand, volume: volume, price: price, productName: productName, expiryDate: expiryDate, calorie: calorie, fatRate: fatRate)
+    }
+    
+    var smell: String {
+        return self._smell
     }
     
     override var description: String {
