@@ -11,25 +11,25 @@ import XCTest
 class VedingMachineTests: XCTestCase {
     func test_코카콜라_인스턴스_생성() {
         let today = DateUtility.today()
-        let cocaCola = CocaCola(brand: "코카콜라", volume: 350, price: 2000, productName: "다이어트콜라", expiryDate: today, calorie: 100, carbonicAcid: 30)
+        let cocaCola = CocaCola(brand: "코카콜라", volume: 350, price: 2000, productName: "다이어트콜라", expiryDate: today, calorie: 100, carbonicAcid: 30, packageMaterial: "캔"))
         XCTAssertTrue(cocaCola.isLowCalorie())
     }
 
     func test_펩시_인스턴스_생성() {
         let today = DateUtility.today()
-        let pepci = Pepci(brand: "펩시", volume: 350, price: 2000, productName: "펩시", expiryDate: today, calorie: 250, carbonicAcid: 11)
+        let pepci = Pepci(brand: "펩시", volume: 350, price: 2000, productName: "펩시", expiryDate: today, calorie: 250, carbonicAcid: 11, packageMaterial: "PT"))
         XCTAssertFalse(pepci.isLowCalorie())
     }
     
     func test_딸기우유_인스턴스_생성() {
         let today = DateUtility.today()
-        let strawberryMilk = StrawberryMilk(brand: "서울우유", volume: 200, price: 1000, productName: "날마다딸기우유", expiryDate: today, calorie: 250, fatRate: 40)
+        let strawberryMilk = StrawberryMilk(brand: "서울우유", volume: 200, price: 1000, productName: "날마다딸기우유", expiryDate: today, calorie: 250, fatRate: 40, smell: "딸기향")
         XCTAssertFalse(strawberryMilk.isLowFat())
     }
     
     func test_바나나우유_인스턴스_생성() {
         let today = DateUtility.today()
-        let bananaMilk = BananaMilk(brand: "서울우유", volume: 200, price: 1000, productName: "날마다바나나우유", expiryDate: today, calorie: 250, fatRate: 20)
+        let bananaMilk = BananaMilk(brand: "서울우유", volume: 200, price: 1000, productName: "날마다바나나우유", expiryDate: today, calorie: 250, fatRate: 20, smell: "바나나향")
         XCTAssertTrue(bananaMilk.isLowFat())
     }
     
