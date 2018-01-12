@@ -9,7 +9,7 @@
 import Foundation
 
 class CocaCola: CarbonatedDrink {
-    override init(brand: String, volume: Int, price: Int, productName: String, expiryDate: Date, calorie: Int, carbonicAcid: String) {
+    override init(brand: String, volume: Int, price: Int, productName: String, expiryDate: Date, calorie: Int, carbonicAcid: Int) {
         super.init(brand: brand, volume: volume, price: price, productName: productName, expiryDate: expiryDate, calorie: calorie, carbonicAcid: carbonicAcid)
     }
     
