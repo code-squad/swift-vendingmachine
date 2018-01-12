@@ -27,6 +27,10 @@
 		45EAE246200850C900FAF255 /* Coke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450A435A20077A7F006A0CE9 /* Coke.swift */; };
 		45EAE247200850CC00FAF255 /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450A435C20077A88006A0CE9 /* Sprite.swift */; };
 		45EAE248200850CE00FAF255 /* Fanta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450A435E20077A90006A0CE9 /* Fanta.swift */; };
+		45EAE2492008543600FAF255 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F328E2200674D400EC1EE0 /* Coffee.swift */; };
+		45EAE24A2008567200FAF255 /* Kantata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450A436220077AA3006A0CE9 /* Kantata.swift */; };
+		45EAE24B2008567500FAF255 /* Top.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450A436020077A98006A0CE9 /* Top.swift */; };
+		45EAE24C2008567800FAF255 /* Georgia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450A436420077AAC006A0CE9 /* Georgia.swift */; };
 		45F328DD2006599100EC1EE0 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F328DC2006599100EC1EE0 /* Beverage.swift */; };
 		45F328DF200670E800EC1EE0 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F328DE200670E800EC1EE0 /* Milk.swift */; };
 		45F328E12006745F00EC1EE0 /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F328E02006745F00EC1EE0 /* Soda.swift */; };
@@ -257,9 +261,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45EAE24C2008567800FAF255 /* Georgia.swift in Sources */,
 				45EAE245200850C300FAF255 /* Soda.swift in Sources */,
+				45EAE2492008543600FAF255 /* Coffee.swift in Sources */,
 				45EAE247200850CC00FAF255 /* Sprite.swift in Sources */,
 				450A437620078D4C006A0CE9 /* Beverage.swift in Sources */,
+				45EAE24A2008567200FAF255 /* Kantata.swift in Sources */,
+				45EAE24B2008567500FAF255 /* Top.swift in Sources */,
 				450A437820079002006A0CE9 /* StrawberryMilk.swift in Sources */,
 				450A437920079005006A0CE9 /* ChocoMilk.swift in Sources */,
 				450A437720078ECE006A0CE9 /* Milk.swift in Sources */,
