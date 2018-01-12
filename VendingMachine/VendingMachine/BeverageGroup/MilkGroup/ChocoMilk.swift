@@ -11,10 +11,14 @@ import Foundation
 class ChocoMilk: Milk {
     private var kindOfMilk: String = "초코우유"
     private var cocoaPowder: Double = 1.1
-    override init(brand: String, weight: Int, price: Int, name: String, manufactureDate: Date) {
+    init(brand: String, weight: Int, price: Int, name: String, manufactureDate: Date, cocoaPower: Double) {
         super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate)
     }
     override var description: String {
         return ""
+    }
+    
+    func isDarkChocolate() -> Bool {
+        return self.cocoaPowder > 3.0
     }
 }

@@ -16,5 +16,9 @@ class Soda: Beverage{
     override var description: String {
         return " - \(super.description)"
     }
+    
+    func isSweet() -> Bool {
+        return (self.saccharide > 25)
+    }
 
 }
