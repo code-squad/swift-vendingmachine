@@ -9,7 +9,7 @@
 import XCTest
 
 class UnitTestVendingMachine: XCTestCase {
- /*
+ 
     func test_자판기_음료수_객체만들기_성공() {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyyMMdd"
@@ -235,7 +235,7 @@ class UnitTestVendingMachine: XCTestCase {
         let theBlack = Top(brand: "맥심", weight: 350, price: 2300, name: "TOP더블랙", manufactureDate: formatter.date(from: "20180103") ?? Date(), isHotDrink: false)
         XCTAssertTrue(theBlack.isColdDrink())
     }
-*/
+
     func test_자판기_Kantata_객체만들기_성공() {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyyMMdd"
