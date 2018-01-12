@@ -16,7 +16,7 @@ class Sprite: Soda {
         super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate)
     }
     override var description: String {
-        return ""
+        return "\(self.kindOfSoda)(Sprite)\(super.description)"
     }
     
     func isLemonLimeFlavor() -> Bool {

@@ -16,7 +16,7 @@ class StrawberryMilk: Milk {
         super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate)
     }
     override var description: String {
-        return ""
+        return "\(self.kindOfMilk)(StrawberryMilk)\(super.description)"
     }
     
     func quantityOfstrawberrySyrup() -> Int {
