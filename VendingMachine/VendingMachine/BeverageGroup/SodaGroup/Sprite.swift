@@ -10,7 +10,7 @@ import Foundation
 
 class Sprite: Soda {
     var kindOfSoda: String = "사이다"
-    var flavoringSyrups: Int = 2
+    var flavoringSyrups: String = "레몬라임향"
     override init(brand: String, weight: Int, price: Int, name: String, manufactureDate: Date) {
         super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate)
     }
