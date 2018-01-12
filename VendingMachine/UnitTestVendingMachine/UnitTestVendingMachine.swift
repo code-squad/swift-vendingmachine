@@ -42,6 +42,19 @@ class UnitTestVendingMachine: XCTestCase {
         XCTAssertTrue(sprite.saccharide == 27)
     }
     
+    func test_자판기_커피_객체만들기_성공() {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+        XCTAssertNotNil(Coffee(brand: "맥심", weight: 500, price: 4000, name: "더좋은커피", manufactureDate: formatter.date(from: "20171225") ?? Date()))
+    }
+    
+    func test_자판기_커피_당류_값확인() {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+        let goodCoffee = Coffee(brand: "맥심", weight: 500, price: 4000, name: "원두커피", manufactureDate: formatter.date(from: "20180103") ?? Date())
+        XCTAssertTrue(goodCoffee.caffeineContent == 76)
+    }
+    
     func test_자판기_딸기우유_객체만들기_성공() {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyyMMdd"
@@ -118,6 +131,45 @@ class UnitTestVendingMachine: XCTestCase {
         formatter.dateFormat = "yyyyMMdd"
         let somiFanta = Fanta(brand: "코카콜라", weight: 300, price: 2500, name: "소미환타", manufactureDate: formatter.date(from: "20180104") ?? Date())
         XCTAssertTrue(somiFanta.materials == "Aluminum")
+    }
+    
+    func test_자판기_조지아_객체만들기_성공() {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+        XCTAssertNotNil(Georgia(brand: "조지아", weight: 300, price: 2000, name: "고티카", manufactureDate: formatter.date(from: "20180107") ?? Date()))
+    }
+    
+    func test_자판기_조지아_커피추출액량_확인() {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+        let maxCoffee = Georgia(brand: "조지아", weight: 300, price: 2500, name: "맥스커피", manufactureDate: formatter.date(from: "20180104") ?? Date())
+        XCTAssertTrue(maxCoffee.coffeeExtract == 12.6)
+    }
+    
+    func test_자판기_TOP_객체만들기_성공() {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+        XCTAssertNotNil(Top(brand: "맥심", weight: 350, price: 2200, name: "TOP스위트아메리카노", manufactureDate: formatter.date(from: "20180102") ?? Date()))
+    }
+    
+    func test_자판기_TOP_뜨거운커피인지_확인() {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+        let theBlack = Top(brand: "맥심", weight: 350, price: 2300, name: "TOP더블랙", manufactureDate: formatter.date(from: "20180103") ?? Date())
+        XCTAssertTrue(theBlack.isHotDrink == false)
+    }
+    
+    func test_자판기_Kantata_객체만들기_성공() {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+        XCTAssertNotNil(Kantata(brand: "롯데칠성", weight: 350, price: 2000, name: "카라멜마끼아또", manufactureDate: formatter.date(from: "20180108") ?? Date()))
+    }
+    
+    func test_자판기_Kantata_원두종류_확인() {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+        let dutchBlack = Kantata(brand: "롯데칠성", weight: 350, price: 2100, name: "더치블랙", manufactureDate: formatter.date(from: "20180109") ?? Date())
+        XCTAssertTrue(dutchBlack.kindOfBeans == "GuatemalaAntiqua")
     }
     
 }

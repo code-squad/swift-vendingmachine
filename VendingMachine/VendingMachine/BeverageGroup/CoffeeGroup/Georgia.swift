@@ -9,5 +9,12 @@
 import Foundation
 
 class Georgia: Coffee {
-    
+    var kindOfCoffee: String = "조지아"
+    var coffeeExtract: Double = 12.6
+    override init(brand: String, weight: Int, price: Int, name: String, manufactureDate: Date) {
+        super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate)
+    }
+    override var description: String {
+        return ""
+    }
 }
