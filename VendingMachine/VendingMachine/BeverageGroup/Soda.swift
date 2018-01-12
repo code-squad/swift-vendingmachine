@@ -8,28 +8,13 @@
 
 import Foundation
 
-class Soda: Beverage, BeverageMenu {
-    typealias T = SodaMenu
-    enum SodaMenu: Int, CustomStringConvertible {
-        case Coke, Sprite, Fanta
-        var description: String {
-            switch self {
-            case .Coke:
-                return "콜라"
-            case .Sprite:
-                return "사이다"
-            case .Fanta:
-                return "환타"
-            }
-        }
-    }
-    var menu: SodaMenu
-    init(menu: SodaMenu, brand: String, weight: Int, price: Int, name: String, manufactureDate: Date) {
-        self.menu = menu
+class Soda: Beverage{
+    var saccharide: Int = 27
+    override init(brand: String, weight: Int, price: Int, name: String, manufactureDate: Date) {
         super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate)
     }
     override var description: String {
-        return "\(self.menu) - \(super.description)"
+        return " - \(super.description)"
     }
 
 }
