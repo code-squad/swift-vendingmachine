@@ -9,8 +9,8 @@
 import Foundation
 
 class Top: Coffee {
-    var kindOfCoffee: String = "TOP"
-    var isHotDrink: Bool = false
+    private var kindOfCoffee: String = "TOP"
+    private var isHotDrink: Bool = false
     override init(brand: String, weight: Int, price: Int, name: String, manufactureDate: Date) {
         super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate)
     }
