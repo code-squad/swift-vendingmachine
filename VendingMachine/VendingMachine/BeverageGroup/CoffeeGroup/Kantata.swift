@@ -10,7 +10,7 @@ import Foundation
 
 class Kantata: Coffee {
     private var kindOfCoffee: String = "Kantata"
-    var kindOfBeans: String = "GuatemalaAntiqua"
+    private var kindOfBeans: String = "GuatemalaAntiqua"
     init(brand: String, weight: Int, price: Int, name: String, manufactureDate: Date, kindOfBeans: String) {
         self.kindOfBeans = kindOfBeans
         super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate)
