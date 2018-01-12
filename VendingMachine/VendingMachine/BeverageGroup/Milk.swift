@@ -18,4 +18,7 @@ class Milk: Beverage {
         return " - \(super.description)"
     }
 
+    func isOverExpirationDate() -> Bool {
+        return expirationDate >= Date()
+    }
 }

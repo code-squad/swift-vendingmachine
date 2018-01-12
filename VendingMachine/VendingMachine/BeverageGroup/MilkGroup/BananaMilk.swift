@@ -11,10 +11,15 @@ import Foundation
 class BananaMilk: Milk {
     private var kindOfMilk: String = "바나나우유"
     private var bananaSyrup: Int = 1
-    override init(brand: String, weight: Int, price: Int, name: String, manufactureDate: Date) {
+    init(brand: String, weight: Int, price: Int, name: String, manufactureDate: Date, bananaSyrup: Int) {
+        self.bananaSyrup = bananaSyrup
         super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate)
     }
     override var description: String {
         return ""
+    }
+    
+    func quantityOfBananaSyrup() -> Int {
+        return self.bananaSyrup
     }
 }

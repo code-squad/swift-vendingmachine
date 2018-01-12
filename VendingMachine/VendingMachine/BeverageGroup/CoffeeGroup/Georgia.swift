@@ -11,10 +11,14 @@ import Foundation
 class Georgia: Coffee {
     private var kindOfCoffee: String = "조지아"
     private var coffeeExtract: Double = 12.6
-    override init(brand: String, weight: Int, price: Int, name: String, manufactureDate: Date) {
+    init(brand: String, weight: Int, price: Int, name: String, manufactureDate: Date, coffeeExtrack: Double) {
         super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate)
     }
     override var description: String {
         return ""
+    }
+    
+    func isRichCoffeeExtract() -> Bool {
+        return self.coffeeExtract > 10
     }
 }
