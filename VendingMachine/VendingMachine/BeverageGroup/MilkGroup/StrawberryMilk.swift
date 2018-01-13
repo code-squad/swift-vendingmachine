@@ -10,7 +10,7 @@ import Foundation
 
 class StrawberryMilk: Milk {
     private var kindOfMilk: String = "딸기우유"
-    var strawberrySyrup: Int = 1
+    private var strawberrySyrup: Int = 1
     init(brand: String, weight: Int, price: Int, name: String, manufactureDate: Date, strawberrySyrup: Int) {
         self.strawberrySyrup = strawberrySyrup
         super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate)
