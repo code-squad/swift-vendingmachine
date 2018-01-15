@@ -9,16 +9,10 @@
 import Foundation
 
 class InventoryBox {
-    var beverageType: NSObject
     var beverageInfo: Beverage
-    var number: Int
-    var isHotDrink: Bool
     
-    init(beverageType: NSObject, beverageInfo:Beverage, number: Int, isHotDrink: Bool) {
-        self.beverageType = beverageType
+    init(beverageInfo:Beverage) {
         self.beverageInfo = beverageInfo
-        self.number = number
-        self.isHotDrink = isHotDrink
     }
     
 }
