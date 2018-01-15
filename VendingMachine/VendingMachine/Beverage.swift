@@ -9,11 +9,11 @@
 import Foundation
 
 class Beverage: CustomStringConvertible {
-    private var brand: String
-    private var weight: Int
-    private var price: Int
-    private var name: String
-    private var manufactureDate: Date
+    var brand: String
+    var weight: Int
+    var price: Int
+    var name: String
+    var manufactureDate: Date
     init(brand: String, weight: Int, price: Int, name: String, manufactureDate: Date) {
         self.brand = brand
         self.weight = weight
