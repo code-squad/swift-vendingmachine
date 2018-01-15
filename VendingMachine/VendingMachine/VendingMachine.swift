@@ -22,7 +22,7 @@ struct VendingMachine {
     
     // 특정 상품 인스턴스를 넘겨서 재고를 추가하는 메소드
     func addInInventory(beverage: Beverage) {
-        
+        //var box = InventoryBox(beverageType: <#T##NSObject#>, beverageInfo: <#T##Beverage#>, number: <#T##Int#>, isHotDrink: <#T##Bool#>)
     }
     
     // 현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
