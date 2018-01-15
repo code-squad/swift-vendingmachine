@@ -26,9 +26,9 @@ struct VendingMachine {
     }
     
     // 현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
-    func listOfDrinksAvailable() -> [Beverage] {
-        
-    }
+//    func listOfDrinksAvailable() -> [Beverage] {
+//        
+//    }
     
     // 음료수를 구매하는 메소드
     func buyBeverage() {
@@ -46,14 +46,14 @@ struct VendingMachine {
     }
     
     // 유통기한이 지난 재고만 리턴하는 메소드
-    func showOutOfStockInventory() -> [Beverage] {
-        
-    }
+//    func showOutOfStockInventory() -> [Beverage] {
+//
+//    }
     
     // 따뜻한 음료만 리턴하는 메소드
-    func showHotDrinks() -> [Beverage] {
-        
-    }
+//    func showHotDrinks() -> [Beverage] {
+//
+//    }
     
     // 시작이후 구매 상품 이력을 배열로 리턴하는 메소드
     func showPurchaseProductHistory() {

@@ -15,7 +15,7 @@ class Top: Coffee {
         super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate)
     }
     override var description: String {
-        return "\(self.kindOfCoffee)(Top)\(super.description)"
+        return "\(self.kindOfCoffee)(\(String(describing: type(of: self))))\(super.description)"
     }
     
     func isColdDrink() -> Bool {
