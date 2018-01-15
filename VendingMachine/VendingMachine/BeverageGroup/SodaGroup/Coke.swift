@@ -14,9 +14,10 @@ class Coke: Soda {
     init(brand: String, weight: Int, price: Int, name: String, manufactureDate: Date, calorie: Int) {
         self.calorie = calorie
         super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate)
+        super.typeOfBeverage = String(describing: type(of: self))
     }
     override var description: String {
-        return "\(self.kindOfSoda)(\(String(describing: type(of: self))))\(super.description)"
+        return "\(self.kindOfSoda)(\(typeOfBeverage))\(super.description)"
     }
     
     func isLowCalorie() -> Bool {

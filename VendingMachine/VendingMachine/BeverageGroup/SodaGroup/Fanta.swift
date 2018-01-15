@@ -14,9 +14,10 @@ class Fanta: Soda {
     init(brand: String, weight: Int, price: Int, name: String, manufactureDate: Date, materials: String) {
         self.materials = materials
         super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate)
+        super.typeOfBeverage = String(describing: type(of: self))
     }
     override var description: String {
-        return "\(self.kindOfSoda)(\(String(describing: type(of: self))))\(super.description)"
+        return "\(self.kindOfSoda)(\(typeOfBeverage))\(super.description)"
     }
     
     func isAluminumCan() -> Bool {
