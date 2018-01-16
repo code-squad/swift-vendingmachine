@@ -9,14 +9,11 @@
 import Foundation
 
 class Coffee: Beverage {
-    private let temperature: Int
-    
-    init(brand: String, volume: Int, price: Int, productName: String, expiryDate: Date, calorie: Int, temperature: Int) {
-        self.temperature = temperature
+    override init(brand: String, volume: Int, price: Int, productName: String, expiryDate: Date, calorie: Int) {
         super.init(brand: brand, volume: volume, price: price, productName: productName, expiryDate: expiryDate, calorie: calorie)
     }
     
-    func isHot() -> Bool {
-        return self.temperature > 50
+    override var description: String {
+        return "조지아커피(\(Georgia.typeName)) - \(super.description)"
     }
 }

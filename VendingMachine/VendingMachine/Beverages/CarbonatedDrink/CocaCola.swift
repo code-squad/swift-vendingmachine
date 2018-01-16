@@ -9,15 +9,8 @@
 import Foundation
 
 class CocaCola: CarbonatedDrink {
-    private let _packageMaterial: String
-    
-    init(brand: String, volume: Int, price: Int, productName: String, expiryDate: Date, calorie: Int, carbonicAcid: Int, packageMaterial: String) {
-        self._packageMaterial = packageMaterial
-        super.init(brand: brand, volume: volume, price: price, productName: productName, expiryDate: expiryDate, calorie: calorie, carbonicAcid: carbonicAcid)
-    }
-    
-    var packageMaterial: String {
-        return self._packageMaterial
+    override init(brand: String, volume: Int, price: Int, productName: String, expiryDate: Date, calorie: Int) {
+        super.init(brand: brand, volume: volume, price: price, productName: productName, expiryDate: expiryDate, calorie: calorie)
     }
     
     override var description: String {

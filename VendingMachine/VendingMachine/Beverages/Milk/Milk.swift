@@ -9,14 +9,7 @@
 import Foundation
 
 class Milk: Beverage {
-    private let fatRate: Int
-    
-    init(brand: String, volume: Int, price: Int, productName: String, expiryDate: Date, calorie: Int, fatRate: Int) {
-        self.fatRate = fatRate
+    override init(brand: String, volume: Int, price: Int, productName: String, expiryDate: Date, calorie: Int) {
         super.init(brand: brand, volume: volume, price: price, productName: productName, expiryDate: expiryDate, calorie: calorie)
-    }
-    
-    func isLowFat() -> Bool {
-        return self.fatRate <= 30
     }
 }
