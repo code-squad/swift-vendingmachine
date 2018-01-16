@@ -11,9 +11,11 @@ import Foundation
 struct VendingMachine {
     var coins: Int
     let inventoryBox: InventoryBox
+    let purchaseProductHistory: PurchaseProductHistory
     init() {
         self.coins = 0
         inventoryBox = InventoryBox()
+        purchaseProductHistory = PurchaseProductHistory()
     }
     
     // 자판기 금액을 원하는 금액만큼 올리는 메소드
@@ -35,6 +37,7 @@ struct VendingMachine {
     mutating func buyBeverage(beverage: Beverage) {
         do {
         let beverageOfChoice = try inventoryBox.sellDrink(beverage: beverage)
+            purchaseProductHistory.recordOfPurchaseHistory(date: Date(), beverage: beverageOfChoice.name)
         self.coins -= beverageOfChoice.price
         }catch {
             print("Beverage error")
@@ -52,9 +55,9 @@ struct VendingMachine {
     }
     
     // 유통기한이 지난 재고만 리턴하는 메소드
-//    func showOutOfStockInventory() -> [Beverage] {
-//
-//    }
+    func showOutOfStockInventory() -> [Beverage] {
+        return inventoryBox.outOfStockInventory()
+    }
     
     // 따뜻한 음료만 리턴하는 메소드
 //    func showHotDrinks() -> [Beverage] {
@@ -62,8 +65,8 @@ struct VendingMachine {
 //    }
     
     // 시작이후 구매 상품 이력을 배열로 리턴하는 메소드
-    func showPurchaseProductHistory() {
-        
+    func showPurchaseProductHistory() -> [String] {
+        return purchaseProductHistory.historyOfPurchase()
     }
     
     
