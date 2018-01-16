@@ -32,13 +32,18 @@ struct VendingMachine {
     }
     
     // 음료수를 구매하는 메소드
-    func buyBeverage(beverage: Beverage) -> Beverage {
-        return inventoryBox.sellDrink(beverage: beverage)
+    mutating func buyBeverage(beverage: Beverage) {
+        do {
+        let beverageOfChoice = try inventoryBox.sellDrink(beverage: beverage)
+        self.coins -= beverageOfChoice.price
+        }catch {
+            print("Beverage error")
+        }
     }
     
     // 잔액을 확인하는 메소드
-    func checkBalance () {
-        
+    func checkBalance () -> Int{
+        return self.coins
     }
     
     // 전체 상품 재고를 (사전으로 표현하는) 종류별로 리턴하는 메소드
