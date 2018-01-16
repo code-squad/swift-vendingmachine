@@ -9,8 +9,8 @@
 import Foundation
 
 class Georgia: Coffee {
-    override init(brand: String, volume: Int, price: Int, productName: String, expiryDate: Date, calorie: Int, temperature: Int) {
-        super.init(brand: brand, volume: volume, price: price, productName: productName, expiryDate: expiryDate, calorie: calorie, temperature: temperature)
+    override init(brand: String, volume: Int, price: Int, productName: String, expiryDate: Date, calorie: Int) {
+        super.init(brand: brand, volume: volume, price: price, productName: productName, expiryDate: expiryDate, calorie: calorie)
     }
     
     override var description: String {

@@ -1,19 +1,15 @@
 //
-//  BananaMilk.swift
+//  TOP.swift
 //  VendingMachine
 //
-//  Created by yuaming on 2018. 1. 11..
+//  Created by yuaming on 2018. 1. 16..
 //  Copyright © 2018년 JK. All rights reserved.
 //
 
 import Foundation
 
-class BananaMilk: Milk {
+class TOP: Coffee {
     override init(brand: String, volume: Int, price: Int, productName: String, expiryDate: Date, calorie: Int) {
         super.init(brand: brand, volume: volume, price: price, productName: productName, expiryDate: expiryDate, calorie: calorie)
-    }
-    
-    override var description: String {
-        return "바나나우유(\(BananaMilk.typeName)) - \(super.description)"
     }
 }
