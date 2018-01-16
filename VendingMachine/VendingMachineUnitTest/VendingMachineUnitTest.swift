@@ -10,26 +10,19 @@ import XCTest
 
 class VendingMachineUnitTest: XCTestCase {
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func test_음료객체생성여부() {
+        let form = DateFormatter()
+        form.dateFormat = "yyyyMMdd"
+        
+        let strawberryMilk = Milk(kind: "딸기우유",brand: "서울우유", name: "날마다 딸기우유", volume: 200, price: 1000, date: form.date(from: "20170101")!)
+        let bananaMilk = Milk(kind: "바나나우유", brand: "서울우유", name: "날마다 바나나우유", volume: 200, price: 1000, date: form.date(from: "20170105")!)
+        let pepsi = SodaPop(kind: "콜라", brand: "팹시", name: "다이어트콜라", volume: 350, price: 700, date: form.date(from: "20160105")!)
+        let maxim = Coffee(kind: "커피", brand: "맥심", name: "TOP아메리카노", volume: 400, price: 3000, date: form.date(from: "20170110")!)
+        
+        XCTAssertNotNil(strawberryMilk)
+        XCTAssertNotNil(bananaMilk)
+        XCTAssertNotNil(pepsi)
+        XCTAssertNotNil(maxim)
     }
     
 }
