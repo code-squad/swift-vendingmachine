@@ -22,6 +22,18 @@ class InventoryBox {
         box[classOfBeverage]?.append(beverage)
     }
     
+    func priceLessThan(coins: Int) -> [Beverage] {
+        var drinkOfAvailable = [Beverage]()
+        for typeOfBeverage in box {
+            for beverage in typeOfBeverage.value {
+                if beverage.price < coins {
+                    drinkOfAvailable.append(beverage)
+                }
+            }
+        }
+        return drinkOfAvailable
+    }
+    
     func sellDrink(beverage: Beverage) {
         //box.
     }
