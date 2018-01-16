@@ -34,8 +34,9 @@ class InventoryBox {
         return drinkOfAvailable
     }
     
-    func sellDrink(beverage: Beverage) {
-        //box.
+    func sellDrink(beverage: Beverage) -> Beverage{
+        let classOfBeverage = ObjectIdentifier(NSClassFromString(beverage.typeOfBeverage) ?? NSObject())
+        return box[classOfBeverage]?.remove(at: 0)
     }
     
 }
