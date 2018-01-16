@@ -32,8 +32,8 @@ struct VendingMachine {
     }
     
     // 음료수를 구매하는 메소드
-    func buyBeverage() {
-        
+    func buyBeverage(beverage: Beverage) -> Beverage {
+        return inventoryBox.sellDrink(beverage: beverage)
     }
     
     // 잔액을 확인하는 메소드
