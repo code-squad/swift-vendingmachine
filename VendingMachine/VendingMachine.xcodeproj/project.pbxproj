@@ -39,12 +39,20 @@
 		04EFEC5F200D9B0A004B1BAB /* VendingMachineUnitTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineUnitTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04EFEC61200D9B0A004B1BAB /* VendingMachineUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineUnitTest.swift; sourceTree = "<group>"; };
 		04EFEC63200D9B0A004B1BAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04EFEC6F200DD993004B1BAB /* !.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "!.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		04EFEC5C200D9B0A004B1BAB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04EFEC6C200DD993004B1BAB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -84,6 +92,7 @@
 			children = (
 				839DA9091F8D1F95009E05F3 /* VendingMachine */,
 				04EFEC5F200D9B0A004B1BAB /* VendingMachineUnitTest.xctest */,
+				04EFEC6F200DD993004B1BAB /* !.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -120,6 +129,23 @@
 			productReference = 04EFEC5F200D9B0A004B1BAB /* VendingMachineUnitTest.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		04EFEC6E200DD993004B1BAB /* ! */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04EFEC74200DD993004B1BAB /* Build configuration list for PBXNativeTarget "!" */;
+			buildPhases = (
+				04EFEC6B200DD993004B1BAB /* Sources */,
+				04EFEC6C200DD993004B1BAB /* Frameworks */,
+				04EFEC6D200DD993004B1BAB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "!";
+			productName = "!";
+			productReference = 04EFEC6F200DD993004B1BAB /* !.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		839DA9081F8D1F95009E05F3 /* VendingMachine */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 839DA9101F8D1F95009E05F3 /* Build configuration list for PBXNativeTarget "VendingMachine" */;
@@ -151,6 +177,10 @@
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
+					04EFEC6E200DD993004B1BAB = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
 					839DA9081F8D1F95009E05F3 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
@@ -171,12 +201,20 @@
 			targets = (
 				839DA9081F8D1F95009E05F3 /* VendingMachine */,
 				04EFEC5E200D9B0A004B1BAB /* VendingMachineUnitTest */,
+				04EFEC6E200DD993004B1BAB /* ! */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		04EFEC5D200D9B0A004B1BAB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04EFEC6D200DD993004B1BAB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -195,6 +233,13 @@
 				04EFEC69200D9C07004B1BAB /* SodaPop.swift in Sources */,
 				04EFEC6A200D9C07004B1BAB /* Coffee.swift in Sources */,
 				04EFEC62200D9B0A004B1BAB /* VendingMachineUnitTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04EFEC6B200DD993004B1BAB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,6 +279,32 @@
 				INFOPLIST_FILE = VendingMachineUnitTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jack.VendingMachineUnitTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		04EFEC75200DD993004B1BAB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "!/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "jack.-";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		04EFEC76200DD993004B1BAB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "!/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "jack.-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 			};
@@ -371,6 +442,15 @@
 			buildConfigurations = (
 				04EFEC65200D9B0A004B1BAB /* Debug */,
 				04EFEC66200D9B0A004B1BAB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04EFEC74200DD993004B1BAB /* Build configuration list for PBXNativeTarget "!" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04EFEC75200DD993004B1BAB /* Debug */,
+				04EFEC76200DD993004B1BAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
