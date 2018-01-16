@@ -15,5 +15,9 @@ class Milk : Beverage {
         self.expirationDate = expirationDate
         super.init(brand : brand, name: name, volume: volume, price: price, manufacturedDate: manufacturedDate)
     }
+    
+    func validate(with data : Date) -> Bool {
+        return data < expirationDate
+    }
 }
 
