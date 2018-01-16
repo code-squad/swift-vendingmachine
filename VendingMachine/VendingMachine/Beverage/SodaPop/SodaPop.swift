@@ -15,4 +15,8 @@ class SodaPop: Beverage {
         self.lowCalorie = lowCalorie
         super.init(brand : brand, name: name, volume: volume, price: price, manufacturedDate: manufacturedDate)
     }
+    
+    func isLowCalorie() -> Bool {
+        return self.lowCalorie
+    }
 }
