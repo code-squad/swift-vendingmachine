@@ -29,7 +29,7 @@ func run() {
     let coffee = Top(brand: "맥심", weight: 400, price: 3000, name: "TOP아메리카노", manufactureDate: formatter.date(from: "20171010") ?? Date(), isHotDrink: false) //nil coalescing optional
     print(coffee)
     
-    var vendingMachine = VendingMachine()
+    let vendingMachine = VendingMachine()
     vendingMachine.addInInventory(beverage: strawberryMilk)
     vendingMachine.addInInventory(beverage: strawberryMilk)
     

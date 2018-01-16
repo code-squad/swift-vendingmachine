@@ -9,6 +9,9 @@
 import Foundation
 
 class InventoryBox {
+    enum VendingMachinError: Error {
+        case invalidBeverage
+    }
     var box: [ObjectIdentifier:[Beverage]]
     init() {
         box = [ObjectIdentifier:[Beverage]]()
@@ -34,9 +37,12 @@ class InventoryBox {
         return drinkOfAvailable
     }
     
-    func sellDrink(beverage: Beverage) -> Beverage{
+    func sellDrink(beverage: Beverage) throws -> Beverage {
         let classOfBeverage = ObjectIdentifier(NSClassFromString(beverage.typeOfBeverage) ?? NSObject())
-        return box[classOfBeverage]?.remove(at: 0)
+        guard let beverageOfChoice = box[classOfBeverage]?.remove(at: 0) else {
+            throw VendingMachinError.invalidBeverage
+        }
+        return beverageOfChoice
     }
     
 }
