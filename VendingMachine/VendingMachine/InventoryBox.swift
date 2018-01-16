@@ -9,10 +9,23 @@
 import Foundation
 
 class InventoryBox {
-    var beverageInfo: Beverage
+    var box: [ObjectIdentifier:[Beverage]]
+    init() {
+        box = [ObjectIdentifier:[Beverage]]()
+    }
     
-    init(beverageInfo:Beverage) {
-        self.beverageInfo = beverageInfo
+    func storageBeverageStock(beverage: Beverage) { 
+        let classOfBeverage = ObjectIdentifier(NSClassFromString(beverage.typeOfBeverage) ?? NSObject())
+        if !box.keys.contains(classOfBeverage) {
+            box[classOfBeverage] = [Beverage]()
+        }
+        box[classOfBeverage]?.append(beverage)
+    }
+    
+    func sellDrink(beverage: Beverage) {
+        //box.
     }
     
 }
+
+

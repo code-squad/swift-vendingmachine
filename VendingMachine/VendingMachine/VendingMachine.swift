@@ -10,9 +10,10 @@ import Foundation
 
 struct VendingMachine {
     var coins: Int
-    
+    let inventoryBox: InventoryBox
     init() {
         self.coins = 0
+        inventoryBox = InventoryBox()
     }
     
     // 자판기 금액을 원하는 금액만큼 올리는 메소드
@@ -22,7 +23,7 @@ struct VendingMachine {
     
     // 특정 상품 인스턴스를 넘겨서 재고를 추가하는 메소드
     func addInInventory(beverage: Beverage) {
-        var box = InventoryBox(beverageInfo: beverage)
+        inventoryBox.storageBeverageStock(beverage: beverage)
     }
     
     // 현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
