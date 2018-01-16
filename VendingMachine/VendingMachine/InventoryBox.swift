@@ -45,6 +45,23 @@ class InventoryBox {
         return beverageOfChoice
     }
     
+    func outOfStockInventory() -> [Beverage] {
+        var drinkOfOutOfStock = [Beverage]()
+//        for typeOfBeverage in box {
+//            for beverage in typeOfBeverage.value {
+//                if beverage.typeOfBeverage == "Strawberry" || beverage.typeOfBeverage == "ChocoMilk" || beverage.typeOfBeverage == "BananaMilk" {
+//                    Box[.Strawberry].
+//
+//                    Box[ObjectIdentifier(NSClassFromString("StrawberryMilk")]
+//                }
+////                if beverage.price < coins {
+////                    drinkOfAvailable.append(beverage)
+////                }
+//            }
+//        }
+        return drinkOfOutOfStock
+    }
+    
 }
 
 
