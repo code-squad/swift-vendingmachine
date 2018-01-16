@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0476426B200DFBE800048CDC /* PepciCoke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476426A200DFBE800048CDC /* PepciCoke.swift */; };
+		0476426D200DFC0900048CDC /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476426C200DFC0900048CDC /* Sprite.swift */; };
+		0476426F200DFC1900048CDC /* Fanta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476426E200DFC1900048CDC /* Fanta.swift */; };
+		04764271200DFC2900048CDC /* Top.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04764270200DFC2900048CDC /* Top.swift */; };
+		04764273200DFC3600048CDC /* Cantata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04764272200DFC3600048CDC /* Cantata.swift */; };
+		04764275200DFC4E00048CDC /* Georgia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04764274200DFC4E00048CDC /* Georgia.swift */; };
+		04764277200DFC5E00048CDC /* StrawberryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04764276200DFC5E00048CDC /* StrawberryMilk.swift */; };
+		04764279200DFC6C00048CDC /* BananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04764278200DFC6C00048CDC /* BananaMilk.swift */; };
+		0476427B200DFCA300048CDC /* ChocolateMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476427A200DFCA300048CDC /* ChocolateMilk.swift */; };
 		04EFEC54200D8C55004B1BAB /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFEC53200D8C55004B1BAB /* Beverage.swift */; };
 		04EFEC56200D8E40004B1BAB /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFEC55200D8E40004B1BAB /* Milk.swift */; };
 		04EFEC58200D8FD9004B1BAB /* SodaPop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFEC57200D8FD9004B1BAB /* SodaPop.swift */; };
@@ -32,6 +41,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0476426A200DFBE800048CDC /* PepciCoke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PepciCoke.swift; sourceTree = "<group>"; };
+		0476426C200DFC0900048CDC /* Sprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sprite.swift; sourceTree = "<group>"; };
+		0476426E200DFC1900048CDC /* Fanta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fanta.swift; sourceTree = "<group>"; };
+		04764270200DFC2900048CDC /* Top.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top.swift; sourceTree = "<group>"; };
+		04764272200DFC3600048CDC /* Cantata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cantata.swift; sourceTree = "<group>"; };
+		04764274200DFC4E00048CDC /* Georgia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Georgia.swift; sourceTree = "<group>"; };
+		04764276200DFC5E00048CDC /* StrawberryMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrawberryMilk.swift; sourceTree = "<group>"; };
+		04764278200DFC6C00048CDC /* BananaMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaMilk.swift; sourceTree = "<group>"; };
+		0476427A200DFCA300048CDC /* ChocolateMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocolateMilk.swift; sourceTree = "<group>"; };
 		04EFEC53200D8C55004B1BAB /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 		04EFEC55200D8E40004B1BAB /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 		04EFEC57200D8FD9004B1BAB /* SodaPop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SodaPop.swift; sourceTree = "<group>"; };
@@ -69,6 +87,50 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04764266200DFAB200048CDC /* Beverage */ = {
+			isa = PBXGroup;
+			children = (
+				04EFEC53200D8C55004B1BAB /* Beverage.swift */,
+				04764269200DFADF00048CDC /* SodaPop */,
+				04764268200DFAD800048CDC /* Coffee */,
+				04764267200DFAD100048CDC /* Milk */,
+			);
+			path = Beverage;
+			sourceTree = "<group>";
+		};
+		04764267200DFAD100048CDC /* Milk */ = {
+			isa = PBXGroup;
+			children = (
+				04EFEC55200D8E40004B1BAB /* Milk.swift */,
+				04764276200DFC5E00048CDC /* StrawberryMilk.swift */,
+				04764278200DFC6C00048CDC /* BananaMilk.swift */,
+				0476427A200DFCA300048CDC /* ChocolateMilk.swift */,
+			);
+			path = Milk;
+			sourceTree = "<group>";
+		};
+		04764268200DFAD800048CDC /* Coffee */ = {
+			isa = PBXGroup;
+			children = (
+				04EFEC59200D9020004B1BAB /* Coffee.swift */,
+				04764270200DFC2900048CDC /* Top.swift */,
+				04764272200DFC3600048CDC /* Cantata.swift */,
+				04764274200DFC4E00048CDC /* Georgia.swift */,
+			);
+			path = Coffee;
+			sourceTree = "<group>";
+		};
+		04764269200DFADF00048CDC /* SodaPop */ = {
+			isa = PBXGroup;
+			children = (
+				04EFEC57200D8FD9004B1BAB /* SodaPop.swift */,
+				0476426A200DFBE800048CDC /* PepciCoke.swift */,
+				0476426C200DFC0900048CDC /* Sprite.swift */,
+				0476426E200DFC1900048CDC /* Fanta.swift */,
+			);
+			path = SodaPop;
+			sourceTree = "<group>";
+		};
 		04EFEC60200D9B0A004B1BAB /* VendingMachineUnitTest */ = {
 			isa = PBXGroup;
 			children = (
@@ -100,10 +162,7 @@
 		839DA90B1F8D1F95009E05F3 /* VendingMachine */ = {
 			isa = PBXGroup;
 			children = (
-				04EFEC53200D8C55004B1BAB /* Beverage.swift */,
-				04EFEC55200D8E40004B1BAB /* Milk.swift */,
-				04EFEC57200D8FD9004B1BAB /* SodaPop.swift */,
-				04EFEC59200D9020004B1BAB /* Coffee.swift */,
+				04764266200DFAB200048CDC /* Beverage */,
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
 			);
 			path = VendingMachine;
@@ -247,9 +306,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04764273200DFC3600048CDC /* Cantata.swift in Sources */,
+				04764277200DFC5E00048CDC /* StrawberryMilk.swift in Sources */,
+				0476426F200DFC1900048CDC /* Fanta.swift in Sources */,
 				04EFEC54200D8C55004B1BAB /* Beverage.swift in Sources */,
 				04EFEC56200D8E40004B1BAB /* Milk.swift in Sources */,
+				04764275200DFC4E00048CDC /* Georgia.swift in Sources */,
 				04EFEC58200D8FD9004B1BAB /* SodaPop.swift in Sources */,
+				0476427B200DFCA300048CDC /* ChocolateMilk.swift in Sources */,
+				0476426B200DFBE800048CDC /* PepciCoke.swift in Sources */,
+				04764279200DFC6C00048CDC /* BananaMilk.swift in Sources */,
+				0476426D200DFC0900048CDC /* Sprite.swift in Sources */,
+				04764271200DFC2900048CDC /* Top.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
 				04EFEC5A200D9020004B1BAB /* Coffee.swift in Sources */,
 			);
