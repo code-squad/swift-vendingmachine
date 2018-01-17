@@ -17,24 +17,24 @@ class VendingMachineUnitTest: XCTestCase {
     }
     
     func test_딸기우유객체생성여부() {
-        let strawberryMilk = StrawberryMilk(brand: "서울우유", name: "날마다딸기우유", volume: 200, price: 1000, manufacturedDate: form.date(from: "20170117") ?? Date(), expirationDate: form.date(from: "20170131") ?? Date())
+        let strawberryMilk = StrawberryMilk(brand: "서울우유", name: "날마다딸기우유", volume: 200, price: 1000, manufacturedDate: form.date(from: "20170117") ?? Date())
         XCTAssertNotNil(strawberryMilk)
 //        XCTAssertFalse(strawberryMilk.validate(with: form.date(from: "20170203") ?? Date()))
     }
     
     func test_바나나우유객체생성여부() {
-        let bananaMilk = BananaMilk(brand: "서울우유", name: "날마다바나나우유", volume: 200, price: 1000, manufacturedDate: form.date(from: "20170116") ?? Date(), expirationDate: form.date(from: "20170129") ?? Date())
+        let bananaMilk = BananaMilk(brand: "서울우유", name: "날마다바나나우유", volume: 200, price: 1000, manufacturedDate: form.date(from: "20170116") ?? Date())
         XCTAssertNotNil(bananaMilk)
     }
     
     func test_초코우유객체생성및메서드() {
-        let chocolateMilk = ChocolateMilk(brand: "서울우유", name: "날마다초코우유", volume: 200, price: 1000, manufacturedDate: form.date(from: "20170115") ?? Date(), expirationDate: form.date(from: "20170129") ?? Date())
+        let chocolateMilk = ChocolateMilk(brand: "서울우유", name: "날마다초코우유", volume: 200, price: 1000, manufacturedDate: form.date(from: "20170115") ?? Date())
         XCTAssertNotNil(chocolateMilk)
     }
     
     func test_우유객체공통메서드() {
-        let milk = Milk(brand: "매일우유", name: "키크는우유", volume: 200, price: 500, manufacturedDate: form.date(from: "20170115") ?? Date(), expirationDate: form.date(from: "20170107") ?? Date())
-        XCTAssertFalse(milk.validate(with: form.date(from: "20170108") ?? Date()))
+        let milk = Milk(brand: "매일우유", name: "키크는우유", volume: 200, price: 500, manufacturedDate: form.date(from: "20170115") ?? Date())
+        XCTAssertFalse(milk.validate(with: form.date(from: "20170131") ?? Date()))
         XCTAssertTrue(milk.validate(with: form.date(from: "20170106") ?? Date()))
     }
 
