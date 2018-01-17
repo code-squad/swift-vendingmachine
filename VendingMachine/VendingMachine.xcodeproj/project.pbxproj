@@ -25,6 +25,15 @@
 		04EFEC68200D9C07004B1BAB /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFEC55200D8E40004B1BAB /* Milk.swift */; };
 		04EFEC69200D9C07004B1BAB /* SodaPop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFEC57200D8FD9004B1BAB /* SodaPop.swift */; };
 		04EFEC6A200D9C07004B1BAB /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFEC59200D9020004B1BAB /* Coffee.swift */; };
+		04F056BE200EE126008B5D25 /* PepciCoke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476426A200DFBE800048CDC /* PepciCoke.swift */; };
+		04F056BF200EE126008B5D25 /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476426C200DFC0900048CDC /* Sprite.swift */; };
+		04F056C0200EE126008B5D25 /* Fanta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476426E200DFC1900048CDC /* Fanta.swift */; };
+		04F056C1200EE126008B5D25 /* Top.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04764270200DFC2900048CDC /* Top.swift */; };
+		04F056C2200EE126008B5D25 /* Cantata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04764272200DFC3600048CDC /* Cantata.swift */; };
+		04F056C3200EE126008B5D25 /* Georgia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04764274200DFC4E00048CDC /* Georgia.swift */; };
+		04F056C4200EE126008B5D25 /* StrawberryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04764276200DFC5E00048CDC /* StrawberryMilk.swift */; };
+		04F056C5200EE126008B5D25 /* BananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04764278200DFC6C00048CDC /* BananaMilk.swift */; };
+		04F056C6200EE126008B5D25 /* ChocolateMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476427A200DFCA300048CDC /* ChocolateMilk.swift */; };
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -287,6 +296,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04F056BE200EE126008B5D25 /* PepciCoke.swift in Sources */,
+				04F056BF200EE126008B5D25 /* Sprite.swift in Sources */,
+				04F056C0200EE126008B5D25 /* Fanta.swift in Sources */,
+				04F056C1200EE126008B5D25 /* Top.swift in Sources */,
+				04F056C2200EE126008B5D25 /* Cantata.swift in Sources */,
+				04F056C3200EE126008B5D25 /* Georgia.swift in Sources */,
+				04F056C4200EE126008B5D25 /* StrawberryMilk.swift in Sources */,
+				04F056C5200EE126008B5D25 /* BananaMilk.swift in Sources */,
+				04F056C6200EE126008B5D25 /* ChocolateMilk.swift in Sources */,
 				04EFEC67200D9C07004B1BAB /* Beverage.swift in Sources */,
 				04EFEC68200D9C07004B1BAB /* Milk.swift in Sources */,
 				04EFEC69200D9C07004B1BAB /* SodaPop.swift in Sources */,
