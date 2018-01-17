@@ -60,9 +60,9 @@ struct VendingMachine {
     }
     
     // 따뜻한 음료만 리턴하는 메소드
-//    func showHotDrinks() -> [Beverage] {
-//
-//    }
+    func showHotDrinks() -> [Beverage] {
+        return inventoryBox.hotDrinkInventory()
+    }
     
     // 시작이후 구매 상품 이력을 배열로 리턴하는 메소드
     func showPurchaseProductHistory() -> [String] {

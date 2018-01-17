@@ -59,6 +59,18 @@ class InventoryBox {
         return drinkOfOutOfStock
     }
     
+    func hotDrinkInventory() -> [Beverage] {
+        var hotDrink = [Beverage]()
+        for beverageType in box {
+            for beverage in beverageType.value {
+                if ((beverage as? Top)?.isColdDrink()) ?? false {
+                    hotDrink.append(beverage)
+                }
+            }
+        }
+        return hotDrink
+    }
+    
 }
 
 
