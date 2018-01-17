@@ -16,6 +16,6 @@ class TOPCoffee : Coffee {
     }
 
     override var description : String {
-        return "\(self.kind)(\(String(describing: TOPCoffee.self)) - \(super.description)"
+        return "\(self.kind)(\(String(describing: TOPCoffee.self))) - \(super.description)"
     }
 }
