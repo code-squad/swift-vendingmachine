@@ -12,6 +12,7 @@ class Coffee: Beverage {
     private var caffeineContent: Int = 76
     override init(brand: String, weight: Int, price: Int, name: String, manufactureDate: Date) {
         super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate)
+        super.kindOf = "커피"
     }
     override var description: String {
         return " - \(super.description)"

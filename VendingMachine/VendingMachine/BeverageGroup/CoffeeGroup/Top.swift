@@ -9,14 +9,14 @@
 import Foundation
 
 class Top: Coffee {
-    private var kindOfCoffee: String = "TOP"
     private var isHotDrink: Bool = false
     init(brand: String, weight: Int, price: Int, name: String, manufactureDate: Date, isHotDrink: Bool) {
         super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate)
         super.typeOfBeverage = String(describing: type(of: self))
+        super.kindOf = "TOP"
     }
     override var description: String {
-        return "\(self.kindOfCoffee)(\(typeOfBeverage))\(super.description)"
+        return "\(self.kindOf)(\(typeOfBeverage))\(super.description)"
     }
     
     func isColdDrink() -> Bool {

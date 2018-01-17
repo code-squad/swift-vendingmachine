@@ -9,6 +9,7 @@
 import Foundation
 
 class Beverage: CustomStringConvertible {
+    var kindOf: String
     var typeOfBeverage: String
     var brand: String
     var weight: Int
@@ -16,6 +17,7 @@ class Beverage: CustomStringConvertible {
     var name: String
     var manufactureDate: Date
     init(brand: String, weight: Int, price: Int, name: String, manufactureDate: Date) {
+        self.kindOf = "음료"
         self.typeOfBeverage = ""
         self.brand = brand
         self.weight = weight
