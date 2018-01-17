@@ -59,7 +59,7 @@ class InputView {
             switch separatedValues[0] {
             case 1:
                 self.coins = separatedValues[1]
-                
+                vendingMachine.putCoins(coins: self.coins)
             case 2:
                 printPurchaseBeverage(menuNumber: separatedValues[1])
             default: break
@@ -73,6 +73,7 @@ class InputView {
             let beverageInfo = availableBeverage[choiceBeverageKey]?.first
             print("\(beverageInfo?.kindOf ?? "")를 구매하셨습니다. \(beverageInfo?.price ?? 0)원을 차감합니다.")
             self.coins -= beverageInfo?.price ?? 0
+            vendingMachine.putCoins(coins: self.coins)
             vendingMachine.buyBeverage(beverageName: choiceBeverageKey)
         }catch {
             print("get Beverage error")
@@ -93,7 +94,7 @@ class InputView {
     }
     
     func menuOfAddAmount() {
-        availableBeverage = vendingMachine.listOfDrinksAvailable(coins: coins)
+        availableBeverage = vendingMachine.listOfDrinksAvailable()
         for (index, menu) in availableBeverage.enumerated() {
             print("\(index+1))\(menu.value[0].kindOf) \(menu.value[0].price)(\(menu.value.count)개)")
         }
