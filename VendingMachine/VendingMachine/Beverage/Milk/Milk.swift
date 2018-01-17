@@ -17,7 +17,7 @@ class Milk : Beverage {
     }
     
     func validate(with data : Date) -> Bool {
-        return data < expirationDate
+        return data < self.expirationDate
     }
 }
 

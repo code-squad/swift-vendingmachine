@@ -16,6 +16,6 @@ class Fanta : SodaPop {
     }
     
     override var description : String {
-        return "\(self.kind)(\(String(describing: Fanta.self)) - \(super.description)"
+        return "\(self.kind)(\(String(describing: Fanta.self))) - \(super.description)"
     }
 }

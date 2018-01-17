@@ -16,6 +16,6 @@ class Sprite : SodaPop {
     }
     
     override var description : String {
-        return "\(self.kind)(\(String(describing: Sprite.self)) - \(super.description)"
+        return "\(self.kind)(\(String(describing: Sprite.self))) - \(super.description)"
     }
 }

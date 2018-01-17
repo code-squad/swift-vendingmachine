@@ -16,6 +16,6 @@ class BananaMilk : Milk {
     }
     
     override var description : String {
-        return "\(self.kind)(\(String(describing: BananaMilk.self)) - \(super.description)"
+        return "\(self.kind)(\(String(describing: BananaMilk.self))) - \(super.description)"
     }
 }
