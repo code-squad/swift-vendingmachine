@@ -27,8 +27,9 @@ func run() {
     vendingMachine.addInInventory(beverage: coke)
     vendingMachine.addInInventory(beverage: strawberryMilk)
     vendingMachine.addInInventory(beverage: coffee)
-    let inputView = InputView()
-    inputView.printInitialMenu(vendingMachine: vendingMachine)
+    
+    let inputView = InputView(vendingMachine: vendingMachine)
+    inputView.usingVendingMachine()
     
 }
 run()
