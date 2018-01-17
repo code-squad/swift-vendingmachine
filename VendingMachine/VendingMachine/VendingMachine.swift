@@ -34,11 +34,11 @@ struct VendingMachine {
     }
     
     // 음료수를 구매하는 메소드
-    mutating func buyBeverage(beverage: Beverage) {
+    mutating func buyBeverage(beverageName: ObjectIdentifier) {
         do {
-        let beverageOfChoice = try inventoryBox.sellDrink(beverage: beverage)
+            let beverageOfChoice = try inventoryBox.sellDrink(beverageKey: beverageName)
             purchaseProductHistory.recordOfPurchaseHistory(date: Date(), beverage: beverageOfChoice.name)
-        self.coins -= beverageOfChoice.price
+            self.coins -= beverageOfChoice.price
         }catch {
             print("Beverage error")
         }

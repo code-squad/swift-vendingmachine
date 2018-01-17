@@ -11,16 +11,24 @@ import Foundation
 class InputView {
     var coins: Int
     var vendingMachine: VendingMachine
+    var availableBeverage: [ObjectIdentifier:[Beverage]]
     init(vendingMachine: VendingMachine) {
         coins = 0
         self.vendingMachine = vendingMachine
+        availableBeverage = [ObjectIdentifier:[Beverage]]()
     }
     
     func usingVendingMachine() {
         let isContinue = true
+        var isFirst = true
         repeat {
             printCurrentCoins()
-            printBeverageMenu()
+            if isFirst {
+                printBeverageMenu()
+                isFirst = false
+            }else {
+                menuOfAddAmount()
+            }
             printDoingMenu()
             getMenuInput()
         }while isContinue
@@ -51,15 +59,33 @@ class InputView {
             switch separatedValues[0] {
             case 1:
                 self.coins = separatedValues[1]
-                printCurrentCoins()
-                menuOfAddAmount()
-                printDoingMenu()
-                getMenuInput()
-            case 2: break
                 
+            case 2:
+                printPurchaseBeverage(menuNumber: separatedValues[1])
             default: break
             }
         }
+    }
+    
+    func printPurchaseBeverage(menuNumber: Int) {
+        do {
+            let choiceBeverageKey = try getMenuInfo(menuNumber: menuNumber)
+            let beverageInfo = availableBeverage[choiceBeverageKey]?.first
+            print("\(beverageInfo?.kindOf ?? "")를 구매하셨습니다. \(beverageInfo?.price ?? 0)원을 차감합니다.")
+            self.coins -= beverageInfo?.price ?? 0
+            vendingMachine.buyBeverage(beverageName: choiceBeverageKey)
+        }catch {
+            print("get Beverage error")
+        }
+    }
+    
+    func getMenuInfo(menuNumber: Int) throws -> ObjectIdentifier {
+        for (index, beverage) in availableBeverage.enumerated() {
+            if menuNumber == (index + 1) {
+                return beverage.key
+            }
+        }
+        throw InventoryBox.VendingMachinError.invalidBeverage
     }
     
     func separateInputValues(input: String) -> [Int] {
@@ -67,31 +93,10 @@ class InputView {
     }
     
     func menuOfAddAmount() {
-        let availableBeverage = vendingMachine.listOfDrinksAvailable(coins: coins)
+        availableBeverage = vendingMachine.listOfDrinksAvailable(coins: coins)
         for (index, menu) in availableBeverage.enumerated() {
             print("\(index+1))\(menu.value[0].kindOf) \(menu.value[0].price)(\(menu.value.count)개)")
         }
     }
-//    현재 투입한 금액이 10,000원입니다. 다음과 같은 음료가 있습니다.
-//    1)딸기우유 1000원(3개)
-//    2)바나나우유 1000원(2개)
-//    3)팹시콜라 2000원(5개)
-//    4)TOP커피 3000원(3개)
-//    5)핫식스 1500원(4개)
-//    1. 금액추가
-//    2. 음료구매
-//    > 2 1
-//    딸기우유를 구매하셨습니다. 1000원을 차감합니다.
-//    
-//    현재 투입한 금액이 9,000원입니다. 다음과 같은 음료가 있습니다.
-//    1)딸기우유 1000원(3개)
-//    2)바나나우유 1000원(2개)
-//    3)팹시콜라 2000원(5개)
-//    4)TOP커피 3000원(3개)
-//    5)핫식스 1500원(4개)
-//    1. 금액추가
-//    2. 음료구매
-//    > 2 4
-//    TOP커피를 구매하셨습니다. 3000원을 차감합니다.
-
+    
 }

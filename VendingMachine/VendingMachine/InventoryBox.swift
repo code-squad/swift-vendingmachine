@@ -37,10 +37,12 @@ class InventoryBox {
         return drinkOfAvailable
     }
     
-    func sellDrink(beverage: Beverage) throws -> Beverage {
-        let classOfBeverage = ObjectIdentifier(NSClassFromString(beverage.typeOfBeverage) ?? NSObject())
-        guard let beverageOfChoice = box[classOfBeverage]?.remove(at: 0) else {
+    func sellDrink(beverageKey: ObjectIdentifier) throws -> Beverage {
+        guard let beverageOfChoice = box[beverageKey]?.remove(at: 0) else {
             throw VendingMachinError.invalidBeverage
+        }
+        if box[beverageKey]?.count == 0 {
+            box.remove(at: box.index(forKey: beverageKey)!)
         }
         return beverageOfChoice
     }
