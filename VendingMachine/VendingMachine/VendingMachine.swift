@@ -29,8 +29,8 @@ struct VendingMachine {
     }
     
     // 현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
-    func listOfDrinksAvailable(coins: Int) -> [ObjectIdentifier:[Beverage]] {
-        return inventoryBox.priceLessThan(coins: coins)
+    func listOfDrinksAvailable() -> [ObjectIdentifier:[Beverage]] {
+        return inventoryBox.priceLessThan(coins: self.coins)
     }
     
     // 음료수를 구매하는 메소드

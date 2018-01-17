@@ -48,20 +48,14 @@ class InventoryBox {
     }
     
     func outOfStockInventory() -> [Beverage] {
-        let drinkOfOutOfStock = [Beverage]()
-        
-//        for typeOfBeverage in box {
-//            for beverage in typeOfBeverage.value {
-//                if beverage.typeOfBeverage == "Strawberry" || beverage.typeOfBeverage == "ChocoMilk" || beverage.typeOfBeverage == "BananaMilk" {
-//                    Box[.Strawberry].
-//
-//                    Box[ObjectIdentifier(NSClassFromString("StrawberryMilk")]
-//                }
-////                if beverage.price < coins {
-////                    drinkOfAvailable.append(beverage)
-////                }
-//            }
-//        }
+        var drinkOfOutOfStock = [Beverage]()
+        for beverageType in box {
+            for beverage in beverageType.value {
+                if ((beverage as? Milk)?.isOverExpirationDate()) ?? false {
+                    drinkOfOutOfStock.append(beverage)
+                }
+            }
+        }
         return drinkOfOutOfStock
     }
     
