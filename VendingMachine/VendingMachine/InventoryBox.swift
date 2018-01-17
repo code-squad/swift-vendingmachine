@@ -17,8 +17,9 @@ class InventoryBox {
         box = [ObjectIdentifier:[Beverage]]()
     }
     
-    func storageBeverageStock(beverage: Beverage) { 
-        let classOfBeverage = ObjectIdentifier(NSClassFromString(beverage.typeOfBeverage) ?? NSObject())
+    func storageBeverageStock(beverage: Beverage) {
+        let className: AnyClass? = NSClassFromString("VendingMachine.\(beverage.typeOfBeverage)")
+        let classOfBeverage = ObjectIdentifier(className!)
         if !box.keys.contains(classOfBeverage) {
             box[classOfBeverage] = [Beverage]()
         }
@@ -47,6 +48,7 @@ class InventoryBox {
     
     func outOfStockInventory() -> [Beverage] {
         var drinkOfOutOfStock = [Beverage]()
+        
 //        for typeOfBeverage in box {
 //            for beverage in typeOfBeverage.value {
 //                if beverage.typeOfBeverage == "Strawberry" || beverage.typeOfBeverage == "ChocoMilk" || beverage.typeOfBeverage == "BananaMilk" {

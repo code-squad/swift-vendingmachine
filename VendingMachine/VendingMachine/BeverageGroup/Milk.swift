@@ -13,6 +13,7 @@ class Milk: Beverage {
     override init(brand: String, weight: Int, price: Int, name: String, manufactureDate: Date) {
         self.expirationDate = manufactureDate.addingTimeInterval(864000)
         super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate)
+        super.kindOf = "우유"
     }
     override var description: String {
         return " - \(super.description)"

@@ -9,15 +9,15 @@
 import Foundation
 
 class StrawberryMilk: Milk {
-    private var kindOfMilk: String = "딸기우유"
     private var strawberrySyrup: Int = 1
     init(brand: String, weight: Int, price: Int, name: String, manufactureDate: Date, strawberrySyrup: Int) {
         self.strawberrySyrup = strawberrySyrup
         super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate)
+        super.kindOf = "딸기우유"
         super.typeOfBeverage = String(describing: type(of: self))
     }
     override var description: String {
-        return "\(self.kindOfMilk)(\(typeOfBeverage))\(super.description)"
+        return "\(self.kindOf)(\(typeOfBeverage))\(super.description)"
     }
     
     func quantityOfstrawberrySyrup() -> Int {
