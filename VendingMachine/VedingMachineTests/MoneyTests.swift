@@ -15,5 +15,18 @@ class MoneyTests: XCTestCase {
         money.insert(coin: .hundred)
         XCTAssertTrue(money.countChange() == 5100)
     }
+    
+    func test_동전_차감() throws {
+        var money = Money()
+        money.insert(coin: .fiveThousand)
+        money.insert(coin: .hundred)
+        try money.deduct(coin: .fiveHundred)
+        XCTAssertTrue(money.countChange() == 4600)
+    }
+    
+    func test_동전_차감_실패() throws {
+        var money = Money()
+        XCTAssertThrowsError(try money.deduct(coin: .fiveHundred))
+    }
 
 }
