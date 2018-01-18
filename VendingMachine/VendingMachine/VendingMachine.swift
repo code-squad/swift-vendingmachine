@@ -35,8 +35,11 @@ class VendingMachine {
         })
     }
     
-    //func buyBeverage(beverageMenu: BeverageMenu) {
-    
+    func buyBeverage(beverageMenu: BeverageMenu) throws {
+        let beverage = beverageMenu.makeInstance()
+        try deductBeverage(beverageMenu: beverageMenu)
+        try deductMoney(coin: beverage.price)
+    }
 }
 
 extension VendingMachine: Userable {

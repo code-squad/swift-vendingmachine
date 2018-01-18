@@ -60,4 +60,19 @@ class VedingMachineTests: XCTestCase {
         XCTAssertTrue(result.count == 0)
     }
     
+    func test_음료_구매() throws {
+        var money = Money()
+        money.insert(coin: .thousand)
+        money.insert(coin: .fiveHundred)
+        var inventory = Inventory()
+        inventory.insertBeverage(beverageMenu: .bananaMilk)
+        inventory.insertBeverage(beverageMenu: .cocaCola)
+        inventory.insertBeverage(beverageMenu: .cocaCola)
+        inventory.insertBeverage(beverageMenu: .bananaMilk)
+        var vendingMachine = VendingMachine(money: money, inventory: inventory)
+        try vendingMachine.buyBeverage(beverageMenu: .cocaCola)
+        XCTAssertTrue(vendingMachine.countChange() == 70)
+        XCTAssertTrue(vendingMachine.countBeverageQuantity(beverageMenu: .cocaCola) == 1)
+    }
+    
 }
