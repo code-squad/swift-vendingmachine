@@ -12,11 +12,10 @@ class Georgia: Coffee {
     private var coffeeExtract: Double = 12.6
     init(brand: String, weight: Int, price: Int, name: String, manufactureDate: Date, coffeeExtrack: Double) {
         super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate)
-        super.typeOfBeverage = String(describing: type(of: self))
         super.kindOf = "조지아"
     }
     override var description: String {
-        return "\(self.kindOf)(\(typeOfBeverage))\(super.description)"
+        return "\(self.kindOf)\(type(of: self)))\(super.description)"
     }
     
     func isRichCoffeeExtract() -> Bool {
