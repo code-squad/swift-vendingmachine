@@ -51,6 +51,7 @@ while runVendingMachine {
         outputView.printMessage(.addMoney)
         vendingMachine.addMoney(InputView().readMoney())
     case .buyDrink :
+        vendingMachine.updateProductNumbersAndKinds()
         outputView.printMessage(.chooseProduct)
         let userProductNumber = inputView.readProductNumber()
         if userProductNumber == .invalidNumber  {
