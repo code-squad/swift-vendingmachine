@@ -14,10 +14,11 @@ func run() {
     let isContinue = true
     var isFirst = true
 
+    // 초기 재고 추가
     let strawberryMilk: Beverage = StrawberryMilk(brand: "서울우유", weight: 200, price: 1000, name: "날마다딸기우유", manufactureDate: formatter.date(from: "20171009") ?? Date(), strawberrySyrup: 5)
     let bananaMilk = BananaMilk(brand: "서울우유", weight: 200, price: 1000, name: "날마다딸기우유", manufactureDate: formatter.date(from: "20171012") ?? Date(), bananaSyrup: 3)
     let coke = Coke(brand: "팹시", weight: 350, price: 2000, name: "다이어트콜라", manufactureDate: formatter.date(from: "20171005") ?? Date(), calorie: 25)
-    let coffee = Top(brand: "맥심", weight: 400, price: 3000, name: "TOP아메리카노", manufactureDate: formatter.date(from: "20171010") ?? Date(), isHotDrink: false) //nil coalescing optional
+    let coffee = Top(brand: "맥심", weight: 400, price: 3000, name: "TOP아메리카노", manufactureDate: formatter.date(from: "20171010") ?? Date(), isHotDrink: false)
     
     let vendingMachine = VendingMachine()
     vendingMachine.addInInventory(beverage: strawberryMilk)
@@ -26,18 +27,29 @@ func run() {
     vendingMachine.addInInventory(beverage: strawberryMilk)
     vendingMachine.addInInventory(beverage: coffee)
     
-    let inputView = InputView(vendingMachine: vendingMachine)
-    let outputView = OutputView()
+    // 메뉴 출력 및 사용자 입력
+    let inputView = InputView()
+    let outputView = OutputView(vendingMachine: vendingMachine)
     repeat {
-        inputView.incrementCurrentCoins()
+        
+        // 현재 금액
+        outputView.printCurrentCoins()
         if isFirst {
-            inputView.menuOfInitial()
+            
+            // 초기 메뉴
+            outputView.printBeverageMenu()
             isFirst = false
         }else {
-            inputView.menuOfAddAmount()
+            
+            // 이후 기본 메뉴
+            outputView.printAddAmoutMenu()
         }
+        
+        // 메뉴 선택 및 이동
         outputView.printDoingMenu()
-        inputView.getMenuInput()
+        let inputValue = inputView.getMenuInput()
+        outputView.inputValueClassification(separatedValues: inputValue)
+        
     } while isContinue
     
 }

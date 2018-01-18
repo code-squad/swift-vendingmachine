@@ -10,7 +10,7 @@ import Foundation
 
 struct VendingMachine {
     private var coins: Int
-    private var let inventoryBox: InventoryBox
+    private var inventoryBox: InventoryBox
     private let purchaseProductHistory: PurchaseProductHistory
     init() {
         self.coins = 0
