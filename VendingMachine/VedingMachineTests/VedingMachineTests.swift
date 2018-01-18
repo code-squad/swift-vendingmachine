@@ -11,6 +11,11 @@ import XCTest
 class VedingMachineTests: XCTestCase {
     let today = DateUtility.today()
     
+    func test_바나나_우유_인스턴스_생성() {
+        let bananaMilk = BeverageMenu.bananaMilk.makeInstance()
+        XCTAssertFalse(bananaMilk.isLowCalorie())
+    }
+    
     func test_동전_삽입() {
         let money = Money(0)
         let vendingMachine = VendingMachine(money: money)
