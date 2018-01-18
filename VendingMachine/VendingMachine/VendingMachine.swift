@@ -29,11 +29,11 @@ class VendingMachine {
         return inventory.countBeverageQuantity(beverageMenu: beverageMenu)
     }
     
-//    func fetchPurchasableBeverages() {
-//        inventory.
-//            $0.beverageMenu.makeInstance().price > money.countChange()
-//        })
-//    }
+    func fetchPurchasableBeverages() -> [BeverageBox] {
+        return inventory.fetchListOfBeverage().filter ({
+            $0.beverageMenu.makeInstance().price <= money.countChange()
+        })
+    }
 }
 
 extension VendingMachine: Userable {
