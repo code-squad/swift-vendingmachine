@@ -10,13 +10,19 @@ import Foundation
 typealias productKind = String
 
 struct VendingMachine {
-    private var inventory : [ObjectIdentifier:[Beverage]] = [:]
+    private var inventory : [String:[Beverage]] = [:]
     private var balance : Int = 0
     private var historyOfProductsSold : [Beverage] = []
+    private var productNumbersAndKinds : [Int:String] = [:]
     
     init(productsBox : [Beverage]) {
         for oneProduct in productsBox {
             addBeverage(oneProduct)
+        }
+        var productNumber = 1
+        for oneProduct in self.getInventory().keys {
+            self.productNumbersAndKinds.updateValue(oneProduct, forKey: productNumber)
+            productNumber += 1
         }
     }
     // 자판기 금액을 원하는 금액만큼 올리는 메소드
@@ -26,21 +32,21 @@ struct VendingMachine {
 
     // 특정 상품 인스턴스를 넘겨서 재고를 추가하는 메소드
     mutating func addBeverage(_ product : Beverage) {
-        if self.inventory.index(forKey: ObjectIdentifier(product)) == nil {
-            self.inventory.updateValue([product], forKey: ObjectIdentifier(product))
+        if self.inventory.index(forKey: String(product.description.split(separator: "(")[0])) == nil {
+            self.inventory.updateValue([product], forKey: String(product.description.split(separator: "(")[0]))
             return
         }
-        self.inventory[ObjectIdentifier(product)]?.append(product)
+        self.inventory[String(product.description.split(separator: "(")[0])]?.append(product)
     }
     
     // 현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
-    func generateListOfValidProduct() -> [ObjectIdentifier] {
-        return self.inventory.filter({$0.value[0].price < self.balance}).map({ObjectIdentifier($0.value[0])})
+    func generateListOfValidProduct() -> [String] {
+        return self.inventory.filter({$0.value[0].price < self.balance}).map({$0.key})
     }
     
     // 음료수를 구매하는 메소드
-    mutating func buy(_ product : Beverage) {
-        let soldProduct = self.inventory[ObjectIdentifier(product)]?.removeFirst()
+    mutating func buy(_ product : String) {
+        let soldProduct = self.inventory[product]?.removeFirst()
         guard let product = soldProduct else { return }
         self.historyOfProductsSold.append(product)
         self.balance -= product.price
@@ -52,7 +58,7 @@ struct VendingMachine {
     }
     
     // 전체 상품 재고를 (사전으로 표현하는) 종류별로 리턴하는 메소드
-    func getInventory() -> [ObjectIdentifier:[Beverage]] {
+    func getInventory() -> [String:[Beverage]] {
         return self.inventory.filter({$0.value.count > 0})
     }
     
@@ -83,5 +89,9 @@ struct VendingMachine {
     // 시작이후 구매 상품 이력을 배열로 리턴하는 메소드
     func generateListOfHistory() -> [Beverage] {
         return self.historyOfProductsSold
+    }
+    
+    func getProductNumbersAndKinds() -> [Int:String] {
+        return self.productNumbersAndKinds
     }
 }
