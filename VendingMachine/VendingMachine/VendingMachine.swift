@@ -44,5 +44,9 @@ extension VendingMachine: Userable {
     func countChange() -> Int {
         return money.countChange()
     }
+    
+    func deductMoney(coin: Money.Unit) throws {
+        try money.deduct(coin: coin)
+    }
 }
 
