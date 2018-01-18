@@ -124,42 +124,18 @@
 		87D79EB02007255A00A3A4FE /* Beverages */ = {
 			isa = PBXGroup;
 			children = (
+				876E46362004956A0073FABB /* CarbonatedDrink.swift */,
+				87D79EC220072A9200A3A4FE /* CocaCola.swift */,
+				87D79ECA20073A3E00A3A4FE /* Pepci.swift */,
 				876E462E200484770073FABB /* Beverage.swift */,
-				87D79EB3200725FB00A3A4FE /* CarbonatedDrink */,
-				87D79EB22007256D00A3A4FE /* Milk */,
-				87D79EB12007256700A3A4FE /* Coffee */,
-			);
-			path = Beverages;
-			sourceTree = "<group>";
-		};
-		87D79EB12007256700A3A4FE /* Coffee */ = {
-			isa = PBXGroup;
-			children = (
+				876E4630200485720073FABB /* Milk.swift */,
+				87D79ECD200745B500A3A4FE /* StrawberryMilk.swift */,
+				87D79ED020074E3400A3A4FE /* BananaMilk.swift */,
 				876E463820049B720073FABB /* Coffee.swift */,
 				87D79ED320074FF900A3A4FE /* Georgia.swift */,
 				8770B6BC200DCAF50041202E /* TOP.swift */,
 			);
-			path = Coffee;
-			sourceTree = "<group>";
-		};
-		87D79EB22007256D00A3A4FE /* Milk */ = {
-			isa = PBXGroup;
-			children = (
-				876E4630200485720073FABB /* Milk.swift */,
-				87D79ECD200745B500A3A4FE /* StrawberryMilk.swift */,
-				87D79ED020074E3400A3A4FE /* BananaMilk.swift */,
-			);
-			path = Milk;
-			sourceTree = "<group>";
-		};
-		87D79EB3200725FB00A3A4FE /* CarbonatedDrink */ = {
-			isa = PBXGroup;
-			children = (
-				876E46362004956A0073FABB /* CarbonatedDrink.swift */,
-				87D79EC220072A9200A3A4FE /* CocaCola.swift */,
-				87D79ECA20073A3E00A3A4FE /* Pepci.swift */,
-			);
-			path = CarbonatedDrink;
+			path = Beverages;
 			sourceTree = "<group>";
 		};
 		87D79EB42007260900A3A4FE /* Utilities */ = {
