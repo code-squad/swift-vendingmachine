@@ -18,22 +18,6 @@ class InputView {
         availableBeverage = [ObjectIdentifier:[Beverage]]()
     }
     
-    func usingVendingMachine() {
-        let isContinue = true
-        var isFirst = true
-        repeat {
-            printCurrentCoins()
-            if isFirst {
-                printBeverageMenu()
-                isFirst = false
-            }else {
-                menuOfAddAmount()
-            }
-            printDoingMenu()
-            getMenuInput()
-        }while isContinue
-    }
-    
     func printCurrentCoins() {
         vendingMachine.putCoins(coins: self.coins)
         print("\n현재 투입한 금액이 \(self.coins)원입니다. 다음과 같은 음료가 있습니다.")
