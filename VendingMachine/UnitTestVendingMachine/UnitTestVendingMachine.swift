@@ -9,7 +9,7 @@
 import XCTest
 
 class UnitTestVendingMachine: XCTestCase {
- 
+
     func test_자판기_음료수_객체만들기_성공() {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyyMMdd"
@@ -256,4 +256,53 @@ class UnitTestVendingMachine: XCTestCase {
         XCTAssertFalse(dutchBlack.isGuatemalaBeans())
     }
 
+    func test_자판기_통합테스트시나리오로_동작_확인() {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+        
+        // 재고 생성
+        let strawberryMilk: Beverage = StrawberryMilk(brand: "서울우유", weight: 200, price: 1000, name: "날마다딸기우유", manufactureDate: formatter.date(from: "20171009") ?? Date(), strawberrySyrup: 5)
+        let bananaMilk = BananaMilk(brand: "서울우유", weight: 200, price: 1000, name: "날마다딸기우유", manufactureDate: formatter.date(from: "20171012") ?? Date(), bananaSyrup: 3)
+        let coke = Coke(brand: "팹시", weight: 350, price: 2000, name: "다이어트콜라", manufactureDate: formatter.date(from: "20171005") ?? Date(), calorie: 25)
+        let coffee = Top(brand: "맥심", weight: 400, price: 3000, name: "TOP아메리카노", manufactureDate: formatter.date(from: "20171010") ?? Date(), isHotDrink: false)
+        
+        // 재고 추가
+        let vendingMachine = VendingMachine()
+        vendingMachine.addInInventory(beverage: strawberryMilk)
+        vendingMachine.addInInventory(beverage: bananaMilk)
+        vendingMachine.addInInventory(beverage: coke)
+        vendingMachine.addInInventory(beverage: strawberryMilk)
+        vendingMachine.addInInventory(beverage: coffee)
+        
+        // 재고 확인
+        
+        // 잔액 추가 확인
+        let inputView = InputView(vendingMachine: vendingMachine)
+        inputView.coins = 2000
+        inputView.printCurrentCoins()
+        XCTAssertTrue(inputView.vendingMachine.coins == 2000)
+        
+        // 어떤 상품 구매가능한지, 불가능인지 확인
+        let beverage = inputView.vendingMachine.listOfDrinksAvailable()
+        XCTAssertTrue(beverage.keys.contains(ObjectIdentifier(type(of: strawberryMilk))))
+        XCTAssertTrue(beverage.keys.contains(ObjectIdentifier(type(of: bananaMilk))))
+        XCTAssertTrue(beverage.keys.contains(ObjectIdentifier(type(of: coke))))
+        XCTAssertFalse(beverage.keys.contains(ObjectIdentifier(type(of: coffee))))
+        
+        // 가능한 상품 구매하고
+        inputView.menuOfAddAmount()
+        inputView.printDoingMenu()
+        inputView.printPurchaseBeverage(menuNumber: 1)
+        XCTAssertTrue(beverage.keys.count == 3)
+        
+        // 잔액 바뀌고
+        XCTAssertFalse(inputView.coins == 2000)
+        
+        // 재고 상태 바뀌고,
+        XCTAssertNotEqual(inputView.vendingMachine.showEntireInventory().values.count, 4)
+        
+        ///구매 상품 이력을 확인한다.
+        XCTAssertEqual(inputView.vendingMachine.purchaseProductHistory.purchaseBeverage, ["날마다딸기우유"])
+    }
+    
 }

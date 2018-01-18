@@ -35,6 +35,7 @@ class InputView {
     }
     
     func printCurrentCoins() {
+        vendingMachine.putCoins(coins: self.coins)
         print("\n현재 투입한 금액이 \(self.coins)원입니다. 다음과 같은 음료가 있습니다.")
     }
 
@@ -59,7 +60,6 @@ class InputView {
             switch separatedValues[0] {
             case 1:
                 self.coins = separatedValues[1]
-                vendingMachine.putCoins(coins: self.coins)
             case 2:
                 printPurchaseBeverage(menuNumber: separatedValues[1])
             default: break
@@ -69,7 +69,7 @@ class InputView {
     
     func printPurchaseBeverage(menuNumber: Int) {
         do {
-            let choiceBeverageKey = try getMenuInfo(menuNumber: menuNumber)
+            let choiceBeverageKey = try getBeverageKey(menuNumber: menuNumber)
             let beverageInfo = availableBeverage[choiceBeverageKey]?.first
             print("\(beverageInfo?.kindOf ?? "")를 구매하셨습니다. \(beverageInfo?.price ?? 0)원을 차감합니다.")
             self.coins -= beverageInfo?.price ?? 0
@@ -80,7 +80,7 @@ class InputView {
         }
     }
     
-    func getMenuInfo(menuNumber: Int) throws -> ObjectIdentifier {
+    func getBeverageKey(menuNumber: Int) throws -> ObjectIdentifier {
         for (index, beverage) in availableBeverage.enumerated() {
             if menuNumber == (index + 1) {
                 return beverage.key
