@@ -14,6 +14,6 @@ class CocaCola: CarbonatedDrink {
     }
     
     override var description: String {
-        return "코카콜라(\(CocaCola.typeName)) - \(super.description)"
+        return "코카콜라(\(CocaCola.bringTypeName)) - \(super.description)"
     }
 }
