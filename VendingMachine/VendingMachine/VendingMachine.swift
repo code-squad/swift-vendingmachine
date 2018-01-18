@@ -51,7 +51,7 @@ struct VendingMachine {
     
     // 전체 상품 재고를 (사전으로 표현하는) 종류별로 리턴하는 메소드
     func showEntireInventory() -> [ObjectIdentifier:[Beverage]] {
-        return inventoryBox.box
+        return inventoryBox.overallProductInventory()
     }
     
     // 유통기한이 지난 재고만 리턴하는 메소드
