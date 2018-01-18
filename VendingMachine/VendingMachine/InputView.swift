@@ -11,31 +11,18 @@ import Foundation
 class InputView {
     private var coins: Int
     private var vendingMachine: VendingMachine
+    private var outputView: OutputView
     private var availableBeverage: [ObjectIdentifier:[Beverage]]
     init(vendingMachine: VendingMachine) {
         coins = 0
         self.vendingMachine = vendingMachine
+        self.outputView = OutputView()
         availableBeverage = [ObjectIdentifier:[Beverage]]()
     }
     
-    func printCurrentCoins() {
+    func incrementCurrentCoins() {
         vendingMachine.putCoins(coins: self.coins)
-        print("\n현재 투입한 금액이 \(self.coins)원입니다. 다음과 같은 음료가 있습니다.")
-    }
-
-    func printBeverageMenu() {
-        let entireInventory = vendingMachine.showEntireInventory()
-        for menu in entireInventory {
-            let numberOfBeverage = menu.value.count
-            print("\(menu.value[0].kindOf)(\(numberOfBeverage)개) ", terminator: "")
-        }
-        print()
-    }
-    
-    func printDoingMenu() {
-        print("1. 금액추가")
-        print("2. 음료구매")
-        print("> ", terminator: "")
+        outputView.printCurrentCoins(coins: self.coins)
     }
     
     func getMenuInput() {
@@ -45,17 +32,22 @@ class InputView {
             case 1:
                 self.coins = separatedValues[1]
             case 2:
-                printPurchaseBeverage(menuNumber: separatedValues[1])
+                menuOfPurchaseBeverage(menuNumber: separatedValues[1])
             default: break
             }
         }
     }
     
-    func printPurchaseBeverage(menuNumber: Int) {
+    func menuOfInitial() {
+        let entireInventory = vendingMachine.showEntireInventory()
+        outputView.printBeverageMenu(entireInventory: entireInventory)
+    }
+    
+    func menuOfPurchaseBeverage(menuNumber: Int) {
         do {
             let choiceBeverageKey = try getBeverageKey(menuNumber: menuNumber)
             let beverageInfo = availableBeverage[choiceBeverageKey]?.first
-            print("\(beverageInfo?.kindOf ?? "")를 구매하셨습니다. \(beverageInfo?.price ?? 0)원을 차감합니다.")
+            outputView.printPurchaseBeverage(beverageInfo: beverageInfo)
             self.coins -= beverageInfo?.price ?? 0
             vendingMachine.putCoins(coins: self.coins)
             vendingMachine.buyBeverage(beverageName: choiceBeverageKey)
@@ -79,9 +71,7 @@ class InputView {
     
     func menuOfAddAmount() {
         availableBeverage = vendingMachine.listOfDrinksAvailable()
-        for (index, menu) in availableBeverage.enumerated() {
-            print("\(index+1))\(menu.value[0].kindOf) \(menu.value[0].price)(\(menu.value.count)개)")
-        }
+        outputView.printAddAmoutMenu(availableBeverage: availableBeverage)
     }
     
 }

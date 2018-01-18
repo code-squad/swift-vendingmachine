@@ -27,15 +27,16 @@ func run() {
     vendingMachine.addInInventory(beverage: coffee)
     
     let inputView = InputView(vendingMachine: vendingMachine)
+    let outputView = OutputView()
     repeat {
-        inputView.printCurrentCoins()
+        inputView.incrementCurrentCoins()
         if isFirst {
-            inputView.printBeverageMenu()
+            inputView.menuOfInitial()
             isFirst = false
         }else {
             inputView.menuOfAddAmount()
         }
-        inputView.printDoingMenu()
+        outputView.printDoingMenu()
         inputView.getMenuInput()
     } while isContinue
     
