@@ -82,4 +82,12 @@ class VedingMachineTests: XCTestCase {
         XCTAssertTrue(vendingMachine.fetchListOfHottedBeverage().count == 1)
     }
     
+    func test_기간이_유효한_목록_확인() {
+        let money = Money()
+        let inventory = Inventory()
+        let vendingMachine = VendingMachine(money: money, inventory: inventory)
+        let result = vendingMachine.fetchListOfValidDate()
+        XCTAssertTrue(result.count == 4)
+    }
+    
 }
