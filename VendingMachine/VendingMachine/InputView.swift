@@ -9,9 +9,9 @@
 import Foundation
 
 class InputView {
-    var coins: Int
-    var vendingMachine: VendingMachine
-    var availableBeverage: [ObjectIdentifier:[Beverage]]
+    private var coins: Int
+    private var vendingMachine: VendingMachine
+    private var availableBeverage: [ObjectIdentifier:[Beverage]]
     init(vendingMachine: VendingMachine) {
         coins = 0
         self.vendingMachine = vendingMachine
