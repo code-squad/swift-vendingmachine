@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Beverage : CustomStringConvertible {
+class Beverage : CustomStringConvertible {    
     
     var description: String {
         let dateFormatter = DateFormatter()
@@ -20,7 +20,7 @@ class Beverage : CustomStringConvertible {
     private var brand : String
     private var name : String
     private var volume : Int
-    private var price : Int
+    private (set) var price : Int
     private var date : Date
 
     init(brand : String, name : String, volume : Int, price : Int, manufacturedDate : Date) {
@@ -30,5 +30,5 @@ class Beverage : CustomStringConvertible {
         self.price = price
         self.date = manufacturedDate
     }
-    
+
 }

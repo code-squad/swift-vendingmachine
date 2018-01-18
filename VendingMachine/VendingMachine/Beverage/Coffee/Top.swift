@@ -11,7 +11,7 @@ import Foundation
 class TOPCoffee : Coffee {
     private var kind : String = "TOP커피"
     
-    override init(brand : String, name : String, volume : Int, price : Int, manufacturedDate : Date, hot : Bool) {
+    init(_ brand : String, _ name : String,_ volume : Int,_ price : Int,_ manufacturedDate : Date, hot : Bool) {
         super.init(brand: brand, name: name, volume: volume, price: price, manufacturedDate: manufacturedDate, hot : hot)
     }
 
