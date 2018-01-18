@@ -11,10 +11,10 @@ import Foundation
 class Georgia : Coffee {
     private var kind : String = "지오지아커피"
     
-    override init(brand : String, name : String, volume : Int, price : Int, manufacturedDate : Date, hot : Bool) {
+    init(_ brand : String, _ name : String,_ volume : Int,_ price : Int,_ manufacturedDate : Date, hot : Bool) {
         super.init(brand: brand, name: name, volume: volume, price: price, manufacturedDate: manufacturedDate, hot : hot)
     }
-    
+
     override var description : String {
         return "\(self.kind)(\(String(describing: Georgia.self)) - \(super.description)"
     }
