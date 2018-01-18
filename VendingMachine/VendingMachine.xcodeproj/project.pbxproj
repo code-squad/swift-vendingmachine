@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		450A435320072F96006A0CE9 /* BeverageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450A435220072F96006A0CE9 /* BeverageMenu.swift */; };
 		450A435520076E2D006A0CE9 /* StrawberryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450A435420076E2D006A0CE9 /* StrawberryMilk.swift */; };
 		450A435720077A62006A0CE9 /* ChocoMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450A435620077A62006A0CE9 /* ChocoMilk.swift */; };
 		450A435920077A72006A0CE9 /* BananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450A435820077A72006A0CE9 /* BananaMilk.swift */; };
@@ -61,7 +60,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		450A435220072F96006A0CE9 /* BeverageMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageMenu.swift; sourceTree = "<group>"; };
 		450A435420076E2D006A0CE9 /* StrawberryMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrawberryMilk.swift; sourceTree = "<group>"; };
 		450A435620077A62006A0CE9 /* ChocoMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocoMilk.swift; sourceTree = "<group>"; };
 		450A435820077A72006A0CE9 /* BananaMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaMilk.swift; sourceTree = "<group>"; };
@@ -181,7 +179,6 @@
 				450A436620077BE7006A0CE9 /* BeverageGroup */,
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
 				45F328DC2006599100EC1EE0 /* Beverage.swift */,
-				450A435220072F96006A0CE9 /* BeverageMenu.swift */,
 				45EAE24D2008C2B900FAF255 /* VendingMachine.swift */,
 				45F45728200C76530009BF1B /* InventoryBox.swift */,
 				452E7690200E1FFE003396BE /* PurchaseProductHistory.swift */,
@@ -308,7 +305,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				450A435520076E2D006A0CE9 /* StrawberryMilk.swift in Sources */,
-				450A435320072F96006A0CE9 /* BeverageMenu.swift in Sources */,
 				450A436520077AAC006A0CE9 /* Georgia.swift in Sources */,
 				452E7691200E1FFE003396BE /* PurchaseProductHistory.swift in Sources */,
 				450A435D20077A88006A0CE9 /* Sprite.swift in Sources */,
