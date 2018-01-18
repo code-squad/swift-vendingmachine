@@ -15,15 +15,19 @@ struct Inventory {
         updateQuantity(beverageBox: BeverageBox(beverageMenu: beverageMenu, quantity: quantity))
     }
     
-    mutating func deductBeverage(beverageMenu: BeverageMenu, quantity: Int = -1) {
-        // beverageBoxes.count <= 0
+    mutating func deductBeverage(beverageMenu: BeverageMenu, quantity: Int = -1) throws {
+        guard beverageBoxes.count > 0 else {
+            throw BeverageErrors.outOfStock
+        }
         
-        // countQuantity(menu) <= 0
+        guard countBeverageQuantity(beverageMenu: beverageMenu) > 0 else {
+            throw BeverageErrors.outOfStock
+        }
         
         updateQuantity(beverageBox: BeverageBox(beverageMenu: beverageMenu, quantity: quantity))
     }
     
-    func countQuantity(beverageMenu: BeverageMenu) -> Int {
+    func countBeverageQuantity(beverageMenu: BeverageMenu) -> Int {
         return self.beverageBoxes.filter ({
             if $0.beverageMenu == beverageMenu {
                 return true
@@ -31,6 +35,11 @@ struct Inventory {
             
             return false
         }).reduce(0, {$0 + $1.quantity})
+    }
+    
+    func fetchBeverages() {
+        self.beverageBoxes
+        
     }
 }
 
