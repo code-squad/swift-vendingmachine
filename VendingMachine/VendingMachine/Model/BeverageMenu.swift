@@ -16,6 +16,10 @@ enum BeverageMenu {
     case strawberryMilk
     case top
     
+    static var allValues: [BeverageMenu] {
+        return [.bananaMilk, .cocaCola, .georgia, .pepsi, .strawberryMilk, .top]
+    }
+    
     func makeInstance() -> Beverage {
         let today = DateUtility.today()
         switch self {
