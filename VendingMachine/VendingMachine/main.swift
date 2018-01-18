@@ -11,6 +11,8 @@ import Foundation
 func run() {
     let formatter = DateFormatter()
     formatter.dateFormat = "yyyyMMdd"
+    let isContinue = true
+    var isFirst = true
 
     let strawberryMilk: Beverage = StrawberryMilk(brand: "서울우유", weight: 200, price: 1000, name: "날마다딸기우유", manufactureDate: formatter.date(from: "20171009") ?? Date(), strawberrySyrup: 5)
     let bananaMilk = BananaMilk(brand: "서울우유", weight: 200, price: 1000, name: "날마다딸기우유", manufactureDate: formatter.date(from: "20171012") ?? Date(), bananaSyrup: 3)
@@ -25,7 +27,17 @@ func run() {
     vendingMachine.addInInventory(beverage: coffee)
     
     let inputView = InputView(vendingMachine: vendingMachine)
-    inputView.usingVendingMachine()
+    repeat {
+        inputView.printCurrentCoins()
+        if isFirst {
+            inputView.printBeverageMenu()
+            isFirst = false
+        }else {
+            inputView.menuOfAddAmount()
+        }
+        inputView.printDoingMenu()
+        inputView.getMenuInput()
+    } while isContinue
     
 }
 run()
