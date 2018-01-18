@@ -9,9 +9,9 @@
 import Foundation
 
 struct Money {
-    private var money: Change
+    private var money: Int
     
-    init(_ money: Change) {
+    init(_ money: Int) {
         self.money = money
     }
     
@@ -19,13 +19,13 @@ struct Money {
         self.money += coin.rawValue
     }
     
-    func countChange() -> Change {
+    func countChange() -> Int {
         return self.money
     }
 }
 
 extension Money {
-    enum Unit: Change {
+    enum Unit: Int {
         case hundred = 100
         case fiveHundred = 500
         case thousand = 1000

@@ -8,9 +8,7 @@
 
 import Foundation
 
-typealias Change = Int
-
 protocol Userable {
     func insertMoney(coin: Money.Unit)
-    func countChange() -> Change
+    func countChange() -> Int
 }
