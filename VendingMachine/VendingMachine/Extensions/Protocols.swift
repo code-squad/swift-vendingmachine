@@ -11,4 +11,11 @@ import Foundation
 protocol Userable {
     func insertMoney(coin: Money.Unit)
     func countChange() -> Int
+    func buyBeverage(beverageMenu: BeverageMenu) throws
+}
+
+protocol VendingMachineManagerable {
+    func insertBeverage(beverageMenu: BeverageMenu, quantity: Int)
+    func deductBeverage(beverageMenu: BeverageMenu, quantity: Int) throws
+    func countBeverageQuantity(beverageMenu: BeverageMenu) -> Int
 }
