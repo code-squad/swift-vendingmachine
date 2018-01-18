@@ -9,7 +9,7 @@
 import Foundation
 
 class TOP: Coffee {
-    override init(brand: String, volume: Int, price: Int, productName: String, expiryDate: Date, calorie: Int) {
-        super.init(brand: brand, volume: volume, price: price, productName: productName, expiryDate: expiryDate, calorie: calorie)
+    override init(brand: String, volume: Int, price: Int, productName: String, expiryDate: Date, calorie: Int, isHot: Bool) {
+        super.init(brand: brand, volume: volume, price: price, productName: productName, expiryDate: expiryDate, calorie: calorie, isHot: isHot)
     }
 }
