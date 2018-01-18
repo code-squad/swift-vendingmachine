@@ -33,6 +33,13 @@ class VendingMachine {
         })
     }
     
+    func fetchListOfValidDate() -> [BeverageMenu] {
+        return BeverageMenu.allValues.filter ({
+            $0.makeInstance().isExpired(with: DateUtility.today())
+        })
+    }
+    
+    
     func deductMoney(coin: Int) throws {
         try money.deduct(coin: coin)
     }
