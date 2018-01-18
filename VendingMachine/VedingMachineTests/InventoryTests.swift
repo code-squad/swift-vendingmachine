@@ -35,5 +35,20 @@ class InventoryTests: XCTestCase {
         var inventory = Inventory()
         XCTAssertThrowsError(try inventory.deductBeverage(beverageMenu: .bananaMilk))
     }
+    
+    func test_창고에_든_메뉴_수량_가져옴() {
+        var inventory = Inventory()
+        inventory.insertBeverage(beverageMenu: .bananaMilk)
+        inventory.insertBeverage(beverageMenu: .cocaCola)
+        inventory.insertBeverage(beverageMenu: .cocaCola)
+        inventory.insertBeverage(beverageMenu: .bananaMilk)
+        inventory.insertBeverage(beverageMenu: .bananaMilk)
+        let beverageBoxes = inventory.fetchListOfBeverage()
+        XCTAssertTrue(beverageBoxes.count == 2)
+        XCTAssertTrue(beverageBoxes.filter({ $0.beverageMenu == BeverageMenu.bananaMilk }).count == 1)
+        XCTAssertTrue(beverageBoxes.filter({ $0.beverageMenu == BeverageMenu.cocaCola }).count == 1)
+        XCTAssertTrue(beverageBoxes.filter({ $0.quantity == 3 }).count == 1)
+        XCTAssertTrue(beverageBoxes.filter({ $0.quantity == 2 }).count == 1)
+    }
 
 }
