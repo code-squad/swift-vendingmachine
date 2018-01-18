@@ -9,8 +9,8 @@
 import Foundation
 
 class PurchaseProductHistory {
-    var purchaseDate: [Date]
-    var purchaseBeverage: [String]
+    private var purchaseDate: [Date]
+    private var purchaseBeverage: [String]
     
     init() {
         purchaseDate = [Date]()
