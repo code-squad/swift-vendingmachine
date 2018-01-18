@@ -41,7 +41,7 @@ struct VendingMachine {
     
     // 현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
     func generateListOfValidProduct() -> [String] {
-        return self.inventory.filter({$0.value[0].price < self.balance}).map({$0.key})
+        return self.inventory.filter({$0.value.count > 0}).filter({($0.value[0].price) < self.balance}).map({$0.key})
     }
     
     // 음료수를 구매하는 메소드
@@ -93,5 +93,13 @@ struct VendingMachine {
     
     func getProductNumbersAndKinds() -> [Int:String] {
         return self.productNumbersAndKinds
+    }
+    
+    mutating func updateProductNumbersAndKinds() {
+        var productNumber = 1
+        for oneProduct in self.getInventory().keys {
+            self.productNumbersAndKinds.updateValue(oneProduct, forKey: productNumber)
+            productNumber += 1
+        }
     }
 }
