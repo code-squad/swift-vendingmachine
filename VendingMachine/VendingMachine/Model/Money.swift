@@ -9,11 +9,7 @@
 import Foundation
 
 struct Money {
-    private var money: Int
-    
-    init(_ money: Int) {
-        self.money = money
-    }
+    private var money: Int = 0
     
     mutating func insert(coin: Unit) {
         self.money += coin.rawValue
