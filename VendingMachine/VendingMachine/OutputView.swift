@@ -33,11 +33,11 @@ struct OutputView {
         print("\(message.rawValue)")
     }
     
-    func printInformation(_ vendingMachine : VendingMachine) {
+    private func printInformation(_ vendingMachine : VendingMachine) {
         print("현재 투입한 금액은 \(vendingMachine.getBalance())원 입니다. 다음과 같은 음료가 있습니다.")
     }
     
-    func printProducts(_ vendingMachine : VendingMachine) {
+    private func printProducts(_ vendingMachine : VendingMachine) {
         var productNumber = 1
         for oneProduct in vendingMachine.getInventory() {
             print("\(productNumber)) \(oneProduct.key) \(oneProduct.value[0].price)원 (\(oneProduct.value.count)개)")
