@@ -17,7 +17,7 @@ class VedingMachineTests: XCTestCase {
     }
     
     func test_동전_삽입() {
-        let money = Money(0)
+        let money = Money()
         let vendingMachine = VendingMachine(money: money)
         vendingMachine.insertMoney(coin: .fiveHundred)
         vendingMachine.insertMoney(coin: .fiveThousand)

@@ -18,9 +18,11 @@
 		876E463920049B720073FABB /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876E463820049B720073FABB /* Coffee.swift */; };
 		8770B6BD200DCAF50041202E /* TOP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8770B6BC200DCAF50041202E /* TOP.swift */; };
 		8770B6BE200DCAF50041202E /* TOP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8770B6BC200DCAF50041202E /* TOP.swift */; };
-		87BA4A922010C56A003B4802 /* InventoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA4A912010C56A003B4802 /* InventoryManager.swift */; };
-		87BA4A932010C56A003B4802 /* InventoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA4A912010C56A003B4802 /* InventoryManager.swift */; };
-		87BA4A952010C5C7003B4802 /* InventoryManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA4A942010C5C7003B4802 /* InventoryManagerTests.swift */; };
+		87BA4A922010C56A003B4802 /* BeverageBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA4A912010C56A003B4802 /* BeverageBox.swift */; };
+		87BA4A932010C56A003B4802 /* BeverageBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA4A912010C56A003B4802 /* BeverageBox.swift */; };
+		87BA4A952010C5C7003B4802 /* InventoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA4A942010C5C7003B4802 /* InventoryTests.swift */; };
+		87BA4A9A2010D085003B4802 /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA4A992010D085003B4802 /* Inventory.swift */; };
+		87BA4A9B2010D085003B4802 /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA4A992010D085003B4802 /* Inventory.swift */; };
 		87BB942B2010364200DC1099 /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BB942A2010364200DC1099 /* Money.swift */; };
 		87BB942C2010364200DC1099 /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BB942A2010364200DC1099 /* Money.swift */; };
 		87BB94302010399F00DC1099 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BB942F2010399F00DC1099 /* Protocols.swift */; };
@@ -71,8 +73,9 @@
 		876E46362004956A0073FABB /* CarbonatedDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonatedDrink.swift; sourceTree = "<group>"; };
 		876E463820049B720073FABB /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		8770B6BC200DCAF50041202E /* TOP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOP.swift; sourceTree = "<group>"; };
-		87BA4A912010C56A003B4802 /* InventoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryManager.swift; sourceTree = "<group>"; };
-		87BA4A942010C5C7003B4802 /* InventoryManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryManagerTests.swift; sourceTree = "<group>"; };
+		87BA4A912010C56A003B4802 /* BeverageBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageBox.swift; sourceTree = "<group>"; };
+		87BA4A942010C5C7003B4802 /* InventoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTests.swift; sourceTree = "<group>"; };
+		87BA4A992010D085003B4802 /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
 		87BB942A2010364200DC1099 /* Money.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
 		87BB942F2010399F00DC1099 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		87BB943220103CD900DC1099 /* BeverageMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageMenu.swift; sourceTree = "<group>"; };
@@ -140,9 +143,10 @@
 		87BB94292010362A00DC1099 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				87BA4A912010C56A003B4802 /* BeverageBox.swift */,
 				87BB943220103CD900DC1099 /* BeverageMenu.swift */,
+				87BA4A992010D085003B4802 /* Inventory.swift */,
 				87BB942A2010364200DC1099 /* Money.swift */,
-				87BA4A912010C56A003B4802 /* InventoryManager.swift */,
 				87D79EB02007255A00A3A4FE /* Beverages */,
 			);
 			path = Model;
@@ -187,7 +191,7 @@
 				87D79EBC200726A700A3A4FE /* VedingMachineTests.swift */,
 				87D79EBE200726A700A3A4FE /* Info.plist */,
 				87009EB42010476C00421643 /* MoneyTests.swift */,
-				87BA4A942010C5C7003B4802 /* InventoryManagerTests.swift */,
+				87BA4A942010C5C7003B4802 /* InventoryTests.swift */,
 			);
 			path = VedingMachineTests;
 			sourceTree = "<group>";
@@ -303,11 +307,12 @@
 				87D79ED120074E3400A3A4FE /* BananaMilk.swift in Sources */,
 				876E46372004956A0073FABB /* CarbonatedDrink.swift in Sources */,
 				876E4631200485720073FABB /* Milk.swift in Sources */,
+				87BA4A9A2010D085003B4802 /* Inventory.swift in Sources */,
 				87D79ED82007526D00A3A4FE /* CustomExtension.swift in Sources */,
 				87D79EC320072A9200A3A4FE /* CocaCola.swift in Sources */,
 				8770B6BD200DCAF50041202E /* TOP.swift in Sources */,
 				87BB942B2010364200DC1099 /* Money.swift in Sources */,
-				87BA4A922010C56A003B4802 /* InventoryManager.swift in Sources */,
+				87BA4A922010C56A003B4802 /* BeverageBox.swift in Sources */,
 				87BB94302010399F00DC1099 /* Protocols.swift in Sources */,
 				876E463920049B720073FABB /* Coffee.swift in Sources */,
 			);
@@ -321,11 +326,12 @@
 				87D79ECF200745B500A3A4FE /* StrawberryMilk.swift in Sources */,
 				87009EB52010476C00421643 /* MoneyTests.swift in Sources */,
 				87D79ED220074E3400A3A4FE /* BananaMilk.swift in Sources */,
-				87BA4A952010C5C7003B4802 /* InventoryManagerTests.swift in Sources */,
+				87BA4A952010C5C7003B4802 /* InventoryTests.swift in Sources */,
 				87D79EC420072A9200A3A4FE /* CocaCola.swift in Sources */,
 				87D79EC520072A9800A3A4FE /* DateUtility.swift in Sources */,
 				87D79ED520074FF900A3A4FE /* Georgia.swift in Sources */,
 				87BB942C2010364200DC1099 /* Money.swift in Sources */,
+				87BA4A9B2010D085003B4802 /* Inventory.swift in Sources */,
 				8770B6BE200DCAF50041202E /* TOP.swift in Sources */,
 				87D79ECC20073A3E00A3A4FE /* Pepsi.swift in Sources */,
 				87D79EC620072AA300A3A4FE /* Beverage.swift in Sources */,
@@ -334,7 +340,7 @@
 				87D79EBD200726A700A3A4FE /* VedingMachineTests.swift in Sources */,
 				87BB943420103CD900DC1099 /* BeverageMenu.swift in Sources */,
 				87D79EC920072AAF00A3A4FE /* Coffee.swift in Sources */,
-				87BA4A932010C56A003B4802 /* InventoryManager.swift in Sources */,
+				87BA4A932010C56A003B4802 /* BeverageBox.swift in Sources */,
 				87BB94312010399F00DC1099 /* Protocols.swift in Sources */,
 				87064DA320102E96006BA5A1 /* VendingMachine.swift in Sources */,
 			);

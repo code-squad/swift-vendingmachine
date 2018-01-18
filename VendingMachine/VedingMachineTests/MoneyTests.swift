@@ -10,7 +10,7 @@ import XCTest
 
 class MoneyTests: XCTestCase {
     func test_동전_삽입() {
-        var money = Money(0)
+        var money = Money()
         money.insert(coin: .fiveThousand)
         money.insert(coin: .hundred)
         XCTAssertTrue(money.countChange() == 5100)
