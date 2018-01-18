@@ -12,7 +12,7 @@ class InventoryBox {
     enum VendingMachinError: Error {
         case invalidBeverage
     }
-    var box: [ObjectIdentifier:[Beverage]]
+    private var box: [ObjectIdentifier:[Beverage]]
     init() {
         box = [ObjectIdentifier:[Beverage]]()
     }
@@ -44,6 +44,10 @@ class InventoryBox {
             box.remove(at: box.index(forKey: beverageKey)!)
         }
         return beverageOfChoice
+    }
+    
+    func overallProductInventory() -> [ObjectIdentifier:[Beverage]] {
+        return box
     }
     
     func outOfStockInventory() -> [Beverage] {
