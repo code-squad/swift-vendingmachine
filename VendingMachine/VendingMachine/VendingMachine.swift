@@ -9,9 +9,9 @@
 import Foundation
 
 struct VendingMachine {
-    var coins: Int
-    let inventoryBox: InventoryBox
-    let purchaseProductHistory: PurchaseProductHistory
+    private var coins: Int
+    private var let inventoryBox: InventoryBox
+    private let purchaseProductHistory: PurchaseProductHistory
     init() {
         self.coins = 0
         inventoryBox = InventoryBox()
