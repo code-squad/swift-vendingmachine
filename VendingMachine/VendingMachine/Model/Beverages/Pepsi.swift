@@ -8,12 +8,12 @@
 
 import Foundation
 
-class Pepci: CarbonatedDrink {
+class Pepsi: CarbonatedDrink {
     override init(brand: String, volume: Int, price: Int, productName: String, expiryDate: Date, calorie: Int, quantity: Int) {
         super.init(brand: brand, volume: volume, price: price, productName: productName, expiryDate: expiryDate, calorie: calorie, quantity: quantity)
     }
     
     override var description: String {
-        return "펩시(\(Pepci.bringTypeName)) - \(super.description)"
+        return "펩시(\(Pepsi.bringTypeName)) - \(super.description)"
     }
 }
