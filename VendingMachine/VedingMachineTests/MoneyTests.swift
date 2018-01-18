@@ -20,13 +20,13 @@ class MoneyTests: XCTestCase {
         var money = Money()
         money.insert(coin: .fiveThousand)
         money.insert(coin: .hundred)
-        try money.deduct(coin: .fiveHundred)
-        XCTAssertTrue(money.countChange() == 4600)
+        try money.deduct(coin: 140)
+        XCTAssertTrue(money.countChange() == 4960)
     }
     
     func test_동전_차감_실패() throws {
         var money = Money()
-        XCTAssertThrowsError(try money.deduct(coin: .fiveHundred))
+        XCTAssertThrowsError(try money.deduct(coin: 140))
     }
 
 }

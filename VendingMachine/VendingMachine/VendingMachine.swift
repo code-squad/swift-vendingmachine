@@ -34,6 +34,9 @@ class VendingMachine {
             $0.beverageMenu.makeInstance().price <= money.countChange()
         })
     }
+    
+    //func buyBeverage(beverageMenu: BeverageMenu) {
+    
 }
 
 extension VendingMachine: Userable {
@@ -45,7 +48,7 @@ extension VendingMachine: Userable {
         return money.countChange()
     }
     
-    func deductMoney(coin: Money.Unit) throws {
+    func deductMoney(coin: Int) throws {
         try money.deduct(coin: coin)
     }
 }
