@@ -12,7 +12,7 @@ enum BeverageMenu {
     case bananaMilk
     case cocaCola
     case georgia
-    case pepci
+    case pepsi
     case strawberryMilk
     case top
     
@@ -25,8 +25,8 @@ enum BeverageMenu {
             return CocaCola(brand: "코카콜라", volume: 500, price: 1430, productName: "코카콜라", expiryDate: today, calorie: 250, quantity: 0)
         case .georgia:
             return Georgia(brand: "코카콜라", volume: 240, price: 1100, productName: "조지아 오리지널", expiryDate: today, calorie: 94, quantity: 0)
-        case .pepci:
-            return Pepci(brand: "펩시콜라", volume: 355, price: 1200, productName: "펩시", expiryDate: today, calorie: 275, quantity: 0)
+        case .pepsi:
+            return Pepsi(brand: "펩시콜라", volume: 355, price: 1200, productName: "펩시", expiryDate: today, calorie: 275, quantity: 0)
         case .strawberryMilk:
             return StrawberryMilk(brand: "빙그레", volume: 355, price: 1200, productName: "딸기우유", expiryDate: today, calorie: 275, quantity: 0)
         case .top:
