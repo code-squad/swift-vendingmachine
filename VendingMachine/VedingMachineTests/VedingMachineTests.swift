@@ -18,10 +18,19 @@ class VedingMachineTests: XCTestCase {
     
     func test_동전_삽입() {
         let money = Money()
-        let vendingMachine = VendingMachine(money: money)
+        let inventory = Inventory()
+        let vendingMachine = VendingMachine(money: money, inventory: inventory)
         vendingMachine.insertMoney(coin: .fiveHundred)
         vendingMachine.insertMoney(coin: .fiveThousand)
         XCTAssertTrue(vendingMachine.countChange() == 5500)
+    }
+    
+    func test_재고_추가() {
+        let money = Money()
+        let inventory = Inventory()
+        let vendingMachine = VendingMachine(money: money, inventory: inventory)
+        vendingMachine.insertBeverage(beverageMenu: .bananaMilk, quantity: 5)
+        XCTAssertTrue(vendingMachine.countBeverageQuantity(beverageMenu: .bananaMilk) == 5)
     }
     
 }
