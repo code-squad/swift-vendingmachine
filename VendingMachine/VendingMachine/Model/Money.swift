@@ -15,12 +15,12 @@ struct Money {
         self.money += coin.rawValue
     }
     
-    mutating func deduct(coin: Unit) throws {
+    mutating func deduct(coin: Int) throws {
         guard countChange() > 0 else {
             throw BeverageErrors.notEnoughMoney
         }
         
-        self.money -= coin.rawValue
+        self.money -= coin
     }
     
     func countChange() -> Int {
