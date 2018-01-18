@@ -19,7 +19,7 @@ class VendingMachine: Userable {
         money.insert(coin: coin)
     }
     
-    func countChange() -> Change {
+    func countChange() -> Int {
         return money.countChange()
     }
 }
