@@ -17,28 +17,14 @@ class VendingMachine {
         self.inventory = inventory
     }
     
-    func insertBeverage(beverageMenu: BeverageMenu, quantity: Int = 1) {
-        inventory.insertBeverage(beverageMenu: beverageMenu, quantity: quantity)
-    }
-    
-    func deductBeverage(beverageMenu: BeverageMenu, quantity: Int = -1) throws {
-        try inventory.deductBeverage(beverageMenu: beverageMenu, quantity: quantity)
-    }
-    
-    func countBeverageQuantity(beverageMenu: BeverageMenu) -> Int {
-        return inventory.countBeverageQuantity(beverageMenu: beverageMenu)
-    }
-    
     func fetchPurchasableBeverages() -> [BeverageBox] {
         return inventory.fetchListOfBeverage().filter ({
             $0.beverageMenu.makeInstance().price <= money.countChange()
         })
     }
     
-    func buyBeverage(beverageMenu: BeverageMenu) throws {
-        let beverage = beverageMenu.makeInstance()
-        try deductBeverage(beverageMenu: beverageMenu)
-        try deductMoney(coin: beverage.price)
+    func deductMoney(coin: Int) throws {
+        try money.deduct(coin: coin)
     }
 }
 
@@ -51,8 +37,24 @@ extension VendingMachine: Userable {
         return money.countChange()
     }
     
-    func deductMoney(coin: Int) throws {
-        try money.deduct(coin: coin)
+    func buyBeverage(beverageMenu: BeverageMenu) throws {
+        let beverage = beverageMenu.makeInstance()
+        try deductBeverage(beverageMenu: beverageMenu)
+        try deductMoney(coin: beverage.price)
+    }
+}
+
+extension VendingMachine: VendingMachineManagerable {
+    func insertBeverage(beverageMenu: BeverageMenu, quantity: Int = 1) {
+        inventory.insertBeverage(beverageMenu: beverageMenu, quantity: quantity)
+    }
+    
+    func deductBeverage(beverageMenu: BeverageMenu, quantity: Int = -1) throws {
+        try inventory.deductBeverage(beverageMenu: beverageMenu, quantity: quantity)
+    }
+    
+    func countBeverageQuantity(beverageMenu: BeverageMenu) -> Int {
+        return inventory.countBeverageQuantity(beverageMenu: beverageMenu)
     }
 }
 
