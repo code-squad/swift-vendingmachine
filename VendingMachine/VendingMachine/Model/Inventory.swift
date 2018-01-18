@@ -37,8 +37,13 @@ struct Inventory {
         }).reduce(0, {$0 + $1.quantity})
     }
     
-    func fetchBeverages() {
-        self.beverageBoxes
+    func fetchListOfBeverage() -> [BeverageBox] {
+        let beverageMenus = BeverageMenu.allValues
+        return beverageMenus.filter ({
+            countBeverageQuantity(beverageMenu: $0) > 0
+        }).map ({ menu -> BeverageBox in
+            BeverageBox(beverageMenu: menu, quantity: countBeverageQuantity(beverageMenu: menu))
+        })
         
     }
 }
