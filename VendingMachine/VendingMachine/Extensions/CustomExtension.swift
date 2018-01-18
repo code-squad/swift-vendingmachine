@@ -9,12 +9,17 @@
 import Foundation
 
 protocol TypeName: AnyObject {
-    static var typeName: String { get }
+    static var bringTypeName: String { get }
 }
 
 extension TypeName {
-    static var typeName: String {
+    static var bringTypeName: String {
         let type = String(describing: self)
         return type
     }
+}
+
+protocol Userable {
+    func insertMoney()
+    func choiceMenu()
 }

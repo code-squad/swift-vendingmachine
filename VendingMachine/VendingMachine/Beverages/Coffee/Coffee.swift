@@ -14,6 +14,6 @@ class Coffee: Beverage {
     }
     
     override var description: String {
-        return "조지아커피(\(Georgia.typeName)) - \(super.description)"
+        return "조지아커피(\(Georgia.bringTypeName)) - \(super.description)"
     }
 }
