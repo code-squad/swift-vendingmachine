@@ -33,4 +33,31 @@ class VedingMachineTests: XCTestCase {
         XCTAssertTrue(vendingMachine.countBeverageQuantity(beverageMenu: .bananaMilk) == 5)
     }
     
+    func test_구매할수_있는_목록_확인_성공() {
+        var money = Money()
+        money.insert(coin: .thousand)
+        money.insert(coin: .fiveHundred)
+        var inventory = Inventory()
+        inventory.insertBeverage(beverageMenu: .bananaMilk)
+        inventory.insertBeverage(beverageMenu: .cocaCola)
+        inventory.insertBeverage(beverageMenu: .cocaCola)
+        inventory.insertBeverage(beverageMenu: .bananaMilk)
+        let result = VendingMachine(money: money, inventory: inventory).fetchPurchasableBeverages()
+        XCTAssertTrue(result.count == 2)
+        XCTAssertTrue(result.filter({ $0.beverageMenu == BeverageMenu.bananaMilk }).count == 1)
+        XCTAssertTrue(result.filter({ $0.beverageMenu == BeverageMenu.cocaCola }).count == 1)
+    }
+    
+    func test_구매할수_없는_목록_확인_실패() {
+        var money = Money()
+        money.insert(coin: .thousand)
+        var inventory = Inventory()
+        inventory.insertBeverage(beverageMenu: .bananaMilk)
+        inventory.insertBeverage(beverageMenu: .cocaCola)
+        inventory.insertBeverage(beverageMenu: .cocaCola)
+        inventory.insertBeverage(beverageMenu: .bananaMilk)
+        let result = VendingMachine(money: money, inventory: inventory).fetchPurchasableBeverages()
+        XCTAssertTrue(result.count == 0)
+    }
+    
 }
