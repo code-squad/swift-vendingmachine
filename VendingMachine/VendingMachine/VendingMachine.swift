@@ -8,6 +8,19 @@
 
 import Foundation
 
-class VendingMachine {
+class VendingMachine: Userable {    
+    private var money: Money
     
+    init(money: Money) {
+        self.money = money
+    }
+    
+    func insertMoney(coin: Money.Unit) {
+        money.insert(coin: coin)
+    }
+    
+    func countChange() -> Change {
+        return money.countChange()
+    }
 }
+
