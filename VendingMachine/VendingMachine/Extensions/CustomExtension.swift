@@ -18,8 +18,3 @@ extension TypeName {
         return type
     }
 }
-
-protocol Userable {
-    func insertMoney()
-    func choiceMenu()
-}
