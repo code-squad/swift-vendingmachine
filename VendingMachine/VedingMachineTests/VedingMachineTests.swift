@@ -75,4 +75,11 @@ class VedingMachineTests: XCTestCase {
         XCTAssertTrue(vendingMachine.countBeverageQuantity(beverageMenu: .cocaCola) == 1)
     }
     
+    func test_뜨거운_음료_목록_확인() {
+        let money = Money()
+        let inventory = Inventory()
+        let vendingMachine = VendingMachine(money: money, inventory: inventory)
+        XCTAssertTrue(vendingMachine.fetchListOfHottedBeverage().count == 1)
+    }
+    
 }

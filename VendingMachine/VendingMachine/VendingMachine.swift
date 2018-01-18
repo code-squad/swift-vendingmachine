@@ -23,6 +23,16 @@ class VendingMachine {
         })
     }
     
+    func fetchListOfHottedBeverage() -> [BeverageMenu] {
+        return BeverageMenu.allValues.filter ({
+            if let coffee = $0.makeInstance() as? Coffee {
+                return coffee.isHot
+            }
+            
+            return false
+        })
+    }
+    
     func deductMoney(coin: Int) throws {
         try money.deduct(coin: coin)
     }
