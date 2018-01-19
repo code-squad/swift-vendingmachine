@@ -17,12 +17,6 @@ class VendingMachine {
         self.money = money
         self.inventory = inventory
     }
-    
-    func supply(_ defaultQuantity: Int = 1) {
-        allMenus.forEach {
-            insertBeverage(beverageMenu: $0, quantity: defaultQuantity)
-        }
-    }
 }
 
 extension VendingMachine {
@@ -86,6 +80,12 @@ extension VendingMachine: VendingMachineManagerable {
     
     func checkCurrentInventory() -> [BeverageBox] {
         return inventory.fetchListOfBeverage()
+    }
+    
+    func supply(_ defaultQuantity: Int = 1) {
+        allMenus.forEach {
+            insertBeverage(beverageMenu: $0, quantity: defaultQuantity)
+        }
     }
 }
 
