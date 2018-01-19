@@ -10,12 +10,24 @@ import Foundation
 
 struct InputView {
     
-    enum vendingMachineMenu : Int, generateAllCases {
+    enum Mode : Int, generateAllCases {
+        case admin = 1
+        case user = 2
+        case invalidMode
+    }
+    
+    enum adminMenu : Int, generateAllCases {
+        case addProduct = 1
+        case removeProduct = 2
+        case invalidAdminMenu
+    }
+    
+    enum userMenu : Int, generateAllCases {
         case addMoney = 1
         case buyDrink = 2
         case history = 3
         case exit = 4
-        case invalidMenu
+        case invalidUserMenu
     }
     
     enum ProductNumber : Int, generateAllCases {
@@ -28,10 +40,22 @@ struct InputView {
         case invalidNumber
     }
     
-    func readMenu() -> vendingMachineMenu {
+    func readMode() -> Mode {
         let userInput = Int(readLine() ?? "") ?? 0
-        guard isPossibleMenu(userInput) else { return .invalidMenu }
-        return vendingMachineMenu.init(rawValue: userInput) ?? .invalidMenu
+        guard isPossibleMode(userInput) else { return .invalidMode }
+        return Mode.init(rawValue: userInput) ?? .invalidMode
+    }
+    
+    func readAdminMenu() -> adminMenu {
+        let userInput = Int(readLine() ?? "") ?? 0
+        guard isPossibleAdminMenu(userInput) else { return .invalidAdminMenu }
+        return adminMenu.init(rawValue: userInput) ?? .invalidAdminMenu
+    }
+    
+    func readUserMenu() -> userMenu {
+        let userInput = Int(readLine() ?? "") ?? 0
+        guard isPossibleUserMenu(userInput) else { return .invalidUserMenu }
+        return userMenu.init(rawValue: userInput) ?? .invalidUserMenu
     }
     
     func readMoney() -> Int {
@@ -45,13 +69,22 @@ struct InputView {
         
     }
     
-    private func isPossibleMenu(_ userInput : Int) -> Bool {
-        return vendingMachineMenu.allCases.map({$0.rawValue}).contains(userInput)
+    private func isPossibleMode(_ userInput : Int) -> Bool {
+        return Mode.allCases.map({$0.rawValue}).contains(userInput)
+    }
+    
+    private func isPossibleAdminMenu(_ userInput : Int) -> Bool {
+        return adminMenu.allCases.map({$0.rawValue}).contains(userInput)
+    }
+    
+    private func isPossibleUserMenu(_ userInput : Int) -> Bool {
+        return userMenu.allCases.map({$0.rawValue}).contains(userInput)
     }
     
     private func isPossibleProductNumber(_ userInput : Int) -> Bool {
         return ProductNumber.allCases.map({$0.rawValue}).contains(userInput)
     }
+    
 }
 
 protocol generateAllCases : Hashable {

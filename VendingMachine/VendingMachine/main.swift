@@ -20,8 +20,8 @@ let outputView : OutputView = OutputView()
 while runVendingMachine {
     
     outputView.printBaseMessages(vendingMachine)
-    let userInput = inputView.readMenu()
-    if userInput == .invalidMenu {
+    let userInput = inputView.readUserMenu()
+    if userInput == .invalidUserMenu {
         outputView.printMessage(.invalidMenu)
         continue
     }
