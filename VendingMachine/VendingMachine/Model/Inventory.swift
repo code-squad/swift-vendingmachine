@@ -16,9 +16,7 @@ struct Inventory {
     }
     
     mutating func deductBeverage(beverageMenu: BeverageMenu, quantity: Int = -1) throws {
-        guard isAvailable(beverageMenu: beverageMenu) else {
-            throw BeverageErrors.outOfStock
-        }
+        guard isAvailable(beverageMenu: beverageMenu) else { throw BeverageErrors.outOfStock }
         
         updateQuantity(beverageBox: BeverageBox(beverageMenu: beverageMenu, quantity: quantity))
     }

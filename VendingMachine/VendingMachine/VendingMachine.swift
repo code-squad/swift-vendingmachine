@@ -64,6 +64,8 @@ extension VendingMachine: Userable {
     
     func buyBeverage(beverageMenu: BeverageMenu) throws {
         let beverage = beverageMenu.makeInstance()
+        guard countChange() > beverage.price else { throw BeverageErrors.notEnoughMoney }
+        
         try deductBeverage(beverageMenu: beverageMenu)
         try deductMoney(coin: beverage.price)
     }
