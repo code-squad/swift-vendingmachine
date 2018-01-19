@@ -19,7 +19,7 @@ class VendingMachine {
 }
 
 extension VendingMachine {
-    func fetchPurchasableBeverages() -> [BeverageBox] {
+    func fetchListOfPurchasableBeverages() -> [BeverageBox] {
         return checkCurrentInventory().filter ({
             $0.beverageMenu.makeInstance().price <= money.countChange()
         })

@@ -12,12 +12,12 @@ struct InputView {
     func chooseAction(machine: Userable & VendingMachineManagerable) throws -> (Mode, Int)? {
         print(showScreen(machine: machine))
         
-        guard let answer = readLine() else { throw BeverageErrors.invalidValue }
+        guard let action = readLine() else { throw BeverageErrors.invalidValue }
         
-        return try act(answer)
+        return try answer(action)
     }
     
-    func act(_ action: String) throws -> (Mode, Int)? {
+    func answer(_ action: String) throws -> (Mode, Int)? {
         let arguments = action.split(separator: " ")
         
         if arguments[0] == "q" || arguments[0] == "quit" { return nil }
