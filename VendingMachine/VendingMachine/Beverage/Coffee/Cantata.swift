@@ -14,7 +14,7 @@ class Cantata : Coffee {
     init(_ brand : String, _ name : String,_ volume : Int,_ price : Int,_ manufacturedDate : Date, hot : Bool) {
         super.init(brand: brand, name: name, volume: volume, price: price, manufacturedDate: manufacturedDate, hot : hot)
     }
-
+    
     override var description : String {
         return "\(self.kind)(\(String(describing: Cantata.self)) - \(super.description)"
     }

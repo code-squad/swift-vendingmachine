@@ -15,6 +15,10 @@ class StrawberryMilk : Milk {
         super.init(brand: brand, name: name, volume: volume, price: price, manufacturedDate: manufacturedDate)
     }
     
+    init() {
+        super.init(brand: "서울우유", name: "날마다딸기우유", volume: 200, price: 1000, manufacturedDate: form.date(from: "20180117") ?? Date())
+    }
+    
     override var description : String {
         return "\(self.kind)(\(String(describing: StrawberryMilk.self))) - \(super.description)"
     }
