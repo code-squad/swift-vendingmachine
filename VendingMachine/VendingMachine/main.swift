@@ -8,10 +8,19 @@
 
 import Foundation
 
-func main() {
-    let printingData = BeverageData.makeIntances()
-    OutputView(data: printingData).printResult()
+func main() throws {
+    let vendingMachine = VendingMachine(money: Money(), inventory: Inventory())
+    vendingMachine.supply(3)
+    
+    while true {
+        do {
+            guard let (mode, answer) = try InputView(vendingMachine: vendingMachine).chooseAction() else { break }
+            try OutputView(vendingMachine: vendingMachine).printResult(input: (mode, answer))
+        } catch let e as BeverageErrors {
+            print(e.localizedDescription)
+        }
+    }
 }
 
-main()
+try main()
 
