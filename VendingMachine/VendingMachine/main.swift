@@ -38,7 +38,7 @@ while runVendingMachine {
         if userProductNumber == .invalidNumber  {
             outputView.printMessage(.invalidMenu)
         }
-        let userProductName = vendingMachine.getProductNumbersAndKinds()[userProductNumber.rawValue] ?? ""
+        let userProductName = vendingMachine.getProductName(userProductNumber)
         let userProduct = vendingMachine.getInventory()[userProductName]?.first
         if vendingMachine.generateListOfValidProduct().contains(userProductName) {
             vendingMachine.buy(userProductName)
