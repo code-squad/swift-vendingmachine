@@ -16,11 +16,3 @@ protocol Userable {
     func countChange() -> Int
     func buyBeverage(beverageMenu: BeverageMenu) throws
 }
-
-protocol MachineManagerable {
-    func supply(_ defaultQuantity: Int)
-    func insertBeverage(beverageMenu: BeverageMenu, quantity: Int)
-    func deductBeverage(beverageMenu: BeverageMenu, quantity: Int) throws
-    func countBeverageQuantity(beverageMenu: BeverageMenu) -> Int
-    func checkCurrentInventory() -> [BeverageBox]
-}
