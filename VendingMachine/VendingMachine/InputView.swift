@@ -9,6 +9,7 @@
 import Foundation
 
 class InputView {
+    
     func getMenuInput() -> [Int] {
         if let inputFromUser = readLine() {
             return separateInputValues(input: inputFromUser)
