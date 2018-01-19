@@ -61,8 +61,6 @@ func run() {
                 vendingMachine.buyBeverage(beverageName: choiceBeverageKey)
             default: break
         }
-        
-        
     } while isContinue
     
 }

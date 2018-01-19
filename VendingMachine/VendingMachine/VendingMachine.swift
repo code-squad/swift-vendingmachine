@@ -17,7 +17,6 @@ struct VendingMachine {
         inventoryBox = InventoryBox()
         purchaseProductHistory = PurchaseProductHistory()
     }
-    
     // 자판기 금액을 원하는 금액만큼 올리는 메소드
     mutating func putCoins(coins: Int) {
         self.coins = coins
@@ -45,7 +44,7 @@ struct VendingMachine {
     }
     
     // 잔액을 확인하는 메소드
-    func checkBalance () -> Int{
+    func checkBalance () -> Int {
         return self.coins
     }
     

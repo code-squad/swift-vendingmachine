@@ -16,7 +16,6 @@ class InventoryBox {
     init() {
         box = [ObjectIdentifier:[Beverage]]()
     }
-    
     func storageBeverageStock(beverage: Beverage) {
         let classOfBeverage = ObjectIdentifier(type(of: beverage))
         if !box.keys.contains(classOfBeverage) {
@@ -75,5 +74,3 @@ class InventoryBox {
     }
     
 }
-
-

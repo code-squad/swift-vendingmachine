@@ -11,7 +11,6 @@ import Foundation
 class PurchaseProductHistory {
     private var purchaseDate: [Date]
     private var purchaseBeverage: [String]
-    
     init() {
         purchaseDate = [Date]()
         purchaseBeverage = [String]()

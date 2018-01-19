@@ -303,6 +303,7 @@ class UnitTestVendingMachine: XCTestCase {
         
         ///구매 상품 이력을 확인한다.
         XCTAssertEqual(inputView.vendingMachine.purchaseProductHistory.purchaseBeverage, ["날마다딸기우유"])
+        
     }
     
 }
