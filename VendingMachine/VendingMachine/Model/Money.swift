@@ -16,12 +16,12 @@ class Money {
     }
     
     func plus(coin: Money) throws -> Money {
-        if isNegative(coin: coin) { throw BeverageErrors.incorrectMoney }
+        if isNegative(coin: coin) { throw VendingMachineErrors.incorrectMoney }
         return Money(change + coin.change)
     }
     
     func subtract(coin: Money) throws -> Money {
-        guard isAvaiable(coin: coin) else { throw BeverageErrors.notEnoughMoney }
+        guard isAvaiable(coin: coin) else { throw VendingMachineErrors.notEnoughMoney }
         return Money(self.change - coin.change)
     }
     
@@ -35,15 +35,5 @@ class Money {
     
     func isNegative(coin: Money) -> Bool {
         return coin.change < 0
-    }
-}
-
-extension Money: Comparable, Equatable {
-    static func == (lhs: Money, rhs: Money) -> Bool {
-        return lhs.change == rhs.change
-    }
-    
-    static func < (lhs: Money, rhs: Money) -> Bool {
-        return lhs.change < rhs.change
     }
 }
