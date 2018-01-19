@@ -16,6 +16,7 @@ protocol Userable {
 }
 
 protocol VendingMachineManagerable {
+    func supply(_ defaultQuantity: Int)
     func insertBeverage(beverageMenu: BeverageMenu, quantity: Int)
     func deductBeverage(beverageMenu: BeverageMenu, quantity: Int) throws
     func countBeverageQuantity(beverageMenu: BeverageMenu) -> Int
