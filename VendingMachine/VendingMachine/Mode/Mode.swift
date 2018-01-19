@@ -9,7 +9,7 @@
 import Foundation
 
 struct Mode {
-    func act(input: (InputView.Mode, Int), machine: Userable & VendingMachineManagerable) throws -> Userable & VendingMachineManagerable {
+    func act(input: (InputView.Mode, Int), machine: Userable & MachineManagerable) throws -> Userable & MachineManagerable {
         switch input.0 {
         case .insertMoney:
             machine.insertMoney(coin: input.1)
