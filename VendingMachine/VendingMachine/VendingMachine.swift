@@ -17,6 +17,12 @@ class VendingMachine {
         self.inventory = inventory
     }
     
+    func supply(_ defaultQuantity: Int = 1) {
+        BeverageMenu.allValues.forEach {
+            insertBeverage(beverageMenu: $0, quantity: defaultQuantity)
+        }
+    }
+    
     func fetchPurchasableBeverages() -> [BeverageBox] {
         return inventory.fetchListOfBeverage().filter ({
             $0.beverageMenu.makeInstance().price <= money.countChange()
@@ -38,16 +44,15 @@ class VendingMachine {
             $0.makeInstance().isExpired(with: DateUtility.today())
         })
     }
-    
-    
-    func deductMoney(coin: Int) throws {
-        try money.deduct(coin: coin)
-    }
 }
 
 extension VendingMachine: Userable {
     func insertMoney(coin: Money.Unit) {
         money.insert(coin: coin)
+    }
+    
+    func deductMoney(coin: Int) throws {
+        try money.deduct(coin: coin)
     }
     
     func countChange() -> Int {
