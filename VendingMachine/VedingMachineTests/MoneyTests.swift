@@ -11,15 +11,15 @@ import XCTest
 class MoneyTests: XCTestCase {
     func test_동전_삽입() {
         var money = Money()
-        money.insert(coin: .fiveThousand)
-        money.insert(coin: .hundred)
+        money.insert(coin: 5000)
+        money.insert(coin: 100)
         XCTAssertTrue(money.countChange() == 5100)
     }
     
     func test_동전_차감() throws {
         var money = Money()
-        money.insert(coin: .fiveThousand)
-        money.insert(coin: .hundred)
+        money.insert(coin: 5000)
+        money.insert(coin: 100)
         try money.deduct(coin: 140)
         XCTAssertTrue(money.countChange() == 4960)
     }

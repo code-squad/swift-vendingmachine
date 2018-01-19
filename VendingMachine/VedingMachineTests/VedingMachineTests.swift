@@ -20,8 +20,8 @@ class VedingMachineTests: XCTestCase {
         let money = Money()
         let inventory = Inventory()
         let vendingMachine = VendingMachine(money: money, inventory: inventory)
-        vendingMachine.insertMoney(coin: .fiveHundred)
-        vendingMachine.insertMoney(coin: .fiveThousand)
+        vendingMachine.insertMoney(coin: 500)
+        vendingMachine.insertMoney(coin: 5000)
         XCTAssertTrue(vendingMachine.countChange() == 5500)
     }
     
@@ -35,8 +35,8 @@ class VedingMachineTests: XCTestCase {
     
     func test_구매할수_있는_목록_확인_성공() {
         var money = Money()
-        money.insert(coin: .thousand)
-        money.insert(coin: .fiveHundred)
+        money.insert(coin: 10000)
+        money.insert(coin: 500)
         var inventory = Inventory()
         inventory.insertBeverage(beverageMenu: .bananaMilk)
         inventory.insertBeverage(beverageMenu: .cocaCola)
@@ -50,7 +50,7 @@ class VedingMachineTests: XCTestCase {
     
     func test_구매할수_없는_목록_확인_실패() {
         var money = Money()
-        money.insert(coin: .thousand)
+        money.insert(coin: 1000)
         var inventory = Inventory()
         inventory.insertBeverage(beverageMenu: .bananaMilk)
         inventory.insertBeverage(beverageMenu: .cocaCola)
@@ -62,8 +62,8 @@ class VedingMachineTests: XCTestCase {
     
     func test_음료_구매() throws {
         var money = Money()
-        money.insert(coin: .thousand)
-        money.insert(coin: .fiveHundred)
+        money.insert(coin: 1000)
+        money.insert(coin: 500)
         var inventory = Inventory()
         inventory.insertBeverage(beverageMenu: .bananaMilk)
         inventory.insertBeverage(beverageMenu: .cocaCola)
