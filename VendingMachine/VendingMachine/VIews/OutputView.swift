@@ -9,15 +9,27 @@
 import Foundation
 
 struct OutputView {
-    private let printingData: [CustomStringConvertible]
+    private let vendingMachine: VendingMachine
     
-    init(data: [CustomStringConvertible]) {
-        self.printingData = data
+    init(vendingMachine: VendingMachine) {
+        self.vendingMachine = vendingMachine
     }
     
-    func printResult() {
-        for data in printingData {
-            print(data.description)
+    func printResult(mode: InputView.Mode) {
+        switch mode {
+        case .insertMoney:
+            insertMoney()
+        case .buyBeverage:
+            printResultOfBeveragePurchase()
         }
+    }
+    
+    private func insertMoney() {
+        vendingMachine.insertMoney(coin: .fiveHundred)
+        print(vendingMachine.countChange())
+    }
+    
+    private func printResultOfBeveragePurchase() {
+        
     }
 }
