@@ -49,7 +49,7 @@ while runVendingMachine {
     switch userInput {
     case .addMoney :
         outputView.printMessage(.addMoney)
-        vendingMachine.addMoney(InputView().readMoney())
+        vendingMachine.addMoney(inputView.readMoney())
     case .buyDrink :
         vendingMachine.updateProductNumbersAndKinds()
         outputView.printMessage(.chooseProduct)
