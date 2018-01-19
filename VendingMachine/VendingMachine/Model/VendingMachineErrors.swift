@@ -8,10 +8,11 @@
 
 import Foundation
 
-enum BeverageErrors: Error {
+enum VendingMachineErrors: Error {
     case outOfStock
     case notEnoughMoney
     case invalidValue
+    case incorrectMoney
     
     var localizedDescription: String {
         switch self {
@@ -21,6 +22,8 @@ enum BeverageErrors: Error {
             return "돈이 부족합니다."
         case .invalidValue:
             return "유효하지 않는 입력값입니다."
+        case .incorrectMoney:
+            return "유효하지 않은 값입니다."
         }
     }
 }
