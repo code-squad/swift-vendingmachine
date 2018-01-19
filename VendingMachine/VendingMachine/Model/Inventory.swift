@@ -41,14 +41,6 @@ struct Inventory {
     }
 }
 
-extension Inventory: CustomStringConvertible {
-    var description: String {
-        return fetchListOfBeverage().reduce("=> ") {
-            $0 + $1.beverageMenu.makeInstance().description + "(" + String($1.quantity) + "개) " 
-        }
-    }
-}
-
 private extension Inventory {
     func isAvailable(beverageMenu: BeverageMenu) -> Bool {
         return beverageBoxes.count > 0 && countBeverageQuantity(beverageMenu: beverageMenu) > 0
