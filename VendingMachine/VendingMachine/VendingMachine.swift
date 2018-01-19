@@ -11,6 +11,7 @@ import Foundation
 class VendingMachine {
     private var money: Money
     private var inventory: Inventory
+    private let allMenus = BeverageMenu.allValues
     
     init(money: Money, inventory: Inventory) {
         self.money = money
@@ -18,19 +19,21 @@ class VendingMachine {
     }
     
     func supply(_ defaultQuantity: Int = 1) {
-        BeverageMenu.allValues.forEach {
+        allMenus.forEach {
             insertBeverage(beverageMenu: $0, quantity: defaultQuantity)
         }
     }
-    
+}
+
+extension VendingMachine {
     func fetchPurchasableBeverages() -> [BeverageBox] {
-        return inventory.fetchListOfBeverage().filter ({
+        return checkCurrentInventory().filter ({
             $0.beverageMenu.makeInstance().price <= money.countChange()
         })
     }
     
     func fetchListOfHottedBeverage() -> [BeverageMenu] {
-        return BeverageMenu.allValues.filter ({
+        return allMenus.filter ({
             if let coffee = $0.makeInstance() as? Coffee {
                 return coffee.isHot
             }
@@ -40,7 +43,7 @@ class VendingMachine {
     }
     
     func fetchListOfValidDate() -> [BeverageMenu] {
-        return BeverageMenu.allValues.filter ({
+        return allMenus.filter ({
             $0.makeInstance().isExpired(with: DateUtility.today())
         })
     }
@@ -77,6 +80,10 @@ extension VendingMachine: VendingMachineManagerable {
     
     func countBeverageQuantity(beverageMenu: BeverageMenu) -> Int {
         return inventory.countBeverageQuantity(beverageMenu: beverageMenu)
+    }
+    
+    func checkCurrentInventory() -> [BeverageBox] {
+        return inventory.fetchListOfBeverage()
     }
 }
 
