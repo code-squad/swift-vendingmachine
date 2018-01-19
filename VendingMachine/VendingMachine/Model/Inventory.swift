@@ -8,20 +8,24 @@
 
 import Foundation
 
-struct Inventory {
-    private var beverageBoxes: [BeverageBox] = []
+class Inventory {
+    private var beverageBoxes: [BeverageBox]
     
-    mutating func insertBeverage(beverageMenu: BeverageMenu, quantity: Int = 1) {
-        updateQuantity(beverageBox: BeverageBox(beverageMenu: beverageMenu, quantity: quantity))
+    init(_ beverageBoxes: [BeverageBox]) {
+        self.beverageBoxes = beverageBoxes
     }
     
-    mutating func deductBeverage(beverageMenu: BeverageMenu, quantity: Int = -1) throws {
-        guard isAvailable(beverageMenu: beverageMenu) else { throw BeverageErrors.outOfStock }
+    func add(beverageMenu: BeverageMenu, quantity: Int = 1) -> Inventory {
+        return updateBeverageBox(beverageBox: BeverageBox(beverageMenu: beverageMenu, quantity: quantity))
+    }
+    
+    func deduct(beverageMenu: BeverageMenu, quantity: Int = -1) throws  -> Inventory {
+        guard isAvailable(beverageMenu: beverageMenu) else { throw VendingMachineErrors.outOfStock }
         
-        updateQuantity(beverageBox: BeverageBox(beverageMenu: beverageMenu, quantity: quantity))
+        return updateBeverageBox(beverageBox: BeverageBox(beverageMenu: beverageMenu, quantity: quantity))
     }
     
-    func countBeverageQuantity(beverageMenu: BeverageMenu) -> Int {
+    func countBeverage(beverageMenu: BeverageMenu) -> Int {
         return self.beverageBoxes.filter({
             if $0.beverageMenu == beverageMenu {
                 return true
@@ -33,18 +37,19 @@ struct Inventory {
     
     func fetchListOfBeverage() -> [BeverageBox] {
         return BeverageMenu.allValues.map({ menu -> BeverageBox in
-            BeverageBox(beverageMenu: menu, quantity: countBeverageQuantity(beverageMenu: menu))
+            BeverageBox(beverageMenu: menu, quantity: countBeverage(beverageMenu: menu))
         })
-        
     }
+    
 }
 
 private extension Inventory {
     func isAvailable(beverageMenu: BeverageMenu) -> Bool {
-        return beverageBoxes.count > 0 && countBeverageQuantity(beverageMenu: beverageMenu) > 0
+        return beverageBoxes.count > 0 && countBeverage(beverageMenu: beverageMenu) > 0
     }
     
-    mutating func updateQuantity(beverageBox: BeverageBox) {
+    func updateBeverageBox(beverageBox: BeverageBox) -> Inventory {
         self.beverageBoxes.append(beverageBox)
+        return Inventory(self.beverageBoxes)
     }
 }
