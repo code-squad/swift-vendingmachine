@@ -11,26 +11,7 @@ import Foundation
 let form = DateFormatter()
 form.dateFormat = "yyyyMMdd"
 
-let baseProductsBox = [
-    StrawberryMilk("서울우유", "날마다딸기우유", 200, 1000, form.date(from: "20180117") ?? Date()),
-    StrawberryMilk("서울우유", "날마다딸기우유", 200, 1000, form.date(from: "20180117") ?? Date()),
-    StrawberryMilk("서울우유", "날마다딸기우유", 200, 1000, form.date(from: "20180117") ?? Date()),
-    BananaMilk("서울우유", "날마다바나나우유", 200, 1000, form.date(from: "20170117") ?? Date()),
-    BananaMilk("서울우유", "날마다바나나우유", 200, 1000, form.date(from: "20170117") ?? Date()),
-    PepciCoke("코카콜라", "다이어트콜라", 350, 2000, form.date(from: "20170110") ?? Date(), lowCalorie: true),
-    PepciCoke("코카콜라", "다이어트콜라", 350, 2000, form.date(from: "20170110") ?? Date(), lowCalorie: true),
-    PepciCoke("코카콜라", "다이어트콜라", 350, 2000, form.date(from: "20170110") ?? Date(), lowCalorie: true),
-    PepciCoke("코카콜라", "다이어트콜라", 350, 2000, form.date(from: "20170110") ?? Date(), lowCalorie: true),
-    PepciCoke("코카콜라", "다이어트콜라", 350, 2000, form.date(from: "20170110") ?? Date(), lowCalorie: true),
-    Fanta("환타", "환타오렌지", 350, 2000, form.date(from: "20170109") ?? Date(), lowCalorie: false),
-    Fanta("환타", "환타오렌지", 350, 2000, form.date(from: "20170109") ?? Date(), lowCalorie: false),
-    Fanta("환타", "환타오렌지", 350, 2000, form.date(from: "20170109") ?? Date(), lowCalorie: false),
-    TOPCoffee("맥심", "TOP아메리카노", 400, 3000, form.date(from: "20170117") ?? Date(), hot: false),
-    TOPCoffee("맥심", "TOP아메리카노", 400, 3000, form.date(from: "20170117") ?? Date(), hot: false),
-    TOPCoffee("맥심", "TOP아메리카노", 400, 3000, form.date(from: "20170117") ?? Date(), hot: false),
-    Georgia("맥심", "조지아카페모카", 450, 3500, form.date(from: "20170119") ?? Date(), hot: true),
-    Georgia("맥심", "조지아카페모카", 450, 3500, form.date(from: "20170119") ?? Date(), hot: true),
-    ]
+let baseProductsBox = [StrawberryMilk(),StrawberryMilk(),StrawberryMilk(),BananaMilk(),BananaMilk(),BananaMilk(),PepciCoke(),PepciCoke(),PepciCoke(),PepciCoke(),PepciCoke(),Fanta(),Fanta(),Fanta(),TOPCoffee(),TOPCoffee(),TOPCoffee(),Georgia(),Georgia()]
 
 var vendingMachine = VendingMachine(productsBox: baseProductsBox)
 var runVendingMachine : Bool = true
