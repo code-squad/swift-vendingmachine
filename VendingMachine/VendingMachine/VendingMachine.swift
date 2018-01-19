@@ -21,6 +21,7 @@ struct VendingMachine {
         }
         self.updateProductNumbersAndKinds()
     }
+    
     // 자판기 금액을 원하는 금액만큼 올리는 메소드
     mutating func addMoney(_ userMoney : Int) {
         self.balance += userMoney
@@ -90,4 +91,5 @@ struct VendingMachine {
             productNumber += 1
         }
     }
+    
 }

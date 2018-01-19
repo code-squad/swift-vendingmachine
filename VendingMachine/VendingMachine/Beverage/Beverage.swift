@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Beverage : CustomStringConvertible {    
+class Beverage : CustomStringConvertible {
     
     var description: String {
         let dateFormatter = DateFormatter()

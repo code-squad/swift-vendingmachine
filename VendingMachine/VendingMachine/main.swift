@@ -35,7 +35,7 @@ while runVendingMachine {
         vendingMachine.updateProductNumbersAndKinds()
         outputView.printMessage(.chooseProduct)
         let userProductNumber = inputView.readProductNumber()
-        if userProductNumber == .invalidNumber  {
+        if userProductNumber == .invalidNumber {
             outputView.printMessage(.invalidMenu)
         }
         let userProductName = vendingMachine.getProductName(userProductNumber)
