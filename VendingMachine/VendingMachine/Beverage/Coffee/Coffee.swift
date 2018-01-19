@@ -19,4 +19,9 @@ class Coffee: Beverage {
     func isHot() -> Bool {
         return self.hot
     }
+    
+    static func getKind() -> ObjectIdentifier {
+        return ObjectIdentifier(self)
+    }
+
 }

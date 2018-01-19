@@ -19,5 +19,9 @@ class Milk : Beverage {
     func validate(with data : Date) -> Bool {
         return data < self.expirationDate
     }
+    
+    static func getKind() -> ObjectIdentifier {
+        return ObjectIdentifier(self)
+    }
 }
 
