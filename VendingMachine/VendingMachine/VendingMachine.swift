@@ -28,11 +28,11 @@ struct VendingMachine {
 
     // 특정 상품 인스턴스를 넘겨서 재고를 추가하는 메소드
     mutating func addBeverage(_ product : Beverage) {
-        if self.inventory.index(forKey: String(product.description.split(separator: "(")[0])) == nil {
-            self.inventory.updateValue([product], forKey: String(product.description.split(separator: "(")[0]))
+        if self.inventory.index(forKey: String(describing: type(of:product).self)) == nil {
+            self.inventory.updateValue([product], forKey: String(describing: type(of:product).self))
             return
         }
-        self.inventory[String(product.description.split(separator: "(")[0])]?.append(product)
+        self.inventory[String(describing: type(of:product).self)]?.append(product)
     }
     
     // 현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
@@ -60,11 +60,7 @@ struct VendingMachine {
     
     // 유통기한이 지난 재고만 리턴하는 메소드
     func generateInvalidProducts() -> [Beverage] {
-        let kindsOfMilk : [ObjectIdentifier] = [
-            ObjectIdentifier(type(of:StrawberryMilk("", "", 0, 0, form.date(from: "") ?? Date()))),
-            ObjectIdentifier(type(of:BananaMilk("", "", 0, 0, form.date(from: "") ?? Date()))),
-            ObjectIdentifier(type(of:ChocolateMilk("", "", 0, 0, form.date(from: "") ?? Date())))
-        ]
+        let kindsOfMilk : [ObjectIdentifier] = [StrawberryMilk.getKind(),BananaMilk.getKind(),ChocolateMilk.getKind()]
         let milkProducts = self.inventory.map({$0.value.filter({kindsOfMilk.contains(ObjectIdentifier(type(of:$0)))})})
         let invalidProducts = milkProducts.map({$0.filter({($0 as! Milk).validate(with: Date()) == false})})
         return Array(invalidProducts.filter({!$0.isEmpty}).joined())
@@ -72,11 +68,7 @@ struct VendingMachine {
     
     // 따뜻한 음료만 리턴하는 메소드
     func generateHotProducts() -> [Beverage] {
-        let kindsOfCoffee : [ObjectIdentifier] = [
-            ObjectIdentifier(type(of:TOPCoffee("", "", 0, 0, form.date(from: "") ?? Date(), hot: false))),
-            ObjectIdentifier(type(of:Cantata("", "", 0, 0, form.date(from: "") ?? Date(), hot: false))),
-            ObjectIdentifier(type(of:Georgia("", "", 0, 0, form.date(from: "") ?? Date(), hot: false)))
-        ]
+        let kindsOfCoffee : [ObjectIdentifier] = [TOPCoffee.getKind(),Cantata.getKind(),Georgia.getKind()]
         let coffeeProducts = self.inventory.map({$0.value.filter({kindsOfCoffee.contains(ObjectIdentifier(type(of:$0)))})})
         let hotProducts = coffeeProducts.map({$0.filter({($0 as! Coffee).isHot()})})
         return Array(hotProducts.filter({$0.isEmpty == false}).joined())
