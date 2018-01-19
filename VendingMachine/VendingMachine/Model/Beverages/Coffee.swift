@@ -16,10 +16,6 @@ class Coffee: Beverage {
         super.init(brand: brand, volume: volume, price: price, productName: productName, expiryDate: expiryDate, calorie: calorie)
     }
     
-    override var description: String {
-        return "조지아커피(\(Georgia.bringTypeName)) - \(super.description)"
-    }
-    
     var isHot: Bool {
         return self._isHot
     }
