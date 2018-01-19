@@ -11,7 +11,6 @@ import Foundation
 class VendingMachine {
     private var money: Money
     private var inventory: Inventory
-    private let allMenus = BeverageMenu.allValues
     
     init(money: Money, inventory: Inventory) {
         self.money = money
