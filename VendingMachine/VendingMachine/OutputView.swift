@@ -10,16 +10,13 @@ import Foundation
 
 class OutputView {
     private var coins: Int
-    private var vendingMachine: VendingMachine
-    private var availableBeverage: [ObjectIdentifier:[Beverage]]
-    init(vendingMachine: VendingMachine) {
+    private var availableBeverage: [ObjectIdentifier : [Beverage]]
+    init() {
         coins = 0
-        self.vendingMachine = vendingMachine
-        availableBeverage = [ObjectIdentifier:[Beverage]]()
+        availableBeverage = [ObjectIdentifier : [Beverage]]()
     }
     
-    func printAddAmoutMenu() {
-        self.availableBeverage = vendingMachine.listOfDrinksAvailable()
+    func printAddAmoutMenu(availableBeverage: [ObjectIdentifier:[Beverage]]) {
         for (index, menu) in availableBeverage.enumerated() {
             print("\(index+1))\(menu.value[0].kindOf) \(menu.value[0].price)(\(menu.value.count)개)")
         }
@@ -30,13 +27,12 @@ class OutputView {
         self.coins -= choiceBeverage.price
     }
     
-    func printCurrentCoins() {
+    func printCurrentCoins() -> Int {
         print("\n현재 투입한 금액이 \(self.coins)원입니다. 다음과 같은 음료가 있습니다.")
-        vendingMachine.putCoins(coins: coins)
+        return self.coins
     }
     
-    func printBeverageMenu() {
-        let entireInventory = vendingMachine.showEntireInventory()
+    func printBeverageMenu(entireInventory: [ObjectIdentifier : [Beverage]]) {
         for menu in entireInventory {
             let numberOfBeverage = menu.value.count
             print("\(menu.value[0].kindOf)(\(numberOfBeverage)개) ", terminator: "")
@@ -50,16 +46,6 @@ class OutputView {
         print("> ", terminator: "")
     }
     
-    func inputValueClassification(separatedValues: [Int]) {
-        switch separatedValues[0] {
-            case 1:
-                incrementCurrentCoins(coins: separatedValues[1])
-            case 2:
-                menuOfPurchaseBeverage(menuNumber: separatedValues[1])
-            default: break
-        }
-    }
-    
     func getBeverageKey(menuNumber: Int) throws -> ObjectIdentifier {
         for (index, beverage) in availableBeverage.enumerated() {
             if menuNumber == (index + 1) {
@@ -69,16 +55,18 @@ class OutputView {
         throw InventoryBox.VendingMachinError.invalidBeverage
     }
     
-    func menuOfPurchaseBeverage(menuNumber: Int) {
+    func menuOfPurchaseBeverage(menuNumber: Int, availableBeverage: [ObjectIdentifier : [Beverage]]) -> ObjectIdentifier {
+        self.availableBeverage = availableBeverage
         do {
             let choiceBeverageKey = try getBeverageKey(menuNumber: menuNumber)
             if let choiceBeverage = availableBeverage[choiceBeverageKey]?.first {
                 printPurchaseBeverage(choiceBeverage: choiceBeverage)
-                vendingMachine.buyBeverage(beverageName: choiceBeverageKey)
+                return choiceBeverageKey
             }
         }catch {
             print("get Beverage error")
         }
+        return ObjectIdentifier(self)
     }
     
     func incrementCurrentCoins(coins: Int) {
