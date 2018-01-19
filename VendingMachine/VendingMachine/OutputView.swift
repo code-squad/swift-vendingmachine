@@ -9,10 +9,8 @@
 import Foundation
 
 class OutputView {
-    private var coins: Int
     private var availableBeverage: [ObjectIdentifier : [Beverage]]
     init() {
-        coins = 0
         availableBeverage = [ObjectIdentifier : [Beverage]]()
     }
     
@@ -24,12 +22,10 @@ class OutputView {
     
     func printPurchaseBeverage(choiceBeverage: Beverage) {
         print("\(choiceBeverage.kindOf)를 구매하셨습니다. \(choiceBeverage.price)원을 차감합니다.")
-        self.coins -= choiceBeverage.price
     }
     
-    func printCurrentCoins() -> Int {
-        print("\n현재 투입한 금액이 \(self.coins)원입니다. 다음과 같은 음료가 있습니다.")
-        return self.coins
+    func printCurrentCoins(coins: Int) {
+        print("\n현재 투입한 금액이 \(coins)원입니다. 다음과 같은 음료가 있습니다.")
     }
     
     func printBeverageMenu(entireInventory: [ObjectIdentifier : [Beverage]]) {
@@ -67,10 +63,6 @@ class OutputView {
             print("get Beverage error")
         }
         return ObjectIdentifier(self)
-    }
-    
-    func incrementCurrentCoins(coins: Int) {
-        self.coins = coins
     }
     
 }

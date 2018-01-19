@@ -31,12 +31,10 @@ func run() {
     let inputView = InputView()
     let outputView = OutputView()
     var availableBeverage = [ObjectIdentifier:[Beverage]]()
-    var coins = 0
     repeat {
         
         // 현재 금액
-        coins = outputView.printCurrentCoins()
-        vendingMachine.putCoins(coins: coins)
+        outputView.printCurrentCoins(coins: vendingMachine.coins)
         if isFirst {
             
             // 초기 메뉴
@@ -55,7 +53,7 @@ func run() {
         let inputValue = inputView.getMenuInput()
         switch inputValue[0] {
             case 1:
-                outputView.incrementCurrentCoins(coins: inputValue[1])
+                vendingMachine.putCoins(coins: inputValue[1])
             case 2:
                 let choiceBeverageKey = outputView.menuOfPurchaseBeverage(menuNumber: inputValue[1], availableBeverage: availableBeverage)
                 vendingMachine.buyBeverage(beverageName: choiceBeverageKey)
