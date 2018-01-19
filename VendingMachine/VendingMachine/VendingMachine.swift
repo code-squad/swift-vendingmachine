@@ -79,8 +79,8 @@ struct VendingMachine {
         return self.historyOfProductsSold
     }
     
-    func getProductNumbersAndKinds() -> [Int:String] {
-        return self.productNumbersAndKinds
+    func getProductName(_ userProductNumber : InputView.ProductNumber) -> String {
+        return self.productNumbersAndKinds[userProductNumber.rawValue] ?? ""
     }
     
     mutating func updateProductNumbersAndKinds() {
