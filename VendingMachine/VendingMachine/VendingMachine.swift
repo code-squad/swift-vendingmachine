@@ -9,7 +9,7 @@
 import Foundation
 
 struct VendingMachine {
-    private var coins: Int
+    private(set) var coins: Int
     private var inventoryBox: InventoryBox
     private let purchaseProductHistory: PurchaseProductHistory
     init() {
