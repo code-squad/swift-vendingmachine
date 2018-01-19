@@ -9,7 +9,7 @@
 import Foundation
 
 protocol Userable {
-    func insertMoney(coin: Money.Unit)
+    func insertMoney(coin: Int)
     func deductMoney(coin: Int) throws
     func countChange() -> Int
     func buyBeverage(beverageMenu: BeverageMenu) throws

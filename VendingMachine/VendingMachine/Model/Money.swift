@@ -11,8 +11,8 @@ import Foundation
 struct Money {
     private var money: Int = 0
     
-    mutating func insert(coin: Unit) {
-        self.money += coin.rawValue
+    mutating func insert(coin: Int) {
+        self.money += coin
     }
     
     mutating func deduct(coin: Int) throws {
@@ -25,15 +25,5 @@ struct Money {
     
     func countChange() -> Int {
         return self.money
-    }
-}
-
-extension Money {
-    enum Unit: Int {
-        case hundred = 100
-        case fiveHundred = 500
-        case thousand = 1000
-        case fiveThousand = 5000
-        case tenThousand = 10000
     }
 }

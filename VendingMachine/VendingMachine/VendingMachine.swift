@@ -50,7 +50,7 @@ extension VendingMachine {
 }
 
 extension VendingMachine: Userable {
-    func insertMoney(coin: Money.Unit) {
+    func insertMoney(coin: Int) {
         money.insert(coin: coin)
     }
     
