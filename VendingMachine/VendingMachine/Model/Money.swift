@@ -8,22 +8,42 @@
 
 import Foundation
 
-struct Money {
-    private var money: Int = 0
+class Money {
+    private var change: Int
     
-    mutating func insert(coin: Int) {
-        self.money += coin
+    init(_ change: Int) {
+        self.change = change
     }
     
-    mutating func deduct(coin: Int) throws {
-        guard countChange() > 0 else {
-            throw BeverageErrors.notEnoughMoney
-        }
-        
-        self.money -= coin
+    func plus(coin: Money) throws -> Money {
+        if isNegative(coin: coin) { throw BeverageErrors.incorrectMoney }
+        return Money(change + coin.change)
+    }
+    
+    func subtract(coin: Money) throws -> Money {
+        guard isAvaiable(coin: coin) else { throw BeverageErrors.notEnoughMoney }
+        return Money(self.change - coin.change)
     }
     
     func countChange() -> Int {
-        return self.money
+        return self.change
+    }
+    
+    func isAvaiable(coin: Money) -> Bool {
+        return self.change - coin.change > 0
+    }
+    
+    func isNegative(coin: Money) -> Bool {
+        return coin.change < 0
+    }
+}
+
+extension Money: Comparable, Equatable {
+    static func == (lhs: Money, rhs: Money) -> Bool {
+        return lhs.change == rhs.change
+    }
+    
+    static func < (lhs: Money, rhs: Money) -> Bool {
+        return lhs.change < rhs.change
     }
 }
