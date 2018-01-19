@@ -14,6 +14,6 @@ class BananaMilk: Milk {
     }
     
     override var description: String {
-        return "바나나우유(\(BananaMilk.bringTypeName)) - \(super.description)"
+        return "바나나우유"
     }
 }

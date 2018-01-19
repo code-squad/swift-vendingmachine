@@ -14,6 +14,6 @@ class Pepsi: CarbonatedDrink {
     }
     
     override var description: String {
-        return "펩시(\(Pepsi.bringTypeName)) - \(super.description)"
+        return "펩시"
     }
 }
