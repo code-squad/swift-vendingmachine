@@ -16,11 +16,7 @@ struct Inventory {
     }
     
     mutating func deductBeverage(beverageMenu: BeverageMenu, quantity: Int = -1) throws {
-        guard beverageBoxes.count > 0 else {
-            throw BeverageErrors.outOfStock
-        }
-        
-        guard countBeverageQuantity(beverageMenu: beverageMenu) > 0 else {
+        guard isAvailable(beverageMenu: beverageMenu) else {
             throw BeverageErrors.outOfStock
         }
         
@@ -38,10 +34,7 @@ struct Inventory {
     }
     
     func fetchListOfBeverage() -> [BeverageBox] {
-        let beverageMenus = BeverageMenu.allValues
-        return beverageMenus.filter ({
-            countBeverageQuantity(beverageMenu: $0) > 0
-        }).map ({ menu -> BeverageBox in
+        return BeverageMenu.allValues.map ({ menu -> BeverageBox in
             BeverageBox(beverageMenu: menu, quantity: countBeverageQuantity(beverageMenu: menu))
         })
         
@@ -49,6 +42,10 @@ struct Inventory {
 }
 
 private extension Inventory {
+    func isAvailable(beverageMenu: BeverageMenu) -> Bool {
+        return beverageBoxes.count > 0 && countBeverageQuantity(beverageMenu: beverageMenu) > 0
+    }
+    
     mutating func updateQuantity(beverageBox: BeverageBox) {
         self.beverageBoxes.append(beverageBox)
     }
