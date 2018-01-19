@@ -24,7 +24,7 @@ struct Inventory {
     }
     
     func countBeverageQuantity(beverageMenu: BeverageMenu) -> Int {
-        return self.beverageBoxes.filter ({
+        return self.beverageBoxes.filter({
             if $0.beverageMenu == beverageMenu {
                 return true
             }
@@ -34,10 +34,18 @@ struct Inventory {
     }
     
     func fetchListOfBeverage() -> [BeverageBox] {
-        return BeverageMenu.allValues.map ({ menu -> BeverageBox in
+        return BeverageMenu.allValues.map({ menu -> BeverageBox in
             BeverageBox(beverageMenu: menu, quantity: countBeverageQuantity(beverageMenu: menu))
         })
         
+    }
+}
+
+extension Inventory: CustomStringConvertible {
+    var description: String {
+        return fetchListOfBeverage().reduce("=> ") {
+            $0 + $1.beverageMenu.makeInstance().description + "(" + String($1.quantity) + "개) " 
+        }
     }
 }
 
