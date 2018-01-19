@@ -64,7 +64,7 @@ extension VendingMachine: Userable {
     }
 }
 
-extension VendingMachine: VendingMachineManagerable {
+extension VendingMachine: MachineManagerable {
     func insertBeverage(beverageMenu: BeverageMenu, quantity: Int = 1) {
         inventory.insertBeverage(beverageMenu: beverageMenu, quantity: quantity)
     }

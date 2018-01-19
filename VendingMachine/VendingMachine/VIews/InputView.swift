@@ -9,7 +9,7 @@
 import Foundation
 
 struct InputView {
-    func chooseAction(machine: Userable & VendingMachineManagerable) throws -> (Mode, Int)? {
+    func chooseAction(machine: Userable & MachineManagerable) throws -> (Mode, Int)? {
         print(showScreen(machine: machine))
         
         guard let action = readLine() else { throw BeverageErrors.invalidValue }
@@ -43,7 +43,7 @@ extension InputView {
         }
     }
     
-    private func showScreen(machine: Userable & VendingMachineManagerable) -> String {
+    private func showScreen(machine: Userable & MachineManagerable) -> String {
         let currentChange = viewCurrentChange(machine)
         return """
         현재 투입한 금액이 \(currentChange)원입니다. 다음과 같은 음료가 있습니다.
@@ -57,13 +57,13 @@ extension InputView {
         return machine.countChange()
     }
     
-    private func viewCurrentInventory(_ machine: VendingMachineManagerable) -> String {
+    private func viewCurrentInventory(_ machine: MachineManagerable) -> String {
         return machine.checkCurrentInventory().reduce("=> ") {
             $0 + $1.beverageMenu.makeInstance().description + "(" + String($1.quantity) + "개) "
         }
     }
     
-    private func viewListOfCurrentBeverage(_ machine: VendingMachineManagerable) -> String {
+    private func viewListOfCurrentBeverage(_ machine: MachineManagerable) -> String {
         var number = 0
         return allMenus.map({
             let beverage = $0.makeInstance()
