@@ -26,13 +26,7 @@ extension VendingMachine {
     }
     
     func fetchListOfHottedBeverage() -> [BeverageMenu] {
-        return BeverageMenu.filter({ beverageMene -> Bool in
-            if let coffee = beverageMene.makeInstance() as? Coffee {
-                return coffee.isHot
-            }
-            
-            return false
-        })
+        return BeverageMenu.filterHottedBeverages()
     }
     
     func fetchListOfValidDate() -> [BeverageMenu] {
@@ -78,9 +72,7 @@ extension VendingMachine: MachineManagerable {
     }
     
     func supply(_ defaultQuantity: Int = 1) {
-        BeverageMenu.forEach({ beverageMenu in
-            insertBeverage(beverageMenu: beverageMenu, quantity: defaultQuantity)
-        })
+        BeverageMenu.makeQuantity(defaultQuantity)
     }
 }
 
