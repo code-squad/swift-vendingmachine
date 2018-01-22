@@ -14,10 +14,12 @@ func run() {
     let isContinue = true
     var isFirst = true
     let inputView = InputView()
+    let outputView = OutputView()
     let userOutputView = UserOutputView()
     var availableBeverage = [ObjectIdentifier:[Beverage]]()
 
-    
+    // 관리자, 사용자 선택 메뉴
+    outputView.printMachineModeMenu()
     
     // 관리자 모드
     // 초기 재고 추가
