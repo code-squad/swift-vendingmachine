@@ -45,7 +45,7 @@ struct ScreenHelper {
     
     private func viewListOfCurrentBeverage(_ machine: MachineManagerable) -> String {
         var number = 0
-        return allMenus.map({
+        return BeverageMenu.allValues.map({
             let beverage = $0.makeInstance()
             number = number + 1
             return String(number) + ") " + beverage.description + " " + String(beverage.price.countChange()) + "원(" +  String(machine.countBeverageQuantity(beverageMenu: $0)) + "개)"

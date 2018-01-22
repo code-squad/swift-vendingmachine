@@ -26,7 +26,7 @@ extension VendingMachine {
     }
     
     func fetchListOfHottedBeverage() -> [BeverageMenu] {
-        return allMenus.filter ({
+        return BeverageMenu.allValues.filter ({
             if let coffee = $0.makeInstance() as? Coffee {
                 return coffee.isHot
             }
@@ -36,7 +36,7 @@ extension VendingMachine {
     }
     
     func fetchListOfValidDate() -> [BeverageMenu] {
-        return allMenus.filter ({
+        return BeverageMenu.allValues.filter ({
             $0.makeInstance().isExpired(with: DateUtility.today())
         })
     }
@@ -80,7 +80,7 @@ extension VendingMachine: MachineManagerable {
     }
     
     func supply(_ defaultQuantity: Int = 1) {
-        allMenus.forEach {
+        BeverageMenu.allValues.forEach {
             insertBeverage(beverageMenu: $0, quantity: defaultQuantity)
         }
     }
