@@ -19,39 +19,23 @@ let inputView : InputView = InputView()
 let outputView : OutputView = OutputView()
 while runVendingMachine {
     
-    outputView.printBaseMessages(vendingMachine)
-    let userInput = inputView.readUserMenu()
-    if userInput == .invalidUserMenu {
-        outputView.printMessage(.invalidMenu)
+    outputView.printModeSelectMessage(.menu)
+    let userMode = inputView.readMode()
+    guard userMode != .exit else { break }
+    if userMode == .invalidMode {
+        outputView.printModeSelectMessage(.invalidMenu)
         continue
     }
-    guard userInput != .exit else { break }
-    
-    switch userInput {
-    case .addMoney :
-        outputView.printMessage(.addMoney)
-        vendingMachine.addMoney(inputView.readMoney())
-    case .buyDrink :
-        vendingMachine.updateProductNumbersAndKinds()
-        outputView.printMessage(.chooseProduct)
-        let userProductNumber = inputView.readProductNumber()
-        if userProductNumber == .invalidNumber {
-            outputView.printMessage(.invalidMenu)
-        }
-        let userProductName = vendingMachine.getProductName(userProductNumber)
-        let userProduct = vendingMachine.getInventory()[userProductName]?.first
-        if vendingMachine.generateListOfValidProduct().contains(userProductName) {
-            vendingMachine.buy(userProductName)
-            outputView.printBuyProduct(userProductName, productPrice: userProduct?.price ?? 0)
-            continue
-        }
-        outputView.printMessage(.shortOfMoney)
-    case .history :
-        print(vendingMachine.generateListOfHistory())
+    switch userMode {
+    case .admin :
+        let admin = VendingMachineAdmin(vendingMachine)
+        var adminController = AdminController(admin)
+        adminController.executeAdmin()
+    case .user :
+        let user = VendingMachineUser(vendingMachine)
+        var userController = UserContorller(user)
+        userController.executeUser()
     default :
         break
     }
 }
-
-
-
