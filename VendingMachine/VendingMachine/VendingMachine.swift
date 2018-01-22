@@ -23,8 +23,16 @@ struct VendingMachine {
     }
     
     // 특정 상품 인스턴스를 넘겨서 재고를 추가하는 메소드
-    func addInInventory(beverage: Beverage) {
-        inventoryBox.storageBeverageStock(beverage: beverage)
+    func addInInventory(beverageName: Beverage, number: Int) {
+        for _ in 0..<number {
+            inventoryBox.storageBeverageStock(beverage: beverageName)
+        }
+    }
+    
+    func deleteInventory(beverageName: Beverage, number: Int) {
+        for _ in 0..<number {
+            inventoryBox.deleteBeverageStock(beverage: beverageName)
+        }
     }
     
     // 현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
@@ -33,9 +41,9 @@ struct VendingMachine {
     }
     
     // 음료수를 구매하는 메소드
-    mutating func buyBeverage(beverageName: ObjectIdentifier) {
+    mutating func buyBeverage(beverageKey: ObjectIdentifier) {
         do {
-            let beverageOfChoice = try inventoryBox.sellDrink(beverageKey: beverageName)
+            let beverageOfChoice = try inventoryBox.sellDrink(beverageKey: beverageKey)
             purchaseProductHistory.recordOfPurchaseHistory(date: Date(), beverage: beverageOfChoice.name)
             self.coins -= beverageOfChoice.price
         }catch {
