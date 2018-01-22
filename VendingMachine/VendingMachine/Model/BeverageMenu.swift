@@ -38,6 +38,22 @@ enum BeverageMenu {
             return beverageMene.makeInstance().isExpired(with: DateUtility.today())
         })
     }
+    
+    static func filterHottedBeverages() -> [BeverageMenu] {
+        return self.filter({ beverageMene -> Bool in
+            guard let coffee = beverageMene.makeInstance() as? Coffee else {
+                return false
+            }
+            
+            return coffee.isHot
+        })
+    }
+    
+    static func makeQuantity(_ defaultQuantity: Int) {
+        self.forEach({ beverageMenu in
+            VendingMachine().insertBeverage(beverageMenu: beverageMenu, quantity: defaultQuantity)
+        })
+    }
 }
 
 extension BeverageMenu {
