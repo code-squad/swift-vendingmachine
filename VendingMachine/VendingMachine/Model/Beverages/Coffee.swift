@@ -11,7 +11,7 @@ import Foundation
 class Coffee: Beverage {
     private let _isHot: Bool
     
-    init(brand: String, volume: Int, price: Int, productName: String, expiryDate: Date, calorie: Int, isHot: Bool) {
+    init(brand: String, volume: Int, price: Money, productName: String, expiryDate: Date, calorie: Int, isHot: Bool) {
         self._isHot = isHot
         super.init(brand: brand, volume: volume, price: price, productName: productName, expiryDate: expiryDate, calorie: calorie)
     }
