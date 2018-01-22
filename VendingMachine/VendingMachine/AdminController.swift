@@ -30,7 +30,7 @@ struct AdminController {
         }
     }
     
-    mutating func executeMenu(_ adminInput : InputView.adminMenu) {
+    mutating func executeMenu(_ adminInput : InputView.AdminMenu) {
         switch adminInput {
         case .addProduct :
             vendingMachine.updateProductNumbersAndKinds()
@@ -43,7 +43,7 @@ struct AdminController {
             let adminProductName = vendingMachine.getProductName(adminProductNumber)
             let adminProduct = vendingMachine.generateBeverageFromProductName(adminProductName)
             guard let oneProduct = adminProduct else { return }
-            if vendingMachine.generateListOfValidProduct().contains(adminProductName) {
+            if vendingMachine.generateListOfProduct().contains(adminProductName) {
                 vendingMachine.addBeverage(oneProduct)
                 outputView.printAdminModeMessage(.addProduct)
                 return
@@ -57,7 +57,7 @@ struct AdminController {
                 outputView.printAdminModeMessage(.invalidMenu)
             }
             let adminProductName = vendingMachine.getProductName(adminProductNumber)
-            if vendingMachine.generateListOfValidProduct().contains(adminProductName) {
+            if vendingMachine.generateListOfProduct().contains(adminProductName) {
                 vendingMachine.removeProduct(adminProductName)
                 outputView.printAdminModeMessage(.removeProduct)
                 return
