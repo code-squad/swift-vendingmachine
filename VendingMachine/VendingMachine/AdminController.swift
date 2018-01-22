@@ -10,19 +10,21 @@ import Foundation
 
 struct AdminController {
     private var vendingMachine : AdminMode
+    private var outputViewAdmin : AdminPrintable
     private var runAdminMode = true
 
     
-    init(_ vendingMachineAdmin : AdminMode) {
+    init(_ vendingMachineAdmin : AdminMode, _ outputViewAdmin : AdminPrintable) {
         self.vendingMachine = vendingMachineAdmin
+        self.outputViewAdmin = outputViewAdmin
     }
     
     mutating func executeAdmin() {
         while runAdminMode {
-        outputView.printAdminModeBaseMessages(self.vendingMachine)
+        outputViewAdmin.printAdminModeBaseMessages(self.vendingMachine)
             let adminInput = inputView.readAdminMenu()
             if adminInput == .invalidAdminMenu {
-                outputView.printAdminModeMessage(.invalidMenu)
+                outputViewAdmin.printAdminModeMessage(.invalidMenu)
                 continue
             }
             guard adminInput != .exit else { return }
@@ -34,10 +36,10 @@ struct AdminController {
         switch adminInput {
         case .addProduct :
             vendingMachine.updateProductNumbersAndKinds()
-            outputView.printAdminModeMessage(.addProduct)
+            outputViewAdmin.printAdminModeMessage(.addProduct)
             let adminProductNumber = inputView.readProductNumber()
             if adminProductNumber == .invalidNumber {
-                outputView.printAdminModeMessage(.invalidMenu)
+                outputViewAdmin.printAdminModeMessage(.invalidMenu)
                 return
             }
             let adminProductName = vendingMachine.getProductName(adminProductNumber)
@@ -45,24 +47,24 @@ struct AdminController {
             guard let oneProduct = adminProduct else { return }
             if vendingMachine.generateListOfProduct().contains(adminProductName) {
                 vendingMachine.addBeverage(oneProduct)
-                outputView.printAdminModeMessage(.addProduct)
+                outputViewAdmin.printAdminModeMessage(.addProduct)
                 return
             }
-            outputView.printAdminModeMessage(.invalidMenu)
+            outputViewAdmin.printAdminModeMessage(.invalidMenu)
         case .removeProduct :
             vendingMachine.updateProductNumbersAndKinds()
-            outputView.printAdminModeMessage(.removeProduct)
+            outputViewAdmin.printAdminModeMessage(.removeProduct)
             let adminProductNumber = inputView.readProductNumber()
             if adminProductNumber == .invalidNumber {
-                outputView.printAdminModeMessage(.invalidMenu)
+                outputViewAdmin.printAdminModeMessage(.invalidMenu)
             }
             let adminProductName = vendingMachine.getProductName(adminProductNumber)
             if vendingMachine.generateListOfProduct().contains(adminProductName) {
                 vendingMachine.removeProduct(adminProductName)
-                outputView.printAdminModeMessage(.removeProduct)
+                outputViewAdmin.printAdminModeMessage(.removeProduct)
                 return
             }
-            outputView.printAdminModeMessage(.noProduct)
+            outputViewAdmin.printAdminModeMessage(.noProduct)
         case .history :
             print(vendingMachine.generateListOfHistory())
         case .exit :
