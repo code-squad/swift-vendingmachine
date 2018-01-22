@@ -8,7 +8,19 @@
 
 import Foundation
 
-struct OutputView {
+protocol AdminPrintable {
+    func printAdminModeBaseMessages(_ adminVendingMachine : AdminMode)
+    func printAdminModeMessage(_ message : OutputView.AdminModeMessages)
+    func printHisotry(_ history : [Beverage])
+}
+
+protocol UserPrintable {
+    func printUserModeMessage(_ message : OutputView.UserModeMessages)
+    func printUserModeBaseMessages(_ userVendingMachine : UserMode)
+    func printBuyProduct(_ userProduct : String, productPrice : Int)
+}
+
+struct OutputView : AdminPrintable, UserPrintable {
     
     enum ModeSelectionMessages : String {
         case menu = "자판기를 시작합니다.\n1. 관리자 모드\n2. 사용자 모드\n3. 자판기 종료"
@@ -78,7 +90,6 @@ struct OutputView {
             print("\(historyNumber). \(oneHistory)")
             historyNumber += 1
         }
-        
     }
     
 }
