@@ -12,18 +12,18 @@ class VendingMachine {
     private var money: Money
     private var inventory: Inventory
     
-    init(money: Money, inventory: Inventory) {
-        self.money = money
-        self.inventory = inventory
+    init() {
+        self.money = Money(0)
+        self.inventory = Inventory([])
     }
 }
 
 extension VendingMachine {
-    func fetchListOfPurchasableBeverages() -> [BeverageBox] {
-        return checkCurrentInventory().filter ({
-            $0.beverageMenu.makeInstance().price <= money.countChange()
-        })
-    }
+//    func fetchListOfPurchasableBeverages() -> [BeverageBox] {
+//        return checkCurrentInventory().filter ({
+//            $0.beverageMenu.makeInstance().price <= money.countChange()
+//        })
+//    }
     
     func fetchListOfHottedBeverage() -> [BeverageMenu] {
         return allMenus.filter ({
@@ -43,38 +43,36 @@ extension VendingMachine {
 }
 
 extension VendingMachine: Userable {
-    func insertMoney(coin: Int) {
-        money.insert(coin: coin)
+    func insertMoney(coin: Money) throws {
+        money = try money.plus(coin: coin)
     }
-    
-    func deductMoney(coin: Int) throws {
-        try money.deduct(coin: coin)
+
+    func deductMoney(coin: Money) throws {
+        money = try money.subtract(coin: coin)
     }
-    
+
     func countChange() -> Int {
         return money.countChange()
     }
-    
-    func buyBeverage(beverageMenu: BeverageMenu) throws {
-        let beverage = beverageMenu.makeInstance()
-        guard countChange() > beverage.price else { throw BeverageErrors.notEnoughMoney }
-        
-        try deductBeverage(beverageMenu: beverageMenu)
-        try deductMoney(coin: beverage.price)
-    }
+
+//    func buyBeverage(beverageMenu: BeverageMenu) throws {
+//        let beverage = beverageMenu.makeInstance()
+//        //try deductBeverage(beverageMenu: beverageMenu)
+//        try deductMoney(coin: beverage.price)
+//    }
 }
 
 extension VendingMachine: MachineManagerable {
     func insertBeverage(beverageMenu: BeverageMenu, quantity: Int = 1) {
-        inventory.insertBeverage(beverageMenu: beverageMenu, quantity: quantity)
+        inventory = inventory.add(beverageMenu: beverageMenu, quantity: quantity)
     }
-    
-    func deductBeverage(beverageMenu: BeverageMenu, quantity: Int = -1) throws {
-        try inventory.deductBeverage(beverageMenu: beverageMenu, quantity: quantity)
+
+    func deductBeverage(beverageMenu: BeverageMenu, quantity: Int = 1) throws {
+        inventory = try inventory.deduct(beverageMenu: beverageMenu, quantity: quantity)
     }
-    
+
     func countBeverageQuantity(beverageMenu: BeverageMenu) -> Int {
-        return inventory.countBeverageQuantity(beverageMenu: beverageMenu)
+        return inventory.countBeverage(beverageMenu: beverageMenu)
     }
     
     func checkCurrentInventory() -> [BeverageBox] {
