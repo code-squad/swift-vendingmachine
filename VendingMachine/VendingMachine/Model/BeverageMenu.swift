@@ -16,10 +16,6 @@ enum BeverageMenu {
     case strawberryMilk
     case top
     
-    static var allValues: [BeverageMenu] {
-        return [.bananaMilk, .cocaCola, .georgia, .pepsi, .strawberryMilk, .top]
-    }
-    
     func makeInstance() -> Beverage {
         switch self {
         case .bananaMilk:
@@ -35,5 +31,27 @@ enum BeverageMenu {
         case .top:
             return TOP(brand: "맥심", volume: 275, price: Money(1800), productName: "TOP 스위트아메리카노", expiryDate: DateUtility.subtractDays(1), calorie: 48, isHot: true)
         }
+    }
+}
+
+extension BeverageMenu {
+    private static var allValues: [BeverageMenu] {
+        return [.bananaMilk, .cocaCola, .georgia, .pepsi, .strawberryMilk, .top]
+    }
+    
+    static func map<T>(_ function: ((BeverageMenu) -> T)) -> [T] {
+        return allValues.map(function)
+    }
+    
+    static func filter(_ function: ((BeverageMenu) -> Bool)) -> [BeverageMenu] {
+        return allValues.filter(function)
+    }
+    
+    static func forEach(_ function: ((BeverageMenu) -> ())) {
+        allValues.forEach(function)
+    }
+    
+    static func getBeverageMenu(index: Int) -> BeverageMenu {
+        return allValues[index]
     }
 }

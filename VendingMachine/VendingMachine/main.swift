@@ -9,7 +9,6 @@
 import Foundation
 
 func main() throws {
-    let allMenus = BeverageMenu.allValues
     let machine = VendingMachine()
     machine.supply(3)
     
@@ -22,7 +21,7 @@ func main() throws {
             
             switch mode {
             case .insertMoney: try machine.insertMoney(coin: Money(answer))
-            case .buyBeverage: try machine.buyBeverage(beverageMenu: allMenus[answer-1])
+            case .buyBeverage: try machine.buyBeverage(beverageMenu: BeverageMenu.getBeverageMenu(index: answer-1))
             }
             
             OutputView().printResult(mode: mode, answer: answer)
