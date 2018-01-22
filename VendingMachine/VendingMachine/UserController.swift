@@ -30,7 +30,7 @@ struct UserContorller {
         }
     }
     
-    mutating func executeMenu(_ userInput : InputView.userMenu) {
+    mutating func executeMenu(_ userInput : InputView.UserMenu) {
         switch userInput {
         case .addMoney :
             outputView.printUserModeMessage(.addMoney)

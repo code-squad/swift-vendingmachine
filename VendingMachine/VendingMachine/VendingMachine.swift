@@ -17,7 +17,7 @@ protocol AdminMode {
     func getProductName(_ userProductNumber : InputView.ProductNumber) -> String
     func getInventory() -> [String:[Beverage]]
     func generateInvalidProducts() -> [Beverage]
-    func generateListOfValidProduct() -> [String]
+    func generateListOfProduct() -> [String]
     func generateBeverageFromProductName(_ productName : String) -> Beverage?
 }
 
@@ -97,6 +97,10 @@ struct VendingMachine : AdminMode, UserMode {
     
     func generateListOfHistory() -> [Beverage] {
         return self.historyOfProductsSold
+    }
+    
+    func generateListOfProduct() -> [String] {
+        return self.getInventory().filter({$0.value.count > 0}).map({$0.key})
     }
     
     func getProductName(_ userProductNumber : InputView.ProductNumber) -> String {

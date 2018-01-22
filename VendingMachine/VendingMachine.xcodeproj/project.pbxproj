@@ -16,16 +16,12 @@
 		04764277200DFC5E00048CDC /* StrawberryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04764276200DFC5E00048CDC /* StrawberryMilk.swift */; };
 		04764279200DFC6C00048CDC /* BananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04764278200DFC6C00048CDC /* BananaMilk.swift */; };
 		0476427B200DFCA300048CDC /* ChocolateMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476427A200DFCA300048CDC /* ChocolateMilk.swift */; };
-		0487EC1B20157FE400E3EE2C /* VendingMachineAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0487EC1A20157FE400E3EE2C /* VendingMachineAdmin.swift */; };
-		0487EC1D20157FEC00E3EE2C /* VendingMachineUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0487EC1C20157FEC00E3EE2C /* VendingMachineUser.swift */; };
 		0487EC1F2015831900E3EE2C /* AdminController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0487EC1E2015831900E3EE2C /* AdminController.swift */; };
 		0487EC212015832200E3EE2C /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0487EC202015832200E3EE2C /* UserController.swift */; };
 		04D4BA102010851F00D42AA4 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F056C7200F1243008B5D25 /* VendingMachine.swift */; };
 		04D4BA112010851F00D42AA4 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F056CB200F183D008B5D25 /* InputView.swift */; };
 		04D4BA122010851F00D42AA4 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F056CD200F1844008B5D25 /* OutputView.swift */; };
 		04D4BA1420108C1900D42AA4 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
-		04EA11552015890F0003B63A /* VendingMachineAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0487EC1A20157FE400E3EE2C /* VendingMachineAdmin.swift */; };
-		04EA11562015890F0003B63A /* VendingMachineUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0487EC1C20157FEC00E3EE2C /* VendingMachineUser.swift */; };
 		04EA11572015890F0003B63A /* AdminController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0487EC1E2015831900E3EE2C /* AdminController.swift */; };
 		04EA11582015890F0003B63A /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0487EC202015832200E3EE2C /* UserController.swift */; };
 		04EFEC54200D8C55004B1BAB /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFEC53200D8C55004B1BAB /* Beverage.swift */; };
@@ -74,8 +70,6 @@
 		04764276200DFC5E00048CDC /* StrawberryMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrawberryMilk.swift; sourceTree = "<group>"; };
 		04764278200DFC6C00048CDC /* BananaMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaMilk.swift; sourceTree = "<group>"; };
 		0476427A200DFCA300048CDC /* ChocolateMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocolateMilk.swift; sourceTree = "<group>"; };
-		0487EC1A20157FE400E3EE2C /* VendingMachineAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineAdmin.swift; sourceTree = "<group>"; };
-		0487EC1C20157FEC00E3EE2C /* VendingMachineUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineUser.swift; sourceTree = "<group>"; };
 		0487EC1E2015831900E3EE2C /* AdminController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminController.swift; sourceTree = "<group>"; };
 		0487EC202015832200E3EE2C /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		04EFEC53200D8C55004B1BAB /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
@@ -195,8 +189,6 @@
 			children = (
 				04764266200DFAB200048CDC /* Beverage */,
 				04F056C7200F1243008B5D25 /* VendingMachine.swift */,
-				0487EC1A20157FE400E3EE2C /* VendingMachineAdmin.swift */,
-				0487EC1C20157FEC00E3EE2C /* VendingMachineUser.swift */,
 				0487EC1E2015831900E3EE2C /* AdminController.swift */,
 				0487EC202015832200E3EE2C /* UserController.swift */,
 				04F056CB200F183D008B5D25 /* InputView.swift */,
@@ -325,8 +317,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04EA11552015890F0003B63A /* VendingMachineAdmin.swift in Sources */,
-				04EA11562015890F0003B63A /* VendingMachineUser.swift in Sources */,
 				04EA11572015890F0003B63A /* AdminController.swift in Sources */,
 				04EA11582015890F0003B63A /* UserController.swift in Sources */,
 				04D4BA1420108C1900D42AA4 /* main.swift in Sources */,
@@ -362,7 +352,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				04764273200DFC3600048CDC /* Cantata.swift in Sources */,
-				0487EC1B20157FE400E3EE2C /* VendingMachineAdmin.swift in Sources */,
 				04764277200DFC5E00048CDC /* StrawberryMilk.swift in Sources */,
 				0476426F200DFC1900048CDC /* Fanta.swift in Sources */,
 				04EFEC54200D8C55004B1BAB /* Beverage.swift in Sources */,
@@ -375,7 +364,6 @@
 				0476426B200DFBE800048CDC /* PepciCoke.swift in Sources */,
 				04764279200DFC6C00048CDC /* BananaMilk.swift in Sources */,
 				0487EC1F2015831900E3EE2C /* AdminController.swift in Sources */,
-				0487EC1D20157FEC00E3EE2C /* VendingMachineUser.swift in Sources */,
 				0476426D200DFC0900048CDC /* Sprite.swift in Sources */,
 				04764271200DFC2900048CDC /* Top.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,

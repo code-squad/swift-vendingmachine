@@ -28,12 +28,10 @@ while runVendingMachine {
     }
     switch userMode {
     case .admin :
-        let admin = VendingMachineAdmin(vendingMachine)
-        var adminController = AdminController(admin)
+        var adminController = AdminController(vendingMachine)
         adminController.executeAdmin()
     case .user :
-        let user = VendingMachineUser(vendingMachine)
-        var userController = UserContorller(user)
+        var userController = UserContorller(vendingMachine)
         userController.executeUser()
     default :
         break
