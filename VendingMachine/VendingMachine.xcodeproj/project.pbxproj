@@ -33,6 +33,7 @@
 		87BB94312010399F00DC1099 /* Userable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BB942F2010399F00DC1099 /* Userable.swift */; };
 		87BB943320103CD900DC1099 /* BeverageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BB943220103CD900DC1099 /* BeverageMenu.swift */; };
 		87BB943420103CD900DC1099 /* BeverageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BB943220103CD900DC1099 /* BeverageMenu.swift */; };
+		87CFD9AF2015838E00CF1BCE /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87064DA120102E96006BA5A1 /* VendingMachine.swift */; };
 		87D79EAF20070E5F00A3A4FE /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D79EAE20070E5F00A3A4FE /* OutputView.swift */; };
 		87D79EBD200726A700A3A4FE /* VedingMachineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D79EBC200726A700A3A4FE /* VedingMachineTests.swift */; };
 		87D79EC320072A9200A3A4FE /* CocaCola.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D79EC220072A9200A3A4FE /* CocaCola.swift */; };
@@ -377,6 +378,7 @@
 				87D79EC720072AA500A3A4FE /* CarbonatedDrink.swift in Sources */,
 				87D79EC820072AAB00A3A4FE /* Milk.swift in Sources */,
 				87D79EBD200726A700A3A4FE /* VedingMachineTests.swift in Sources */,
+				87CFD9AF2015838E00CF1BCE /* VendingMachine.swift in Sources */,
 				87BB943420103CD900DC1099 /* BeverageMenu.swift in Sources */,
 				87D79EC920072AAF00A3A4FE /* Coffee.swift in Sources */,
 				87BA4A932010C56A003B4802 /* BeverageBox.swift in Sources */,
