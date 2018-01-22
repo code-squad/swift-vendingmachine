@@ -17,7 +17,7 @@ struct InputView {
         case invalidMode
     }
     
-    enum adminMenu : Int, generateAllCases {
+    enum AdminMenu : Int, generateAllCases {
         case addProduct = 1
         case removeProduct = 2
         case history = 3
@@ -25,7 +25,7 @@ struct InputView {
         case invalidAdminMenu
     }
     
-    enum userMenu : Int, generateAllCases {
+    enum UserMenu : Int, generateAllCases {
         case addMoney = 1
         case buyDrink = 2
         case exit = 3
@@ -48,16 +48,16 @@ struct InputView {
         return Mode.init(rawValue: userInput) ?? .invalidMode
     }
     
-    func readAdminMenu() -> adminMenu {
+    func readAdminMenu() -> AdminMenu {
         let userInput = Int(readLine() ?? "") ?? 0
         guard isPossibleAdminMenu(userInput) else { return .invalidAdminMenu }
-        return adminMenu.init(rawValue: userInput) ?? .invalidAdminMenu
+        return AdminMenu.init(rawValue: userInput) ?? .invalidAdminMenu
     }
     
-    func readUserMenu() -> userMenu {
+    func readUserMenu() -> UserMenu {
         let userInput = Int(readLine() ?? "") ?? 0
         guard isPossibleUserMenu(userInput) else { return .invalidUserMenu }
-        return userMenu.init(rawValue: userInput) ?? .invalidUserMenu
+        return UserMenu.init(rawValue: userInput) ?? .invalidUserMenu
     }
     
     func readMoney() -> Int {
@@ -76,11 +76,11 @@ struct InputView {
     }
     
     private func isPossibleAdminMenu(_ userInput : Int) -> Bool {
-        return adminMenu.allCases.map({$0.rawValue}).contains(userInput)
+        return AdminMenu.allCases.map({$0.rawValue}).contains(userInput)
     }
     
     private func isPossibleUserMenu(_ userInput : Int) -> Bool {
-        return userMenu.allCases.map({$0.rawValue}).contains(userInput)
+        return UserMenu.allCases.map({$0.rawValue}).contains(userInput)
     }
     
     private func isPossibleProductNumber(_ userInput : Int) -> Bool {
