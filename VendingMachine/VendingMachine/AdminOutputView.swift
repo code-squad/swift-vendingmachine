@@ -9,7 +9,7 @@
 import Foundation
 
 class AdminOutputView: OutputView {
-    func printBeverageMenu(entireInventory: [ObjectIdentifier : [Beverage]]) {
+    override func printBeverageMenu(entireInventory: [ObjectIdentifier : [Beverage]]) {
         print("현재 재고 상태 입니다.")
         for (index, menu) in entireInventory.enumerated() {
             let numberOfBeverage = menu.value.count

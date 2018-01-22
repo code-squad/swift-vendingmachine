@@ -21,4 +21,11 @@ class InputView {
         return input.split(separator: " ").map({Int($0) ?? 0})
     }
     
+    func selectMachineMode() -> Int {
+        if let inputModeNumber = Int(readLine() ?? "") {
+            return inputModeNumber
+        }
+        return 0
+    }
+    
 }
