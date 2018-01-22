@@ -13,7 +13,13 @@ func run() {
     formatter.dateFormat = "yyyyMMdd"
     let isContinue = true
     var isFirst = true
+    let inputView = InputView()
+    let userOutputView = UserOutputView()
+    var availableBeverage = [ObjectIdentifier:[Beverage]]()
 
+    
+    
+    // 관리자 모드
     // 초기 재고 추가
     let strawberryMilk: Beverage = StrawberryMilk(brand: "서울우유", weight: 200, price: 1000, name: "날마다딸기우유", manufactureDate: formatter.date(from: "20171009") ?? Date(), strawberrySyrup: 5)
     let bananaMilk = BananaMilk(brand: "서울우유", weight: 200, price: 1000, name: "날마다딸기우유", manufactureDate: formatter.date(from: "20171012") ?? Date(), bananaSyrup: 3)
@@ -27,35 +33,33 @@ func run() {
     vendingMachine.addInInventory(beverage: strawberryMilk)
     vendingMachine.addInInventory(beverage: coffee)
     
+    // 사용자 모드
     // 메뉴 출력 및 사용자 입력
-    let inputView = InputView()
-    let outputView = OutputView()
-    var availableBeverage = [ObjectIdentifier:[Beverage]]()
     repeat {
         
         // 현재 금액
-        outputView.printCurrentCoins(coins: vendingMachine.coins)
+        userOutputView.printCurrentCoins(coins: vendingMachine.coins)
         if isFirst {
             
             // 초기 메뉴
             let entireInventory = vendingMachine.showEntireInventory()
-            outputView.printBeverageMenu(entireInventory: entireInventory)
+            userOutputView.printBeverageMenu(entireInventory: entireInventory)
             isFirst = false
         }else {
             
             // 이후 기본 메뉴
             availableBeverage = vendingMachine.listOfDrinksAvailable()
-            outputView.printAddAmoutMenu(availableBeverage: availableBeverage)
+            userOutputView.printAddAmoutMenu(availableBeverage: availableBeverage)
         }
         
         // 메뉴 선택 및 이동
-        outputView.printDoingMenu()
+        userOutputView.printDoingMenu()
         let inputValue = inputView.getMenuInput()
         switch inputValue[0] {
             case 1:
                 vendingMachine.putCoins(coins: inputValue[1])
             case 2:
-                let choiceBeverageKey = outputView.menuOfPurchaseBeverage(menuNumber: inputValue[1], availableBeverage: availableBeverage)
+                let choiceBeverageKey = userOutputView.menuOfPurchaseBeverage(menuNumber: inputValue[1], availableBeverage: availableBeverage)
                 vendingMachine.buyBeverage(beverageName: choiceBeverageKey)
             default: break
         }
