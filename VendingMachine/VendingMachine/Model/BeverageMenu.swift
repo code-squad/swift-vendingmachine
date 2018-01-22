@@ -32,6 +32,12 @@ enum BeverageMenu {
             return TOP(brand: "맥심", volume: 275, price: Money(1800), productName: "TOP 스위트아메리카노", expiryDate: DateUtility.subtractDays(1), calorie: 48, isHot: true)
         }
     }
+    
+    static func filterExpireDateOnToday() -> [BeverageMenu] {
+        return self.filter({ beverageMene -> Bool in
+            return beverageMene.makeInstance().isExpired(with: DateUtility.today())
+        })
+    }
 }
 
 extension BeverageMenu {

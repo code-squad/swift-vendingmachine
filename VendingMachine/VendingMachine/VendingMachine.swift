@@ -36,9 +36,7 @@ extension VendingMachine {
     }
     
     func fetchListOfValidDate() -> [BeverageMenu] {
-        return BeverageMenu.filter({ beverageMene -> Bool in
-            return beverageMene.makeInstance().isExpired(with: DateUtility.today())
-        })
+        return BeverageMenu.filterExpireDateOnToday()
     }
 }
 
