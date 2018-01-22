@@ -19,10 +19,14 @@ class Inventory {
         return updateBeverageBox(beverageBox: BeverageBox(beverageMenu: beverageMenu, quantity: quantity))
     }
     
-    func deduct(beverageMenu: BeverageMenu, quantity: Int = -1) throws  -> Inventory {
+    func deduct(beverageMenu: BeverageMenu, quantity: Int = 1) throws  -> Inventory {
         guard isAvailable(beverageMenu: beverageMenu) else { throw VendingMachineErrors.outOfStock }
         
-        return updateBeverageBox(beverageBox: BeverageBox(beverageMenu: beverageMenu, quantity: quantity))
+        if isNegative(beverageMenu: beverageMenu, quantity: quantity) {
+            throw VendingMachineErrors.outOfStock
+        }
+        
+        return updateBeverageBox(beverageBox: BeverageBox(beverageMenu: beverageMenu, quantity: -quantity))
     }
     
     func countBeverage(beverageMenu: BeverageMenu) -> Int {
@@ -51,5 +55,9 @@ private extension Inventory {
     func updateBeverageBox(beverageBox: BeverageBox) -> Inventory {
         self.beverageBoxes.append(beverageBox)
         return Inventory(self.beverageBoxes)
+    }
+    
+    func isNegative(beverageMenu: BeverageMenu, quantity: Int) -> Bool {
+        return countBeverage(beverageMenu: beverageMenu) - quantity < 0
     }
 }
