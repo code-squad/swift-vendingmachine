@@ -8,7 +8,7 @@
 
 import Foundation
 
-class AdminOutputView {
+class AdminOutputView: OutputView {
     func printBeverageMenu(entireInventory: [ObjectIdentifier : [Beverage]]) {
         print("현재 재고 상태 입니다.")
         for (index, menu) in entireInventory.enumerated() {
@@ -23,6 +23,6 @@ class AdminOutputView {
     }
     
     func printDeleteInventory(choiceBeverage: Beverage, number: Int) {
-        print("\(choiceBeverage.kindOf)를 \(number)개 추가합니다.")
+        print("\(choiceBeverage.kindOf)를 \(number)개 삭제합니다.")
     }
 }
