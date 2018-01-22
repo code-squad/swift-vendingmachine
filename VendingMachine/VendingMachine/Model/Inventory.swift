@@ -30,11 +30,7 @@ class Inventory {
     
     func countBeverage(beverageMenu: BeverageMenu) -> Int {
         return self.beverageBoxes.filter({
-            if $0.beverageMenu == beverageMenu {
-                return true
-            }
-            
-            return false
+            $0.beverageMenu == beverageMenu
         }).reduce(0, {$0 + $1.quantity})
     }
     
