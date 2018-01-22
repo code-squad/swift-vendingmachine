@@ -30,7 +30,7 @@ class Money {
     }
     
     func isAvaiable(coin: Money) -> Bool {
-        return self.change - coin.change > 0
+        return self.change - coin.change >= 0
     }
     
     func isNegative(coin: Money) -> Bool {
