@@ -39,7 +39,7 @@ class Inventory {
     }
     
     func fetchListOfBeverage() -> [BeverageBox] {
-        return BeverageMenu.allValues.map({ menu -> BeverageBox in
+        return BeverageMenu.map({ menu -> BeverageBox in
             BeverageBox(beverageMenu: menu, quantity: countBeverage(beverageMenu: menu))
         })
     }
@@ -57,6 +57,6 @@ private extension Inventory {
     }
     
     func isNegative(beverageBox: BeverageBox) -> Bool {
-        return countBeverage(beverageMenu: beverageBox.beverageMenu) - beverageBox.quantity < 0
+        return countBeverage(beverageMenu: beverageBox.beverageMenu) > beverageBox.quantity
     }
 }
