@@ -23,7 +23,7 @@ class OutputView {
     }
     
     func printMachineModeMenu() {
-        print("자판기를 시작합니다.\n1. 관리자 모드\n2. 사용자 모드\n> ")
+        print("자판기를 시작합니다.\n1. 관리자 모드\n2. 사용자 모드\n> ", terminator: "")
     }
     
 }

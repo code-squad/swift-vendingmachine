@@ -24,6 +24,11 @@ class InventoryBox {
         box[classOfBeverage]?.append(beverage)
     }
     
+    func deleteBeverageStock(beverage: Beverage) {
+        let classOfBeverage = ObjectIdentifier(type(of: beverage))
+        box[classOfBeverage]?.removeFirst()
+    }
+    
     func priceLessThan(coins: Int) -> [ObjectIdentifier:[Beverage]] {
         var drinkOfAvailable = [ObjectIdentifier:[Beverage]]()
         for typeOfBeverage in box {

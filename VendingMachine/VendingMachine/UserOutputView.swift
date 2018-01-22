@@ -24,31 +24,14 @@ class UserOutputView: OutputView {
         print("\n현재 투입한 금액이 \(coins)원입니다. 다음과 같은 음료가 있습니다.")
     }
     
-    override func printBeverageMenu(entireInventory: [ObjectIdentifier : [Beverage]]) {
-        for menu in entireInventory {
-            let numberOfBeverage = menu.value.count
-            print("\(menu.value[0].kindOf)(\(numberOfBeverage)개) ", terminator: "")
-        }
-        print()
-    }
-    
     func printDoingMenu() {
-        print("1. 금액추가")
-        print("2. 음료구매")
+        print("1. 금액추가(1 금액)")
+        print("2. 음료구매(2 메뉴번호)")
         print("> ", terminator: "")
     }
     
-    func getBeverageKey(menuNumber: Int) throws -> ObjectIdentifier {
-        for (index, beverage) in super.availableBeverage.enumerated() {
-            if menuNumber == (index + 1) {
-                return beverage.key
-            }
-        }
-        throw InventoryBox.VendingMachinError.invalidBeverage
-    }
-    
     func menuOfPurchaseBeverage(menuNumber: Int, availableBeverage: [ObjectIdentifier : [Beverage]]) -> ObjectIdentifier {
-        super.availableBeverage = availableBeverage
+        self.availableBeverage = availableBeverage
         do {
             let choiceBeverageKey = try getBeverageKey(menuNumber: menuNumber)
             if let choiceBeverage = availableBeverage[choiceBeverageKey]?.first {
@@ -60,4 +43,14 @@ class UserOutputView: OutputView {
         }
         return ObjectIdentifier(self)
     }
+    
+    func getBeverageKey(menuNumber: Int) throws -> ObjectIdentifier {
+        for (index, beverage) in self.availableBeverage.enumerated() {
+            if menuNumber == (index + 1) {
+                return beverage.key
+            }
+        }
+        throw InventoryBox.VendingMachinError.invalidBeverage
+    }
+
 }
