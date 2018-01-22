@@ -9,29 +9,27 @@
 import Foundation
 
 func main() throws {
-    var machine = VendingMachineMock.supply()
+    let machine = VendingMachine()
+    machine.supply(3)
     
-    while true {
-        do {
-            guard let (mode, answer) = try InputView().chooseAction(machine: machine) else {
+    do {
+        while true {
+            let inputViewMessage = ScreenHelper().makeInputViewMessage(machine: machine)
+            guard let (mode, answer) = try InputView.chooseAction(inputViewMessage) else {
                 break
             }
             
-            machine = try Mode().act(input: (mode, answer), machine: machine) as! VendingMachine
-            
-            if mode == InputView.Mode.buyBeverage {
-                printResult(index: answer)
+            switch mode {
+            case .insertMoney: try machine.insertMoney(coin: Money(answer))
+            case .buyBeverage: try machine.buyBeverage(beverageMenu: allMenus[answer-1])
             }
-        } catch let e as BeverageErrors {
-            print(e.localizedDescription)
+            
+            OutputView().printResult(mode: mode, answer: answer)
         }
+    } catch let e as VendingMachineErrors {
+        print(e.localizedDescription)
     }
-}
-
-private func printResult(index: Int) {
-    let beverageMenu = allMenus[index-1]
-    let beverage = beverageMenu.makeInstance()
-    OutputView().printResult(beverage: beverage)
+    
 }
 
 try main()
