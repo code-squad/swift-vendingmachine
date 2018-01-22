@@ -8,8 +8,6 @@
 
 import Foundation
 
-let allMenus = BeverageMenu.allValues
-
 protocol Userable {
     func insertMoney(coin: Money) throws
     func deductMoney(coin: Money) throws

@@ -9,6 +9,7 @@
 import Foundation
 
 func main() throws {
+    let allMenus = BeverageMenu.allValues
     let machine = VendingMachine()
     machine.supply(3)
     

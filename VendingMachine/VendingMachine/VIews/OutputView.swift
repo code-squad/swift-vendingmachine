@@ -17,6 +17,7 @@ struct OutputView {
     }
     
     private func makeBeverage(index: Int) -> Beverage {
+        let allMenus = BeverageMenu.allValues
         return allMenus[index-1].makeInstance()
     }
 }
