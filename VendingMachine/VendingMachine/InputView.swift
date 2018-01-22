@@ -13,20 +13,22 @@ struct InputView {
     enum Mode : Int, generateAllCases {
         case admin = 1
         case user = 2
+        case exit = 3
         case invalidMode
     }
     
     enum adminMenu : Int, generateAllCases {
         case addProduct = 1
         case removeProduct = 2
+        case history = 3
+        case exit = 4
         case invalidAdminMenu
     }
     
     enum userMenu : Int, generateAllCases {
         case addMoney = 1
         case buyDrink = 2
-        case history = 3
-        case exit = 4
+        case exit = 3
         case invalidUserMenu
     }
     
