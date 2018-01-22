@@ -11,10 +11,10 @@ import Foundation
 class Beverage: TypeName, CustomStringConvertible {
     private let brand: String
     private let volume: Int
-    private let price: Money
     private let productName: String
     private let expiryDate: Date
     private let calorie: Int
+    private(set) var price: Money
     
     init(brand: String, volume: Int, price: Money, productName: String, expiryDate: Date, calorie: Int) {
         self.brand = brand

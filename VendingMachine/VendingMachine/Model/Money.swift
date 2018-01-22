@@ -37,3 +37,14 @@ class Money {
         return coin.change < 0
     }
 }
+
+extension Money: Equatable, Comparable {
+    static func < (lhs: Money, rhs: Money) -> Bool {
+        return lhs.countChange() < rhs.countChange()
+    }
+    
+    static func == (lhs: Money, rhs: Money) -> Bool {
+        return lhs.countChange() == rhs.countChange()
+    }
+    
+}

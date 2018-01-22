@@ -19,11 +19,11 @@ class VendingMachine {
 }
 
 extension VendingMachine {
-//    func fetchListOfPurchasableBeverages() -> [BeverageBox] {
-//        return checkCurrentInventory().filter ({
-//            $0.beverageMenu.makeInstance().price <= money.countChange()
-//        })
-//    }
+    func fetchListOfPurchasableBeverages() -> [BeverageBox] {
+        return checkCurrentInventory().filter ({
+            $0.beverageMenu.makeInstance().price <= money
+        })
+    }
     
     func fetchListOfHottedBeverage() -> [BeverageMenu] {
         return allMenus.filter ({
@@ -55,11 +55,11 @@ extension VendingMachine: Userable {
         return money.countChange()
     }
 
-//    func buyBeverage(beverageMenu: BeverageMenu) throws {
-//        let beverage = beverageMenu.makeInstance()
-//        //try deductBeverage(beverageMenu: beverageMenu)
-//        try deductMoney(coin: beverage.price)
-//    }
+    func buyBeverage(beverageMenu: BeverageMenu) throws {
+        let beverage = beverageMenu.makeInstance()
+        try deductBeverage(beverageMenu: beverageMenu)
+        try deductMoney(coin: beverage.price)
+    }
 }
 
 extension VendingMachine: MachineManagerable {
