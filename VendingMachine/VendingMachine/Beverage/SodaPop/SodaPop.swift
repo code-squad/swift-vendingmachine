@@ -9,17 +9,17 @@
 import Foundation
 
 class SodaPop: Beverage {
-    private var lowCalorie : Bool
-    
-    init(brand : String, name : String, volume : Int, price : Int, manufacturedDate : Date, lowCalorie : Bool) {
+    private var lowCalorie: Bool
+
+    init(brand: String, name: String, volume: Int, price: Int, manufacturedDate: Date, lowCalorie: Bool) {
         self.lowCalorie = lowCalorie
-        super.init(brand : brand, name: name, volume: volume, price: price, manufacturedDate: manufacturedDate)
+        super.init(brand: brand, name: name, volume: volume, price: price, manufacturedDate: manufacturedDate)
     }
-    
+
     func isLowCalorie() -> Bool {
         return self.lowCalorie
     }
-    
+
     static func getKind() -> ObjectIdentifier {
         return ObjectIdentifier(self)
     }

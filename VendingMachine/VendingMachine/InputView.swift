@@ -9,30 +9,30 @@
 import Foundation
 
 struct InputView {
-    
-    enum Mode : Int, generateAllCases {
+
+    enum Mode: Int, generateAllCases {
         case admin = 1
         case user = 2
         case exit = 3
         case invalidMode
     }
-    
-    enum AdminMenu : Int, generateAllCases {
+
+    enum AdminMenu: Int, generateAllCases {
         case addProduct = 1
         case removeProduct = 2
         case history = 3
         case exit = 4
         case invalidAdminMenu
     }
-    
-    enum UserMenu : Int, generateAllCases {
+
+    enum UserMenu: Int, generateAllCases {
         case addMoney = 1
         case buyDrink = 2
         case exit = 3
         case invalidUserMenu
     }
-    
-    enum ProductNumber : Int, generateAllCases {
+
+    enum ProductNumber: Int, generateAllCases {
         case one = 1
         case two = 2
         case three = 3
@@ -41,66 +41,68 @@ struct InputView {
         case six = 6
         case invalidNumber
     }
-    
+
     func readMode() -> Mode {
         let userInput = Int(readLine() ?? "") ?? 0
         guard isPossibleMode(userInput) else { return .invalidMode }
         return Mode.init(rawValue: userInput) ?? .invalidMode
     }
-    
+
     func readAdminMenu() -> AdminMenu {
         let userInput = Int(readLine() ?? "") ?? 0
         guard isPossibleAdminMenu(userInput) else { return .invalidAdminMenu }
         return AdminMenu.init(rawValue: userInput) ?? .invalidAdminMenu
     }
-    
+
     func readUserMenu() -> UserMenu {
         let userInput = Int(readLine() ?? "") ?? 0
         guard isPossibleUserMenu(userInput) else { return .invalidUserMenu }
         return UserMenu.init(rawValue: userInput) ?? .invalidUserMenu
     }
-    
+
     func readMoney() -> Int {
         return Int(readLine() ?? "") ?? 0
     }
-    
+
     func readProductNumber() -> ProductNumber {
         let userInput = Int(readLine() ?? "") ?? 0
         guard isPossibleProductNumber(userInput) else { return .invalidNumber }
         return ProductNumber.init(rawValue: userInput) ?? .invalidNumber
-        
+
     }
-    
-    private func isPossibleMode(_ userInput : Int) -> Bool {
+
+    private func isPossibleMode(_ userInput: Int) -> Bool {
         return Mode.allCases.map({$0.rawValue}).contains(userInput)
     }
-    
-    private func isPossibleAdminMenu(_ userInput : Int) -> Bool {
+
+    private func isPossibleAdminMenu(_ userInput: Int) -> Bool {
         return AdminMenu.allCases.map({$0.rawValue}).contains(userInput)
     }
-    
-    private func isPossibleUserMenu(_ userInput : Int) -> Bool {
+
+    private func isPossibleUserMenu(_ userInput: Int) -> Bool {
         return UserMenu.allCases.map({$0.rawValue}).contains(userInput)
     }
-    
-    private func isPossibleProductNumber(_ userInput : Int) -> Bool {
+
+    private func isPossibleProductNumber(_ userInput: Int) -> Bool {
         return ProductNumber.allCases.map({$0.rawValue}).contains(userInput)
     }
-    
+
 }
 
-protocol generateAllCases : Hashable {
+protocol generateAllCases: Hashable {
     static func cases() -> AnySequence<Self>
     static var allCases: [Self] { get }
 }
 
 extension generateAllCases {
-    
+
     static func cases() -> AnySequence<Self> {
         return AnySequence { () -> AnyIterator<Self> in
             var raw = 0
             return AnyIterator {
-                let current: Self = withUnsafePointer(to: &raw) { $0.withMemoryRebound(to: self, capacity: 1) { $0.pointee } }
+                let current: Self = withUnsafePointer(to: &raw) {
+                    $0.withMemoryRebound(to: self, capacity: 1) { $0.pointee }
+                }
                 guard current.hashValue == raw else {
                     return nil
                 }
@@ -109,7 +111,7 @@ extension generateAllCases {
             }
         }
     }
-    
+
     static var allCases: [Self] {
         return Array(self.cases())
     }

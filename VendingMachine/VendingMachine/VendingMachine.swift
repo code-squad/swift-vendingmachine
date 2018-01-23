@@ -7,106 +7,104 @@
 //
 
 import Foundation
-typealias productKind = String
 
 protocol AdminMode {
-    mutating func addBeverage(_ product : Beverage)
-    mutating func removeProduct(_ product : ObjectIdentifier) -> Beverage?
+    mutating func addBeverage(_ product: Beverage)
+    mutating func removeProduct(_ product: ObjectIdentifier) -> Beverage?
     mutating func updateProductNumbersAndKinds()
     func generateListOfHistory() -> [Beverage]
-    func getProductName(_ userProductNumber : InputView.ProductNumber) -> ObjectIdentifier?
-    func getInventory() -> [ObjectIdentifier:[Beverage]]
+    func getProductName(_ userProductNumber: InputView.ProductNumber) -> ObjectIdentifier?
     func generateInvalidProducts() -> [Beverage]
     func generateListOfProduct() -> [ObjectIdentifier]
-    func generateBeverageFromProductName(_ productNumber : ObjectIdentifier) -> Beverage?
+    func generateBeverageFromProductName(_ productNumber: ObjectIdentifier) -> Beverage?
 }
 
 protocol UserMode {
-    mutating func addMoney(_ userMoney : Int)
-    mutating func buy(_ product : Beverage)
+    mutating func addMoney(_ userMoney: Int)
+    mutating func buy(_ product: Beverage)
     mutating func updateProductNumbersAndKinds()
-    func getProductName(_ userProductNumber : InputView.ProductNumber) -> ObjectIdentifier?
-    func getInventory() -> [ObjectIdentifier:[Beverage]]
+    func getProductName(_ userProductNumber: InputView.ProductNumber) -> ObjectIdentifier?
     func generateInvalidProducts() -> [Beverage]
     func generateListOfValidProduct() -> [ObjectIdentifier]
     func getBalance() -> Int
+    func generateBeverageFromProductName(_ productName: ObjectIdentifier) -> Beverage?
 }
-
-struct VendingMachine : AdminMode, UserMode {
-    
-    private var inventory : Inventory = Inventory([])
-    private var balance : Int = 0
-    private var historyOfProductsSold : [Beverage] = []
-    private var productNumbersAndKinds : [Int:ObjectIdentifier] = [:]
-    
-    init(productsBox : [Beverage]) {
+
+struct VendingMachine: AdminMode, UserMode {
+
+    private var inventory: Inventory = Inventory([])
+    private var balance: Int = 0
+    private var historyOfProductsSold: [Beverage] = []
+    private var productNumbersAndKinds: [Int: ObjectIdentifier] = [:]
+
+    init(productsBox: [Beverage]) {
         for oneProduct in productsBox {
             self.inventory.addBeverage(oneProduct)
         }
         self.updateProductNumbersAndKinds()
     }
-    
+
     mutating func addBeverage(_ product: Beverage) {
         self.inventory.addBeverage(product)
     }
-    
-    mutating func addMoney(_ userMoney : Int) {
+
+    mutating func addMoney(_ userMoney: Int) {
         self.balance += userMoney
     }
-    
+
     func generateListOfValidProduct() -> [ObjectIdentifier] {
         return self.inventory.generateListOfValidProduct(self.balance)
     }
-    
-    mutating func buy(_ product : Beverage) {
-        let soldProduct = self.removeProduct(ObjectIdentifier(type(of:product)))
+
+    mutating func buy(_ product: Beverage) {
+        let soldProduct = self.removeProduct(ObjectIdentifier(type(of: product)))
         guard let product = soldProduct else { return }
         self.historyOfProductsSold.append(product)
         self.balance -= product.price
     }
-    
+
     func getBalance() -> Int {
         return self.balance
     }
-    
-    mutating func removeProduct(_ product: ObjectIdentifier) -> Beverage?{
+
+    mutating func removeProduct(_ product: ObjectIdentifier) -> Beverage? {
         return self.inventory.removeBeverage(product)
     }
-    
-    func getInventory() -> [ObjectIdentifier:[Beverage]] {
-        return self.inventory.getInventory().filter({$0.value.count > 0})
-    }
-    
+
     func generateInvalidProducts() -> [Beverage] {
         return self.inventory.generateInvalidProducts()
     }
-    
+
     func generateHotProducts() -> [Beverage] {
         return self.inventory.generateHotProducts()
     }
-    
+
     func generateListOfHistory() -> [Beverage] {
         return self.historyOfProductsSold
     }
-    
+
     func generateListOfProduct() -> [ObjectIdentifier] {
         return self.inventory.generateListOfProduct()
     }
-    
-    func getProductName(_ userProductNumber : InputView.ProductNumber) -> ObjectIdentifier? {
-        return self.productNumbersAndKinds[userProductNumber.rawValue] ?? ObjectIdentifier(type(of:Beverage.self))
+
+    func getProductName(_ userProductNumber: InputView.ProductNumber) -> ObjectIdentifier? {
+        return self.productNumbersAndKinds[userProductNumber.rawValue] ?? ObjectIdentifier(type(of: Beverage.self))
     }
-    
+
     mutating func updateProductNumbersAndKinds() {
         var productNumber = 1
-        for oneProduct in self.getInventory().keys {
+        for oneProduct in self.inventory.generateListOfProduct() {
             self.productNumbersAndKinds.updateValue(oneProduct, forKey: productNumber)
             productNumber += 1
         }
     }
-    
-    func generateBeverageFromProductName(_ productName : ObjectIdentifier) -> Beverage? {
+
+    func generateBeverageFromProductName(_ productName: ObjectIdentifier) -> Beverage? {
         return self.inventory.generateBeverageFromProductName(productName)
     }
-    
+
+    func generateCountOfProduct(_ productName: ObjectIdentifier) -> Int {
+        return self.inventory.generateCountOfProduct(productName)
+    }
+
 }
