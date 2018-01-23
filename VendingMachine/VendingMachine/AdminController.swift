@@ -15,11 +15,17 @@ class AdminController {
         let adminOutputView = AdminOutputView()
         var isAdminModeContinue = true
         repeat {
+            
+            // 전체 재고 출력
             var entireInventory = vendingMachine.showEntireInventory()
             adminOutputView.printBeverageMenu(entireInventory: entireInventory)
             adminOutputView.printInventoryUseMenu()
+            
+            // 메뉴 입력
             let inputValue = inputView.getMenuInput()
             let choiceBeverage = vendingMachine.choiceBeverageData(number: inputValue[1])
+            
+            // 메뉴 입력에 따른 분류
             switch inputValue[0] {
             case 1:
                 vendingMachine.addInInventory(beverageName: choiceBeverage, number: inputValue[2])
