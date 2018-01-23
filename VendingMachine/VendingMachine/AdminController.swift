@@ -10,7 +10,7 @@ import Foundation
 
 class AdminController {
     
-    static func adminMode(vendingMachine: VendingMachine) {
+    static func mode(vendingMachine: VendingMachine) {
         let inputView = InputView()
         let adminOutputView = AdminOutputView()
         var isAdminModeContinue = true

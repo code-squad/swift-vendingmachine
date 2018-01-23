@@ -8,6 +8,9 @@
 
 import Foundation
 
+enum Mode: Int {
+    case admin = 1, user
+}
 let formatter = DateFormatter()
 formatter.dateFormat = "yyyyMMdd"
 
@@ -33,10 +36,11 @@ func run() {
         // 관리자, 사용자 선택 메뉴
         outputView.printMachineModeMenu()
         let mode = inputView.selectMachineMode()
-        if mode == 1 {
-            AdminController.adminMode(vendingMachine: vendingMachine)
-        }else if mode == 2 {
-            UserController.userMode(takeVendingMachine: vendingMachine)
+        
+        if mode == Mode.admin.rawValue {
+            AdminController.mode(vendingMachine: vendingMachine)
+        }else if mode == Mode.user.rawValue {
+            UserController.mode(takeVendingMachine: vendingMachine)
         }
     } while isContinue
 }
