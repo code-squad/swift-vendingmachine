@@ -8,18 +8,19 @@
 
 import Foundation
 
-class BananaMilk : Milk {
-    private var kind : String = "바나나우유"
-    
-    init(_ brand : String, _ name : String, _ volume : Int, _ price : Int,_ manufacturedDate : Date) {
+class BananaMilk: Milk {
+    private var kind: String = "바나나우유"
+
+    init(_ brand: String, _ name: String, _ volume: Int, _ price: Int, _ manufacturedDate: Date) {
         super.init(brand: brand, name: name, volume: volume, price: price, manufacturedDate: manufacturedDate)
     }
-    
+
     init() {
-        super.init(brand: "서울우유", name: "날마다바나나", volume: 200, price: 1000, manufacturedDate: form.date(from: "20170117") ?? Date())
+        super.init(brand: "서울우유", name: "날마다바나나", volume: 200, price: 1000,
+                   manufacturedDate: form.date(from: "20170117") ?? Date())
     }
-    
-    override var description : String {
+
+    override var description: String {
         return "\(self.kind)(\(String(describing: BananaMilk.self))) - \(super.description)"
     }
 }
