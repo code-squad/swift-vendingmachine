@@ -10,6 +10,9 @@ import Foundation
 
 struct Inventory {
     private var invetoryBox : [ObjectIdentifier:[Beverage]] = [:]
+    let kindsOfMilk : [ObjectIdentifier] = [StrawberryMilk.getKind(),BananaMilk.getKind(),ChocolateMilk.getKind()]
+    let kindsOfCoffee : [ObjectIdentifier] = [TOPCoffee.getKind(),Cantata.getKind(),Georgia.getKind()]
+
     
     init(_ productsBox : [Beverage]) {
         for oneProduct in productsBox {
@@ -33,4 +36,27 @@ struct Inventory {
         return self.invetoryBox[product]?.removeFirst()
     }
     
+    func generateListOfValidProduct(_ currentBalance : Int) -> [ObjectIdentifier] {
+        return self.invetoryBox.filter({$0.value.count > 0}).filter({($0.value[0].price) < currentBalance}).map({$0.key})
+    }
+    
+    func generateListOfProduct() -> [ObjectIdentifier] {
+        return self.invetoryBox.filter({$0.value.count > 0}).map({$0.key})
+    }
+    
+    func generateBeverageFromProductName(_ productName : ObjectIdentifier) -> Beverage? {
+        return self.invetoryBox[productName]?.last
+    }
+    
+    func generateInvalidProducts() -> [Beverage] {
+        let milkProducts =  self.invetoryBox.map({$0.value.filter({self.kindsOfMilk.contains(ObjectIdentifier(type(of:$0)))})})
+        let invalidProducts = milkProducts.map({$0.filter({($0 as! Milk).validate(with: Date()) == false})})
+        return Array(invalidProducts.filter({!$0.isEmpty}).joined())
+    }
+    
+    func generateHotProducts() -> [Beverage] {
+        let coffeeProducts = self.invetoryBox.map({$0.value.filter({self.kindsOfCoffee.contains(ObjectIdentifier(type(of:$0)))})})
+        let hotProducts = coffeeProducts.map({$0.filter({($0 as! Coffee).isHot()})})
+        return Array(hotProducts.filter({$0.isEmpty == false}).joined())
+    }
 }

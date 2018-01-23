@@ -49,12 +49,13 @@ struct VendingMachine : AdminMode, UserMode {
     mutating func addBeverage(_ product: Beverage) {
         self.inventory.addBeverage(product)
     }
+    
     mutating func addMoney(_ userMoney : Int) {
         self.balance += userMoney
     }
     
     func generateListOfValidProduct() -> [ObjectIdentifier] {
-        return self.inventory.getInventory().filter({$0.value.count > 0}).filter({($0.value[0].price) < self.balance}).map({$0.key})
+        return self.inventory.generateListOfValidProduct(self.balance)
     }
     
     mutating func buy(_ product : Beverage) {
@@ -77,17 +78,11 @@ struct VendingMachine : AdminMode, UserMode {
     }
     
     func generateInvalidProducts() -> [Beverage] {
-        let kindsOfMilk : [ObjectIdentifier] = [StrawberryMilk.getKind(),BananaMilk.getKind(),ChocolateMilk.getKind()]
-        let milkProducts = self.inventory.getInventory().map({$0.value.filter({kindsOfMilk.contains(ObjectIdentifier(type(of:$0)))})})
-        let invalidProducts = milkProducts.map({$0.filter({($0 as! Milk).validate(with: Date()) == false})})
-        return Array(invalidProducts.filter({!$0.isEmpty}).joined())
+        return self.inventory.generateInvalidProducts()
     }
     
     func generateHotProducts() -> [Beverage] {
-        let kindsOfCoffee : [ObjectIdentifier] = [TOPCoffee.getKind(),Cantata.getKind(),Georgia.getKind()]
-        let coffeeProducts = self.inventory.getInventory().map({$0.value.filter({kindsOfCoffee.contains(ObjectIdentifier(type(of:$0)))})})
-        let hotProducts = coffeeProducts.map({$0.filter({($0 as! Coffee).isHot()})})
-        return Array(hotProducts.filter({$0.isEmpty == false}).joined())
+        return self.inventory.generateHotProducts()
     }
     
     func generateListOfHistory() -> [Beverage] {
@@ -95,7 +90,7 @@ struct VendingMachine : AdminMode, UserMode {
     }
     
     func generateListOfProduct() -> [ObjectIdentifier] {
-        return self.getInventory().filter({$0.value.count > 0}).map({$0.key})
+        return self.inventory.generateListOfProduct()
     }
     
     func getProductName(_ userProductNumber : InputView.ProductNumber) -> ObjectIdentifier? {
@@ -111,7 +106,7 @@ struct VendingMachine : AdminMode, UserMode {
     }
     
     func generateBeverageFromProductName(_ productName : ObjectIdentifier) -> Beverage? {
-        return self.getInventory()[productName]?.last
+        return self.inventory.generateBeverageFromProductName(productName)
     }
     
 }
