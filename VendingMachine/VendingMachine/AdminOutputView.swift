@@ -31,26 +31,4 @@ class AdminOutputView: OutputView {
         print("\(choiceBeverage.kindOf)를 \(number)개 삭제합니다.")
     }
     
-//    func beverageFromMenuNumber(menuNumber: Int, availableBeverage: [ObjectIdentifier : [Beverage]]) -> Beverage {
-//        super.availableBeverage = availableBeverage
-//        do {
-//            let choiceBeverageKey = try getBeverageKey(menuNumber: menuNumber)
-//            if let choiceBeverage = availableBeverage[choiceBeverageKey]?.first {
-//                return choiceBeverage
-//            }
-//        }catch {
-//            print("get Beverage error")
-//        }
-//        return Beverage(brand: "", weight: 0, price: 0, name: "", manufactureDate: Date())
-//    }
-//
-//    func getBeverageKey(menuNumber: Int) throws -> ObjectIdentifier {
-//        for (index, beverage) in self.availableBeverage.enumerated() {
-//            if menuNumber == (index + 1) {
-//                return beverage.key
-//            }
-//        }
-//        throw InventoryBox.VendingMachinError.invalidBeverage
-//    }
-    
 }
