@@ -24,6 +24,7 @@ func run() {
     
     let inputView = InputView()
     let outputView = OutputView()
+    let inventoryBox = InventoryBox()
     let userOutputView = UserOutputView()
     let adminOutputView = AdminOutputView()
     var vendingMachine = VendingMachine()
@@ -47,14 +48,14 @@ func run() {
                 adminOutputView.printBeverageMenu(entireInventory: entireInventory)
                 adminOutputView.printInventoryUseMenu()
                 let inputValue = inputView.getMenuInput()
-                let choiceBeverageName = adminOutputView.beverageFromMenuNumber(menuNumber: inputValue[1], availableBeverage: entireInventory)
+                let choiceBeverage = inventoryBox.numberToInventoryMenu(number: inputValue[1])
                 switch inputValue[0] {
                     case 1:
-                        vendingMachine.addInInventory(beverageName: choiceBeverageName, number: inputValue[2])
-                        adminOutputView.printAddInventory(choiceBeverage: choiceBeverageName, number: inputValue[2])
+                        vendingMachine.addInInventory(beverageName: choiceBeverage, number: inputValue[2])
+                        adminOutputView.printAddInventory(choiceBeverage: choiceBeverage, number: inputValue[2])
                     case 2:
-                        vendingMachine.deleteInventory(beverageName: choiceBeverageName, number: inputValue[2])
-                        adminOutputView.printDeleteInventory(choiceBeverage: choiceBeverageName, number: inputValue[2])
+                        vendingMachine.deleteInventory(beverageName: choiceBeverage, number: inputValue[2])
+                        adminOutputView.printDeleteInventory(choiceBeverage: choiceBeverage, number: inputValue[2])
                     case -1:
                         isAdminModeContinue = false;
                     default: break
