@@ -37,12 +37,8 @@ struct AdminController {
         case .addProduct :
             vendingMachine.updateProductNumbersAndKinds()
             outputViewAdmin.printAdminModeMessage(.addProduct)
-            let adminProductNumber = inputView.readProductNumber()
-            if adminProductNumber == .invalidNumber {
-                outputViewAdmin.printAdminModeMessage(.invalidMenu)
-                return
-            }
-            let adminProductName = vendingMachine.getProductName(adminProductNumber)
+            let adminProductNumber = readProductNumber()
+            let adminProductName = vendingMachine.getProductName(adminProductNumber) ?? ObjectIdentifier(type(of:Beverage.self))
             let adminProduct = vendingMachine.generateBeverageFromProductName(adminProductName)
             guard let oneProduct = adminProduct else { return }
             if vendingMachine.generateListOfProduct().contains(adminProductName) {
@@ -54,13 +50,10 @@ struct AdminController {
         case .removeProduct :
             vendingMachine.updateProductNumbersAndKinds()
             outputViewAdmin.printAdminModeMessage(.removeProduct)
-            let adminProductNumber = inputView.readProductNumber()
-            if adminProductNumber == .invalidNumber {
-                outputViewAdmin.printAdminModeMessage(.invalidMenu)
-            }
+            let adminProductNumber = readProductNumber()
             let adminProductName = vendingMachine.getProductName(adminProductNumber)
-            if vendingMachine.generateListOfProduct().contains(adminProductName) {
-                vendingMachine.removeProduct(adminProductName)
+            if vendingMachine.generateListOfProduct().contains(adminProductName ?? ObjectIdentifier(type(of:Beverage.self))) {
+                vendingMachine.removeProduct(adminProductName ?? ObjectIdentifier(type(of:Beverage.self)))
                 outputViewAdmin.printAdminModeMessage(.removeProduct)
                 return
             }
@@ -73,4 +66,12 @@ struct AdminController {
         }
     }
     
+    private func readProductNumber() -> InputView.ProductNumber {
+        let adminProductNumber = inputView.readProductNumber()
+        if adminProductNumber == .invalidNumber {
+            outputViewAdmin.printAdminModeMessage(.invalidMenu)
+            return .invalidNumber
+        }
+        return adminProductNumber
+    }
 }
