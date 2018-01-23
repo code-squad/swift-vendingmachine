@@ -19,6 +19,7 @@ class InputView {
     
     func separateInputValues(input: String) -> [Int] {
         return input.split(separator: " ").map({Int($0) ?? 0})
+        
     }
     
     func selectMachineMode() -> Int {
