@@ -35,7 +35,6 @@
 		45EAE24C2008567800FAF255 /* Georgia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450A436420077AAC006A0CE9 /* Georgia.swift */; };
 		45EAE24E2008C2B900FAF255 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EAE24D2008C2B900FAF255 /* VendingMachine.swift */; };
 		45EF3F0020109B4400953B0C /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EF3EFF20109B4400953B0C /* OutputView.swift */; };
-		45EF3F0120109C4700953B0C /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EF3EFF20109B4400953B0C /* OutputView.swift */; };
 		45F12C0C200EF12E00C48E25 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F12C0B200EF12E00C48E25 /* InputView.swift */; };
 		45F328DD2006599100EC1EE0 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F328DC2006599100EC1EE0 /* Beverage.swift */; };
 		45F328DF200670E800EC1EE0 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F328DE200670E800EC1EE0 /* Milk.swift */; };
@@ -53,7 +52,6 @@
 		45F91073200F7BA4005E5B3A /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EAE24D2008C2B900FAF255 /* VendingMachine.swift */; };
 		45F91074200F7BAB005E5B3A /* InventoryBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F45728200C76530009BF1B /* InventoryBox.swift */; };
 		45F91075200F7BAE005E5B3A /* PurchaseProductHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452E7690200E1FFE003396BE /* PurchaseProductHistory.swift */; };
-		45F91076200F7BB0005E5B3A /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F12C0B200EF12E00C48E25 /* InputView.swift */; };
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -175,6 +173,50 @@
 			path = UnitTestVendingMachine;
 			sourceTree = "<group>";
 		};
+		45F69FF9201733C1004F0070 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				45F12C0B200EF12E00C48E25 /* InputView.swift */,
+				45F69FF320172C8E004F0070 /* UserInputView.swift */,
+				45F69FF520172C9B004F0070 /* AdminInputView.swift */,
+				45EF3EFF20109B4400953B0C /* OutputView.swift */,
+				45EAA09A2015AB360038D28B /* AdminOutputView.swift */,
+				45EAA09C2015AB540038D28B /* UserOutputView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		45F69FFA201733D2004F0070 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				45F69FE52016D2C0004F0070 /* AdminController.swift */,
+				45F69FE72016D2CC004F0070 /* UserController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		45F69FFB201733DA004F0070 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				45F328DC2006599100EC1EE0 /* Beverage.swift */,
+				45EAE24D2008C2B900FAF255 /* VendingMachine.swift */,
+				45F45728200C76530009BF1B /* InventoryBox.swift */,
+				452E7690200E1FFE003396BE /* PurchaseProductHistory.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		45F69FFC2017341A004F0070 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				45F69FEB20171AE4004F0070 /* InventoryAdminDTO.swift */,
+				45F69FEF20172963004F0070 /* BeveragePurchaseDTO.swift */,
+				45F69FF120172A32004F0070 /* AddCoinDTO.swift */,
+				45F69FF720172FB4004F0070 /* VendingMachineUserDTO.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
 		839DA9001F8D1F95009E05F3 = {
 			isa = PBXGroup;
 			children = (
@@ -196,24 +238,12 @@
 		839DA90B1F8D1F95009E05F3 /* VendingMachine */ = {
 			isa = PBXGroup;
 			children = (
+				45F69FFC2017341A004F0070 /* DTO */,
+				45F69FFB201733DA004F0070 /* Model */,
+				45F69FFA201733D2004F0070 /* Controller */,
+				45F69FF9201733C1004F0070 /* View */,
 				450A436620077BE7006A0CE9 /* BeverageGroup */,
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
-				45F328DC2006599100EC1EE0 /* Beverage.swift */,
-				45EAE24D2008C2B900FAF255 /* VendingMachine.swift */,
-				45F45728200C76530009BF1B /* InventoryBox.swift */,
-				452E7690200E1FFE003396BE /* PurchaseProductHistory.swift */,
-				45F12C0B200EF12E00C48E25 /* InputView.swift */,
-				45EF3EFF20109B4400953B0C /* OutputView.swift */,
-				45EAA09A2015AB360038D28B /* AdminOutputView.swift */,
-				45EAA09C2015AB540038D28B /* UserOutputView.swift */,
-				45F69FE52016D2C0004F0070 /* AdminController.swift */,
-				45F69FE72016D2CC004F0070 /* UserController.swift */,
-				45F69FEB20171AE4004F0070 /* InventoryAdminDTO.swift */,
-				45F69FEF20172963004F0070 /* BeveragePurchaseDTO.swift */,
-				45F69FF120172A32004F0070 /* AddCoinDTO.swift */,
-				45F69FF320172C8E004F0070 /* UserInputView.swift */,
-				45F69FF520172C9B004F0070 /* AdminInputView.swift */,
-				45F69FF720172FB4004F0070 /* VendingMachineUserDTO.swift */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";
@@ -323,8 +353,6 @@
 				450A437720078ECE006A0CE9 /* Milk.swift in Sources */,
 				450A437120077D8B006A0CE9 /* UnitTestVendingMachine.swift in Sources */,
 				450A437A20079007006A0CE9 /* BananaMilk.swift in Sources */,
-				45F91076200F7BB0005E5B3A /* InputView.swift in Sources */,
-				45EF3F0120109C4700953B0C /* OutputView.swift in Sources */,
 				45EAE248200850CE00FAF255 /* Fanta.swift in Sources */,
 				45EAE246200850C900FAF255 /* Coke.swift in Sources */,
 			);
