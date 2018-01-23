@@ -10,12 +10,12 @@ import Foundation
 
 class UserController {
     
-    static func userMode(vendingMachine: VendingMachine) {
+    static func userMode(takeVendingMachine: VendingMachine) {
         var isFirst = true
         var isUserModeContinue = true
         let inputView = InputView()
         let userOutputView = UserOutputView()
-        var vendingMachine = VendingMachine()
+        var vendingMachine = takeVendingMachine
         
         var availableBeverage = [ObjectIdentifier:[Beverage]]()
         repeat {

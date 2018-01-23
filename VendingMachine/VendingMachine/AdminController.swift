@@ -27,15 +27,15 @@ class AdminController {
             
             // 메뉴 입력에 따른 분류
             switch inputValue[0] {
-            case 1:
-                vendingMachine.addInInventory(beverageName: choiceBeverage, number: inputValue[2])
-                adminOutputView.printAddInventory(choiceBeverage: choiceBeverage, number: inputValue[2])
-            case 2:
-                vendingMachine.deleteInventory(beverageName: choiceBeverage, number: inputValue[2])
-                adminOutputView.printDeleteInventory(choiceBeverage: choiceBeverage, number: inputValue[2])
-            case -1:
-                isAdminModeContinue = false;
-            default: break
+                case 1:
+                    vendingMachine.addInInventory(beverageName: choiceBeverage, number: inputValue[2])
+                    adminOutputView.printAddInventory(choiceBeverage: choiceBeverage, number: inputValue[2])
+                case 2:
+                    vendingMachine.deleteInventory(beverageName: choiceBeverage, number: inputValue[2])
+                    adminOutputView.printDeleteInventory(choiceBeverage: choiceBeverage, number: inputValue[2])
+                case -1:
+                    isAdminModeContinue = false;
+                default: break
             }
             entireInventory = vendingMachine.showEntireInventory()
             adminOutputView.printBeverageMenu(entireInventory: entireInventory)

@@ -36,7 +36,7 @@ func run() {
         if mode == 1 {
             AdminController.adminMode(vendingMachine: vendingMachine)
         }else if mode == 2 {
-            UserController.userMode(vendingMachine: vendingMachine)
+            UserController.userMode(takeVendingMachine: vendingMachine)
         }
     } while isContinue
 }
