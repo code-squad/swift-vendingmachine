@@ -12,6 +12,17 @@ class InventoryBox {
     enum VendingMachinError: Error {
         case invalidBeverage
     }
+    enum InventoryMenu: Int {
+        case strawberryMilk = 1, bananaMilk, coke, top
+        var description: ObjectIdentifier {
+            switch self {
+                case .strawberryMilk: return ObjectIdentifier(NSClassFromString("Strawberry") ?? NSObject())
+                case .bananaMilk: return ObjectIdentifier(NSClassFromString("BananaMilk") ?? NSObject())
+                case .coke: return ObjectIdentifier(NSClassFromString("Coke") ?? NSObject())
+                case .top: return ObjectIdentifier(NSClassFromString("Top") ?? NSObject())
+            }
+        }
+    }
     private var box: [ObjectIdentifier:[Beverage]]
     init() {
         box = [ObjectIdentifier:[Beverage]]()
@@ -76,6 +87,11 @@ class InventoryBox {
             }
         }
         return hotDrink
+    }
+    
+    func numberToInventoryMenu(number: Int) -> Beverage {
+        let choiceBeverage = InventoryMenu.init(rawValue: number)!
+        return (box[choiceBeverage.description]?.first)!
     }
     
 }
