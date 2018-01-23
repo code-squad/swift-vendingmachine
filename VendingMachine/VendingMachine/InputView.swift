@@ -9,7 +9,9 @@
 import Foundation
 
 class InputView {
-    
+    enum Mode: Int {
+        case admin = 1, user, nothing
+    }
     func getMenuInput() -> [Int] {
         if let inputFromUser = readLine() {
             return separateInputValues(input: inputFromUser)
@@ -22,11 +24,11 @@ class InputView {
         
     }
     
-    func selectMachineMode() -> Int {
+    func selectMachineMode() -> Mode {
         if let inputModeNumber = Int(readLine() ?? "") {
-            return inputModeNumber
+            return Mode.init(rawValue: inputModeNumber) ?? .nothing
         }
-        return 0
+        return .nothing
     }
     
 }
