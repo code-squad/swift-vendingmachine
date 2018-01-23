@@ -14,7 +14,7 @@ class InventoryBox {
     }
     enum InventoryMenu: Int {
         case strawberryMilk = 1, bananaMilk, coke, top
-        var description: ObjectIdentifier? {
+        func BeveragekeyFromMenu() -> ObjectIdentifier {
             switch self {
                 case .strawberryMilk: return ObjectIdentifier(StrawberryMilk.self)
                 case .bananaMilk: return ObjectIdentifier(BananaMilk.self)
@@ -91,7 +91,7 @@ class InventoryBox {
     
     func numberToInventoryMenu(number: Int) -> Beverage {
         let inventoryMenu = InventoryMenu.init(rawValue: number)
-        return (box[(inventoryMenu?.description)!]?.first)!
+        return (box[inventoryMenu?.BeveragekeyFromMenu() ?? ObjectIdentifier(self)]?.first) ?? Beverage()
     }
     
 }

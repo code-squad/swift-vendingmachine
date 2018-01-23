@@ -10,7 +10,7 @@ import Foundation
 
 class UserController {
     
-    static func userMode(takeVendingMachine: VendingMachine) {
+    static func mode(takeVendingMachine: VendingMachine) {
         var isFirst = true
         var isUserModeContinue = true
         let inputView = InputView()

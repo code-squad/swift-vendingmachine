@@ -15,6 +15,15 @@ class Beverage: CustomStringConvertible {
     var price: Int
     var name: String
     var manufactureDate: Date
+    init() {
+        kindOf = ""
+        brand = ""
+        weight = 0
+        price = 0
+        name = ""
+        manufactureDate = Date()
+    }
+    
     init(brand: String, weight: Int, price: Int, name: String, manufactureDate: Date) {
         self.kindOf = "음료"
         self.brand = brand
