@@ -1,5 +1,5 @@
 //
-//  AdminDTO.swift
+//  BeveragePurchaseDTO.swift
 //  VendingMachine
 //
 //  Created by Eunjin Kim on 2018. 1. 23..
@@ -8,8 +8,7 @@
 
 import Foundation
 
-struct AdminDTO {
-    var inventoryAdminDriver: Int
-    var menuNumber: Int
-    var numberOfTheBeverage: Int
+struct BeveragePurchase {
+    var ModeOfpurchase: Int = 1
+    var beverageMenu: Int
 }
