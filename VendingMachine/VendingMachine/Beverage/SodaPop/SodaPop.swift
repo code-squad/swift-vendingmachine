@@ -19,4 +19,8 @@ class SodaPop: Beverage {
     func isLowCalorie() -> Bool {
         return self.lowCalorie
     }
+    
+    static func getKind() -> ObjectIdentifier {
+        return ObjectIdentifier(self)
+    }
 }

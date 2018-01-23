@@ -17,7 +17,7 @@ protocol AdminPrintable {
 protocol UserPrintable {
     func printUserModeMessage(_ message : OutputView.UserModeMessages)
     func printUserModeBaseMessages(_ userVendingMachine : UserMode)
-    func printBuyProduct(_ userProduct : String, productPrice : Int)
+    func printBuyProduct(_ userProduct : Beverage, productPrice : Int)
 }
 
 struct OutputView : AdminPrintable, UserPrintable {
@@ -56,8 +56,8 @@ struct OutputView : AdminPrintable, UserPrintable {
         printUserModeMessage(.menu)
     }
     
-    func printBuyProduct(_ userProduct : String, productPrice : Int) {
-        print("\(userProduct)를 구매하셨습니다. \(productPrice)을 차감합니다.")
+    func printBuyProduct(_ userProduct : Beverage, productPrice : Int) {
+        print("\(String(describing: type(of:userProduct).self))를 구매하셨습니다. \(productPrice)을 차감합니다.")
     }
     
     func printModeSelectMessage(_ message : ModeSelectionMessages) {
@@ -76,10 +76,10 @@ struct OutputView : AdminPrintable, UserPrintable {
         print("현재 투입한 금액은 \(vendingMachine.getBalance())원 입니다. 다음과 같은 음료가 있습니다.")
     }
     
-    private func printProducts(_ vendingMachineInventory : [String:[Beverage]]) {
+    private func printProducts(_ vendingMachineInventory : [ObjectIdentifier:[Beverage]]) {
         var productNumber = 1
         for oneProduct in vendingMachineInventory {
-            print("\(productNumber)) \(oneProduct.key) \(oneProduct.value[0].price)원 (\(oneProduct.value.count)개)")
+            print("\(productNumber)) \(String(describing: type(of:oneProduct.value[0]).self)) \(oneProduct.value[0].price)원 (\(oneProduct.value.count)개)")
             productNumber += 1
         }
     }
