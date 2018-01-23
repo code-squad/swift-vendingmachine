@@ -44,16 +44,16 @@ struct UserContorller {
             if userProductNumber == .invalidNumber {
                 outputViewUser.printUserModeMessage(.invalidMenu)
             }
-            let userProductName = vendingMachine.getProductName(userProductNumber)
+            let userProductName = vendingMachine.getProductName(userProductNumber) ?? ObjectIdentifier(type(of:Beverage.self))
             let userProduct = vendingMachine.getInventory()[userProductName]?.first
             if vendingMachine.generateListOfValidProduct().contains(userProductName) {
-                vendingMachine.buy(userProductName)
-                outputViewUser.printBuyProduct(userProductName, productPrice: userProduct?.price ?? 0)
+                vendingMachine.buy(userProduct ?? Beverage(brand: "", name: "", volume: 0, price: 0, manufacturedDate: Date()))
+                outputViewUser.printBuyProduct(userProduct ?? Beverage(brand: "", name: "", volume: 0, price: 0, manufacturedDate: Date()), productPrice: userProduct?.price ?? 0)
                 return
             }
             outputViewUser.printUserModeMessage(.shortOfMoney)
         case .exit :
-        break
+            break
         default :
             break
         }
