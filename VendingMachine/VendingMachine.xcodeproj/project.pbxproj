@@ -151,6 +151,18 @@
 			path = VendingMachine;
 			sourceTree = "<group>";
 		};
+		8721E0032016C9D8002A1027 /* SupportedVendingMachine */ = {
+			isa = PBXGroup;
+			children = (
+				87BA4A912010C56A003B4802 /* BeverageBox.swift */,
+				87BB943220103CD900DC1099 /* BeverageMenu.swift */,
+				87BA4A992010D085003B4802 /* Inventory.swift */,
+				87BB942A2010364200DC1099 /* Money.swift */,
+				87EB87102010E2F8001B8E1A /* VendingMachineErrors.swift */,
+			);
+			path = SupportedVendingMachine;
+			sourceTree = "<group>";
+		};
 		878BC601201241F00067A1F4 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,11 +175,7 @@
 		87BB94292010362A00DC1099 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				87BA4A912010C56A003B4802 /* BeverageBox.swift */,
-				87BB943220103CD900DC1099 /* BeverageMenu.swift */,
-				87BA4A992010D085003B4802 /* Inventory.swift */,
-				87BB942A2010364200DC1099 /* Money.swift */,
-				87EB87102010E2F8001B8E1A /* VendingMachineErrors.swift */,
+				8721E0032016C9D8002A1027 /* SupportedVendingMachine */,
 				87D79EB02007255A00A3A4FE /* Beverages */,
 			);
 			path = Model;
