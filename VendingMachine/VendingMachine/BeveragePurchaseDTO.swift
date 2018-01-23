@@ -8,7 +8,12 @@
 
 import Foundation
 
-struct BeveragePurchase {
-    var ModeOfpurchase: Int = 1
+class BeveragePurchase: VendingMachineUser {
     var beverageMenu: Int
+    
+    init(beverageMenu: Int) {
+        self.beverageMenu = beverageMenu
+        super.init()
+        super.ModeOfUsers = 1
+    }
 }

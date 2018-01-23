@@ -8,7 +8,12 @@
 
 import Foundation
 
-struct AddCoin {
-    var modeOfAddCoint: Int = 2
+class AddCoin: VendingMachineUser {
     var amount: Int
+    
+    init(amount: Int) {
+        self.amount = amount
+        super.init()
+        super.ModeOfUsers = 2
+    }
 }
