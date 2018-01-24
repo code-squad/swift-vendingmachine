@@ -9,14 +9,17 @@
 import Foundation
 
 class AdminInputView {
-    func getMenuInput() -> [Int] {
+    func getMenuInput() -> InventoryAdmin {
         if let inputFromUser = readLine() {
             return separateInputValues(input: inputFromUser)
         }
-        return [0]
+        return InventoryAdmin()
     }
     
-    func separateInputValues(input: String) -> [Int] {
-        return input.split(separator: " ").map({Int($0) ?? 0})
+    func separateInputValues(input: String) -> InventoryAdmin {
+        var inventoryAdmin = InventoryAdmin()
+        let seperatedValue = input.split(separator: " ").map({Int($0) ?? 0})
+        inventoryAdmin = InventoryAdmin(modeOfAdmin: seperatedValue[0], menuNumber: seperatedValue[1], numberOfTheBeverage: seperatedValue[2])
+        return inventoryAdmin
     }
 }

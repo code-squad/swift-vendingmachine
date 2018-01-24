@@ -13,7 +13,7 @@ class UserController {
     static func mode(takeVendingMachine: VendingMachine) {
         var isFirst = true
         var isUserModeContinue = true
-        let inputView = InputView()
+        let userInputView = UserInputView()
         let userOutputView = UserOutputView()
         var vendingMachine = takeVendingMachine
         
@@ -36,13 +36,17 @@ class UserController {
             
             // 메뉴 선택 및 이동
             userOutputView.printDoingMenu()
-            let inputValue = inputView.getMenuInput()
-            switch inputValue[0] {
+            let inputValue = userInputView.getMenuInput()
+            switch inputValue.ModeOfUsers {
             case 1:
-                vendingMachine.putCoins(coins: inputValue[1])
+                if let addCoinMode = inputValue as? AddCoin {
+                    vendingMachine.putCoins(coins: addCoinMode.amount)
+                }
             case 2:
-                let choiceBeverageKey = userOutputView.menuOfPurchaseBeverage(menuNumber: inputValue[1], availableBeverage: availableBeverage)
-                vendingMachine.buyBeverage(beverageKey: choiceBeverageKey)
+                if let beveragePurchaseMode = inputValue as? BeveragePurchase {
+                    let choiceBeverageKey = userOutputView.menuOfPurchaseBeverage(menuNumber: beveragePurchaseMode.beverageMenu, availableBeverage: availableBeverage)
+                    vendingMachine.buyBeverage(beverageKey: choiceBeverageKey)
+                }
             case -1:
                 isUserModeContinue = false
             default: break

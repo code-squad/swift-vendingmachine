@@ -9,11 +9,11 @@
 import Foundation
 
 class AddCoin: VendingMachineUser {
-    var amount: Int
+    private(set) var amount: Int
     
     init(amount: Int) {
         self.amount = amount
         super.init()
-        super.ModeOfUsers = 2
+        super.ModeOfUsers = 1
     }
 }
