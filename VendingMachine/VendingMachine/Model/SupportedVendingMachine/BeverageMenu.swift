@@ -55,7 +55,7 @@ enum BeverageMenu {
         })
     }
     
-    static func viewCurrentQuantityInInventory(_ machine: MachineManagerable) -> String {
+    static func viewCurrentQuantityInInventory(_ machine: InventoryCountable) -> String {
         var number = 0
         return self.map({
             let beverage = $0.makeInstance()
