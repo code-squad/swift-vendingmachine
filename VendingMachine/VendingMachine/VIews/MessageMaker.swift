@@ -23,6 +23,7 @@ struct MessageMaker {
         자판기를 시작합니다.
         1. \(ModeType.admin.description)
         2. \(ModeType.user.description)
+        3. \(ModeType.exit.description)
         """
     }
     
