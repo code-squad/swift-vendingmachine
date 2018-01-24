@@ -11,7 +11,7 @@ import Foundation
 class AdminController {
     
     static func mode(vendingMachine: VendingMachine) {
-        let inputView = InputView()
+        let adminInputView = AdminInputView()
         let adminOutputView = AdminOutputView()
         var isAdminModeContinue = true
         repeat {
@@ -22,23 +22,21 @@ class AdminController {
             adminOutputView.printInventoryUseMenu()
             
             // 메뉴 입력
-            let inputValue = inputView.getMenuInput()
-            let choiceBeverage = vendingMachine.choiceBeverageData(number: inputValue[1])
+            let inputValue = adminInputView.getMenuInput()
+            let choiceBeverage = vendingMachine.choiceBeverageData(number: inputValue.menuNumber)
             
             // 메뉴 입력에 따른 분류
-            switch inputValue[0] {
+            switch inputValue.modeOfAdmin {
                 case 1:
-                    vendingMachine.addInInventory(beverageName: choiceBeverage, number: inputValue[2])
-                    adminOutputView.printAddInventory(choiceBeverage: choiceBeverage, number: inputValue[2])
+                    vendingMachine.addInInventory(beverageName: choiceBeverage, number: inputValue.numberOfTheBeverage)
+                    adminOutputView.printAddInventory(choiceBeverage: choiceBeverage, number: inputValue.numberOfTheBeverage)
                 case 2:
-                    vendingMachine.deleteInventory(beverageName: choiceBeverage, number: inputValue[2])
-                    adminOutputView.printDeleteInventory(choiceBeverage: choiceBeverage, number: inputValue[2])
+                    vendingMachine.deleteInventory(beverageName: choiceBeverage, number: inputValue.numberOfTheBeverage)
+                    adminOutputView.printDeleteInventory(choiceBeverage: choiceBeverage, number: inputValue.numberOfTheBeverage)
                 case -1:
                     isAdminModeContinue = false;
                 default: break
             }
-            entireInventory = vendingMachine.showEntireInventory()
-            adminOutputView.printBeverageMenu(entireInventory: entireInventory)
         } while isAdminModeContinue
     }
 }

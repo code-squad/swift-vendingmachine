@@ -9,11 +9,11 @@
 import Foundation
 
 class BeveragePurchase: VendingMachineUser {
-    var beverageMenu: Int
+    private(set) var beverageMenu: Int
     
     init(beverageMenu: Int) {
         self.beverageMenu = beverageMenu
         super.init()
-        super.ModeOfUsers = 1
+        super.ModeOfUsers = 2
     }
 }

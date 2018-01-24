@@ -90,8 +90,13 @@ class InventoryBox {
     }
     
     func numberToInventoryMenu(number: Int) -> Beverage {
-        let inventoryMenu = InventoryMenu.init(rawValue: number)
-        return (box[inventoryMenu?.BeveragekeyFromMenu() ?? ObjectIdentifier(self)]?.first) ?? Beverage()
+        // 콜라를 4로 만들어주는 것
+        for (index, element) in box.keys.enumerated() {
+            if index+1 == number {
+                return (box[element]?.first) ?? Beverage()
+            }
+        }
+        return Beverage()
     }
     
 }

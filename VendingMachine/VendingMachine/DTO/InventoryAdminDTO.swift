@@ -9,7 +9,18 @@
 import Foundation
 
 struct InventoryAdmin {
-    var inventoryAdminDriver: Int
-    var menuNumber: Int
-    var numberOfTheBeverage: Int
+    private(set) var modeOfAdmin: Int
+    private(set) var menuNumber: Int
+    private(set) var numberOfTheBeverage: Int
+    
+    init() {
+        self.modeOfAdmin = 0
+        self.menuNumber = 0
+        self.numberOfTheBeverage = 0
+    }
+    init(modeOfAdmin: Int, menuNumber: Int, numberOfTheBeverage: Int) {
+        self.modeOfAdmin = modeOfAdmin
+        self.menuNumber = menuNumber
+        self.numberOfTheBeverage = numberOfTheBeverage
+    }
 }
