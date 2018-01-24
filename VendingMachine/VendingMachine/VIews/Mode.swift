@@ -11,6 +11,7 @@ import Foundation
 enum ModeType: Int, CustomStringConvertible {
     case admin = 1
     case user
+    case exit
     
     var description: String {
         switch self {
@@ -18,6 +19,8 @@ enum ModeType: Int, CustomStringConvertible {
             return "관리자 모드"
         case .user:
             return "사용자 모드"
+        case .exit:
+            return "나가기"
         }
     }
 }
