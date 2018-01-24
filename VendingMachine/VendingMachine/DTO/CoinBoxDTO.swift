@@ -8,7 +8,7 @@
 
 import Foundation
 
-class AddCoin: VendingMachineUser {
+class CoinBox: VendingMachineUser {
     private(set) var amount: Int
     
     init(amount: Int) {

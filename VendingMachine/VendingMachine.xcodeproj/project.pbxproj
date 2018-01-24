@@ -45,7 +45,7 @@
 		45F69FE82016D2CC004F0070 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F69FE72016D2CC004F0070 /* UserController.swift */; };
 		45F69FEC20171AE4004F0070 /* InventoryAdminDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F69FEB20171AE4004F0070 /* InventoryAdminDTO.swift */; };
 		45F69FF020172963004F0070 /* BeveragePurchaseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F69FEF20172963004F0070 /* BeveragePurchaseDTO.swift */; };
-		45F69FF220172A32004F0070 /* AddCoinDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F69FF120172A32004F0070 /* AddCoinDTO.swift */; };
+		45F69FF220172A32004F0070 /* CoinBoxDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F69FF120172A32004F0070 /* CoinBoxDTO.swift */; };
 		45F69FF420172C8E004F0070 /* UserInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F69FF320172C8E004F0070 /* UserInputView.swift */; };
 		45F69FF620172C9B004F0070 /* AdminInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F69FF520172C9B004F0070 /* AdminInputView.swift */; };
 		45F69FF820172FB4004F0070 /* VendingMachineUserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F69FF720172FB4004F0070 /* VendingMachineUserDTO.swift */; };
@@ -95,7 +95,7 @@
 		45F69FE72016D2CC004F0070 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		45F69FEB20171AE4004F0070 /* InventoryAdminDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryAdminDTO.swift; sourceTree = "<group>"; };
 		45F69FEF20172963004F0070 /* BeveragePurchaseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeveragePurchaseDTO.swift; sourceTree = "<group>"; };
-		45F69FF120172A32004F0070 /* AddCoinDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCoinDTO.swift; sourceTree = "<group>"; };
+		45F69FF120172A32004F0070 /* CoinBoxDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinBoxDTO.swift; sourceTree = "<group>"; };
 		45F69FF320172C8E004F0070 /* UserInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInputView.swift; sourceTree = "<group>"; };
 		45F69FF520172C9B004F0070 /* AdminInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminInputView.swift; sourceTree = "<group>"; };
 		45F69FF720172FB4004F0070 /* VendingMachineUserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineUserDTO.swift; sourceTree = "<group>"; };
@@ -211,7 +211,7 @@
 			children = (
 				45F69FEB20171AE4004F0070 /* InventoryAdminDTO.swift */,
 				45F69FEF20172963004F0070 /* BeveragePurchaseDTO.swift */,
-				45F69FF120172A32004F0070 /* AddCoinDTO.swift */,
+				45F69FF120172A32004F0070 /* CoinBoxDTO.swift */,
 				45F69FF720172FB4004F0070 /* VendingMachineUserDTO.swift */,
 			);
 			path = DTO;
@@ -378,7 +378,7 @@
 				45EAA09B2015AB360038D28B /* AdminOutputView.swift in Sources */,
 				45F45729200C76530009BF1B /* InventoryBox.swift in Sources */,
 				45F69FF020172963004F0070 /* BeveragePurchaseDTO.swift in Sources */,
-				45F69FF220172A32004F0070 /* AddCoinDTO.swift in Sources */,
+				45F69FF220172A32004F0070 /* CoinBoxDTO.swift in Sources */,
 				45F328DD2006599100EC1EE0 /* Beverage.swift in Sources */,
 				45F12C0C200EF12E00C48E25 /* InputView.swift in Sources */,
 				45F69FF820172FB4004F0070 /* VendingMachineUserDTO.swift in Sources */,

@@ -39,7 +39,7 @@ class UserController {
             let inputValue = userInputView.getMenuInput()
             switch inputValue.ModeOfUsers {
             case 1:
-                if let addCoinMode = inputValue as? AddCoin {
+                if let addCoinMode = inputValue as? CoinBox {
                     vendingMachine.putCoins(coins: addCoinMode.amount)
                 }
             case 2:
