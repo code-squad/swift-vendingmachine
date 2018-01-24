@@ -10,7 +10,7 @@ import Foundation
 
 struct InputView {
     func chooseMode() -> ModeType? {
-        print(makeMessageToShowOnView())
+        print(MessageMaker().makeInputViewMessage())
         
         guard let answer = readLine() else { return nil }
         guard let modeType = ModeType(rawValue: Int(answer) ?? 0) else {
@@ -18,14 +18,6 @@ struct InputView {
         }
         
         return modeType
-    }
-    
-    private func makeMessageToShowOnView() -> String {
-        return """
-        자판기를 시작합니다.
-        1. \(ModeType.admin.description)
-        2. \(ModeType.user.description)
-        """
     }
 }
 

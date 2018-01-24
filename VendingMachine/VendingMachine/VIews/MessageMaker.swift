@@ -18,6 +18,14 @@ struct MessageMaker {
         """
     }
     
+    func makeInputViewMessage() -> String {
+        return """
+        자판기를 시작합니다.
+        1. \(ModeType.admin.description)
+        2. \(ModeType.user.description)
+        """
+    }
+    
     func makeUserViewMessage(_ machine: InventoryCountable & Userable) -> String {
         let currentChange = viewCurrentChange(machine)
         return """
