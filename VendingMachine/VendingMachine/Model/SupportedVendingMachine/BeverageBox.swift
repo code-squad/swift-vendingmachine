@@ -12,6 +12,11 @@ struct BeverageBox {
     private(set) var beverageMenu: BeverageMenu
     private(set) var quantity: Int
     
+    init() {
+        self.beverageMenu = .bananaMilk
+        self.quantity = 0
+    }
+    
     init(beverageMenu: BeverageMenu, quantity: Int) {
         self.beverageMenu = beverageMenu
         self.quantity = quantity
