@@ -53,6 +53,6 @@ private extension Inventory {
     }
     
     func isNegative(beverageBox: BeverageBox) -> Bool {
-        return countBeverage(beverageMenu: beverageBox.beverageMenu) > beverageBox.quantity
+        return countBeverage(beverageMenu: beverageBox.beverageMenu) + beverageBox.quantity < 0
     }
 }
