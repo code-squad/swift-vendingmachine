@@ -8,22 +8,24 @@
 
 import Foundation
 
-struct InputView {    
-    static func chooseAction(_ message: String) throws -> (ScreenHelper.Mode, Int)? {
-        print(message)
+struct InputView {
+    func chooseMode() -> ModeType? {
+        print(makeMessageToShowOnView())
         
-        guard let action = readLine() else { throw VendingMachineErrors.invalidValue }
-
-        return try answer(action)
+        guard let answer = readLine() else { return nil }
+        guard let modeType = ModeType(rawValue: Int(answer) ?? 0) else {
+            return nil
+        }
+        
+        return modeType
     }
-
-    static func answer(_ action: String) throws -> (ScreenHelper.Mode, Int)? {
-        let arguments = action.split(separator: " ")
-
-        if arguments[0] == "q" || arguments[0] == "quit" { return nil }
-        guard arguments.count >= 2 else { throw VendingMachineErrors.invalidValue }
-        guard let mode = ScreenHelper.Mode(rawValue: Int(arguments[0]) ?? 0) else { throw VendingMachineErrors.invalidValue }
-
-        return (mode, Int(arguments[1]) ?? 0)
+    
+    private func makeMessageToShowOnView() -> String {
+        return """
+        자판기를 시작합니다.
+        1. \(ModeType.admin.description)
+        2. \(ModeType.user.description)
+        """
     }
 }
+
