@@ -9,27 +9,26 @@
 import Foundation
 
 func main() throws {
-    let machine = VendingMachine()
-    machine.supply(3)
+    let vendingMachine = VendingMachine()
     
     do {
         while true {
-            let inputViewMessage = ScreenHelper().makeInputViewMessage(machine: machine)
-            guard let (mode, answer) = try InputView.chooseAction(inputViewMessage) else {
-                break
+            guard let enabledMode = InputView().chooseMode() else {
+                throw VendingMachineErrors.invalidValue
             }
             
-            switch mode {
-            case .insertMoney: try machine.insertMoney(coin: Money(answer))
-            case .buyBeverage: try machine.buyBeverage(beverageMenu: BeverageMenu.getBeverageMenu(index: answer-1))
+            switch enabledMode {
+            case .admin :
+                let admin = Admin(vendingMachine as MachineManagerable & InventoryCountable)
+                try admin.execute()
+            case .user :
+                let user = User(vendingMachine as Userable & InventoryCountable)
+                try user.execute()
             }
-            
-            OutputView().printResult(mode: mode, answer: answer)
         }
     } catch let e as VendingMachineErrors {
         print(e.localizedDescription)
     }
-    
 }
 
 try main()
