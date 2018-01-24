@@ -19,7 +19,7 @@ class UserInputView {
     func separateInputValues(input: String) -> VendingMachineUser {
         let seperatedValue = input.split(separator: " ").map({Int($0) ?? 0})
         if seperatedValue[0] == 1 {
-            return AddCoin(amount: seperatedValue[1])
+            return CoinBox(amount: seperatedValue[1])
         } else if seperatedValue[0] == 2 {
             return BeveragePurchase(beverageMenu: seperatedValue[1])
         }

@@ -17,7 +17,7 @@ class AdminController {
         repeat {
             
             // 전체 재고 출력
-            var entireInventory = vendingMachine.showEntireInventory()
+            let entireInventory = vendingMachine.showEntireInventory()
             adminOutputView.printBeverageMenu(entireInventory: entireInventory)
             adminOutputView.printInventoryUseMenu()
             
