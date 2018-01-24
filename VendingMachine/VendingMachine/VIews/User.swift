@@ -16,26 +16,41 @@ struct User {
     }
     
     func execute() throws {
-        guard let (action, answer) = chooseMode() else { throw VendingMachineErrors.incorrectMode }
+        guard let arguments = chooseMode() else { throw VendingMachineErrors.incorrectMode }
+        
+        guard arguments.count >= 1 else { throw VendingMachineErrors.invalidValue }
+        guard let action = UserMode(rawValue: Int(arguments[0]) ?? 0) else {
+            throw VendingMachineErrors.incorrectMode
+        }
         
         switch action {
         case .insertMoney:
-            try machine.insertMoney(coin: Money(answer))
+            try insertMoney(arguments)
         case .buyBeverage:
-            try machine.buyBeverage(beverageMenu: BeverageMenu.getBeverageMenu(index: answer-1))
+            try buyBeverage(arguments)
         }
     }
     
-    private func chooseMode() -> (UserMode, Int)? {
+    private func chooseMode() -> [String]? {
         print(MessageMaker().makeUserViewMessage(machine))
         
         guard let answer = readLine() else { return nil }
         let arguments = answer.split(separator: " ").map(String.init)
-        
-        guard let action = UserMode(rawValue: Int(arguments[0]) ?? 0) else {
-            return nil
-        }
-        
-        return (action, Int(arguments[1]) ?? 0)
+    
+        return arguments
+    }
+
+    private func insertMoney(_ arguments: [String]) throws {
+        guard isAvailable(arguments.count, base: 2) else { throw VendingMachineErrors.invalidValue }
+        try machine.insertMoney(coin: Money(Int(arguments[1]) ?? 0))
+    }
+    
+    private func buyBeverage(_ arguments: [String]) throws {
+        guard isAvailable(arguments.count, base: 2) else { throw VendingMachineErrors.invalidValue }
+        try machine.buyBeverage(beverageMenu: BeverageMenu.getBeverageMenu(index: Int(arguments[1]) ?? 0 - 1))
+    }
+    
+    private func isAvailable(_ count: Int, base: Int) -> Bool {
+        return count >= base
     }
 }
