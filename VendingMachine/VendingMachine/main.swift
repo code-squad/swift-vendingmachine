@@ -8,11 +8,13 @@
 
 import Foundation
 
+
 func main() throws {
     let vendingMachine = VendingMachine()
+    var isEnd = true
     
     do {
-        while true {
+        while isEnd {
             guard let enabledMode = InputView().chooseMode() else {
                 throw VendingMachineErrors.invalidValue
             }
@@ -24,6 +26,8 @@ func main() throws {
             case .user :
                 let user = User(vendingMachine as Userable & InventoryCountable)
                 try user.execute()
+            case .exit:
+                isEnd = false
             }
         }
     } catch let e as VendingMachineErrors {
