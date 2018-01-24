@@ -18,19 +18,13 @@ class VendingMachine {
     }
 }
 
-extension VendingMachine {
-    func fetchListOfPurchasableBeverages() -> [BeverageBox] {
-        return checkCurrentInventory().filter ({
-            $0.beverageMenu.makeInstance().price <= money
-        })
+extension VendingMachine: InventoryCountable {
+    func countBeverageQuantity(beverageMenu: BeverageMenu) -> Int {
+        return inventory.countBeverage(beverageMenu: beverageMenu)
     }
     
-    func fetchListOfHottedBeverage() -> [BeverageMenu] {
-        return BeverageMenu.filterHottedBeverages()
-    }
-    
-    func fetchListOfValidDate() -> [BeverageMenu] {
-        return BeverageMenu.filterExpireDateOnToday()
+    func countCurrentInventory() -> [BeverageBox] {
+        return inventory.fetchListOfBeverage()
     }
 }
 
@@ -62,13 +56,19 @@ extension VendingMachine: MachineManagerable {
     func deductBeverage(beverageMenu: BeverageMenu, quantity: Int = 1) throws {
         inventory = try inventory.deduct(beverageMenu: beverageMenu, quantity: quantity)
     }
-
-    func countBeverageQuantity(beverageMenu: BeverageMenu) -> Int {
-        return inventory.countBeverage(beverageMenu: beverageMenu)
+    
+    func fetchListOfPurchasableBeverages() -> [BeverageBox] {
+        return inventory.fetchListOfBeverage().filter ({
+            $0.beverageMenu.makeInstance().price <= money
+        })
     }
     
-    func checkCurrentInventory() -> [BeverageBox] {
-        return inventory.fetchListOfBeverage()
+    func fetchListOfHottedBeverage() -> [BeverageMenu] {
+        return BeverageMenu.filterHottedBeverages()
+    }
+    
+    func fetchListOfValidDate() -> [BeverageMenu] {
+        return BeverageMenu.filterExpireDateOnToday()
     }
     
     func supply(_ defaultQuantity: Int = 1) {
