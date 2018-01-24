@@ -24,7 +24,7 @@ enum VendingMachineErrors: Error {
         case .invalidValue:
             return "유효하지 않는 입력값입니다."
         case .incorrectMoney:
-            return "유효하지 않은 값입니다."
+            return "유효하지 않은 형태의 돈입니다."
         case .incorrectMode:
             return "유효하지 않은 모드입니다."
         }
