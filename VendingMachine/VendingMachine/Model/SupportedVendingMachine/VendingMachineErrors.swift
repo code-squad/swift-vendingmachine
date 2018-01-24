@@ -13,6 +13,7 @@ enum VendingMachineErrors: Error {
     case notEnoughMoney
     case invalidValue
     case incorrectMoney
+    case incorrectMode
     
     var localizedDescription: String {
         switch self {
@@ -24,6 +25,8 @@ enum VendingMachineErrors: Error {
             return "유효하지 않는 입력값입니다."
         case .incorrectMoney:
             return "유효하지 않은 값입니다."
+        case .incorrectMode:
+            return "유효하지 않은 모드입니다."
         }
     }
 }
