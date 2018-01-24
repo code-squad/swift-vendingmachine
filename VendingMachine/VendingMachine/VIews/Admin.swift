@@ -16,25 +16,39 @@ struct Admin {
     }
     
     func execute() throws {
-        guard let (action, answer, quantity) = chooseMode() else { throw VendingMachineErrors.incorrectMode }
+        guard let arguments = chooseMode() else { throw VendingMachineErrors.incorrectMode }
+        guard let action = AdminMode(rawValue: Int(arguments[0]) ?? 0) else { throw VendingMachineErrors.invalidValue }
         
         switch action {
         case .addBeverages:
-            machine.insertBeverage(beverageMenu: BeverageMenu.getBeverageMenu(index: answer-1), quantity: quantity)
+            try addBeverages(arguments)
         case .substractBeverages:
-            try machine.deductBeverage(beverageMenu: BeverageMenu.getBeverageMenu(index: answer-1), quantity: quantity)
+            try substractBeverages(arguments)
         }
     }
     
-    private func chooseMode() -> (AdminMode, Int, Int)? {
+    private func chooseMode() -> [String]? {
         print(MessageMaker().makeAdminViewMessage(machine))
         
         guard let answer = readLine() else { return nil }
         let arguments = answer.split(separator: " ").map(String.init)
+        guard arguments.count > 0 else { return nil }
         
-        guard let action = AdminMode(rawValue: Int(arguments[0]) ?? 0) else { return nil }
-        
-        return (action, Int(arguments[1]) ?? 0, Int(arguments[2]) ?? 0)
+        return arguments
+    }
+    
+    private func addBeverages(_ arguments: [String]) throws {
+        guard isAvailable(arguments.count, base: 3) else { throw VendingMachineErrors.invalidValue }
+        machine.insertBeverage(beverageMenu: BeverageMenu.getBeverageMenu(index: Int(arguments[1]) ?? 0 - 1), quantity: Int(arguments[2]) ?? 0)
+    }
+    
+    private func substractBeverages(_ arguments: [String]) throws {
+        guard isAvailable(arguments.count, base: 3) else { throw VendingMachineErrors.invalidValue }
+        try machine.deductBeverage(beverageMenu: BeverageMenu.getBeverageMenu(index: Int(arguments[1]) ?? 0 - 1), quantity: Int(arguments[2]) ?? 0)
+    }
+    
+    private func isAvailable(_ count: Int, base: Int) -> Bool {
+        return count >= base
     }
 }
 
