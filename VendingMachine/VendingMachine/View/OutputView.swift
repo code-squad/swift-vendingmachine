@@ -15,6 +15,7 @@ class OutputView {
     }
     
     func printBeverageMenu(entireInventory: [ObjectIdentifier : [Beverage]]) {
+        self.availableBeverage = entireInventory
         for menu in entireInventory {
             let numberOfBeverage = menu.value.count
             print("\(menu.value[0].kindOf)(\(numberOfBeverage)개) ", terminator: "")
@@ -24,6 +25,20 @@ class OutputView {
     
     func printMachineModeMenu() {
         print("자판기를 시작합니다.\n1. 관리자 모드\n2. 사용자 모드\n> ", terminator: "")
+    }
+    
+    func menuOfSerialized() -> [ObjectIdentifier] {
+        var serializedBeverage = [ObjectIdentifier]()
+        let beverageBySort = availableBeverage.map({$0.value.first!.kindOf}).sorted(by: <)
+        for sortValue in beverageBySort {
+            for beverage in availableBeverage {
+                if beverage.value.first?.kindOf == sortValue {
+                    serializedBeverage.append(beverage.key)
+                    break
+                }
+            }
+        }
+        return serializedBeverage
     }
     
 }
