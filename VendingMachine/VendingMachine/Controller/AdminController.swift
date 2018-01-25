@@ -33,7 +33,7 @@ class AdminController {
                 case 2:
                     vendingMachine.deleteInventory(beverageName: choiceBeverage, number: inputValue.numberOfTheBeverage)
                     adminOutputView.printDeleteInventory(choiceBeverage: choiceBeverage, number: inputValue.numberOfTheBeverage)
-                case -1:
+                case 0:
                     isAdminModeContinue = false;
                 default: break
             }

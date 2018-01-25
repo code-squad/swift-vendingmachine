@@ -47,7 +47,7 @@ class UserController {
                     let choiceBeverageKey = userOutputView.menuOfPurchaseBeverage(menuNumber: beveragePurchaseMode.beverageMenu, availableBeverage: availableBeverage)
                     vendingMachine.buyBeverage(beverageKey: choiceBeverageKey)
                 }
-            case -1:
+            case 0:
                 isUserModeContinue = false
             default: break
             }
