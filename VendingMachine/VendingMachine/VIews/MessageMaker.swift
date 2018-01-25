@@ -15,7 +15,8 @@ struct MessageMaker {
         \(viewListOfCurrentBeverage(machine))
         1. \(AdminMode.addBeverages.description)
         2. \(AdminMode.substractBeverages.description)
-        3. \(AdminMode.exit.description)
+        3. \(AdminMode.salesHistory.description)
+        4. \(AdminMode.exit.description)
         """
     }
     
@@ -41,6 +42,14 @@ struct MessageMaker {
     
     func viewCurrentChange(_ machine: Userable) -> Int {
         return machine.countChange()
+    }
+    
+    func viewSalesHistory(_ machine: MachineManagerable) -> String {
+        return """
+        ===========판==매==이==력=========
+        \(machine.fetchSalesHistory().joined(separator: "\n"))
+        ==================================
+        """
     }
     
     private func viewCurrentInventory(_ machine: InventoryCountable) -> String {

@@ -45,6 +45,7 @@ enum UserMode: Int, CustomStringConvertible {
 enum AdminMode: Int, CustomStringConvertible {
     case addBeverages = 1
     case substractBeverages
+    case salesHistory
     case exit
     
     var description: String {
@@ -53,6 +54,8 @@ enum AdminMode: Int, CustomStringConvertible {
             return "재고추가"
         case .substractBeverages:
             return "재고차감"
+        case .salesHistory:
+            return "판매이력"
         case .exit:
             return "모드선택"
         }
