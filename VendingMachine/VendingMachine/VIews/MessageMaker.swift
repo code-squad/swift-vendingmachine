@@ -15,6 +15,7 @@ struct MessageMaker {
         \(viewListOfCurrentBeverage(machine))
         1. \(AdminMode.addBeverages.description)
         2. \(AdminMode.substractBeverages.description)
+        3. \(AdminMode.exit.description)
         """
     }
     
@@ -34,6 +35,7 @@ struct MessageMaker {
         \(currentChange == 0 ? viewCurrentInventory(machine) : viewListOfCurrentBeverage(machine))
         1. \(UserMode.insertMoney.description)
         2. \(UserMode.buyBeverage.description)
+        3. \(UserMode.exit.description)
         """
     }
     

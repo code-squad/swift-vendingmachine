@@ -28,6 +28,7 @@ enum ModeType: Int, CustomStringConvertible {
 enum UserMode: Int, CustomStringConvertible {
     case insertMoney = 1
     case buyBeverage
+    case exit
     
     var description: String {
         switch self {
@@ -35,6 +36,8 @@ enum UserMode: Int, CustomStringConvertible {
             return "음료구매"
         case .insertMoney:
             return "금액추가"
+        case .exit:
+            return "모드선택"
         }
     }
 }
@@ -42,6 +45,7 @@ enum UserMode: Int, CustomStringConvertible {
 enum AdminMode: Int, CustomStringConvertible {
     case addBeverages = 1
     case substractBeverages
+    case exit
     
     var description: String {
         switch self {
@@ -49,6 +53,8 @@ enum AdminMode: Int, CustomStringConvertible {
             return "재고추가"
         case .substractBeverages:
             return "재고차감"
+        case .exit:
+            return "모드선택"
         }
     }
 }
