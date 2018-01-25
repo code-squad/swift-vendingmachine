@@ -11,10 +11,13 @@ import Foundation
 class AdminOutputView: OutputView {
     
     override func printBeverageMenu(entireInventory: [ObjectIdentifier : [Beverage]]) {
+        self.availableBeverage = entireInventory
+        let serializedBeverage = menuOfSerialized()
         print("현재 재고 상태 입니다.")
-        for (index, menu) in entireInventory.enumerated() {
-            let numberOfBeverage = menu.value.count
-            print("\(index+1)] \(menu.value[0].kindOf)(\(numberOfBeverage)개) ")
+        for (index, beverageKey) in serializedBeverage.enumerated() {
+            if let numberOfBeverage = availableBeverage[beverageKey]?.count {
+                print("\(index+1)] \(availableBeverage[beverageKey]?.first?.kindOf ?? "")(\(numberOfBeverage)개) ")
+            }
         }
         print()
     }

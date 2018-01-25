@@ -11,8 +11,9 @@ import Foundation
 class UserOutputView: OutputView {
     
     func printAddAmoutMenu(availableBeverage: [ObjectIdentifier:[Beverage]]) {
-        for (index, menu) in availableBeverage.enumerated() {
-            print("\(index+1))\(menu.value[0].kindOf) \(menu.value[0].price)(\(menu.value.count)개)")
+        let serializedBeverage = menuOfSerialized()
+        for (index, beverageKey) in serializedBeverage.enumerated() {
+            print("\(index+1))\(availableBeverage[beverageKey]?.first?.kindOf ?? "") \(availableBeverage[beverageKey]?.first?.price ?? 0)(\(availableBeverage[beverageKey]?.count ?? 0)개)")
         }
     }
     
@@ -45,9 +46,10 @@ class UserOutputView: OutputView {
     }
     
     func getBeverageKey(menuNumber: Int) throws -> ObjectIdentifier {
-        for (index, beverage) in self.availableBeverage.enumerated() {
+        let serializedBeverage = menuOfSerialized()
+        for (index, beverageKey) in serializedBeverage.enumerated() {
             if menuNumber == (index + 1) {
-                return beverage.key
+                return beverageKey
             }
         }
         throw InventoryBox.VendingMachinError.invalidBeverage
