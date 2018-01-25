@@ -8,27 +8,44 @@
 
 import Foundation
 
+func activateMachine(_ enabledMode: ModeType, _ vendingMachine: VendingMachine) throws -> Bool {
+    switch enabledMode {
+    case .admin :
+        let admin = Admin(vendingMachine as MachineManagerable & InventoryCountable)
+        return try admin.execute()
+    case .user :
+        let user = User(vendingMachine as Userable & InventoryCountable)
+        return try user.execute()
+    case .exit:
+        return true
+    }
+}
+
+func activateMode() throws -> ModeType {
+    guard let enabledMode = InputView().chooseMode() else {
+        throw VendingMachineErrors.invalidValue
+    }
+    
+    return enabledMode
+}
+
 
 func main() throws {
     let vendingMachine = VendingMachine()
+    var enabledMode = ModeType.exit
     var isEnd = true
+    var isActivated = false
     
     do {
         while isEnd {
-            guard let enabledMode = InputView().chooseMode() else {
-                throw VendingMachineErrors.invalidValue
+            if !isActivated { enabledMode = try activateMode() }
+            
+            if enabledMode == .exit {
+                isEnd = false
+                break
             }
             
-            switch enabledMode {
-            case .admin :
-                let admin = Admin(vendingMachine as MachineManagerable & InventoryCountable)
-                try admin.execute()
-            case .user :
-                let user = User(vendingMachine as Userable & InventoryCountable)
-                try user.execute()
-            case .exit:
-                isEnd = false
-            }
+            isActivated = try activateMachine(enabledMode, vendingMachine)
         }
     } catch let e as VendingMachineErrors {
         print(e.localizedDescription)
