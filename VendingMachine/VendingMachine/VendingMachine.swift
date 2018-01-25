@@ -11,10 +11,12 @@ import Foundation
 class VendingMachine {
     private var money: Money
     private var inventory: Inventory
+    private let salesHistory: SalesHistory
     
     init() {
         self.money = Money(0)
         self.inventory = Inventory([])
+        self.salesHistory = SalesHistory()
     }
 }
 
@@ -43,6 +45,7 @@ extension VendingMachine: Userable {
 
     func buyBeverage(beverageMenu: BeverageMenu) throws {
         let beverage = beverageMenu.makeInstance()
+        salesHistory.addSalesHistory(date: DateUtility.today(), beverageMenu: beverageMenu)
         try deductBeverage(beverageMenu: beverageMenu)
         try deductMoney(coin: beverage.price)
     }
@@ -61,6 +64,10 @@ extension VendingMachine: MachineManagerable {
         return inventory.fetchListOfBeverage().filter ({
             $0.beverageMenu.makeInstance().price <= money
         })
+    }
+    
+    func fetchSalesHistory() -> [String] {
+        return salesHistory.historyOfSales()
     }
     
     func fetchListOfHottedBeverage() -> [BeverageMenu] {
