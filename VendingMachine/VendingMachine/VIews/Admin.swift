@@ -8,23 +8,31 @@
 
 import Foundation
 
-struct Admin {
+class Admin {
     private let machine: MachineManagerable & InventoryCountable
+    private var isActivated: Bool
     
-    init(_ machine: MachineManagerable & InventoryCountable){
+    init(_ machine: MachineManagerable & InventoryCountable) {
         self.machine = machine
+        self.isActivated = true
     }
     
-    func execute() throws {
-        guard let arguments = chooseMode() else { throw VendingMachineErrors.incorrectMode }
-        guard let action = AdminMode(rawValue: Int(arguments[0]) ?? 0) else { throw VendingMachineErrors.invalidValue }
-        
-        switch action {
-        case .addBeverages:
-            try addBeverages(arguments)
-        case .substractBeverages:
-            try substractBeverages(arguments)
+    func execute() throws -> Bool {
+        while isActivated {
+            guard let arguments = chooseMode() else { throw VendingMachineErrors.incorrectMode }
+            guard let action = AdminMode(rawValue: makeIntType(arguments[0])) else { throw VendingMachineErrors.invalidValue }
+            
+            switch action {
+            case .addBeverages:
+                try addBeverages(arguments)
+            case .substractBeverages:
+                try substractBeverages(arguments)
+            case .exit:
+                isActivated = false
+            }
         }
+        
+        return isActivated
     }
     
     private func chooseMode() -> [String]? {
@@ -39,16 +47,21 @@ struct Admin {
     
     private func addBeverages(_ arguments: [String]) throws {
         guard isAvailable(arguments.count, base: 3) else { throw VendingMachineErrors.invalidValue }
-        machine.insertBeverage(beverageMenu: BeverageMenu.getBeverageMenu(index: Int(arguments[1]) ?? 0 - 1), quantity: Int(arguments[2]) ?? 0)
+        machine.insertBeverage(beverageMenu: BeverageMenu.getBeverageMenu(index: makeIntType(arguments[1])-1), quantity: makeIntType(arguments[2]))
     }
     
     private func substractBeverages(_ arguments: [String]) throws {
         guard isAvailable(arguments.count, base: 3) else { throw VendingMachineErrors.invalidValue }
-        try machine.deductBeverage(beverageMenu: BeverageMenu.getBeverageMenu(index: Int(arguments[1]) ?? 0 - 1), quantity: Int(arguments[2]) ?? 0)
+        try machine.deductBeverage(beverageMenu: BeverageMenu.getBeverageMenu(index: makeIntType(arguments[1])-1), quantity: makeIntType(arguments[2]))
     }
     
     private func isAvailable(_ count: Int, base: Int) -> Bool {
         return count >= base
+    }
+    
+    private func makeIntType(_ number: String) -> Int {
+        let number = Int(number) ?? 0
+        return number
     }
 }
 
