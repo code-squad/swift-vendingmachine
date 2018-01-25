@@ -27,6 +27,8 @@ class Admin {
                 try addBeverages(arguments)
             case .substractBeverages:
                 try substractBeverages(arguments)
+            case .salesHistory:
+                salesHistory()
             case .exit:
                 isActivated = false
             }
@@ -53,6 +55,10 @@ class Admin {
     private func substractBeverages(_ arguments: [String]) throws {
         guard isAvailable(arguments.count, base: 3) else { throw VendingMachineErrors.invalidValue }
         try machine.deductBeverage(beverageMenu: BeverageMenu.getBeverageMenu(index: makeIntType(arguments[1])-1), quantity: makeIntType(arguments[2]))
+    }
+    
+    private func salesHistory() {
+        print(MessageMaker().viewSalesHistory(machine))
     }
     
     private func isAvailable(_ count: Int, base: Int) -> Bool {
