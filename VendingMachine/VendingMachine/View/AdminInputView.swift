@@ -19,6 +19,9 @@ class AdminInputView {
     func separateInputValues(input: String) -> InventoryAdmin {
         var inventoryAdmin = InventoryAdmin()
         let seperatedValue = input.split(separator: " ").map({Int($0) ?? 0})
+        if seperatedValue.count < 3 {
+            return InventoryAdmin()
+        }
         inventoryAdmin = InventoryAdmin(modeOfAdmin: seperatedValue[0], menuNumber: seperatedValue[1], numberOfTheBeverage: seperatedValue[2])
         return inventoryAdmin
     }
