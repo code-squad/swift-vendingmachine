@@ -38,7 +38,7 @@ class Admin {
     }
     
     private func chooseMode() -> [String]? {
-        print(MessageMaker().makeAdminViewMessage(machine))
+        AdminView().printAdminViewMessage(machine)
         
         guard let answer = readLine() else { return nil }
         let arguments = answer.split(separator: " ").map(String.init)
@@ -58,7 +58,7 @@ class Admin {
     }
     
     private func salesHistory() {
-        print(MessageMaker().viewSalesHistory(machine))
+        AdminView().printSalesHistory(machine)
     }
     
     private func isAvailable(_ count: Int, base: Int) -> Bool {
