@@ -28,17 +28,7 @@ class OutputView {
     }
     
     func menuOfSerialized() -> [ObjectIdentifier] {
-        var serializedBeverage = [ObjectIdentifier]()
-        let beverageBySort = availableBeverage.map({$0.value.first!.kindOf}).sorted(by: <)
-        for sortValue in beverageBySort {
-            for beverage in availableBeverage {
-                if beverage.value.first?.kindOf == sortValue {
-                    serializedBeverage.append(beverage.key)
-                    break
-                }
-            }
-        }
-        return serializedBeverage
+        return availableBeverage.map({$0.value.first ?? Beverage()}).sorted(by: {$0.kindOf < $1.kindOf}).map({ObjectIdentifier(type(of: $0))})
     }
     
 }
