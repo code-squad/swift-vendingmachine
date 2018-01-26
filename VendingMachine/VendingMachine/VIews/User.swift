@@ -40,7 +40,7 @@ class User {
     }
     
     private func chooseMode() -> [String]? {
-        print(MessageMaker().makeUserViewMessage(machine))
+        UserView().printUserViewMessage(machine)
         
         guard let answer = readLine() else { return nil }
         let arguments = answer.split(separator: " ").map(String.init)
