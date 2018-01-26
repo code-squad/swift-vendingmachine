@@ -31,7 +31,7 @@ class UserController {
                 
                 // 이후 기본 메뉴
                 availableBeverage = vendingMachine.listOfDrinksAvailable()
-                userOutputView.printAddAmoutMenu(availableBeverage: availableBeverage)
+                userOutputView.printAddAmoutMenu(entireInventory: availableBeverage)
             }
             
             // 메뉴 선택 및 이동
@@ -44,7 +44,7 @@ class UserController {
                 }
             case 2:
                 if let beveragePurchaseMode = inputValue as? BeveragePurchase {
-                    let choiceBeverageKey = userOutputView.menuOfPurchaseBeverage(menuNumber: beveragePurchaseMode.beverageMenu, availableBeverage: availableBeverage)
+                    let choiceBeverageKey = userOutputView.menuOfPurchaseBeverage(menuNumber: beveragePurchaseMode.beverageMenu, entireInventory: availableBeverage)
                     vendingMachine.buyBeverage(beverageKey: choiceBeverageKey)
                 }
             case 0:

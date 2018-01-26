@@ -10,10 +10,10 @@ import Foundation
 
 class UserOutputView: OutputView {
     
-    func printAddAmoutMenu(availableBeverage: [ObjectIdentifier:[Beverage]]) {
-        let serializedBeverage = menuOfSerialized()
+    func printAddAmoutMenu(entireInventory: [ObjectIdentifier:[Beverage]]) {
+        let serializedBeverage = menuOfSerialized(entireInventory: entireInventory)
         for (index, beverageKey) in serializedBeverage.enumerated() {
-            print("\(index+1))\(availableBeverage[beverageKey]?.first?.kindOf ?? "") \(availableBeverage[beverageKey]?.first?.price ?? 0)(\(availableBeverage[beverageKey]?.count ?? 0)개)")
+            print("\(index+1))\(entireInventory[beverageKey]?.first?.kindOf ?? "") \(entireInventory[beverageKey]?.first?.price ?? 0)(\(entireInventory[beverageKey]?.count ?? 0)개)")
         }
     }
     
@@ -31,11 +31,10 @@ class UserOutputView: OutputView {
         print("> ", terminator: "")
     }
     
-    func menuOfPurchaseBeverage(menuNumber: Int, availableBeverage: [ObjectIdentifier : [Beverage]]) -> ObjectIdentifier {
-        self.availableBeverage = availableBeverage
+    func menuOfPurchaseBeverage(menuNumber: Int, entireInventory: [ObjectIdentifier : [Beverage]]) -> ObjectIdentifier {
         do {
-            let choiceBeverageKey = try getBeverageKey(menuNumber: menuNumber)
-            if let choiceBeverage = availableBeverage[choiceBeverageKey]?.first {
+            let choiceBeverageKey = try getBeverageKey(menuNumber: menuNumber, entireInventory: entireInventory)
+            if let choiceBeverage = entireInventory[choiceBeverageKey]?.first {
                 printPurchaseBeverage(choiceBeverage: choiceBeverage)
                 return choiceBeverageKey
             }
@@ -45,8 +44,8 @@ class UserOutputView: OutputView {
         return ObjectIdentifier(self)
     }
     
-    func getBeverageKey(menuNumber: Int) throws -> ObjectIdentifier {
-        let serializedBeverage = menuOfSerialized()
+    func getBeverageKey(menuNumber: Int, entireInventory: [ObjectIdentifier : [Beverage]]) throws -> ObjectIdentifier {
+        let serializedBeverage = menuOfSerialized(entireInventory: entireInventory)
         for (index, beverageKey) in serializedBeverage.enumerated() {
             if menuNumber == (index + 1) {
                 return beverageKey
