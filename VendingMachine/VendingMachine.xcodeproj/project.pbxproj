@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
+		E88E17BA201AD5CB007B380A /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88E17B9201AD5CB007B380A /* Beverage.swift */; };
+		E88E17BC201AD5DC007B380A /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88E17BB201AD5DC007B380A /* Milk.swift */; };
+		E88E17BE201AD606007B380A /* SoftDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88E17BD201AD606007B380A /* SoftDrink.swift */; };
+		E88E17C0201AD613007B380A /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88E17BF201AD613007B380A /* Coffee.swift */; };
+		E88E17C2201AD620007B380A /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88E17C1201AD620007B380A /* OutputView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +30,11 @@
 /* Begin PBXFileReference section */
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		E88E17B9201AD5CB007B380A /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
+		E88E17BB201AD5DC007B380A /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
+		E88E17BD201AD606007B380A /* SoftDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoftDrink.swift; sourceTree = "<group>"; };
+		E88E17BF201AD613007B380A /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
+		E88E17C1201AD620007B380A /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +68,11 @@
 			isa = PBXGroup;
 			children = (
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
+				E88E17B9201AD5CB007B380A /* Beverage.swift */,
+				E88E17BB201AD5DC007B380A /* Milk.swift */,
+				E88E17BD201AD606007B380A /* SoftDrink.swift */,
+				E88E17BF201AD613007B380A /* Coffee.swift */,
+				E88E17C1201AD620007B380A /* OutputView.swift */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";
@@ -120,7 +135,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E88E17BA201AD5CB007B380A /* Beverage.swift in Sources */,
+				E88E17BC201AD5DC007B380A /* Milk.swift in Sources */,
+				E88E17BE201AD606007B380A /* SoftDrink.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
+				E88E17C0201AD613007B380A /* Coffee.swift in Sources */,
+				E88E17C2201AD620007B380A /* OutputView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,6 +257,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 			};
@@ -246,6 +267,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 			};
