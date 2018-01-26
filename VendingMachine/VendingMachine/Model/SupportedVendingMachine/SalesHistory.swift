@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SalesHistory{
+class SalesHistory {
     private var saleDate: [Date]
     private var saleBeverageMenus: [BeverageMenu]
     
@@ -27,7 +27,8 @@ class SalesHistory{
         var history: [String] = []
         
         for (index, date) in saleDate.enumerated() {
-            history.append(dateFormatter.string(from: date) + " -> " + saleBeverageMenus[index].makeInstance().description)
+            history.append(dateFormatter.string(from: date) + " -> "
+                + saleBeverageMenus[index].makeInstance().description)
         }
         
         return history

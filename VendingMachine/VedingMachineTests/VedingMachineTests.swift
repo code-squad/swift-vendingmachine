@@ -22,7 +22,7 @@ class VedingMachineTests: XCTestCase {
         let vendingMachine = VendingMachine()
         XCTAssertThrowsError(try vendingMachine.insertMoney(coin: Money(-100)))
     }
-    
+
     func test_동전_차감_성공() throws {
         let vendingMachine = VendingMachine()
         try vendingMachine.insertMoney(coin: Money(10000))
@@ -52,7 +52,7 @@ class VedingMachineTests: XCTestCase {
         XCTAssertTrue(vendingMachine.countBeverageQuantity(beverageMenu: .bananaMilk) == 2)
         XCTAssertTrue(vendingMachine.countBeverageQuantity(beverageMenu: .cocaCola) == 0)
     }
-    
+
     func test_재고_차감_실패() throws {
         let vendingMachine = VendingMachine()
         vendingMachine.supply(1)
@@ -63,11 +63,11 @@ class VedingMachineTests: XCTestCase {
         let vendingMachine = VendingMachine()
         vendingMachine.supply(3)
         try vendingMachine.insertMoney(coin: Money(1500))
-        
+
         let result = vendingMachine.fetchListOfPurchasableBeverages()
         XCTAssertTrue(result.count == 5)
     }
-    
+
     func test_구매할수_없는_목록_확인_실패() throws {
         let vendingMachine = VendingMachine()
         vendingMachine.supply(3)
@@ -82,11 +82,10 @@ class VedingMachineTests: XCTestCase {
         vendingMachine.supply(3)
         try vendingMachine.insertMoney(coin: Money(1500))
         try vendingMachine.buyBeverage(beverageMenu: .cocaCola)
-        
+
         XCTAssertTrue(vendingMachine.countChange() == 70)
         XCTAssertTrue(vendingMachine.countBeverageQuantity(beverageMenu: .cocaCola) == 2)
     }
-
 
     func test_뜨거운_음료_목록_확인() {
         let vendingMachine = VendingMachine()
@@ -98,5 +97,5 @@ class VedingMachineTests: XCTestCase {
         let result = vendingMachine.fetchListOfValidDate()
         XCTAssertTrue(result.count == 4)
     }
-    
+
 }

@@ -29,7 +29,6 @@ func activateMode() throws -> ModeType {
     return enabledMode
 }
 
-
 func main() throws {
     let vendingMachine = VendingMachine()
     var enabledMode = ModeType.exit
@@ -53,4 +52,3 @@ func main() throws {
 }
 
 try main()
-

@@ -82,4 +82,3 @@ extension VendingMachine: MachineManagerable {
         BeverageMenu.makeQuantity(defaultQuantity)
     }
 }
-

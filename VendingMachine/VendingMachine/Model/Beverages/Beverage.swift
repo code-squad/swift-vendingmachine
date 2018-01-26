@@ -27,7 +27,10 @@ class Beverage: TypeName, CustomStringConvertible {
     
     var description: String {
         let dateFormatter = DateUtility.formatDate(format: "yyyyMMdd")
-        return "\(self.brand), \(self.volume)ml, \(self.price)원, \(self.productName), \(dateFormatter.string(from: self.expiryDate)), \(self.calorie)"
+        return """
+        \(self.brand), \(self.volume)ml, \(self.price)원, \(self.productName)
+        ,\(dateFormatter.string(from: self.expiryDate)), \(self.calorie)
+        """
     }
     
     func isExpired(with date: Date) -> Bool {

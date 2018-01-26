@@ -14,15 +14,15 @@ struct DateUtility {
         formatter.dateFormat = format
         return formatter
     }
-    
+
     static func today() -> Date {
         return Date(timeIntervalSinceNow: 0)
     }
-    
+
     static func addDays(_ day: Double) -> Date {
         return Date(timeInterval: day*86400, since: today())
     }
-    
+
     static func subtractDays(_ day: Double) -> Date {
         return Date(timeInterval: -day*86400, since: today())
     }
