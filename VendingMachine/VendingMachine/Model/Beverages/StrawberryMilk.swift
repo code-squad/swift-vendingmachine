@@ -10,7 +10,8 @@ import Foundation
 
 class StrawberryMilk: Milk {
     override init(brand: String, volume: Int, price: Money, productName: String, expiryDate: Date, calorie: Int) {
-        super.init(brand: brand, volume: volume, price: price, productName: productName, expiryDate: expiryDate, calorie: calorie)
+        super.init(brand: brand, volume: volume, price: price, productName: productName,
+                   expiryDate: expiryDate, calorie: calorie)
     }
     
     override var description: String {

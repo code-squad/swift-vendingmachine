@@ -20,4 +20,3 @@ struct InputView {
         return modeType
     }
 }
-

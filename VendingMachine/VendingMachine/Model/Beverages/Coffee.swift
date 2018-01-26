@@ -13,7 +13,8 @@ class Coffee: Beverage {
     
     init(brand: String, volume: Int, price: Money, productName: String, expiryDate: Date, calorie: Int, isHot: Bool) {
         self._isHot = isHot
-        super.init(brand: brand, volume: volume, price: price, productName: productName, expiryDate: expiryDate, calorie: calorie)
+        super.init(brand: brand, volume: volume, price: price, productName: productName,
+                   expiryDate: expiryDate, calorie: calorie)
     }
     
     var isHot: Bool {

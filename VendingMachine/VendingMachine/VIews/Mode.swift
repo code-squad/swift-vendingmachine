@@ -47,7 +47,7 @@ enum AdminMode: Int, CustomStringConvertible {
     case substractBeverages
     case salesHistory
     case exit
-    
+
     var description: String {
         switch self {
         case .addBeverages:

@@ -35,7 +35,7 @@ class InventoryTests: XCTestCase {
         let inventory = Inventory([])
         XCTAssertThrowsError(try inventory.deduct(beverageMenu: .bananaMilk))
     }
-    
+
     func test_창고에_든_메뉴_수량_가져옴() {
         var inventory = Inventory([])
         inventory = inventory.add(beverageMenu: .bananaMilk)

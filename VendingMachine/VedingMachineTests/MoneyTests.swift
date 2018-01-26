@@ -15,11 +15,11 @@ class MoneyTests: XCTestCase {
         money = try money.plus(coin: Money(5100))
         XCTAssertTrue(money.countChange() == 10100)
     }
-    
+
     func test_동전_삽입_실패() throws {
         XCTAssertThrowsError(try Money(0).plus(coin: Money(-100)))
     }
- 
+
     func test_동전_차감_성공() throws {
         var money = Money(0)
         money = try money.plus(coin: Money(5000))
