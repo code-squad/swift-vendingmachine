@@ -13,6 +13,7 @@
 		E88E17BE201AD606007B380A /* SoftDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88E17BD201AD606007B380A /* SoftDrink.swift */; };
 		E88E17C0201AD613007B380A /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88E17BF201AD613007B380A /* Coffee.swift */; };
 		E88E17C2201AD620007B380A /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88E17C1201AD620007B380A /* OutputView.swift */; };
+		E88E17C4201C7464007B380A /* MyDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88E17C3201C7464007B380A /* MyDate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,6 +36,7 @@
 		E88E17BD201AD606007B380A /* SoftDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoftDrink.swift; sourceTree = "<group>"; };
 		E88E17BF201AD613007B380A /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		E88E17C1201AD620007B380A /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
+		E88E17C3201C7464007B380A /* MyDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 				E88E17BD201AD606007B380A /* SoftDrink.swift */,
 				E88E17BF201AD613007B380A /* Coffee.swift */,
 				E88E17C1201AD620007B380A /* OutputView.swift */,
+				E88E17C3201C7464007B380A /* MyDate.swift */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";
@@ -137,6 +140,7 @@
 			files = (
 				E88E17BA201AD5CB007B380A /* Beverage.swift in Sources */,
 				E88E17BC201AD5DC007B380A /* Milk.swift in Sources */,
+				E88E17C4201C7464007B380A /* MyDate.swift in Sources */,
 				E88E17BE201AD606007B380A /* SoftDrink.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
 				E88E17C0201AD613007B380A /* Coffee.swift in Sources */,

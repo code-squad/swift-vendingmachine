@@ -13,7 +13,7 @@ class SoftDrink: Beverage {
         return "콜라"
     }
 
-    override init(brand: String, weight: Int, price: Int, name: String, MFDDate: Date) {
+    override init(brand: String, weight: Int, price: Int, name: String, MFDDate: String) {
         super.init(brand: brand, weight: weight, price: price, name: name, MFDDate: MFDDate)
     }
 
