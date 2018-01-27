@@ -12,11 +12,11 @@ class Beverage: CustomStringConvertible {
     var type: String {
         return "음료"
     }
-    var brand: String
-    var weight: Int
-    var price: Int
-    var name: String
-    var MFDDate: Date
+    private(set) var brand: String
+    private(set) var weight: Int
+    private(set) var price: Int
+    private(set) var name: String
+    private(set) var MFDDate: Date
 
     var description: String {
         let dateFormatter = DateFormatter()

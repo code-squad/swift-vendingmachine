@@ -9,7 +9,7 @@
 import Foundation
 
 class Milk: Beverage {
-    var flavor: String
+    private var flavor: String
     override var type: String {
         return "\(flavor)우유"
     }
