@@ -9,19 +9,23 @@
 import Foundation
 
 struct MyDate : CustomStringConvertible {
-    var customDateFormat = dateFormatter.dateFormat
     private var convertedDate: Date
+    private var dateForPrint: String
 
     var description: String {
-        return dateFormatter.string(from: self.convertedDate)
+        return dateForPrint
     }
 
-    init(yyyymmdd: String) {
+    init(YYYYMMDD: String) {
         // dateFormatter 초기화
         let dateFormatter = DateFormatter()
-        self.customDateFormat = "yyyyMMdd"
+        dateFormatter.dateFormat = "yyyyMMdd"
+
         // 입력된 String으로 Date생성
-        self.convertedDate = dateFormatter.date(from: yyyymmdd) ?? Date()
+        self.convertedDate = dateFormatter.date(from: YYYYMMDD) ?? Date()
+
+        // 생성된 Date을 String으로 변환
+        self.dateForPrint = dateFormatter.string(from: self.convertedDate)
     }
 
 }

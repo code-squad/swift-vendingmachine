@@ -14,7 +14,7 @@ class Milk: Beverage {
         return "\(flavor)우유"
     }
 
-    init(flavor: String, brand: String, weight: Int, price: Int, name: String, MFDDate: Date) {
+    init(flavor: String, brand: String, weight: Int, price: Int, name: String, MFDDate: String) {
         self.flavor = flavor
         super.init(brand: brand, weight: weight, price: price, name: name, MFDDate: MFDDate)
     }
