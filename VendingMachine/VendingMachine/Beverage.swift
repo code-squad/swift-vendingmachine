@@ -16,18 +16,18 @@ class Beverage: CustomStringConvertible, Attribute {
     private var weight: Int
     private var price: Int
     private var name: String
-    private var MFDDate: Date
+    private var manufactured: Date
 
     var description: String {
-        return "\(type) - \(brand), \(weight)ml, \(price)원, \(name), \(MFDDate.description)"
+        return "\(type) - \(brand), \(weight)ml, \(price)원, \(name), \(manufactured.description)"
     }
 
-    init(brand: String, weight: Int, price: Int, name: String, MFDDate: String) {
+    init(brand: String, weight: Int, price: Int, name: String, manufactured: String) {
         self.brand = brand
         self.weight = weight
         self.price = price
         self.name = name
-        self.MFDDate = Date(yyyyMMdd: MFDDate)
+        self.manufactured = Date(yyyyMMdd: manufactured)
     }
 
     func isHot() -> Bool {
@@ -47,7 +47,7 @@ class Beverage: CustomStringConvertible, Attribute {
     }
 
     func validate(duration: Int) -> Bool {
-        return self.MFDDate.isOutOfDate(validDuration: duration)
+        return self.manufactured.isOutOfDate(validDuration: duration)
     }
 
 }
