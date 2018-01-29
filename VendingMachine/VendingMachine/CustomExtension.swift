@@ -1,5 +1,5 @@
 //
-//  MyDate.swift
+//  CustomExtension.swift
 //  VendingMachine
 //
 //  Created by YOUTH on 2018. 1. 27..
@@ -8,31 +8,30 @@
 
 import Foundation
 
-struct MyDate : CustomStringConvertible {
-    private(set) var convertedDate: Date
-    private var dateForPrint: String
+extension Date {
 
+    // 지정한 형태로 출력하기위한 description 속성
     var description: String {
-        return dateForPrint
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMdd"
+
+        return dateFormatter.string(from: self)
     }
 
-    init(YYYYMMDD: String) {
+    init(yyyyMMdd: String) {
         // dateFormatter 초기화
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyyMMdd"
 
         // 입력된 String으로 Date생성
-        self.convertedDate = dateFormatter.date(from: YYYYMMDD) ?? Date()
-
-        // 생성된 Date을 String으로 변환
-        self.dateForPrint = dateFormatter.string(from: self.convertedDate)
+        self = dateFormatter.date(from: yyyyMMdd) ?? Date()
     }
 
-    func expiration(validDuration: Int) -> Bool {
+    func isOutOfDate(validDuration: Int) -> Bool {
         let currentDate = Date() // 오늘날짜(프로그램 실행날짜) 구하기
 
         // 파라미터로 받은 사용기한(validDuration)을 통해 유통기한 계산
-        let expiration = Calendar.current.date(byAdding: .day, value: validDuration, to: self.convertedDate) ?? Date()
+        let expiration = Calendar.current.date(byAdding: .day, value: validDuration, to: self) ?? Date()
 
         // 사용기한 + 제조일자 > 오늘날짜 = true
         return currentDate < expiration
@@ -40,4 +39,5 @@ struct MyDate : CustomStringConvertible {
 
 
 }
+
 
