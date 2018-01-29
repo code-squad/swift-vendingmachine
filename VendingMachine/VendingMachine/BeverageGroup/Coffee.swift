@@ -20,4 +20,7 @@ class Coffee: Beverage {
     func isRichCaffeine() -> Bool {
         return self.caffeineContent > 70
     }
+    func isModerateCaffeine() -> Bool {
+        return caffeineContent == 76
+    }
 }
