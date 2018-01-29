@@ -88,5 +88,16 @@ class UnitTestVendingMachine: XCTestCase {
         XCTAssertEqual(false, coffee.isValid())
     }
 
+    func testExtensionDate_init() {
+        let customDate = Date(yyyyMMdd: "20181127")
+        print(customDate.description)
+    }
+
+    func testDate_OutofDate() {
+        let customDate = Date(yyyyMMdd: "20180101")
+        let result = customDate.isOutOfDate(validDuration: 7)
+        XCTAssertEqual(false, result)
+    }
+
 }
 
