@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Soda: Beverage{
+class Soda: Beverage {
     private var saccharide: Int = 27
     override init(brand: String, weight: Int, price: Int, name: String, manufactureDate: Date) {
         super.init(brand: brand, weight: weight, price: price, name: name, manufactureDate: manufactureDate)

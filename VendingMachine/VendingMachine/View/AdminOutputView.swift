@@ -10,7 +10,7 @@ import Foundation
 
 class AdminOutputView: OutputView {
     
-    override func printBeverageMenu(entireInventory: [ObjectIdentifier : [Beverage]]) {
+    override func printBeverageMenu(entireInventory: [ObjectIdentifier: [Beverage]]) {
         let serializedBeverage = menuOfSerialized(entireInventory: entireInventory)
         print("현재 재고 상태 입니다.")
         for (index, beverageKey) in serializedBeverage.enumerated() {

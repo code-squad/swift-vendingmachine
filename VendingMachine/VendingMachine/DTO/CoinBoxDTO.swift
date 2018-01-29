@@ -10,10 +10,9 @@ import Foundation
 
 class CoinBox: VendingMachineUser {
     private(set) var amount: Int
-    
     init(amount: Int) {
         self.amount = amount
         super.init()
-        super.ModeOfUsers = 1
+        super.modeOfUsers = 1
     }
 }

@@ -18,7 +18,7 @@ class BananaMilk: Milk {
     override var description: String {
         return "\(self.kindOf)(\(type(of: self)))\(super.description)"
     }
-    
+
     func quantityOfBananaSyrup() -> Int {
         return self.bananaSyrup
     }

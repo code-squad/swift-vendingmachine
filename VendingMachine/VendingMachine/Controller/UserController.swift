@@ -16,8 +16,8 @@ class UserController {
         let userInputView = UserInputView()
         let userOutputView = UserOutputView()
         var vendingMachine = takeVendingMachine
-        
-        var availableBeverage = [ObjectIdentifier:[Beverage]]()
+
+        var availableBeverage = [ObjectIdentifier: [Beverage]]()
         repeat {
             // 현재 금액
             userOutputView.printCurrentCoins(coins: vendingMachine.coins)
@@ -27,7 +27,7 @@ class UserController {
                 let entireInventory = vendingMachine.showEntireInventory()
                 userOutputView.printBeverageMenu(entireInventory: entireInventory)
                 isFirst = false
-            }else {
+            } else {
                 
                 // 이후 기본 메뉴
                 availableBeverage = vendingMachine.listOfDrinksAvailable()
@@ -37,14 +37,15 @@ class UserController {
             // 메뉴 선택 및 이동
             userOutputView.printDoingMenu()
             let inputValue = userInputView.getMenuInput()
-            switch inputValue.ModeOfUsers {
+            switch inputValue.modeOfUsers {
             case 1:
                 if let addCoinMode = inputValue as? CoinBox {
                     vendingMachine.putCoins(coins: addCoinMode.amount)
                 }
             case 2:
                 if let beveragePurchaseMode = inputValue as? BeveragePurchase {
-                    let choiceBeverageKey = userOutputView.menuOfPurchaseBeverage(menuNumber: beveragePurchaseMode.beverageMenu, entireInventory: availableBeverage)
+                    let choiceBeverageKey = userOutputView.menuOfPurchaseBeverage(
+                        menuNumber: beveragePurchaseMode.beverageMenu, entireInventory: availableBeverage)
                     vendingMachine.buyBeverage(beverageKey: choiceBeverageKey)
                 }
             case 0:

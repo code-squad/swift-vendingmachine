@@ -9,5 +9,5 @@
 import Foundation
 
 class VendingMachineUser {
-    var ModeOfUsers: Int = 0
+    var modeOfUsers: Int = 0
 }
