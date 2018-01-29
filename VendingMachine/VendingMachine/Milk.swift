@@ -19,4 +19,26 @@ class Milk: Beverage {
         super.init(brand: brand, weight: weight, price: price, name: name, MFDDate: MFDDate)
     }
 
+    override func isHot() -> Bool {
+        return false
+    }
+
+    override func isLowCalorie() -> Bool {
+        return false
+    }
+
+    override func isDecaf() -> Bool {
+        return true
+    }
+
+    override func package() -> Package {
+        return .Carton
+    }
+
+    func isValid() -> Bool {
+        let validDuration = 7
+        return super.validate(duration: validDuration)
+    }
+
+
 }

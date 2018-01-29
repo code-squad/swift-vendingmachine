@@ -9,7 +9,7 @@
 import Foundation
 
 struct MyDate : CustomStringConvertible {
-    private var convertedDate: Date
+    private(set) var convertedDate: Date
     private var dateForPrint: String
 
     var description: String {
@@ -27,6 +27,17 @@ struct MyDate : CustomStringConvertible {
         // 생성된 Date을 String으로 변환
         self.dateForPrint = dateFormatter.string(from: self.convertedDate)
     }
+
+    func expiration(validDuration: Int) -> Bool {
+        let currentDate = Date() // 오늘날짜(프로그램 실행날짜) 구하기
+
+        // 파라미터로 받은 사용기한(validDuration)을 통해 유통기한 계산
+        let expiration = Calendar.current.date(byAdding: .day, value: validDuration, to: self.convertedDate) ?? Date()
+
+        // 사용기한 + 제조일자 > 오늘날짜 = true
+        return currentDate < expiration
+    }
+
 
 }
 

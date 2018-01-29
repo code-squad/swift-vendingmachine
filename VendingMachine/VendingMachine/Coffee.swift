@@ -16,5 +16,26 @@ class Coffee: Beverage {
         super.init(brand: brand, weight: weight, price: price, name: name, MFDDate: MFDDate)
     }
 
+    override func isHot() -> Bool {
+        return true
+    }
+
+    override func isLowCalorie() -> Bool {
+        return true
+    }
+
+    override func isDecaf() -> Bool {
+        return false
+    }
+
+    override func package() -> Package {
+        return .Can
+    }
+
+    func isValid() -> Bool {
+        let validDuration = 90
+        return super.validate(duration: validDuration)
+    }
+
 }
 
