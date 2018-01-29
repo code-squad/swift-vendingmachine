@@ -16,7 +16,7 @@ class Beverage: CustomStringConvertible, Attribute {
     private var weight: Int
     private var price: Int
     private var name: String
-    private var MFDDate: MyDate
+    private var MFDDate: Date
 
     var description: String {
         return "\(type) - \(brand), \(weight)ml, \(price)원, \(name), \(MFDDate.description)"
@@ -27,7 +27,7 @@ class Beverage: CustomStringConvertible, Attribute {
         self.weight = weight
         self.price = price
         self.name = name
-        self.MFDDate = MyDate(YYYYMMDD: MFDDate)
+        self.MFDDate = Date(yyyyMMdd: MFDDate)
     }
 
     func isHot() -> Bool {
@@ -47,7 +47,7 @@ class Beverage: CustomStringConvertible, Attribute {
     }
 
     func validate(duration: Int) -> Bool {
-        return self.MFDDate.expiration(validDuration: duration)
+        return self.MFDDate.isOutOfDate(validDuration: duration)
     }
 
 }
