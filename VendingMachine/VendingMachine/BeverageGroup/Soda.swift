@@ -21,5 +21,9 @@ class Soda: Beverage {
     func isSweet() -> Bool {
         return (self.saccharide > 25)
     }
+    
+    func isModerateSaccharide() -> Bool {
+        return saccharide == 27
+    }
 
 }

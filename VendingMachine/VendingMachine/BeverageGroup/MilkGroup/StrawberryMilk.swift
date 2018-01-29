@@ -22,4 +22,7 @@ class StrawberryMilk: Milk {
     func quantityOfstrawberrySyrup() -> Int {
         return strawberrySyrup
     }
+    func isModerateSyrup() -> Bool {
+        return strawberrySyrup == 5
+    }
 }
