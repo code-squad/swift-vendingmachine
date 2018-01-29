@@ -7,3 +7,19 @@
 //
 
 import Foundation
+// 음료수의 용기 패키지 타입 enum 선언
+enum Package {
+    case Can
+    case Bottle
+    case PET
+    case Carton
+}
+
+protocol Attribute {
+    func isHot() -> Bool
+    func isLowCalorie() -> Bool
+    func isDecaf() -> Bool
+    func package() -> Package
+    func validate(duration: Int) -> Bool
+}
+
