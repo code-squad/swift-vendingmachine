@@ -22,4 +22,3 @@ outputView.showResult(bananaMilk)
 outputView.showResult(coke)
 outputView.showResult(coffee)
 
-
