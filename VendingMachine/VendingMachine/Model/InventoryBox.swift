@@ -14,18 +14,18 @@ class InventoryBox {
     }
     enum InventoryMenu: Int {
         case top = 1, strawberryMilk, bananaMilk, coke
-        func BeveragekeyFromMenu() -> ObjectIdentifier {
+        func beveragekeyFromMenu() -> ObjectIdentifier {
             switch self {
-                case .strawberryMilk: return ObjectIdentifier(StrawberryMilk.self)
-                case .bananaMilk: return ObjectIdentifier(BananaMilk.self)
-                case .coke: return ObjectIdentifier(Coke.self)
-                case .top: return ObjectIdentifier(Top.self)
+            case .strawberryMilk: return ObjectIdentifier(StrawberryMilk.self)
+            case .bananaMilk: return ObjectIdentifier(BananaMilk.self)
+            case .coke: return ObjectIdentifier(Coke.self)
+            case .top: return ObjectIdentifier(Top.self)
             }
         }
     }
-    private var box: [ObjectIdentifier:[Beverage]]
+    private var box: [ObjectIdentifier: [Beverage]]
     init() {
-        box = [ObjectIdentifier:[Beverage]]()
+        box = [ObjectIdentifier: [Beverage]]()
     }
     func storageBeverageStock(beverage: Beverage) {
         let classOfBeverage = ObjectIdentifier(type(of: beverage))
@@ -40,13 +40,11 @@ class InventoryBox {
         box[classOfBeverage]?.removeFirst()
     }
     
-    func priceLessThan(coins: Int) -> [ObjectIdentifier:[Beverage]] {
-        var drinkOfAvailable = [ObjectIdentifier:[Beverage]]()
-        for typeOfBeverage in box {
-            if typeOfBeverage.value[0].price <= coins {
-                drinkOfAvailable[typeOfBeverage.key] = [Beverage]()
-                drinkOfAvailable[typeOfBeverage.key] = typeOfBeverage.value
-            }
+    func priceLessThan(coins: Int) -> [ObjectIdentifier: [Beverage]] {
+        var drinkOfAvailable = [ObjectIdentifier: [Beverage]]()
+        for typeOfBeverage in box where typeOfBeverage.value[0].price <= coins {
+            drinkOfAvailable[typeOfBeverage.key] = [Beverage]()
+            drinkOfAvailable[typeOfBeverage.key] = typeOfBeverage.value
         }
         return drinkOfAvailable
     }
@@ -61,7 +59,7 @@ class InventoryBox {
         return beverageOfChoice
     }
     
-    func overallProductInventory() -> [ObjectIdentifier:[Beverage]] {
+    func overallProductInventory() -> [ObjectIdentifier: [Beverage]] {
         return box
     }
     
@@ -91,7 +89,7 @@ class InventoryBox {
     
     func numberToInventoryMenu(number: Int) -> Beverage {
         let beverage = InventoryMenu.init(rawValue: number)
-        return (box[beverage?.BeveragekeyFromMenu() ?? ObjectIdentifier(self)]?.first) ?? Beverage()
+        return (box[beverage?.beveragekeyFromMenu() ?? ObjectIdentifier(self)]?.first) ?? Beverage()
     }
     
 }

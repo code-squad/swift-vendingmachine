@@ -10,10 +10,11 @@ import Foundation
 
 class UserOutputView: OutputView {
     
-    func printAddAmoutMenu(entireInventory: [ObjectIdentifier:[Beverage]]) {
+    func printAddAmoutMenu(entireInventory: [ObjectIdentifier: [Beverage]]) {
         let serializedBeverage = menuOfSerialized(entireInventory: entireInventory)
         for (index, beverageKey) in serializedBeverage.enumerated() {
-            print("\(index+1))\(entireInventory[beverageKey]?.first?.kindOf ?? "") \(entireInventory[beverageKey]?.first?.price ?? 0)(\(entireInventory[beverageKey]?.count ?? 0)개)")
+            print("\(index+1))\(entireInventory[beverageKey]?.first?.kindOf ?? "")",
+                " \(entireInventory[beverageKey]?.first?.price ?? 0)(\(entireInventory[beverageKey]?.count ?? 0)개)")
         }
     }
     
@@ -31,25 +32,23 @@ class UserOutputView: OutputView {
         print("> ", terminator: "")
     }
     
-    func menuOfPurchaseBeverage(menuNumber: Int, entireInventory: [ObjectIdentifier : [Beverage]]) -> ObjectIdentifier {
+    func menuOfPurchaseBeverage(menuNumber: Int, entireInventory: [ObjectIdentifier: [Beverage]]) -> ObjectIdentifier {
         do {
             let choiceBeverageKey = try getBeverageKey(menuNumber: menuNumber, entireInventory: entireInventory)
             if let choiceBeverage = entireInventory[choiceBeverageKey]?.first {
                 printPurchaseBeverage(choiceBeverage: choiceBeverage)
                 return choiceBeverageKey
             }
-        }catch {
+        } catch {
             print("get Beverage error")
         }
         return ObjectIdentifier(self)
     }
     
-    func getBeverageKey(menuNumber: Int, entireInventory: [ObjectIdentifier : [Beverage]]) throws -> ObjectIdentifier {
+    func getBeverageKey(menuNumber: Int, entireInventory: [ObjectIdentifier: [Beverage]]) throws -> ObjectIdentifier {
         let serializedBeverage = menuOfSerialized(entireInventory: entireInventory)
-        for (index, beverageKey) in serializedBeverage.enumerated() {
-            if menuNumber == (index + 1) {
-                return beverageKey
-            }
+        for (index, beverageKey) in serializedBeverage.enumerated() where menuNumber == (index + 1) {
+            return beverageKey
         }
         throw InventoryBox.VendingMachinError.invalidBeverage
     }

@@ -18,7 +18,6 @@ class Kantata: Coffee {
     override var description: String {
         return "\(self.kindOf)(\(type(of: self)))\(super.description)"
     }
-    
     func isGuatemalaBeans() -> Bool {
         return (self.kindOfBeans == "GuatemalaAntiqua")
     }

@@ -17,7 +17,7 @@ class Georgia: Coffee {
     override var description: String {
         return "\(self.kindOf)\(type(of: self)))\(super.description)"
     }
-    
+
     func isRichCoffeeExtract() -> Bool {
         return self.coffeeExtract > 10
     }

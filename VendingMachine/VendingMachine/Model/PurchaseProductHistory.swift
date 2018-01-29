@@ -23,7 +23,7 @@ class PurchaseProductHistory {
     
     func historyOfPurchase() -> [String] {
         var history = [String]()
-        for (index,date) in purchaseDate.enumerated() {
+        for (index, date) in purchaseDate.enumerated() {
             history.append(String(describing: date)+purchaseBeverage[index])
         }
         return history

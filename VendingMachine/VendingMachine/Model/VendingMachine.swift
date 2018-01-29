@@ -36,7 +36,7 @@ struct VendingMachine {
     }
     
     // 현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
-    func listOfDrinksAvailable() -> [ObjectIdentifier:[Beverage]] {
+    func listOfDrinksAvailable() -> [ObjectIdentifier: [Beverage]] {
         return inventoryBox.priceLessThan(coins: self.coins)
     }
     
@@ -46,7 +46,7 @@ struct VendingMachine {
             let beverageOfChoice = try inventoryBox.sellDrink(beverageKey: beverageKey)
             purchaseProductHistory.recordOfPurchaseHistory(date: Date(), beverage: beverageOfChoice.name)
             self.coins -= beverageOfChoice.price
-        }catch {
+        } catch {
             print("Beverage error")
         }
     }
@@ -57,7 +57,7 @@ struct VendingMachine {
     }
     
     // 전체 상품 재고를 (사전으로 표현하는) 종류별로 리턴하는 메소드
-    func showEntireInventory() -> [ObjectIdentifier:[Beverage]] {
+    func showEntireInventory() -> [ObjectIdentifier: [Beverage]] {
         return inventoryBox.overallProductInventory()
     }
     
@@ -79,6 +79,5 @@ struct VendingMachine {
     func choiceBeverageData(number: Int) -> Beverage {
         return inventoryBox.numberToInventoryMenu(number: number)
     }
-    
     
 }

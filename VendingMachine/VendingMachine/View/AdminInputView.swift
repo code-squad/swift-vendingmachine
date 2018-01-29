@@ -22,7 +22,8 @@ class AdminInputView {
         if seperatedValue.count < 3 {
             return InventoryAdmin()
         }
-        inventoryAdmin = InventoryAdmin(modeOfAdmin: seperatedValue[0], menuNumber: seperatedValue[1], numberOfTheBeverage: seperatedValue[2])
+        inventoryAdmin = InventoryAdmin(modeOfAdmin: seperatedValue[0], menuNumber: seperatedValue[1],
+                            numberOfTheBeverage: seperatedValue[2])
         return inventoryAdmin
     }
 }
