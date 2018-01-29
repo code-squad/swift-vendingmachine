@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Beverage: CustomStringConvertible {
+class Beverage: CustomStringConvertible, Attribute {
     var type: String {
         return "음료"
     }
@@ -28,6 +28,26 @@ class Beverage: CustomStringConvertible {
         self.price = price
         self.name = name
         self.MFDDate = MyDate(YYYYMMDD: MFDDate)
+    }
+
+    func isHot() -> Bool {
+        return true
+    }
+
+    func isLowCalorie() -> Bool {
+        return true
+    }
+
+    func isDecaf() -> Bool {
+        return true
+    }
+
+    func package() -> Package {
+        return .PET
+    }
+
+    func validate(duration: Int) -> Bool {
+        return self.MFDDate.expiration(validDuration: duration)
     }
 
 }
