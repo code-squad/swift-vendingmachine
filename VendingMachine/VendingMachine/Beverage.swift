@@ -8,7 +8,13 @@
 
 import Foundation
 
-class Beverage: CustomStringConvertible, Attribute {
+class Beverage: CustomStringConvertible, Attribute, Hashable {
+    var hashValue: Int
+
+    static func ==(lhs: Beverage, rhs: Beverage) -> Bool {
+        return lhs.hashValue == rhs.hashValue
+    }
+
     var type: String {
         return "음료"
     }
@@ -22,12 +28,13 @@ class Beverage: CustomStringConvertible, Attribute {
         return "\(type) - \(brand), \(weight)ml, \(price)원, \(name), \(manufactured.description)"
     }
 
-    init(brand: String, weight: Int, price: Int, name: String, manufactured: String) {
+    init(brand: String, weight: Int, price: Int, name: String, manufactured: String, itemCode: Int) {
         self.brand = brand
         self.weight = weight
         self.price = price
         self.name = name
         self.manufactured = Date(yyyyMMdd: manufactured)
+        self.hashValue = itemCode
     }
 
     func isHot() -> Bool {
