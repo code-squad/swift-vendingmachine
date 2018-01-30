@@ -1,44 +1,41 @@
 //
-//  Milk.swift
+//  EnergyDrink.swift
 //  VendingMachine
 //
-//  Created by YOUTH on 2018. 1. 26..
+//  Created by YOUTH on 2018. 1. 29..
 //  Copyright © 2018년 JK. All rights reserved.
 //
 
 import Foundation
 
-class Milk: Beverage {
-    private var flavor: String
+class EnergyDrink: Beverage {
     override var type: String {
-        return "\(flavor)우유"
+        return "에너지드링크"
     }
-
-    init(flavor: String, brand: String, weight: Int, price: Int, name: String, manufactured: String, itemCode: Int) {
-        self.flavor = flavor
+    override init(brand: String, weight: Int, price: Int, name: String, manufactured: String, itemCode: Int) {
         super.init(brand: brand, weight: weight, price: price, name: name, manufactured: manufactured, itemCode: itemCode)
     }
 
     override func isHot() -> Bool {
-        return false
-    }
-
-    override func isLowCalorie() -> Bool {
-        return false
-    }
-
-    override func isDecaf() -> Bool {
         return true
     }
 
+    override func isLowCalorie() -> Bool {
+        return true
+    }
+
+    override func isDecaf() -> Bool {
+        return false
+    }
+
     override func package() -> Package {
-        return .Carton
+        return .Can
     }
 
     func isValid() -> Bool {
-        let validDuration = 7
+        let validDuration = 90
         return super.validate(duration: validDuration)
     }
 
-
 }
+

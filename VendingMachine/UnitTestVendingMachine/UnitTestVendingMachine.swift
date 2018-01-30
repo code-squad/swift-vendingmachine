@@ -11,7 +11,7 @@ import XCTest
 class UnitTestVendingMachine: XCTestCase {
 
     func testAttribute() {
-        let strawberryMilk = Milk(flavor: "딸기", brand: "서울우유", weight: 200, price: 1000, name: "날마다딸기우유", manufactured: "20171009")
+        let strawberryMilk = Milk(flavor: "딸기", brand: "서울우유", weight: 200, price: 1000, name: "날마다딸기우유", manufactured: "20171009", itemCode: 001)
 
         let result = strawberryMilk.isDecaf()
         XCTAssertEqual(result, true)
@@ -55,23 +55,23 @@ class UnitTestVendingMachine: XCTestCase {
     }
 
     func testExpiration_STRAWBERRYMILK() {
-        let strawberryMilk = Milk(flavor: "딸기", brand: "서울우유", weight: 200, price: 1000, name: "날마다딸기우유", manufactured: "20171009")
+        let strawberryMilk = Milk(flavor: "딸기", brand: "서울우유", weight: 200, price: 1000, name: "날마다딸기우유", manufactured: "20171009", itemCode: 001)
 
         XCTAssertEqual(false, strawberryMilk.isValid())
     }
 
     func testExpiration_BANANAMILK() {
-        let bananaMilk = Milk(flavor: "바나나", brand: "서울우유", weight: 200, price: 1000, name: "날마다바나나우유", manufactured: "20180125")
+        let bananaMilk = Milk(flavor: "바나나", brand: "서울우유", weight: 200, price: 1000, name: "날마다바나나우유", manufactured: "20180125", itemCode: 002)
         XCTAssertEqual(true, bananaMilk.isValid())
     }
 
     func testExpiration_COKE() {
-        let coke = SoftDrink(brand: "펩시", weight: 350, price: 2000, name: "다이어트콜라", manufactured: "20171005")
+        let coke = SoftDrink(brand: "펩시", weight: 350, price: 2000, name: "다이어트콜라", manufactured: "20171005", itemCode: 003)
         XCTAssertEqual(true, coke.isValid())
     }
 
     func testExpiration_COFFEE() {
-        let coffee = Coffee(brand: "맥심", weight: 400, price: 3000, name: "TOP아메리카노", manufactured: "20171010")
+        let coffee = Coffee(brand: "맥심", weight: 400, price: 3000, name: "TOP아메리카노", manufactured: "20171010", itemCode: 004)
         XCTAssertEqual(false, coffee.isValid())
     }
 

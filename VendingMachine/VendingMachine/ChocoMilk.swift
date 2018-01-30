@@ -1,21 +1,19 @@
 //
-//  Milk.swift
+//  ChocoMilk.swift
 //  VendingMachine
 //
-//  Created by YOUTH on 2018. 1. 26..
+//  Created by YOUTH on 2018. 1. 29..
 //  Copyright © 2018년 JK. All rights reserved.
 //
 
 import Foundation
 
-class Milk: Beverage {
-    private var flavor: String
+class ChocoMilk: Beverage {
     override var type: String {
-        return "\(flavor)우유"
+        return "초코우유"
     }
 
-    init(flavor: String, brand: String, weight: Int, price: Int, name: String, manufactured: String, itemCode: Int) {
-        self.flavor = flavor
+    override init(brand: String, weight: Int, price: Int, name: String, manufactured: String, itemCode: Int) {
         super.init(brand: brand, weight: weight, price: price, name: name, manufactured: manufactured, itemCode: itemCode)
     }
 
