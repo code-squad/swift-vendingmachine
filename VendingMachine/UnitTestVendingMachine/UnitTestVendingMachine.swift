@@ -11,7 +11,7 @@ import XCTest
 class UnitTestVendingMachine: XCTestCase {
 
     func testAttribute() {
-        let strawberryMilk = Milk(flavor: "딸기", brand: "서울우유", weight: 200, price: 1000, name: "날마다딸기우유", manufactured: "20171009", itemCode: 001)
+        let strawberryMilk = Milk(flavor: "딸기", brand: "서울우유", weight: 200, price: 1000, name: "날마다딸기우유", manufactured: "20171009")
 
         let result = strawberryMilk.isDecaf()
         XCTAssertEqual(result, true)
@@ -55,23 +55,23 @@ class UnitTestVendingMachine: XCTestCase {
     }
 
     func testExpiration_STRAWBERRYMILK() {
-        let strawberryMilk = Milk(flavor: "딸기", brand: "서울우유", weight: 200, price: 1000, name: "날마다딸기우유", manufactured: "20171009", itemCode: 001)
+        let strawberryMilk = Milk(flavor: "딸기", brand: "서울우유", weight: 200, price: 1000, name: "날마다딸기우유", manufactured: "20171009")
 
         XCTAssertEqual(false, strawberryMilk.isValid())
     }
 
     func testExpiration_BANANAMILK() {
-        let bananaMilk = Milk(flavor: "바나나", brand: "서울우유", weight: 200, price: 1000, name: "날마다바나나우유", manufactured: "20180125", itemCode: 002)
+        let bananaMilk = Milk(flavor: "바나나", brand: "서울우유", weight: 200, price: 1000, name: "날마다바나나우유", manufactured: "20180125")
         XCTAssertEqual(true, bananaMilk.isValid())
     }
 
     func testExpiration_COKE() {
-        let coke = SoftDrink(brand: "펩시", weight: 350, price: 2000, name: "다이어트콜라", manufactured: "20171005", itemCode: 003)
+        let coke = SoftDrink(brand: "펩시", weight: 350, price: 2000, name: "다이어트콜라", manufactured: "20171005")
         XCTAssertEqual(true, coke.isValid())
     }
 
     func testExpiration_COFFEE() {
-        let coffee = Coffee(brand: "맥심", weight: 400, price: 3000, name: "TOP아메리카노", manufactured: "20171010", itemCode: 004)
+        let coffee = Coffee(brand: "맥심", weight: 400, price: 3000, name: "TOP아메리카노", manufactured: "20171010")
         XCTAssertEqual(false, coffee.isValid())
     }
 
@@ -85,6 +85,83 @@ class UnitTestVendingMachine: XCTestCase {
         let result = customDate.isOutOfDate(validDuration: 7)
         XCTAssertEqual(false, result)
     }
+
+    func testSetStock_Dictionary() {
+        let result = Controller().setVendingMachineStock(unit: 5)
+        print(result)
+    }
+
+    func testPrintStock() {
+        var stock = [Beverage]()
+        let chocoMilk = ChocoMilk(brand: "서울우유", weight: 200, price: 1000, name: "날마다초코우유", manufactured: "20180128")
+        let bananaMilk = BananaMilk(brand: "서울우유", weight: 200, price: 1000, name: "날마다바나나우유", manufactured: "20180128")
+        let coke = SoftDrink(brand: "코카콜라", weight: 500, price: 2000, name: "제로코크", manufactured: "20171005")
+        let americano = Coffee(brand: "맥심", weight: 400, price: 3000, name: "TOP아메리카노", manufactured: "20171010")
+        let dolceLatte = Coffee(brand: "스타벅스", weight: 473, price: 6000, name: "돌체라떼", manufactured: "20171010")
+        let energyDrink = EnergyDrink(brand: "레드불", weight: 350, price: 2000, name: "레드불", manufactured: "20171010")
+
+        for _ in 0..<5 {
+            stock.append(chocoMilk)
+            stock.append(bananaMilk)
+            stock.append(coke)
+            stock.append(americano)
+            stock.append(dolceLatte)
+            stock.append(energyDrink)
+        }
+        // 추가된 음료를 딕셔너리형태로 정렬
+        let productSets = stock.reduce(into: [Beverage:[Beverage]]()) {
+            $0[$1, default:[]].append($1)
+        }
+
+        let vendingMachine = VendingMachine(stock: productSets)
+        let result = vendingMachine.showStock()
+        print(result)
+    }
+
+    func testDiscard() {
+        var stock = [Beverage]()
+        let chocoMilk = ChocoMilk(brand: "서울우유", weight: 200, price: 1000, name: "날마다초코우유", manufactured: "20180130")
+        let bananaMilk = BananaMilk(brand: "서울우유", weight: 200, price: 1000, name: "날마다바나나우유", manufactured: "20180128")
+        let coke = SoftDrink(brand: "코카콜라", weight: 500, price: 2000, name: "제로코크", manufactured: "20171005")
+        let americano = Coffee(brand: "맥심", weight: 400, price: 3000, name: "TOP아메리카노", manufactured: "20171010")
+        let dolceLatte = Coffee(brand: "스타벅스", weight: 473, price: 6000, name: "돌체라떼", manufactured: "20171010")
+        let energyDrink = EnergyDrink(brand: "레드불", weight: 350, price: 2000, name: "레드불", manufactured: "20171010")
+
+        for _ in 0..<5 {
+            stock.append(chocoMilk)
+            stock.append(bananaMilk)
+            stock.append(coke)
+            stock.append(americano)
+            stock.append(dolceLatte)
+            stock.append(energyDrink)
+        }
+        // 추가된 음료를 딕셔너리형태로 정렬
+        let productSets = stock.reduce(into: [Beverage:[Beverage]]()) {
+            $0[$1, default:[]].append($1)
+        }
+
+        let vendingMachine = VendingMachine(stock: productSets)
+        let result = vendingMachine.showDiscard()
+        print(result)
+    }
+
+    func testObjectIdentifier() {
+        var stock = [Beverage]()
+        let americano = Coffee(brand: "맥심", weight: 400, price: 3000, name: "TOP아메리카노", manufactured: "20171010")
+        let dolceLatte = Coffee(brand: "스타벅스", weight: 473, price: 6000, name: "돌체라떼", manufactured: "20171010")
+        let energyDrink = EnergyDrink(brand: "레드불", weight: 350, price: 2000, name: "레드불", manufactured: "20171010")
+
+        for _ in 0..<2 {
+            stock.append(americano)
+            stock.append(dolceLatte)
+            stock.append(energyDrink)
+        }
+        // 추가된 음료를 딕셔너리형태로 정렬
+        let productSets = stock.reduce(into: [ObjectIdentifier:[ObjectIdentifier]]()) {
+            $0[ObjectIdentifier(type(of:$1)), default:[]].append(ObjectIdentifier($1))
+        }
+        print(productSets)
+        }
 
 }
 

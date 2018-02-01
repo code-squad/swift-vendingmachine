@@ -14,9 +14,9 @@ class Milk: Beverage {
         return "\(flavor)우유"
     }
 
-    init(flavor: String, brand: String, weight: Int, price: Int, name: String, manufactured: String, itemCode: Int) {
+    init(flavor: String, brand: String, weight: Int, price: Int, name: String, manufactured: String) {
         self.flavor = flavor
-        super.init(brand: brand, weight: weight, price: price, name: name, manufactured: manufactured, itemCode: itemCode)
+        super.init(brand: brand, weight: weight, price: price, name: name, manufactured: manufactured)
     }
 
     override func isHot() -> Bool {

@@ -25,16 +25,15 @@ class Beverage: CustomStringConvertible, Attribute, Hashable {
     private var manufactured: Date
 
     var description: String {
-        return "\(type) - \(brand), \(weight)ml, \(price)원, \(name), \(manufactured.description)"
+        return "\(type) - \(brand) | \(weight)ml | \(price)원 | \(name) | \(manufactured.description)"
     }
 
-    init(brand: String, weight: Int, price: Int, name: String, manufactured: String, itemCode: Int) {
+    init(brand: String, weight: Int, price: Int, name: String, manufactured: String) {
         self.brand = brand
         self.weight = weight
         self.price = price
         self.name = name
         self.manufactured = Date(yyyyMMdd: manufactured)
-        self.hashValue = itemCode
     }
 
     func isHot() -> Bool {
