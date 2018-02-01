@@ -12,8 +12,8 @@ class Coffee: Beverage {
     override var type: String {
         return "커피"
     }
-    override init(brand: String, weight: Int, price: Int, name: String, manufactured: String, itemCode: Int) {
-        super.init(brand: brand, weight: weight, price: price, name: name, manufactured: manufactured, itemCode: itemCode)
+    override init(brand: String, weight: Int, price: Int, name: String, manufactured: String) {
+        super.init(brand: brand, weight: weight, price: price, name: name, manufactured: manufactured)
     }
 
     override func isHot() -> Bool {
