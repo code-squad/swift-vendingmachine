@@ -1,5 +1,5 @@
 //
-//  DolceLatte.swift
+//  Stock.swift
 //  VendingMachine
 //
 //  Created by YOUTH on 2018. 2. 1..
