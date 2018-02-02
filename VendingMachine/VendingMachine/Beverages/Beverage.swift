@@ -8,12 +8,7 @@
 
 import Foundation
 
-class Beverage: CustomStringConvertible, Attribute, Hashable {
-    var hashValue: Int
-
-    static func ==(lhs: Beverage, rhs: Beverage) -> Bool {
-        return lhs.hashValue == rhs.hashValue
-    }
+class Beverage: CustomStringConvertible, Attribute{
 
     var type: String {
         return "음료"
