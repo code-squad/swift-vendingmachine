@@ -10,13 +10,14 @@ import Foundation
 
 class Milk: Beverage {
     private var flavor: String
+    private let validDuration = 3
     override var type: String {
         return "\(flavor)우유"
     }
 
     init(flavor: String, brand: String, weight: Int, price: Int, name: String, manufactured: String) {
         self.flavor = flavor
-        super.init(brand: brand, weight: weight, price: price, name: name, manufactured: manufactured)
+        super.init(brand: brand, weight: weight, price: price, name: name, manufactured: manufactured, valid: self.validDuration)
     }
 
     override func isHot() -> Bool {
@@ -35,9 +36,8 @@ class Milk: Beverage {
         return .Carton
     }
 
-    func isValid() -> Bool {
-        let validDuration = 7
-        return super.validate(duration: validDuration)
+    override func isValid() -> Bool {
+        return super.isValid()
     }
 
 

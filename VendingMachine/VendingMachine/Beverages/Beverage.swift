@@ -9,7 +9,6 @@
 import Foundation
 
 class Beverage: CustomStringConvertible, Attribute{
-
     var type: String {
         return "음료"
     }
@@ -18,18 +17,21 @@ class Beverage: CustomStringConvertible, Attribute{
     private var price: Int
     private var name: String
     private var manufactured: Date
+    private let validDuration: Int
 
     var description: String {
         return "\(type) - \(brand) | \(weight)ml | \(price)원 | \(name) | \(manufactured.description)"
     }
 
-    init(brand: String, weight: Int, price: Int, name: String, manufactured: String) {
+    init(brand: String, weight: Int, price: Int, name: String, manufactured: String, valid: Int) {
         self.brand = brand
         self.weight = weight
         self.price = price
         self.name = name
         self.manufactured = Date(yyyyMMdd: manufactured)
+        self.validDuration = valid
     }
+
 
     func isHot() -> Bool {
         return true
@@ -47,8 +49,13 @@ class Beverage: CustomStringConvertible, Attribute{
         return .PET
     }
 
-    func validate(duration: Int) -> Bool {
-        return self.manufactured.isOutOfDate(validDuration: duration)
+    func getPrice() -> Int {
+        return self.price
+    }
+
+    func isValid() -> Bool {
+        //print("유효기간: \(self.validDuration)")
+        return self.manufactured.isOutOfDate(validDuration: self.validDuration)
     }
 
 }
