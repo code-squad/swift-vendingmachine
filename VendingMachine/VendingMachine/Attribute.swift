@@ -20,6 +20,6 @@ protocol Attribute {
     func isLowCalorie() -> Bool
     func isDecaf() -> Bool
     func package() -> Package
-    func validate(duration: Int) -> Bool
+    func isValid() -> Bool
 }
 
