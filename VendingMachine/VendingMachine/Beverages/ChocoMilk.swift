@@ -9,12 +9,13 @@
 import Foundation
 
 class ChocoMilk: Beverage {
+    private let validDuration = 3
     override var type: String {
         return "초코우유"
     }
 
-    override init(brand: String, weight: Int, price: Int, name: String, manufactured: String) {
-        super.init(brand: brand, weight: weight, price: price, name: name, manufactured: manufactured)
+    init(brand: String, weight: Int, price: Int, name: String, manufactured: String) {
+        super.init(brand: brand, weight: weight, price: price, name: name, manufactured: manufactured, valid: self.validDuration)
     }
 
     override func isHot() -> Bool {
@@ -33,9 +34,8 @@ class ChocoMilk: Beverage {
         return .Carton
     }
 
-    func isValid() -> Bool {
-        let validDuration = 7
-        return super.validate(duration: validDuration)
+    override func isValid() -> Bool {
+        return super.isValid()
     }
 
 
