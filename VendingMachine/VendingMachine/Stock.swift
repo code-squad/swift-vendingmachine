@@ -8,18 +8,18 @@
 
 import Foundation
 
-struct Stock: CustomStringConvertible {
+struct Stock: BeverageDisplayStand, CustomStringConvertible {
     var description: String {
         var result = ""
-        self.itemSet.forEach { shelf in
+        self.sortedItems.forEach { shelf in
             result += "\(shelf.value[0].type) | \(shelf.value[0].getPrice()) : \(shelf.value.count)개 \n"
         }
         return result
     }
-    private(set) var itemSet = [ObjectIdentifier: [Beverage]]()
+    private(set) var sortedItems = [ObjectIdentifier: [Beverage]]()
 
-    init(items: [ObjectIdentifier: [Beverage]]) {
-        self.itemSet = items
+    init(sortedItems: [ObjectIdentifier: [Beverage]]) {
+        self.sortedItems = sortedItems
     }
 
 

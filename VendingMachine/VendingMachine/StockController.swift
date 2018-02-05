@@ -36,7 +36,7 @@ struct StockController: CustomStringConvertible {
     return stockSets
     }
 
-    mutating func removeItem(itemCode: ObjectIdentifier) {
+    mutating func removeItem(itemCode: ObjectIdentifier) -> [ObjectIdentifier: [Beverage]]{
         var tempStock = self.stock
         for var set in tempStock {
             if set.key == itemCode {
@@ -48,9 +48,10 @@ struct StockController: CustomStringConvertible {
             }
         }
         self.stock = tempStock
+        return self.stock
     }
 
-    mutating func addItem(item: Beverage) {
+    mutating func addItem(item: Beverage) -> [ObjectIdentifier: [Beverage]] {
         var tempStock = self.stock
         for var set in tempStock {
             if set.key == ObjectIdentifier(type(of:item)) {
@@ -63,6 +64,7 @@ struct StockController: CustomStringConvertible {
             }
         }
         self.stock = tempStock
+        return self.stock
     }
 
     func priceOfItem(_ itemCode: ObjectIdentifier) -> Int {
@@ -76,7 +78,7 @@ struct StockController: CustomStringConvertible {
         return 0
     }
 
-    func findHotBeverage() -> [Beverage] {
+    func findHotBeverage() -> [ObjectIdentifier: [Beverage]] {
         var available = [Beverage]()
         for set in self.stock {
             for item in set.value {
@@ -85,7 +87,7 @@ struct StockController: CustomStringConvertible {
                 }
             }
         }
-        return available
+        return self.setAsDictionary(available)
     }
 
     func stockStatus(of message: String) -> String {
@@ -96,7 +98,8 @@ struct StockController: CustomStringConvertible {
         return result
     }
 
-    func findDiscardBeverage() -> [Beverage] {
+    // 유통기한 지난 음료
+    func findDiscardBeverage() -> [ObjectIdentifier: [Beverage]] {
         var discards = [Beverage]()
         for set in self.stock {
             for product in set.value {
@@ -105,10 +108,11 @@ struct StockController: CustomStringConvertible {
                 }
             }
         }
-        return discards
+        return self.setAsDictionary(discards)
     }
 
-    func findValidBeverage() -> [Beverage] {
+    // 유통기한 내의 음료
+    func findValidBeverage() -> [ObjectIdentifier: [Beverage]] {
         var valid = [Beverage]()
         for set in self.stock {
             for product in set.value {
@@ -117,14 +121,10 @@ struct StockController: CustomStringConvertible {
                 }
             }
         }
-        return valid
+        return self.setAsDictionary(valid)
     }
 
-    func makeHistory() -> History {
-        return History(historyLog.purchase, historyLog.supply)
-    }
-
-    func finditemsCheaper(than balance: Int) -> [Beverage] {
+    func finditemsCheaper(than balance: Int) -> [ObjectIdentifier: [Beverage]] {
         var valid = [Beverage]()
         for set in self.stock {
             for product in set.value {
@@ -133,7 +133,11 @@ struct StockController: CustomStringConvertible {
                 }
             }
         }
-        return valid
+         return self.setAsDictionary(valid)
+    }
+
+    func makeHistory() -> History {
+        return History(historyLog.purchase, historyLog.supply)
     }
 
 
