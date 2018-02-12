@@ -62,7 +62,7 @@ class UnitTestVendingMachine: XCTestCase {
 
     func testExpiration_BANANAMILK() {
         let bananaMilk = Milk(flavor: "바나나", brand: "서울우유", weight: 200, price: 1000, name: "날마다바나나우유", manufactured: "20180131")
-        XCTAssertEqual(true, bananaMilk.isValid())
+        XCTAssertEqual(false, bananaMilk.isValid())
     }
 
     func testExpiration_COKE() {
@@ -122,13 +122,14 @@ class UnitTestVendingMachine: XCTestCase {
             stock.append(energyDrink)
         }
         let vendingMachine = VendingMachine(stockItems: stock)
-        print(vendingMachine.hotBeverage().description)
+        let displayHotItems = vendingMachine.hotBeverage()
+        print(displayHotItems.description)
 
     }
 
     func testValidExpirateDate() {
         var stock = [Beverage]()
-        let chocoMilk = ChocoMilk(brand: "서울우유", weight: 200, price: 1000, name: "날마다초코우유", manufactured: "20180202")
+        let chocoMilk = ChocoMilk(brand: "서울우유", weight: 200, price: 1000, name: "날마다초코우유", manufactured: "20180203")
         let coke = SoftDrink(brand: "코카콜라", weight: 500, price: 2000, name: "제로코크", manufactured: "20171005")
         let expiredCoffee = Coffee(brand: "폴바셋", weight: 350, price: 4000, name: "롱블랙", manufactured: "20171010")
         let dolceLatte = DolceLatte(brand: "스타벅스", weight: 473, price: 6000, name: "돌체라떼", manufactured: "20180202")
@@ -140,12 +141,10 @@ class UnitTestVendingMachine: XCTestCase {
             stock.append(dolceLatte)
         }
         // 추가된 음료를 딕셔너리형태로 정렬 (커피 수 : 6)
-        let allItems = StockController(items: stock)
-        print(allItems.stockStatus(of: "전체 수량 테스트"))
-
         let vendingMachine = VendingMachine(stockItems: stock)
         let exceptDiscard = vendingMachine.validItems()
-        print(exceptDiscard.stockStatus(of: "유통기한 내의 음료 테스트")) // 유통기한 지난 음료는 안나옴 (커피 수 - 폴바셋 표시 X : 3)
+        print(exceptDiscard.description)
+        // 유통기한 지난 음료는 안나옴 (커피 수 - 폴바셋 표시 X : 3)
     }
 
     func testObjectIdentifier() {
@@ -165,6 +164,133 @@ class UnitTestVendingMachine: XCTestCase {
         }
         print(productSets)
         }
+
+    func testAddItems() {
+        var stock = [Beverage]()
+        let americano = Coffee(brand: "맥심", weight: 400, price: 3000, name: "TOP아메리카노", manufactured: "20171010")
+        let energyDrink = EnergyDrink(brand: "레드불", weight: 350, price: 2000, name: "레드불", manufactured: "20171010")
+
+        for _ in 0..<2 {
+            stock.append(americano)
+            stock.append(energyDrink)
+        }
+        let dolceLatte = DolceLatte(brand: "스타벅스", weight: 473, price: 6000, name: "돌체라떼", manufactured: "20180110")
+
+        let vending = VendingMachine(stockItems: stock)
+        print(vending.showStock())
+        vending.add(inputItem: dolceLatte)
+        print(vending.showStock())
+        //print(addedStock.description)
+
+    }
+
+    func testCheckMoneyInput() {
+        let testInput = 2
+        let result = InputChecker().validMoney(input: testInput)
+        XCTAssertEqual(result, 5000)
+    }
+
+    func testAddBalance() {
+        var stock = [Beverage]()
+        let americano = Coffee(brand: "맥심", weight: 400, price: 3000, name: "TOP아메리카노", manufactured: "20171010")
+        let energyDrink = EnergyDrink(brand: "레드불", weight: 350, price: 2000, name: "레드불", manufactured: "20171010")
+
+        for _ in 0..<2 {
+            stock.append(americano)
+            stock.append(energyDrink)
+        }
+
+        let testInput = 1
+        let money = InputChecker().validMoney(input: testInput)
+        let vending = VendingMachine(stockItems: stock)
+        vending.addBalance(money: money)
+        let result = vending.showBalance()
+        XCTAssertEqual(result, 10000)
+    }
+
+//    func testBuy_BALANCE() {
+//        var stock = [Beverage]()
+//        let americano = Coffee(brand: "맥심", weight: 400, price: 3000, name: "TOP아메리카노", manufactured: "20171010")
+//        let energyDrink = EnergyDrink(brand: "레드불", weight: 350, price: 2000, name: "레드불", manufactured: "20171010")
+//
+//        for _ in 0..<2 {
+//            stock.append(americano)
+//            stock.append(energyDrink)
+//        }
+//
+//        let testInput = 1
+//        let money = InputChecker().validMoney(input: testInput)
+//        let vending = VendingMachine(stockItems: stock)
+//        vending.addBalance(money: money)
+//        vending.buy(itemSelected: americano, unit: 1)
+//        let resultBalance = vending.showBalance()
+//        XCTAssertEqual(resultBalance, 7000)
+//    }
+//
+//    func testBuy_STOCK() {
+//        var stock = [Beverage]()
+//        let americano = Coffee(brand: "맥심", weight: 400, price: 3000, name: "TOP아메리카노", manufactured: "20171010")
+//        let energyDrink = EnergyDrink(brand: "레드불", weight: 350, price: 2000, name: "레드불", manufactured: "20171010")
+//
+//        for _ in 0..<2 {
+//            stock.append(americano)
+//            stock.append(energyDrink)
+//        }
+//
+//        let testInput = 1
+//        let money = InputChecker().validMoney(input: testInput)
+//        let vending = VendingMachine(stockItems: stock)
+//        vending.addBalance(money: money)
+//        print("테스트" + vending.stock.description)
+//        vending.buy(itemSelected: energyDrink, unit: 1)
+//        print("테스트" + vending.stock.description)
+//    }
+
+//    func testMatchKey() {
+//        var stock = [Beverage]()
+//        let energyDrink = EnergyDrink(brand: "레드불", weight: 350, price: 2000, name: "레드불", manufactured: "20171010")
+//
+//        for _ in 0..<2 {
+//            stock.append(energyDrink)
+//        }
+//        let vending = VendingMachine(stockItems: stock)
+//        let productkeys = vending.stock.keys
+//
+//        let result = VendingMachine.Product.matchpKey(1)
+//        print(result)
+//    }
+
+    func testMatchKey2() {
+        var stock = [Beverage]()
+        let energyDrink = EnergyDrink(brand: "레드불", weight: 350, price: 2000, name: "레드불", manufactured: "20171010")
+        let americano = Coffee(brand: "맥심", weight: 400, price: 3000, name: "TOP아메리카노", manufactured: "20171010")
+
+        for _ in 0..<2 {
+            stock.append(americano)
+        }
+        let vending = VendingMachine(stockItems: stock)
+        let productkeys = Array(vending.stock.keys)
+
+        let resultEnergyDrink = vending.matchKey(6)!
+        let resultCoffee = vending.matchKey(4)
+        XCTAssertEqual(resultCoffee, productkeys[0])
+        XCTAssertFalse(resultEnergyDrink == productkeys[0])
+    }
+
+    func testGetPrice(){
+        var stock = [Beverage]()
+        let energyDrink = EnergyDrink(brand: "레드불", weight: 350, price: 2000, name: "레드불", manufactured: "20171010")
+        let americano = Coffee(brand: "맥심", weight: 400, price: 3000, name: "TOP아메리카노", manufactured: "20171010")
+
+        for _ in 0..<2 {
+            stock.append(energyDrink)
+            stock.append(americano)
+        }
+        let vending = VendingMachine(stockItems: stock)
+
+        let result = vending.stockContoller.priceOfItem(ObjectIdentifier(type(of:energyDrink)))
+        XCTAssertEqual(result, 2000)
+    }
 
 }
 

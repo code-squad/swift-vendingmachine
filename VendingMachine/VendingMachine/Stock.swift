@@ -11,9 +11,10 @@ import Foundation
 struct Stock: BeverageDisplayStand, CustomStringConvertible {
     var description: String {
         var result = ""
-        self.sortedItems.forEach { shelf in
-            result += "\(shelf.value[0].type) | \(shelf.value[0].getPrice()) : \(shelf.value.count)개 \n"
-        }
+        result += "재고 디스크립션"
+//        self.sortedItems.forEach { shelf in
+//            result += "\(shelf.value[0].type) | \(shelf.value[0].getPrice())원 : \(shelf.value.count)개 \n"
+//        }
         return result
     }
     private(set) var sortedItems = [ObjectIdentifier: [Beverage]]()
@@ -22,5 +23,8 @@ struct Stock: BeverageDisplayStand, CustomStringConvertible {
         self.sortedItems = sortedItems
     }
 
+    func getKey() {
+
+    }
 
 }
