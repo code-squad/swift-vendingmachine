@@ -12,7 +12,7 @@ struct ShowCase: BeverageDisplayStand {
     var description: String {
         var result = "<< 선택한 음료 옵션의 검색결과 >> \n"
         self.itemsForDisplay.forEach { shelf in
-            result += "\(shelf.value[0].type) | \(shelf.value[0].getPrice()) : \(shelf.value.count)개 \n"
+            result += "\(shelf.value[0].type) | \(shelf.value[0].getPrice())원 : \(shelf.value.count)개 \n"
         }
         return result
     }

@@ -10,12 +10,13 @@ import Foundation
 
 class SoftDrink: Beverage {
     private let validDuration = 365
+    private let itemCode = 3
     override var type: String {
         return "콜라"
     }
 
     init(brand: String, weight: Int, price: Int, name: String, manufactured: String) {
-        super.init(brand: brand, weight: weight, price: price, name: name, manufactured: manufactured, valid: self.validDuration)
+        super.init(brand: brand, weight: weight, price: price, name: name, manufactured: manufactured, valid: self.validDuration, itemCode: self.itemCode)
     }
 
     override func isHot() -> Bool {

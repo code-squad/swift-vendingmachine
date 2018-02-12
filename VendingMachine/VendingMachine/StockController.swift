@@ -36,22 +36,19 @@ struct StockController: CustomStringConvertible {
     return stockSets
     }
 
-    mutating func removeItem(itemCode: ObjectIdentifier) -> [ObjectIdentifier: [Beverage]]{
-        var tempStock = self.stock
-        for var set in tempStock {
-            if set.key == itemCode {
-                historyLog.purchase.append(set.value[0])
-                set.value.remove(at: 0)
-            }
-            if set.key != itemCode {
-                print("재고가 없는 음료 선택 Error")
+    mutating func removeItem(item: ObjectIdentifier) {
+        var hasItem = false
+        for set in self.stock {
+            if set.key == item {
+                hasItem = true
             }
         }
-        self.stock = tempStock
-        return self.stock
+        if hasItem {
+            self.stock[item]!.removeLast()
+        }
     }
 
-    mutating func addItem(item: Beverage) -> [ObjectIdentifier: [Beverage]] {
+    mutating func addItem(item: Beverage) {
         var tempStock = self.stock
         for var set in tempStock {
             if set.key == ObjectIdentifier(type(of:item)) {
@@ -64,18 +61,19 @@ struct StockController: CustomStringConvertible {
             }
         }
         self.stock = tempStock
-        return self.stock
     }
 
     func priceOfItem(_ itemCode: ObjectIdentifier) -> Int {
+        var price = 0
         for set in self.stock {
             if set.key == itemCode {
-                return set.value[0].getPrice()
+                price = set.value[0].getPrice()
+                break
             } else {
-                return 0
+                continue
             }
         }
-        return 0
+        return price
     }
 
     func findHotBeverage() -> [ObjectIdentifier: [Beverage]] {
@@ -93,7 +91,15 @@ struct StockController: CustomStringConvertible {
     func stockStatus(of message: String) -> String {
         var result = "<< \(message) >> \n"
         self.stock.forEach { set in
-            result += "\(set.value[0].type) : \(set.value.count)개 \n"
+            result += "\(set.value[0].type) : \(set.value[0].getPrice())원 | \(set.value.count)개 \n"
+        }
+        return result
+    }
+
+    func showStock() -> String {
+        var result = ""
+        self.stock.forEach { set in
+            result += "\(set.value[0].type) (\(set.value.count)개) | "
         }
         return result
     }

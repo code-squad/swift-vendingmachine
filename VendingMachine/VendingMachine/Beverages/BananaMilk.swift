@@ -10,12 +10,13 @@ import Foundation
 
 class BananaMilk: Beverage {
     private let validDuration = 3
+    private let itemCode = 2
     override var type: String {
         return "바나나우유"
     }
 
      init(brand: String, weight: Int, price: Int, name: String, manufactured: String) {
-        super.init(brand: brand, weight: weight, price: price, name: name, manufactured: manufactured, valid: self.validDuration)
+        super.init(brand: brand, weight: weight, price: price, name: name, manufactured: manufactured, valid: self.validDuration, itemCode: self.itemCode)
     }
 
     override func isHot() -> Bool {
