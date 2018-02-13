@@ -8,4 +8,4 @@
 
 import Foundation
 
-Controller().newRun()
+Controller().run()

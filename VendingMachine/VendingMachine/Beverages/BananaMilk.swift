@@ -10,7 +10,7 @@ import Foundation
 
 class BananaMilk: Beverage {
     private let validDuration = 3
-    private let itemCode = 2
+    private let itemCode = 4
     override var type: String {
         return "바나나우유"
     }

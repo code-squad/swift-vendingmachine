@@ -24,6 +24,16 @@ class Beverage: CustomStringConvertible, Attribute{
         return "\(type) - \(brand) | \(weight)ml | \(price)원 | \(name) | \(manufactured.description)"
     }
 
+    init() {
+        self.brand = ""
+        self.weight = 0
+        self.price = 0
+        self.name = ""
+        self.manufactured = Date()
+        self.validDuration = 0
+        self.itemCode = 0
+    }
+
     init(brand: String, weight: Int, price: Int, name: String, manufactured: String, valid: Int, itemCode: Int) {
         self.brand = brand
         self.weight = weight
@@ -63,4 +73,7 @@ class Beverage: CustomStringConvertible, Attribute{
         return self.manufactured.isOutOfDate(validDuration: self.validDuration)
     }
 
+    func isCheaper(than money: Int) -> Bool {
+        return self.price < money
+    }
 }

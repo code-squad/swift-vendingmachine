@@ -10,7 +10,7 @@ import Foundation
 
 class EnergyDrink: Beverage {
     private let validDuration = 90
-    private let itemCode = 6
+    private let itemCode = 1
     override var type: String {
         return "에너지드링크"
     }
