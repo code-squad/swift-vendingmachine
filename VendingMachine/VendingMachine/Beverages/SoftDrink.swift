@@ -10,7 +10,7 @@ import Foundation
 
 class SoftDrink: Beverage {
     private let validDuration = 365
-    private let itemCode = 3
+    private let itemCode = 6
     override var type: String {
         return "콜라"
     }

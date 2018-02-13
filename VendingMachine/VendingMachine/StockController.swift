@@ -36,16 +36,23 @@ struct StockController: CustomStringConvertible {
     return stockSets
     }
 
-    mutating func removeItem(item: ObjectIdentifier) {
+    mutating func removeItem(item: ObjectIdentifier, balance: Int) throws -> Beverage {
         var hasItem = false
         for set in self.stock {
             if set.key == item {
                 hasItem = true
+                break
             }
         }
         if hasItem {
-            self.stock[item]!.removeLast()
+            guard self.stock[item]![0].isCheaper(than: balance) else {
+                throw VendingMachine.Exception.NotEnoughBalance
+            }
+            historyLog.purchase.append(self.stock[item]![0])
+            self.stock[item]!.remove(at: 0)
+            return self.stock[item]![0]
         }
+        throw VendingMachine.Exception.OutOfStock
     }
 
     mutating func addItem(item: Beverage) {
@@ -88,15 +95,15 @@ struct StockController: CustomStringConvertible {
         return self.setAsDictionary(available)
     }
 
-    func stockStatus(of message: String) -> String {
+    func menu(of message: String) -> String {
         var result = "<< \(message) >> \n"
         self.stock.forEach { set in
-            result += "\(set.value[0].type) : \(set.value[0].getPrice())원 | \(set.value.count)개 \n"
+            result += "\(set.value[0].code())) \(set.value[0].type) : \(set.value[0].getPrice())원 | \(set.value.count)개 \n"
         }
         return result
     }
 
-    func showStock() -> String {
+    func stockSummary() -> String {
         var result = ""
         self.stock.forEach { set in
             result += "\(set.value[0].type) (\(set.value.count)개) | "

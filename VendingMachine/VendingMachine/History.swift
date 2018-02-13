@@ -21,18 +21,18 @@ struct History {
         var result = ""
 
         if purchaseLog.count != 0 {
-            result += " 구매 내역 > \n"
+            result += "< 구매 내역 > \n"
             for log in purchaseLog {
-                result += "\(log.description), \(log.getPrice())원, \(Date().getDateWithLocalTime())\n"
+                result += "\(log.type), \(log.getPrice())원, \(Date().getDateWithLocalTime())\n"
             }
         } else {
             result += " >> 구매 내역이 없습니다. \n"
         }
 
         if supplyLog.count != 0 {
-            result += " 입고 내역 > \n"
+            result += "< 입고 내역 > \n"
             for log in supplyLog {
-                result += "\(log.description), \(log.getPrice())원, \(Date().getDateWithLocalTime())\n"
+                result += "\(log.type), \(Date().getDateWithLocalTime())\n"
             }
         } else {
             result += " >> 입고 내역이 없습니다. \n"

@@ -10,7 +10,7 @@ import Foundation
 
 class ChocoMilk: Beverage {
     private let validDuration = 3
-    private let itemCode = 1
+    private let itemCode = 2
     override var type: String {
         return "초코우유"
     }

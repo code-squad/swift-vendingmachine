@@ -10,7 +10,7 @@ import Foundation
 
 class DolceLatte: Beverage {
     private let validDuration = 30
-    private let itemCode = 5
+    private let itemCode = 3
     override var type: String {
         return "돌체라떼"
     }

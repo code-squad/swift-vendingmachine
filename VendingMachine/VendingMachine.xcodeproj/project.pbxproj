@@ -8,18 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
-		E81064BD202AC495003D714B /* ProgramDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81064BC202AC495003D714B /* ProgramDescription.swift */; };
-		E81064BE202AC646003D714B /* ProgramDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81064BC202AC495003D714B /* ProgramDescription.swift */; };
 		E82D9ED720273A1300DF679E /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E48572202452CB00096690 /* History.swift */; };
 		E85419F42022E17300D78F36 /* DolceLatte.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85419F32022E17300D78F36 /* DolceLatte.swift */; };
 		E85419F52022E33A00D78F36 /* DolceLatte.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85419F32022E17300D78F36 /* DolceLatte.swift */; };
 		E85419F8202304BA00D78F36 /* StockController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85419F7202304BA00D78F36 /* StockController.swift */; };
 		E85419F92023101E00D78F36 /* StockController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85419F7202304BA00D78F36 /* StockController.swift */; };
-		E854DB6720219E0200225FB1 /* InputChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E898BEC820204726008D5998 /* InputChecker.swift */; };
-		E86E05702028206B007EFC4D /* BeverageDisplayStand.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86E056F2028206B007EFC4D /* BeverageDisplayStand.swift */; };
-		E86E05712028207C007EFC4D /* BeverageDisplayStand.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86E056F2028206B007EFC4D /* BeverageDisplayStand.swift */; };
-		E86E05732028263E007EFC4D /* ShowCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86E05722028263E007EFC4D /* ShowCase.swift */; };
-		E86E057520282938007EFC4D /* ShowCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86E05722028263E007EFC4D /* ShowCase.swift */; };
 		E8735689201EE8F6004126E2 /* UnitTestVendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8735688201EE8F6004126E2 /* UnitTestVendingMachine.swift */; };
 		E873568F201EE926004126E2 /* Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = E873568E201EE926004126E2 /* Attribute.swift */; };
 		E8735690201EE9A3004126E2 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
@@ -48,9 +41,6 @@
 		E898BEC320201CBF008D5998 /* BananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = E873569E201F1BF9004126E2 /* BananaMilk.swift */; };
 		E898BEC420201CC2008D5998 /* EnergyDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = E873569A201F1ABB004126E2 /* EnergyDrink.swift */; };
 		E898BEC520201CC5008D5998 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8735698201F1A60004126E2 /* VendingMachine.swift */; };
-		E898BEC920204726008D5998 /* InputChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E898BEC820204726008D5998 /* InputChecker.swift */; };
-		E8B0D94920283895004911C9 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E4857020231E2000096690 /* Stock.swift */; };
-		E8E4857120231E2100096690 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E4857020231E2000096690 /* Stock.swift */; };
 		E8E48573202452CB00096690 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E48572202452CB00096690 /* History.swift */; };
 /* End PBXBuildFile section */
 
@@ -69,11 +59,8 @@
 /* Begin PBXFileReference section */
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		E81064BC202AC495003D714B /* ProgramDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramDescription.swift; sourceTree = "<group>"; };
 		E85419F32022E17300D78F36 /* DolceLatte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DolceLatte.swift; sourceTree = "<group>"; };
 		E85419F7202304BA00D78F36 /* StockController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockController.swift; sourceTree = "<group>"; };
-		E86E056F2028206B007EFC4D /* BeverageDisplayStand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageDisplayStand.swift; sourceTree = "<group>"; };
-		E86E05722028263E007EFC4D /* ShowCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCase.swift; sourceTree = "<group>"; };
 		E8735686201EE8F6004126E2 /* UnitTestVendingMachine.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTestVendingMachine.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8735688201EE8F6004126E2 /* UnitTestVendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestVendingMachine.swift; sourceTree = "<group>"; };
 		E873568A201EE8F6004126E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -90,8 +77,6 @@
 		E88E17C3201C7464007B380A /* CustomExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomExtension.swift; sourceTree = "<group>"; };
 		E898BEBC20200BA3008D5998 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		E898BEBE20200C3F008D5998 /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
-		E898BEC820204726008D5998 /* InputChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputChecker.swift; sourceTree = "<group>"; };
-		E8E4857020231E2000096690 /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 		E8E48572202452CB00096690 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -142,13 +127,8 @@
 				E88E17C3201C7464007B380A /* CustomExtension.swift */,
 				E8735698201F1A60004126E2 /* VendingMachine.swift */,
 				E898BEBE20200C3F008D5998 /* Controller.swift */,
-				E898BEC820204726008D5998 /* InputChecker.swift */,
 				E85419F7202304BA00D78F36 /* StockController.swift */,
 				E8E48572202452CB00096690 /* History.swift */,
-				E8E4857020231E2000096690 /* Stock.swift */,
-				E86E05722028263E007EFC4D /* ShowCase.swift */,
-				E86E056F2028206B007EFC4D /* BeverageDisplayStand.swift */,
-				E81064BC202AC495003D714B /* ProgramDescription.swift */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";
@@ -269,17 +249,12 @@
 			files = (
 				E898BEBD20200BA3008D5998 /* InputView.swift in Sources */,
 				E88E17BA201AD5CB007B380A /* Beverage.swift in Sources */,
-				E8E4857120231E2100096690 /* Stock.swift in Sources */,
-				E81064BD202AC495003D714B /* ProgramDescription.swift in Sources */,
 				E88E17BC201AD5DC007B380A /* Milk.swift in Sources */,
-				E86E05732028263E007EFC4D /* ShowCase.swift in Sources */,
 				E88E17C4201C7464007B380A /* CustomExtension.swift in Sources */,
-				E898BEC920204726008D5998 /* InputChecker.swift in Sources */,
 				E88E17BE201AD606007B380A /* SoftDrink.swift in Sources */,
 				E873569D201F1BE9004126E2 /* ChocoMilk.swift in Sources */,
 				E873569F201F1BF9004126E2 /* BananaMilk.swift in Sources */,
 				E85419F8202304BA00D78F36 /* StockController.swift in Sources */,
-				E86E05702028206B007EFC4D /* BeverageDisplayStand.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
 				E88E17C0201AD613007B380A /* Coffee.swift in Sources */,
 				E873569B201F1ABB004126E2 /* EnergyDrink.swift in Sources */,
@@ -299,7 +274,6 @@
 				E8735697201EE9B6004126E2 /* CustomExtension.swift in Sources */,
 				E8735691201EE9A5004126E2 /* Attribute.swift in Sources */,
 				E82D9ED720273A1300DF679E /* History.swift in Sources */,
-				E854DB6720219E0200225FB1 /* InputChecker.swift in Sources */,
 				E898BEC120201C51008D5998 /* Controller.swift in Sources */,
 				E85419F92023101E00D78F36 /* StockController.swift in Sources */,
 				E8735690201EE9A3004126E2 /* main.swift in Sources */,
@@ -310,14 +284,10 @@
 				E8735694201EE9AD004126E2 /* SoftDrink.swift in Sources */,
 				E898BEC220201CBD008D5998 /* ChocoMilk.swift in Sources */,
 				E898BEC320201CBF008D5998 /* BananaMilk.swift in Sources */,
-				E81064BE202AC646003D714B /* ProgramDescription.swift in Sources */,
 				E8735693201EE9AB004126E2 /* Milk.swift in Sources */,
 				E898BEC020201659008D5998 /* InputView.swift in Sources */,
 				E8735695201EE9B1004126E2 /* Coffee.swift in Sources */,
 				E85419F52022E33A00D78F36 /* DolceLatte.swift in Sources */,
-				E86E05712028207C007EFC4D /* BeverageDisplayStand.swift in Sources */,
-				E86E057520282938007EFC4D /* ShowCase.swift in Sources */,
-				E8B0D94920283895004911C9 /* Stock.swift in Sources */,
 				E8735696201EE9B4004126E2 /* OutputView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
