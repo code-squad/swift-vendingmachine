@@ -37,6 +37,18 @@ extension Date {
         // 사용기한 + 제조일자 > 오늘날짜 = true
         return currentDate < expiration
     }
+
+    // History에서 사용하기위해 Local시간을 날짜와 함께 문자열로 리턴
+    func getDateWithLocalTime() -> String {
+        let formatter = DateFormatter()
+        formatter.formatterBehavior = .behavior10_4
+        formatter.dateStyle = .short
+        formatter.timeStyle = .short
+        formatter.locale = Locale(identifier: "ja_JP")
+
+        return formatter.string(from: self)
+    }
+
 }
 
 // MARK: Extension Dictionary
