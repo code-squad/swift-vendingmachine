@@ -36,7 +36,7 @@ struct StockController: CustomStringConvertible {
     return stockSets
     }
 
-    mutating func removeItem(item: ObjectIdentifier, balance: Int) throws -> Beverage {
+    mutating func buy(item: ObjectIdentifier, balance: Int) throws -> Beverage {
         var hasItem = false
         for set in self.stock {
             if set.key == item {
@@ -49,10 +49,15 @@ struct StockController: CustomStringConvertible {
                 throw VendingMachine.Exception.NotEnoughBalance
             }
             historyLog.purchase.append(self.stock[item]![0])
-            self.stock[item]!.remove(at: 0)
             return self.stock[item]![0]
         }
         throw VendingMachine.Exception.OutOfStock
+    }
+
+    // remove한 뒤에 리턴해버리니까 음료수가 한개만 남은상태에서
+    // 구매하려고하면 range에러뜨는 상황 발생해서 두 메소드로 나눔
+    mutating func removeItem(_ item: ObjectIdentifier) {
+        self.stock[item]!.remove(at: 0)
     }
 
     mutating func addItem(item: Beverage) {
@@ -97,17 +102,24 @@ struct StockController: CustomStringConvertible {
 
     func menu(of message: String) -> String {
         var result = "<< \(message) >> \n"
-        self.stock.forEach { set in
+
+        for set in self.stock where set.value.count > 0 {
             result += "\(set.value[0].code())) \(set.value[0].type) : \(set.value[0].getPrice())원 | \(set.value.count)개 \n"
         }
+//        self.stock.forEach { set in
+//            result += "\(set.value[0].code())) \(set.value[0].type) : \(set.value[0].getPrice())원 | \(set.value.count)개 \n"
+//        }
         return result
     }
 
     func stockSummary() -> String {
         var result = ""
-        self.stock.forEach { set in
+        for set in self.stock where set.value.count > 0 {
             result += "\(set.value[0].type) (\(set.value.count)개) | "
         }
+//        self.stock.forEach { set in
+//            result += "\(set.value[0].type) (\(set.value.count)개) | "
+//        }
         return result
     }
 
