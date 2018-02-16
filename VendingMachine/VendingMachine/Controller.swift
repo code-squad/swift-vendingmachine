@@ -34,34 +34,50 @@ struct Controller {
         let productSets = setVendingMachineStock(unit: 3)
         var result = Beverage()
         let vendingMachine = VendingMachine(stockItems: productSets)
+        var userInput = [Int]()
 
         while true {
+            let flag = vendingMachine.hasMiminumBalance()
 
-            let userInput = InputView().askSelectOption(message: "현재 투입한 금액이 \(vendingMachine.showBalance())원입니다. 다음과 같은 음료가 있습니다. \n\(vendingMachine.showStockDefault())")
-            guard InputView().checkValid(input: userInput) != [0] else {
-                print("메뉴를 다시 입력하세요.")
-                continue
-            }
-            vendingMachine.addBalance(money: userInput[1])
-            let buyOption = InputView().askSelectOption(message: "현재 투입한 금액이 \(vendingMachine.showBalance())원입니다. 다음과 같은 음료가 있습니다. \n\(vendingMachine.showStock())")
-            guard InputView().checkValid(input: buyOption) != [0] else {
-                print("메뉴를 다시 입력하세요.")
-                continue
-            }
-            do {
-               result = try vendingMachine.buy(option: buyOption[1])
-            } catch let error {
-                switch error {
-                case VendingMachine.Exception.NotEnoughBalance:
-                print("잔액 부족 에러")
-                case VendingMachine.Exception.OutOfStock:
-                print("품절 에러")
-                default: print("unknown Error")
+            switch flag {
+            case false:
+                userInput = InputView().askSelectOption(message: "현재 투입한 금액이 \(vendingMachine.showBalance())원입니다. 다음과 같은 음료가 있습니다. \n\(vendingMachine.showStockDefault())")
+                guard InputView().checkValid(input: userInput) != [0] else {
+                    print("메뉴를 다시 입력하세요.")
+                    continue
                 }
+            case true:
+                userInput = InputView().askSelectOption(message: "현재 투입한 금액이 \(vendingMachine.showBalance())원입니다. 다음과 같은 음료가 있습니다. \n\(vendingMachine.showStock())")
+                guard InputView().checkValid(input: userInput) != [0] else {
+                    print("메뉴를 다시 입력하세요.")
+                    continue
+                }
+
+            }
+
+            let operationType = userInput[0]
+
+            switch operationType {
+            case 1: vendingMachine.addBalance(money: userInput[1])
+            case 2:
+                do {
+                    result = try vendingMachine.buy(option: userInput[1])
+                } catch let error {
+                    switch error {
+                    case VendingMachine.Exception.NotEnoughBalance:
+                        print("잔액 부족 에러")
+                    case VendingMachine.Exception.OutOfStock:
+                        print("품절 에러")
+                    default: print("unknown Error")
+                    }
+                    continue
+                }
+                print("\(result.type)을 선택하셨습니다. \(result.getPrice())원을 차감합니다.")
+                print("History:\n\(vendingMachine.history())")
+            default:
+                print("동작에러. 메뉴를 다시 입력하세요.")
                 continue
             }
-            print("\(result.type)을 선택하셨습니다. \(result.getPrice())원을 차감합니다.")
-            print("History:\n\(vendingMachine.history())")
         }
     }
 }

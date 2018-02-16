@@ -30,7 +30,7 @@ struct History {
         }
 
         if supplyLog.count != 0 {
-            result += "< 입고 내역 > \n"
+            result += "\n< 입고 내역 > \n"
             for log in supplyLog {
                 result += "\(log.type), \(Date().getDateWithLocalTime())\n"
             }
