@@ -46,19 +46,27 @@ class VendingMachine {
         return self.balance
     }
 
-    func buy(option: Int) throws -> Beverage {
-        let item = matchKey(option)
-        guard let itemCode = item else {
+    func buy(itemCode: Int) throws -> Beverage {
+        let item = matchKey(itemCode)
+        guard let code = item else {
             throw Exception.OutOfStock
         }
-        let selectedItem = try stockController.buy(item: itemCode, balance: self.balance)
-        self.subtractBalance(money: stockController.priceOfItem(itemCode))
-        stockController.removeItem(itemCode)
+        let selectedItem = try stockController.buy(item: code, balance: self.balance)
+        self.subtractBalance(money: stockController.priceOfItem(code))
+        stockController.removeItem(code)
         return selectedItem
     }
 
     func add(inputItem: Beverage) {
         stockController.addItem(item: inputItem)
+    }
+
+    func removeItem(itemCode: Int) throws {
+        let item = matchKey(itemCode)
+        guard let code = item else {
+            throw Exception.OutOfStock
+        }
+        stockController.removeItem(code)
     }
 
     func history() -> String {
