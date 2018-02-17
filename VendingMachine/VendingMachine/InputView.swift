@@ -10,14 +10,21 @@ import Foundation
 
 struct InputView {
 
+    func askSelectMode() -> Int {
+        print("자판기를 시작합니다.\n1.관리자 모드\n2.사용자 모드\n> ")
+        let input = Int(readLine() ?? "") ?? 0
+        return input
+    }
+
     func askSelectOption(message: CustomStringConvertible) -> [Int] {
         print(message)
-        print("1. 금액추가 \n2. 음료구매 \n>> ")
         let input = readLine() ?? ""
         if input.contains(" ") {
             let splitInput = input.split(separator: " ")
             let options = splitInput.map({ Int($0) ?? 0 })
             return options
+        } else if input == "q" {
+            return [-1]
         } else {
             return [0]
         }
@@ -34,6 +41,7 @@ struct InputView {
             if (1 <= input[1]) && (input[1] <= 6) {
                 return input
             }
+        case -1: return [-1] // 컨트롤러에서의 종료조건
         default : return [0]
         }
 
