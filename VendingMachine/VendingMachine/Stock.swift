@@ -1,5 +1,5 @@
 //
-//  StockController.swift
+//  Stock.swift
 //  VendingMachine
 //
 //  Created by YOUTH on 2018. 2. 1..
@@ -8,14 +8,14 @@
 
 import Foundation
 
-struct StockController: CustomStringConvertible {
-    private(set) var stock = [ObjectIdentifier: [Beverage]]()
+struct Stock: CustomStringConvertible {
+    private(set) var inventory = [ObjectIdentifier: [Beverage]]()
     private var historyLog = (purchase: [Beverage](),
                               supply: [Beverage]())
 
     var description: String {
         var result = ""
-        self.stock.forEach { shelf in
+        self.inventory.forEach { shelf in
             result += "\(shelf.value[0].type) | \(shelf.value[0].getPrice()) : \(shelf.value.count)개 \n"
         }
         return result
@@ -26,7 +26,7 @@ struct StockController: CustomStringConvertible {
         let stockSets = items.reduce(into: [ObjectIdentifier: [Beverage]]()) {
             $0[ObjectIdentifier(type(of: $1)), default:[]].append($1)
         }
-        self.stock = stockSets
+        self.inventory = stockSets
     }
 
     func setAsDictionary (_ beverages: [Beverage]) -> [ObjectIdentifier: [Beverage]] {
@@ -38,18 +38,18 @@ struct StockController: CustomStringConvertible {
 
     mutating func buy(item: ObjectIdentifier, balance: Int) throws -> Beverage {
         var hasItem = false
-        for set in self.stock {
+        for set in self.inventory {
             if set.key == item {
                 hasItem = true
                 break
             }
         }
         if hasItem {
-            guard self.stock[item]![0].isCheaper(than: balance) else {
+            guard self.inventory[item]![0].isCheaper(than: balance) else {
                 throw VendingMachine.Exception.NotEnoughBalance
             }
-            historyLog.purchase.append(self.stock[item]![0])
-            return self.stock[item]![0]
+            historyLog.purchase.append(self.inventory[item]![0])
+            return self.inventory[item]![0]
         }
         throw VendingMachine.Exception.OutOfStock
     }
@@ -57,27 +57,25 @@ struct StockController: CustomStringConvertible {
     // remove한 뒤에 리턴해버리니까 음료수가 한개만 남은상태에서
     // 구매하려고하면 range에러뜨는 상황 발생해서 두 메소드로 나눔
     mutating func removeItem(_ item: ObjectIdentifier) {
-        self.stock[item]!.remove(at: 0)
+        self.inventory[item]!.remove(at: 0)
     }
 
     mutating func addItem(item: Beverage) {
-        var tempStock = self.stock
-        for var set in tempStock {
-            if set.key == ObjectIdentifier(type(of:item)) {
-                set.value.append(item)
-                historyLog.supply.append(set.value.last!)
-            }
-            if set.key != ObjectIdentifier(type(of:item)) {
+        for set in self.inventory {
+            if var arr = self.inventory[ObjectIdentifier(type(of:item))] {
+                arr.append(item)
+                self.inventory[ObjectIdentifier(type(of:item))] = arr
+                break
+            } else if set.key != ObjectIdentifier(type(of:item)) {
                 let newItemSet = [ObjectIdentifier(type(of:item)) : [item]]
-                tempStock.update(other: newItemSet)
+                self.inventory.update(other: newItemSet)
             }
         }
-        self.stock = tempStock
     }
 
     func priceOfItem(_ itemCode: ObjectIdentifier) -> Int {
         var price = 0
-        for set in self.stock {
+        for set in self.inventory {
             if set.key == itemCode {
                 price = set.value[0].getPrice()
                 break
@@ -90,7 +88,7 @@ struct StockController: CustomStringConvertible {
 
     func findHotBeverage() -> [ObjectIdentifier: [Beverage]] {
         var available = [Beverage]()
-        for set in self.stock {
+        for set in self.inventory {
             for item in set.value {
                 if item.isHot() {
                     available.append(item)
@@ -103,30 +101,24 @@ struct StockController: CustomStringConvertible {
     func menu(of message: String) -> String {
         var result = "<< \(message) >> \n"
 
-        for set in self.stock where set.value.count > 0 {
+        for set in self.inventory where set.value.count > 0 {
             result += "\(set.value[0].code())) \(set.value[0].type) : \(set.value[0].getPrice())원 | \(set.value.count)개 \n"
         }
-//        self.stock.forEach { set in
-//            result += "\(set.value[0].code())) \(set.value[0].type) : \(set.value[0].getPrice())원 | \(set.value.count)개 \n"
-//        }
         return result
     }
 
     func stockSummary() -> String {
         var result = ""
-        for set in self.stock where set.value.count > 0 {
+        for set in self.inventory where set.value.count > 0 {
             result += "\(set.value[0].type) (\(set.value.count)개) | "
         }
-//        self.stock.forEach { set in
-//            result += "\(set.value[0].type) (\(set.value.count)개) | "
-//        }
         return result
     }
 
     // 유통기한 지난 음료
     func findDiscardBeverage() -> [ObjectIdentifier: [Beverage]] {
         var discards = [Beverage]()
-        for set in self.stock {
+        for set in self.inventory {
             for product in set.value {
                 if !product.isValid() {
                     discards.append(product)
@@ -139,7 +131,7 @@ struct StockController: CustomStringConvertible {
     // 유통기한 내의 음료
     func findValidBeverage() -> [ObjectIdentifier: [Beverage]] {
         var valid = [Beverage]()
-        for set in self.stock {
+        for set in self.inventory {
             for product in set.value {
                 if product.isValid() {
                     valid.append(product)
@@ -151,7 +143,7 @@ struct StockController: CustomStringConvertible {
 
     func finditemsCheaper(than balance: Int) -> [ObjectIdentifier: [Beverage]] {
         var valid = [Beverage]()
-        for set in self.stock {
+        for set in self.inventory {
             for product in set.value {
                 if product.getPrice() <= balance {
                     valid.append(product)
