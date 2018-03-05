@@ -12,6 +12,7 @@ enum ProgramMode {
     case Admin
     case User
     case None
+    case Quit
 }
 
 enum AdminMenu {
@@ -24,17 +25,22 @@ enum AdminMenu {
 struct InputView {
 
     func askSelectMode() -> ProgramMode {
-        print("자판기를 시작합니다.\n1.관리자 모드\n2.사용자 모드\n> ")
+        print("자판기를 시작합니다.(종료를 원하면 \"q\"입력)\n1.관리자 모드\n2.사용자 모드\n> ")
         var mode = ProgramMode.None
-        let input = Int(readLine() ?? "") ?? 0
+        let input = readLine() ?? ""
 
-        switch input {
-        case 1:
-            mode = .Admin
-        case 2:
-            mode = .User
-        default:
-            mode = .None
+        if input == "q" {
+            mode = .Quit
+        } else {
+            let inputNumber = Int(input) ?? 0
+            switch inputNumber {
+            case 1:
+                mode = .Admin
+            case 2:
+                mode = .User
+            default:
+                mode = .None
+            }
         }
         return mode
     }
