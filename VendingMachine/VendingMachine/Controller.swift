@@ -48,8 +48,8 @@ struct Controller {
         while runProgram {
             switch InputView().askSelectMode() {
 
-            case 1: do {
-                vendingMachine = try manageMode(vendingMachine)
+            case .Admin: do {
+                vendingMachine = try adminMode(vendingMachine)
             } catch let error {
                 switch error {
                 case VendingMachine.Exception.OutOfStock:
@@ -59,7 +59,7 @@ struct Controller {
                 continue
             }
 
-            case 2: do {
+            case .User: do {
                 vendingMachine = try userMode(vendingMachine)
             } catch let error {
                 switch error {
@@ -71,21 +71,20 @@ struct Controller {
                 }
                 continue
             }
-            case 0:
+            case .None:
                 print("<< 자판기 종료 >>")
                 runProgram = false
                 break
+//                print("메뉴를 다시 입력하세요. - default")
+//                continue
 
-            default:
-                print("메뉴를 다시 입력하세요. - default")
-                continue
             }
         }
 
     }
 
     // 관리자 모드
-    private func manageMode(_ vendingMachine: VendingMachine) throws -> VendingMachine {
+    private func adminMode(_ vendingMachine: VendingMachine) throws -> VendingMachine {
         var run = true
         while run {
             let input = InputView().askSelectOption(message: "<< 관리자 모드 >>\n원하는 동작과 음료 번호를 선택하세요.\n\(vendingMachine.showStock())\n1. 재고 추가 | 2. 재고 삭제 (띄어쓰기로 구분, 종료를 원하면 공백 입력) \n>>")
