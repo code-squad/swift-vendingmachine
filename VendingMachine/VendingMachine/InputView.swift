@@ -22,6 +22,13 @@ enum AdminMenu {
     case Quit
 }
 
+enum UserMenu {
+    case AddBalance
+    case BuyItem
+    case None
+    case Quit
+}
+
 struct InputView {
 
     func askSelectMode() -> ProgramMode {
@@ -45,18 +52,25 @@ struct InputView {
         return mode
     }
 
-    func askSelectOption(message: CustomStringConvertible) -> [Int] {
+    func askUserExecuteOption(message: CustomStringConvertible) -> (action: UserMenu, option: Int) {
         print(message)
+        var result = (action: UserMenu.None, option: 0)
+
         let input = readLine() ?? ""
-        if input.contains(" ") {
-            let splitInput = input.split(separator: " ")
-            let options = splitInput.map({ Int($0) ?? 0 })
-            return options
-        } else if input == "q" {
-            return [-1]
+
+        if input == "q" {
+            result = (action: .Quit, option: 0)
+        } else if input.contains(" ") {
+            let splitInput = (input.split(separator: " ")).map({ Int($0) ?? 0 })
+            switch splitInput[0] {
+            case 1: result = (action: .AddBalance, option: splitInput[1])
+            case 2: result = (action: .BuyItem, option: splitInput[1])
+            default: result = (action: .None, option: 0)
+            }
         } else {
-            return [0]
+            return result
         }
+        return result
     }
 
     func askAdminExecuteOption(message: CustomStringConvertible) -> (action: AdminMenu, option: Int) {
@@ -77,25 +91,6 @@ struct InputView {
             return result
         }
         return result
-    }
-
-
-    // InputView와 InputChecker를 분리하려고했지만 기능이 한 개씩 밖에 없어서 InputView에 Input값을 검사하는 메소드 추가함
-    func checkValid(input: [Int]) -> [Int] {
-        switch input[0] {
-        case 1:
-            if input[1] > 0 {
-                return input
-            }
-        case 2:
-            if (1 <= input[1]) && (input[1] <= 6) {
-                return input
-            }
-        case -1: return [-1] // 컨트롤러에서의 종료조건
-        default : return [0]
-        }
-
-        return [0]
     }
 
 }

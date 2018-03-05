@@ -80,7 +80,7 @@ struct Controller {
                 continue
 
             case .Quit:
-                print("<< 자판기 종료 >>")
+                print("## 자판기를 종료합니다. ##\n")
                 runProgram = false
                 break
             }
@@ -99,7 +99,7 @@ struct Controller {
             case .None: print("## 관리자 모드 메뉴를 다시 입력해주세요. ##\n")
                 continue
             case .Quit: print("## 관리자 모드를 종료합니다. ##\n")
-                run = false // "q"입력시 while문 종료, 관리자모드 종료
+                run = false
             }
         }
         return vendingMachine
@@ -108,43 +108,38 @@ struct Controller {
     // 사용자 모드
     private func userMode(_ vendingMachine: VendingMachine) throws -> VendingMachine {
         var result = Beverage()
-        var userInput = [Int]()
+        var input = (action: UserMenu.None, option: 0)
         var run = true
 
         while run {
             let flag = vendingMachine.hasMiminumBalance()
 
+            // 자판기의 Balance 금액에 따라 사용자에게 보여지는 메뉴 텍스트가 다름
             switch flag {
             case false:
-                userInput = InputView().askSelectOption(message: "현재 투입한 금액이 \(vendingMachine.showBalance())원입니다. 다음과 같은 음료가 있습니다. \n\(vendingMachine.showStockDefault()) \n1. 금액추가 \n2. 음료구매 \n>>")
-                guard InputView().checkValid(input: userInput) != [0] else {
-                    print("메뉴를 다시 입력하세요.") // 공백만 입력했을 시 재입력 요청
-                    continue
-                }
+                input = InputView().askUserExecuteOption(message: "현재 투입한 금액이 \(vendingMachine.showBalance())원입니다. 다음과 같은 음료가 있습니다. \n\(vendingMachine.showStockDefault()) \n1. 금액추가 \n2. 음료구매 \n>>")
+
             case true:
-                userInput = InputView().askSelectOption(message: "현재 투입한 금액이 \(vendingMachine.showBalance())원입니다. 다음과 같은 음료가 있습니다. \n\(vendingMachine.showStock()) \n1. 금액추가 \n2. 음료구매 \n>>")
-                guard InputView().checkValid(input: userInput) != [0] else {
-                    print("메뉴를 다시 입력하세요.") // 공백만 입력했을 시 재입력 요청
-                    continue
-                }
+                input = InputView().askUserExecuteOption(message: "현재 투입한 금액이 \(vendingMachine.showBalance())원입니다. 다음과 같은 음료가 있습니다. \n\(vendingMachine.showStock()) \n1. 금액추가 \n2. 음료구매 \n>>")
             }
 
-            let operationType = userInput[0]
+            let operationType = input.action
 
             switch operationType {
-            case 1: vendingMachine.addBalance(money: userInput[1])
-            case 2: result = try vendingMachine.buy(itemCode: userInput[1])
+            case .AddBalance: vendingMachine.addBalance(money: input.option)
+            case .BuyItem: result = try vendingMachine.buy(itemCode: input.option)
                 print("\(result.type)을 선택하셨습니다. \(result.getPrice())원을 차감합니다.")
                 print("History:\n\(vendingMachine.history())")
-            case -1:
-                print("== 사용자 모드 종료 ==")
+            case .None:
+                print("## 사용자 모드 메뉴를 다시 입력해주세요. ##\n")
+                continue
+            case .Quit:
+                print("## 사용자 모드를 종료합니다. ##\n")
                 run = false
                 break
-            default:
-                print("동작에러. 메뉴를 다시 입력하세요.")
-                continue
             }
         }
         return vendingMachine
     }
+
 }
