@@ -301,7 +301,7 @@ class UnitTestVendingMachine: XCTestCase {
             DolceLatte(brand: "스타벅스", weight: 473, price: 6000, name: "돌체라떼", manufactured: "20171210"),
             BananaMilk(brand: "서울우유", weight: 200, price: 1000, name: "날마다바나나우유", manufactured: "20180213"),
             Coffee(brand: "맥심", weight: 400, price: 3000, name: "TOP아메리카노", manufactured: "20171010"),
-            SoftDrink(brand: "코카콜라", weight: 500, price: 2000, name: "제로코크", manufactured: "20171005"),
+            SoftDrink(brand: "코카콜라", weight: 500, price: 2000, name: "제로코크", manufactured: "20171005")
             ]
         var stock = Stock(items: beverages)
         print(stock.stockSummary())
@@ -312,5 +312,22 @@ class UnitTestVendingMachine: XCTestCase {
         let result = stock.inventory[ObjectIdentifier(type(of:addingItem))]?.count
         XCTAssertEqual(result, 2)
     }
+
+    func test_defaultCalorie() {
+        let beverage = Beverage()
+        XCTAssertTrue(beverage.isLowCalorie())
+    }
+
+    func testCalorie_softDrink() {
+        let softDrink = SoftDrink(brand: "코카콜라", weight: 500, price: 2000, name: "제로코크", manufactured: "20171005")
+        XCTAssertFalse(softDrink.isLowCalorie())
+    }
+
+    func testCalorie_Coffee() {
+        let coffee = Coffee(brand: "맥심", weight: 400, price: 3000, name: "TOP아메리카노", manufactured: "20171010")
+        XCTAssertTrue(coffee.isLowCalorie())
+    }
+
+
 }
 
