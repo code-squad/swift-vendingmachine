@@ -14,6 +14,13 @@ enum ProgramMode {
     case None
 }
 
+enum AdminMenu {
+    case AddItem
+    case DeleteItem
+    case None
+    case Quit
+}
+
 struct InputView {
 
     func askSelectMode() -> ProgramMode {
@@ -45,6 +52,27 @@ struct InputView {
             return [0]
         }
     }
+
+    func askAdminExecuteOption(message: CustomStringConvertible) -> (action: AdminMenu, option: Int) {
+        print(message)
+        var result = (action: AdminMenu.None, option: 0)
+        let input = readLine() ?? ""
+
+        if input.contains(" ") {
+            let splitInput = (input.split(separator: " ")).map({ Int($0) ?? 0 })
+            switch splitInput[0] {
+            case 1: result = (action: .AddItem, option: splitInput[1])
+            case 2: result = (action: .DeleteItem, option: splitInput[1])
+            default: return result
+            }
+        } else if input == "q" {
+            result = (action: .Quit, option: 0)
+        } else {
+            return result
+        }
+        return result
+    }
+
 
     // InputView와 InputChecker를 분리하려고했지만 기능이 한 개씩 밖에 없어서 InputView에 Input값을 검사하는 메소드 추가함
     func checkValid(input: [Int]) -> [Int] {
