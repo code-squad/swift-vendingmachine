@@ -13,15 +13,12 @@ class DolceLatte: Beverage {
     private let itemCode = 3
     private let calorie = 550
     private let hot = true
+    private let caffeine = 300
     override var type: String {
         return "돌체라떼"
     }
      init(brand: String, weight: Int, price: Int, name: String, manufactured: String) {
-        super.init(brand: brand, weight: weight, price: price, name: name, manufactured: manufactured, valid: self.validDuration, itemCode: self.itemCode, calorie: self.calorie, hot: self.hot)
-    }
-
-    override func isDecaf() -> Bool {
-        return false
+        super.init(brand: brand, weight: weight, price: price, name: name, manufactured: manufactured, valid: self.validDuration, itemCode: self.itemCode, calorie: self.calorie, hot: self.hot, caffeine: self.caffeine)
     }
 
     override func package() -> Package {

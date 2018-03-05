@@ -16,9 +16,6 @@ enum Package {
 }
 
 protocol Attribute {
-
-    func isHot() -> Bool
-    func isDecaf() -> Bool
     func package() -> Package
     func isValid() -> Bool
 }

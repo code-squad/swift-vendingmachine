@@ -21,6 +21,7 @@ class Beverage: CustomStringConvertible, Attribute{
     private var itemCode: Int
     private var calorie: Int
     private var hot: Bool
+    private var caffeine: Int
 
     var description: String {
         return "\(type) - \(brand) | \(weight)ml | \(price)원 | \(name) | \(manufactured.description)"
@@ -36,9 +37,10 @@ class Beverage: CustomStringConvertible, Attribute{
         self.itemCode = 0
         self.calorie = 0
         self.hot = false
+        self.caffeine = 0
     }
 
-    init(brand: String, weight: Int, price: Int, name: String, manufactured: String, valid: Int, itemCode: Int, calorie: Int, hot: Bool) {
+    init(brand: String, weight: Int, price: Int, name: String, manufactured: String, valid: Int, itemCode: Int, calorie: Int, hot: Bool, caffeine: Int) {
         self.brand = brand
         self.weight = weight
         self.price = price
@@ -48,6 +50,7 @@ class Beverage: CustomStringConvertible, Attribute{
         self.itemCode = itemCode
         self.calorie = calorie
         self.hot = hot
+        self.caffeine = caffeine
     }
 
     func isHot() -> Bool {
@@ -55,7 +58,7 @@ class Beverage: CustomStringConvertible, Attribute{
     }
 
     func isDecaf() -> Bool {
-        return true
+        return self.caffeine < 200
     }
 
     func package() -> Package {
