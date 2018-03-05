@@ -18,26 +18,21 @@ struct History {
     }
 
     func showHistory() -> String {
-        var result = ""
-
+        var title = ""
+        var log = ""
         if purchaseLog.count != 0 {
-            result += "< 구매 내역 > \n"
-            for log in purchaseLog {
-                result += "\(log.type), \(log.getPrice())원, \(Date().getDateWithLocalTime())\n"
-            }
+            title = "< 구매 내역 > \n"
+            log = purchaseLog.map( {"\($0.type), \($0.getPrice())원, \((Date().getDateWithLocalTime()))"} ).joined(separator: "\n")
         } else {
-            result += " >> 구매 내역이 없습니다. \n"
+            title = " >> 구매 내역이 없습니다. \n"
         }
-
         if supplyLog.count != 0 {
-            result += "\n< 입고 내역 > \n"
-            for log in supplyLog {
-                result += "\(log.type), \(Date().getDateWithLocalTime())\n"
-            }
+            title += "\n< 입고 내역 > \n"
+            log = supplyLog.map( {"\($0.type), \($0.getPrice())원, \((Date().getDateWithLocalTime()))"} ).joined(separator: "\n")
         } else {
-            result += " >> 입고 내역이 없습니다. \n"
+            title += " >> 입고 내역이 없습니다. \n"
         }
-        return result
+        return title+log
     }
 
 }
