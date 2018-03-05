@@ -17,7 +17,7 @@ struct Controller {
         DolceLatte(brand: "스타벅스", weight: 473, price: 6000, name: "돌체라떼", manufactured: "20171210"),
         BananaMilk(brand: "서울우유", weight: 200, price: 1000, name: "날마다바나나우유", manufactured: "20180213"),
         Coffee(brand: "맥심", weight: 400, price: 3000, name: "TOP아메리카노", manufactured: "20171010"),
-        SoftDrink(brand: "코카콜라", weight: 500, price: 2000, name: "제로코크", manufactured: "20171005"),
+        SoftDrink(brand: "코카콜라", weight: 500, price: 2000, name: "제로코크", manufactured: "20171005")
         ]
 
     private func setVendingMachineStock(unit: Int) -> [Beverage] {
@@ -72,7 +72,7 @@ struct Controller {
                 continue
             }
             case 0:
-                print("공백입력, 프로그램 종료 - case 0")
+                print("<< 자판기 종료 >>")
                 runProgram = false
                 break
 
@@ -88,9 +88,9 @@ struct Controller {
     private func manageMode(_ vendingMachine: VendingMachine) throws -> VendingMachine {
         var run = true
         while run {
-            let input = InputView().askSelectOption(message: "<< 관리자 모드 >>\n원하는 동작과 음료 번호를 선택하세요.\n\(vendingMachine.showStockDefault())\n1. 재고 추가 | 2. 재고 삭제 (띄어쓰기로 구분, 종료를 원하면 공백 입력) \n>>")
+            let input = InputView().askSelectOption(message: "<< 관리자 모드 >>\n원하는 동작과 음료 번호를 선택하세요.\n\(vendingMachine.showStock())\n1. 재고 추가 | 2. 재고 삭제 (띄어쓰기로 구분, 종료를 원하면 공백 입력) \n>>")
             switch input[0] {
-            case 1: vendingMachine.add(inputItem: self.items[input[1]])
+            case 1: vendingMachine.add(inputItem: self.items[input[1]-1])
             case 2: try vendingMachine.removeItem(itemCode: input[1])
             default: run = false // 공백입력시 while문 종료, 관리자모드 종료
             }

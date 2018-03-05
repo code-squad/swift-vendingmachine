@@ -15,11 +15,11 @@ class VendingMachine {
         case OutOfStock
     }
 
-    private(set) var stockController = StockController(items: [Beverage]())
+    private(set) var stock = Stock(items: [Beverage]())
     private var balance = 0
 
     init(stockItems: [Beverage]) {
-        self.stockController = StockController(items: stockItems)
+        self.stock = Stock(items: stockItems)
     }
 
     func matchKey(_ option: Int) -> ObjectIdentifier? {
@@ -51,14 +51,14 @@ class VendingMachine {
         guard let code = item else {
             throw Exception.OutOfStock
         }
-        let selectedItem = try stockController.buy(item: code, balance: self.balance)
-        self.subtractBalance(money: stockController.priceOfItem(code))
-        stockController.removeItem(code)
+        let selectedItem = try stock.buy(item: code, balance: self.balance)
+        self.subtractBalance(money: stock.priceOfItem(code))
+        stock.removeItem(code)
         return selectedItem
     }
 
     func add(inputItem: Beverage) {
-        stockController.addItem(item: inputItem)
+        stock.addItem(item: inputItem)
     }
 
     func removeItem(itemCode: Int) throws {
@@ -66,47 +66,47 @@ class VendingMachine {
         guard let code = item else {
             throw Exception.OutOfStock
         }
-        stockController.removeItem(code)
+        stock.removeItem(code)
     }
 
     func history() -> String {
-        return stockController.makeHistory().showHistory()
+        return stock.makeHistory().showHistory()
     }
 
     // 메뉴선택을 위해 itemCode와 가격까지 보여주는 메소드
     func showStock() -> String {
-        return stockController.menu(of: " 메뉴를 선택하세요.")
+        return stock.menu(of: " 메뉴를 선택하세요.")
     }
 
     // 맨 처음 모드 선택시에 보여주는 전체재고상태
     func showStockDefault() -> String {
-        return stockController.stockSummary()
+        return stock.stockSummary()
     }
 
     // 뜨거운 음료
     func hotBeverage() -> [ObjectIdentifier: [Beverage]] {
-        return stockController.findHotBeverage()
+        return stock.findHotBeverage()
     }
 
     // 유통기한 지난 음료
     func discardItems() -> [ObjectIdentifier: [Beverage]] {
-        return stockController.findDiscardBeverage()
+        return stock.findDiscardBeverage()
     }
 
     // 유통기한 내의 음료
     func validItems() -> [ObjectIdentifier: [Beverage]] {
-        return stockController.findValidBeverage()
+        return stock.findValidBeverage()
     }
 
     // 현재 금액으로 구매 가능한 음료수
     func possibleToBuy() -> [ObjectIdentifier: [Beverage]] {
-        return stockController.finditemsCheaper(than: self.balance)
+        return stock.finditemsCheaper(than: self.balance)
     }
 
     // 컨트롤러가 계속 구매가능여부를 판단해서 메뉴를 다르게 출력할 수 있도록 가능여부를 리턴하는 메소드 필요 Bool리턴
     // 제일 저렴한 가격 1000원이 자판기를 진행할 수 있는 최소단위
     func hasMiminumBalance() -> Bool {
-        return self.balance > 1000
+        return self.balance >= 1000
     }
 }
 
