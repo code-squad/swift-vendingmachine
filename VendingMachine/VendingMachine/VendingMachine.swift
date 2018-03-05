@@ -103,10 +103,9 @@ class VendingMachine {
         return stock.finditemsCheaper(than: self.balance)
     }
 
-    // 컨트롤러가 계속 구매가능여부를 판단해서 메뉴를 다르게 출력할 수 있도록 가능여부를 리턴하는 메소드 필요 Bool리턴
-    // 제일 저렴한 가격 1000원이 자판기를 진행할 수 있는 최소단위
+    // 컨트롤러가 계속 구매가능여부를 판단해서 메뉴를 다르게 출력할 수 있도록 가능여부를 리턴. 제일 저렴한 음료의 가격이 자판기를 진행할 수 있는 최소단위
     func hasMiminumBalance() -> Bool {
-        return self.balance >= 1000
+        return self.balance >= stock.cheapestPrice()
     }
 }
 
