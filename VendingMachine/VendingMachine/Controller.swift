@@ -10,19 +10,6 @@ import Foundation
 
 struct Controller {
 
-    // 관리자 모드에서 add동작을 위해 필요한 음료수 객체 배열
-    private func items(_ index: Int) -> Beverage {
-        let beverages = [
-            EnergyDrink(brand: "레드불", weight: 350, price: 2000, name: "레드불", manufactured: "20171010"),
-            ChocoMilk(brand: "서울우유", weight: 200, price: 1000, name: "날마다초코우유", manufactured: "20180212"),
-            DolceLatte(brand: "스타벅스", weight: 473, price: 6000, name: "돌체라떼", manufactured: "20171210"),
-            BananaMilk(brand: "서울우유", weight: 200, price: 1000, name: "날마다바나나우유", manufactured: "20180213"),
-            Coffee(brand: "맥심", weight: 400, price: 3000, name: "TOP아메리카노", manufactured: "20171010"),
-            SoftDrink(brand: "코카콜라", weight: 500, price: 2000, name: "제로코크", manufactured: "20171005")
-        ]
-        return beverages[index-1]
-    }
-
     private func setVendingMachineStock(unit: Int) -> [Beverage] {
         var stock = [Beverage]()
         let chocoMilk = ChocoMilk(brand: "서울우유", weight: 200, price: 1000, name: "날마다초코우유", manufactured: "20180212")
@@ -41,6 +28,19 @@ struct Controller {
             stock.append(energyDrink)
         }
         return stock
+    }
+
+    // 관리자 모드에서 add동작을 위해 필요한 음료수 객체 배열
+    private func items(_ index: Int) -> Beverage {
+        let beverages = [
+            EnergyDrink(brand: "레드불", weight: 350, price: 2000, name: "레드불", manufactured: "20171010"),
+            ChocoMilk(brand: "서울우유", weight: 200, price: 1000, name: "날마다초코우유", manufactured: "20180212"),
+            DolceLatte(brand: "스타벅스", weight: 473, price: 6000, name: "돌체라떼", manufactured: "20171210"),
+            BananaMilk(brand: "서울우유", weight: 200, price: 1000, name: "날마다바나나우유", manufactured: "20180213"),
+            Coffee(brand: "맥심", weight: 400, price: 3000, name: "TOP아메리카노", manufactured: "20171010"),
+            SoftDrink(brand: "코카콜라", weight: 500, price: 2000, name: "제로코크", manufactured: "20171005")
+        ]
+        return beverages[index-1]
     }
 
     func run() {
@@ -73,14 +73,16 @@ struct Controller {
                 default: print("unknown Error - 사용자 모드")
                 }
                 continue
-            }
+                }
+
             case .None:
+                print("메뉴를 다시 입력하세요. - default")
+                continue
+
+            case .Quit:
                 print("<< 자판기 종료 >>")
                 runProgram = false
                 break
-//                print("메뉴를 다시 입력하세요. - default")
-//                continue
-
             }
         }
 
