@@ -149,5 +149,17 @@ struct Stock {
         return History(historyLog.purchase, historyLog.supply)
     }
 
+    // 가장 저렴한 금액의 음료 가격 리턴
+    func cheapestPrice() -> Int {
+        var price = [Int]()
+        for set in self.inventory {
+            for product in set.value {
+                price.append(product.getPrice())
+            }
+        }
+        let cheapest = price.sorted()[0]
+        return cheapest
+    }
+
 
 }
