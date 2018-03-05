@@ -26,8 +26,4 @@ class SoftDrink: Beverage {
         return .PET
     }
 
-    override func isValid() -> Bool {
-        return super.isValid()
-    }
-
 }
