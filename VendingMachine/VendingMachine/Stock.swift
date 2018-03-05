@@ -8,18 +8,10 @@
 
 import Foundation
 
-struct Stock: CustomStringConvertible {
-    private(set) var inventory = [ObjectIdentifier: [Beverage]]()
+struct Stock {
+    private var inventory = [ObjectIdentifier: [Beverage]]()
     private var historyLog = (purchase: [Beverage](),
                               supply: [Beverage]())
-
-    var description: String {
-        var result = ""
-        self.inventory.forEach { shelf in
-            result += "\(shelf.value[0].type) | \(shelf.value[0].getPrice()) : \(shelf.value.count)개 \n"
-        }
-        return result
-    }
 
     init (items: [Beverage]) {
         self.historyLog.supply += items // 초기화하면서 음료가 in stock되니까 추가
