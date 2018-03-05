@@ -19,6 +19,7 @@ class Beverage: CustomStringConvertible, Attribute{
     private var manufactured: Date
     private let validDuration: Int
     private var itemCode: Int
+    private var calorie: Int
 
     var description: String {
         return "\(type) - \(brand) | \(weight)ml | \(price)원 | \(name) | \(manufactured.description)"
@@ -32,9 +33,10 @@ class Beverage: CustomStringConvertible, Attribute{
         self.manufactured = Date()
         self.validDuration = 0
         self.itemCode = 0
+        self.calorie = 0
     }
 
-    init(brand: String, weight: Int, price: Int, name: String, manufactured: String, valid: Int, itemCode: Int) {
+    init(brand: String, weight: Int, price: Int, name: String, manufactured: String, valid: Int, itemCode: Int, calorie: Int) {
         self.brand = brand
         self.weight = weight
         self.price = price
@@ -42,14 +44,11 @@ class Beverage: CustomStringConvertible, Attribute{
         self.manufactured = Date(yyyyMMdd: manufactured)
         self.validDuration = valid
         self.itemCode = itemCode
+        self.calorie = calorie
     }
 
 
     func isHot() -> Bool {
-        return true
-    }
-
-    func isLowCalorie() -> Bool {
         return true
     }
 
@@ -76,4 +75,9 @@ class Beverage: CustomStringConvertible, Attribute{
     func isCheaper(than money: Int) -> Bool {
         return self.price < money
     }
+
+    func isLowCalorie() -> Bool {
+        return self.calorie < 300
+    }
+
 }
