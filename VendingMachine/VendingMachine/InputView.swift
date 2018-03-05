@@ -8,12 +8,28 @@
 
 import Foundation
 
+enum ProgramMode {
+    case Admin
+    case User
+    case None
+}
+
 struct InputView {
 
-    func askSelectMode() -> Int {
+    func askSelectMode() -> ProgramMode {
         print("자판기를 시작합니다.\n1.관리자 모드\n2.사용자 모드\n> ")
+        var mode = ProgramMode.None
         let input = Int(readLine() ?? "") ?? 0
-        return input
+
+        switch input {
+        case 1:
+            mode = .Admin
+        case 2:
+            mode = .User
+        default:
+            mode = .None
+        }
+        return mode
     }
 
     func askSelectOption(message: CustomStringConvertible) -> [Int] {
