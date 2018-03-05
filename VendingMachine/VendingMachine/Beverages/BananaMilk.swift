@@ -26,10 +26,4 @@ class BananaMilk: Beverage {
         return .Carton
     }
 
-    override func isValid() -> Bool {
-        return super.isValid()
-
-    }
-
-
 }

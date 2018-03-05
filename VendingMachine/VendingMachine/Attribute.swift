@@ -17,6 +17,6 @@ enum Package {
 
 protocol Attribute {
     func package() -> Package
-    func isValid() -> Bool
+    //func isValid() -> Bool
 }
 

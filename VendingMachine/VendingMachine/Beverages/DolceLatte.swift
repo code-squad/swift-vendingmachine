@@ -25,9 +25,5 @@ class DolceLatte: Beverage {
         return .Bottle
     }
 
-    override func isValid() -> Bool {
-        return super.isValid()
-    }
-
 }
 

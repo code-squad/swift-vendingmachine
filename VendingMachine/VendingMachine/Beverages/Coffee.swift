@@ -25,9 +25,5 @@ class Coffee: Beverage {
         return .Can
     }
 
-    override func isValid() -> Bool {
-        return super.isValid()
-    }
-
 }
 
