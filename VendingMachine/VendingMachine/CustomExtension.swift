@@ -44,7 +44,7 @@ extension Date {
         formatter.formatterBehavior = .behavior10_4
         formatter.dateStyle = .short
         formatter.timeStyle = .short
-        formatter.locale = Locale(identifier: "ja_JP")
+        formatter.locale = Locale(identifier: "ko_KR")
 
         return formatter.string(from: self)
     }
