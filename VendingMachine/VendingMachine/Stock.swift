@@ -10,9 +10,10 @@ import Foundation
 
 struct Stock {
 
-    private var inventory = [ObjectIdentifier: [Beverage]]()
+    private(set) var inventory = [ObjectIdentifier: [Beverage]]()
     private var historyLog = (purchase: [Beverage](),
                               supply: [Beverage]())
+    private(set) var shelf = Shelf()
 
     init (items: [Beverage]) {
         self.historyLog.supply += items // 초기화하면서 음료가 in stock되니까 추가
@@ -20,6 +21,7 @@ struct Stock {
             $0[ObjectIdentifier(type(of: $1)), default:[]].append($1)
         }
         self.inventory = stockSets
+        self.shelf = Shelf(items: self.inventory)
     }
 
     func setAsDictionary (_ beverages: [Beverage]) -> [ObjectIdentifier: [Beverage]] {
@@ -29,28 +31,23 @@ struct Stock {
     return stockSets
     }
 
-    mutating func buy(item: ObjectIdentifier, balance: Int) throws -> Beverage {
-        var hasItem = false
-        for set in self.inventory {
-            if set.key == item {
-                hasItem = true
-                break
-            }
+    mutating func buy(itemCode: Int, balance: Int) throws -> Beverage {
+        let key = try shelf.matchCode(option: itemCode)
+
+        guard self.inventory[key]![0].isCheaper(than: balance) else {
+            throw VendingMachine.Exception.NotEnoughBalance
         }
-        if hasItem {
-            guard self.inventory[item]![0].isCheaper(than: balance) else {
-                throw VendingMachine.Exception.NotEnoughBalance
-            }
-            historyLog.purchase.append(self.inventory[item]![0])
-            return self.inventory[item]![0]
-        }
-        throw VendingMachine.Exception.OutOfStock
+        historyLog.purchase.append(self.inventory[key]![0])
+        self.shelf = shelf.update(newItems: self.inventory)
+        return self.inventory[key]![0]
     }
 
     // remove한 뒤에 리턴해버리니까 음료수가 한개만 남은상태에서
     // 구매하려고하면 range에러뜨는 상황 발생해서 두 메소드로 나눔
-    mutating func removeItem(_ item: ObjectIdentifier) {
-        self.inventory[item]!.remove(at: 0)
+    mutating func removeItem(_ itemCode: Int) throws {
+        let key = try shelf.matchCode(option: itemCode)
+        self.inventory[key]!.remove(at: 0)
+        self.shelf = shelf.update(newItems: self.inventory)
     }
 
     mutating func addItem(item: Beverage) {
@@ -64,20 +61,13 @@ struct Stock {
                 self.inventory = self.inventory.update(other: newItemSet)
             }
         }
+        self.shelf = shelf.update(newItems: self.inventory)
     }
 
 
-    func priceOfItem(_ itemCode: ObjectIdentifier) -> Int {
-        var price = 0
-        for set in self.inventory {
-            if set.key == itemCode {
-                price = set.value[0].getPrice()
-                break
-            } else {
-                continue
-            }
-        }
-        return price
+    func priceOfItem(_ itemCode: Int) throws -> Int {
+        let key = try self.shelf.matchCode(option: itemCode)
+        return self.inventory[key]![0].getPrice()
     }
 
     func findHotBeverage() -> [ObjectIdentifier: [Beverage]] {
@@ -92,18 +82,22 @@ struct Stock {
         return self.setAsDictionary(available)
     }
 
-    func menu(of message: String) -> String {
-        var result = "<< \(message) >> \n"
+    func menu() -> String {
+        var result = ""
+        var index = 0
+        let itemCodes = self.shelf.itemTags
 
-        for set in self.inventory where set.value.count > 0 {
-            result += "\(set.value[0].type) : \(set.value[0].getPrice())원 | \(set.value.count)개 \n"
+        for itemCode in itemCodes {
+            let item = self.inventory[itemCode]![0]
+            index += 1
+            result += "\(index)) \(item.type) : \(item.getPrice())원 | \(self.inventory[itemCode]!.count)개 \n"
         }
         return result
     }
 
     func stockSummary() -> String {
         var result = ""
-        for set in self.inventory where set.value.count > 0 {
+        for set in self.inventory {
             result += "\(set.value[0].type) (\(set.value.count)개) | "
         }
         return result
