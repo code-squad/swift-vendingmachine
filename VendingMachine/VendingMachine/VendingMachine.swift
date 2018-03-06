@@ -22,25 +22,6 @@ class VendingMachine {
         self.stock = Stock(items: stockItems)
     }
 
-    enum Shelf: Int {
-        case chocoMilk = 1, bananaMilk, softDrink, coffee, energyDrink, dolceLatte
-        func itemCodeToShelf() -> ObjectIdentifier {
-            switch self {
-            case .chocoMilk: return ObjectIdentifier(ChocoMilk.self)
-            case .bananaMilk: return ObjectIdentifier(BananaMilk.self)
-            case .softDrink: return ObjectIdentifier(SoftDrink.self)
-            case .coffee: return ObjectIdentifier(Coffee.self)
-            case .energyDrink: return ObjectIdentifier(EnergyDrink.self)
-            case .dolceLatte: return ObjectIdentifier(DolceLatte.self)
-            }
-        }
-    }
-
-    func matchCode(_ option: Int) -> ObjectIdentifier? {
-        let beverage = Shelf.init(rawValue: option)
-        return beverage?.itemCodeToShelf() ?? nil
-    }
-
     func addBalance(money: Int) {
         balance += money
     }
@@ -54,13 +35,9 @@ class VendingMachine {
     }
 
     func buy(itemCode: Int) throws -> Beverage {
-        let item = matchCode(itemCode)
-        guard let code = item else {
-            throw Exception.OutOfStock
-        }
-        let selectedItem = try stock.buy(item: code, balance: self.balance)
-        self.subtractBalance(money: stock.priceOfItem(code))
-        stock.removeItem(code)
+        let selectedItem = try stock.buy(itemCode: itemCode, balance: self.balance)
+        try self.subtractBalance(money: stock.priceOfItem(itemCode))
+        try stock.removeItem(itemCode)
         return selectedItem
     }
 
@@ -69,11 +46,7 @@ class VendingMachine {
     }
 
     func removeItem(itemCode: Int) throws {
-        let item = matchCode(itemCode)
-        guard let code = item else {
-            throw Exception.OutOfStock
-        }
-        stock.removeItem(code)
+        try stock.removeItem(itemCode)
     }
 
     func history() -> String {
@@ -82,7 +55,7 @@ class VendingMachine {
 
     // 메뉴선택을 위해 itemCode와 가격까지 보여주는 메소드
     func showStock() -> String {
-        return stock.menu(of: " 메뉴를 선택하세요.")
+        return stock.menu()
     }
 
     // 맨 처음 모드 선택시에 보여주는 전체재고상태

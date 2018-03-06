@@ -11,6 +11,10 @@ import Foundation
 struct Shelf {
     private(set) var itemTags = [ObjectIdentifier]()
 
+    init() {
+
+    }
+
     init(items: [ObjectIdentifier: [Beverage]]) {
         var newDict = items
 
@@ -30,12 +34,13 @@ struct Shelf {
     }
 
     func matchCode(option: Int) throws -> ObjectIdentifier {
-        guard option < itemTags.count else {
+        guard option-1 < itemTags.count else {
             throw VendingMachine.Exception.OutOfStock
         }
-        return self.itemTags[option]
+        return self.itemTags[option-1]
     }
 
+    
 
 
 }

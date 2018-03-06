@@ -39,6 +39,8 @@
 		E898BEC320201CBF008D5998 /* BananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = E873569E201F1BF9004126E2 /* BananaMilk.swift */; };
 		E898BEC420201CC2008D5998 /* EnergyDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = E873569A201F1ABB004126E2 /* EnergyDrink.swift */; };
 		E898BEC520201CC5008D5998 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8735698201F1A60004126E2 /* VendingMachine.swift */; };
+		E8DD5E0F204E84C8002C18D0 /* Shelf.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DD5E0E204E84C8002C18D0 /* Shelf.swift */; };
+		E8DD5E10204E84C8002C18D0 /* Shelf.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DD5E0E204E84C8002C18D0 /* Shelf.swift */; };
 		E8E48573202452CB00096690 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E48572202452CB00096690 /* History.swift */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +76,7 @@
 		E88E17C3201C7464007B380A /* CustomExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomExtension.swift; sourceTree = "<group>"; };
 		E898BEBC20200BA3008D5998 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		E898BEBE20200C3F008D5998 /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
+		E8DD5E0E204E84C8002C18D0 /* Shelf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shelf.swift; sourceTree = "<group>"; };
 		E8E48572202452CB00096690 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,6 +129,7 @@
 				E898BEBE20200C3F008D5998 /* Controller.swift */,
 				E85419F7202304BA00D78F36 /* Stock.swift */,
 				E8E48572202452CB00096690 /* History.swift */,
+				E8DD5E0E204E84C8002C18D0 /* Shelf.swift */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";
@@ -252,6 +256,7 @@
 				E85419F8202304BA00D78F36 /* Stock.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
 				E88E17C0201AD613007B380A /* Coffee.swift in Sources */,
+				E8DD5E0F204E84C8002C18D0 /* Shelf.swift in Sources */,
 				E873569B201F1ABB004126E2 /* EnergyDrink.swift in Sources */,
 				E8E48573202452CB00096690 /* History.swift in Sources */,
 				E873568F201EE926004126E2 /* Attribute.swift in Sources */,
@@ -266,6 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8DD5E10204E84C8002C18D0 /* Shelf.swift in Sources */,
 				E8735697201EE9B6004126E2 /* CustomExtension.swift in Sources */,
 				E8735691201EE9A5004126E2 /* Attribute.swift in Sources */,
 				E82D9ED720273A1300DF679E /* History.swift in Sources */,
