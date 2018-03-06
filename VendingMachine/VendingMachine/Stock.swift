@@ -96,7 +96,7 @@ struct Stock {
         var result = "<< \(message) >> \n"
 
         for set in self.inventory where set.value.count > 0 {
-            result += "\(set.value[0].code())) \(set.value[0].type) : \(set.value[0].getPrice())원 | \(set.value.count)개 \n"
+            result += "\(set.value[0].type) : \(set.value[0].getPrice())원 | \(set.value.count)개 \n"
         }
         return result
     }

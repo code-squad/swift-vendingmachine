@@ -10,7 +10,6 @@ import Foundation
 
 class SoftDrink: Beverage {
     private let validDuration = 365
-    private let itemCode = 6
     private let calorie = 500
     private let hot = false
     private let caffeine = 50
@@ -19,7 +18,7 @@ class SoftDrink: Beverage {
     }
 
     init(brand: String, weight: Int, price: Int, name: String, manufactured: String) {
-        super.init(brand: brand, weight: weight, price: price, name: name, manufactured: manufactured, valid: self.validDuration, itemCode: self.itemCode, calorie: self.calorie, hot: self.hot, caffeine: self.caffeine)
+        super.init(brand: brand, weight: weight, price: price, name: name, manufactured: manufactured, valid: self.validDuration,  calorie: self.calorie, hot: self.hot, caffeine: self.caffeine)
     }
 
     override func package() -> Package {
