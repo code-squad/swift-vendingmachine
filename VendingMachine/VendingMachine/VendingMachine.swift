@@ -22,16 +22,23 @@ class VendingMachine {
         self.stock = Stock(items: stockItems)
     }
 
-    func matchKey(_ option: Int) -> ObjectIdentifier? {
-        switch option {
-        case 1: return ObjectIdentifier(EnergyDrink.self)
-        case 2: return ObjectIdentifier(ChocoMilk.self)
-        case 3: return ObjectIdentifier(DolceLatte.self)
-        case 4: return ObjectIdentifier(BananaMilk.self)
-        case 5: return ObjectIdentifier(Coffee.self)
-        case 6: return ObjectIdentifier(SoftDrink.self)
-        default: return nil
+    enum Shelf: Int {
+        case chocoMilk = 1, bananaMilk, softDrink, coffee, energyDrink, dolceLatte
+        func itemCodeToShelf() -> ObjectIdentifier {
+            switch self {
+            case .chocoMilk: return ObjectIdentifier(ChocoMilk.self)
+            case .bananaMilk: return ObjectIdentifier(BananaMilk.self)
+            case .softDrink: return ObjectIdentifier(SoftDrink.self)
+            case .coffee: return ObjectIdentifier(Coffee.self)
+            case .energyDrink: return ObjectIdentifier(EnergyDrink.self)
+            case .dolceLatte: return ObjectIdentifier(DolceLatte.self)
+            }
         }
+    }
+
+    func matchCode(_ option: Int) -> ObjectIdentifier? {
+        let beverage = Shelf.init(rawValue: option)
+        return beverage?.itemCodeToShelf() ?? nil
     }
 
     func addBalance(money: Int) {
@@ -47,7 +54,7 @@ class VendingMachine {
     }
 
     func buy(itemCode: Int) throws -> Beverage {
-        let item = matchKey(itemCode)
+        let item = matchCode(itemCode)
         guard let code = item else {
             throw Exception.OutOfStock
         }
@@ -62,7 +69,7 @@ class VendingMachine {
     }
 
     func removeItem(itemCode: Int) throws {
-        let item = matchKey(itemCode)
+        let item = matchCode(itemCode)
         guard let code = item else {
             throw Exception.OutOfStock
         }

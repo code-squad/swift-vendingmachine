@@ -9,6 +9,7 @@
 import Foundation
 
 struct Stock {
+
     private var inventory = [ObjectIdentifier: [Beverage]]()
     private var historyLog = (purchase: [Beverage](),
                               supply: [Beverage]())
