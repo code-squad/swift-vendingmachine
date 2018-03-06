@@ -1,0 +1,42 @@
+//
+//  Shelf.swift
+//  VendingMachine
+//
+//  Created by YOUTH on 2018. 3. 6..
+//  Copyright © 2018년 JK. All rights reserved.
+//
+
+import Foundation
+
+struct Shelf {
+    private(set) var itemTags = [ObjectIdentifier]()
+
+    init(items: [ObjectIdentifier: [Beverage]]) {
+        var newDict = items
+
+        let keysToRemove = newDict.keys.filter {
+            guard let value = newDict[$0] else { return false }
+            return value.count == 0
+        }
+        for key in keysToRemove {
+            newDict.removeValue(forKey: key)
+        }
+
+        self.itemTags = Array(newDict.keys)
+    }
+
+    func update(newItems: [ObjectIdentifier: [Beverage]]) -> Shelf {
+        return Shelf(items: newItems)
+    }
+
+    func matchCode(option: Int) throws -> ObjectIdentifier {
+        guard option < itemTags.count else {
+            throw VendingMachine.Exception.OutOfStock
+        }
+        return self.itemTags[option]
+    }
+
+
+
+}
+
