@@ -60,10 +60,11 @@ struct Stock {
                 break
             } else if set.key != ObjectIdentifier(type(of:item)) {
                 let newItemSet = [ObjectIdentifier(type(of:item)) : [item]]
-                self.inventory.update(other: newItemSet)
+                self.inventory = self.inventory.update(other: newItemSet)
             }
         }
     }
+
 
     func priceOfItem(_ itemCode: ObjectIdentifier) -> Int {
         var price = 0

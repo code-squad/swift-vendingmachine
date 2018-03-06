@@ -18,7 +18,6 @@
 		E8735690201EE9A3004126E2 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 		E8735691201EE9A5004126E2 /* Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = E873568E201EE926004126E2 /* Attribute.swift */; };
 		E8735692201EE9A8004126E2 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88E17B9201AD5CB007B380A /* Beverage.swift */; };
-		E8735693201EE9AB004126E2 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88E17BB201AD5DC007B380A /* Milk.swift */; };
 		E8735694201EE9AD004126E2 /* SoftDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88E17BD201AD606007B380A /* SoftDrink.swift */; };
 		E8735695201EE9B1004126E2 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88E17BF201AD613007B380A /* Coffee.swift */; };
 		E8735696201EE9B4004126E2 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88E17C1201AD620007B380A /* OutputView.swift */; };
@@ -28,7 +27,6 @@
 		E873569D201F1BE9004126E2 /* ChocoMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = E873569C201F1BE9004126E2 /* ChocoMilk.swift */; };
 		E873569F201F1BF9004126E2 /* BananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = E873569E201F1BF9004126E2 /* BananaMilk.swift */; };
 		E88E17BA201AD5CB007B380A /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88E17B9201AD5CB007B380A /* Beverage.swift */; };
-		E88E17BC201AD5DC007B380A /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88E17BB201AD5DC007B380A /* Milk.swift */; };
 		E88E17BE201AD606007B380A /* SoftDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88E17BD201AD606007B380A /* SoftDrink.swift */; };
 		E88E17C0201AD613007B380A /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88E17BF201AD613007B380A /* Coffee.swift */; };
 		E88E17C2201AD620007B380A /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88E17C1201AD620007B380A /* OutputView.swift */; };
@@ -70,7 +68,6 @@
 		E873569C201F1BE9004126E2 /* ChocoMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocoMilk.swift; sourceTree = "<group>"; };
 		E873569E201F1BF9004126E2 /* BananaMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaMilk.swift; sourceTree = "<group>"; };
 		E88E17B9201AD5CB007B380A /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
-		E88E17BB201AD5DC007B380A /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 		E88E17BD201AD606007B380A /* SoftDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoftDrink.swift; sourceTree = "<group>"; };
 		E88E17BF201AD613007B380A /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		E88E17C1201AD620007B380A /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
@@ -136,7 +133,6 @@
 		E85419F62022ED5C00D78F36 /* Beverages */ = {
 			isa = PBXGroup;
 			children = (
-				E88E17BB201AD5DC007B380A /* Milk.swift */,
 				E88E17B9201AD5CB007B380A /* Beverage.swift */,
 				E88E17BD201AD606007B380A /* SoftDrink.swift */,
 				E88E17BF201AD613007B380A /* Coffee.swift */,
@@ -249,7 +245,6 @@
 			files = (
 				E898BEBD20200BA3008D5998 /* InputView.swift in Sources */,
 				E88E17BA201AD5CB007B380A /* Beverage.swift in Sources */,
-				E88E17BC201AD5DC007B380A /* Milk.swift in Sources */,
 				E88E17C4201C7464007B380A /* CustomExtension.swift in Sources */,
 				E88E17BE201AD606007B380A /* SoftDrink.swift in Sources */,
 				E873569D201F1BE9004126E2 /* ChocoMilk.swift in Sources */,
@@ -284,7 +279,6 @@
 				E8735694201EE9AD004126E2 /* SoftDrink.swift in Sources */,
 				E898BEC220201CBD008D5998 /* ChocoMilk.swift in Sources */,
 				E898BEC320201CBF008D5998 /* BananaMilk.swift in Sources */,
-				E8735693201EE9AB004126E2 /* Milk.swift in Sources */,
 				E898BEC020201659008D5998 /* InputView.swift in Sources */,
 				E8735695201EE9B1004126E2 /* Coffee.swift in Sources */,
 				E85419F52022E33A00D78F36 /* DolceLatte.swift in Sources */,
