@@ -54,10 +54,12 @@ extension Date {
 // MARK: Extension Dictionary
 
 extension Dictionary {
-    mutating func update(other:Dictionary) {
+    func update(other: Dictionary) -> Dictionary {
+        var newSet = self
         for (key,value) in other {
-            self.updateValue(value, forKey:key)
+            newSet.updateValue(value, forKey:key)
         }
+        return newSet
     }
 }
 
