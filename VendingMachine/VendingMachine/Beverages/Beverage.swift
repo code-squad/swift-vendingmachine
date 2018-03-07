@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Beverage: CustomStringConvertible, Attribute{
+class Beverage: CustomStringConvertible {
     var type: String {
         return "음료"
     }
