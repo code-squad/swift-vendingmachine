@@ -328,6 +328,57 @@ class UnitTestVendingMachine: XCTestCase {
         XCTAssertTrue(coffee.isLowCalorie())
     }
 
+    func testExpiration() {
+        let beverages = [
+            EnergyDrink(brand: "레드불", weight: 350, price: 2000, name: "레드불", manufactured: "20180123"),
+            ChocoMilk(brand: "서울우유", weight: 200, price: 1000, name: "날마다초코우유", manufactured: "20180304"),
+            DolceLatte(brand: "스타벅스", weight: 473, price: 6000, name: "돌체라떼", manufactured: "20180210"),
+            BananaMilk(brand: "서울우유", weight: 200, price: 1000, name: "날마다바나나우유", manufactured: "20180213"),
+            Coffee(brand: "맥심", weight: 400, price: 3000, name: "TOP아메리카노", manufactured: "20171010"),
+            SoftDrink(brand: "코카콜라", weight: 500, price: 2000, name: "제로코크", manufactured: "20171005")
+        ]
+        let vendingMachine = VendingMachine(stockItems: beverages)
+        let valid = vendingMachine.validItems()
+        print(valid)
+        XCTAssertEqual(valid.keys.count, 4)
+    }
+
+    func testCheapestPrice() {
+        let beverages = [
+            EnergyDrink(brand: "레드불", weight: 350, price: 2000, name: "레드불", manufactured: "20180123"),
+            DolceLatte(brand: "스타벅스", weight: 473, price: 6000, name: "돌체라떼", manufactured: "20180210"),
+            Coffee(brand: "맥심", weight: 400, price: 3000, name: "TOP아메리카노", manufactured: "20171010"),
+            SoftDrink(brand: "코카콜라", weight: 500, price: 2000, name: "제로코크", manufactured: "20171005")
+        ]
+        let vendingMachine = VendingMachine(stockItems: beverages)
+        let result = vendingMachine.stock.cheapestPrice()
+        XCTAssertEqual(result, 2000)
+    }
+
+
+    func testShelves() {
+        let beverages = [
+            EnergyDrink(brand: "레드불", weight: 350, price: 2000, name: "레드불", manufactured: "20180123"),
+            DolceLatte(brand: "스타벅스", weight: 473, price: 6000, name: "돌체라떼", manufactured: "20180210"),
+            Coffee(brand: "맥심", weight: 400, price: 3000, name: "TOP아메리카노", manufactured: "20171010"),
+            SoftDrink(brand: "코카콜라", weight: 500, price: 2000, name: "제로코크", manufactured: "20171005"),
+            Beverage(),
+            Beverage()
+        ]
+        let vendingMachine = VendingMachine(stockItems: beverages)
+        var stock = vendingMachine.stock
+        print(stock.shelves.count)
+        stock.removeItem(ObjectIdentifier(type(of: Beverage())))
+        print(stock.shelves.count)
+        stock.removeItem(ObjectIdentifier(type(of: Beverage())))
+        print(stock.shelves.count)
+        print(stock.inventory)
+        XCTAssertEqual(stock.shelves.count, 4)
+    }
+
+
 
 }
+
+
 
