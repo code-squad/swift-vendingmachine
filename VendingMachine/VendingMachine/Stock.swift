@@ -35,7 +35,7 @@ struct Stock {
         let key = try shelf.matchCode(option: itemCode)
 
         guard self.inventory[key]![0].isCheaper(than: balance) else {
-            throw VendingMachine.Exception.NotEnoughBalance
+            throw Exception.NotEnoughBalance
         }
         historyLog.purchase.append(self.inventory[key]![0])
         self.shelf = shelf.update(newItems: self.inventory)
@@ -87,7 +87,7 @@ struct Stock {
         var index = 0
         let itemCodes = self.shelf.itemTags
 
-        for itemCode in itemCodes {
+        for itemCode in itemCodes where self.inventory[itemCode]!.count > 0 {
             let item = self.inventory[itemCode]![0]
             index += 1
             result += "\(index)) \(item.type) : \(item.getPrice())원 | \(self.inventory[itemCode]!.count)개 \n"
@@ -97,7 +97,7 @@ struct Stock {
 
     func stockSummary() -> String {
         var result = ""
-        for set in self.inventory {
+        for set in self.inventory where set.value.count > 0 {
             result += "\(set.value[0].type) (\(set.value.count)개) | "
         }
         return result
