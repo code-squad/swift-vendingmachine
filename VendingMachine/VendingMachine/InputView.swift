@@ -93,5 +93,33 @@ struct InputView {
         return result
     }
 
+
+    func askAdminModeAction(message: CustomStringConvertible) -> AdminMenu {
+        print(message)
+
+        let input = readLine() ?? ""
+        guard input != "q" else {
+            return .Quit
+        }
+        guard let actionNumber = Int(input) else {
+            return .None
+        }
+        switch actionNumber {
+        case 1: return .AddItem
+        case 2: return .DeleteItem
+        default: return .None
+        }
+    }
+
+    func askOptionNumber(message: CustomStringConvertible) -> Int {
+        print(message)
+        let input = readLine() ?? ""
+        guard let number = Int(input) else {
+            return 0
+        }
+        return number
+    }
+
+
 }
 
