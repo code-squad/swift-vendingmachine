@@ -10,7 +10,7 @@ import Foundation
 
 struct OutputView {
 
-    func show(_ text: CustomStringConvertible) {
+    func showDescription(_ text: ProgramDescription) {
         print(text.description)
     }
 

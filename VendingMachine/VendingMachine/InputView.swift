@@ -8,31 +8,10 @@
 
 import Foundation
 
-enum ProgramMode {
-    case Admin
-    case User
-    case None
-    case Quit
-}
-
-enum AdminMenu {
-    case AddItem
-    case DeleteItem
-    case None
-    case Quit
-}
-
-enum UserMenu {
-    case AddBalance
-    case BuyItem
-    case None
-    case Quit
-}
-
 struct InputView {
 
-    func askSelectMode() -> ProgramMode {
-        print("자판기를 시작합니다.(종료를 원하면 \"q\"입력)\n1.관리자 모드\n2.사용자 모드\n> ")
+    func askSelectMode(message: ProgramDescription) -> ProgramMode {
+        print(message.description)
         var mode = ProgramMode.None
         let input = readLine() ?? ""
 
