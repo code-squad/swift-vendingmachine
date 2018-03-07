@@ -9,12 +9,6 @@
 import Foundation
 
 class VendingMachine {
-
-    enum Exception: Error {
-        case NotEnoughBalance
-        case OutOfStock
-    }
-
     private(set) var stock = Stock(items: [Beverage]())
     private var balance = 0
 
