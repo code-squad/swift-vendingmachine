@@ -154,7 +154,7 @@ struct Controller {
             case .AddBalance: vendingMachine.addBalance(money: input.option)
 
             case .BuyItem: result = try vendingMachine.buy(itemCode: input.option)
-                print("\n>>\(result.type)을 선택하셨습니다. \(result.getPrice())원을 차감합니다.")
+                print("\n>>\(result.type)을 선택하셨습니다. \(result.price())원을 차감합니다.")
 
             case .None:
                 OutputView().showDescription(.AskInputAgain)
