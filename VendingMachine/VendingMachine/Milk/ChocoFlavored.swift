@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class Choco_Flavored_Milk: Milk, CustomStringConvertible, Printable {
+class ChocoFlavoredMilk: Milk, CustomStringConvertible, Printable {
     private var calorie: Float
     private var chocolateConcentration: Float
     init(_ brand: String, _ weight: Int, _ price: Int, _ name: String, _ manufactured_date: Date, _ milkGrades: MilkGrades, _ calorie: Float, _ chocolateConcentration: Float) {
