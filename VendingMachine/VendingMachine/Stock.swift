@@ -10,7 +10,6 @@ import Foundation
 
 class Stock {
     private var inventory = [ObjectIdentifier: [Beverage]]()
-    private(set) var shelf = Shelf()
 
     init() {}
 
@@ -19,46 +18,22 @@ class Stock {
             $0[ObjectIdentifier(type(of: $1)), default:[]].append($1)
         }
         self.inventory = itemSets
-        self.shelf = Shelf(items: self.inventory)
     }
 
     init(sets: [ObjectIdentifier: [Beverage]]) {
         self.inventory = sets
     }
 
-    func menu() -> String {
-        var result = ""
-        var index = 0
-        let itemCodes = self.shelf.itemTags
-
-        for itemCode in itemCodes where self.inventory[itemCode]!.count > 0 {
-            let item = self.inventory[itemCode]![0]
-            index += 1
-            result += "\(index)) \(item.type) : \(item.price())원 | \(self.inventory[itemCode]!.count)개 \n"
-        }
-        return result
-    }
-
-    func summary() -> String {
-        var result = ""
-        for set in self.inventory where set.value.count > 0 {
-            result += "\(set.value[0].type) (\(set.value.count)개) | "
-        }
-        return result
-    }
-
-    private func updateShelf() {
-        self.shelf = shelf.update(newItems: self.inventory)
+    func currentInventory() -> [ObjectIdentifier: [Beverage]] {
+        return self.inventory
     }
 
     func removeItem(_ key: ObjectIdentifier) {
         self.inventory[key]!.remove(at: 0)
-        self.shelf = shelf.update(newItems: self.inventory)
     }
 
     func buy(itemCode key: ObjectIdentifier) -> Beverage {
         let item = self.inventory[key]![0]
-        self.shelf = shelf.update(newItems: self.inventory)
         return item
     }
 
@@ -73,7 +48,6 @@ class Stock {
                 self.inventory = self.inventory.update(other: newItemSet)
             }
         }
-        self.shelf = shelf.update(newItems: self.inventory)
     }
 
     func finditemsCheaper(than balance: Money) -> [ObjectIdentifier: [Beverage]] {
@@ -141,6 +115,27 @@ class Stock {
         let cheapest = price.sorted()[0]
         return cheapest
     }
+
+    func menu(itemCodes: Shelf) -> String {
+        var result = ""
+        var index = 0
+
+        for itemCode in itemCodes.itemTags where self.inventory[itemCode]!.count > 0 {
+            let item = self.inventory[itemCode]![0]
+            index += 1
+            result += "\(index)) \(item.type) : \(item.price())원 | \(self.inventory[itemCode]!.count)개 \n"
+        }
+        return result
+    }
+
+    func summary() -> String {
+        var result = ""
+        for set in self.inventory where set.value.count > 0 {
+            result += "\(set.value[0].type) (\(set.value.count)개) | "
+        }
+        return result
+    }
+
 
 
 }
