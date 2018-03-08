@@ -247,53 +247,6 @@ class UnitTestVendingMachine: XCTestCase {
         print("테스트" + vending.stock.description)
     }
 
-    func testMatchKey() {
-        var stock = [Beverage]()
-        let energyDrink = EnergyDrink(brand: "레드불", weight: 350, price: 2000, name: "레드불", manufactured: "20171010")
-
-        for _ in 0..<2 {
-            stock.append(energyDrink)
-        }
-        let vending = VendingMachine(stockItems: stock)
-        let productkeys = vending.stock.keys
-
-        let result = VendingMachine.Product.matchpKey(1)
-        print(result)
-    }
-
-    func testMatchKey2() {
-        var stock = [Beverage]()
-        let energyDrink = EnergyDrink(brand: "레드불", weight: 350, price: 2000, name: "레드불", manufactured: "20171010")
-        let americano = Coffee(brand: "맥심", weight: 400, price: 3000, name: "TOP아메리카노", manufactured: "20171010")
-
-        for _ in 0..<2 {
-            stock.append(americano)
-        }
-        let vending = VendingMachine(stockItems: stock)
-        let productkeys = Array(vending.stock.keys)
-
-        let resultEnergyDrink = vending.matchKey(6)!
-        let resultCoffee = vending.matchKey(4)
-        XCTAssertEqual(resultCoffee, productkeys[0])
-        XCTAssertFalse(resultEnergyDrink == productkeys[0])
-    }
-
-    func testGetPrice(){
-        var stock = [Beverage]()
-        let energyDrink = EnergyDrink(brand: "레드불", weight: 350, price: 2000, name: "레드불", manufactured: "20171010")
-        let americano = Coffee(brand: "맥심", weight: 400, price: 3000, name: "TOP아메리카노", manufactured: "20171010")
-
-        for _ in 0..<2 {
-            stock.append(energyDrink)
-            stock.append(americano)
-        }
-        let vending = VendingMachine(stockItems: stock)
-
-        let result = vending.stockContoller.priceOfItem(ObjectIdentifier(type(of:energyDrink)))
-        XCTAssertEqual(result, 2000)
-    }
-
-
     func testAddItem_stock() {
         let beverages = [
             EnergyDrink(brand: "레드불", weight: 350, price: 2000, name: "레드불", manufactured: "20171010"),
