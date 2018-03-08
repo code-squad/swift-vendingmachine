@@ -14,7 +14,7 @@ class Beverage: CustomStringConvertible {
     }
     private var brand: String
     private var weight: Int
-    private var price: Int
+    private var itemPrice: Int
     private var name: String
     private var manufactured: Date
     private let validDuration: Int
@@ -23,13 +23,13 @@ class Beverage: CustomStringConvertible {
     private var caffeine: Int
 
     var description: String {
-        return "\(type) - \(brand) | \(weight)ml | \(price)원 | \(name) | \(manufactured.description)"
+        return "\(type) - \(brand) | \(weight)ml | \(itemPrice)원 | \(name) | \(manufactured.description)"
     }
 
     init() {
         self.brand = ""
         self.weight = 0
-        self.price = 0
+        self.itemPrice = 0
         self.name = ""
         self.manufactured = Date()
         self.validDuration = 0
@@ -41,7 +41,7 @@ class Beverage: CustomStringConvertible {
     init(brand: String, weight: Int, price: Int, name: String, manufactured: String, valid: Int, calorie: Int, hot: Bool, caffeine: Int) {
         self.brand = brand
         self.weight = weight
-        self.price = price
+        self.itemPrice = price
         self.name = name
         self.manufactured = Date(yyyyMMdd: manufactured)
         self.validDuration = valid
@@ -62,8 +62,8 @@ class Beverage: CustomStringConvertible {
         return .PET
     }
 
-    func getPrice() -> Int {
-        return self.price
+    func price() -> Int {
+        return self.itemPrice
     }
 
     func isValid() -> Bool {
@@ -71,7 +71,7 @@ class Beverage: CustomStringConvertible {
     }
 
     func isCheaper(than money: Int) -> Bool {
-        return self.price < money
+        return self.itemPrice < money
     }
 
     func isLowCalorie() -> Bool {
