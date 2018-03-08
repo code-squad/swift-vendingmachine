@@ -11,12 +11,11 @@ import Foundation
 struct Stock {
 
     private(set) var inventory = [ObjectIdentifier: [Beverage]]()
-    private var historyLog = (purchase: [Beverage](),
-                              supply: [Beverage]())
+    private var history = History()
     private(set) var shelf = Shelf()
 
     init (items: [Beverage]) {
-        self.historyLog.supply += items // 초기화하면서 음료가 in stock되니까 추가
+        items.forEach{ item in self.history.addSupplyLog(item)}
         let stockSets = items.reduce(into: [ObjectIdentifier: [Beverage]]()) {
             $0[ObjectIdentifier(type(of: $1)), default:[]].append($1)
         }
@@ -37,7 +36,7 @@ struct Stock {
         guard self.inventory[key]![0].isCheaper(than: balance) else {
             throw Exception.NotEnoughBalance
         }
-        historyLog.purchase.append(self.inventory[key]![0])
+        history.addPurchaseLog(self.inventory[key]![0])
         self.shelf = shelf.update(newItems: self.inventory)
         return self.inventory[key]![0]
     }
@@ -61,6 +60,7 @@ struct Stock {
                 self.inventory = self.inventory.update(other: newItemSet)
             }
         }
+        self.history.addSupplyLog(item)
         self.shelf = shelf.update(newItems: self.inventory)
     }
 
@@ -141,8 +141,8 @@ struct Stock {
          return self.setAsDictionary(valid)
     }
 
-    func makeHistory() -> History {
-        return History(historyLog.purchase, historyLog.supply)
+    func showHistory() -> String {
+        return self.history.log()
     }
 
     // 가장 저렴한 금액의 음료 가격 리턴

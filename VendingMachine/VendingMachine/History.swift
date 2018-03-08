@@ -27,7 +27,7 @@ struct History {
         self.supply.append(item)
     }
 
-    func showHistory() -> String {
+    func log() -> String {
         var title = ""
         var log = ""
         if purchase.count != 0 {
