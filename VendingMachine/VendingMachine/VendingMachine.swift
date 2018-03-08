@@ -44,7 +44,7 @@ class VendingMachine {
     }
 
     func history() -> String {
-        return stock.makeHistory().showHistory()
+        return stock.showHistory()
     }
 
     // 메뉴선택을 위해 itemCode와 가격까지 보여주는 메소드
