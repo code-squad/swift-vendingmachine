@@ -41,6 +41,8 @@
 		E8BCC7A62050F9C400711234 /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BCC7A42050F9C400711234 /* Money.swift */; };
 		E8BCC7A82051050B00711234 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BCC7A72051050B00711234 /* Stock.swift */; };
 		E8BCC7A92051050B00711234 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BCC7A72051050B00711234 /* Stock.swift */; };
+		E8BFAEBC2051720B00BAAC09 /* CustomEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D7B634204FB11600D7EBBB /* CustomEnum.swift */; };
+		E8BFAEBD2051720F00BAAC09 /* ProgramDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D7B636204FB30000D7EBBB /* ProgramDescription.swift */; };
 		E8D7B635204FB11600D7EBBB /* CustomEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D7B634204FB11600D7EBBB /* CustomEnum.swift */; };
 		E8D7B637204FB30000D7EBBB /* ProgramDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D7B636204FB30000D7EBBB /* ProgramDescription.swift */; };
 		E8DD5E0F204E84C8002C18D0 /* Shelf.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DD5E0E204E84C8002C18D0 /* Shelf.swift */; };
@@ -306,12 +308,14 @@
 				E8DD5E10204E84C8002C18D0 /* Shelf.swift in Sources */,
 				E8735697201EE9B6004126E2 /* CustomExtension.swift in Sources */,
 				E8BCC7A92051050B00711234 /* Stock.swift in Sources */,
+				E8BFAEBC2051720B00BAAC09 /* CustomEnum.swift in Sources */,
 				E82D9ED720273A1300DF679E /* History.swift in Sources */,
 				E898BEC120201C51008D5998 /* Controller.swift in Sources */,
 				E85419F92023101E00D78F36 /* StockController.swift in Sources */,
 				E8735690201EE9A3004126E2 /* main.swift in Sources */,
 				E8735692201EE9A8004126E2 /* Beverage.swift in Sources */,
 				E898BEC520201CC5008D5998 /* VendingMachine.swift in Sources */,
+				E8BFAEBD2051720F00BAAC09 /* ProgramDescription.swift in Sources */,
 				E8735689201EE8F6004126E2 /* UnitTestVendingMachine.swift in Sources */,
 				E898BEC420201CC2008D5998 /* EnergyDrink.swift in Sources */,
 				E8735694201EE9AD004126E2 /* SoftDrink.swift in Sources */,
