@@ -12,7 +12,7 @@ class Money {
 
     private var balance = 0
 
-    init(){ }
+    init() {}
 
     init(_ balance: Int) {
         self.balance = balance

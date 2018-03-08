@@ -31,7 +31,7 @@ class VendingMachine {
     func buy(itemCode: Int) throws -> Beverage {
         let selectedItem = try stock.buy(itemCode: itemCode, balance: showBalance())
         guard self.balance.isAffordable(item: selectedItem) else {
-            throw Exception.NotEnoughBalance
+            throw Exception.notEnoughBalance
         }
         self.balance.subtract(selectedItem.price())
         try stock.removeItem(itemCode)
@@ -85,4 +85,3 @@ class VendingMachine {
         return self.balance.hasMiminumBalance(than: stock.cheapestPrice())
     }
 }
-

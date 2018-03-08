@@ -21,8 +21,7 @@ class Coffee: Beverage {
     }
 
     override func package() -> Package {
-        return .Can
+        return .can
     }
 
 }
-

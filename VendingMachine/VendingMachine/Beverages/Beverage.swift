@@ -59,7 +59,7 @@ class Beverage: CustomStringConvertible {
     }
 
     func package() -> Package {
-        return .PET
+        return .pet
     }
 
     func price() -> Int {

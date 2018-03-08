@@ -22,7 +22,7 @@ class BananaMilk: Beverage {
     }
 
     override func package() -> Package {
-        return .Carton
+        return .carton
     }
 
 }

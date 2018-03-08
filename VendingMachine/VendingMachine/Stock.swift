@@ -39,12 +39,12 @@ class Stock {
 
     func addItem(_ item: Beverage) {
         for set in self.inventory {
-            if var arr = self.inventory[ObjectIdentifier(type(of:item))] {
+            if var arr = self.inventory[ObjectIdentifier(type(of: item))] {
                 arr.append(item)
-                self.inventory[ObjectIdentifier(type(of:item))] = arr
+                self.inventory[ObjectIdentifier(type(of: item))] = arr
                 break
-            } else if set.key != ObjectIdentifier(type(of:item)) {
-                let newItemSet = [ObjectIdentifier(type(of:item)) : [item]]
+            } else if set.key != ObjectIdentifier(type(of: item)) {
+                let newItemSet = [ObjectIdentifier(type(of: item)) : [item]]
                 self.inventory = self.inventory.update(other: newItemSet)
             }
         }

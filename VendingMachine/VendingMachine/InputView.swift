@@ -12,20 +12,20 @@ struct InputView {
 
     func askSelectMode(message: ProgramDescription) -> ProgramMode {
         print(message.description)
-        var mode = ProgramMode.None
+        var mode = ProgramMode.none
         let input = readLine() ?? ""
 
         if input == "q" {
-            mode = .Quit
+            mode = .quit
         } else {
             let inputNumber = Int(input) ?? 0
             switch inputNumber {
             case 1:
-                mode = .Admin
+                mode = .admin
             case 2:
-                mode = .User
+                mode = .user
             default:
-                mode = .None
+                mode = .none
             }
         }
         return mode
@@ -33,18 +33,18 @@ struct InputView {
 
     func askUserExecuteOption(message: CustomStringConvertible) -> (action: UserMenu, option: Int) {
         print(message)
-        var result = (action: UserMenu.None, option: 0)
+        var result = (action: UserMenu.none, option: 0)
 
         let input = readLine() ?? ""
 
         if input == "q" {
-            result = (action: .Quit, option: 0)
+            result = (action: .quit, option: 0)
         } else if input.contains(" ") {
             let splitInput = (input.split(separator: " ")).map({ Int($0) ?? 0 })
             switch splitInput[0] {
-            case 1: result = (action: .AddBalance, option: splitInput[1])
-            case 2: result = (action: .BuyItem, option: splitInput[1])
-            default: result = (action: .None, option: 0)
+            case 1: result = (action: .addBalance, option: splitInput[1])
+            case 2: result = (action: .buyItem, option: splitInput[1])
+            default: result = (action: .none, option: 0)
             }
         } else {
             return result
@@ -54,39 +54,38 @@ struct InputView {
 
     func askAdminExecuteOption(message: CustomStringConvertible) -> (action: AdminMenu, option: Int) {
         print(message)
-        var result = (action: AdminMenu.None, option: 0)
+        var result = (action: AdminMenu.none, option: 0)
         let input = readLine() ?? ""
 
         if input.contains(" ") {
             let splitInput = (input.split(separator: " ")).map({ Int($0) ?? 0 })
             switch splitInput[0] {
-            case 1: result = (action: .AddItem, option: splitInput[1])
-            case 2: result = (action: .DeleteItem, option: splitInput[1])
+            case 1: result = (action: .addItem, option: splitInput[1])
+            case 2: result = (action: .deleteItem, option: splitInput[1])
             default: return result
             }
         } else if input == "q" {
-            result = (action: .Quit, option: 0)
+            result = (action: .quit, option: 0)
         } else {
             return result
         }
         return result
     }
 
-
     func askAdminModeAction(message: CustomStringConvertible) -> AdminMenu {
         print(message)
 
         let input = readLine() ?? ""
         guard input != "q" else {
-            return .Quit
+            return .quit
         }
         guard let actionNumber = Int(input) else {
-            return .None
+            return .none
         }
         switch actionNumber {
-        case 1: return .AddItem
-        case 2: return .DeleteItem
-        default: return .None
+        case 1: return .addItem
+        case 2: return .deleteItem
+        default: return .none
         }
     }
 
@@ -99,6 +98,4 @@ struct InputView {
         return number
     }
 
-
 }
-

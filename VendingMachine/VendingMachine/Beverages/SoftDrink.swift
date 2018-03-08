@@ -18,11 +18,11 @@ class SoftDrink: Beverage {
     }
 
     init(brand: String, weight: Int, price: Int, name: String, manufactured: String) {
-        super.init(brand: brand, weight: weight, price: price, name: name, manufactured: manufactured, valid: self.validDuration,  calorie: self.calorie, hot: self.hot, caffeine: self.caffeine)
+        super.init(brand: brand, weight: weight, price: price, name: name, manufactured: manufactured, valid: self.validDuration, calorie: self.calorie, hot: self.hot, caffeine: self.caffeine)
     }
 
     override func package() -> Package {
-        return .PET
+        return .pet
     }
 
 }

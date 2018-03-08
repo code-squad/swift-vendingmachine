@@ -15,7 +15,7 @@ class StockController {
     private var stock = Stock()
 
     init (items: [Beverage]) {
-        items.forEach{ item in self.history.addSupplyLog(item)}
+        items.forEach {item in self.history.addSupplyLog(item)}
         let stockSets = items.reduce(into: [ObjectIdentifier: [Beverage]]()) {
             $0[ObjectIdentifier(type(of: $1)), default:[]].append($1)
         }
@@ -79,6 +79,5 @@ class StockController {
     func cheapestPrice() -> Int {
         return stock.cheapestPrice()
     }
-
 
 }

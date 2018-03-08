@@ -10,7 +10,6 @@ import XCTest
 
 class UnitTestVendingMachine: XCTestCase {
 
-
     func testAttribute() {
         let strawberryMilk = Milk(flavor: "딸기", brand: "서울우유", weight: 200, price: 1000, name: "날마다딸기우유", manufactured: "20171009")
 
@@ -102,7 +101,7 @@ class UnitTestVendingMachine: XCTestCase {
             stock.append(dolceLatte)
             stock.append(energyDrink)
         }
-        let vending = VendingMachine(stockItems:stock)
+        let vending = VendingMachine(stockItems: stock)
         print(vending.showStock())
         print(vending.stockContoller.stock)
     }
@@ -160,8 +159,8 @@ class UnitTestVendingMachine: XCTestCase {
             stock.append(energyDrink)
         }
         // 추가된 음료를 딕셔너리형태로 정렬
-        let productSets = stock.reduce(into: [ObjectIdentifier:[ObjectIdentifier]]()) {
-            $0[ObjectIdentifier(type(of:$1)), default:[]].append(ObjectIdentifier($1))
+        let productSets = stock.reduce(into: [ObjectIdentifier: [ObjectIdentifier]]()) {
+            $0[ObjectIdentifier(type(of: $1)), default:[]].append(ObjectIdentifier($1))
         }
         print(productSets)
         }
@@ -262,7 +261,7 @@ class UnitTestVendingMachine: XCTestCase {
         let addingItem = beverages[input-1]
         stock.addItem(item: addingItem)
         print(stock.stockSummary())
-        let result = stock.inventory[ObjectIdentifier(type(of:addingItem))]?.count
+        let result = stock.inventory[ObjectIdentifier(type(of: addingItem))]?.count
         XCTAssertEqual(result, 2)
     }
 
@@ -308,7 +307,6 @@ class UnitTestVendingMachine: XCTestCase {
         XCTAssertEqual(result, 2000)
     }
 
-
     func testShelves() {
         let beverages = [
             EnergyDrink(brand: "레드불", weight: 350, price: 2000, name: "레드불", manufactured: "20180123"),
@@ -329,9 +327,4 @@ class UnitTestVendingMachine: XCTestCase {
         XCTAssertEqual(stock.shelves.count, 4)
     }
 
-
-
 }
-
-
-

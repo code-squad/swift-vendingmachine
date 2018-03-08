@@ -23,7 +23,7 @@ struct Controller {
 
         func addItems(_ index: Int) throws -> Beverage {
             guard 1...beverages.count ~= index else {
-                throw Exception.OutOfStock
+                throw Exception.outOfStock
             }
             return self.beverages[index-1]
         }
@@ -65,40 +65,39 @@ struct Controller {
         var runProgram = true
 
         while runProgram {
-            switch InputView().askSelectMode(message: .ChooseMode) {
+            switch InputView().askSelectMode(message: .chooseMode) {
 
-            case .Admin: do {
+            case .admin: do {
                 vendingMachine = try adminMode(vendingMachine)
             } catch let error {
                 switch error {
-                case Exception.OutOfStock:
-                    OutputView().showDescription(.HasNoItem)
-                default: OutputView().showDescription(.UnKnown)
+                case Exception.outOfStock:
+                    OutputView().showDescription(.hasNoItem)
+                default: OutputView().showDescription(.unKnown)
                 }
                 continue
             }
 
-            case .User: do {
+            case .user: do {
                 vendingMachine = try userMode(vendingMachine)
             } catch let error {
                 switch error {
-                case Exception.NotEnoughBalance:
-                    OutputView().showDescription(Exception.NotEnoughBalance.description)
-                case Exception.OutOfStock:
-                    OutputView().showDescription(Exception.OutOfStock.description)
-                default: OutputView().showDescription(.UnKnown)
+                case Exception.notEnoughBalance:
+                    OutputView().showDescription(Exception.notEnoughBalance.description)
+                case Exception.outOfStock:
+                    OutputView().showDescription(Exception.outOfStock.description)
+                default: OutputView().showDescription(.unKnown)
                 }
                 continue
                 }
 
-            case .None:
-                OutputView().showDescription(.AskInputAgain)
+            case .none:
+                OutputView().showDescription(.askInputAgain)
                 continue
 
-            case .Quit:
-                OutputView().showDescription(.QuitVendingMachine)
+            case .quit:
+                OutputView().showDescription(.quitVendingMachine)
                 runProgram = false
-                break
             }
         }
 
@@ -111,18 +110,18 @@ struct Controller {
             let input = InputView().askAdminModeAction(message: "<< 관리자 모드 >>\n원하는 동작과 음료 번호를 선택하세요.\n\(vendingMachine.showStockDefault())\n1. 재고 추가 | 2. 재고 삭제 (띄어쓰기로 구분, 종료를 원하면 \"q\"입력) \n>>")
 
             switch input {
-            case .AddItem:
+            case .addItem:
                 let itemCode = InputView().askOptionNumber(message: "추가를 원하는 상품 번호를 입력하세요.\n\(AdminController().addItemsDescription())\n")
                 vendingMachine.add(inputItem: try AdminController().addItems(itemCode))
 
-            case .DeleteItem:
+            case .deleteItem:
                 let itemCode = InputView().askOptionNumber(message: "삭제를 원하는 상품 번호를 입력하세요.\n\(vendingMachine.showStock())\n")
                 try vendingMachine.removeItem(itemCode: itemCode)
 
-            case .None: OutputView().showDescription(.AskInputAgain)
+            case .none: OutputView().showDescription(.askInputAgain)
                 continue
 
-            case .Quit: OutputView().showDescription(.QuitAdminMode)
+            case .quit: OutputView().showDescription(.quitAdminMode)
 
             run = false
             }
@@ -133,7 +132,7 @@ struct Controller {
     // 사용자 모드
     private func userMode(_ vendingMachine: VendingMachine) throws -> VendingMachine {
         var result = Beverage()
-        var input = (action: UserMenu.None, option: 0)
+        var input = (action: UserMenu.none, option: 0)
         var run = true
 
         while run {
@@ -151,19 +150,18 @@ struct Controller {
             let operationType = input.action
 
             switch operationType {
-            case .AddBalance: vendingMachine.addBalance(money: input.option)
+            case .addBalance: vendingMachine.addBalance(money: input.option)
 
-            case .BuyItem: result = try vendingMachine.buy(itemCode: input.option)
+            case .buyItem: result = try vendingMachine.buy(itemCode: input.option)
                 print("\n>>\(result.type)을 선택하셨습니다. \(result.price())원을 차감합니다.")
 
-            case .None:
-                OutputView().showDescription(.AskInputAgain)
+            case .none:
+                OutputView().showDescription(.askInputAgain)
                 continue
 
-            case .Quit:
-                OutputView().showDescription(.QuitUserMode)
+            case .quit:
+                OutputView().showDescription(.quitUserMode)
                 run = false
-                break
             }
         }
         return vendingMachine
