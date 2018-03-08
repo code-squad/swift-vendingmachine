@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+struct OutputView {
+    static func printBeverage (species: Printable) {
+        species.printBeverage()
+    }
+}
