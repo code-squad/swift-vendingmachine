@@ -27,6 +27,7 @@ class StockController {
         let key = try shelf.matchCode(option: itemCode)
         let item = stock.buy(itemCode: key)
         self.history.addPurchaseLog(item)
+        self.shelf = shelf.update(newItems: self.stock.currentInventory())
         return item
     }
 
@@ -35,11 +36,13 @@ class StockController {
     func removeItem(_ itemCode: Int) throws {
         let key = try shelf.matchCode(option: itemCode)
         self.stock.removeItem(key)
+        self.shelf = shelf.update(newItems: self.stock.currentInventory())
     }
 
     func addItem(item: Beverage) {
         self.stock.addItem(item)
         self.history.addSupplyLog(item)
+        self.shelf = shelf.update(newItems: self.stock.currentInventory())
     }
 
     func findHotBeverage() -> [ObjectIdentifier: [Beverage]] {
@@ -47,7 +50,7 @@ class StockController {
     }
 
     func menu() -> String {
-        return stock.menu()
+        return stock.menu(itemCodes: self.shelf)
     }
 
     func stockSummary() -> String {
