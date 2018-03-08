@@ -32,13 +32,13 @@ struct History {
         var log = ""
         if purchase.count != 0 {
             title = "< 구매 내역 > \n"
-            log = purchase.map( {"\($0.type), \($0.getPrice())원, \((Date().getDateWithLocalTime()))"} ).joined(separator: "\n")
+            log = purchase.map( {"\($0.type), \($0.price())원, \((Date().getDateWithLocalTime()))"} ).joined(separator: "\n")
         } else {
             title = " >> 구매 내역이 없습니다. \n"
         }
         if supply.count != 0 {
             title += "\n< 입고 내역 > \n"
-            log = supply.map( {"\($0.type), \($0.getPrice())원, \((Date().getDateWithLocalTime()))"} ).joined(separator: "\n")
+            log = supply.map( {"\($0.type), \($0.price())원, \((Date().getDateWithLocalTime()))"} ).joined(separator: "\n")
         } else {
             title += " >> 입고 내역이 없습니다. \n"
         }
