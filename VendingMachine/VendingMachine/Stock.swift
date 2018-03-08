@@ -32,13 +32,10 @@ struct Stock {
 
     mutating func buy(itemCode: Int, balance: Int) throws -> Beverage {
         let key = try shelf.matchCode(option: itemCode)
-
-        guard self.inventory[key]![0].isCheaper(than: balance) else {
-            throw Exception.NotEnoughBalance
-        }
-        history.addPurchaseLog(self.inventory[key]![0])
+        let item = self.inventory[key]![0]
+        history.addPurchaseLog(item)
         self.shelf = shelf.update(newItems: self.inventory)
-        return self.inventory[key]![0]
+        return item
     }
 
     // remove한 뒤에 리턴해버리니까 음료수가 한개만 남은상태에서
@@ -67,7 +64,7 @@ struct Stock {
 
     func priceOfItem(_ itemCode: Int) throws -> Int {
         let key = try self.shelf.matchCode(option: itemCode)
-        return self.inventory[key]![0].getPrice()
+        return self.inventory[key]![0].price()
     }
 
     func findHotBeverage() -> [ObjectIdentifier: [Beverage]] {
@@ -90,7 +87,7 @@ struct Stock {
         for itemCode in itemCodes where self.inventory[itemCode]!.count > 0 {
             let item = self.inventory[itemCode]![0]
             index += 1
-            result += "\(index)) \(item.type) : \(item.getPrice())원 | \(self.inventory[itemCode]!.count)개 \n"
+            result += "\(index)) \(item.type) : \(item.price())원 | \(self.inventory[itemCode]!.count)개 \n"
         }
         return result
     }
@@ -129,11 +126,11 @@ struct Stock {
         return self.setAsDictionary(valid)
     }
 
-    func finditemsCheaper(than balance: Int) -> [ObjectIdentifier: [Beverage]] {
+    func finditemsCheaper(than balance: Money) -> [ObjectIdentifier: [Beverage]] {
         var valid = [Beverage]()
         for set in self.inventory {
             for product in set.value {
-                if product.getPrice() <= balance {
+                if balance.isAffordable(item: product) {
                     valid.append(product)
                 }
             }
@@ -150,7 +147,7 @@ struct Stock {
         var price = [Int]()
         for set in self.inventory {
             for product in set.value {
-                price.append(product.getPrice())
+                price.append(product.price())
             }
         }
         let cheapest = price.sorted()[0]

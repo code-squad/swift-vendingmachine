@@ -37,6 +37,8 @@
 		E898BEC320201CBF008D5998 /* BananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = E873569E201F1BF9004126E2 /* BananaMilk.swift */; };
 		E898BEC420201CC2008D5998 /* EnergyDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = E873569A201F1ABB004126E2 /* EnergyDrink.swift */; };
 		E898BEC520201CC5008D5998 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8735698201F1A60004126E2 /* VendingMachine.swift */; };
+		E8BCC7A52050F9C400711234 /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BCC7A42050F9C400711234 /* Money.swift */; };
+		E8BCC7A62050F9C400711234 /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BCC7A42050F9C400711234 /* Money.swift */; };
 		E8D7B635204FB11600D7EBBB /* CustomEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D7B634204FB11600D7EBBB /* CustomEnum.swift */; };
 		E8D7B637204FB30000D7EBBB /* ProgramDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D7B636204FB30000D7EBBB /* ProgramDescription.swift */; };
 		E8DD5E0F204E84C8002C18D0 /* Shelf.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DD5E0E204E84C8002C18D0 /* Shelf.swift */; };
@@ -75,6 +77,7 @@
 		E88E17C3201C7464007B380A /* CustomExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomExtension.swift; sourceTree = "<group>"; };
 		E898BEBC20200BA3008D5998 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		E898BEBE20200C3F008D5998 /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
+		E8BCC7A42050F9C400711234 /* Money.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
 		E8D7B634204FB11600D7EBBB /* CustomEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEnum.swift; sourceTree = "<group>"; };
 		E8D7B636204FB30000D7EBBB /* ProgramDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramDescription.swift; sourceTree = "<group>"; };
 		E8DD5E0E204E84C8002C18D0 /* Shelf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shelf.swift; sourceTree = "<group>"; };
@@ -132,6 +135,7 @@
 				E8DD5E0E204E84C8002C18D0 /* Shelf.swift */,
 				E8D7B634204FB11600D7EBBB /* CustomEnum.swift */,
 				E8D7B636204FB30000D7EBBB /* ProgramDescription.swift */,
+				E8BCC7A42050F9C400711234 /* Money.swift */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";
@@ -262,6 +266,7 @@
 				E873569B201F1ABB004126E2 /* EnergyDrink.swift in Sources */,
 				E8D7B635204FB11600D7EBBB /* CustomEnum.swift in Sources */,
 				E8E48573202452CB00096690 /* History.swift in Sources */,
+				E8BCC7A52050F9C400711234 /* Money.swift in Sources */,
 				E8D7B637204FB30000D7EBBB /* ProgramDescription.swift in Sources */,
 				E88E17C2201AD620007B380A /* OutputView.swift in Sources */,
 				E8735699201F1A60004126E2 /* VendingMachine.swift in Sources */,
@@ -286,6 +291,7 @@
 				E898BEC420201CC2008D5998 /* EnergyDrink.swift in Sources */,
 				E8735694201EE9AD004126E2 /* SoftDrink.swift in Sources */,
 				E898BEC220201CBD008D5998 /* ChocoMilk.swift in Sources */,
+				E8BCC7A62050F9C400711234 /* Money.swift in Sources */,
 				E898BEC320201CBF008D5998 /* BananaMilk.swift in Sources */,
 				E898BEC020201659008D5998 /* InputView.swift in Sources */,
 				E8735695201EE9B1004126E2 /* Coffee.swift in Sources */,

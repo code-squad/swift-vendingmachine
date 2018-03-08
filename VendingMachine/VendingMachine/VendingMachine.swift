@@ -10,27 +10,30 @@ import Foundation
 
 class VendingMachine {
     private(set) var stock = Stock(items: [Beverage]())
-    private var balance = 0
+    private var balance = Money()
 
     init(stockItems: [Beverage]) {
         self.stock = Stock(items: stockItems)
     }
 
     func addBalance(money: Int) {
-        balance += money
+        self.balance.add(money)
     }
 
     func subtractBalance(money: Int) {
-        balance -= money
+        self.balance.subtract(money)
     }
 
     func showBalance() -> Int {
-        return self.balance
+        return self.balance.currentBalance()
     }
 
     func buy(itemCode: Int) throws -> Beverage {
-        let selectedItem = try stock.buy(itemCode: itemCode, balance: self.balance)
-        try self.subtractBalance(money: stock.priceOfItem(itemCode))
+        let selectedItem = try stock.buy(itemCode: itemCode, balance: showBalance())
+        guard self.balance.isAffordable(item: selectedItem) else {
+            throw Exception.NotEnoughBalance
+        }
+        self.balance.subtract(selectedItem.price())
         try stock.removeItem(itemCode)
         return selectedItem
     }
@@ -79,7 +82,7 @@ class VendingMachine {
 
     // 컨트롤러가 계속 구매가능여부를 판단해서 메뉴를 다르게 출력할 수 있도록 가능여부를 리턴. 제일 저렴한 음료의 가격이 자판기를 진행할 수 있는 최소단위
     func hasMiminumBalance() -> Bool {
-        return self.balance >= stock.cheapestPrice()
+        return self.balance.hasMiminumBalance(than: stock.cheapestPrice())
     }
 }
 
