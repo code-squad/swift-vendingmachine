@@ -9,11 +9,11 @@
 import Foundation
 
 class VendingMachine {
-    private(set) var stock = Stock(items: [Beverage]())
+    private(set) var stock = StockController(items: [Beverage]())
     private var balance = Money()
 
     init(stockItems: [Beverage]) {
-        self.stock = Stock(items: stockItems)
+        self.stock = StockController(items: stockItems)
     }
 
     func addBalance(money: Int) {

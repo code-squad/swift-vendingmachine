@@ -1,5 +1,5 @@
 //
-//  Stock.swift
+//  StockController.swift
 //  VendingMachine
 //
 //  Created by YOUTH on 2018. 2. 1..
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Stock {
+struct StockController {
 
     private(set) var inventory = [ObjectIdentifier: [Beverage]]()
     private var history = History()
