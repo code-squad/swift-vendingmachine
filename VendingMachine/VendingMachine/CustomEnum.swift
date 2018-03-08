@@ -10,47 +10,44 @@ import Foundation
 
 // 에러 케이스 enum
 enum Exception: Error {
-    case NotEnoughBalance
-    case OutOfStock
+    case notEnoughBalance
+    case outOfStock
 
     var description: ProgramDescription {
         switch self {
-        case .NotEnoughBalance:
-            return ProgramDescription.NotEnoughBalance
-        case .OutOfStock:
-            return ProgramDescription.OutOfStock
+        case .notEnoughBalance:
+            return ProgramDescription.notEnoughBalance
+        case .outOfStock:
+            return ProgramDescription.outOfStock
         }
     }
 }
 
 enum ProgramMode {
-    case Admin
-    case User
-    case None
-    case Quit
+    case admin
+    case user
+    case none
+    case quit
 }
 
 enum AdminMenu {
-    case AddItem
-    case DeleteItem
-    case None
-    case Quit
+    case addItem
+    case deleteItem
+    case none
+    case quit
 }
 
 enum UserMenu {
-    case AddBalance
-    case BuyItem
-    case None
-    case Quit
+    case addBalance
+    case buyItem
+    case none
+    case quit
 }
-
 
 // 음료수의 용기 패키지 타입 enum 선언
 enum Package {
-    case Can
-    case Bottle
-    case PET
-    case Carton
+    case can
+    case bottle
+    case pet
+    case carton
 }
-
-

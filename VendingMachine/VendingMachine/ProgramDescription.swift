@@ -9,45 +9,41 @@
 import Foundation
 
 enum ProgramDescription: CustomStringConvertible {
-    case ChooseMode
-    case HasNoItem
-    case UnKnown
-    case NotEnoughBalance
-    case OutOfStock
-    case AskInputAgain
-    case AdminModeAction
-    case QuitVendingMachine
-    case QuitAdminMode
-    case QuitUserMode
+    case chooseMode
+    case hasNoItem
+    case unKnown
+    case notEnoughBalance
+    case outOfStock
+    case askInputAgain
+    case adminModeAction
+    case quitVendingMachine
+    case quitAdminMode
+    case quitUserMode
 
     var description: String {
         switch self {
-        case .ChooseMode:
+        case .chooseMode:
             return "자판기를 시작합니다.(종료를 원하면 \"q\"입력)\n1.관리자 모드\n2.사용자 모드\n입력>> "
-        case .HasNoItem:
+        case .hasNoItem:
             return "상품이 존재하지 않습니다. - 관리자모드\n"
-        case .UnKnown:
+        case .unKnown:
             return "Unknown error - 관리자모드\n"
-        case .NotEnoughBalance:
+        case .notEnoughBalance:
             return "잔액 부족!\n"
-        case .OutOfStock:
+        case .outOfStock:
             return "재고 없음!\n"
-        case .AskInputAgain:
+        case .askInputAgain:
             return "## 메뉴를 다시 입력해주세요. ##\n"
-        case .AdminModeAction:
+        case .adminModeAction:
             return "<< 관리자 모드 >>\n원하는 동작과 음료 번호를 선택하세요.\n"
-        case .QuitVendingMachine:
+        case .quitVendingMachine:
             return "## 자판기를 종료합니다 ## \n"
-        case .QuitAdminMode:
+        case .quitAdminMode:
             return "## 관리자 모드를 종료합니다. ##\n"
-        case .QuitUserMode:
+        case .quitUserMode:
             return "## 사용자 모드를 종료합니다. ##\n"
         }
 
     }
 
 }
-
-
-
-

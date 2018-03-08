@@ -21,8 +21,7 @@ class DolceLatte: Beverage {
     }
 
     override func package() -> Package {
-        return .Bottle
+        return .bottle
     }
 
 }
-

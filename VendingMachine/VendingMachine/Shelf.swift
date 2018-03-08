@@ -33,13 +33,12 @@ class Shelf {
 
     func matchCode(option: Int) throws -> ObjectIdentifier {
         guard option-1 < itemTags.count else {
-            throw Exception.OutOfStock
+            throw Exception.outOfStock
+        }
+        guard option > 0 else {
+            throw Exception.outOfStock
         }
         return self.itemTags[option-1]
     }
 
-    
-
-
 }
-

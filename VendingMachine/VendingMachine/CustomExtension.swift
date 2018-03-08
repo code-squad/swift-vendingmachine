@@ -56,11 +56,9 @@ extension Date {
 extension Dictionary {
     func update(other: Dictionary) -> Dictionary {
         var newSet = self
-        for (key,value) in other {
-            newSet.updateValue(value, forKey:key)
+        for (key, value) in other {
+            newSet.updateValue(value, forKey: key)
         }
         return newSet
     }
 }
-
-
