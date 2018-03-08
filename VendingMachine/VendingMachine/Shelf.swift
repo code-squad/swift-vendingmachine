@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Shelf {
+class Shelf {
     private(set) var itemTags = [ObjectIdentifier]()
 
     init() { }
