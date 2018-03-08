@@ -9,26 +9,36 @@
 import Foundation
 
 struct History {
-    private var purchaseLog = [Beverage]()
-    private var supplyLog =  [Beverage]()
+    private var purchase = [Beverage]()
+    private var supply =  [Beverage]()
+
+    init() {}
 
     init(_ purchase: [Beverage], _ supply: [Beverage]) {
-        self.purchaseLog = purchase
-        self.supplyLog = supply
+        self.purchase = purchase
+        self.supply = supply
+    }
+
+    mutating func addPurchaseLog(_ item: Beverage) {
+        self.purchase.append(item)
+    }
+
+    mutating func addSupplyLog(_ item: Beverage) {
+        self.supply.append(item)
     }
 
     func showHistory() -> String {
         var title = ""
         var log = ""
-        if purchaseLog.count != 0 {
+        if purchase.count != 0 {
             title = "< 구매 내역 > \n"
-            log = purchaseLog.map( {"\($0.type), \($0.getPrice())원, \((Date().getDateWithLocalTime()))"} ).joined(separator: "\n")
+            log = purchase.map( {"\($0.type), \($0.getPrice())원, \((Date().getDateWithLocalTime()))"} ).joined(separator: "\n")
         } else {
             title = " >> 구매 내역이 없습니다. \n"
         }
-        if supplyLog.count != 0 {
+        if supply.count != 0 {
             title += "\n< 입고 내역 > \n"
-            log = supplyLog.map( {"\($0.type), \($0.getPrice())원, \((Date().getDateWithLocalTime()))"} ).joined(separator: "\n")
+            log = supply.map( {"\($0.type), \($0.getPrice())원, \((Date().getDateWithLocalTime()))"} ).joined(separator: "\n")
         } else {
             title += " >> 입고 내역이 없습니다. \n"
         }
