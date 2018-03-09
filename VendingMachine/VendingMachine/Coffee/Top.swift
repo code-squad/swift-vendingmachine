@@ -8,8 +8,8 @@
 
 import Foundation
 class Top: Coffee, Printable {
-    private var productFamily: Top_Product_Family
-    init(_ brand: String, _ weight: Int, _ price: Int, _ name: String, _ manufactured_date: Date,_ sizeType: CoffeeSize, _ productFamily: Top_Product_Family) {
+    private let productFamily: Top_Product_Family
+    init(_ brand: String, _ weight: Int, _ price: Int, _ name: String, _ manufactured_date: String,_ sizeType: CoffeeSize, _ productFamily: Top_Product_Family) {
         self.productFamily = productFamily
         super.init(brand, weight, price, name, manufactured_date, sizeType)
     }

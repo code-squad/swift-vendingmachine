@@ -8,8 +8,8 @@
 
 import Foundation
 class Americano: Coffee, Printable {
-    private var espresso: Espresso
-    init(_ brand: String, _ weight: Int, _ price: Int, _ name: String, _ manufactured_date: Date, _ sizeType: CoffeeSize, _ espresso: Espresso) {
+    private let espresso: Espresso
+    init(_ brand: String, _ weight: Int, _ price: Int, _ name: String, _ manufactured_date: String, _ sizeType: CoffeeSize, _ espresso: Espresso) {
         self.espresso = espresso
         super.init(brand, weight, price, name, manufactured_date, sizeType)
     }

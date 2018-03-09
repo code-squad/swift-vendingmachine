@@ -9,10 +9,18 @@
 import Foundation
 class Milk: Beverage {
     private let milkGrade: MilkGrades
-    init(_ brand: String, _ weight: Int, _ price: Int, _ name: String, _ manufactured_date: Date, _ milkGrades: MilkGrades) {
+    init(_ brand: String, _ weight: Int, _ price: Int, _ name: String, _ manufactured_date: String, _ milkGrades: MilkGrades) {
         self.milkGrade = milkGrades
         super.init(brand, weight, price, name, manufactured_date)
     }
+    
+    override var expirationDate: Date? {
+        guard let manufacturingDate = dateFormatter.date(from: self.manufactured_date) else {
+            return nil
+        }
+        return Date(timeInterval: 3600 * 24 * 14, since: manufacturingDate)
+    }
+    
 }
 
 enum MilkTastes: CustomStringConvertible {

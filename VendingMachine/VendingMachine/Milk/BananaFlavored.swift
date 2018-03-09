@@ -8,16 +8,16 @@
 
 import Foundation
 class BananaFlavoredMilk: Milk, CustomStringConvertible, Printable {
-    private var calorie: Float
-    private var bananaConcentration: Float
-    init(_ brand: String, _ weight: Int, _ price: Int, _ name: String, _ manufactured_date: Date, _ milkGrades: MilkGrades, _ calorie: Float, _ bananaConcentration: Float) {
+    private let calorie: Float
+    private let bananaConcentration: Float
+    init(_ brand: String, _ weight: Int, _ price: Int, _ name: String, _ manufactured_date: String, _ milkGrades: MilkGrades, _ calorie: Float, _ bananaConcentration: Float) {
         self.calorie = calorie
         self.bananaConcentration = bananaConcentration
         super.init(brand, weight, price, name, manufactured_date, milkGrades)
     }
     
     var description: String {
-        return MilkTastes.banana_Flavored.description + Banana_Flavored_Milk.className + self.beverageDescription()
+        return MilkTastes.banana_Flavored.description + BananaFlavoredMilk.className + self.beverageDescription()
     }
     
     func printBeverage() {
