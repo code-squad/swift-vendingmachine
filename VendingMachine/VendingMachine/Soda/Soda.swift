@@ -9,14 +9,23 @@
 import Foundation
 class Soda: Beverage {
     private var amountOfSugar: Float = 0.0
-    init(_ brand: String, _ weight: Int, _ price: Int, _ name: String, _ manufactured_date: Date, _ amountOfSugar: Float) {
+    init(_ brand: String, _ weight: Int, _ price: Int, _ name: String, _ manufactured_date: String, _ amountOfSugar: Float) {
         self.amountOfSugar = amountOfSugar
         super.init(brand, weight, price, name, manufactured_date)
+    }
+    
+    override var expirationDate: Date? {
+        guard let manufacturingDate = dateFormatter.date(from: self.manufactured_date) else {
+            return nil
+        }
+        return Date(timeInterval: 3600 * 24 * 120, since: manufacturingDate)
     }
     
     func isHighSugarcontent () -> Bool {
         return self.amountOfSugar > 50
     }
+    
+    
 }
 
 enum SodaTastes: CustomStringConvertible {

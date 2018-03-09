@@ -20,6 +20,20 @@
 		C3C4A25320511CBD0094E9AF /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C4A25220511CBD0094E9AF /* Milk.swift */; };
 		C3C4A25520511CCD0094E9AF /* BananaFlavored.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C4A25420511CCD0094E9AF /* BananaFlavored.swift */; };
 		C3C4A25720511CDB0094E9AF /* ChocoFlavored.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C4A25620511CDB0094E9AF /* ChocoFlavored.swift */; };
+		C3C4A25F205121E40094E9AF /* UnitTestVendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C4A25E205121E40094E9AF /* UnitTestVendingMachine.swift */; };
+		C3C4A264205122600094E9AF /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
+		C3C4A265205122630094E9AF /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C4A24020511C3D0094E9AF /* Beverage.swift */; };
+		C3C4A266205122660094E9AF /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C4A24220511C470094E9AF /* OutputView.swift */; };
+		C3C4A267205122690094E9AF /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C4A23E20511C2F0094E9AF /* Soda.swift */; };
+		C3C4A2682051226B0094E9AF /* Coke.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C4A24420511C4F0094E9AF /* Coke.swift */; };
+		C3C4A2692051226D0094E9AF /* Welchs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C4A24620511C560094E9AF /* Welchs.swift */; };
+		C3C4A26A205122700094E9AF /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C4A24920511C7D0094E9AF /* Coffee.swift */; };
+		C3C4A26B205122720094E9AF /* Americano.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C4A24B20511C850094E9AF /* Americano.swift */; };
+		C3C4A26C205122750094E9AF /* Top.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C4A24D20511C8F0094E9AF /* Top.swift */; };
+		C3C4A26D205122770094E9AF /* DutchCoffeeStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C4A24F20511CA10094E9AF /* DutchCoffeeStory.swift */; };
+		C3C4A26E2051227A0094E9AF /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C4A25220511CBD0094E9AF /* Milk.swift */; };
+		C3C4A26F2051227D0094E9AF /* BananaFlavored.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C4A25420511CCD0094E9AF /* BananaFlavored.swift */; };
+		C3C4A270205122800094E9AF /* ChocoFlavored.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C4A25620511CDB0094E9AF /* ChocoFlavored.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -49,10 +63,20 @@
 		C3C4A25220511CBD0094E9AF /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 		C3C4A25420511CCD0094E9AF /* BananaFlavored.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaFlavored.swift; sourceTree = "<group>"; };
 		C3C4A25620511CDB0094E9AF /* ChocoFlavored.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocoFlavored.swift; sourceTree = "<group>"; };
+		C3C4A25C205121E40094E9AF /* UnitTestVendingMachine.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTestVendingMachine.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3C4A25E205121E40094E9AF /* UnitTestVendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestVendingMachine.swift; sourceTree = "<group>"; };
+		C3C4A260205121E40094E9AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		839DA9061F8D1F95009E05F3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3C4A259205121E40094E9AF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -66,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				839DA90B1F8D1F95009E05F3 /* VendingMachine */,
+				C3C4A25D205121E40094E9AF /* UnitTestVendingMachine */,
 				839DA90A1F8D1F95009E05F3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -74,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				839DA9091F8D1F95009E05F3 /* VendingMachine */,
+				C3C4A25C205121E40094E9AF /* UnitTestVendingMachine.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -122,6 +148,15 @@
 			path = Milk;
 			sourceTree = "<group>";
 		};
+		C3C4A25D205121E40094E9AF /* UnitTestVendingMachine */ = {
+			isa = PBXGroup;
+			children = (
+				C3C4A25E205121E40094E9AF /* UnitTestVendingMachine.swift */,
+				C3C4A260205121E40094E9AF /* Info.plist */,
+			);
+			path = UnitTestVendingMachine;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -142,18 +177,39 @@
 			productReference = 839DA9091F8D1F95009E05F3 /* VendingMachine */;
 			productType = "com.apple.product-type.tool";
 		};
+		C3C4A25B205121E40094E9AF /* UnitTestVendingMachine */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C3C4A261205121E40094E9AF /* Build configuration list for PBXNativeTarget "UnitTestVendingMachine" */;
+			buildPhases = (
+				C3C4A258205121E40094E9AF /* Sources */,
+				C3C4A259205121E40094E9AF /* Frameworks */,
+				C3C4A25A205121E40094E9AF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UnitTestVendingMachine;
+			productName = UnitTestVendingMachine;
+			productReference = C3C4A25C205121E40094E9AF /* UnitTestVendingMachine.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		839DA9011F8D1F95009E05F3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0900;
+				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = JK;
 				TargetAttributes = {
 					839DA9081F8D1F95009E05F3 = {
 						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+					C3C4A25B205121E40094E9AF = {
+						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -171,9 +227,20 @@
 			projectRoot = "";
 			targets = (
 				839DA9081F8D1F95009E05F3 /* VendingMachine */,
+				C3C4A25B205121E40094E9AF /* UnitTestVendingMachine */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C3C4A25A205121E40094E9AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		839DA9051F8D1F95009E05F3 /* Sources */ = {
@@ -193,6 +260,27 @@
 				C3C4A24E20511C8F0094E9AF /* Top.swift in Sources */,
 				C3C4A24320511C470094E9AF /* OutputView.swift in Sources */,
 				C3C4A24A20511C7D0094E9AF /* Coffee.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3C4A258205121E40094E9AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3C4A265205122630094E9AF /* Beverage.swift in Sources */,
+				C3C4A264205122600094E9AF /* main.swift in Sources */,
+				C3C4A25F205121E40094E9AF /* UnitTestVendingMachine.swift in Sources */,
+				C3C4A2682051226B0094E9AF /* Coke.swift in Sources */,
+				C3C4A266205122660094E9AF /* OutputView.swift in Sources */,
+				C3C4A267205122690094E9AF /* Soda.swift in Sources */,
+				C3C4A26B205122720094E9AF /* Americano.swift in Sources */,
+				C3C4A26C205122750094E9AF /* Top.swift in Sources */,
+				C3C4A2692051226D0094E9AF /* Welchs.swift in Sources */,
+				C3C4A26A205122700094E9AF /* Coffee.swift in Sources */,
+				C3C4A26E2051227A0094E9AF /* Milk.swift in Sources */,
+				C3C4A270205122800094E9AF /* ChocoFlavored.swift in Sources */,
+				C3C4A26D205122770094E9AF /* DutchCoffeeStory.swift in Sources */,
+				C3C4A26F2051227D0094E9AF /* BananaFlavored.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +411,32 @@
 			};
 			name = Release;
 		};
+		C3C4A262205121E40094E9AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = UnitTestVendingMachine/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cjh.UnitTestVendingMachine;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		C3C4A263205121E40094E9AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = UnitTestVendingMachine/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cjh.UnitTestVendingMachine;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -340,6 +454,15 @@
 			buildConfigurations = (
 				839DA9111F8D1F95009E05F3 /* Debug */,
 				839DA9121F8D1F95009E05F3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C3C4A261205121E40094E9AF /* Build configuration list for PBXNativeTarget "UnitTestVendingMachine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3C4A262205121E40094E9AF /* Debug */,
+				C3C4A263205121E40094E9AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
