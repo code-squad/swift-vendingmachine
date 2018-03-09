@@ -15,10 +15,10 @@ class Milk: Beverage {
     }
     
     override var expirationDate: Date? {
-        guard let manufacturingDate = dateFormatter.date(from: self.manufactured_date) else {
+        guard let manufacturingDate = DateAndTime.formatter.date(from: self.manufactured_date) else {
             return nil
         }
-        return Date(timeInterval: 3600 * 24 * 14, since: manufacturingDate)
+        return Date(timeInterval: DateAndTime.fourtyFiveDaysAsSeconds, since: manufacturingDate)
     }
     
 }
@@ -38,4 +38,9 @@ enum MilkTastes: CustomStringConvertible {
 
 enum MilkGrades {
     case first_Grade, second_Grade, third_grade
+}
+
+enum Standars: Float {
+    case ofLowCalorie = 40.0
+    case ofHighConcentration = 1.0
 }

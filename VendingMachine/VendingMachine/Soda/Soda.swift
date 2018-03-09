@@ -15,10 +15,10 @@ class Soda: Beverage {
     }
     
     override var expirationDate: Date? {
-        guard let manufacturingDate = dateFormatter.date(from: self.manufactured_date) else {
+        guard let manufacturingDate = DateAndTime.formatter.date(from: self.manufactured_date) else {
             return nil
         }
-        return Date(timeInterval: 3600 * 24 * 120, since: manufacturingDate)
+        return Date(timeInterval: DateAndTime.sixMonthAsSeconds, since: manufacturingDate)
     }
     
     func isHighSugarcontent () -> Bool {

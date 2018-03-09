@@ -34,6 +34,8 @@
 		C3C4A26E2051227A0094E9AF /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C4A25220511CBD0094E9AF /* Milk.swift */; };
 		C3C4A26F2051227D0094E9AF /* BananaFlavored.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C4A25420511CCD0094E9AF /* BananaFlavored.swift */; };
 		C3C4A270205122800094E9AF /* ChocoFlavored.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C4A25620511CDB0094E9AF /* ChocoFlavored.swift */; };
+		C3C4A27220525D150094E9AF /* DateAndTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C4A27120525D150094E9AF /* DateAndTime.swift */; };
+		C3C4A273205274830094E9AF /* DateAndTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C4A27120525D150094E9AF /* DateAndTime.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -66,6 +68,7 @@
 		C3C4A25C205121E40094E9AF /* UnitTestVendingMachine.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTestVendingMachine.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3C4A25E205121E40094E9AF /* UnitTestVendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestVendingMachine.swift; sourceTree = "<group>"; };
 		C3C4A260205121E40094E9AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C3C4A27120525D150094E9AF /* DateAndTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAndTime.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +112,7 @@
 			children = (
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
 				C3C4A24020511C3D0094E9AF /* Beverage.swift */,
+				C3C4A27120525D150094E9AF /* DateAndTime.swift */,
 				C3C4A24220511C470094E9AF /* OutputView.swift */,
 				C3C4A23D20511C1F0094E9AF /* Soda */,
 				C3C4A24820511C5D0094E9AF /* Coffee */,
@@ -256,6 +260,7 @@
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
 				C3C4A24720511C560094E9AF /* Welchs.swift in Sources */,
 				C3C4A24520511C4F0094E9AF /* Coke.swift in Sources */,
+				C3C4A27220525D150094E9AF /* DateAndTime.swift in Sources */,
 				C3C4A25020511CA10094E9AF /* DutchCoffeeStory.swift in Sources */,
 				C3C4A24E20511C8F0094E9AF /* Top.swift in Sources */,
 				C3C4A24320511C470094E9AF /* OutputView.swift in Sources */,
@@ -267,6 +272,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3C4A273205274830094E9AF /* DateAndTime.swift in Sources */,
 				C3C4A265205122630094E9AF /* Beverage.swift in Sources */,
 				C3C4A264205122600094E9AF /* main.swift in Sources */,
 				C3C4A25F205121E40094E9AF /* UnitTestVendingMachine.swift in Sources */,
