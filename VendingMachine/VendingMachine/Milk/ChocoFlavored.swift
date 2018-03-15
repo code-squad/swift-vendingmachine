@@ -23,4 +23,3 @@ class ChocoFlavoredMilk: Milk {
         return self.chocolateConcentration > Standars.ofHighConcentration.rawValue
     }
 }
-
