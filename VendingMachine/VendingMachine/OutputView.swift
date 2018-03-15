@@ -16,9 +16,9 @@ struct Outputview {
         print(monitorMessage)
         var menu = ""
         if vendingMachine.checkUserBalance() == 0 {
-            menu += makeTotalMenu(of: vendingMachine)
+            menu += makeMenuOfTotal(of: vendingMachine)
         } else {
-            menu += makeOnlyCanBuyMenu(of: vendingMachine)
+            menu += makeMenuOfBuyableBeverage(of: vendingMachine)
         }
         print(menu)
     }
@@ -40,22 +40,22 @@ struct Outputview {
                                          purchaseDrink.key.name,
                                          purchaseDrink.value)
         }
-        listOfAllPurchases.removeLast()
+
         print(listOfAllPurchases)
     }
     
-    private func makeTotalMenu(of vendingMachine: Controller) -> String {
+    private func makeMenuOfTotal(of controller: Controller) -> String {
         var menu = "🥫"
-        let listOfInventory = vendingMachine.listOfInventory()
+        let listOfInventory = controller.listOfInventory()
         for drink in listOfInventory {
             menu += String(format: "%@(%d개)", drink.key.name, drink.value)
         }
         return menu
     }
     
-    private func makeOnlyCanBuyMenu(of vendingMachine: Controller) -> String {
+    private func makeMenuOfBuyableBeverage(of controller: Controller) -> String {
         var menu = ""
-        let listOfCanBuy = vendingMachine.showListOfBuyableBeverage()
+        let listOfCanBuy = controller.showListOfBuyableBeverage()
         for index in 0..<listOfCanBuy.count {
             let currentDrink = listOfCanBuy[index]
             menu += String(format: "%d) %@ %d원(%d개)\n",
