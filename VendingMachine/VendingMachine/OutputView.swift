@@ -48,7 +48,7 @@ struct Outputview {
     
     private func makeMenuOfTotal() -> String {
         var menu = "🥫"
-        let listOfInventory = self.controller.listOfInventory()
+        let listOfInventory = self.controller.listOfInventory().filter { $0.key.isValidate() }
         for drink in listOfInventory {
             menu += String(format: "%@(%d개)", drink.key.name, drink.value)
         }
