@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
+		C3C2EE3520564A05002EBD49 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C2EE3420564A05002EBD49 /* Controller.swift */; };
+		C3C2EE3620564A05002EBD49 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C2EE3420564A05002EBD49 /* Controller.swift */; };
+		C3C2EE3820576EC3002EBD49 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C2EE3720576EC3002EBD49 /* InputView.swift */; };
+		C3C2EE3920576EC3002EBD49 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C2EE3720576EC3002EBD49 /* InputView.swift */; };
 		C3C4A23F20511C2F0094E9AF /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C4A23E20511C2F0094E9AF /* Soda.swift */; };
 		C3C4A24120511C3D0094E9AF /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C4A24020511C3D0094E9AF /* Beverage.swift */; };
 		C3C4A24320511C470094E9AF /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C4A24220511C470094E9AF /* OutputView.swift */; };
@@ -53,6 +57,8 @@
 /* Begin PBXFileReference section */
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		C3C2EE3420564A05002EBD49 /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
+		C3C2EE3720576EC3002EBD49 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		C3C4A23E20511C2F0094E9AF /* Soda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soda.swift; sourceTree = "<group>"; };
 		C3C4A24020511C3D0094E9AF /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 		C3C4A24220511C470094E9AF /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
@@ -112,7 +118,9 @@
 			children = (
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
 				C3C4A24020511C3D0094E9AF /* Beverage.swift */,
+				C3C2EE3420564A05002EBD49 /* Controller.swift */,
 				C3C4A27120525D150094E9AF /* DateAndTime.swift */,
+				C3C2EE3720576EC3002EBD49 /* InputView.swift */,
 				C3C4A24220511C470094E9AF /* OutputView.swift */,
 				C3C4A23D20511C1F0094E9AF /* Soda */,
 				C3C4A24820511C5D0094E9AF /* Coffee */,
@@ -251,10 +259,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3C2EE3520564A05002EBD49 /* Controller.swift in Sources */,
 				C3C4A24120511C3D0094E9AF /* Beverage.swift in Sources */,
 				C3C4A25320511CBD0094E9AF /* Milk.swift in Sources */,
 				C3C4A24C20511C850094E9AF /* Americano.swift in Sources */,
 				C3C4A25720511CDB0094E9AF /* ChocoFlavored.swift in Sources */,
+				C3C2EE3820576EC3002EBD49 /* InputView.swift in Sources */,
 				C3C4A25520511CCD0094E9AF /* BananaFlavored.swift in Sources */,
 				C3C4A23F20511C2F0094E9AF /* Soda.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
@@ -280,6 +290,7 @@
 				C3C4A266205122660094E9AF /* OutputView.swift in Sources */,
 				C3C4A267205122690094E9AF /* Soda.swift in Sources */,
 				C3C4A26B205122720094E9AF /* Americano.swift in Sources */,
+				C3C2EE3920576EC3002EBD49 /* InputView.swift in Sources */,
 				C3C4A26C205122750094E9AF /* Top.swift in Sources */,
 				C3C4A2692051226D0094E9AF /* Welchs.swift in Sources */,
 				C3C4A26A205122700094E9AF /* Coffee.swift in Sources */,
@@ -287,6 +298,7 @@
 				C3C4A270205122800094E9AF /* ChocoFlavored.swift in Sources */,
 				C3C4A26D205122770094E9AF /* DutchCoffeeStory.swift in Sources */,
 				C3C4A26F2051227D0094E9AF /* BananaFlavored.swift in Sources */,
+				C3C2EE3620564A05002EBD49 /* Controller.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

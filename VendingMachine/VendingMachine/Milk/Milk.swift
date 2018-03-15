@@ -23,19 +23,6 @@ class Milk: Beverage {
     
 }
 
-enum MilkTastes: CustomStringConvertible {
-    case banana_Flavored
-    case strawberry_Flavored
-    case chocolate_Flavored
-    var description: String {
-        switch self {
-        case .banana_Flavored: return "바나나우유"
-        case .strawberry_Flavored: return "딸기우유"
-        case .chocolate_Flavored: return "초코우유"
-        }
-    }
-}
-
 enum MilkGrades {
     case first_Grade, second_Grade, third_grade
 }
