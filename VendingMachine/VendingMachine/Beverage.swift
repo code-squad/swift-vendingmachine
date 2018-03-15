@@ -8,11 +8,11 @@
 
 import Foundation
 
-class Beverage: CustomStringConvertible, Printable {
+class Beverage:  NSObject {
     private let brand: String
     private let weight: Int
-    private let price: Int
-    private let name: String
+    let price: Int
+    private (set) var name: String
     private (set) var manufactured_date: String
     var expirationDate: Date? {
         guard let manufacturingDate = DateAndTime.formatter.date(from: self.manufactured_date) else {
@@ -29,14 +29,11 @@ class Beverage: CustomStringConvertible, Printable {
         self.manufactured_date = manufactured_date
     }
     
-    var result: String {
-        return self.className + self.description
+    private  var result: String {
+        return objectName + self.description
     }
     
-    var description: String {
-        return  " - \(self.brand.description), \(self.weight.description)ml, \(self.price.description)원, \(self.name.description),\(self.manufactured_date)"
-    }
-    
+   
     func isValidate() -> Bool {
         guard let expirationDay = self.expirationDate else {
             return false
@@ -45,17 +42,12 @@ class Beverage: CustomStringConvertible, Printable {
         return date < expirationDay
     }
     
-    func printBeverage() {
-        print(self.result)
+    func isBuyable(balance: Int) -> Bool {
+        return balance > price
     }
-}
     
-protocol Printable {
-    func printBeverage ()
-}
-
-extension Printable {
-    var className: String {
+     private var objectName: String {
         return String(describing: type(of: self))
     }
+    
 }
