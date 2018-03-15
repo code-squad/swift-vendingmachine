@@ -8,26 +8,22 @@
 
 import Foundation
 
-struct Controller {
-    private var inventory: [Beverage : Int]
-    private var purchases: [Beverage : Int]
-    private var money: Int
-    init() {
-        inventory = [Beverage : Int]()
-        purchases = [Beverage : Int]()
-        money = 0
-    }
-    mutating func add(money: Int) {
+class Controller {
+    private var inventory: [Beverage : Int] = [Beverage : Int]()
+    private var purchases: [Beverage : Int] = [Beverage : Int]()
+    private var money: Int = 0
+   
+     func add(money: Int) {
         self.money += money
     }
     
-    mutating func withdrawlBalance() -> Int{
+     func withdrawlBalance() -> Int{
         let change = self.money
         self.money = 0
         return change
     }
     
-    mutating func add(product: Beverage)  {
+     func add(product: Beverage)  {
         if let count = inventory[product] {
             inventory[product] = count + 1
         }else {
@@ -44,11 +40,8 @@ struct Controller {
         return listOfCanBuy
     }
     
-    mutating func buy(_ beverage: Beverage) -> Beverage? {
-        guard let countOfBeverage = inventory[beverage],
-            countOfBeverage != 0 else {
-                return nil
-        }
+     func buy(_ beverage: Beverage) -> Beverage {
+        let countOfBeverage = inventory[beverage] ?? 1
         self.inventory[beverage] = countOfBeverage - 1
         self.money -= beverage.price
         guard let countOfListOfPurchase = purchases[beverage] else {
@@ -59,14 +52,12 @@ struct Controller {
         return beverage
     }
     
-    mutating func buy(productIndex: Int) throws -> Beverage {
+     func buy(productIndex: Int) -> Beverage? {
         let listOfBuyableBeveragge = self.showListOfBuyableBeverage()
         guard productIndex >= 1 && productIndex <= listOfBuyableBeveragge.count else {
-            throw InGameMessage.ofInvalidProductNumber
+            return nil
         }
-        guard let beverage = buy(listOfBuyableBeveragge[productIndex-1].key) else {
-            throw InGameMessage.ofSoldOut
-        }
+        let beverage = buy(listOfBuyableBeveragge[productIndex-1].key)
         return beverage
     }
     
@@ -90,8 +81,6 @@ struct Controller {
 
 extension Controller {
     enum InGameMessage: String, Error {
-        case ofSoldOut = "해당 음료수는 품절되었습니다."
         case ofInvalidProductNumber = "유효하지 않은 음료수 번호 입니다."
-        case insufficientBalance = "잔액이 불충분합니다."
     }
 }
