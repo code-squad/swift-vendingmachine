@@ -15,12 +15,11 @@ var dutchCoffeeStory = DutchCoffeeStory("분위기있는정훈", 300, 3000, "더
 var beverages: [Beverage] = [chocoFlavoredMilk, top, dutchCoffeeStory, welchs]
 
 var controller = Controller()
-let outputView = Outputview()
-
 beverages.forEach {
     controller.add(product: $0)
 }
-outputView.printMonitor(vendingMachine: controller)
+let outputView = Outputview(controller)
+outputView.printMonitor()
 
 while true {
     guard let input = InputView.readMenu() else {
@@ -31,18 +30,17 @@ while true {
     case .putCoin:
         controller.add(money: input.detail)
     case .buyBeverage:
-        do {
-            let purchasedBeverage = try controller.buy(productIndex: input.detail)
-             outputView.printPurchase(drink: purchasedBeverage)
-        } catch let error as Controller.InGameMessage {
-            print(error.rawValue)
+        let purchasedBeverage = controller.buy(productIndex: input.detail)
+        guard let beverage = purchasedBeverage else {
+            print ("올바른 음료번호를 입력해주세요.")
+            continue
         }
+        outputView.printPurchase(beverage)
     case .withdrawlBalance:
-        let balance = controller.withdrawlBalance()
-        let shoppingHistory = controller.showShoppingHistory()
-        outputView.printListOfAllPurchases(listOfPurchase: shoppingHistory, change: balance)
+        outputView.printListOfAllPurchases()
     }
     if input.menuOption == .withdrawlBalance { break }
-    outputView.printMonitor(vendingMachine: controller)
+    outputView.printMonitor()
+    
 }
 
