@@ -12,18 +12,18 @@ class Controller {
     private var inventory: [Beverage : Int] = [Beverage : Int]()
     private var purchases: [Beverage : Int] = [Beverage : Int]()
     private var money: Int = 0
-   
-     func add(money: Int) {
+    
+    func add(money: Int) {
         self.money += money
     }
     
-     func withdrawlBalance() -> Int{
+    func withdrawlBalance() -> Int{
         let change = self.money
         self.money = 0
         return change
     }
     
-     func add(product: Beverage)  {
+    func add(product: Beverage)  {
         if let count = inventory[product] {
             inventory[product] = count + 1
         }else {
@@ -34,13 +34,13 @@ class Controller {
     func showListOfBuyableBeverage() -> Array<(key: Beverage, value: Int)> {
         let listOfCanBuy = inventory.filter {
             $0.key.isValidate() &&
-            $0.key.isBuyable(balance: self.money) &&
-            $0.value != 0
+                $0.key.isBuyable(balance: self.money) &&
+                $0.value != 0
             }.map { $0 }
         return listOfCanBuy
     }
     
-     func buy(_ beverage: Beverage) -> Beverage {
+    func buy(_ beverage: Beverage) -> Beverage {
         let countOfBeverage = inventory[beverage] ?? 1
         self.inventory[beverage] = countOfBeverage - 1
         self.money -= beverage.price
@@ -52,7 +52,7 @@ class Controller {
         return beverage
     }
     
-     func buy(productIndex: Int) -> Beverage? {
+    func buy(productIndex: Int) -> Beverage? {
         let listOfBuyableBeveragge = self.showListOfBuyableBeverage()
         guard productIndex >= 1 && productIndex <= listOfBuyableBeveragge.count else {
             return nil
@@ -77,10 +77,4 @@ class Controller {
         return purchases.map { $0 }
     }
     
-}
-
-extension Controller {
-    enum InGameMessage: String, Error {
-        case ofInvalidProductNumber = "유효하지 않은 음료수 번호 입니다."
-    }
 }
