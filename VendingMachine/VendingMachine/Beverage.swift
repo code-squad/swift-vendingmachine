@@ -38,8 +38,7 @@ class Beverage:  NSObject {
         guard let expirationDay = self.expirationDate else {
             return false
         }
-        let date = DateAndTime.formatter.date(from: self.manufactured_date) ?? Date()
-        return date < expirationDay
+        return Date() < expirationDay
     }
     
     func isBuyable(balance: Int) -> Bool {
