@@ -8,6 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
+		C329B46B205A633400A79A34 /* SystemTestOfVendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C329B46A205A633400A79A34 /* SystemTestOfVendingMachine.swift */; };
+		C329B470205A63AD00A79A34 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
+		C329B471205A63B000A79A34 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C4A24020511C3D0094E9AF /* Beverage.swift */; };
+		C329B472205A63B300A79A34 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C2EE3420564A05002EBD49 /* Controller.swift */; };
+		C329B473205A63B500A79A34 /* DateAndTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C4A27120525D150094E9AF /* DateAndTime.swift */; };
+		C329B474205A63B800A79A34 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C2EE3720576EC3002EBD49 /* InputView.swift */; };
+		C329B475205A63BA00A79A34 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C4A24220511C470094E9AF /* OutputView.swift */; };
+		C329B476205A63BD00A79A34 /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C4A23E20511C2F0094E9AF /* Soda.swift */; };
+		C329B477205A63C000A79A34 /* Coke.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C4A24420511C4F0094E9AF /* Coke.swift */; };
+		C329B478205A63C200A79A34 /* Welchs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C4A24620511C560094E9AF /* Welchs.swift */; };
+		C329B479205A63C400A79A34 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C4A24920511C7D0094E9AF /* Coffee.swift */; };
+		C329B47A205A63C600A79A34 /* Americano.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C4A24B20511C850094E9AF /* Americano.swift */; };
+		C329B47B205A63C900A79A34 /* Top.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C4A24D20511C8F0094E9AF /* Top.swift */; };
+		C329B47C205A63CC00A79A34 /* DutchCoffeeStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C4A24F20511CA10094E9AF /* DutchCoffeeStory.swift */; };
+		C329B47D205A63CE00A79A34 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C4A25220511CBD0094E9AF /* Milk.swift */; };
+		C329B47E205A63D100A79A34 /* BananaFlavored.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C4A25420511CCD0094E9AF /* BananaFlavored.swift */; };
+		C329B47F205A63D300A79A34 /* ChocoFlavored.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C4A25620511CDB0094E9AF /* ChocoFlavored.swift */; };
 		C3C2EE3520564A05002EBD49 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C2EE3420564A05002EBD49 /* Controller.swift */; };
 		C3C2EE3620564A05002EBD49 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C2EE3420564A05002EBD49 /* Controller.swift */; };
 		C3C2EE3820576EC3002EBD49 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C2EE3720576EC3002EBD49 /* InputView.swift */; };
@@ -57,6 +74,9 @@
 /* Begin PBXFileReference section */
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		C329B468205A633400A79A34 /* SystemTestOfVendingMachine.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SystemTestOfVendingMachine.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C329B46A205A633400A79A34 /* SystemTestOfVendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemTestOfVendingMachine.swift; sourceTree = "<group>"; };
+		C329B46C205A633400A79A34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3C2EE3420564A05002EBD49 /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		C3C2EE3720576EC3002EBD49 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		C3C4A23E20511C2F0094E9AF /* Soda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soda.swift; sourceTree = "<group>"; };
@@ -85,6 +105,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C329B465205A633400A79A34 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C3C4A259205121E40094E9AF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -100,6 +127,7 @@
 			children = (
 				839DA90B1F8D1F95009E05F3 /* VendingMachine */,
 				C3C4A25D205121E40094E9AF /* UnitTestVendingMachine */,
+				C329B469205A633400A79A34 /* SystemTestOfVendingMachine */,
 				839DA90A1F8D1F95009E05F3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -109,6 +137,7 @@
 			children = (
 				839DA9091F8D1F95009E05F3 /* VendingMachine */,
 				C3C4A25C205121E40094E9AF /* UnitTestVendingMachine.xctest */,
+				C329B468205A633400A79A34 /* SystemTestOfVendingMachine.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -127,6 +156,15 @@
 				C3C4A25120511CAE0094E9AF /* Milk */,
 			);
 			path = VendingMachine;
+			sourceTree = "<group>";
+		};
+		C329B469205A633400A79A34 /* SystemTestOfVendingMachine */ = {
+			isa = PBXGroup;
+			children = (
+				C329B46A205A633400A79A34 /* SystemTestOfVendingMachine.swift */,
+				C329B46C205A633400A79A34 /* Info.plist */,
+			);
+			path = SystemTestOfVendingMachine;
 			sourceTree = "<group>";
 		};
 		C3C4A23D20511C1F0094E9AF /* Soda */ = {
@@ -189,6 +227,23 @@
 			productReference = 839DA9091F8D1F95009E05F3 /* VendingMachine */;
 			productType = "com.apple.product-type.tool";
 		};
+		C329B467205A633400A79A34 /* SystemTestOfVendingMachine */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C329B46F205A633400A79A34 /* Build configuration list for PBXNativeTarget "SystemTestOfVendingMachine" */;
+			buildPhases = (
+				C329B464205A633400A79A34 /* Sources */,
+				C329B465205A633400A79A34 /* Frameworks */,
+				C329B466205A633400A79A34 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SystemTestOfVendingMachine;
+			productName = SystemTestOfVendingMachine;
+			productReference = C329B468205A633400A79A34 /* SystemTestOfVendingMachine.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		C3C4A25B205121E40094E9AF /* UnitTestVendingMachine */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C3C4A261205121E40094E9AF /* Build configuration list for PBXNativeTarget "UnitTestVendingMachine" */;
@@ -220,6 +275,10 @@
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
 					};
+					C329B467205A633400A79A34 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
 					C3C4A25B205121E40094E9AF = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
@@ -240,11 +299,19 @@
 			targets = (
 				839DA9081F8D1F95009E05F3 /* VendingMachine */,
 				C3C4A25B205121E40094E9AF /* UnitTestVendingMachine */,
+				C329B467205A633400A79A34 /* SystemTestOfVendingMachine */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C329B466205A633400A79A34 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C3C4A25A205121E40094E9AF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -275,6 +342,30 @@
 				C3C4A24E20511C8F0094E9AF /* Top.swift in Sources */,
 				C3C4A24320511C470094E9AF /* OutputView.swift in Sources */,
 				C3C4A24A20511C7D0094E9AF /* Coffee.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C329B464205A633400A79A34 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C329B477205A63C000A79A34 /* Coke.swift in Sources */,
+				C329B479205A63C400A79A34 /* Coffee.swift in Sources */,
+				C329B473205A63B500A79A34 /* DateAndTime.swift in Sources */,
+				C329B47E205A63D100A79A34 /* BananaFlavored.swift in Sources */,
+				C329B471205A63B000A79A34 /* Beverage.swift in Sources */,
+				C329B47D205A63CE00A79A34 /* Milk.swift in Sources */,
+				C329B475205A63BA00A79A34 /* OutputView.swift in Sources */,
+				C329B47B205A63C900A79A34 /* Top.swift in Sources */,
+				C329B470205A63AD00A79A34 /* main.swift in Sources */,
+				C329B476205A63BD00A79A34 /* Soda.swift in Sources */,
+				C329B474205A63B800A79A34 /* InputView.swift in Sources */,
+				C329B47F205A63D300A79A34 /* ChocoFlavored.swift in Sources */,
+				C329B46B205A633400A79A34 /* SystemTestOfVendingMachine.swift in Sources */,
+				C329B47A205A63C600A79A34 /* Americano.swift in Sources */,
+				C329B472205A63B300A79A34 /* Controller.swift in Sources */,
+				C329B47C205A63CC00A79A34 /* DutchCoffeeStory.swift in Sources */,
+				C329B478205A63C200A79A34 /* Welchs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,6 +520,32 @@
 			};
 			name = Release;
 		};
+		C329B46D205A633400A79A34 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SystemTestOfVendingMachine/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cjh.SystemTestOfVendingMachine;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		C329B46E205A633400A79A34 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SystemTestOfVendingMachine/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cjh.SystemTestOfVendingMachine;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
 		C3C4A262205121E40094E9AF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -472,6 +589,15 @@
 			buildConfigurations = (
 				839DA9111F8D1F95009E05F3 /* Debug */,
 				839DA9121F8D1F95009E05F3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C329B46F205A633400A79A34 /* Build configuration list for PBXNativeTarget "SystemTestOfVendingMachine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C329B46D205A633400A79A34 /* Debug */,
+				C329B46E205A633400A79A34 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
