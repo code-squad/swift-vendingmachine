@@ -11,7 +11,7 @@ import Foundation
 struct DateAndTime {
     static let twoWeeksAsSeconds: Double = 1209600
     static let fourtyFiveDaysAsSeconds: Double = 9720000
-    static let sixMonthAsSeconds: Double = 10368000
+    static let sixMonthAsSeconds: Double = 15552000
     static let formatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyyMMdd"
