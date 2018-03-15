@@ -42,6 +42,7 @@ while true {
         let shoppingHistory = controller.showShoppingHistory()
         outputView.printListOfAllPurchases(listOfPurchase: shoppingHistory, change: balance)
     }
+    if input.menuOption == .withdrawlBalance { break }
     outputView.printMonitor(vendingMachine: controller)
 }
 
