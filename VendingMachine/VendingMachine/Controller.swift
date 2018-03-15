@@ -33,10 +33,9 @@ class Controller {
     
     func showListOfBuyableBeverage() -> Array<(key: Beverage, value: Int)> {
         let listOfCanBuy = inventory.filter {
-            $0.key.isValidate() &&
-                $0.key.isBuyable(balance: self.money) &&
-                $0.value != 0
-            }.map { $0 }
+                                                                                        $0.key.isValidate() &&
+                                                                                        $0.key.isBuyable(balance: self.money)
+                                                                                     }.map { $0 }
         return listOfCanBuy
     }
     
@@ -69,7 +68,7 @@ class Controller {
         return inventory
     }
     
-    func listOfOverExpirationDate() -> [Beverage] {
+    func checkListOfOverExpirationDate() -> [Beverage] {
         return inventory.keys.filter { $0.isValidate() == false }
     }
     
