@@ -8,8 +8,65 @@
 
 import Foundation
 
-struct OutputView {
-    static func printBeverage (species: Printable) {
-        species.printBeverage()
+struct Outputview {
+    func printMonitor(vendingMachine: Controller) {
+        let money = vendingMachine.checkUserBalance()
+        let monitorMessage = String(format: "잔액 : %d원이 있습니다. 구매가능한 음료는 다음과 같습니다.",
+                                    money)
+        print(monitorMessage)
+        var menu = ""
+        if vendingMachine.checkUserBalance() == 0 {
+            menu += makeTotalMenu(of: vendingMachine)
+        } else {
+            menu += makeOnlyCanBuyMenu(of: vendingMachine)
+        }
+        print(menu)
     }
+    
+    func printPurchase(drink: Beverage) {
+        let purchaseMessage = String(format: "%@를 구매하셨습니다. %d원을 차감합니다.",
+                                     drink.name,
+                                     drink.price)
+        print(purchaseMessage)
+    }
+    
+    func printListOfAllPurchases(listOfPurchase: Array<(key: Beverage, value: Int)>, change: Int) {
+        var listOfAllPurchases = String(format: "잔돈은 %d원 입니다. 다음은 구매한 음료 목록입니다.\n",
+                                        change)
+        for index in 0..<listOfPurchase.count {
+            let purchaseDrink = listOfPurchase[index]
+            listOfAllPurchases += String(format: "%d)%@ (%d개)\n",
+                                         index + 1,
+                                         purchaseDrink.key.name,
+                                         purchaseDrink.value)
+        }
+        listOfAllPurchases.removeLast()
+        print(listOfAllPurchases)
+    }
+    
+    private func makeTotalMenu(of vendingMachine: Controller) -> String {
+        var menu = "🥫"
+        let listOfInventory = vendingMachine.listOfInventory()
+        for drink in listOfInventory {
+            menu += String(format: "%@(%d개)", drink.key.name, drink.value)
+        }
+        return menu
+    }
+    
+    private func makeOnlyCanBuyMenu(of vendingMachine: Controller) -> String {
+        var menu = ""
+        let listOfCanBuy = vendingMachine.showListOfBuyableBeverage()
+        for index in 0..<listOfCanBuy.count {
+            let currentDrink = listOfCanBuy[index]
+            menu += String(format: "%d) %@ %d원(%d개)\n",
+                           index + 1,
+                           currentDrink.key.name,
+                           currentDrink.key.price,
+                           currentDrink.value)
+        }
+    
+        return menu
+    }
+    
 }
+
