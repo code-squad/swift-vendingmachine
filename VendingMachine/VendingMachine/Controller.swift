@@ -60,7 +60,7 @@ class Controller: ControllerCore {
     
     func buy(productIndex: Int) -> Beverage? {
         let listOfBuyableBeveragge = self.buyableBeverages()
-        guard productIndex >= 1 && productIndex <= listOfBuyableBeveragge.count else {
+        guard listOfBuyableBeveragge.indices.contains(productIndex-1) else {
             return nil
         }
         let beverage = buy(listOfBuyableBeveragge[productIndex-1].key)

@@ -9,13 +9,16 @@
 import Foundation
 
 struct Outputview {
-    private var controller: ControllerCore = Controller()
+    private var controllerCore: ControllerCore
+    init(_ controllerCore: ControllerCore) {
+        self.controllerCore = controllerCore
+    }
     func printMonitor() {
         let monitorMessage = String(format: "잔액 : %d원, 구매가능한 음료는 아래와 같습니다.",
-                                    controller.userBalance())
+                                    controllerCore.userBalance())
         print(monitorMessage)
         var menu = ""
-        if controller.userBalance() == 0 {
+        if controllerCore.userBalance() == 0 {
             menu += makeMenuOfTotal()
         } else {
             menu += makeMenuOfBuyableBeverage()
@@ -29,8 +32,8 @@ struct Outputview {
     }
     
     func printListOfAllPurchases() {
-        let balance = controller.withdrawlBalance()
-        let shoppingHistory = controller.shoppingHistory()
+        let balance = controllerCore.withdrawlBalance()
+        let shoppingHistory = controllerCore.shoppingHistory()
         var listOfAllPurchases = String(format: "잔돈은 %d원 입니다. 다음은 구매한 음료 목록입니다.\n",
                                                                         balance)
         for index in 0..<shoppingHistory.count {
@@ -45,7 +48,7 @@ struct Outputview {
     
     private func makeMenuOfTotal() -> String {
         var menu = "🥫"
-        let listOfInventory = self.controller.listOfInventory().filter { $0.key.isValidate() }
+        let listOfInventory = self.controllerCore.listOfInventory().filter { $0.key.isValidate() }
         listOfInventory.forEach {
             menu += String(format: "%@(%d개)", $0.key.name, $0.value)
         }
@@ -54,7 +57,7 @@ struct Outputview {
     
     private func makeMenuOfBuyableBeverage() -> String {
         var menu = ""
-        let listOfCanBuy = self.controller.buyableBeverages()
+        let listOfCanBuy = self.controllerCore.buyableBeverages()
         for index in 0..<listOfCanBuy.count {
             let currentDrink = listOfCanBuy[index]
             menu += String(format: "%d) %@ %d원(%d개)\n",
