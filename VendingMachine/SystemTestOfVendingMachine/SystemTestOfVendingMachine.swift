@@ -13,13 +13,13 @@ class SystemTestOfVendingMachine: XCTestCase {
     
     func test_AddMoney() {
         controller.add(money: 500)
-        XCTAssertEqual(controller.checkUserBalance(), 500)
+        XCTAssertEqual(controller.userBalance(), 500)
     }
     
     func test_withdrawlBalance() {
         controller.add(money: 10000)
         controller.withdrawlBalance()
-        XCTAssertEqual(controller.checkUserBalance(), 0)
+        XCTAssertEqual(controller.userBalance(), 0)
     }
     
     func test_Success_Add_Product() {
@@ -44,7 +44,7 @@ class SystemTestOfVendingMachine: XCTestCase {
         let coke = Coke("톡쏘는정훈", 250, 1000, "맛좋은코크", "20170907", 100, .original)
         controller.add(product: welchs)
         controller.add(product: coke)
-        let shopping = controller.showListOfBuyableBeverage()
+        let shopping = controller.buyableBeverages()
         XCTAssertEqual(shopping.count, 0)
     }
     
@@ -54,7 +54,7 @@ class SystemTestOfVendingMachine: XCTestCase {
         let chocoFlavored = ChocoFlavoredMilk("신선한정훈", 250, 1500, "맛좋은초코우유", "20170307", .first_Grade, 62, 1.6)
         controller.add(product: bananaFlavord)
         controller.add(product: chocoFlavored)
-        let shopping = controller.showListOfBuyableBeverage()
+        let shopping = controller.buyableBeverages()
         XCTAssertEqual(shopping.count, 0)
     }
     
@@ -64,7 +64,7 @@ class SystemTestOfVendingMachine: XCTestCase {
         let chocoFlavored = ChocoFlavoredMilk("신선한정훈", 250, 1500, "맛좋은초코우유", "20180301", .first_Grade, 62, 1.6)
         controller.add(product: bananaFlavord)
         controller.add(product: chocoFlavored)
-        let shopping = controller.showListOfBuyableBeverage()
+        let shopping = controller.buyableBeverages()
         XCTAssertEqual(shopping.count, 2)
     }
     
@@ -101,7 +101,7 @@ class SystemTestOfVendingMachine: XCTestCase {
         let bananaFlavord = BananaFlavoredMilk("신선한정훈", 250, 1500, "맛좋은바나나우유", "20180301", .second_Grade, 72, 0.7)
         controller.add(product: bananaFlavord)
         let beverage = controller.buy(productIndex: 1)!
-        let history = controller.showShoppingHistory()
+        let history = controller.shoppingHistory()
         XCTAssertEqual(beverage, history[0].key)
     }
     
@@ -117,14 +117,14 @@ class SystemTestOfVendingMachine: XCTestCase {
         }
         XCTAssertEqual(controller.listOfInventory().count, 5)
         controller.add(money: 10000)
-        XCTAssertEqual(controller.checkUserBalance(), 10000)
-        let buyableBeverage = controller.showListOfBuyableBeverage()
+        XCTAssertEqual(controller.userBalance(), 10000)
+        let buyableBeverage = controller.buyableBeverages()
         XCTAssertEqual(buyableBeverage.count, 4)
         let purchasedBeverage = controller.buy(welchs)
-        XCTAssertEqual(controller.checkUserBalance(), 8500)
-        XCTAssertEqual(controller.showShoppingHistory()[0].key, purchasedBeverage)
+        XCTAssertEqual(controller.userBalance(), 8500)
+        XCTAssertEqual(controller.shoppingHistory()[0].key, purchasedBeverage)
         controller.withdrawlBalance()
-        XCTAssertEqual(controller.checkUserBalance(), 0)
+        XCTAssertEqual(controller.userBalance(), 0)
     }
     
 }
