@@ -33,6 +33,7 @@ class SystemTestOfVendingMachine: XCTestCase {
         let bananaFlavord = BananaFlavoredMilk("신선한정훈", 250, 1500, "맛좋은바나나우유", "20180305", .second_Grade, 72, 0.7)
         let chocoFlavored = ChocoFlavoredMilk("신선한정훈", 250, 1500, "맛좋은초코우유", "20180307", .first_Grade, 62, 1.6)
         controller.add(product: chocoFlavored)
+        controller.add(product: bananaFlavord)
         var list = controller.listOfInventory()
         XCTAssertNotEqual(list.count, 1)
     }
