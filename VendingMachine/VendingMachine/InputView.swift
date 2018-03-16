@@ -14,8 +14,9 @@ struct InputView {
     1. 금액추가
     2. 음료구입
     3. 잔돈출금
+    >
     """
-        print(menu)
+        print(menu, terminator: " ")
         var realMenu = [Int]()
         if let menu = readLine() {
             guard menu != "q" else { return nil }
