@@ -42,7 +42,7 @@ class Beverage:  NSObject {
     }
     
     func isBuyable(balance: Int) -> Bool {
-        return balance > price
+        return balance >= price
     }
     
      private var objectName: String {
