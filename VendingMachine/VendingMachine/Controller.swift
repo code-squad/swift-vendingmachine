@@ -8,7 +8,15 @@
 
 import Foundation
 
-class Controller {
+protocol ControllerCore {
+    func userBalance() -> Int
+    func withdrawlBalance() -> Int
+    func shoppingHistory() -> Array<(key: Beverage, value: Int)>
+    func listOfInventory() -> [Beverage : Int]
+    func buyableBeverages() -> Array<(key: Beverage, value: Int)>
+}
+
+class Controller: ControllerCore {
     private var inventory: [Beverage : Int] = [Beverage : Int]()
     private var purchases: [Beverage : Int] = [Beverage : Int]()
     private var money: Int = 0
@@ -31,7 +39,7 @@ class Controller {
         }
     }
     
-    func buyableBeverage() -> Array<(key: Beverage, value: Int)> {
+    func buyableBeverages() -> Array<(key: Beverage, value: Int)> {
         let listOfCanBuy = inventory.filter { $0.key.isValidate() &&
                                                                                         $0.key.isBuyable(balance: self.money)
                                                                                     }.map { $0 }
@@ -51,7 +59,7 @@ class Controller {
     }
     
     func buy(productIndex: Int) -> Beverage? {
-        let listOfBuyableBeveragge = self.buyableBeverage()
+        let listOfBuyableBeveragge = self.buyableBeverages()
         guard productIndex >= 1 && productIndex <= listOfBuyableBeveragge.count else {
             return nil
         }
