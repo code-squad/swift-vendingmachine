@@ -9,10 +9,7 @@
 import Foundation
 
 struct Outputview {
-    private var controller : Controller
-    init(_ controller: Controller) {
-        self.controller = controller
-    }
+    private var controller: ControllerCore = Controller()
     func printMonitor() {
         let monitorMessage = String(format: "잔액 : %d원, 구매가능한 음료는 아래와 같습니다.",
                                     controller.userBalance())
@@ -57,7 +54,7 @@ struct Outputview {
     
     private func makeMenuOfBuyableBeverage() -> String {
         var menu = ""
-        let listOfCanBuy = self.controller.buyableBeverage()
+        let listOfCanBuy = self.controller.buyableBeverages()
         for index in 0..<listOfCanBuy.count {
             let currentDrink = listOfCanBuy[index]
             menu += String(format: "%d) %@ %d원(%d개)\n",
