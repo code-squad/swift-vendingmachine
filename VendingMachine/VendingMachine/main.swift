@@ -19,7 +19,7 @@ var controller = Controller()
 beverages.forEach {
     controller.add(product: $0)
 }
-let outputView = Outputview()
+let outputView = Outputview(controller)
 outputView.printMonitor()
 while true {
     guard let input = InputView.readMenu() else {
