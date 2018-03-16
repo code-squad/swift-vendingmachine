@@ -31,11 +31,10 @@ class Controller {
         }
     }
     
-    func showListOfBuyableBeverage() -> Array<(key: Beverage, value: Int)> {
-        let listOfCanBuy = inventory.filter {
-                                                                                        $0.key.isValidate() &&
+    func buyableBeverage() -> Array<(key: Beverage, value: Int)> {
+        let listOfCanBuy = inventory.filter { $0.key.isValidate() &&
                                                                                         $0.key.isBuyable(balance: self.money)
-                                                                                     }.map { $0 }
+                                                                                    }.map { $0 }
         return listOfCanBuy
     }
     
@@ -52,7 +51,7 @@ class Controller {
     }
     
     func buy(productIndex: Int) -> Beverage? {
-        let listOfBuyableBeveragge = self.showListOfBuyableBeverage()
+        let listOfBuyableBeveragge = self.buyableBeverage()
         guard productIndex >= 1 && productIndex <= listOfBuyableBeveragge.count else {
             return nil
         }
@@ -60,7 +59,7 @@ class Controller {
         return beverage
     }
     
-    func checkUserBalance() -> Int {
+    func userBalance() -> Int {
         return money
     }
     
@@ -72,7 +71,7 @@ class Controller {
         return inventory.keys.filter { $0.isValidate() == false }
     }
     
-    func showShoppingHistory() -> Array<(key: Beverage, value: Int)> {
+    func shoppingHistory() -> Array<(key: Beverage, value: Int)> {
         return purchases.map { $0 }
     }
     
