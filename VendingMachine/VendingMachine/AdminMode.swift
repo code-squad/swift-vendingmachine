@@ -7,3 +7,38 @@
 //
 
 import Foundation
+
+protocol AdminModeCore {
+    func add(productIndex: Int) throws
+    func subtract(productIndex: Int) throws -> Beverage
+    func checkIncome() -> Int
+    func listOfInventory() -> [Beverage:Int]
+    func checkListOfOverExpirationDate() -> [Beverage]
+    func drinkLists() -> [Beverage]
+}
+
+
+class AdminMode: ModeActivation {
+    var core: AdminModeCore
+    init(_ core: AdminModeCore) {
+        self.core = core
+    }
+    func makePreGameMenu() -> (mode: Controller.Mode, money: Int, menu: [Beverage], inventory: [Beverage:Int]) {
+        let income = core.checkIncome()
+        let drinkLists = core.drinkLists()
+        let inventory = core.listOfInventory()
+        return ( .admin, income, drinkLists, inventory)
+    }
+    
+    func action(actionType: Action, detail: Int) throws {
+        do {
+            switch actionType {
+            case .add: try core.add(productIndex: detail)
+            case .delete: let _ = try core.subtract(productIndex: detail)
+            case .exit: break
+            }
+        } catch let error {
+            throw error
+        }
+    }
+}
