@@ -7,80 +7,72 @@
 //
 
 import Foundation
-
-protocol ControllerCore {
-    func userBalance() -> Int
-    func withdrawlBalance() -> Int
-    func shoppingHistory() -> Array<(key: Beverage, value: Int)>
-    func listOfInventory() -> [Beverage : Int]
-    func buyableBeverages() -> Array<(key: Beverage, value: Int)>
+class Controller {
+    private var modeActivation: ModeActivation?
+    private var core: ControllerCore
+    init() {
+        self.core = ControllerCore()
+    }
+    func selectMode(menuNum: Int) throws {
+        switch menuNum {
+        case Mode.admin.rawValue:
+            self.modeActivation = AdminMode(core)
+        case Mode.user.rawValue:
+            self.modeActivation = UserMode(core)
+        default:
+            throw Controller.ModeError.invalidNumber
+        }
+    }
+    
+    func makeMenu() -> (mode: Mode, money: Int, menu: [Beverage], inventory: [Beverage:Int])? {
+        if let modeActivation = self.modeActivation {
+            return modeActivation.makePreGameMenu()
+        }
+        return nil
+    }
+    
+    func action(action: Action, detail: Int) throws {
+        switch action {
+        case .add, .delete:
+            do {
+                try self.modeActivation?.action(actionType: action, detail: detail)
+            } catch ControllerCore.stockError.soldOut {
+                print(ControllerCore.stockError.soldOut.rawValue)
+            } catch ControllerCore.stockError.invalidProductNumber {
+                print(ControllerCore.stockError.invalidProductNumber.rawValue)
+            } catch ControllerCore.stockError.empty {
+                print(ControllerCore.stockError.empty.rawValue)
+            }
+        case .exit:
+            self.modeActivation = nil
+        }
+    }
+    
+    func makeResultOfOrder() -> Beverage? {
+        if let mode = self.modeActivation as? UserMode {
+            return mode.selectDrink()
+        }
+        return nil
+    }
+    
+    
 }
 
-class Controller: ControllerCore {
-    private var inventory: [Beverage : Int] = [Beverage : Int]()
-    private var purchases: [Beverage : Int] = [Beverage : Int]()
-    private var money: Int = 0
-    
-    func add(money: Int) {
-        self.money += money
+extension Controller {
+    enum Mode: Int {
+        typealias RawValue = Int
+        case admin = 1
+        case user = 2
     }
-    
-    func withdrawlBalance() -> Int{
-        let change = self.money
-        self.money = 0
-        return change
+    enum ModeError: String, Error {
+        case invalidNumber = "유효하지 않은 모드입니다."
     }
-    
-    func add(product: Beverage)  {
-        if let count = inventory[product] {
-            inventory[product] = count + 1
-        }else {
-            inventory[product] = 1
-        }
-    }
-    
-    func buyableBeverages() -> Array<(key: Beverage, value: Int)> {
-        let listOfCanBuy = inventory.filter { $0.key.isValidate() &&
-                                                                                        $0.key.isBuyable(balance: self.money)
-                                                                                    }.map { $0 }
-        return listOfCanBuy
-    }
-    
-    func buy(_ beverage: Beverage) -> Beverage {
-        let countOfBeverage = inventory[beverage] ?? 1
-        self.inventory[beverage] = countOfBeverage - 1
-        self.money -= beverage.price
-        guard let countOfListOfPurchase = purchases[beverage] else {
-            purchases[beverage] = 1
-            return beverage
-        }
-        purchases[beverage] = countOfListOfPurchase + 1
-        return beverage
-    }
-    
-    func buy(productIndex: Int) -> Beverage? {
-        let listOfBuyableBeveragge = self.buyableBeverages()
-        guard listOfBuyableBeveragge.indices.contains(productIndex-1) else {
-            return nil
-        }
-        let beverage = buy(listOfBuyableBeveragge[productIndex-1].key)
-        return beverage
-    }
-    
-    func userBalance() -> Int {
-        return money
-    }
-    
-    func listOfInventory() -> [Beverage : Int] {
-        return inventory
-    }
-    
-    func checkListOfOverExpirationDate() -> [Beverage] {
-        return inventory.keys.filter { $0.isValidate() == false }
-    }
-    
-    func shoppingHistory() -> Array<(key: Beverage, value: Int)> {
-        return purchases.map { $0 }
-    }
-    
 }
+
+enum Action: Int {
+    case add = 1
+    case delete = 2
+    case exit = 3
+}
+
+
