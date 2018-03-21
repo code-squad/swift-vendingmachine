@@ -9,7 +9,6 @@
 import Foundation
 
 var controller = Controller()
-var inputView = InputView()
 let outputView = Outputview()
 
 while true {
@@ -25,9 +24,10 @@ while true {
             continue
         }
     }
-    if let menu = controller.makeMenu() {
-        outputView.printMonitor(mode: menu.mode, money: menu.money, menu: menu.menu, inventory: menu.inventory)
+    guard let menu = controller.makeMenu() else {
+        continue
     }
+    outputView.printMonitor(mode: menu.mode, money: menu.money, menu: menu.menu, inventory: menu.inventory)
     guard let inputAction = InputView.readMenu() else {
         print("올바른 번호를 입력해주세요.")
         continue
@@ -40,7 +40,6 @@ while true {
     if let resultOfBuy = controller.makeResultOfOrder() {
         outputView.printPurchase(drink: resultOfBuy)
     }
-    
 }
 
 

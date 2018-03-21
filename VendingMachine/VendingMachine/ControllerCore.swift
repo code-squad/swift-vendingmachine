@@ -18,7 +18,7 @@ class ControllerCore {
     static let chocoFlavoredMilk = ChocoFlavoredMilk("달콤한정훈", 250, 1700, "맛좋은초코유유", "20180301", .second_Grade, 200, 1)
     static let top = Top("분위기있는정훈", 200, 1500, "TOP", "20171225", .grande, .basic)
     static let dutchCoffeeStory = DutchCoffeeStory("분위기있는정훈", 300, 3000, "더치커피스토리", "20171005", .short, .forGiftUse)
-    static let bananaFlavord = BananaFlavoredMilk("신선한정훈", 250, 1500, "맛좋은바나나우유", "20160301", .second_Grade, 72, 0.7)
+    static let bananaFlavord = BananaFlavoredMilk("신선한정훈", 250, 1500, "맛좋은바나나우유", "20180320", .second_Grade, 72, 0.7)
     static let beverages: [Beverage] = [chocoFlavoredMilk, top, dutchCoffeeStory, welchs, bananaFlavord]
 
 }
@@ -46,8 +46,6 @@ extension ControllerCore: AdminModeCore {
             }
         }
         throw stockError.empty
-        
-        
     }
     
     func checkIncome() -> Int {

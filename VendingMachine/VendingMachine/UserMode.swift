@@ -29,7 +29,7 @@ class UserMode: ModeActivation {
         case .add: core.insertMoney(userMoney: detail)
         case .delete:
             do {
-                let _ = try core.buy(productIndex: detail)
+                self.beverage = try core.buy(productIndex: detail)
             } catch let error {
                 throw error
             }
