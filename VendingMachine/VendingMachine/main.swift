@@ -13,15 +13,8 @@ let outputView = Outputview()
 
 while true {
     if controller.isModeSelected == false {
-        guard let selectedMode = InputView.read() else {
-            print("올바른 메뉴번호를 입력해주세요.")
-            continue
-        }
-        do {
-            try controller.selectMode(menuNum: selectedMode)
-        } catch Controller.ModeError.invalidNumber {
-            print(Controller.ModeError.invalidNumber.rawValue)
-            continue
+        if let selectedMode = InputView.read() {
+       controller.selectMode(menuNum: selectedMode)
         }
     }
     guard let menu = controller.makeMenu() else {
