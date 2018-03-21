@@ -9,7 +9,7 @@
 import Foundation
 class Controller {
     private var modeActivation: ModeActivation?
-    private var core: ControllerCore
+    private (set) var core: ControllerCore
     var isModeSelected: Bool {
         return self.modeActivation != nil
     }
