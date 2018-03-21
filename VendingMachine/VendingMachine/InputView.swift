@@ -13,9 +13,12 @@ struct InputView {
     static func read() -> Int? {
         let menu: String = "1. 관리자모드\n2. 사용자모드"
         print(menu)
-        return Int(readLine() ?? "Error")
-        
+        guard let tempNum = readLine(), let realNum = Int(tempNum) else {
+            return nil
+        }
+        return realNum
     }
+    
     static func readMenu() -> (menuOption: Action, detail: Int)? {
         var realMenu = [Int]()
         if let menu = readLine() {
