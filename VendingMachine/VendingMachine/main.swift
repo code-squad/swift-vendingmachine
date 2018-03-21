@@ -21,6 +21,7 @@ while true {
         try controller.selectMode(menuNum: selectedMode)
     } catch Controller.ModeError.invalidNumber {
         print(Controller.ModeError.invalidNumber.rawValue)
+        continue
     }
     if let menu = controller.makeMenu() {
         outputView.printMonitor(mode: menu.mode, money: menu.money, menu: menu.menu, inventory: menu.inventory)
