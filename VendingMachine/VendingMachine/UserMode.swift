@@ -8,20 +8,21 @@
 
 import Foundation
 
-protocol UserModeCore {
-    func insertMoney(userMoney: Int)
+protocol UserModable {
+    func shoppingHistory() -> [Beverage]
     func buyableBeverages() -> [Beverage]
     func buy(productIndex: Int) throws -> Beverage
-    func userBalance() -> Int
-    func shoppingHistory() -> [Beverage]
-    func withdrawlBalance() -> Int
     func listOfInventory() -> [Beverage:Int]
+    func insertMoney(userMoney: Int)
+    func userBalance() -> Int
+    func withdrawlBalance() -> Int
+    
 }
 
 class UserMode: ModeActivation {
-    private var core: UserModeCore
+    private var core: UserModable
     private var beverage: Beverage?
-    init(_ core: UserModeCore) {
+    init(_ core: UserModable) {
         self.core = core
     }
     func action(actionType: Action, detail: Int) throws {
