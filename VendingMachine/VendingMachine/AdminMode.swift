@@ -8,21 +8,22 @@
 
 import Foundation
 
-protocol AdminModeCore {
+protocol AdminModable {
     func add(productIndex: Int) throws
     func subtract(productIndex: Int) throws -> Beverage
-    func checkIncome() -> Int
     func listOfInventory() -> [Beverage:Int]
     func checkListOfOverExpirationDate() -> [Beverage]
     func drinkLists() -> [Beverage]
+    func checkIncome() -> Int
 }
 
 
 class AdminMode: ModeActivation {
-    var core: AdminModeCore
-    init(_ core: AdminModeCore) {
+    var core: AdminModable
+    init(_ core: AdminModable) {
         self.core = core
     }
+    
     func makePreGameMenu() -> (mode: Controller.Mode, money: Int, menu: [Beverage], inventory: [Beverage:Int]) {
         let income = core.checkIncome()
         let drinkLists = core.drinkLists()
