@@ -26,6 +26,8 @@
 		C329B47E205A63D100A79A34 /* BananaFlavored.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C4A25420511CCD0094E9AF /* BananaFlavored.swift */; };
 		C329B47F205A63D300A79A34 /* ChocoFlavored.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C4A25620511CDB0094E9AF /* ChocoFlavored.swift */; };
 		C3416BA92060F3B60023FB69 /* ControllerCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3416BA82060F3B60023FB69 /* ControllerCore.swift */; };
+		C3416BAD206366DF0023FB69 /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3416BAC206366DF0023FB69 /* Inventory.swift */; };
+		C3416BB52063CC0E0023FB69 /* ShoppingLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3416BB42063CC0E0023FB69 /* ShoppingLists.swift */; };
 		C381B176205F9026004FB881 /* UserMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C381B175205F9026004FB881 /* UserMode.swift */; };
 		C381B178205F9032004FB881 /* AdminMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C381B177205F9032004FB881 /* AdminMode.swift */; };
 		C381B17A205FA2FC004FB881 /* ModeActivation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C381B179205FA2FC004FB881 /* ModeActivation.swift */; };
@@ -82,6 +84,8 @@
 		C329B46A205A633400A79A34 /* SystemTestOfVendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemTestOfVendingMachine.swift; sourceTree = "<group>"; };
 		C329B46C205A633400A79A34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3416BA82060F3B60023FB69 /* ControllerCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerCore.swift; sourceTree = "<group>"; };
+		C3416BAC206366DF0023FB69 /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
+		C3416BB42063CC0E0023FB69 /* ShoppingLists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingLists.swift; sourceTree = "<group>"; };
 		C381B175205F9026004FB881 /* UserMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMode.swift; sourceTree = "<group>"; };
 		C381B177205F9032004FB881 /* AdminMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminMode.swift; sourceTree = "<group>"; };
 		C381B179205FA2FC004FB881 /* ModeActivation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeActivation.swift; sourceTree = "<group>"; };
@@ -157,6 +161,8 @@
 				C3C4A24020511C3D0094E9AF /* Beverage.swift */,
 				C3C2EE3420564A05002EBD49 /* Controller.swift */,
 				C3416BA82060F3B60023FB69 /* ControllerCore.swift */,
+				C3416BAC206366DF0023FB69 /* Inventory.swift */,
+				C3416BB42063CC0E0023FB69 /* ShoppingLists.swift */,
 				C381B179205FA2FC004FB881 /* ModeActivation.swift */,
 				C381B175205F9026004FB881 /* UserMode.swift */,
 				C381B177205F9032004FB881 /* AdminMode.swift */,
@@ -347,9 +353,11 @@
 				C3C4A25720511CDB0094E9AF /* ChocoFlavored.swift in Sources */,
 				C3C2EE3820576EC3002EBD49 /* InputView.swift in Sources */,
 				C3C4A25520511CCD0094E9AF /* BananaFlavored.swift in Sources */,
+				C3416BAD206366DF0023FB69 /* Inventory.swift in Sources */,
 				C3C4A23F20511C2F0094E9AF /* Soda.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
 				C381B178205F9032004FB881 /* AdminMode.swift in Sources */,
+				C3416BB52063CC0E0023FB69 /* ShoppingLists.swift in Sources */,
 				C3416BA92060F3B60023FB69 /* ControllerCore.swift in Sources */,
 				C3C4A24720511C560094E9AF /* Welchs.swift in Sources */,
 				C3C4A24520511C4F0094E9AF /* Coke.swift in Sources */,

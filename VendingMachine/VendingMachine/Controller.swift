@@ -13,17 +13,18 @@ class Controller {
     var isModeSelected: Bool {
         return self.modeActivation != nil
     }
+    
     init() {
         self.core = ControllerCore()
     }
-    func selectMode(menuNum: Int) throws {
+    func selectMode(menuNum: Int) {
         switch menuNum {
         case Mode.admin.rawValue:
             self.modeActivation = AdminMode(core)
         case Mode.user.rawValue:
             self.modeActivation = UserMode(core)
         default:
-            throw Controller.ModeError.invalidNumber
+            print("다시 입력해주세요.")
         }
     }
     
@@ -57,8 +58,6 @@ class Controller {
         }
         return nil
     }
-    
-    
 }
 
 extension Controller {
