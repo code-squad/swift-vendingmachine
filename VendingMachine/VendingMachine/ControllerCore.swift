@@ -10,7 +10,6 @@ import Foundation
 
 class ControllerCore {
     private var inventory: Inventory
-    private var sshoppingHistory: ShoppingLists
     static let welchs = Welchs("톡쏘는정훈", 400, 1500, "웰치스", "20171105", 40, .grape)
     static let chocoFlavoredMilk = ChocoFlavoredMilk("달콤한정훈", 250, 1700, "맛좋은초코유유", "20180301", .second_Grade, 200, 1)
     static let top = Top("분위기있는정훈", 200, 1500, "TOP", "20171225", .grande, .basic)
@@ -19,8 +18,6 @@ class ControllerCore {
     static let beverages: [Beverage] = [chocoFlavoredMilk, top, dutchCoffeeStory, welchs, bananaFlavord]
     init() {
         self.inventory = Inventory()
-        self.sshoppingHistory = ShoppingLists()
-    
     }
 
 }
