@@ -14,7 +14,7 @@ let outputView = Outputview()
 while true {
     if controller.isModeSelected == false {
         if let selectedMode = InputView.read() {
-       controller.selectMode(menuNum: selectedMode)
+            controller.selectMode(menuNum: selectedMode)
         }
     }
     guard let menu = controller.makeMenu() else {
@@ -34,5 +34,3 @@ while true {
         outputView.printPurchase(drink: resultOfBuy)
     }
 }
-
-
