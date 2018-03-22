@@ -7,3 +7,15 @@
 //
 
 import Foundation
+class ShoppingLists {
+    private var lists = [Beverage]()
+    
+    init() {
+        self.lists = []
+    }
+    
+    func buy(beve: Beverage) {
+        lists.append(beve)
+    }
+    
+}
