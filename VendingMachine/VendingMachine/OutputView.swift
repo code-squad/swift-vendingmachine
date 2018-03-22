@@ -74,17 +74,6 @@ struct Outputview {
         return menuString
     }
     
-    private func countDrinks(menu: [Beverage]) -> [Beverage : Int] {
-        var countDictionary = [Beverage : Int]()
-        for drink in menu {
-            if let drinkCount = countDictionary[drink] {
-                countDictionary[drink] = drinkCount + 1
-            }
-            countDictionary[drink] = 0
-        }
-        return countDictionary
-    }
-    
     private func makeOrder(mode: Controller.Mode) -> String {
         let orderMessage: String!
         switch mode {
