@@ -8,9 +8,9 @@
 
 import Foundation
 
-protocol AdminModable: AdminIncome {
-    func add(productIndex: Int) throws
-    func subtract(productIndex: Int) throws -> Beverage
+protocol AdminModable {
+    mutating func add(productIndex: Int) throws
+    mutating func subtract(productIndex: Int) throws -> Beverage
     func listOfInventory() -> [Beverage:Int]
     func checkListOfOverExpirationDate() -> [Beverage]
     func drinkLists() -> [Beverage]
@@ -23,8 +23,8 @@ protocol AdminIncome {
 
 
 class AdminMode: ModeActivation {
-    var core: AdminModable
-    init(_ core: AdminModable) {
+    var core: ControllerCore
+    init(_ core: ControllerCore) {
         self.core = core
     }
     
