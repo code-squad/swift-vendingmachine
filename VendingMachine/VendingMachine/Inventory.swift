@@ -11,6 +11,7 @@ import Foundation
 class Inventory {
     private var beverageLists = [Beverage]()
     private var shoppingLists: ShoppingLists
+    private var money = Money()
     private var userMoney: Int = 0
     private var income: Int = 0
     
@@ -24,13 +25,17 @@ class Inventory {
         self.shoppingLists = ShoppingLists()
     }
 }
-extension Inventory: AdminModable {
+extension Inventory: AdminModable, AdminIncome {
+    func gainIncome(beveragePrice: Int) {
+        
+    }
+    
     func drinkLists() -> [Beverage] {
         return Inventory.beverages
     }
     
     func checkIncome() -> Int {
-        return self.income
+        return self.money.checkIncome()
     }
     
     func add(productIndex: Int) throws {
@@ -71,19 +76,17 @@ extension Inventory: AdminModable {
     
     
 }
-extension Inventory: UserModable {
+extension Inventory: UserModable, UserMoney {
     func insertMoney(userMoney: Int) {
-        self.userMoney += userMoney
+        self.money.insertMoney(userMoney: userMoney)
     }
     
     func userBalance() -> Int {
-        return self.userMoney
+        return self.money.userBalance()
     }
     
     func withdrawlBalance() -> Int {
-        let balance = self.userMoney
-        userMoney = 0
-        return balance
+        return self.money.withdrawlBalance()
     }
     
     func shoppingHistory() -> [Beverage] {
@@ -106,6 +109,7 @@ extension Inventory: UserModable {
         for beverage in beverageLists.enumerated() {
             if beverage.element == purchasedBeverage {
                 self.userMoney -= purchasedBeverage.price
+                money.vendingMachineIncome += purchasedBeverage.price
                 self.income += purchasedBeverage.price
                 self.beverageLists.remove(at: beverage.offset)
                 self.shoppingLists.buy(purchasedBeverage)

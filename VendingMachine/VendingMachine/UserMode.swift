@@ -8,15 +8,17 @@
 
 import Foundation
 
-protocol UserModable {
+protocol UserModable: UserMoney {
     func shoppingHistory() -> [Beverage]
     func buyableBeverages() -> [Beverage]
     func buy(productIndex: Int) throws -> Beverage
     func listOfInventory() -> [Beverage:Int]
-    func insertMoney(userMoney: Int)
+}
+
+protocol UserMoney {
+    mutating func insertMoney(userMoney: Int)
     func userBalance() -> Int
-    func withdrawlBalance() -> Int
-    
+    mutating func withdrawlBalance() -> Int
 }
 
 class UserMode: ModeActivation {

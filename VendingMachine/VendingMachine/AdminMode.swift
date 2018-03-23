@@ -8,13 +8,17 @@
 
 import Foundation
 
-protocol AdminModable {
+protocol AdminModable: AdminIncome {
     func add(productIndex: Int) throws
     func subtract(productIndex: Int) throws -> Beverage
     func listOfInventory() -> [Beverage:Int]
     func checkListOfOverExpirationDate() -> [Beverage]
     func drinkLists() -> [Beverage]
+}
+
+protocol AdminIncome {
     func checkIncome() -> Int
+  
 }
 
 

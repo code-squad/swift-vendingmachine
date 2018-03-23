@@ -23,7 +23,7 @@ class ControllerCore {
 }
 
 
-extension ControllerCore: AdminModable {
+extension ControllerCore: AdminModable, AdminIncome {
     func add(productIndex: Int) throws {
         try inventory.add(productIndex: productIndex)
     }
@@ -51,7 +51,7 @@ extension ControllerCore: AdminModable {
     
 }
 
-extension ControllerCore: UserModable {
+extension ControllerCore: UserModable, UserMoney {
     func buy(productIndex: Int) throws -> Beverage {
         
        return try self.inventory.buy(productIndex: productIndex)
