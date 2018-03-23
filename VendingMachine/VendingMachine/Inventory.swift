@@ -117,10 +117,17 @@ extension Inventory: UserModable {
 }
 
 extension Inventory {
-    enum stockError: String, Error {
-        case soldOut = "해당 음료수는 품절되었습니다."
-        case invalidProductNumber = "유효하지 않은 음료수 번호 입니다."
-        case empty = "재고가 하나도 없습니다."
+    enum stockError: CustomStringConvertible, Error {
+        case soldOut
+        case invalidProductNumber
+        case empty
+        var description: String {
+            switch self {
+            case .soldOut: return "해당 음료수는 품절되었습니다."
+            case .invalidProductNumber : return "유효하지 않은 음료수 번호 입니다."
+            case .empty : return "재고가 하나도 없습니다."
+            }
+        }
     }
     
 }
