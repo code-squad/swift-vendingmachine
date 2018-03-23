@@ -8,23 +8,20 @@
 
 import Foundation
 
-protocol UserModable: UserMoney {
-    func shoppingHistory() -> [Beverage]
-    func buyableBeverages() -> [Beverage]
-    func buy(productIndex: Int) throws -> Beverage
+protocol UserModable {
     func listOfInventory() -> [Beverage:Int]
 }
 
 protocol UserMoney {
     mutating func insertMoney(userMoney: Int)
-    func userBalance() -> Int
+    mutating func userBalance() -> Int
     mutating func withdrawlBalance() -> Int
 }
 
 class UserMode: ModeActivation {
-    private var core: UserModable
+    private var core: ControllerCore
     private var beverage: Beverage?
-    init(_ core: UserModable) {
+    init(_ core: ControllerCore) {
         self.core = core
     }
     func action(actionType: Action, detail: Int) throws {
@@ -52,9 +49,3 @@ class UserMode: ModeActivation {
         return self.beverage
     }
 }
-    
-    
-    
-    
-    
-    
