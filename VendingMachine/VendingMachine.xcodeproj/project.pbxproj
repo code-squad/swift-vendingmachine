@@ -28,6 +28,7 @@
 		C3416BA92060F3B60023FB69 /* ControllerCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3416BA82060F3B60023FB69 /* ControllerCore.swift */; };
 		C3416BAD206366DF0023FB69 /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3416BAC206366DF0023FB69 /* Inventory.swift */; };
 		C3416BB52063CC0E0023FB69 /* ShoppingLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3416BB42063CC0E0023FB69 /* ShoppingLists.swift */; };
+		C3416BB720649D3F0023FB69 /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3416BB620649D3F0023FB69 /* Money.swift */; };
 		C381B176205F9026004FB881 /* UserMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C381B175205F9026004FB881 /* UserMode.swift */; };
 		C381B178205F9032004FB881 /* AdminMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C381B177205F9032004FB881 /* AdminMode.swift */; };
 		C381B17A205FA2FC004FB881 /* ModeActivation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C381B179205FA2FC004FB881 /* ModeActivation.swift */; };
@@ -86,6 +87,7 @@
 		C3416BA82060F3B60023FB69 /* ControllerCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerCore.swift; sourceTree = "<group>"; };
 		C3416BAC206366DF0023FB69 /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
 		C3416BB42063CC0E0023FB69 /* ShoppingLists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingLists.swift; sourceTree = "<group>"; };
+		C3416BB620649D3F0023FB69 /* Money.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
 		C381B175205F9026004FB881 /* UserMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMode.swift; sourceTree = "<group>"; };
 		C381B177205F9032004FB881 /* AdminMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminMode.swift; sourceTree = "<group>"; };
 		C381B179205FA2FC004FB881 /* ModeActivation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeActivation.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				C3416BAC206366DF0023FB69 /* Inventory.swift */,
 				C3416BB42063CC0E0023FB69 /* ShoppingLists.swift */,
 				C381B179205FA2FC004FB881 /* ModeActivation.swift */,
+				C3416BB620649D3F0023FB69 /* Money.swift */,
 				C381B175205F9026004FB881 /* UserMode.swift */,
 				C381B177205F9032004FB881 /* AdminMode.swift */,
 				C3C4A27120525D150094E9AF /* DateAndTime.swift */,
@@ -346,6 +349,7 @@
 			files = (
 				C381B17A205FA2FC004FB881 /* ModeActivation.swift in Sources */,
 				C381B176205F9026004FB881 /* UserMode.swift in Sources */,
+				C3416BB720649D3F0023FB69 /* Money.swift in Sources */,
 				C3C2EE3520564A05002EBD49 /* Controller.swift in Sources */,
 				C3C4A24120511C3D0094E9AF /* Beverage.swift in Sources */,
 				C3C4A25320511CBD0094E9AF /* Milk.swift in Sources */,
