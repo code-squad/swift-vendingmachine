@@ -41,11 +41,11 @@ class Controller {
             do {
                 try self.modeActivation?.action(actionType: action, detail: detail)
             } catch ControllerCore.stockError.soldOut {
-                print(ControllerCore.stockError.soldOut.rawValue)
+                print(ControllerCore.stockError.soldOut)
             } catch ControllerCore.stockError.invalidProductNumber {
-                print(ControllerCore.stockError.invalidProductNumber.rawValue)
+                print(ControllerCore.stockError.invalidProductNumber)
             } catch ControllerCore.stockError.empty {
-                print(ControllerCore.stockError.empty.rawValue)
+                print(ControllerCore.stockError.empty)
             }
         case .exit:
             self.modeActivation = nil
