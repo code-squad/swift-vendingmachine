@@ -14,8 +14,11 @@ class ShoppingLists {
         self.lists = []
     }
     
-    func buy(beve: Beverage) {
-        lists.append(beve)
+    func buy(_ beverage: Beverage) {
+        lists.append(beverage)
     }
     
+    func shoppingHistory() -> [Beverage] {
+        return self.lists
+    }
 }

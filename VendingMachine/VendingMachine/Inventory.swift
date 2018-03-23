@@ -9,7 +9,7 @@
 import Foundation
 
 class Inventory {
-    private (set) var beverageLists = [Beverage]()
+    private var beverageLists = [Beverage]()
     private var shoppingLists: ShoppingLists
     private var userMoney: Int = 0
     private var income: Int = 0
@@ -87,7 +87,7 @@ extension Inventory: UserModable {
     }
     
     func shoppingHistory() -> [Beverage] {
-        return self.beverageLists
+        return self.shoppingLists.shoppingHistory()
     }
     
     func buyableBeverages() -> [Beverage] {
@@ -108,7 +108,7 @@ extension Inventory: UserModable {
                 self.userMoney -= purchasedBeverage.price
                 self.income += purchasedBeverage.price
                 self.beverageLists.remove(at: beverage.offset)
-                self.shoppingLists.buy(beve: beverage.element)
+                self.shoppingLists.buy(purchasedBeverage)
                 return purchasedBeverage
             }
         }

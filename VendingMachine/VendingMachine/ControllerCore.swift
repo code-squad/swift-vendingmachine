@@ -38,16 +38,11 @@ extension ControllerCore: AdminModable {
     }
     
     func listOfInventory() -> [Beverage : Int] {
-        var countDictionary = [Beverage : Int]()
-        for beverage in inventory.beverageLists {
-            let count = countDictionary[beverage] ?? 0
-            countDictionary[beverage] = count + 1
-        }
-        return countDictionary
+        return inventory.listOfInventory()
     }
     
     func checkListOfOverExpirationDate() -> [Beverage] {
-        return inventory.beverageLists.filter { $0.isValidate() == false }
+        return inventory.checkListOfOverExpirationDate()
     }
     
     func drinkLists() -> [Beverage] {
@@ -67,8 +62,7 @@ extension ControllerCore: UserModable {
     }
     
     func buyableBeverages() -> [Beverage] {
-        let listOfCanBuy = inventory.beverageLists.filter { $0.isValidate() && $0.price <= inventory.userBalance() }
-        return listOfCanBuy
+        return inventory.buyableBeverages()
     }
     
     func userBalance() -> Int {
