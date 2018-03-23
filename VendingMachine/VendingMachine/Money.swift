@@ -8,7 +8,7 @@
 
 import Foundation
 struct Money {
-    private var userMoney: Int = 0
+    var userMoney: Int = 0
     var vendingMachineIncome: Int = 0
 }
 
@@ -17,7 +17,7 @@ extension Money: UserMoney {
         self.userMoney += userMoney
     }
     
-    func userBalance() -> Int {
+    mutating func userBalance() -> Int {
         return userMoney
     }
     

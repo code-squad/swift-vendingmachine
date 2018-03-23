@@ -28,7 +28,7 @@ class Beverage:  NSObject {
         self.name = name
         self.manufactured_date = manufactured_date
     }
-    
+   
     private  var result: String {
         return objectName + self.description
     }

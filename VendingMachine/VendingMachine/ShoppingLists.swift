@@ -8,7 +8,7 @@
 
 import Foundation
 class ShoppingLists {
-    private var lists = [Beverage]()
+    private var lists:[Beverage]
     
     init() {
         self.lists = []
@@ -18,7 +18,7 @@ class ShoppingLists {
         lists.append(beverage)
     }
     
-    func shoppingHistory() -> [Beverage] {
-        return self.lists
+    func shoppingHistory() -> ShoppingLists {
+        return ShoppingLists()
     }
 }
