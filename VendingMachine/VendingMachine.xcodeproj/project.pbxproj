@@ -29,6 +29,20 @@
 		C3416BAD206366DF0023FB69 /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3416BAC206366DF0023FB69 /* Inventory.swift */; };
 		C3416BB52063CC0E0023FB69 /* ShoppingLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3416BB42063CC0E0023FB69 /* ShoppingLists.swift */; };
 		C3416BB720649D3F0023FB69 /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3416BB620649D3F0023FB69 /* Money.swift */; };
+		C3416BB82064AA480023FB69 /* AdminMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C381B177205F9032004FB881 /* AdminMode.swift */; };
+		C3416BB92064AA480023FB69 /* AdminMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C381B177205F9032004FB881 /* AdminMode.swift */; };
+		C3416BBA2064AA4C0023FB69 /* UserMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C381B175205F9026004FB881 /* UserMode.swift */; };
+		C3416BBB2064AA4C0023FB69 /* UserMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C381B175205F9026004FB881 /* UserMode.swift */; };
+		C3416BBC2064AA570023FB69 /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3416BB620649D3F0023FB69 /* Money.swift */; };
+		C3416BBD2064AA580023FB69 /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3416BB620649D3F0023FB69 /* Money.swift */; };
+		C3416BBE2064AA5A0023FB69 /* ModeActivation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C381B179205FA2FC004FB881 /* ModeActivation.swift */; };
+		C3416BBF2064AA5B0023FB69 /* ModeActivation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C381B179205FA2FC004FB881 /* ModeActivation.swift */; };
+		C3416BC02064AA5D0023FB69 /* ShoppingLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3416BB42063CC0E0023FB69 /* ShoppingLists.swift */; };
+		C3416BC12064AA5E0023FB69 /* ShoppingLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3416BB42063CC0E0023FB69 /* ShoppingLists.swift */; };
+		C3416BC22064AA610023FB69 /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3416BAC206366DF0023FB69 /* Inventory.swift */; };
+		C3416BC32064AA610023FB69 /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3416BAC206366DF0023FB69 /* Inventory.swift */; };
+		C3416BC42064AA640023FB69 /* ControllerCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3416BA82060F3B60023FB69 /* ControllerCore.swift */; };
+		C3416BC52064AA650023FB69 /* ControllerCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3416BA82060F3B60023FB69 /* ControllerCore.swift */; };
 		C381B176205F9026004FB881 /* UserMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C381B175205F9026004FB881 /* UserMode.swift */; };
 		C381B178205F9032004FB881 /* AdminMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C381B177205F9032004FB881 /* AdminMode.swift */; };
 		C381B17A205FA2FC004FB881 /* ModeActivation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C381B179205FA2FC004FB881 /* ModeActivation.swift */; };
@@ -383,10 +397,17 @@
 				C329B47E205A63D100A79A34 /* BananaFlavored.swift in Sources */,
 				C329B471205A63B000A79A34 /* Beverage.swift in Sources */,
 				C329B47D205A63CE00A79A34 /* Milk.swift in Sources */,
+				C3416BBD2064AA580023FB69 /* Money.swift in Sources */,
 				C329B475205A63BA00A79A34 /* OutputView.swift in Sources */,
 				C329B47B205A63C900A79A34 /* Top.swift in Sources */,
 				C329B470205A63AD00A79A34 /* main.swift in Sources */,
 				C329B476205A63BD00A79A34 /* Soda.swift in Sources */,
+				C3416BC32064AA610023FB69 /* Inventory.swift in Sources */,
+				C3416BC52064AA650023FB69 /* ControllerCore.swift in Sources */,
+				C3416BB82064AA480023FB69 /* AdminMode.swift in Sources */,
+				C3416BBB2064AA4C0023FB69 /* UserMode.swift in Sources */,
+				C3416BC12064AA5E0023FB69 /* ShoppingLists.swift in Sources */,
+				C3416BBF2064AA5B0023FB69 /* ModeActivation.swift in Sources */,
 				C329B474205A63B800A79A34 /* InputView.swift in Sources */,
 				C329B47F205A63D300A79A34 /* ChocoFlavored.swift in Sources */,
 				C329B46B205A633400A79A34 /* SystemTestOfVendingMachine.swift in Sources */,
@@ -407,10 +428,17 @@
 				C3C4A25F205121E40094E9AF /* UnitTestVendingMachine.swift in Sources */,
 				C3C4A2682051226B0094E9AF /* Coke.swift in Sources */,
 				C3C4A266205122660094E9AF /* OutputView.swift in Sources */,
+				C3416BBC2064AA570023FB69 /* Money.swift in Sources */,
 				C3C4A267205122690094E9AF /* Soda.swift in Sources */,
 				C3C4A26B205122720094E9AF /* Americano.swift in Sources */,
 				C3C2EE3920576EC3002EBD49 /* InputView.swift in Sources */,
 				C3C4A26C205122750094E9AF /* Top.swift in Sources */,
+				C3416BC22064AA610023FB69 /* Inventory.swift in Sources */,
+				C3416BC42064AA640023FB69 /* ControllerCore.swift in Sources */,
+				C3416BB92064AA480023FB69 /* AdminMode.swift in Sources */,
+				C3416BBA2064AA4C0023FB69 /* UserMode.swift in Sources */,
+				C3416BC02064AA5D0023FB69 /* ShoppingLists.swift in Sources */,
+				C3416BBE2064AA5A0023FB69 /* ModeActivation.swift in Sources */,
 				C3C4A2692051226D0094E9AF /* Welchs.swift in Sources */,
 				C3C4A26A205122700094E9AF /* Coffee.swift in Sources */,
 				C3C4A26E2051227A0094E9AF /* Milk.swift in Sources */,
