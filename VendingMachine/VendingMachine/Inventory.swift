@@ -25,7 +25,7 @@ extension Inventory: AdminModable {
     mutating func add(productIndex: Int) throws {
         let listOfDrink = drinkLists()
         guard listOfDrink.indices.contains(productIndex-1)  else {
-            throw ControllerCore.stockError.invalidProductNumber
+            throw StockError.invalidProductNumber
         }
         beverages.append(listOfDrink[productIndex-1])
     }
@@ -33,7 +33,7 @@ extension Inventory: AdminModable {
     mutating func subtract(productIndex: Int) throws -> Beverage {
         let listOfDrink = drinkLists()
         guard listOfDrink.indices.contains(productIndex - 1) else {
-            throw ControllerCore.stockError.invalidProductNumber
+            throw StockError.invalidProductNumber
         }
         let deleteDrink = listOfDrink[productIndex - 1]
         for drink in beverages.enumerated() {
@@ -42,7 +42,7 @@ extension Inventory: AdminModable {
                 return drink.element
             }
         }
-        throw ControllerCore.stockError.empty
+        throw StockError.empty
     }
     
     func listOfInventory() -> [Beverage : Int] {
@@ -58,3 +58,38 @@ extension Inventory: AdminModable {
         return beverages.filter { $0.isValidate() == false }
     }
 }
+
+extension Inventory: UserModable {
+    func checkBuyableBeverage(by userMoney: Int) -> [Beverage] {
+        return beverages.filter { $0.isValidate() && $0.isAffordable(userMoney)}
+    }
+    
+    mutating func buyBeverage(productIndex: Int) throws -> Beverage{
+        guard beverages.indices.contains(productIndex - 1 ) else {
+            throw StockError.invalidProductNumber
+        }
+        let purchasedBeverage = beverages[productIndex - 1]
+        for beverage in beverages {
+            if beverage == purchasedBeverage {
+                return purchasedBeverage
+            }
+        }
+        throw StockError.soldOut
+    }
+}
+
+extension Inventory {
+    enum StockError: CustomStringConvertible, Error {
+        case soldOut
+        case invalidProductNumber
+        case empty
+        var description: String {
+            switch self {
+            case .soldOut: return "해당 음료수는 품절되었습니다."
+            case .invalidProductNumber : return "유효하지 않은 음료수 번호 입니다."
+            case .empty : return "재고가 하나도 없습니다."
+            }
+        }
+    }
+}
+
