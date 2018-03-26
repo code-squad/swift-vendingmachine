@@ -13,7 +13,6 @@ class Controller {
     var isModeSelected: Bool {
         return self.modeActivation != nil
     }
-    
     init() {
         self.core = ControllerCore()
     }
@@ -40,12 +39,12 @@ class Controller {
         case .add, .delete:
             do {
                 try self.modeActivation?.action(actionType: action, detail: detail)
-            } catch ControllerCore.stockError.soldOut {
-                print(ControllerCore.stockError.soldOut)
-            } catch ControllerCore.stockError.invalidProductNumber {
-                print(ControllerCore.stockError.invalidProductNumber)
-            } catch ControllerCore.stockError.empty {
-                print(ControllerCore.stockError.empty)
+            } catch Inventory.StockError.soldOut {
+                print(Inventory.StockError.soldOut)
+            } catch Inventory.StockError.invalidProductNumber {
+                print(Inventory.StockError.invalidProductNumber)
+            } catch Inventory.StockError.empty {
+                print(Inventory.StockError.empty)
             }
         case .exit:
             self.modeActivation = nil
