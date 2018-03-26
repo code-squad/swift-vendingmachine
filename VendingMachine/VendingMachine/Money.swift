@@ -8,12 +8,16 @@
 
 import Foundation
 struct Money {
-    var userMoney: Int = 0
-    var vendingMachineIncome: Int = 0
+    private var userMoney: Int = 0
+    private var vendingMachineIncome: Int = 0
 }
 
 extension Money: UserMoney {
-    mutating func insertMoney(userMoney: Int) {
+    mutating func pay(by beveragePrice: Int) {
+        self.userMoney -= beveragePrice
+    }
+    
+    mutating func insert(by userMoney: Int) {
         self.userMoney += userMoney
     }
     
@@ -26,9 +30,14 @@ extension Money: UserMoney {
         self.userMoney = 0
         return balance
     }
+    
 }
 
 extension Money: AdminIncome {
+    mutating func gainIncome(by beveragePrice: Int) {
+        self.vendingMachineIncome += beveragePrice
+    }
+    
     func checkIncome() -> Int {
         return self.vendingMachineIncome
     }
