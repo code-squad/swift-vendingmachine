@@ -38,38 +38,24 @@ extension ControllerCore: AdminModable, AdminIncome {
     func drinkLists() -> [Beverage] {
         return inventory.drinkLists()
     }
-    
 }
 
 extension ControllerCore: UserModable, UserMoney {
     func buy(productIndex: Int) throws -> Beverage {
-        let drinks = buyableBeverages()
-        guard drinks.indices.contains(productIndex - 1) else {
-            throw stockError.invalidProductNumber
-        }
-        let purchasedBeverage = drinks[productIndex - 1]
-        for beverage in inventory.beverages.enumerated() {
-            if beverage.element == purchasedBeverage {
-                self.money.userMoney -= purchasedBeverage.price
-                money.vendingMachineIncome += purchasedBeverage.price
-                self.money.vendingMachineIncome += purchasedBeverage.price
-                _ = try self.inventory.subtract(productIndex: beverage.offset)
-                self.shoppingLists.buy(purchasedBeverage)
-                return purchasedBeverage
-            }
-        }
-        throw stockError.soldOut
-    }
-    
-    func insertMoney(userMoney: Int) {
-        money.insertMoney(userMoney: userMoney)
+        let beverage = try inventory.buyBeverage(productIndex: productIndex)
+        money.pay(by: beverage.price)
+        money.gainIncome(by: beverage.price)
+        shoppingLists.buy(beverage)
+        let _ = try inventory.subtract(productIndex: productIndex)
+        return beverage
     }
     
     func buyableBeverages() -> [Beverage] {
-        let listOfCanBuy = inventory.beverages.filter { $0.isValidate() &&
-            $0.price <= userBalance()
-        }
-        return listOfCanBuy
+        return inventory.checkBuyableBeverage(by: money.userBalance())
+    }
+    
+    func insert(by userMoney: Int) {
+        money.insert(by: userMoney)
     }
     
     func userBalance() -> Int {
@@ -84,19 +70,3 @@ extension ControllerCore: UserModable, UserMoney {
         return money.withdrawlBalance()
     }
 }
-
-extension ControllerCore {
-    enum stockError: CustomStringConvertible, Error {
-        case soldOut
-        case invalidProductNumber
-        case empty
-        var description: String {
-            switch self {
-            case .soldOut: return "해당 음료수는 품절되었습니다."
-            case .invalidProductNumber : return "유효하지 않은 음료수 번호 입니다."
-            case .empty : return "재고가 하나도 없습니다."
-            }
-        }
-    }
-}
-
