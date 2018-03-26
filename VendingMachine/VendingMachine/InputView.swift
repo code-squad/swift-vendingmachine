@@ -9,7 +9,6 @@
 import Foundation
 
 struct InputView {
-    
     static func read() -> Int? {
         let menu: String = "1. 관리자모드\n2. 사용자모드"
         print(menu)
@@ -32,5 +31,14 @@ struct InputView {
         if realMenu.count != 2 { return nil }
         guard let menuOption = Action(rawValue: realMenu[0]) else { return nil }
         return (menuOption, realMenu[1])
+    }
+    
+    enum PreGameMessage: CustomStringConvertible, Error {
+        case invalidMenu
+        var description: String {
+            switch self {
+            case .invalidMenu: return "올바른 번호를 입력해주세요."
+            }
+        }
     }
 }
