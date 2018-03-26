@@ -41,6 +41,10 @@ class Beverage:  NSObject {
         return Date() < expirationDay
     }
     
+    func isAffordable(_ userMoney: Int) -> Bool {
+        return self.price <= userMoney
+    }
+    
      private var objectName: String {
         return String(describing: type(of: self))
     }
