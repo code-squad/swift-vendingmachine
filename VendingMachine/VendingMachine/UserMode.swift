@@ -13,7 +13,7 @@ protocol UserModable {
 }
 
 protocol UserMoney {
-    mutating func insertMoney(userMoney: Int)
+    mutating func insert(by userMoney: Int)
     mutating func userBalance() -> Int
     mutating func withdrawlBalance() -> Int
 }
@@ -26,7 +26,7 @@ class UserMode: ModeActivation {
     }
     func action(actionType: Action, detail: Int) throws {
         switch actionType {
-        case .add: core.insertMoney(userMoney: detail)
+        case .add: core.insert(by: detail)
         case .delete:
             do {
                 self.beverage = try core.buy(productIndex: detail)
