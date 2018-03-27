@@ -18,23 +18,23 @@ extension ControllerCore: AdminModable, AdminIncome {
     func add(productIndex: Int) throws {
         try inventory.add(productIndex: productIndex)
     }
-    
-    func subtract(productIndex: Int) throws -> Beverage {
+
+    @discardableResult func subtract(productIndex: Int) throws -> Beverage {
         return try inventory.subtract(productIndex: productIndex)
     }
-    
+
     func checkIncome() -> Int {
         return money.checkIncome()
     }
-    
-    func listOfInventory() -> [Beverage : Int] {
+
+    func listOfInventory() -> [Beverage: Int] {
         return inventory.listOfInventory()
     }
-    
+
     func checkListOfOverExpirationDate() -> [Beverage] {
         return inventory.checkListOfOverExpirationDate()
     }
-    
+
     func drinkLists() -> [Beverage] {
         return inventory.drinkLists()
     }
@@ -46,27 +46,27 @@ extension ControllerCore: UserModable, UserMoney {
         money.pay(by: beverage.price)
         money.gainIncome(by: beverage.price)
         shoppingLists.buy(beverage)
-        let _ = try inventory.subtract(productIndex: productIndex)
+        try inventory.subtract(productIndex: productIndex)
         return beverage
     }
-    
+
     func buyableBeverages() -> [Beverage] {
         return inventory.checkBuyableBeverage(by: money.userBalance())
     }
-    
+
     func insert(by userMoney: Int) {
         money.insert(by: userMoney)
     }
-    
+
     func userBalance() -> Int {
         return money.userBalance()
     }
-    
+
     func shoppingHistory() -> ShoppingLists {
         return self.shoppingLists.shoppingHistory()
     }
-    
-    func withdrawlBalance() -> Int {
+
+    @discardableResult func withdrawlBalance() -> Int {
         return money.withdrawlBalance()
     }
 }

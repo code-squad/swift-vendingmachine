@@ -8,14 +8,19 @@
 
 import Foundation
 class Coke: Soda {
-    private var kindOfCoke: kindOfCoke = .original
-    init(_ brand: String, _ weight: Int, _ price: Int, _ name: String, _ manufactured_date: String, _ amountOfSugar: Float, _ kindOfCoke: kindOfCoke) {
+    private var kindOfCoke: KindOfCoke = .original
+    init(_ brand: String,
+         _ weight: Int,
+         _ price: Int,
+         _ name: String,
+         _ manufacturedDate: String,
+         _ amountOfSugar: Float,
+         _ kindOfCoke: KindOfCoke) {
         self.kindOfCoke = kindOfCoke
-        super.init(brand, weight, price, name, manufactured_date, amountOfSugar)
+        super.init(brand, weight, price, name, manufacturedDate, amountOfSugar)
     }
-   
 }
 
-enum kindOfCoke {
+enum KindOfCoke {
     case original, zero, light, cherry, lemon
 }

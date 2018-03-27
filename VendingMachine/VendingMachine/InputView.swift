@@ -17,7 +17,7 @@ struct InputView {
         }
         return realNum
     }
-    
+
     static func readMenu() -> (menuOption: Action, detail: Int)? {
         var realMenu = [Int]()
         if let menu = readLine() {
@@ -25,14 +25,14 @@ struct InputView {
             if menu == "3" {
                 return (menuOption: .exit, -1)
             }
-            let tempMenu = menu.split(separator: " ").flatMap{ Int($0) }
+            let tempMenu = menu.split(separator: " ").flatMap { Int($0) }
             realMenu = tempMenu
         }
         if realMenu.count != 2 { return nil }
         guard let menuOption = Action(rawValue: realMenu[0]) else { return nil }
         return (menuOption, realMenu[1])
     }
-    
+
     enum PreGameMessage: CustomStringConvertible, Error {
         case invalidMenu
         var description: String {

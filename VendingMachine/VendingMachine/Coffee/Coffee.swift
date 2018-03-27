@@ -9,19 +9,24 @@
 import Foundation
 class Coffee: Beverage {
     private var sizeType: CoffeeSize = .short
-    init(_ brand: String, _ weight: Int, _ price: Int, _ name: String, _ manufactured_date: String, _ sizeType: CoffeeSize) {
+    init(_ brand: String,
+         _ weight: Int,
+         _ price: Int,
+         _ name: String,
+         _ manufacturedDate: String,
+         _ sizeType: CoffeeSize) {
         self.sizeType = .short
-        super.init(brand, weight, price, name, manufactured_date)
+        super.init(brand, weight, price, name, manufacturedDate)
         self.sizeType = getSize(weight)
     }
-    
+
     override var expirationDate: Date? {
-        guard let manufacturingDate = DateAndTime.formatter.date(from: self.manufactured_date) else {
+        guard let manufacturingDate = DateAndTime.formatter.date(from: self.manufacturedDate) else {
             return nil
         }
         return Date(timeInterval: DateAndTime.sixMonthAsSeconds, since: manufacturingDate)
     }
-    
+
     func getSize(_ weight: Int) -> CoffeeSize {
         return CoffeeSize(rawValue: weight) ?? .short
     }
