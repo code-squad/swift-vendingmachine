@@ -16,30 +16,29 @@ extension Money: UserMoney {
     mutating func pay(by beveragePrice: Int) {
         self.userMoney -= beveragePrice
     }
-    
+
     mutating func insert(by userMoney: Int) {
         self.userMoney += userMoney
     }
-    
+
     mutating func userBalance() -> Int {
         return userMoney
     }
-    
-    mutating func withdrawlBalance() -> Int {
+
+    @discardableResult mutating func withdrawlBalance() -> Int {
         let balance = self.userMoney
         self.userMoney = 0
         return balance
     }
-    
+
 }
 
 extension Money: AdminIncome {
     mutating func gainIncome(by beveragePrice: Int) {
         self.vendingMachineIncome += beveragePrice
     }
-    
+
     func checkIncome() -> Int {
         return self.vendingMachineIncome
     }
 }
-

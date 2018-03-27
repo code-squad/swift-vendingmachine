@@ -8,16 +8,16 @@
 
 import Foundation
 class ShoppingLists {
-    private var lists:[Beverage]
-    
+    private var lists: [Beverage]
+
     init() {
         self.lists = []
     }
-    
+
     func buy(_ beverage: Beverage) {
         lists.append(beverage)
     }
-    
+
     func shoppingHistory() -> ShoppingLists {
         return ShoppingLists()
     }

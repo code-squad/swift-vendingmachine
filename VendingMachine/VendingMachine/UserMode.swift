@@ -9,13 +9,13 @@
 import Foundation
 
 protocol UserModable {
-    func listOfInventory() -> [Beverage:Int]
+    func listOfInventory() -> [Beverage: Int]
 }
 
 protocol UserMoney {
     mutating func insert(by userMoney: Int)
     mutating func userBalance() -> Int
-    mutating func withdrawlBalance() -> Int
+    @discardableResult mutating func withdrawlBalance() -> Int
 }
 
 class UserMode: ModeActivation {
@@ -33,18 +33,18 @@ class UserMode: ModeActivation {
             } catch let error {
                 throw error
             }
-        case .exit: let _ = core.withdrawlBalance(); break
+        case .exit: core.withdrawlBalance()
         }
     }
-    
-    func makePreGameMenu() -> (mode: Controller.Mode, money: Int, menu: [Beverage], inventory: [Beverage:Int]) {
+
+    func makePreGameMenu() -> Menudetails {
         let userBalance = core.userBalance()
         let buyableBeverage = core.buyableBeverages()
         let inventory = core.listOfInventory()
-        
+
         return (.user, userBalance, buyableBeverage, inventory)
     }
-    
+
     func selectDrink() -> Beverage? {
         return self.beverage
     }

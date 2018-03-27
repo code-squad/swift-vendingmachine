@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 class Controller {
     private var modeActivation: ModeActivation?
     private (set) var core: ControllerCore
@@ -26,14 +27,14 @@ class Controller {
             print("다시 입력해주세요.")
         }
     }
-    
-    func makeMenu() -> (mode: Mode, money: Int, menu: [Beverage], inventory: [Beverage:Int])? {
+
+    func makeMenu() -> Menudetails? {
         if let modeActivation = self.modeActivation {
             return modeActivation.makePreGameMenu()
         }
         return nil
     }
-    
+
     func action(action: Action, detail: Int) throws {
         switch action {
         case .add, .delete:
@@ -50,7 +51,7 @@ class Controller {
             self.modeActivation = nil
         }
     }
-    
+
     func makeResultOfOrder() -> Beverage? {
         if let mode = self.modeActivation as? UserMode {
             return mode.selectDrink()
@@ -75,5 +76,3 @@ enum Action: Int {
     case delete = 2
     case exit = 3
 }
-
-

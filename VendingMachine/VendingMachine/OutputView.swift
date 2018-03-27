@@ -9,7 +9,7 @@
 import Foundation
 
 struct Outputview {
-    static func printMonitor(mode: Controller.Mode, money: Int, menu: [Beverage], inventory: [Beverage:Int]) {
+    static func printMonitor(mode: Controller.Mode, money: Int, menu: [Beverage], inventory: [Beverage: Int]) {
         var menuString = ""
         menuString += moneyMessage(mode, money)
         menuString += makeMenu(menu, inventory)
@@ -17,14 +17,14 @@ struct Outputview {
         let order = makeOrder(mode: mode)
         print(order)
     }
-    
+
     static func printPurchase(drink: Beverage) {
         let purchaseMessage = String(format: "%@를 구매하셨습니다. %d원을 차감합니다.",
                                      drink.name,
                                      drink.price)
         print(purchaseMessage)
     }
-    
+
     static func printListOfAllPurchases(listOfPurchase: [Beverage], change: Int) {
         var listOfAllPurchases = String(format: "잔돈은 %d원 입니다. 다음은 구매한 음료 목록입니다.\n",
                                         change)
@@ -38,20 +38,20 @@ struct Outputview {
         listOfAllPurchases.removeLast()
         print(listOfAllPurchases)
     }
-    
+
     static func printError(error: Error) {
         print(error)
     }
-    
-    private static func makeDrinkCount(listOfPurchase: [Beverage]) -> [Beverage:Int] {
-        var countDictionary = [Beverage:Int]()
+
+    private static func makeDrinkCount(listOfPurchase: [Beverage]) -> [Beverage: Int] {
+        var countDictionary = [Beverage: Int]()
         listOfPurchase.forEach {
             let count = countDictionary[$0] ?? 0
             countDictionary[$0] = count + 1
         }
         return countDictionary
     }
-    
+
     private static func moneyMessage(_ mode: Controller.Mode, _ money: Int) -> String {
         var message = ""
         switch mode {
@@ -62,9 +62,8 @@ struct Outputview {
         }
         return "\(message) \(money)원 입니다."
     }
-    
-    
-    private static func makeMenu(_ menu: [Beverage], _ inventory: [Beverage:Int]) -> String {
+
+    private static func makeMenu(_ menu: [Beverage], _ inventory: [Beverage: Int]) -> String {
         var menuString = "다음과 같은 음료가 있습니다.\n"
         for drink in menu.enumerated() {
             let count = inventory[drink.element] ?? 0
@@ -77,7 +76,7 @@ struct Outputview {
         menuString.removeLast()
         return menuString
     }
-    
+
     private static func makeOrder(mode: Controller.Mode) -> String {
         let orderMessage: String!
         switch mode {

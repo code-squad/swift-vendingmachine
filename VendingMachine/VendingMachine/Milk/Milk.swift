@@ -8,23 +8,23 @@
 
 import Foundation
 class Milk: Beverage {
-    private let milkGrade: MilkGrades
-    init(_ brand: String, _ weight: Int, _ price: Int, _ name: String, _ manufactured_date: String, _ milkGrades: MilkGrades) {
-        self.milkGrade = milkGrades
-        super.init(brand, weight, price, name, manufactured_date)
+    private let grade: Grades
+    init(_ brand: String, _ weight: Int, _ price: Int, _ name: String, _ manufacturedDate: String, _ grades: Grades) {
+        self.grade = grades
+        super.init(brand, weight, price, name, manufacturedDate)
     }
-    
+
     override var expirationDate: Date? {
-        guard let manufacturingDate = DateAndTime.formatter.date(from: self.manufactured_date) else {
+        guard let manufacturingDate = DateAndTime.formatter.date(from: self.manufacturedDate) else {
             return nil
         }
         return Date(timeInterval: DateAndTime.fourtyFiveDaysAsSeconds, since: manufacturingDate)
     }
-    
+
 }
 
-enum MilkGrades {
-    case first_Grade, second_Grade, third_grade
+enum Grades {
+    case firstGrade, secondGrade, thirdGrade
 }
 
 enum Standars: Float {
