@@ -8,7 +8,8 @@
 
 import Foundation
 
+typealias Menudetails = (mode: Controller.Mode, money: Int, menu: [Beverage], inventory: [Beverage: Int])
 protocol ModeActivation {
-    func makePreGameMenu() -> (mode: Controller.Mode, money: Int, menu: [Beverage], inventory: [Beverage:Int])
+    func makePreGameMenu() -> Menudetails
     func action(actionType: Action, detail: Int) throws
 }
