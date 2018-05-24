@@ -10,25 +10,9 @@ import Foundation
 
 class Coffee: Beverage {
     
-    private let kind: Kind
-    
-    init(_ kind: Kind,_ brand: String, _ volume: Int, _ price: Int, _ name: String, _ date: Date) {
-        self.kind = kind
+    override init(_ brand: String, _ volume: Int, _ price: Int, _ name: String, _ date: Date) {
         super.init(brand, volume, price, name, date)
     }
     
 }
 
-extension Coffee {
-    enum Kind: CustomStringConvertible {
-        case top, cantata, georgia
-        
-        var description: String {
-            switch self {
-            case .top: return "티오피"
-            case .cantata: return "칸타타"
-            case .georgia: return "조지아"
-            }
-        }
-    }
-}
