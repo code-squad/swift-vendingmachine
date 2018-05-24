@@ -12,6 +12,15 @@
 		D6EBE1AC20B55987007EFA4D /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBE1AB20B55987007EFA4D /* Milk.swift */; };
 		D6EBE1AE20B579D2007EFA4D /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBE1AD20B579D2007EFA4D /* Soda.swift */; };
 		D6EBE1B020B57C80007EFA4D /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBE1AF20B57C80007EFA4D /* Coffee.swift */; };
+		D6EBE1B220B692CB007EFA4D /* StrawberryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBE1B120B692CB007EFA4D /* StrawberryMilk.swift */; };
+		D6EBE1B420B69518007EFA4D /* ChocoMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBE1B320B69518007EFA4D /* ChocoMilk.swift */; };
+		D6EBE1B620B6956B007EFA4D /* BananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBE1B520B6956B007EFA4D /* BananaMilk.swift */; };
+		D6EBE1B820B695C7007EFA4D /* Coke.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBE1B720B695C7007EFA4D /* Coke.swift */; };
+		D6EBE1BA20B69634007EFA4D /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBE1B920B69634007EFA4D /* Sprite.swift */; };
+		D6EBE1BC20B69667007EFA4D /* Fanta.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBE1BB20B69667007EFA4D /* Fanta.swift */; };
+		D6EBE1BE20B696B7007EFA4D /* Top.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBE1BD20B696B7007EFA4D /* Top.swift */; };
+		D6EBE1C020B6972B007EFA4D /* Cantata.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBE1BF20B6972B007EFA4D /* Cantata.swift */; };
+		D6EBE1C220B6975F007EFA4D /* Georgia.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBE1C120B6975F007EFA4D /* Georgia.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,6 +42,15 @@
 		D6EBE1AB20B55987007EFA4D /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 		D6EBE1AD20B579D2007EFA4D /* Soda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soda.swift; sourceTree = "<group>"; };
 		D6EBE1AF20B57C80007EFA4D /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
+		D6EBE1B120B692CB007EFA4D /* StrawberryMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrawberryMilk.swift; sourceTree = "<group>"; };
+		D6EBE1B320B69518007EFA4D /* ChocoMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocoMilk.swift; sourceTree = "<group>"; };
+		D6EBE1B520B6956B007EFA4D /* BananaMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaMilk.swift; sourceTree = "<group>"; };
+		D6EBE1B720B695C7007EFA4D /* Coke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coke.swift; sourceTree = "<group>"; };
+		D6EBE1B920B69634007EFA4D /* Sprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sprite.swift; sourceTree = "<group>"; };
+		D6EBE1BB20B69667007EFA4D /* Fanta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fanta.swift; sourceTree = "<group>"; };
+		D6EBE1BD20B696B7007EFA4D /* Top.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top.swift; sourceTree = "<group>"; };
+		D6EBE1BF20B6972B007EFA4D /* Cantata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cantata.swift; sourceTree = "<group>"; };
+		D6EBE1C120B6975F007EFA4D /* Georgia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Georgia.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,8 +86,17 @@
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
 				D6EBE1A920B517C6007EFA4D /* Beverage.swift */,
 				D6EBE1AB20B55987007EFA4D /* Milk.swift */,
+				D6EBE1B120B692CB007EFA4D /* StrawberryMilk.swift */,
+				D6EBE1B320B69518007EFA4D /* ChocoMilk.swift */,
+				D6EBE1B520B6956B007EFA4D /* BananaMilk.swift */,
 				D6EBE1AF20B57C80007EFA4D /* Coffee.swift */,
+				D6EBE1C120B6975F007EFA4D /* Georgia.swift */,
+				D6EBE1BF20B6972B007EFA4D /* Cantata.swift */,
+				D6EBE1BD20B696B7007EFA4D /* Top.swift */,
 				D6EBE1AD20B579D2007EFA4D /* Soda.swift */,
+				D6EBE1BB20B69667007EFA4D /* Fanta.swift */,
+				D6EBE1B920B69634007EFA4D /* Sprite.swift */,
+				D6EBE1B720B695C7007EFA4D /* Coke.swift */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";
@@ -132,9 +159,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6EBE1C220B6975F007EFA4D /* Georgia.swift in Sources */,
+				D6EBE1BA20B69634007EFA4D /* Sprite.swift in Sources */,
+				D6EBE1B820B695C7007EFA4D /* Coke.swift in Sources */,
 				D6EBE1AE20B579D2007EFA4D /* Soda.swift in Sources */,
+				D6EBE1BE20B696B7007EFA4D /* Top.swift in Sources */,
+				D6EBE1B620B6956B007EFA4D /* BananaMilk.swift in Sources */,
+				D6EBE1BC20B69667007EFA4D /* Fanta.swift in Sources */,
+				D6EBE1C020B6972B007EFA4D /* Cantata.swift in Sources */,
+				D6EBE1B220B692CB007EFA4D /* StrawberryMilk.swift in Sources */,
 				D6EBE1AA20B517C6007EFA4D /* Beverage.swift in Sources */,
 				D6EBE1AC20B55987007EFA4D /* Milk.swift in Sources */,
+				D6EBE1B420B69518007EFA4D /* ChocoMilk.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
 				D6EBE1B020B57C80007EFA4D /* Coffee.swift in Sources */,
 			);
