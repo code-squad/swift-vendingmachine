@@ -9,5 +9,6 @@
 import Foundation
 
 protocol Validate {
-    func validate(_ today: Date) -> Bool
+
+    func isValidate(_ today: Date) -> Bool
 }

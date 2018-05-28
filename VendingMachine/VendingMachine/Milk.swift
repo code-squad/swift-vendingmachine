@@ -15,7 +15,7 @@ class Milk: Beverage {
     }
     
     func checkFarmCode() -> String {
-        return ""
+        return "headquarter"
     }
     
 }
