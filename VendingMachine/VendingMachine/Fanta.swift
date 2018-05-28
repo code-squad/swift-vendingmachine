@@ -10,9 +10,13 @@ import Foundation
 
 class Fanta: Soda {
     
-    private let kind = "환타"
+    private let kind = "Fanta"
     
     override init(_ brand: String, _ volume: Int, _ price: Int, _ name: String, _ date: Date) {
         super.init(brand, volume, price, name, date)
+    }
+    
+    override var description: String {
+        return "\(kind) - \(super.description)"
     }
 }
