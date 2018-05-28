@@ -20,6 +20,4 @@ class StrawberryMilk: Milk {
         return "\(kind) - \(super.description)"
     }
     
-
-
 }

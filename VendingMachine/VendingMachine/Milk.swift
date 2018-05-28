@@ -14,6 +14,8 @@ class Milk: Beverage {
         super.init(brand, volume, price, name, date)
     }
     
+    
+    
 }
 
 

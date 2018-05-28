@@ -22,6 +22,7 @@
 		D6EBE1C020B6972B007EFA4D /* Cantata.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBE1BF20B6972B007EFA4D /* Cantata.swift */; };
 		D6EBE1C220B6975F007EFA4D /* Georgia.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBE1C120B6975F007EFA4D /* Georgia.swift */; };
 		D6EBE1D520BB8E39007EFA4D /* UnitTestVendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBE1D420BB8E39007EFA4D /* UnitTestVendingMachine.swift */; };
+		D6EBE1DB20BB9F67007EFA4D /* Validate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBE1DA20BB9F67007EFA4D /* Validate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -55,6 +56,7 @@
 		D6EBE1D220BB8E39007EFA4D /* UnitTestVendingMachine.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTestVendingMachine.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6EBE1D420BB8E39007EFA4D /* UnitTestVendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestVendingMachine.swift; sourceTree = "<group>"; };
 		D6EBE1D620BB8E39007EFA4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D6EBE1DA20BB9F67007EFA4D /* Validate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
 				D6EBE1A920B517C6007EFA4D /* Beverage.swift */,
 				D6EBE1AB20B55987007EFA4D /* Milk.swift */,
+				D6EBE1DA20BB9F67007EFA4D /* Validate.swift */,
 				D6EBE1B120B692CB007EFA4D /* StrawberryMilk.swift */,
 				D6EBE1B320B69518007EFA4D /* ChocoMilk.swift */,
 				D6EBE1B520B6956B007EFA4D /* BananaMilk.swift */,
@@ -216,6 +219,7 @@
 				D6EBE1C220B6975F007EFA4D /* Georgia.swift in Sources */,
 				D6EBE1BA20B69634007EFA4D /* Sprite.swift in Sources */,
 				D6EBE1B820B695C7007EFA4D /* Coke.swift in Sources */,
+				D6EBE1DB20BB9F67007EFA4D /* Validate.swift in Sources */,
 				D6EBE1AE20B579D2007EFA4D /* Soda.swift in Sources */,
 				D6EBE1BE20B696B7007EFA4D /* Top.swift in Sources */,
 				D6EBE1B620B6956B007EFA4D /* BananaMilk.swift in Sources */,
