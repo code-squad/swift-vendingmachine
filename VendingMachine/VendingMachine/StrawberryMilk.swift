@@ -9,7 +9,7 @@
 import Foundation
 
 class StrawberryMilk: Milk {
-    
+
     private let kind = "StrawberryMilk"
     private let farmCode = "farmJeju"
     

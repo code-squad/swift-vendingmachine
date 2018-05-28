@@ -14,24 +14,24 @@ class Beverage: CustomStringConvertible, Validate {
     private let volume: Int
     private let price: Int
     private let name: String
-    private let date: Date
+    private let expirationDate: Date
     
-    init(_ brand: String,_ volume: Int,_ price: Int,_ name: String,_ date: Date) {
+    init(_ brand: String,_ volume: Int,_ price: Int,_ name: String,_ expirationDate: Date) {
         self.brand = brand
         self.volume = volume
         self.price = price
         self.name = name
-        self.date = date
+        self.expirationDate = expirationDate
     }
     
     var description: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyyMMdd"
-        return "\(self.brand), \(self.volume)ml, \(self.price)원, \(self.name), \(dateFormatter.string(from: self.date))"
+        return "\(self.brand), \(self.volume)ml, \(self.price)원, \(self.name), \(dateFormatter.string(from: self.expirationDate))"
     }
     
-    func validate(_ today: Date) -> Bool {
-        return today < self.date
+    func isValidate(_ today: Date) -> Bool {
+        return today < self.expirationDate
     }
     
     

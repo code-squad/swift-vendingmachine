@@ -43,13 +43,13 @@ class UnitTestVendingMachine: XCTestCase {
     
     func testValidate() {
         let bananaMilk = BananaMilk.init("서울우유", 200, 1000, "바나나우유", date.date(from: "20180529")!)
-        let validate = bananaMilk.validate(today.date(from: "20180528")!)
+        let validate = bananaMilk.isValidate(today.date(from: "20180528")!)
         XCTAssertTrue(validate)
     }
     
     func testInvalidate() {
         let strawberryMilk = StrawberryMilk.init("서울우유", 200, 1000, "딸기우유", date.date(from: "20180527")!)
-        let invalidate = strawberryMilk.validate(today.date(from: "20180528")!)
+        let invalidate = strawberryMilk.isValidate(today.date(from: "20180528")!)
         XCTAssertFalse(invalidate)
     }
     
