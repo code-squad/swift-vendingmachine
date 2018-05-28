@@ -10,6 +10,8 @@ import Foundation
 
 let expirationDate = DateFormatter()
 expirationDate.dateFormat = "yyyyMMdd"
+let today = DateFormatter()
+today.dateFormat = "yyyyMMdd"
 
 let strawberryMilk = StrawberryMilk.init("서울우유", 200, 1000, "날마다딸기우유", expirationDate.date(from: "20190609")!)
 let chocoMilk = ChocoMilk.init("서울우유", 200, 1000, "날마다초코우유", expirationDate.date(from: "20180612")!)

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Beverage: CustomStringConvertible {
+class Beverage: CustomStringConvertible, Validate {
     
     private let brand: String
     private let volume: Int
@@ -29,5 +29,10 @@ class Beverage: CustomStringConvertible {
         dateFormatter.dateFormat = "yyyyMMdd"
         return "\(self.brand), \(self.volume)ml, \(self.price)원, \(self.name), \(dateFormatter.string(from: self.date))"
     }
+    
+    func validate(_ today: Date) -> Bool {
+        return today < self.date
+    }
+    
     
 }
