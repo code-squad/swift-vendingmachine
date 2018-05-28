@@ -23,6 +23,20 @@
 		D6EBE1C220B6975F007EFA4D /* Georgia.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBE1C120B6975F007EFA4D /* Georgia.swift */; };
 		D6EBE1D520BB8E39007EFA4D /* UnitTestVendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBE1D420BB8E39007EFA4D /* UnitTestVendingMachine.swift */; };
 		D6EBE1DB20BB9F67007EFA4D /* Validate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBE1DA20BB9F67007EFA4D /* Validate.swift */; };
+		D6EBE1DC20BBAC1E007EFA4D /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBE1A920B517C6007EFA4D /* Beverage.swift */; };
+		D6EBE1DD20BBAC22007EFA4D /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBE1AB20B55987007EFA4D /* Milk.swift */; };
+		D6EBE1DE20BBAC27007EFA4D /* Validate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBE1DA20BB9F67007EFA4D /* Validate.swift */; };
+		D6EBE1DF20BBAC2A007EFA4D /* StrawberryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBE1B120B692CB007EFA4D /* StrawberryMilk.swift */; };
+		D6EBE1E020BBAC2D007EFA4D /* ChocoMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBE1B320B69518007EFA4D /* ChocoMilk.swift */; };
+		D6EBE1E120BBAC31007EFA4D /* BananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBE1B520B6956B007EFA4D /* BananaMilk.swift */; };
+		D6EBE1E220BBAC37007EFA4D /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBE1AF20B57C80007EFA4D /* Coffee.swift */; };
+		D6EBE1E320BBAC7C007EFA4D /* Georgia.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBE1C120B6975F007EFA4D /* Georgia.swift */; };
+		D6EBE1E420BBAC80007EFA4D /* Cantata.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBE1BF20B6972B007EFA4D /* Cantata.swift */; };
+		D6EBE1E520BBAC84007EFA4D /* Top.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBE1BD20B696B7007EFA4D /* Top.swift */; };
+		D6EBE1E720BBAC92007EFA4D /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBE1AD20B579D2007EFA4D /* Soda.swift */; };
+		D6EBE1E920BBC1C5007EFA4D /* Coke.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBE1B720B695C7007EFA4D /* Coke.swift */; };
+		D6EBE1EA20BBC1C7007EFA4D /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBE1B920B69634007EFA4D /* Sprite.swift */; };
+		D6EBE1EB20BBC1C9007EFA4D /* Fanta.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBE1BB20B69667007EFA4D /* Fanta.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -238,7 +252,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6EBE1E920BBC1C5007EFA4D /* Coke.swift in Sources */,
+				D6EBE1E720BBAC92007EFA4D /* Soda.swift in Sources */,
+				D6EBE1E420BBAC80007EFA4D /* Cantata.swift in Sources */,
+				D6EBE1E120BBAC31007EFA4D /* BananaMilk.swift in Sources */,
+				D6EBE1EA20BBC1C7007EFA4D /* Sprite.swift in Sources */,
+				D6EBE1DC20BBAC1E007EFA4D /* Beverage.swift in Sources */,
+				D6EBE1E020BBAC2D007EFA4D /* ChocoMilk.swift in Sources */,
+				D6EBE1DF20BBAC2A007EFA4D /* StrawberryMilk.swift in Sources */,
+				D6EBE1DD20BBAC22007EFA4D /* Milk.swift in Sources */,
+				D6EBE1E320BBAC7C007EFA4D /* Georgia.swift in Sources */,
 				D6EBE1D520BB8E39007EFA4D /* UnitTestVendingMachine.swift in Sources */,
+				D6EBE1E520BBAC84007EFA4D /* Top.swift in Sources */,
+				D6EBE1DE20BBAC27007EFA4D /* Validate.swift in Sources */,
+				D6EBE1EB20BBC1C9007EFA4D /* Fanta.swift in Sources */,
+				D6EBE1E220BBAC37007EFA4D /* Coffee.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
