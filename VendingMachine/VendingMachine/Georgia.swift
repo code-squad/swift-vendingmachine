@@ -22,7 +22,7 @@ class Georgia: Coffee {
     }
     
     override func isHot() -> Bool {
-        return 50 < temperature
+        return 50 < self.temperature
     }
     
 }
