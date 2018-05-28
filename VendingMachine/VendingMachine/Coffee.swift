@@ -13,6 +13,10 @@ class Coffee: Beverage {
     override init(_ brand: String, _ volume: Int, _ price: Int, _ name: String, _ date: Date) {
         super.init(brand, volume, price, name, date)
     }
+    
+    func isHot() -> Bool {
+        return false
+    }
 
 }
 
