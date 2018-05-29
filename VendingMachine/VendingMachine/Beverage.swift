@@ -15,6 +15,9 @@ class Beverage: CustomStringConvertible, Validate {
     private let price: Int
     private let name: String
     private let expirationDate: Date
+    var kind: String {
+        return "음료"
+    }
     
     init(_ brand: String,_ volume: Int,_ price: Int,_ name: String,_ expirationDate: Date) {
         self.brand = brand
@@ -27,7 +30,7 @@ class Beverage: CustomStringConvertible, Validate {
     var description: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyyMMdd"
-        return "\(self.brand), \(self.volume)ml, \(self.price)원, \(self.name), \(dateFormatter.string(from: self.expirationDate))"
+        return "\(kind) - \(self.brand), \(self.volume)ml, \(self.price)원, \(self.name), \(dateFormatter.string(from: self.expirationDate))"
     }
     
     func isValidate(_ today: Date) -> Bool {

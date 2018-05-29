@@ -10,17 +10,15 @@ import Foundation
 
 class Sprite: Soda {
     
-    private let kind = "Sprite"
+    override var kind: String {
+        return "Sprite"
+    }
     private let calorie = 120
     
     override init(_ brand: String, _ volume: Int, _ price: Int, _ name: String, _ date: Date) {
         super.init(brand, volume, price, name, date)
     }
-    
-    override var description: String {
-        return "\(kind) - \(super.description)"
-    }
-    
+
     override func isLowCalorie() -> Bool {
         return 10 > self.calorie
     }

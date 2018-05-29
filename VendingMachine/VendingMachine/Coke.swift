@@ -10,15 +10,13 @@ import Foundation
 
 class Coke: Soda {
     
-    private let kind = "Coke"
+    override var kind: String {
+        return "Coke"
+    }
     private let calorie = 5
     
     override init(_ brand: String, _ volume: Int, _ price: Int, _ name: String, _ date: Date) {
         super.init(brand, volume, price, name, date)
-    }
-    
-    override var description: String {
-        return "\(kind) - \(super.description)"
     }
 
     override func isLowCalorie() -> Bool {

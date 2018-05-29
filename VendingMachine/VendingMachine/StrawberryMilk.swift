@@ -10,15 +10,13 @@ import Foundation
 
 class StrawberryMilk: Milk {
 
-    private let kind = "StrawberryMilk"
+    override var kind: String {
+        return "StrawberryMilk"
+    }
     private let farmCode = "farmJeju"
     
     override init(_ brand: String, _ volume: Int, _ price: Int, _ name: String, _ date: Date) {
         super.init(brand, volume, price, name, date)
-    }
-    
-    override var description: String {
-        return "\(kind) - \(super.description)"
     }
     
     override func checkFarmCode() -> String {
