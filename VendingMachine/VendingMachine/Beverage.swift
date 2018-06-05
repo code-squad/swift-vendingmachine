@@ -9,8 +9,8 @@
 import Foundation
 
 class Beverage {
-    let brand: String
-    let capacity: Int
-    let price: Int
-    let date: Date
+    private let brand: String
+    private let capacity: Int
+    private let price: Int
+    private let date: Date
 }
