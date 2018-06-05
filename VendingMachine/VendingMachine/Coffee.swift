@@ -18,8 +18,8 @@ class Coffee: Beverage {
         case cantata
     }
     
-    init(brand: String, capacity: Int, price: Int, date: Date, flavor: Flavor) {
+    init(brand: String, capacity: Int, price: Int, name: String, date: Date, flavor: Flavor) {
         self.flavor = flavor
-        super.init(brand: brand, capacity: capacity, price: price, date: date)
+        super.init(brand: brand, capacity: capacity, price: price, name: name, date: date)
     }
 }
