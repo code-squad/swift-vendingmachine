@@ -13,4 +13,11 @@ class Beverage {
     private let capacity: Int
     private let price: Int
     private let date: Date
+    
+    init(brand: String, capacity: Int, price: Int, date: Date) {
+        self.brand = brand
+        self.capacity = capacity
+        self.price = price
+        self.date = date
+    }
 }
