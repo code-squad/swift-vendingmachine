@@ -10,4 +10,11 @@ import Foundation
 
 class Soda: Beverage {
     
+    private let flavor: Flavor
+    
+    enum Flavor {
+        case coke
+        case sprite
+        case fanta
+    }
 }
