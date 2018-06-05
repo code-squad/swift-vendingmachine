@@ -17,4 +17,9 @@ class Soda: Beverage {
         case sprite
         case fanta
     }
+    
+    init(brand: String, capacity: Int, price: Int, date: Date, flavor: Flavor) {
+        self.flavor = flavor
+        super.init(brand: brand, capacity: capacity, price: price, date: date)
+    }
 }
