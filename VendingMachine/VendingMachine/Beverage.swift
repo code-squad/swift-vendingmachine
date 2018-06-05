@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Beverage {
+class Beverage: CustomStringConvertible {
     
     private let brand: String
     private let capacity: Int
@@ -23,9 +23,7 @@ class Beverage {
         self.name = name
         self.date = date
     }
-}
-
-extension Beverage: CustomStringConvertible {
+    
     var description: String {
         return "\(self.brand), \(self.capacity)ml, \(self.price)원, \(self.name), \(self.date)"
     }
