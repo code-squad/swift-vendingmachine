@@ -10,4 +10,11 @@ import Foundation
 
 class Coffee: Beverage {
     
+    private let flavor: Flavor
+    
+    enum Flavor {
+        case top
+        case georgia
+        case cantata
+    }
 }
