@@ -21,7 +21,7 @@ class Beverage: CustomStringConvertible {
         self.capacity = capacity
         self.price = price
         self.name = name
-        self.date = date.customDateFormat ?? Date()
+        self.date = date.customDateFormat
     }
     
     var description: String {
@@ -30,17 +30,22 @@ class Beverage: CustomStringConvertible {
 }
 
 extension String {
-    var customDateFormat: Date? {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyyMMdd"
-        return formatter.date(from: self)
+    var customDateFormat: Date {
+        let formatter = DateFormatter(customDateFormat: "yyyyMMdd")
+        return formatter.date(from: self) ?? Date()
     }
 }
 
 extension Date {
     var customDateFormat: String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyyMMdd"
+        let formatter = DateFormatter(customDateFormat: "yyyyMMdd")
         return formatter.string(from: self)
+    }
+}
+
+extension DateFormatter {
+    convenience init(customDateFormat: String) {
+        self.init()
+        self.dateFormat = customDateFormat
     }
 }
