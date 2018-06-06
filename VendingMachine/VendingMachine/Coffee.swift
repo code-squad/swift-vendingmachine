@@ -35,6 +35,6 @@ class Coffee: Beverage {
     }
     
     override var description: String {
-        return "\(super.description), \(self.flavor.description)"
+        return "\(super.description), \(self.flavor)"
     }
 }
