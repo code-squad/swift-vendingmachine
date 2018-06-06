@@ -25,7 +25,7 @@ class Beverage: CustomStringConvertible {
     }
     
     var description: String {
-        return "\(self.brand), \(self.capacity)ml, \(self.price)원, \(self.name), \(self.date)"
+        return "\(self.brand), \(self.capacity)ml, \(self.price)원, \(self.name), \(self.date.customDateFormat)"
     }
 }
 
@@ -34,5 +34,13 @@ extension String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyyMMdd"
         return formatter.date(from: self)
+    }
+}
+
+extension Date {
+    var customDateFormat: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+        return formatter.string(from: self)
     }
 }
