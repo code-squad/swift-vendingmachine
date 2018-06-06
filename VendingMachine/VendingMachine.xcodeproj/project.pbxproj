@@ -11,6 +11,7 @@
 		73E2D73820C697E500E78BC7 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E2D73720C697E500E78BC7 /* Milk.swift */; };
 		73E2D73A20C6B4E900E78BC7 /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E2D73920C6B4E900E78BC7 /* Soda.swift */; };
 		73E2D73C20C6B6FB00E78BC7 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E2D73B20C6B6FB00E78BC7 /* Coffee.swift */; };
+		73E2D74420C83A8C00E78BC7 /* UnitTestVendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E2D74320C83A8C00E78BC7 /* UnitTestVendingMachine.swift */; };
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,11 +32,21 @@
 		73E2D73720C697E500E78BC7 /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 		73E2D73920C6B4E900E78BC7 /* Soda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soda.swift; sourceTree = "<group>"; };
 		73E2D73B20C6B6FB00E78BC7 /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
+		73E2D74120C83A8C00E78BC7 /* UnitTestVendingMachine.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTestVendingMachine.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		73E2D74320C83A8C00E78BC7 /* UnitTestVendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestVendingMachine.swift; sourceTree = "<group>"; };
+		73E2D74520C83A8C00E78BC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		73E2D73E20C83A8C00E78BC7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		839DA9061F8D1F95009E05F3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -46,10 +57,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		73E2D74220C83A8C00E78BC7 /* UnitTestVendingMachine */ = {
+			isa = PBXGroup;
+			children = (
+				73E2D74320C83A8C00E78BC7 /* UnitTestVendingMachine.swift */,
+				73E2D74520C83A8C00E78BC7 /* Info.plist */,
+			);
+			path = UnitTestVendingMachine;
+			sourceTree = "<group>";
+		};
 		839DA9001F8D1F95009E05F3 = {
 			isa = PBXGroup;
 			children = (
 				839DA90B1F8D1F95009E05F3 /* VendingMachine */,
+				73E2D74220C83A8C00E78BC7 /* UnitTestVendingMachine */,
 				839DA90A1F8D1F95009E05F3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -58,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				839DA9091F8D1F95009E05F3 /* VendingMachine */,
+				73E2D74120C83A8C00E78BC7 /* UnitTestVendingMachine.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -77,6 +99,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		73E2D74020C83A8C00E78BC7 /* UnitTestVendingMachine */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 73E2D74820C83A8C00E78BC7 /* Build configuration list for PBXNativeTarget "UnitTestVendingMachine" */;
+			buildPhases = (
+				73E2D73D20C83A8C00E78BC7 /* Sources */,
+				73E2D73E20C83A8C00E78BC7 /* Frameworks */,
+				73E2D73F20C83A8C00E78BC7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UnitTestVendingMachine;
+			productName = UnitTestVendingMachine;
+			productReference = 73E2D74120C83A8C00E78BC7 /* UnitTestVendingMachine.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		839DA9081F8D1F95009E05F3 /* VendingMachine */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 839DA9101F8D1F95009E05F3 /* Build configuration list for PBXNativeTarget "VendingMachine" */;
@@ -100,10 +139,14 @@
 		839DA9011F8D1F95009E05F3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0900;
+				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = JK;
 				TargetAttributes = {
+					73E2D74020C83A8C00E78BC7 = {
+						CreatedOnToolsVersion = 9.3;
+						ProvisioningStyle = Automatic;
+					};
 					839DA9081F8D1F95009E05F3 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
@@ -123,11 +166,30 @@
 			projectRoot = "";
 			targets = (
 				839DA9081F8D1F95009E05F3 /* VendingMachine */,
+				73E2D74020C83A8C00E78BC7 /* UnitTestVendingMachine */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		73E2D73F20C83A8C00E78BC7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		73E2D73D20C83A8C00E78BC7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				73E2D74420C83A8C00E78BC7 /* UnitTestVendingMachine.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		839DA9051F8D1F95009E05F3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -143,6 +205,38 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		73E2D74620C83A8C00E78BC7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = UnitTestVendingMachine/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.UnitTestVendingMachine;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		73E2D74720C83A8C00E78BC7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = UnitTestVendingMachine/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.UnitTestVendingMachine;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
 		839DA90E1F8D1F95009E05F3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -270,6 +364,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		73E2D74820C83A8C00E78BC7 /* Build configuration list for PBXNativeTarget "UnitTestVendingMachine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				73E2D74620C83A8C00E78BC7 /* Debug */,
+				73E2D74720C83A8C00E78BC7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		839DA9041F8D1F95009E05F3 /* Build configuration list for PBXProject "VendingMachine" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
