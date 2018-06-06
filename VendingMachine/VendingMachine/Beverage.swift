@@ -16,15 +16,23 @@ class Beverage: CustomStringConvertible {
     private let name: String
     private let date: Date
     
-    init(brand: String, capacity: Int, price: Int, name: String, date: Date) {
+    init(brand: String, capacity: Int, price: Int, name: String, date: String) {
         self.brand = brand
         self.capacity = capacity
         self.price = price
         self.name = name
-        self.date = date
+        self.date = date.customDateFormat ?? Date()
     }
     
     var description: String {
         return "\(self.brand), \(self.capacity)ml, \(self.price)원, \(self.name), \(self.date)"
+    }
+}
+
+extension String {
+    var customDateFormat: Date? {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+        return formatter.date(from: self)
     }
 }
