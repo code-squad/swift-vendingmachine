@@ -29,7 +29,7 @@ class Coffee: Beverage {
         }
     }
     
-    init(brand: String, capacity: Int, price: Int, name: String, date: Date, flavor: Flavor) {
+    init(brand: String, capacity: Int, price: Int, name: String, date: String, flavor: Flavor) {
         self.flavor = flavor
         super.init(brand: brand, capacity: capacity, price: price, name: name, date: date)
     }
