@@ -20,7 +20,7 @@ class BeverageUnitTests: XCTestCase {
         self.beverage = Beverage(brand: "서울우유", capacity: 200, price: 1000, name: "날마다딸기우유", manufacturedDate: "20171009")
     }
     
-    func testBeverageInstantiate() {
+    func testBeverageInstantiate_success() {
         XCTAssertNotNil(Beverage(brand: "서울우유", capacity: 200, price: 1000, name: "날마다딸기우유", manufacturedDate: "20171009"))
     }
     
