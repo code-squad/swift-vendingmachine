@@ -10,10 +10,10 @@ import Foundation
 
 class Coke: Soda {
     
-    private let isZeroCalories: Bool
+    private let hasIce: Bool
     
-    init(brand: String, capacity: Int, price: Int, name: String, manufacturedDate: String, calories: Int, isZeroCalories: Bool) {
-        self.isZeroCalories = isZeroCalories
+    init(brand: String, capacity: Int, price: Int, name: String, manufacturedDate: String, calories: Int, hasIce: Bool) {
+        self.hasIce = hasIce
         super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate, calories: calories)
     }
 }

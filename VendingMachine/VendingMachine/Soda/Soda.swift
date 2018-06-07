@@ -20,5 +20,9 @@ class Soda: Beverage {
     func isLowCalories() -> Bool {
         return self.calories < 100
     }
+    
+    func isZeroCalories() -> Bool {
+        return self.calories == 0
+    }
 }
 
