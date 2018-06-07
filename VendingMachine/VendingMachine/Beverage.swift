@@ -8,26 +8,24 @@
 
 import Foundation
 
-class Beverage<T: CustomStringConvertible>: CustomStringConvertible {
+class Beverage: CustomStringConvertible {
     
     private let brand: String
     private let capacity: Int
     private let price: Int
     private let name: String
     private let date: Date
-    private let flavor: T
     
-    init(brand: String, capacity: Int, price: Int, name: String, date: String, flavor: T) {
+    init(brand: String, capacity: Int, price: Int, name: String, date: String) {
         self.brand = brand
         self.capacity = capacity
         self.price = price
         self.name = name
         self.date = date.customDateFormat
-        self.flavor = flavor
     }
     
     var description: String {
-        return "\(self.brand), \(self.capacity)ml, \(self.price)원, \(self.name), \(self.date.customDateFormat), \(self.flavor)"
+        return "\(self.brand), \(self.capacity)ml, \(self.price)원, \(self.name), \(self.date.customDateFormat)"
     }
 }
 
