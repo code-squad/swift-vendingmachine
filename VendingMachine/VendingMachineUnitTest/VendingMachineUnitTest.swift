@@ -1,6 +1,6 @@
 //
-//  UnitTestVendingMachine.swift
-//  UnitTestVendingMachine
+//  VendingMachineUnitTest.swift
+//  VendingMachineUnitTest
 //
 //  Created by moon on 2018. 6. 7..
 //  Copyright © 2018년 JK. All rights reserved.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class UnitTestVendingMachine: XCTestCase {
+class VendingMachineUnitTest: XCTestCase {
     
     override func setUp() {
         super.setUp()
