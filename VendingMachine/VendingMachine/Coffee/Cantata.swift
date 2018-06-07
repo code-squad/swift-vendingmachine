@@ -9,5 +9,10 @@
 import Foundation
 
 class Cantata: Coffee {
+    private let flavor: String
     
+    init(brand: String, capacity: Int, price: Int, name: String, manufacturedDate: String, caffeineContent: Double, flavor: String) {
+        self.flavor = flavor
+        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate, caffeineContent: caffeineContent)
+    }
 }
