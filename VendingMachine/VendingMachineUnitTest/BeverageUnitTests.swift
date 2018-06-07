@@ -20,6 +20,10 @@ class BeverageUnitTests: XCTestCase {
         self.beverage = Beverage(brand: "서울우유", capacity: 200, price: 1000, name: "날마다딸기우유", manufacturedDate: "20171009")
     }
     
+    func testBeverageInstantiate() {
+        XCTAssertNotNil(Beverage(brand: "서울우유", capacity: 200, price: 1000, name: "날마다딸기우유", manufacturedDate: "20171009"))
+    }
+    
     func testBeverageDescription() {
         XCTAssertEqual(beverage.description, "Beverage - 서울우유, 200ml, 1000원, 날마다딸기우유, 20171009")
     }
@@ -35,4 +39,6 @@ class BeverageUnitTests: XCTestCase {
     func testBeveragePriceIsNotExpensiveThan_1001_won() {
         XCTAssertFalse(beverage.isExpensive(than: 1001))
     }
+    
+    
 }
