@@ -17,4 +17,8 @@ class Milk: Beverage {
         self.expiredDate = manufacturedDate.customDateFormat.addingTimeInterval(self.expiredPeriod)
         super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate)
     }
+    
+    func isOverExpired(with checkDate: Date) -> Bool {
+        return self.expiredDate < checkDate
+    }
 }
