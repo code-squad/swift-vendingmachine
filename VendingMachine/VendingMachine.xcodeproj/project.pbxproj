@@ -24,6 +24,7 @@
 		7394887220C951DB00E6FD49 /* Georgia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7394883220C9019B00E6FD49 /* Georgia.swift */; };
 		7394887620C9550400E6FD49 /* TOPUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7394887520C9550400E6FD49 /* TOPUnitTests.swift */; };
 		7394887820C9566C00E6FD49 /* CantataUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7394887720C9566C00E6FD49 /* CantataUnitTests.swift */; };
+		7394887A20C9574300E6FD49 /* GeorgiaUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7394887920C9574300E6FD49 /* GeorgiaUnitTests.swift */; };
 		73E2D73620C67A5300E78BC7 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E2D73520C67A5300E78BC7 /* Beverage.swift */; };
 		73E2D73820C697E500E78BC7 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E2D73720C697E500E78BC7 /* Milk.swift */; };
 		73E2D73A20C6B4E900E78BC7 /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E2D73920C6B4E900E78BC7 /* Soda.swift */; };
@@ -58,6 +59,7 @@
 		7394886D20C951CA00E6FD49 /* CoffeeUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeUnitTests.swift; sourceTree = "<group>"; };
 		7394887520C9550400E6FD49 /* TOPUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOPUnitTests.swift; sourceTree = "<group>"; };
 		7394887720C9566C00E6FD49 /* CantataUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CantataUnitTests.swift; sourceTree = "<group>"; };
+		7394887920C9574300E6FD49 /* GeorgiaUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeorgiaUnitTests.swift; sourceTree = "<group>"; };
 		73E2D73520C67A5300E78BC7 /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 		73E2D73720C697E500E78BC7 /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 		73E2D73920C6B4E900E78BC7 /* Soda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soda.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				7394886520C9417800E6FD49 /* Info.plist */,
 				7394886920C9418300E6FD49 /* BeverageUnitTests.swift */,
 				7394887720C9566C00E6FD49 /* CantataUnitTests.swift */,
+				7394887920C9574300E6FD49 /* GeorgiaUnitTests.swift */,
 			);
 			path = VendingMachineUnitTest;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 				7394887020C951D700E6FD49 /* TOP.swift in Sources */,
 				7394886A20C9418300E6FD49 /* BeverageUnitTests.swift in Sources */,
 				7394886420C9417800E6FD49 /* VendingMachineUnitTest.swift in Sources */,
+				7394887A20C9574300E6FD49 /* GeorgiaUnitTests.swift in Sources */,
 				7394886E20C951CA00E6FD49 /* CoffeeUnitTests.swift in Sources */,
 				7394887220C951DB00E6FD49 /* Georgia.swift in Sources */,
 				7394886F20C951CF00E6FD49 /* Coffee.swift in Sources */,
