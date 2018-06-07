@@ -8,6 +8,12 @@
 
 import Foundation
 
-class Sprite {
+class Sprite: Soda {
     
+    private let hasOneMoreOnCap: Bool // 뚜껑에 한 병 더
+    
+    init(brand: String, capacity: Int, price: Int, name: String, manufacturedDate: String, calories: Int, hasOneMoreOnCap: Bool) {
+        self.hasOneMoreOnCap = hasOneMoreOnCap
+        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate, calories: calories)
+    }
 }
