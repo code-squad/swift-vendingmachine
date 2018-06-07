@@ -12,10 +12,27 @@ import XCTest
 
 class BeverageUnitTests: XCTestCase {
     
-    func testBeverageDescription() {
-        let beverage: Beverage = Beverage(brand: "서울우유", capacity: 200, price: 1000, name: "날마다딸기우유", manufacturedDate: "20171009")
+    var beverage: Beverage!
+    
+    override func setUp() {
+        super.setUp()
         
+        self.beverage = Beverage(brand: "서울우유", capacity: 200, price: 1000, name: "날마다딸기우유", manufacturedDate: "20171009")
+    }
+    
+    func testBeverageDescription() {
         XCTAssertEqual(beverage.description, "Beverage - 서울우유, 200ml, 1000원, 날마다딸기우유, 20171009")
     }
     
+    func testBeveragePriceIsExpensiveThan_999_won() {
+        XCTAssertTrue(beverage.isExpensive(than: 999))
+    }
+    
+    func testBeveragePriceIsNotExpensiveThan_1000_won() {
+        XCTAssertFalse(beverage.isExpensive(than: 1000))
+    }
+    
+    func testBeveragePriceIsNotExpensiveThan_1001_won() {
+        XCTAssertFalse(beverage.isExpensive(than: 1001))
+    }
 }
