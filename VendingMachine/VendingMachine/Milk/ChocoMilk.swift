@@ -8,6 +8,12 @@
 
 import Foundation
 
-class ChocoMilk {
+class ChocoMilk: Milk {
     
+    private let hasCacao: Bool
+    
+    init(brand: String, capacity: Int, price: Int, name: String, manufacturedDate: String, hasCacao: Bool) {
+        self.hasCacao = hasCacao
+        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate)
+    }
 }
