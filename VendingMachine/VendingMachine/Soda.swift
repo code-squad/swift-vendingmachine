@@ -8,23 +8,6 @@
 
 import Foundation
 
-class Soda: Beverage<SodaFlavor> {
+class Soda: Beverage {
 }
 
-
-enum SodaFlavor: CustomStringConvertible {
-    case coke
-    case sprite
-    case fanta
-    
-    var description: String {
-        switch self {
-        case .coke:
-            return "콜라"
-        case .sprite:
-            return "사이다"
-        case .fanta:
-            return "환타"
-        }
-    }
-}
