@@ -16,5 +16,9 @@ class Soda: Beverage {
         self.calories = calories
         super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate)
     }
+    
+    func isLowCalories() -> Bool {
+        return self.calories < 100
+    }
 }
 
