@@ -25,7 +25,7 @@ class Beverage: CustomStringConvertible {
     }
     
     var description: String {
-        return "\(self.brand), \(self.capacity)ml, \(self.price)원, \(self.name), \(self.manufacturedDate.customDateFormat)"
+        return "\(type(of: self)) - \(self.brand), \(self.capacity)ml, \(self.price)원, \(self.name), \(self.manufacturedDate.customDateFormat)"
     }
     
     func isExpensive(than price: Int) -> Bool {
