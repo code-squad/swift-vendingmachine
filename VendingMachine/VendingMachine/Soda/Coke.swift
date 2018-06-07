@@ -8,6 +8,12 @@
 
 import Foundation
 
-class Coke {
+class Coke: Soda {
     
+    private let isZeroCalories: Bool
+    
+    init(brand: String, capacity: Int, price: Int, name: String, manufacturedDate: String, calories: Int, isZeroCalories: Bool) {
+        self.isZeroCalories = isZeroCalories
+        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate, calories: calories)
+    }
 }
