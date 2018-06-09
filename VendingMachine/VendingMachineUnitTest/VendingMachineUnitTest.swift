@@ -52,4 +52,12 @@ class VendingMachineUnitTest: XCTestCase {
         self.vendingMachine.addBeverageStock(chocoMilk)
         XCTAssertEqual(self.vendingMachine.beverageStock.count, 1)
     }
+    
+    func testAddMultipleBeverageStocksToMachine() {
+        let chocoMilk: ChocoMilk = ChocoMilk(brand: "서울우유", capacity: 350, price: 1300, name: "초코우유", manufacturedDate: "20180609", hasCacao: false)
+        let topCoffee: TOP = TOP(brand: "티오피", capacity: 300, price: 1000, name: "티오피커피", manufacturedDate: "20180609", caffeineContent: 50, canColor: .black)
+        self.vendingMachine.addBeverageStock(chocoMilk)
+        self.vendingMachine.addBeverageStock(topCoffee)
+        XCTAssertEqual(self.vendingMachine.beverageStock.count, 2)
+    }
 }
