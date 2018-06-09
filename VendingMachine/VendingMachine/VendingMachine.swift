@@ -11,4 +11,8 @@ import Foundation
 struct VendingMachine {
     
     var insertedMoney: Int = 0
+    
+    mutating func insertMoney(_ money: Int) {
+        self.insertedMoney += money
+    }
 }
