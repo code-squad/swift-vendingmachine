@@ -23,17 +23,17 @@ class VendingMachineUnitTest: XCTestCase {
         XCTAssertNotNil(vendingMachine)
     }
     
-    func testIsInsertedMoneyZero() {
-        let vendingMachine = VendingMachine()
-        let insertedMoney = vendingMachine.insertedMoney
-        XCTAssertEqual(0, insertedMoney)
-    }
+//    func testIsInsertedMoneyZero() {
+//        let vendingMachine = VendingMachine()
+//        let insertedMoney = vendingMachine.insertedMoney
+//        XCTAssertEqual(0, insertedMoney)
+//    }
     
-    func testInsertMoneyToVendingMachine() {
-        let money: Int = 1000
-        self.vendingMachine.insertMoney(money)
-        XCTAssertEqual(1000, self.vendingMachine.insertedMoney)
-    }
+//    func testInsertMoneyToVendingMachine() {
+//        let money: Int = 1000
+//        self.vendingMachine.insertMoney(money)
+//        XCTAssertEqual(1000, self.vendingMachine.insertedMoney)
+//    }
     
     func testAddBeverageStockToMachine_stockIsNotEmpty() {
         let topCoffee: TOP = TOP(brand: "티오피", capacity: 300, price: 1000, name: "티오피커피", manufacturedDate: "20180609", caffeineContent: 50, canColor: .black)
@@ -56,13 +56,13 @@ class VendingMachineUnitTest: XCTestCase {
     }
     
     func testBeverageStockIsEmpty_withNoAddition() {
-        XCTAssertTrue(self.vendingMachine.beverageStock.isEmpty)
+        XCTAssertTrue(self.vendingMachine.isStockEmpty)
     }
     
-    func testBeverageList() {
+    func testPurchasableBeverageList_getPurchableBeverageName() {
         let chocoMilk: ChocoMilk = ChocoMilk(brand: "서울우유", capacity: 350, price: 900, name: "초코우유", manufacturedDate: "20180609", hasCacao: false)
         self.vendingMachine.addBeverageStock(chocoMilk)
-        XCTAssertEqual("초코우유", vendingMachine.showPurchasableBeverages())
+        XCTAssertEqual("초코우유", vendingMachine.purchasableBeveragesList())
     }
     
     func testVendingMachineShowPurchasableBeverageList() {
@@ -72,6 +72,6 @@ class VendingMachineUnitTest: XCTestCase {
         self.vendingMachine.addBeverageStock(coke)
         self.vendingMachine.addBeverageStock(topCoffee)
         self.vendingMachine.addBeverageStock(chocoMilk)
-        XCTAssertEqual(self.vendingMachine.showPurchasableBeverages(), "코카콜라(1개) 초코우유(1개)")
+        XCTAssertEqual(self.vendingMachine.purchasableBeveragesList(), "코카콜라(1개) 초코우유(1개)")
     }
 }
