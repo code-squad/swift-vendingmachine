@@ -34,4 +34,10 @@ class VendingMachineUnitTest: XCTestCase {
         self.vendingMachine.insertMoney(money)
         XCTAssertEqual(1000, self.vendingMachine.insertedMoney)
     }
+    
+    func testAddBeverageStockToMachine() {
+        let topCoffee: TOP = TOP(brand: "티오피", capacity: 300, price: 1000, name: "티오피커피", manufacturedDate: "20180609", caffeineContent: 50, canColor: .black)
+        self.vendingMachine.addBeverageStock(topCoffee)
+        XCTAssertNotNil(self.vendingMachine.beverageStock)
+    }
 }
