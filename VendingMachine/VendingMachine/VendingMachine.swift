@@ -10,4 +10,5 @@ import Foundation
 
 struct VendingMachine {
     
+    var insertedMoney: Int = 0
 }
