@@ -12,6 +12,12 @@ import XCTest
 
 class VendingMachineUnitTest: XCTestCase {
     
+    var vendingMachine: VendingMachine!
+    
+    override func setUp() {
+        self.vendingMachine = VendingMachine()
+    }
+    
     func testVendingMachineInstantiate() {
         let vendingMachine: VendingMachine = VendingMachine()
         XCTAssertNotNil(vendingMachine)
@@ -21,5 +27,11 @@ class VendingMachineUnitTest: XCTestCase {
         let vendingMachine = VendingMachine()
         let insertedMoney = vendingMachine.insertedMoney
         XCTAssertEqual(0, insertedMoney)
+    }
+    
+    func testInsertMoneyToVendingMachine() {
+        let money: Int = 1000
+        self.vendingMachine.insertMoney(money)
+        XCTAssertEqual(1000, self.vendingMachine.insertedMoney)
     }
 }
