@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Beverage: CustomStringConvertible {
+class Beverage: CustomStringConvertible, Hashable {
     
     private let brand: String
     private let capacity: Int
@@ -30,6 +30,15 @@ class Beverage: CustomStringConvertible {
     
     func isExpensive(than price: Int) -> Bool {
         return self.price > price
+    }
+    
+    // Hashable
+    var hashValue: Int {
+        return name.hashValue
+    }
+    
+    static func == (lhs: Beverage, rhs: Beverage) -> Bool {
+        return lhs.hashValue == rhs.hashValue
     }
 }
 
