@@ -13,7 +13,7 @@ import XCTest
 class VendingMachineUnitTest: XCTestCase {
     
     func testVendingMachineInstantiate() {
-        var vendingMachine: VendingMachine = VendingMachine()
+        let vendingMachine: VendingMachine = VendingMachine()
         XCTAssertNotNil(vendingMachine)
     }
 }
