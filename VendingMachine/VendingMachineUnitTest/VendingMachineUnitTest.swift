@@ -61,6 +61,7 @@ class VendingMachineUnitTest: XCTestCase {
     
     func testPurchasableBeverageList_getPurchableBeverageName() {
         let chocoMilk: ChocoMilk = ChocoMilk(brand: "서울우유", capacity: 350, price: 900, name: "초코우유", manufacturedDate: "20180609", hasCacao: false)
+        self.vendingMachine.insertMoney(2000)
         self.vendingMachine.addBeverageStock(chocoMilk)
         XCTAssertEqual("초코우유", vendingMachine.purchasableBeveragesList())
     }

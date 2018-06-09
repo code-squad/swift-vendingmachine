@@ -44,7 +44,7 @@ struct BeverageList {
     
     func purchasableBeverages(in price: Int) -> String {
         var result: String = ""
-        let purchasableBeverages = beverageList.filter { $0.isExpensive(than: price) }
+        let purchasableBeverages = beverageList.filter { !$0.isExpensive(than: price) }
         for beverage in purchasableBeverages {
             result += "\(beverage)"
         }
