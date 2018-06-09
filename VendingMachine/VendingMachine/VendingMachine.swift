@@ -30,6 +30,10 @@ struct BeverageList {
     
     private var beverageList: [Beverage] = [Beverage]()
     
+    var isEmpty: Bool {
+        return beverageList.count < 0
+    }
+    
     mutating func addBeverage(_ beverage: Beverage) {
         self.beverageList.append(beverage)
     }
