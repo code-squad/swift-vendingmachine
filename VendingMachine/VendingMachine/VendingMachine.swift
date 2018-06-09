@@ -10,8 +10,8 @@ import Foundation
 
 struct VendingMachine {
     
-    var insertedMoney: Int = 0
-    var beverageStock: BeverageList = BeverageList()
+    private var insertedMoney: Int = 0
+    private var beverageStock: BeverageList = BeverageList()
     
     var isStockEmpty: Bool {
         return self.beverageStock.isEmpty
@@ -26,7 +26,7 @@ struct VendingMachine {
     }
     
     func showPurchasableBeverages() -> String {
-        return ""
+        return beverageStock.showPurchasableBeverages(in: self.insertedMoney)
     }
 }
 
@@ -40,5 +40,14 @@ struct BeverageList {
     
     mutating func addBeverage(_ beverage: Beverage) {
         self.beverageList.append(beverage)
+    }
+    
+    func showPurchasableBeverages(in price: Int) -> String {
+        var result: String = ""
+        let purchasableBeverages = beverageList.filter { $0.isExpensive(than: price) }
+        for beverage in purchasableBeverages {
+            result += "\(beverage)"
+        }
+        return result
     }
 }
