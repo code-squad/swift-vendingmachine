@@ -16,4 +16,10 @@ class VendingMachineUnitTest: XCTestCase {
         let vendingMachine: VendingMachine = VendingMachine()
         XCTAssertNotNil(vendingMachine)
     }
+    
+    func testIsInsertedMoneyZero() {
+        let vendingMachine = VendingMachine()
+        let insertedMoney = vendingMachine.insertedMoney
+        XCTAssertEqual(0, insertedMoney)
+    }
 }
