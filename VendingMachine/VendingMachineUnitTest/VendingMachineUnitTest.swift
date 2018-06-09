@@ -76,5 +76,13 @@ class VendingMachineUnitTest: XCTestCase {
         self.vendingMachine.addBeverageStock(chocoMilk)
         XCTAssertEqual(vendingMachine.buyableBeveragesList().count, 2)
     }
+    
+    func testBuyBeverage() {
+        let coke: Coke = Coke(brand: "코카콜라", capacity: 250, price: 1000, name: "제로콜라", manufacturedDate: "20180609", calories: 0, hasIce: true)
+        self.vendingMachine.insertMoney(1000)
+        self.vendingMachine.addBeverageStock(coke)
+        self.vendingMachine.buyBeverage(coke)
+        XCTAssertEqual(self.vendingMachine.buyableBeveragesList().count, 0)
+    }
 
 }
