@@ -13,6 +13,10 @@ struct VendingMachine {
     var insertedMoney: Int = 0
     var beverageStock: BeverageList = BeverageList()
     
+    var isStockEmpty: Bool {
+        return self.beverageStock.isEmpty
+    }
+    
     mutating func insertMoney(_ money: Int) {
         self.insertedMoney += money
     }
@@ -31,7 +35,7 @@ struct BeverageList {
     private var beverageList: [Beverage] = [Beverage]()
     
     var isEmpty: Bool {
-        return beverageList.count < 0
+        return beverageList.count == 0
     }
     
     mutating func addBeverage(_ beverage: Beverage) {
