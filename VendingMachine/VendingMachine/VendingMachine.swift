@@ -11,7 +11,7 @@ import Foundation
 struct VendingMachine {
     
     private var insertedMoney: Int = 0
-    private var beverageStock: BeverageList = BeverageList()
+    private var beverageStock: BeverageStock = BeverageStock()
     
     var isStockEmpty: Bool {
         return self.beverageStock.isEmpty
@@ -25,12 +25,12 @@ struct VendingMachine {
         self.beverageStock.addBeverage(beverage)
     }
     
-    func purchasableBeveragesList() -> [Beverage] {
-        return beverageStock.purchasableBeverages(in: self.insertedMoney)
+    func buyableBeveragesList() -> [Beverage] {
+        return beverageStock.buyableBeverages(in: self.insertedMoney)
     }
 }
 
-struct BeverageList {
+struct BeverageStock {
     
     private var beverageList: [Beverage] = [Beverage]()
     
@@ -42,7 +42,7 @@ struct BeverageList {
         self.beverageList.append(beverage)
     }
     
-    func purchasableBeverages(in price: Int) -> [Beverage] {
+    func buyableBeverages(in price: Int) -> [Beverage] {
         return beverageList.filter { !$0.isExpensive(than: price) }
     }
 }

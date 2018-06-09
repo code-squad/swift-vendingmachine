@@ -63,7 +63,7 @@ class VendingMachineUnitTest: XCTestCase {
         let chocoMilk: ChocoMilk = ChocoMilk(brand: "서울우유", capacity: 350, price: 900, name: "초코우유", manufacturedDate: "20180609", hasCacao: false)
         self.vendingMachine.insertMoney(2000)
         self.vendingMachine.addBeverageStock(chocoMilk)
-        XCTAssertEqual(vendingMachine.purchasableBeveragesList().count, 1)
+        XCTAssertEqual(vendingMachine.buyableBeveragesList().count, 1)
     }
     
     func testPurchasableBeverageList_whenThereArePurchasableBverages() {
@@ -74,6 +74,7 @@ class VendingMachineUnitTest: XCTestCase {
         self.vendingMachine.addBeverageStock(coke)
         self.vendingMachine.addBeverageStock(topCoffee)
         self.vendingMachine.addBeverageStock(chocoMilk)
-        XCTAssertEqual(vendingMachine.purchasableBeveragesList().count, 2)
+        XCTAssertEqual(vendingMachine.buyableBeveragesList().count, 2)
     }
+
 }
