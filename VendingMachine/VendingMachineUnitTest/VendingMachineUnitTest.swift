@@ -66,6 +66,17 @@ class VendingMachineUnitTest: XCTestCase {
         XCTAssertEqual("초코우유", vendingMachine.purchasableBeveragesList())
     }
     
+    func testPurchasableBeverageList_whenThereArePurchasableBverages() {
+        let coke: Coke = Coke(brand: "코카콜라", capacity: 250, price: 1000, name: "제로콜라", manufacturedDate: "20180609", calories: 0, hasIce: true)
+        let topCoffee: TOP = TOP(brand: "티오피", capacity: 300, price: 2000, name: "티오피커피", manufacturedDate: "20180609", caffeineContent: 50, canColor: .black)
+        let chocoMilk: ChocoMilk = ChocoMilk(brand: "서울우유", capacity: 350, price: 900, name: "초코우유", manufacturedDate: "20180609", hasCacao: false)
+        self.vendingMachine.insertMoney(1000)
+        self.vendingMachine.addBeverageStock(coke)
+        self.vendingMachine.addBeverageStock(topCoffee)
+        self.vendingMachine.addBeverageStock(chocoMilk)
+        XCTAssertEqual("제로콜라초코우유", vendingMachine.purchasableBeveragesList())
+    }
+    
     func testVendingMachineShowPurchasableBeverageList() {
         let coke: Coke = Coke(brand: "코카콜라", capacity: 250, price: 1000, name: "제로콜라", manufacturedDate: "20180609", calories: 0, hasIce: true)
         let topCoffee: TOP = TOP(brand: "티오피", capacity: 300, price: 2000, name: "티오피커피", manufacturedDate: "20180609", caffeineContent: 50, canColor: .black)
