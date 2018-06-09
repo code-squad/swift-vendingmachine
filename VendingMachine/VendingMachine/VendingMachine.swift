@@ -25,8 +25,8 @@ struct VendingMachine {
         self.beverageStock.addBeverage(beverage)
     }
     
-    func showPurchasableBeverages() -> String {
-        return beverageStock.showPurchasableBeverages(in: self.insertedMoney)
+    func purchasableBeveragesList() -> String {
+        return beverageStock.purchasableBeverages(in: self.insertedMoney)
     }
 }
 
@@ -42,7 +42,7 @@ struct BeverageList {
         self.beverageList.append(beverage)
     }
     
-    func showPurchasableBeverages(in price: Int) -> String {
+    func purchasableBeverages(in price: Int) -> String {
         var result: String = ""
         let purchasableBeverages = beverageList.filter { $0.isExpensive(than: price) }
         for beverage in purchasableBeverages {
