@@ -20,4 +20,8 @@ struct VendingMachine {
     func checkBalance() -> Int {
         return self.balance
     }
+    
+    mutating func add(beverage: Beverage) throws {
+        try self.beverageStock.add(beverage)
+    }
 }
