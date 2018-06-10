@@ -11,4 +11,8 @@ import Foundation
 struct BeverageList: Equatable {
 
     var beverageList: [Beverage] = [Beverage]()
+    
+    mutating func add(_ beverage: Beverage) {
+        self.beverageList.append(beverage)
+    }
 }

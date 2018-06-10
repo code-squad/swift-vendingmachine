@@ -11,9 +11,24 @@ import Foundation
 struct BeverageStock: Equatable {
     
     var beverageStock: [BeverageName:BeverageList] = [BeverageName:BeverageList]()
+    
+    mutating func add(_ beverage: Beverage) throws {
+        let beverageType = String(beverage.description.split(separator: ",").first ?? "")
+        guard let beverageName = BeverageName(rawValue: beverageType) else {
+            throw Error.invalidBeverageType
+        }
+        
+        if var beverageList = self.beverageStock[beverageName] {
+            beverageList.add(beverage)
+        } else {
+            var newBeverageList = BeverageList()
+            newBeverageList.add(beverage)
+            self.beverageStock[beverageName] = newBeverageList
+        }
+    }
 }
 
-enum BeverageName {
+enum BeverageName: String {
     case top
     case cantata
     case georgia
@@ -21,4 +36,18 @@ enum BeverageName {
     case chocoMilk
     case coke
     case sprite
+}
+
+extension BeverageStock {
+    
+    enum Error: Swift.Error {
+        case invalidBeverageType
+        
+        var errorMessage: String {
+            switch self {
+            case .invalidBeverageType:
+                return "자판기 없는 음료입니다."
+            }
+        }
+    }
 }
