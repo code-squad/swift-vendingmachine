@@ -11,6 +11,7 @@ import Foundation
 struct VendingMachine {
     
     private var balance: Int = 0
+    var beverageStock: BeverageStock = BeverageStock()
     
     mutating func insertMoney(_ money: Int) {
         self.balance += money
@@ -19,14 +20,4 @@ struct VendingMachine {
     func checkBalance() -> Int {
         return self.balance
     }
-}
-
-enum BeverageName {
-    case top
-    case cantata
-    case georgia
-    case strawberryMilk
-    case chocoMilk
-    case coke
-    case sprite
 }

@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		732CFFC220CD3FE1005E4EFE /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732CFFC120CD3FE1005E4EFE /* VendingMachine.swift */; };
 		732CFFC320CD409F005E4EFE /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732CFFC120CD3FE1005E4EFE /* VendingMachine.swift */; };
+		732CFFC520CD7AC4005E4EFE /* BeverageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732CFFC420CD7AC4005E4EFE /* BeverageList.swift */; };
+		732CFFC620CD7AC4005E4EFE /* BeverageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732CFFC420CD7AC4005E4EFE /* BeverageList.swift */; };
+		732CFFC820CD7ADD005E4EFE /* BeverageStock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732CFFC720CD7ADD005E4EFE /* BeverageStock.swift */; };
+		732CFFC920CD7ADD005E4EFE /* BeverageStock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732CFFC720CD7ADD005E4EFE /* BeverageStock.swift */; };
 		7394882F20C9015300E6FD49 /* TOP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7394882E20C9015300E6FD49 /* TOP.swift */; };
 		7394883120C9016900E6FD49 /* Cantata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7394883020C9016900E6FD49 /* Cantata.swift */; };
 		7394883320C9019B00E6FD49 /* Georgia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7394883220C9019B00E6FD49 /* Georgia.swift */; };
@@ -60,6 +64,8 @@
 
 /* Begin PBXFileReference section */
 		732CFFC120CD3FE1005E4EFE /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
+		732CFFC420CD7AC4005E4EFE /* BeverageList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageList.swift; sourceTree = "<group>"; };
+		732CFFC720CD7ADD005E4EFE /* BeverageStock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageStock.swift; sourceTree = "<group>"; };
 		7394882E20C9015300E6FD49 /* TOP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOP.swift; sourceTree = "<group>"; };
 		7394883020C9016900E6FD49 /* Cantata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cantata.swift; sourceTree = "<group>"; };
 		7394883220C9019B00E6FD49 /* Georgia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Georgia.swift; sourceTree = "<group>"; };
@@ -180,6 +186,8 @@
 			isa = PBXGroup;
 			children = (
 				732CFFC120CD3FE1005E4EFE /* VendingMachine.swift */,
+				732CFFC420CD7AC4005E4EFE /* BeverageList.swift */,
+				732CFFC720CD7ADD005E4EFE /* BeverageStock.swift */,
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
 				73E2D73520C67A5300E78BC7 /* Beverage.swift */,
 				7394882D20C900ED00E6FD49 /* Coffee */,
@@ -280,11 +288,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				7394888220C95AA900E6FD49 /* Soda.swift in Sources */,
+				732CFFC620CD7AC4005E4EFE /* BeverageList.swift in Sources */,
 				7394886B20C941A900E6FD49 /* Beverage.swift in Sources */,
 				7394888020C95AA400E6FD49 /* StrawberryMilk.swift in Sources */,
 				7394887620C9550400E6FD49 /* TOPUnitTests.swift in Sources */,
 				7394888120C95AA600E6FD49 /* ChocoMilk.swift in Sources */,
 				7394887820C9566C00E6FD49 /* CantataUnitTests.swift in Sources */,
+				732CFFC920CD7ADD005E4EFE /* BeverageStock.swift in Sources */,
 				7394887120C951D900E6FD49 /* Cantata.swift in Sources */,
 				7394887020C951D700E6FD49 /* TOP.swift in Sources */,
 				7394886A20C9418300E6FD49 /* BeverageUnitTests.swift in Sources */,
@@ -314,6 +324,7 @@
 				7394883C20C91E0800E6FD49 /* StrawberryMilk.swift in Sources */,
 				732CFFC220CD3FE1005E4EFE /* VendingMachine.swift in Sources */,
 				7394883120C9016900E6FD49 /* Cantata.swift in Sources */,
+				732CFFC820CD7ADD005E4EFE /* BeverageStock.swift in Sources */,
 				7394882F20C9015300E6FD49 /* TOP.swift in Sources */,
 				73E2D73620C67A5300E78BC7 /* Beverage.swift in Sources */,
 				73E2D73820C697E500E78BC7 /* Milk.swift in Sources */,
@@ -322,6 +333,7 @@
 				7394884220C9201600E6FD49 /* Coke.swift in Sources */,
 				7394883320C9019B00E6FD49 /* Georgia.swift in Sources */,
 				7394884520C9203E00E6FD49 /* Sprite.swift in Sources */,
+				732CFFC520CD7AC4005E4EFE /* BeverageList.swift in Sources */,
 				73E2D73C20C6B6FB00E78BC7 /* Coffee.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
