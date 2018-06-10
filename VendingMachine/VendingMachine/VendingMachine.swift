@@ -11,18 +11,14 @@ import Foundation
 struct VendingMachine {
     
     private var insertedMoney: Int = 0
-    private var beverageStock: BeverageList = BeverageList()
-    
-    var isStockEmpty: Bool {
-        return self.beverageStock.isEmpty
-    }
+    private var beverageStock: BeverageStock = BeverageStock()
     
     mutating func insertMoney(_ money: Int) {
         self.insertedMoney += money
     }
     
     mutating func addBeverageStock(_ beverage: Beverage) {
-        self.beverageStock.addBeverage(beverage)
+        self.beverageStock.add(beverage)
     }
     
     func buyableBeveragesList() -> [Beverage] {
@@ -34,6 +30,26 @@ struct BeverageStock {
     typealias BeverageType = String
     
     private var beverageStock: [BeverageType:BeverageList] = [BeverageType:BeverageList]()
+    
+    mutating func add(_ beverage: Beverage) {
+        let beverageType: BeverageType = BeverageType(beverage.description.split(separator: ",")[0])
+        if var beverageStock = self.beverageStock[beverageType] {
+            beverageStock.addBeverage(beverage)
+        } else {
+            var beverageList: BeverageList = BeverageList()
+            beverageList.addBeverage(beverage)
+            self.beverageStock[beverageType] = beverageList
+        }
+    }
+    
+    func buyableBeverages(in price: Int) -> BeverageList {
+        var beverageList = beverageList()
+        
+        for (_, value) in beverageStock {
+            beverageList += value.buyableBeverages(in: price)
+        }
+        return beverageList
+    }
 }
 
 struct BeverageList {
@@ -48,7 +64,7 @@ struct BeverageList {
         self.beverageList.append(beverage)
     }
     
-    func buyableBeverages(in price: Int) -> [Beverage] {
+    func buyableBeverages(in price: Int) -> BeverageList {
         return beverageList.filter { !$0.isExpensive(than: price) }
     }
 }
