@@ -29,13 +29,13 @@ struct BeverageStock: Equatable {
 }
 
 enum BeverageName: String {
-    case top
-    case cantata
-    case georgia
-    case strawberryMilk
-    case chocoMilk
-    case coke
-    case sprite
+    case TOP
+    case Cantata
+    case Georgia
+    case StrawberryMilk
+    case ChocoMilk
+    case Coke
+    case Sprite
 }
 
 extension BeverageStock {
