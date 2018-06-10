@@ -11,7 +11,7 @@ import Foundation
 struct VendingMachine {
     
     private var insertedMoney: Int = 0
-    private var beverageStock: BeverageStock = BeverageStock()
+    private var beverageStock: BeverageList = BeverageList()
     
     var isStockEmpty: Bool {
         return self.beverageStock.isEmpty
@@ -31,6 +31,12 @@ struct VendingMachine {
 }
 
 struct BeverageStock {
+    typealias BeverageType = String
+    
+    private var beverageStock: [BeverageType:BeverageList] = [BeverageType:BeverageList]()
+}
+
+struct BeverageList {
     
     private var beverageList: [Beverage] = [Beverage]()
     
