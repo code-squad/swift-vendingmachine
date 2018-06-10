@@ -18,4 +18,11 @@ class VendingMachineUnitTest: XCTestCase {
         
         self.vendingMachine = VendingMachine()
     }
+    
+    func testInsertMoney() {
+        let money: Int = 1000
+        vendingMachine.insertMoney(money)
+        let expected: Int = 1000
+        XCTAssertEqual(vendingMachine.balance, expected)
+    }
 }
