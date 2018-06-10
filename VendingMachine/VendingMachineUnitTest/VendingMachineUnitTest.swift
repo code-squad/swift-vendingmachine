@@ -25,4 +25,9 @@ class VendingMachineUnitTest: XCTestCase {
         let expected: Int = 1000
         XCTAssertEqual(vendingMachine.balance, expected)
     }
+    
+    func testCheckBalance() {
+        let expected: Int = 0
+        XCTAssertEqual(vendingMachine.checkBalance(), expected)
+    }
 }
