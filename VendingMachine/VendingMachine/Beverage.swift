@@ -25,7 +25,7 @@ class Beverage: NSObject {
     }
     
     override var description: String {
-        return "\(type(of: self)) - \(self.brand), \(self.capacity)ml, \(self.price)원, \(self.name), \(self.manufacturedDate.customDateFormat)"
+        return "\(type(of: self)), \(self.brand), \(self.capacity)ml, \(self.price)원, \(self.name), \(self.manufacturedDate.customDateFormat)"
     }
     
     func isExpensive(than price: Int) -> Bool {

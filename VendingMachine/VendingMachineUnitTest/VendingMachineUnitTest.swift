@@ -41,7 +41,19 @@ class VendingMachineUnitTest: XCTestCase {
         var beverageList = BeverageList()
         beverageList.beverageList.append(coke)
         let expected = BeverageStock(beverageStock: [BeverageName.coke:beverageList])
-        vendingMachine.add(beverage: coke)
+        XCTAssertNoThrow(try vendingMachine.add(beverage: coke), "추가실패")
+        XCTAssertEqual(vendingMachine.beverageStock, expected)
+    }
+    
+    func testAddBeverage_addMultiBeverages() {
+        let coke: Coke = Coke(brand: "코카콜라", capacity: 200, price: 800, name: "제로콜라", manufacturedDate: "20180101", calories: 0, hasIce: false)
+        let sprite: Sprite = Sprite(brand: "코카콜라", capacity: 200, price: 800, name: "스프라이트", manufacturedDate: "20180505", calories: 70, hasOneMoreOnCap: false)
+        var beverageList = BeverageList()
+        beverageList.beverageList.append(coke)
+        beverageList.beverageList.append(sprite)
+        let expected = BeverageStock(beverageStock: [BeverageName.coke:beverageList])
+        XCTAssertNoThrow(try vendingMachine.add(beverage: coke), "콜라 추가실패")
+        XCTAssertNoThrow(try vendingMachine.add(beverage: sprite), "사이다 추가실패") 
         XCTAssertEqual(vendingMachine.beverageStock, expected)
     }
 }
