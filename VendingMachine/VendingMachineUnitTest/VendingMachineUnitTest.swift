@@ -8,81 +8,28 @@
 
 import XCTest
 
-@testable import VendingMachine
-
 class VendingMachineUnitTest: XCTestCase {
     
-    var vendingMachine: VendingMachine!
-    
     override func setUp() {
-        self.vendingMachine = VendingMachine()
+        super.setUp()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
-    func testVendingMachineInstantiate() {
-        let vendingMachine: VendingMachine = VendingMachine()
-        XCTAssertNotNil(vendingMachine)
+    override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
     }
     
-//    func testIsInsertedMoneyZero() {
-//        let vendingMachine = VendingMachine()
-//        let insertedMoney = vendingMachine.insertedMoney
-//        XCTAssertEqual(0, insertedMoney)
-//    }
-    
-//    func testInsertMoneyToVendingMachine() {
-//        let money: Int = 1000
-//        self.vendingMachine.insertMoney(money)
-//        XCTAssertEqual(1000, self.vendingMachine.insertedMoney)
-//    }
-    
-    func testAddBeverageStockToMachine_stockIsNotEmpty() {
-        let topCoffee: TOP = TOP(brand: "티오피", capacity: 300, price: 1000, name: "티오피커피", manufacturedDate: "20180609", caffeineContent: 50, canColor: .black)
-        self.vendingMachine.addBeverageStock(topCoffee)
-        XCTAssertFalse(self.vendingMachine.isStockEmpty)
+    func testExample() {
+        // This is an example of a functional test case.
+        // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
-    func testAddBeverageStockToMachine_withChocoMilk() {
-        let chocoMilk: ChocoMilk = ChocoMilk(brand: "서울우유", capacity: 350, price: 1300, name: "초코우유", manufacturedDate: "20180609", hasCacao: false)
-        self.vendingMachine.addBeverageStock(chocoMilk)
-        XCTAssertFalse(self.vendingMachine.isStockEmpty)
+    func testPerformanceExample() {
+        // This is an example of a performance test case.
+        self.measure {
+            // Put the code you want to measure the time of here.
+        }
     }
     
-    func testAddMultipleBeverageStocksToMachine() {
-        let chocoMilk: ChocoMilk = ChocoMilk(brand: "서울우유", capacity: 350, price: 1300, name: "초코우유", manufacturedDate: "20180609", hasCacao: false)
-        let topCoffee: TOP = TOP(brand: "티오피", capacity: 300, price: 1000, name: "티오피커피", manufacturedDate: "20180609", caffeineContent: 50, canColor: .black)
-        self.vendingMachine.addBeverageStock(chocoMilk)
-        self.vendingMachine.addBeverageStock(topCoffee)
-        XCTAssertFalse(self.vendingMachine.isStockEmpty)
-    }
-    
-    func testBeverageStockIsEmpty_withNoAddition() {
-        XCTAssertTrue(self.vendingMachine.isStockEmpty)
-    }
-    
-    func testPurchasableBeverageList_getPurchableBeverageName() {
-        let chocoMilk: ChocoMilk = ChocoMilk(brand: "서울우유", capacity: 350, price: 900, name: "초코우유", manufacturedDate: "20180609", hasCacao: false)
-        self.vendingMachine.insertMoney(2000)
-        self.vendingMachine.addBeverageStock(chocoMilk)
-        XCTAssertEqual(vendingMachine.buyableBeveragesList().count, 1)
-    }
-    
-    func testPurchasableBeverageList_whenThereArePurchasableBverages() {
-        let coke: Coke = Coke(brand: "코카콜라", capacity: 250, price: 1000, name: "제로콜라", manufacturedDate: "20180609", calories: 0, hasIce: true)
-        let topCoffee: TOP = TOP(brand: "티오피", capacity: 300, price: 2000, name: "티오피커피", manufacturedDate: "20180609", caffeineContent: 50, canColor: .black)
-        let chocoMilk: ChocoMilk = ChocoMilk(brand: "서울우유", capacity: 350, price: 900, name: "초코우유", manufacturedDate: "20180609", hasCacao: false)
-        self.vendingMachine.insertMoney(1000)
-        self.vendingMachine.addBeverageStock(coke)
-        self.vendingMachine.addBeverageStock(topCoffee)
-        self.vendingMachine.addBeverageStock(chocoMilk)
-        XCTAssertEqual(vendingMachine.buyableBeveragesList().count, 2)
-    }
-    
-    func testBuyBeverage() {
-        let coke: Coke = Coke(brand: "코카콜라", capacity: 250, price: 1000, name: "제로콜라", manufacturedDate: "20180609", calories: 0, hasIce: true)
-        self.vendingMachine.insertMoney(1000)
-        self.vendingMachine.addBeverageStock(coke)
-        self.vendingMachine.buyBeverage(coke)
-        XCTAssertEqual(self.vendingMachine.buyableBeveragesList().count, 0)
-    }
-
 }

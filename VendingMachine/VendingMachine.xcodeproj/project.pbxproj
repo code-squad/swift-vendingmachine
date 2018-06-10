@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7379B56320CBE7310063DDB0 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7379B56220CBE7310063DDB0 /* VendingMachine.swift */; };
-		7379B56420CBE7310063DDB0 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7379B56220CBE7310063DDB0 /* VendingMachine.swift */; };
 		7394882F20C9015300E6FD49 /* TOP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7394882E20C9015300E6FD49 /* TOP.swift */; };
 		7394883120C9016900E6FD49 /* Cantata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7394883020C9016900E6FD49 /* Cantata.swift */; };
 		7394883320C9019B00E6FD49 /* Georgia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7394883220C9019B00E6FD49 /* Georgia.swift */; };
@@ -59,7 +57,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		7379B56220CBE7310063DDB0 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 		7394882E20C9015300E6FD49 /* TOP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOP.swift; sourceTree = "<group>"; };
 		7394883020C9016900E6FD49 /* Cantata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cantata.swift; sourceTree = "<group>"; };
 		7394883220C9019B00E6FD49 /* Georgia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Georgia.swift; sourceTree = "<group>"; };
@@ -184,7 +181,6 @@
 				7394882D20C900ED00E6FD49 /* Coffee */,
 				7394882C20C900E200E6FD49 /* Milk */,
 				7394882A20C900BD00E6FD49 /* Soda */,
-				7379B56220CBE7310063DDB0 /* VendingMachine.swift */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";
@@ -302,7 +298,6 @@
 				7394886E20C951CA00E6FD49 /* CoffeeUnitTests.swift in Sources */,
 				7394887220C951DB00E6FD49 /* Georgia.swift in Sources */,
 				7394886F20C951CF00E6FD49 /* Coffee.swift in Sources */,
-				7379B56420CBE7310063DDB0 /* VendingMachine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,7 +307,6 @@
 			files = (
 				73E2D73A20C6B4E900E78BC7 /* Soda.swift in Sources */,
 				7394883C20C91E0800E6FD49 /* StrawberryMilk.swift in Sources */,
-				7379B56320CBE7310063DDB0 /* VendingMachine.swift in Sources */,
 				7394883120C9016900E6FD49 /* Cantata.swift in Sources */,
 				7394882F20C9015300E6FD49 /* TOP.swift in Sources */,
 				73E2D73620C67A5300E78BC7 /* Beverage.swift in Sources */,
