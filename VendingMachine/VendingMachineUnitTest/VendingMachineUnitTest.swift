@@ -32,7 +32,7 @@ class VendingMachineUnitTest: XCTestCase {
     }
     
     func testBeverageStock() {
-        let expected = [BeverageName:[Beverage]]()
+        let expected: BeverageStock = BeverageStock()
         XCTAssertEqual(vendingMachine.beverageStock, expected)
     }
 }
