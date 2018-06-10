@@ -20,3 +20,13 @@ struct VendingMachine {
         return self.balance
     }
 }
+
+enum BeverageName {
+    case top
+    case cantata
+    case georgia
+    case strawberryMilk
+    case chocoMilk
+    case coke
+    case sprite
+}
