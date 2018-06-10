@@ -19,15 +19,15 @@ class VendingMachineUnitTest: XCTestCase {
         self.vendingMachine = VendingMachine()
     }
     
+    func testCheckBalance() {
+        let expected: Int = 0
+        XCTAssertEqual(vendingMachine.checkBalance(), expected)
+    }
+    
     func testInsertMoney() {
         let money: Int = 1000
         vendingMachine.insertMoney(money)
         let expected: Int = 1000
-        XCTAssertEqual(vendingMachine.balance, expected)
-    }
-    
-    func testCheckBalance() {
-        let expected: Int = 0
         XCTAssertEqual(vendingMachine.checkBalance(), expected)
     }
 }
