@@ -10,4 +10,9 @@ import Foundation
 
 struct VendingMachine {
     
+    private var balance: Int = 0
+    
+    mutating func insertMoney(_ price: Int) {
+        self.balance += price
+    }
 }
