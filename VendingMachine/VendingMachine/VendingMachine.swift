@@ -28,14 +28,4 @@ struct VendingMachine {
     func add(beverage: Beverage) {
         
     }
-    
-    enum ProductType: String {
-        case Coke
-        case Sprite
-        case TOP
-        case Cantata
-        case Georgia
-        case StrawberryMilk
-        case ChocoMilk
-    }
 }
