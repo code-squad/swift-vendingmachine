@@ -15,4 +15,8 @@ struct VendingMachine {
     mutating func insertMoney(_ price: Int) {
         self.balance += price
     }
+    
+    func readBalance() -> String {
+        return "\(self.balance)원"
+    }
 }
