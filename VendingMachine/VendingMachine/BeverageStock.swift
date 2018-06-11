@@ -46,7 +46,7 @@ extension BeverageStock {
         var errorMessage: String {
             switch self {
             case .invalidBeverageType:
-                return "자판기 없는 음료입니다."
+                return "자판기에 없는 음료입니다."
             }
         }
     }
