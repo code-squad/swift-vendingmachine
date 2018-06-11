@@ -11,9 +11,9 @@ import Foundation
 struct VendingMachine {
     
     private var balance: Int = 0
-    private var stock: [ProductType:[Beverage]]!
+    private var stock: Stock!
     
-    init(stock: [ProductType:[Beverage]]) {
+    init(stock: Stock) {
         self.stock = stock
     }
     
