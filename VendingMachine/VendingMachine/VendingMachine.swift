@@ -11,10 +11,10 @@ import Foundation
 struct VendingMachine {
     
     private var balance: Int = 0
-    private var stock: Stock!
+    private var stockManager: StockManager!
     
-    init(stock: Stock) {
-        self.stock = stock
+    init(stockManager: StockManager) {
+        self.stockManager = stockManager
     }
     
     mutating func insertMoney(_ price: Int) {
