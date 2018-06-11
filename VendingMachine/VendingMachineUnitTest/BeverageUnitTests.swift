@@ -25,7 +25,7 @@ class BeverageUnitTests: XCTestCase {
     }
     
     func testBeverageDescription() {
-        XCTAssertEqual(beverage.description, "Beverage, 서울우유, 200ml, 1000원, 날마다딸기우유, 20171009")
+        XCTAssertEqual(beverage.description, "Beverage - 서울우유, 200ml, 1000원, 날마다딸기우유, 20171009")
     }
     
     func testBeveragePriceIsExpensiveThan_999_won() {

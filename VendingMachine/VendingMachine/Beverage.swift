@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Beverage: NSObject {
+class Beverage: CustomStringConvertible {
     
     private let brand: String
     private let capacity: Int
@@ -24,8 +24,8 @@ class Beverage: NSObject {
         self.manufacturedDate = manufacturedDate.customDateFormat
     }
     
-    override var description: String {
-        return "\(type(of: self)), \(self.brand), \(self.capacity)ml, \(self.price)원, \(self.name), \(self.manufacturedDate.customDateFormat)"
+    var description: String {
+        return "\(type(of: self)) - \(self.brand), \(self.capacity)ml, \(self.price)원, \(self.name), \(self.manufacturedDate.customDateFormat)"
     }
     
     func isExpensive(than price: Int) -> Bool {
