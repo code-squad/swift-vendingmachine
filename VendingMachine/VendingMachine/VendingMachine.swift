@@ -8,10 +8,10 @@
 
 import Foundation
 
-struct VendingMachine {
+struct VendingMachine: Equatable {
     
     private var balance: Int = 0
-    private var stockManager: StockManager!
+    private var stockManager: StockManager
     
     init(stockManager: StockManager) {
         self.stockManager = stockManager
@@ -25,7 +25,7 @@ struct VendingMachine {
         return "\(self.balance)원"
     }
     
-    func add(beverage: Beverage) {
-        
+    mutating func add(beverage: Beverage) {
+        self.stockManager.add(beverage: beverage)
     }
 }
