@@ -16,11 +16,12 @@ class VendingMachineUnitTest: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        self.vendingMachine = VendingMachine()
+        let emptyStockManager = StockManager(stock: [:])
+        self.vendingMachine = VendingMachine(stockManager: emptyStockManager)
     }
     
     func testVendingMachineInstantiate() {
-        let vendingMachine: VendingMachine = VendingMachine()
+        let vendingMachine: VendingMachine = self.vendingMachine
         XCTAssertNotNil(vendingMachine)
     }
     
@@ -32,5 +33,42 @@ class VendingMachineUnitTest: XCTestCase {
         vendingMachine.insertMoney(1000)
         let balance = vendingMachine.readBalance()
         XCTAssertEqual(balance, "1000원")
+    }
+    
+    func testProductsAppendBeverage() {
+        let coke = Coke()
+        var products = Products(beverages: [])
+        products.append(coke)
+        let expectedProducts = Products(beverages: [coke])
+        XCTAssertEqual(products, expectedProducts)
+    }
+    
+    func testProductsAppendMultipleBeverage() {
+        let cantata = Cantata()
+        let sprite = Sprite()
+        var products = Products(beverages: [])
+        products.append(cantata)
+        products.append(sprite)
+        let expectedProducts = Products(beverages: [cantata, sprite])
+        XCTAssertEqual(products, expectedProducts)
+    }
+    
+    func testStockManagerAddBeverage() {
+        let chocoMilk = ChocoMilk()
+        let chocoMilkType = chocoMilk.productType ?? ProductType.ChocoMilk
+        let products = Products(beverages: [chocoMilk])
+        var stockManager = StockManager(stock: [:])
+        stockManager.add(beverage: chocoMilk)
+        let expected = StockManager(stock: [chocoMilkType:products])
+        XCTAssertEqual(stockManager, expected)
+    }
+    
+    func testVendingMachineAddBeverage() {
+        let top = TOP()
+        let products = Products(beverages: [top])
+        let stockManager = StockManager(stock: [.TOP:products])
+        let expected = VendingMachine(stockManager: stockManager)
+        self.vendingMachine.add(beverage: top)
+        XCTAssertEqual(self.vendingMachine, expected)
     }
 }
