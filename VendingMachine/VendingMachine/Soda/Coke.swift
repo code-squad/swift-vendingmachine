@@ -16,4 +16,8 @@ class Coke: Soda {
         self.hasIce = hasIce
         super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate, calories: calories)
     }
+    
+    convenience init() {
+        self.init(brand: "코카콜라", capacity: 200, price: 1000, name: "코카콜라", manufacturedDate: Date().today, calories: 35, hasIce: false)
+    }
 }

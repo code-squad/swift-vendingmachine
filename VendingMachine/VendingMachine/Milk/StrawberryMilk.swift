@@ -16,4 +16,8 @@ class StrawberryMilk: Milk {
         self.containRealStrawberry = containRealStrawberry
         super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate)
     }
+    
+    convenience init() {
+        self.init(brand: "서울우유", capacity: 300, price: 800, name: "딸기우유", manufacturedDate: Date().today, containRealStrawberry: true)
+    }
 }

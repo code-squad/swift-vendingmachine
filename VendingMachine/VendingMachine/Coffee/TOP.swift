@@ -21,4 +21,8 @@ class TOP: Coffee {
         self.canColor = canColor
         super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate, caffeineContent: caffeineContent)
     }
+    
+    convenience init() {
+        self.init(brand: "티오피", capacity: 200, price: 1000, name: "TOP", manufacturedDate: Date().today, caffeineContent: 40, canColor: .yellow)
+    }
 }
