@@ -8,11 +8,35 @@
 
 import Foundation
 
-struct StockManager {
+struct StockManager: Equatable {
     
-    private var stock: [ProductType:[Beverage]]!
+    private var stock: [ProductType:Products]
     
-    init(stock: [ProductType:[Beverage]]) {
+    init(stock: [ProductType:Products]) {
         self.stock = stock
+    }
+    
+    mutating func add(beverage: Beverage) {
+        guard let productType = beverage.productType else {
+            return
+        }
+        if var products = self.stock[productType] {
+            products.append(beverage)
+        } else {
+            self.stock[productType] = Products(beverages: [beverage])
+        }
+    }
+}
+
+struct Products: Equatable {
+    
+    private var beverages: [Beverage]
+    
+    init(beverages: [Beverage]) {
+        self.beverages = beverages
+    }
+    
+    mutating func append(_ beverage: Beverage) {
+        self.beverages.append(beverage)
     }
 }
