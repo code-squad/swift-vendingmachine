@@ -24,6 +24,11 @@ class Beverage: NSObject {
         self.manufacturedDate = manufacturedDate.customDateFormat
     }
     
+    var productType: ProductType? {
+        let selfType = String(self.description.split(separator: ",").first ?? "")
+        return ProductType(rawValue: selfType)
+    }
+    
     override var description: String {
         return "\(type(of: self)), \(self.brand), \(self.capacity)ml, \(self.price)원, \(self.name), \(self.manufacturedDate.customDateFormat)"
     }
@@ -44,6 +49,10 @@ extension Date {
     var customDateFormat: String {
         let formatter = DateFormatter(customDateFormat: "yyyyMMdd")
         return formatter.string(from: self)
+    }
+    
+    var today: String {
+        return Date().customDateFormat
     }
 }
 

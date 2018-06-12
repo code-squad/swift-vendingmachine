@@ -16,4 +16,8 @@ class ChocoMilk: Milk {
         self.hasCacao = hasCacao
         super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate)
     }
+    
+    convenience init() {
+        self.init(brand: "서울우유", capacity: 250, price: 850, name: "초코우유", manufacturedDate: Date().today, hasCacao: true)
+    }
 }
