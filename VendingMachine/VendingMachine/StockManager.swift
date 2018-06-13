@@ -33,6 +33,10 @@ struct StockManager: Equatable {
         let buyableStock = self.stock.filter { $0.key.price <= price }
         return buyableStock.mapValues { $0.count }
     }
+    
+    mutating func buy(_ productType: ProductType) -> Beverage? {
+        return self.stock[productType]?.remove()
+    }
 }
 
 struct Products: Equatable, Sequence {
@@ -49,6 +53,10 @@ struct Products: Equatable, Sequence {
     
     mutating func append(_ beverage: Beverage) {
         self.beverages.append(beverage)
+    }
+    
+    mutating func remove() -> Beverage? {
+        return self.beverages.popLast()
     }
 }
 
