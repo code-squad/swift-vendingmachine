@@ -17,6 +17,6 @@ class Georgia: Coffee {
     }
     
     convenience init() {
-        self.init(brand: "조지아", capacity: 150, price: 1000, name: "조지아커피", manufacturedDate: Date().today, caffeineContent: 20.5, flavor: "아메리카노")
+        self.init(brand: "조지아", capacity: 150, price: ProductType.Georgia.price, name: "조지아커피", manufacturedDate: Date().today, caffeineContent: 20.5, flavor: "아메리카노")
     }
 }
