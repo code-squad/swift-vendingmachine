@@ -32,4 +32,11 @@ struct VendingMachine: Equatable {
     func readBuyableProducts() -> [ProductType:Int] {
         return self.stockManager.readBuyableProducts(price: self.balance)
     }
+    
+    @discardableResult
+    mutating func buy(_ productType: ProductType) -> Beverage? {
+        let removed = self.stockManager.buy(productType)
+        self.balance -= productType.price
+        return removed
+    }
 }

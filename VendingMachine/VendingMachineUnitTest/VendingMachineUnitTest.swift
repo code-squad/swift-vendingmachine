@@ -99,4 +99,30 @@ class VendingMachineUnitTest: XCTestCase {
         let buyable: [ProductType:Int] = vendingMachine.readBuyableProducts()
         XCTAssertEqual(expected, buyable)
     }
+    
+    func testBuyBeverage_checkBalanceAfterBuy() {
+        vendingMachine.add(beverage: Coke())
+        vendingMachine.add(beverage: Coke())
+        vendingMachine.add(beverage: Coke())
+        vendingMachine.insertMoney(2020)
+        vendingMachine.buy(.Coke)
+        XCTAssertEqual(vendingMachine.readBalance(), "1020원")
+    }
+    
+    func testBuyBeverage_checkBeverageBought() {
+        let coke1 = Coke()
+        let coke2 = Coke()
+        let coke3 = Coke()
+        vendingMachine.add(beverage: coke1)
+        vendingMachine.add(beverage: coke2)
+        vendingMachine.add(beverage: coke3)
+        vendingMachine.insertMoney(2020)
+        let boughtBeverage = vendingMachine.buy(.Coke)
+        XCTAssertEqual(boughtBeverage, coke3)
+    }
+    
+    func testBuyBeverage_whenBeverageIsSoldOut() {
+        vendingMachine.insertMoney(1000)
+        XCTAssertNil(vendingMachine.buy(.ChocoMilk), "Beverage is sold out")
+    }
 }
