@@ -10,7 +10,7 @@ import Foundation
 
 struct StockManager: Equatable {
     
-    var stock: [ProductType:Products]
+    private var stock: [ProductType:Products]
     
     init(stock: [ProductType:Products]) {
         self.stock = stock
@@ -36,6 +36,10 @@ struct StockManager: Equatable {
     
     mutating func buy(_ productType: ProductType) -> Beverage? {
         return self.stock[productType]?.remove()
+    }
+    
+    func readAllStock() -> [ProductType:Products] {
+        return self.stock
     }
 }
 

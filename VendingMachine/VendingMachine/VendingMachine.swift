@@ -39,4 +39,8 @@ struct VendingMachine: Equatable {
         self.balance -= productType.price
         return removed
     }
+    
+    func readAllStock() -> [ProductType:Products] {
+        return self.stockManager.readAllStock()
+    }
 }

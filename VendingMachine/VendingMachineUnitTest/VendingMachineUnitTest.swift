@@ -125,4 +125,21 @@ class VendingMachineUnitTest: XCTestCase {
         vendingMachine.insertMoney(1000)
         XCTAssertNil(vendingMachine.buy(.ChocoMilk), "Beverage is sold out")
     }
+    
+    func testReadAllStock() {
+        let coke1 = Coke()
+        let coke2 = Coke()
+        let sprite = Sprite()
+        let strawberryMilk = StrawberryMilk()
+        vendingMachine.add(beverage: coke1)
+        vendingMachine.add(beverage: coke2)
+        vendingMachine.add(beverage: sprite)
+        vendingMachine.add(beverage: strawberryMilk)
+        let expected: [ProductType:Products] = [
+            ProductType.Coke : Products(beverages: [coke1, coke2]),
+            ProductType.Sprite : Products(beverages: [sprite]),
+            ProductType.StrawberryMilk : Products(beverages: [strawberryMilk])
+        ]
+        XCTAssertEqual(vendingMachine.readAllStock(), expected)
+    }
 }
