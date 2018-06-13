@@ -18,6 +18,6 @@ class StrawberryMilk: Milk {
     }
     
     convenience init() {
-        self.init(brand: "서울우유", capacity: 300, price: 800, name: "딸기우유", manufacturedDate: Date().today, containRealStrawberry: true)
+        self.init(brand: "서울우유", capacity: 300, price: ProductType.StrawberryMilk.price, name: "딸기우유", manufacturedDate: Date().today, containRealStrawberry: true)
     }
 }

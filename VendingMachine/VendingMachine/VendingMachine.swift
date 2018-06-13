@@ -28,4 +28,8 @@ struct VendingMachine: Equatable {
     mutating func add(beverage: Beverage) {
         self.stockManager.add(beverage: beverage)
     }
+    
+    func readBuyableProducts() -> [ProductType:Int] {
+        return self.stockManager.readBuyableProducts(price: self.balance)
+    }
 }

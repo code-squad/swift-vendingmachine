@@ -23,6 +23,6 @@ class TOP: Coffee {
     }
     
     convenience init() {
-        self.init(brand: "티오피", capacity: 200, price: 1000, name: "TOP", manufacturedDate: Date().today, caffeineContent: 40, canColor: .yellow)
+        self.init(brand: "티오피", capacity: 200, price: ProductType.TOP.price, name: "TOP", manufacturedDate: Date().today, caffeineContent: 40, canColor: .yellow)
     }
 }

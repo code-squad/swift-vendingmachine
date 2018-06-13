@@ -71,4 +71,32 @@ class VendingMachineUnitTest: XCTestCase {
         self.vendingMachine.add(beverage: top)
         XCTAssertEqual(self.vendingMachine, expected)
     }
+    
+    func testVendingMachineAddMultipleBeverage_sameBeverage() {
+        let top1 = TOP()
+        let top2 = TOP()
+        let products = Products(beverages: [top1, top2])
+        let stockManager = StockManager(stock: [.TOP:products])
+        let expected = VendingMachine(stockManager: stockManager)
+        self.vendingMachine.add(beverage: top1)
+        self.vendingMachine.add(beverage: top2)
+        XCTAssertEqual(self.vendingMachine, expected)
+    }
+    
+    func testVendingMachineReadBuyableProducts() {
+        vendingMachine.add(beverage: Coke())
+        vendingMachine.add(beverage: Coke())
+        vendingMachine.add(beverage: Coke())
+        vendingMachine.add(beverage: Cantata())
+        vendingMachine.add(beverage: Cantata())
+        vendingMachine.add(beverage: Cantata())
+        vendingMachine.add(beverage: Georgia())
+        vendingMachine.add(beverage: Georgia())
+        vendingMachine.add(beverage: Georgia())
+        vendingMachine.add(beverage: Georgia())
+        vendingMachine.insertMoney(1000)
+        let expected = [ProductType.Coke:3, ProductType.Georgia:4]
+        let buyable: [ProductType:Int] = vendingMachine.readBuyableProducts()
+        XCTAssertEqual(expected, buyable)
+    }
 }

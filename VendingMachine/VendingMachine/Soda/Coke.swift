@@ -18,6 +18,6 @@ class Coke: Soda {
     }
     
     convenience init() {
-        self.init(brand: "코카콜라", capacity: 200, price: 1000, name: "코카콜라", manufacturedDate: Date().today, calories: 35, hasIce: false)
+        self.init(brand: "코카콜라", capacity: 200, price: ProductType.Coke.price, name: "코카콜라", manufacturedDate: Date().today, calories: 35, hasIce: false)
     }
 }
