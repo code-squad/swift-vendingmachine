@@ -144,9 +144,9 @@ class VendingMachineUnitTest: XCTestCase {
     }
     
     func testRemoveExpiredBeverages() {
-        let coke1 = Coke(brand: "코카콜라", capacity: 200, price: 1000, name: "코카콜라", manufacturedDate: "20170202", calories: 80, hasIce: true)
-        let coke2 = Coke(brand: "코카콜라", capacity: 200, price: 1000, name: "제로콜라", manufacturedDate: "20180614", calories: 0, hasIce: false)
-        let sprite = Sprite(brand: "칠성", capacity: 200, price: 1000, name: "칠성사이다", manufacturedDate: "20180602", calories: 80, hasOneMoreOnCap: true)
+        let coke1 = Coke(brand: "코카콜라", capacity: 200, price: 1000, name: "코카콜라", manufacturedDate: "20170202", calories: 80, hasIce: true, isHot: false)
+        let coke2 = Coke(brand: "코카콜라", capacity: 200, price: 1000, name: "제로콜라", manufacturedDate: "20180614", calories: 0, hasIce: false, isHot: false)
+        let sprite = Sprite(brand: "칠성", capacity: 200, price: 1000, name: "칠성사이다", manufacturedDate: "20180602", calories: 80, hasOneMoreOnCap: true, isHot: false)
         vendingMachine.add(beverage: coke1)
         vendingMachine.add(beverage: sprite)
         vendingMachine.add(beverage: coke2)
@@ -155,10 +155,10 @@ class VendingMachineUnitTest: XCTestCase {
     }
     
     func testRemoveExpiredBeverages_remainedBeverages() {
-        let cantata = Cantata(brand: "칸타타", capacity: 200, price: 1000, name: "칸타타", manufacturedDate: "20180602", caffeineContent: 35.3, flavor: "아메리카노")
-        let coke = Coke(brand: "코카콜라", capacity: 200, price: 1000, name: "제로콜라", manufacturedDate: "20180612", calories: 0, hasIce: false)
-        let sprite = Sprite(brand: "칠성", capacity: 200, price: 1000, name: "칠성사이다", manufacturedDate: "20171212", calories: 80, hasOneMoreOnCap: true)
-        let chocoMilk = ChocoMilk(brand: "서울우유", capacity: 350, price: 1300, name: "초코우유", manufacturedDate: "20180614", hasCacao: true)
+        let cantata = Cantata(brand: "칸타타", capacity: 200, price: 1000, name: "칸타타", manufacturedDate: "20180602", caffeineContent: 35.3, flavor: "아메리카노", isHot: true)
+        let coke = Coke(brand: "코카콜라", capacity: 200, price: 1000, name: "제로콜라", manufacturedDate: "20180612", calories: 0, hasIce: false, isHot: false)
+        let sprite = Sprite(brand: "칠성", capacity: 200, price: 1000, name: "칠성사이다", manufacturedDate: "20171212", calories: 80, hasOneMoreOnCap: true, isHot: false)
+        let chocoMilk = ChocoMilk(brand: "서울우유", capacity: 350, price: 1300, name: "초코우유", manufacturedDate: "20180614", hasCacao: true, isHot: false)
         vendingMachine.add(beverage: cantata)
         vendingMachine.add(beverage: coke)
         vendingMachine.add(beverage: sprite)
@@ -168,6 +168,29 @@ class VendingMachineUnitTest: XCTestCase {
             ProductType.Coke : Products(beverages: [coke]),
             ProductType.ChocoMilk : Products(beverages: [chocoMilk])
         ]
+        XCTAssertEqual(vendingMachine.readAllStock(), expected)
+    }
+    
+    func testRemoveHotBeverages() {
+        let cantata1: Cantata = Cantata(brand: "칸타타", capacity: 100, price: 1000, name: "칸타타커피", manufacturedDate: "20180101", caffeineContent: 30, flavor: "아메리카노", isHot: true)
+        let cantata2: Cantata = Cantata(brand: "칸타타", capacity: 100, price: 1000, name: "칸타타커피", manufacturedDate: "20180101", caffeineContent: 30, flavor: "아메리카노", isHot: true)
+        let georgia: Georgia = Georgia(brand: "조지아", capacity: 100, price: 1000, name: "조지아커피", manufacturedDate: "20170303", caffeineContent: 30, flavor: "라떼", isHot: false)
+        vendingMachine.add(beverage: cantata1)
+        vendingMachine.add(beverage: cantata2)
+        vendingMachine.add(beverage: georgia)
+        let expected = [cantata1, cantata2]
+        XCTAssertEqual(vendingMachine.removeHot(), expected)
+    }
+    
+    func testRemoveHotBeverages_remainBeverages() {
+        let cantata1: Cantata = Cantata(brand: "칸타타", capacity: 100, price: 1000, name: "칸타타커피", manufacturedDate: "20180101", caffeineContent: 30, flavor: "아메리카노", isHot: true)
+        let cantata2: Cantata = Cantata(brand: "칸타타", capacity: 100, price: 1000, name: "칸타타커피", manufacturedDate: "20180101", caffeineContent: 30, flavor: "아메리카노", isHot: true)
+        let georgia: Georgia = Georgia(brand: "조지아", capacity: 100, price: 1000, name: "조지아커피", manufacturedDate: "20170303", caffeineContent: 30, flavor: "라떼", isHot: false)
+        vendingMachine.add(beverage: cantata1)
+        vendingMachine.add(beverage: cantata2)
+        vendingMachine.add(beverage: georgia)
+        let expected = [ProductType.Georgia:Products(beverages: [georgia])]
+        vendingMachine.removeHot()
         XCTAssertEqual(vendingMachine.readAllStock(), expected)
     }
 }

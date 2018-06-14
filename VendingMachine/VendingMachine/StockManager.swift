@@ -46,15 +46,16 @@ class StockManager: NSObject {
         return self.stock
     }
     
-    func removeExpired() -> [Beverage] {
-        var expired = [Beverage]()
+
+    func remove(_ conditionHandler: (Beverage) -> Bool ) -> [Beverage] {
+        var removed = [Beverage]()
         for (productType, products) in self.stock {
-            expired += products.removeExpired()
+            removed += products.remove { conditionHandler($0) }
             if products.count == 0 {
                 self.stock.removeValue(forKey: productType)
             }
         }
-        return expired
+        return removed
     }
     
     override func isEqual(_ object: Any?) -> Bool {
@@ -85,10 +86,10 @@ class Products: NSObject, Sequence {
         return self.beverages.popLast()
     }
     
-    func removeExpired() -> [Beverage] {
-        let expired = self.beverages.filter { $0.isExpired(Date()) }
-        self.beverages = self.beverages.filter { !$0.isExpired(Date()) }
-        return expired
+    func remove(_ handler: (Beverage) -> Bool ) -> [Beverage] {
+        let removed = self.beverages.filter{ handler($0) }
+        self.beverages = self.beverages.filter { !handler($0) }
+        return removed
     }
     
     override func isEqual(_ object: Any?) -> Bool {
