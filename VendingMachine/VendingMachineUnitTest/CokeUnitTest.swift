@@ -13,6 +13,6 @@ import XCTest
 class CokeUnitTest: XCTestCase {
 
     func testCokeInstantiate_success() {
-        XCTAssertNotNil(Coke(brand: "코카콜라", capacity: 250, price: 1000, name: "코카콜라", manufacturedDate: "20180101", calories: 100, hasIce: false))
+        XCTAssertNotNil(Coke(brand: "코카콜라", capacity: 250, price: 1000, name: "코카콜라", manufacturedDate: "20180101", calories: 100, hasIce: false, isHot: false))
     }
 }

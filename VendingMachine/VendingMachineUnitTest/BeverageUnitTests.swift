@@ -17,11 +17,11 @@ class BeverageUnitTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        self.beverage = Beverage(brand: "서울우유", capacity: 200, price: 1000, name: "날마다딸기우유", manufacturedDate: "20171009")
+        self.beverage = Beverage(brand: "서울우유", capacity: 200, price: 1000, name: "날마다딸기우유", manufacturedDate: "20171009", isHot: false)
     }
     
     func testBeverageInstantiate_success() {
-        XCTAssertNotNil(Beverage(brand: "서울우유", capacity: 200, price: 1000, name: "날마다딸기우유", manufacturedDate: "20171009"))
+        XCTAssertNotNil(Beverage(brand: "서울우유", capacity: 200, price: 1000, name: "날마다딸기우유", manufacturedDate: "20171009", isHot: false))
     }
     
     func testBeverageDescription() {

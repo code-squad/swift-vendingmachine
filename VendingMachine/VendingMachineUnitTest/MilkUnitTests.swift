@@ -16,11 +16,11 @@ class MilkUnitTest: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        self.milk = Milk(brand: "서울우유", capacity: 200, price: 1000, name: "흰우유", manufacturedDate: "20180303")
+        self.milk = Milk(brand: "서울우유", capacity: 200, price: 1000, name: "흰우유", manufacturedDate: "20180303", isHot: false)
     }
     
     func testMilkInstantiate_success() {
-        XCTAssertNotNil(Milk(brand: "서울우유", capacity: 200, price: 1000, name: "흰우유", manufacturedDate: "20180303"))
+        XCTAssertNotNil(Milk(brand: "서울우유", capacity: 200, price: 1000, name: "흰우유", manufacturedDate: "20180303", isHot: false))
     }
     
     func testExpiredDateIsOver_withCheckDate() {

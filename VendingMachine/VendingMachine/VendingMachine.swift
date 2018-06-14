@@ -45,6 +45,10 @@ struct VendingMachine: Equatable {
     }
     
     func removeExpired() -> [Beverage] {
-        return self.stockManager.removeExpired()
+        return self.stockManager.remove{ $0.isExpired(Date()) }
+    }
+    
+    func removeHot() -> [Beverage] {
+        return self.stockManager.remove{ $0.isHot }
     }
 }
