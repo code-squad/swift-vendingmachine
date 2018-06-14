@@ -50,7 +50,7 @@ class StockManager: NSObject {
     func remove(_ conditionHandler: (Beverage) -> Bool ) -> [Beverage] {
         var removed = [Beverage]()
         for (productType, products) in self.stock {
-            removed += products.remove { conditionHandler($0) }
+            removed += products.remove(conditionHandler)
             if products.count == 0 {
                 self.stock.removeValue(forKey: productType)
             }
