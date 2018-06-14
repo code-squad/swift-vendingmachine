@@ -117,13 +117,8 @@ class VendingMachineUnitTest: XCTestCase {
         vendingMachine.add(beverage: coke2)
         vendingMachine.add(beverage: coke3)
         vendingMachine.insertMoney(2020)
-        let boughtBeverage = vendingMachine.buy(.Coke)
-        XCTAssertEqual(boughtBeverage, coke3)
-    }
-    
-    func testBuyBeverage_whenBeverageIsSoldOut() {
-        vendingMachine.insertMoney(1000)
-        XCTAssertNil(vendingMachine.buy(.ChocoMilk), "Beverage is sold out")
+        vendingMachine.buy(.Coke)
+        XCTAssertEqual(vendingMachine.readPurchaseHistory(), [coke3])
     }
     
     func testReadAllStock() {
@@ -197,11 +192,10 @@ class VendingMachineUnitTest: XCTestCase {
     func testPurchasedHistory() {
         let cantata: Cantata = Cantata(brand: "칸타타", capacity: 100, price: 1000, name: "칸타타커피", manufacturedDate: "20180101", caffeineContent: 30, flavor: "아메리카노", isHot: true)
         let georgia: Georgia = Georgia(brand: "조지아", capacity: 100, price: 1000, name: "조지아커피", manufacturedDate: "20170303", caffeineContent: 30, flavor: "라떼", isHot: false)
-        
         vendingMachine.add(beverage: cantata)
         vendingMachine.add(beverage: georgia)
-        vendingMachine.addBeverageInHistory(vendingMachine.buy(.Cantata)!)
-        vendingMachine.addBeverageInHistory(vendingMachine.buy(.Georgia)!)
+        vendingMachine.buy(.Cantata)
+        vendingMachine.buy(.Georgia)
         XCTAssertEqual(vendingMachine.readPurchaseHistory(), [cantata,georgia])
     }
 }
