@@ -12,9 +12,11 @@ struct VendingMachine: Equatable {
     
     private var balance: Int = 0
     private var stockManager: StockManager
+    private var history: History
     
     init(stockManager: StockManager) {
         self.stockManager = stockManager
+        self.history = History(purchased: [Beverage]())
     }
     
     mutating func insertMoney(_ price: Int) {
@@ -50,5 +52,13 @@ struct VendingMachine: Equatable {
     
     func removeHot() -> [Beverage] {
         return self.stockManager.remove{ $0.isHot }
+    }
+    
+    mutating func addBeverageInHistory(_ beverage: Beverage) {
+        self.history.addPurchased(beverage)
+    }
+    
+    func readPurchaseHistory() -> [Beverage] {
+        return self.history.readPurchased()
     }
 }

@@ -193,4 +193,15 @@ class VendingMachineUnitTest: XCTestCase {
         vendingMachine.removeHot()
         XCTAssertEqual(vendingMachine.readAllStock(), expected)
     }
+    
+    func testPurchasedHistory() {
+        let cantata: Cantata = Cantata(brand: "칸타타", capacity: 100, price: 1000, name: "칸타타커피", manufacturedDate: "20180101", caffeineContent: 30, flavor: "아메리카노", isHot: true)
+        let georgia: Georgia = Georgia(brand: "조지아", capacity: 100, price: 1000, name: "조지아커피", manufacturedDate: "20170303", caffeineContent: 30, flavor: "라떼", isHot: false)
+        
+        vendingMachine.add(beverage: cantata)
+        vendingMachine.add(beverage: georgia)
+        vendingMachine.addBeverageInHistory(vendingMachine.buy(.Cantata)!)
+        vendingMachine.addBeverageInHistory(vendingMachine.buy(.Georgia)!)
+        XCTAssertEqual(vendingMachine.readPurchaseHistory(), [cantata,georgia])
+    }
 }
