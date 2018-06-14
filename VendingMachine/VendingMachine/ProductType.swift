@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum ProductType: String {
+enum ProductType: String, Hashable, Equatable {
     case Coke
     case Sprite
     case TOP
@@ -35,4 +35,26 @@ enum ProductType: String {
             return 1300
         }
     }
+    
+    // 1 day == 86400 sec
+    // n day == n * 86400 sec
+    var expiratation: TimeInterval {
+        switch self {
+        case .Coke:
+            return 10 * 86400
+        case .Sprite:
+            return 10 * 86400
+        case .TOP:
+            return 5 * 86400
+        case .Cantata:
+            return 5 * 86400
+        case .Georgia:
+            return 5 * 86400
+        case .StrawberryMilk:
+            return 3 * 86400
+        case .ChocoMilk:
+            return 3 * 86400
+        }
+    }
+    
 }

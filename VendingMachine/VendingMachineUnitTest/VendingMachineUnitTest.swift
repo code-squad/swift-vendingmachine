@@ -37,7 +37,7 @@ class VendingMachineUnitTest: XCTestCase {
     
     func testProductsAppendBeverage() {
         let coke = Coke()
-        var products = Products(beverages: [])
+        let products = Products(beverages: [])
         products.append(coke)
         let expectedProducts = Products(beverages: [coke])
         XCTAssertEqual(products, expectedProducts)
@@ -46,7 +46,7 @@ class VendingMachineUnitTest: XCTestCase {
     func testProductsAppendMultipleBeverage() {
         let cantata = Cantata()
         let sprite = Sprite()
-        var products = Products(beverages: [])
+        let products = Products(beverages: [])
         products.append(cantata)
         products.append(sprite)
         let expectedProducts = Products(beverages: [cantata, sprite])
@@ -57,7 +57,7 @@ class VendingMachineUnitTest: XCTestCase {
         let chocoMilk = ChocoMilk()
         let chocoMilkType = chocoMilk.productType ?? ProductType.ChocoMilk
         let products = Products(beverages: [chocoMilk])
-        var stockManager = StockManager(stock: [:])
+        let stockManager = StockManager(stock: [:])
         stockManager.add(beverage: chocoMilk)
         let expected = StockManager(stock: [chocoMilkType:products])
         XCTAssertEqual(stockManager, expected)
@@ -139,6 +139,34 @@ class VendingMachineUnitTest: XCTestCase {
             ProductType.Coke : Products(beverages: [coke1, coke2]),
             ProductType.Sprite : Products(beverages: [sprite]),
             ProductType.StrawberryMilk : Products(beverages: [strawberryMilk])
+        ]
+        XCTAssertEqual(vendingMachine.readAllStock(), expected)
+    }
+    
+    func testRemoveExpiredBeverages() {
+        let coke1 = Coke(brand: "코카콜라", capacity: 200, price: 1000, name: "코카콜라", manufacturedDate: "20170202", calories: 80, hasIce: true)
+        let coke2 = Coke(brand: "코카콜라", capacity: 200, price: 1000, name: "제로콜라", manufacturedDate: "20180614", calories: 0, hasIce: false)
+        let sprite = Sprite(brand: "칠성", capacity: 200, price: 1000, name: "칠성사이다", manufacturedDate: "20180602", calories: 80, hasOneMoreOnCap: true)
+        vendingMachine.add(beverage: coke1)
+        vendingMachine.add(beverage: sprite)
+        vendingMachine.add(beverage: coke2)
+        let expected: [Beverage] = [coke1, sprite]
+        XCTAssertEqual(vendingMachine.removeExpired(), expected)
+    }
+    
+    func testRemoveExpiredBeverages_remainedBeverages() {
+        let cantata = Cantata(brand: "칸타타", capacity: 200, price: 1000, name: "칸타타", manufacturedDate: "20180602", caffeineContent: 35.3, flavor: "아메리카노")
+        let coke = Coke(brand: "코카콜라", capacity: 200, price: 1000, name: "제로콜라", manufacturedDate: "20180612", calories: 0, hasIce: false)
+        let sprite = Sprite(brand: "칠성", capacity: 200, price: 1000, name: "칠성사이다", manufacturedDate: "20171212", calories: 80, hasOneMoreOnCap: true)
+        let chocoMilk = ChocoMilk(brand: "서울우유", capacity: 350, price: 1300, name: "초코우유", manufacturedDate: "20180614", hasCacao: true)
+        vendingMachine.add(beverage: cantata)
+        vendingMachine.add(beverage: coke)
+        vendingMachine.add(beverage: sprite)
+        vendingMachine.add(beverage: chocoMilk)
+        vendingMachine.removeExpired()
+        let expected: [ProductType:Products] = [
+            ProductType.Coke : Products(beverages: [coke]),
+            ProductType.ChocoMilk : Products(beverages: [chocoMilk])
         ]
         XCTAssertEqual(vendingMachine.readAllStock(), expected)
     }
