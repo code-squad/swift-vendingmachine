@@ -33,7 +33,13 @@ class StockManager: NSObject {
     }
     
     func buy(_ productType: ProductType) -> Beverage? {
-        return self.stock[productType]?.remove()
+        guard let products = self.stock[productType] else { return nil }
+        if products.count == 0 {
+            self.stock.removeValue(forKey: productType)
+            return nil
+        } else {
+            return products.remove()
+        }
     }
     
     func readAllStock() -> [ProductType:Products] {
