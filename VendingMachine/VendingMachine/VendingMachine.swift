@@ -8,18 +8,17 @@
 
 import Foundation
 
-struct VendingMachine: Equatable {
+class VendingMachine {
     
     private var balance: Int = 0
     private var stockManager: StockManager
-    private var history: History
+    private var history = [Beverage]()
     
     init(stockManager: StockManager) {
         self.stockManager = stockManager
-        self.history = History(purchased: [Beverage]())
     }
     
-    mutating func insertMoney(_ price: Int) {
+    func insertMoney(_ price: Int) {
         self.balance += price
     }
     
@@ -27,7 +26,7 @@ struct VendingMachine: Equatable {
         return "\(self.balance)원"
     }
     
-    mutating func add(beverage: Beverage) {
+    func add(beverage: Beverage) {
         self.stockManager.add(beverage: beverage)
     }
     
@@ -35,11 +34,12 @@ struct VendingMachine: Equatable {
         return self.stockManager.readBuyableProducts(price: self.balance)
     }
     
-    @discardableResult
-    mutating func buy(_ productType: ProductType) -> Beverage? {
-        let removed = self.stockManager.buy(productType)
+    func buy(_ productType: ProductType) {
+        guard let removed = self.stockManager.buy(productType) else {
+            return
+        }
         self.balance -= productType.price
-        return removed
+        self.history.append(removed)
     }
     
     func readAllStock() -> [ProductType:Products] {
@@ -54,11 +54,17 @@ struct VendingMachine: Equatable {
         return self.stockManager.remove{ $0.isHot }
     }
     
-    mutating func addBeverageInHistory(_ beverage: Beverage) {
-        self.history.addPurchased(beverage)
+    func readPurchaseHistory() -> [Beverage] {
+        return self.history
+    }
+}
+
+extension VendingMachine: Equatable {
+    static func == (lhs: VendingMachine, rhs: VendingMachine) -> Bool {
+        return lhs.balance == rhs.balance &&
+            lhs.stockManager == rhs.stockManager &&
+            lhs.history == rhs.history
     }
     
-    func readPurchaseHistory() -> [Beverage] {
-        return self.history.readPurchased()
-    }
+    
 }
