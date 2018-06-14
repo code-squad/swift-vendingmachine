@@ -36,6 +36,17 @@ class Beverage: NSObject {
     func isExpensive(than price: Int) -> Bool {
         return self.price > price
     }
+    
+    func isExpired(_ checkDate: Date) -> Bool {
+        return manufacturedDate + self.productType!.expiratation < checkDate
+    }
+    
+    override func isEqual(_ object: Any?) -> Bool {
+        guard let beverage = object as? Beverage else {
+            return false
+        }
+        return self.productType! == beverage.productType!
+    }
 }
 
 extension String {

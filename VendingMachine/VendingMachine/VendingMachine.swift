@@ -43,4 +43,8 @@ struct VendingMachine: Equatable {
     func readAllStock() -> [ProductType:Products] {
         return self.stockManager.readAllStock()
     }
+    
+    func removeExpired() -> [Beverage] {
+        return self.stockManager.removeExpired()
+    }
 }

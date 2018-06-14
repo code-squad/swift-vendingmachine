@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct StockManager: Equatable {
+class StockManager: NSObject {
     
     private var stock: [ProductType:Products]
     
@@ -16,13 +16,12 @@ struct StockManager: Equatable {
         self.stock = stock
     }
     
-    mutating func add(beverage: Beverage) {
+    func add(beverage: Beverage) {
         guard let productType = beverage.productType else {
             return
         }
-        if let _ = self.stock[productType] {
-            // 바인딩 값으로 쓸 경우 '바인딩변수'.append(beverage)를 할 경우 값 타입이라 기존값에 같은 음료 추가 불가능.
-            self.stock[productType]?.append(beverage)
+        if let products = self.stock[productType] {
+            products.append(beverage)
         } else {
             self.stock[productType] = Products(beverages: [beverage])
         }
@@ -30,20 +29,37 @@ struct StockManager: Equatable {
     
     // 구매가능한 [음료종류:재고]로 반환
     func readBuyableProducts(price: Int) -> [ProductType:Int] {
-        let buyableStock = self.stock.filter { $0.key.price <= price }
-        return buyableStock.mapValues { $0.count }
+        return self.stock.filter { $0.key.price <= price }.mapValues{ $0.count }
     }
     
-    mutating func buy(_ productType: ProductType) -> Beverage? {
+    func buy(_ productType: ProductType) -> Beverage? {
         return self.stock[productType]?.remove()
     }
     
     func readAllStock() -> [ProductType:Products] {
         return self.stock
     }
+    
+    func removeExpired() -> [Beverage] {
+        var expired = [Beverage]()
+        for (productType, products) in self.stock {
+            expired += products.removeExpired()
+            if products.count == 0 {
+                self.stock.removeValue(forKey: productType)
+            }
+        }
+        return expired
+    }
+    
+    override func isEqual(_ object: Any?) -> Bool {
+        guard let stockManager = object as? StockManager else {
+            return false
+        }
+        return self.stock == stockManager.stock
+    }
 }
 
-struct Products: Equatable, Sequence {
+class Products: NSObject, Sequence {
     
     private var beverages: [Beverage]
     
@@ -55,19 +71,32 @@ struct Products: Equatable, Sequence {
         self.beverages = beverages
     }
     
-    mutating func append(_ beverage: Beverage) {
+    func append(_ beverage: Beverage) {
         self.beverages.append(beverage)
     }
     
-    mutating func remove() -> Beverage? {
+    func remove() -> Beverage? {
         return self.beverages.popLast()
+    }
+    
+    func removeExpired() -> [Beverage] {
+        let expired = self.beverages.filter { $0.isExpired(Date()) }
+        self.beverages = self.beverages.filter { !$0.isExpired(Date()) }
+        return expired
+    }
+    
+    override func isEqual(_ object: Any?) -> Bool {
+        guard let product = object as? Products else {
+            return false
+        }
+        return self.beverages == product.beverages
     }
 }
 
 extension Products: IteratorProtocol {
     typealias Element = Beverage
     
-    mutating func next() -> Element? {
+    func next() -> Element? {
         return beverages.popLast()
     }
 }
