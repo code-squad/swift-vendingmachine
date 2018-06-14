@@ -12,12 +12,12 @@ class Coke: Soda {
     
     private let hasIce: Bool
     
-    init(brand: String, capacity: Int, price: Int, name: String, manufacturedDate: String, calories: Int, hasIce: Bool) {
+    init(brand: String, capacity: Int, price: Int, name: String, manufacturedDate: String, calories: Int, hasIce: Bool, isHot: Bool) {
         self.hasIce = hasIce
-        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate, calories: calories)
+        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate, calories: calories, isHot: isHot)
     }
     
     convenience init() {
-        self.init(brand: "코카콜라", capacity: 200, price: ProductType.Coke.price, name: "코카콜라", manufacturedDate: Date().today, calories: 35, hasIce: false)
+        self.init(brand: "코카콜라", capacity: 200, price: ProductType.Coke.price, name: "코카콜라", manufacturedDate: Date().today, calories: 35, hasIce: false, isHot: false)
     }
 }

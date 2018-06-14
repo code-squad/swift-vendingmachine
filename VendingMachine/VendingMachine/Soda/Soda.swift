@@ -12,9 +12,9 @@ class Soda: Beverage {
     
     private let calories: Int
     
-    init(brand: String, capacity: Int, price: Int, name: String, manufacturedDate: String, calories: Int) {
+    init(brand: String, capacity: Int, price: Int, name: String, manufacturedDate: String, calories: Int, isHot: Bool) {
         self.calories = calories
-        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate)
+        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate, isHot: isHot)
     }
     
     func isLowCalories() -> Bool {
