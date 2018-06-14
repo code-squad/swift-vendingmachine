@@ -11,12 +11,12 @@ import Foundation
 class Georgia: Coffee {
     private let flavor: String
     
-    init(brand: String, capacity: Int, price: Int, name: String, manufacturedDate: String, caffeineContent: Double, flavor: String) {
+    init(brand: String, capacity: Int, price: Int, name: String, manufacturedDate: String, caffeineContent: Double, flavor: String, isHot: Bool) {
         self.flavor = flavor
-        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate, caffeineContent: caffeineContent)
+        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate, caffeineContent: caffeineContent, isHot: isHot)
     }
     
     convenience init() {
-        self.init(brand: "조지아", capacity: 150, price: ProductType.Georgia.price, name: "조지아커피", manufacturedDate: Date().today, caffeineContent: 20.5, flavor: "아메리카노")
+        self.init(brand: "조지아", capacity: 150, price: ProductType.Georgia.price, name: "조지아커피", manufacturedDate: Date().today, caffeineContent: 20.5, flavor: "아메리카노", isHot: false)
     }
 }

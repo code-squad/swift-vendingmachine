@@ -11,9 +11,9 @@ import Foundation
 class Coffee: Beverage {
     private let caffeineContent: Double
     
-    init(brand: String, capacity: Int, price: Int, name: String, manufacturedDate: String, caffeineContent: Double) {
+    init(brand: String, capacity: Int, price: Int, name: String, manufacturedDate: String, caffeineContent: Double, isHot: Bool) {
         self.caffeineContent = caffeineContent
-        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate)
+        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate, isHot: isHot)
     }
     
     func isNonCaffeine() -> Bool {

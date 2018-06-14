@@ -17,12 +17,12 @@ class TOP: Coffee {
     
     private let canColor: CanColor
     
-    init(brand: String, capacity: Int, price: Int, name: String, manufacturedDate: String, caffeineContent: Double, canColor: CanColor) {
+    init(brand: String, capacity: Int, price: Int, name: String, manufacturedDate: String, caffeineContent: Double, canColor: CanColor, isHot: Bool) {
         self.canColor = canColor
-        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate, caffeineContent: caffeineContent)
+        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate, caffeineContent: caffeineContent, isHot: isHot)
     }
     
     convenience init() {
-        self.init(brand: "티오피", capacity: 200, price: ProductType.TOP.price, name: "TOP", manufacturedDate: Date().today, caffeineContent: 40, canColor: .yellow)
+        self.init(brand: "티오피", capacity: 200, price: ProductType.TOP.price, name: "TOP", manufacturedDate: Date().today, caffeineContent: 40, canColor: .yellow, isHot: false)
     }
 }
