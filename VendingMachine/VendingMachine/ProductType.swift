@@ -56,5 +56,25 @@ enum ProductType: String, Hashable, Equatable {
             return 3 * 86400
         }
     }
-    
+}
+
+extension ProductType: CustomStringConvertible {
+    var description: String {
+        switch self {
+        case .Coke:
+            return "콜라"
+        case .Cantata:
+            return "칸타타"
+        case .ChocoMilk:
+            return "초코우유"
+        case .Georgia:
+            return "조지아커피"
+        case .Sprite:
+            return "사이다"
+        case .StrawberryMilk:
+            return "딸기우유"
+        case .TOP:
+            return "티오피"
+        }
+    }
 }
