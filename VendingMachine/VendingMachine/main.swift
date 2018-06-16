@@ -44,7 +44,11 @@ func main() {
                 vendingMachine.insertMoney(option)
                 productTypeList = Formatter.makeProductTypes(vendingMachine.readBuyableProducts())
             case BUYBEVERAGE:
-                try outputView.printSoldBeverage(productTypeList[option - 1])
+                let selectedBeverageType: Int = option - 1
+                guard productTypeList.indices.contains(selectedBeverageType) else {
+                    throw VendingMachine.Error.selectMenuError
+                }
+                try outputView.printSoldBeverage(productTypeList[selectedBeverageType])
             case QUIT:
                 return
             default:
