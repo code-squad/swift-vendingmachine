@@ -34,12 +34,14 @@ class VendingMachine {
         return self.stockManager.readBuyableProducts(price: self.balance)
     }
     
-    func buy(_ productType: ProductType) {
+    func buy(_ productType: ProductType) throws -> Beverage {
+        if productType.price > self.balance { throw Error.insufficientBalance }
         guard let removed = self.stockManager.buy(productType) else {
-            return
+            throw Error.soldOut
         }
         self.balance -= productType.price
         self.history.append(removed)
+        return removed
     }
     
     func readAllStock() -> [ProductType:Products] {
@@ -57,6 +59,10 @@ class VendingMachine {
     func readPurchaseHistory() -> [Beverage] {
         return self.history
     }
+    
+    func readStock(_ productType: ProductType) -> Int {
+        return self.stockManager.readStock(productType)
+    }
 }
 
 extension VendingMachine: Equatable {
@@ -65,6 +71,20 @@ extension VendingMachine: Equatable {
             lhs.stockManager == rhs.stockManager &&
             lhs.history == rhs.history
     }
-    
-    
+}
+
+extension VendingMachine {
+    enum Error: Swift.Error {
+        case insufficientBalance
+        case soldOut
+        
+        var errorMessage: String {
+            switch self {
+            case .insufficientBalance:
+                return "잔액이 부족합니다."
+            case .soldOut:
+                return "재고가 부족합니다."
+            }
+        }
+    }
 }
