@@ -58,6 +58,10 @@ class StockManager: NSObject {
         return removed
     }
     
+    func readStock(_ productType: ProductType) -> Int {
+        return self.stock[productType]?.count ?? 0
+    }
+    
     override func isEqual(_ object: Any?) -> Bool {
         guard let stockManager = object as? StockManager else {
             return false
