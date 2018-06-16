@@ -8,13 +8,22 @@
 
 import Foundation
 
-class VendingMachine {
+protocol StockManagable {
+    func add(beverage: Beverage)
+    func readBuyableProducts(price: Int) -> [ProductType:Int]
+    func buy(_ productType: ProductType) -> Beverage?
+    func readAllStock() -> [ProductType:Products]
+    func readStock(_ productType: ProductType) -> Int
+    func remove(_ conditionHandler: (Beverage) -> Bool ) -> [Beverage]
+}
+
+class VendingMachine: NSObject, AvailableVendingMachine {
     
     private var balance: Int = 0
-    private var stockManager: StockManager
+    private var stockManager: StockManagable
     private var history = [Beverage]()
     
-    init(stockManager: StockManager) {
+    init(stockManager: StockManagable) {
         self.stockManager = stockManager
     }
     
@@ -65,18 +74,11 @@ class VendingMachine {
     }
 }
 
-extension VendingMachine: Equatable {
-    static func == (lhs: VendingMachine, rhs: VendingMachine) -> Bool {
-        return lhs.balance == rhs.balance &&
-            lhs.stockManager == rhs.stockManager &&
-            lhs.history == rhs.history
-    }
-}
-
 extension VendingMachine {
     enum Error: Swift.Error {
         case insufficientBalance
         case soldOut
+        case selectMenuError
         
         var errorMessage: String {
             switch self {
@@ -84,6 +86,8 @@ extension VendingMachine {
                 return "잔액이 부족합니다."
             case .soldOut:
                 return "재고가 부족합니다."
+            case .selectMenuError:
+                return "없는 메뉴를 선택했습니다. 다시 선택하세요"
             }
         }
     }

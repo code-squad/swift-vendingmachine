@@ -8,7 +8,7 @@
 
 import Foundation
 
-class StockManager: NSObject {
+class StockManager: NSObject, StockManagable {
     
     private var stock: [ProductType:Products]
     

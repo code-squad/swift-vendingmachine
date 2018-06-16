@@ -8,11 +8,18 @@
 
 import Foundation
 
+protocol AvailableVendingMachine {
+    func readBalance() -> String
+    func readAllStock() -> [ProductType:Products]
+    func readStock(_ productType: ProductType) -> Int
+    func buy(_ productType: ProductType) throws -> Beverage
+}
+
 struct OutputView {
     
-    private var vendingMachine: VendingMachine
+    private var vendingMachine: AvailableVendingMachine
     
-    init(_ vendingMachine: VendingMachine) {
+    init(_ vendingMachine: AvailableVendingMachine) {
         self.vendingMachine = vendingMachine
     }
 
@@ -29,11 +36,7 @@ struct OutputView {
     }
 
     func printBuyableProducts(_ buyableList: [ProductType]) {
-        if buyableList.isEmpty {
-            print("현재 구매 가능 음료 없음")
-            return
-        }
-        print("=========현재 잔액으로 구매가능한 음료==========")
+        print("=========현재 잔액으로 구매가능한 음료===========")
         for index in buyableList.indices {
             print("\(index + 1)) \(buyableList[index]) \(buyableList[index].price)원, 재고: \(self.vendingMachine.readStock(buyableList[index]))개")
         }
