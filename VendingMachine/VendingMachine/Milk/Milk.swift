@@ -11,10 +11,10 @@ import Foundation
 class Milk: Beverage {
     
     private let expiredDate: Date
-    private let expiredPeriod: TimeInterval = 864000 // 10 days
+    private let tenDaysPeriod: TimeInterval = 86400 * 10
     
     override init(brand: String, capacity: Int, price: Int, name: String, manufacturedDate: String) {
-        self.expiredDate = manufacturedDate.customDateFormat.addingTimeInterval(self.expiredPeriod)
+        self.expiredDate = manufacturedDate.customDateFormat.addingTimeInterval(self.tenDaysPeriod)
         super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate)
     }
     
