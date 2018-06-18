@@ -13,6 +13,6 @@ import XCTest
 class TOPUnitTest: XCTestCase {
     
     func testTOPInstatiate_success() {
-        XCTAssertNotNil(TOP(brand: "맥심", capacity: 400, price: 300, name: "TOP아메리카노", manufacturedDate: "20171010", caffeineContent: 100, canColor: .black, isHot: false))
+        XCTAssertNotNil(TOP(brand: "맥심", capacity: 400, price: 300, name: "TOP아메리카노", manufacturedDate: "20171010", caffeineContent: 100, canColor: .black, temperature: 90.0))
     }
 }
