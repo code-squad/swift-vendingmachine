@@ -13,6 +13,6 @@ import XCTest
 class SpriteUnitTest: XCTestCase {
 
     func testSpriteInstantiate_success() {
-        XCTAssertNotNil(Sprite(brand: "칠성", capacity: 250, price: 1000, name: "칠성사이다", manufacturedDate: "20180601", calories: 90, hasOneMoreOnCap: false, isHot: false))
+        XCTAssertNotNil(Sprite(brand: "칠성", capacity: 250, price: 1000, name: "칠성사이다", manufacturedDate: "20180601", calories: 90, hasOneMoreOnCap: false))
     }
 }

@@ -11,12 +11,12 @@ import Foundation
 class Cantata: Coffee {
     private let flavor: String
     
-    init(brand: String, capacity: Int, price: Int, name: String, manufacturedDate: String, caffeineContent: Double, flavor: String, isHot: Bool) {
+    init(brand: String, capacity: Int, price: Int, name: String, manufacturedDate: String, caffeineContent: Double, flavor: String, temperature: Double) {
         self.flavor = flavor
-        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate, caffeineContent: caffeineContent, isHot: isHot)
+        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate, caffeineContent: caffeineContent, temperature: temperature)
     }
     
     convenience init() {
-        self.init(brand: "칸타타", capacity: 180, price: ProductType.Cantata.price, name: "칸타타커피", manufacturedDate: Date().today, caffeineContent: 35.5, flavor: "라떼", isHot: false)
+        self.init(brand: "칸타타", capacity: 180, price: ProductType.Cantata.price, name: "칸타타커피", manufacturedDate: Date().today, caffeineContent: 35.5, flavor: "라떼", temperature: 27.5)
     }
 }

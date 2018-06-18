@@ -13,6 +13,6 @@ import XCTest
 class ChocoMilkUnitTest: XCTestCase {
 
     func testChocoMilkInstantiate_success() {
-        XCTAssertNotNil(ChocoMilk(brand: "서울우유", capacity: 500, price: 1300, name: "딸기맛우유", manufacturedDate: "20180101", hasCacao: true, isHot: false))
+        XCTAssertNotNil(ChocoMilk(brand: "서울우유", capacity: 500, price: 1300, name: "딸기맛우유", manufacturedDate: "20180101", hasCacao: true))
     }
 }

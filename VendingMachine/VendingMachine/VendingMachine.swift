@@ -22,6 +22,7 @@ class VendingMachine: NSObject, AvailableVendingMachine {
     private var balance: Int = 0
     private var stockManager: StockManagable
     private var history = [Beverage]()
+    private let hotTemperature: Double = 90.0
     
     init(stockManager: StockManagable) {
         self.stockManager = stockManager
@@ -62,7 +63,12 @@ class VendingMachine: NSObject, AvailableVendingMachine {
     }
     
     func removeHot() -> [Beverage] {
-        return self.stockManager.remove{ $0.isHot }
+        return self.stockManager.remove{
+            guard let coffee = $0 as? Coffee else {
+                return false
+            }
+            return coffee.isHot(than: 90.0)
+        }
     }
     
     func readPurchaseHistory() -> [Beverage] {

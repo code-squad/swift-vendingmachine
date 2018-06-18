@@ -12,12 +12,12 @@ class Sprite: Soda {
     
     private let hasOneMoreOnCap: Bool // 뚜껑에 한 병 더
     
-    init(brand: String, capacity: Int, price: Int, name: String, manufacturedDate: String, calories: Int, hasOneMoreOnCap: Bool, isHot: Bool) {
+    init(brand: String, capacity: Int, price: Int, name: String, manufacturedDate: String, calories: Int, hasOneMoreOnCap: Bool) {
         self.hasOneMoreOnCap = hasOneMoreOnCap
-        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate, calories: calories, isHot: isHot)
+        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate, calories: calories)
     }
     
     convenience init() {
-        self.init(brand: "사이다", capacity: 200, price: ProductType.Sprite.price, name: "코카콜라", manufacturedDate: Date().today, calories: 35, hasOneMoreOnCap: false, isHot: false)
+        self.init(brand: "사이다", capacity: 200, price: ProductType.Sprite.price, name: "코카콜라", manufacturedDate: Date().today, calories: 35, hasOneMoreOnCap: false)
     }
 }

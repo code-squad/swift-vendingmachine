@@ -15,15 +15,13 @@ class Beverage: NSObject {
     private let price: Int
     private let name: String
     private let manufacturedDate: Date
-    private(set) var isHot: Bool
     
-    init(brand: String, capacity: Int, price: Int, name: String, manufacturedDate: String, isHot: Bool) {
+    init(brand: String, capacity: Int, price: Int, name: String, manufacturedDate: String) {
         self.brand = brand
         self.capacity = capacity
         self.price = price
         self.name = name
         self.manufacturedDate = manufacturedDate.customDateFormat
-        self.isHot = isHot
     }
     
     var productType: ProductType? {

@@ -17,16 +17,16 @@ class CoffeeUnitTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        self.coffee = Coffee(brand: "맥심", capacity: 400, price: 3000, name: "그냥커피", manufacturedDate: "20180606", caffeineContent: 150, isHot: false)
+        self.coffee = Coffee(brand: "맥심", capacity: 400, price: 3000, name: "그냥커피", manufacturedDate: "20180606", caffeineContent: 150, temperature: 80)
     }
     
     func testCoffeeInstantiate_success() {
-        let coffee: Coffee = Coffee(brand: "맥심", capacity: 400, price: 3000, name: "그냥커피", manufacturedDate: "20180606", caffeineContent: 150, isHot: true)
+        let coffee: Coffee = Coffee(brand: "맥심", capacity: 400, price: 3000, name: "그냥커피", manufacturedDate: "20180606", caffeineContent: 150, temperature: 85.5)
         XCTAssertNotNil(coffee)
     }
     
     func testCoffeeIsNonCaffeine() {
-        let coffee: Coffee = Coffee(brand: "맥심", capacity: 400, price: 3000, name: "그냥커피", manufacturedDate: "20180606", caffeineContent: 0, isHot: true)
+        let coffee: Coffee = Coffee(brand: "맥심", capacity: 400, price: 3000, name: "그냥커피", manufacturedDate: "20180606", caffeineContent: 0, temperature: 10)
         XCTAssertTrue(coffee.isNonCaffeine())
     }
     
