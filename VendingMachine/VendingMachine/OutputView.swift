@@ -9,7 +9,7 @@
 import Foundation
 
 protocol AvailableVendingMachine {
-    func readBalance() -> String
+    func readBalance() -> Int
     func readAllStock() -> [ProductType:Products]
     func readStock(_ productType: ProductType) -> Int
     func buy(_ productType: ProductType) throws -> Beverage
@@ -24,7 +24,7 @@ struct OutputView {
     }
 
     func printBalance() {
-        print("현재 투입한 금액이 \(vendingMachine.readBalance())입니다.")
+        print("현재 투입한 금액이 \(vendingMachine.readBalance())원 입니다.")
     }
 
     func printAllStock() {

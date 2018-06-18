@@ -32,8 +32,8 @@ class VendingMachine: NSObject, AvailableVendingMachine {
         self.balance += price
     }
     
-    func readBalance() -> String {
-        return "\(self.balance)원"
+    func readBalance() -> Int {
+        return self.balance
     }
     
     func add(beverage: Beverage) {

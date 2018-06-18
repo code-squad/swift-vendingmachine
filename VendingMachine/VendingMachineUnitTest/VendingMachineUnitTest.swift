@@ -26,13 +26,13 @@ class VendingMachineUnitTest: XCTestCase {
     }
     
     func testReadBalance() {
-        XCTAssertEqual(vendingMachine.readBalance(), "0원")
+        XCTAssertEqual(vendingMachine.readBalance(), 0)
     }
     
     func testInsertMoney() {
         vendingMachine.insertMoney(1000)
         let balance = vendingMachine.readBalance()
-        XCTAssertEqual(balance, "1000원")
+        XCTAssertEqual(balance, 1000)
     }
     
     func testProductsAppendBeverage() {
@@ -106,7 +106,7 @@ class VendingMachineUnitTest: XCTestCase {
         vendingMachine.add(beverage: Coke())
         vendingMachine.insertMoney(2020)
         vendingMachine.buy(.Coke)
-        XCTAssertEqual(vendingMachine.readBalance(), "1020원")
+        XCTAssertEqual(vendingMachine.readBalance(), 1020)
     }
     
     func testBuyBeverage_checkBeverageBought() {
