@@ -18,6 +18,6 @@ class Sprite: Soda {
     }
     
     convenience init() {
-        self.init(brand: "사이다", capacity: 200, price: ProductType.Sprite.price, name: "코카콜라", manufacturedDate: Date().today, calories: 35, hasOneMoreOnCap: false)
+        self.init(brand: "사이다", capacity: 200, price: 1000, name: "코카콜라", manufacturedDate: Date().today, calories: 35, hasOneMoreOnCap: false)
     }
 }

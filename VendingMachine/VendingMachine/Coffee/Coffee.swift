@@ -15,7 +15,7 @@ class Coffee: Beverage {
     init(brand: String, capacity: Int, price: Int, name: String, manufacturedDate: String, caffeineContent: Double, temperature: Double) {
         self.temperature = temperature
         self.caffeineContent = caffeineContent
-        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate)
+        super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate, expiration: 10 * 86400)
     }
     
     func isNonCaffeine() -> Bool {

@@ -14,9 +14,9 @@ func main() {
     let BUYBEVERAGE = 2
     let QUIT = 0
     
-    let vendingMachine = VendingMachine(stockManager: StockManager(stock: [:]))
+    let vendingMachine = VendingMachine(stockManager: StockManager(stock: [:]), history: History(purchased: []))
     let outputView = OutputView(vendingMachine)
-    var productTypeList: [ProductType] = []
+    var buyableProducts: [Products] = []
     
     // 기본 재고 설정
     vendingMachine.add(beverage: StrawberryMilk())
@@ -36,24 +36,26 @@ func main() {
     while true {
         do {
             outputView.printBalance()
-            outputView.printBuyableProducts(productTypeList)
+            outputView.printBuyableProducts()
             outputView.printMenu()
             let (menu, option) = InputView.selectMenu()
             switch menu {
             case INSERTCOIN:
                 vendingMachine.insertMoney(option)
-                productTypeList = Formatter.makeProductTypes(vendingMachine.readBuyableProducts())
+                buyableProducts = vendingMachine.readBuyableProducts()
             case BUYBEVERAGE:
-                let selectedBeverageType: Int = option - 1
-                guard productTypeList.indices.contains(selectedBeverageType) else {
-                    throw VendingMachine.Error.selectMenuError
-                }
-                try outputView.printSoldBeverage(productTypeList[selectedBeverageType])
+                if option > buyableProducts.count { throw StockManager.Error.selectMenuError }
+                let soldBeverage = try vendingMachine.buy(buyableProducts[option-1])
+                outputView.printSoldBeverage(soldBeverage)
+                buyableProducts = vendingMachine.readBuyableProducts()
             case QUIT:
                 return
             default:
                 continue
             }
+        } catch let error as StockManager.Error {
+            print("\(error.errorMessage)")
+            continue
         } catch let error as VendingMachine.Error {
             print("\(error.errorMessage)")
             continue

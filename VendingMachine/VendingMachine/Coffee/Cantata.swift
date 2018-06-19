@@ -17,6 +17,6 @@ class Cantata: Coffee {
     }
     
     convenience init() {
-        self.init(brand: "칸타타", capacity: 180, price: ProductType.Cantata.price, name: "칸타타커피", manufacturedDate: Date().today, caffeineContent: 35.5, flavor: "라떼", temperature: 27.5)
+        self.init(brand: "칸타타", capacity: 180, price: 1200, name: "칸타타커피", manufacturedDate: Date().today, caffeineContent: 35.5, flavor: "라떼", temperature: 27.5)
     }
 }

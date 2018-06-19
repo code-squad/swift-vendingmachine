@@ -10,11 +10,11 @@ import Foundation
 
 struct Formatter {
     
-    static func makeProductTypes(_ buyableProducts: [ProductType:Int]) -> [ProductType] {
+    static func makeProductTypes(_ buyableProducts: [ObjectIdentifier:Int]) -> [ObjectIdentifier] {
         return Array(buyableProducts.keys)
     }
     
-    static func makeProductType(_ input: Int, _ productTypeList: [ProductType]) -> ProductType {
+    static func makeProductType(_ input: Int, _ productTypeList: [ObjectIdentifier]) -> ObjectIdentifier {
         let index = input - 1
         return productTypeList[index]
     }

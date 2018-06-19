@@ -16,7 +16,6 @@
 		738548A820D77184000AE4EB /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E2D73520C67A5300E78BC7 /* Beverage.swift */; };
 		738548A920D77184000AE4EB /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FFC4F320CECB88002FA119 /* VendingMachine.swift */; };
 		738548AA20D77184000AE4EB /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FFC51A20D244AF002FA119 /* History.swift */; };
-		738548AB20D77184000AE4EB /* ProductType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FFC4F820CEDA31002FA119 /* ProductType.swift */; };
 		738548AC20D77184000AE4EB /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E2D73B20C6B6FB00E78BC7 /* Coffee.swift */; };
 		738548AD20D77184000AE4EB /* TOP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7394882E20C9015300E6FD49 /* TOP.swift */; };
 		738548AE20D77184000AE4EB /* Cantata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7394883020C9016900E6FD49 /* Cantata.swift */; };
@@ -52,7 +51,6 @@
 		73E2D73C20C6B6FB00E78BC7 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E2D73B20C6B6FB00E78BC7 /* Coffee.swift */; };
 		73FFC4F420CECB88002FA119 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FFC4F320CECB88002FA119 /* VendingMachine.swift */; };
 		73FFC4F720CED90D002FA119 /* StockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FFC4F620CED90D002FA119 /* StockManager.swift */; };
-		73FFC4F920CEDA31002FA119 /* ProductType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FFC4F820CEDA31002FA119 /* ProductType.swift */; };
 		73FFC51B20D244AF002FA119 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FFC51A20D244AF002FA119 /* History.swift */; };
 		73FFC51E20D249AB002FA119 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FFC51D20D249AB002FA119 /* OutputView.swift */; };
 		73FFC52020D24D15002FA119 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FFC51F20D24D15002FA119 /* InputView.swift */; };
@@ -100,7 +98,6 @@
 		73E2D73B20C6B6FB00E78BC7 /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		73FFC4F320CECB88002FA119 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 		73FFC4F620CED90D002FA119 /* StockManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockManager.swift; sourceTree = "<group>"; };
-		73FFC4F820CEDA31002FA119 /* ProductType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductType.swift; sourceTree = "<group>"; };
 		73FFC51A20D244AF002FA119 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		73FFC51D20D249AB002FA119 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		73FFC51F20D24D15002FA119 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
@@ -206,7 +203,6 @@
 				73E2D73520C67A5300E78BC7 /* Beverage.swift */,
 				73FFC4F320CECB88002FA119 /* VendingMachine.swift */,
 				73FFC51A20D244AF002FA119 /* History.swift */,
-				73FFC4F820CEDA31002FA119 /* ProductType.swift */,
 				7394882D20C900ED00E6FD49 /* Coffee */,
 				7394882C20C900E200E6FD49 /* Milk */,
 				7394882A20C900BD00E6FD49 /* Soda */,
@@ -323,7 +319,6 @@
 				738548BA20D77272000AE4EB /* SodaUnitTest.swift in Sources */,
 				738548C220D77272000AE4EB /* MilkUnitTests.swift in Sources */,
 				738548C020D77272000AE4EB /* CantataUnitTests.swift in Sources */,
-				738548AB20D77184000AE4EB /* ProductType.swift in Sources */,
 				738548BC20D77272000AE4EB /* CoffeeUnitTests.swift in Sources */,
 				738548AC20D77184000AE4EB /* Coffee.swift in Sources */,
 				738548AD20D77184000AE4EB /* TOP.swift in Sources */,
@@ -348,7 +343,6 @@
 				73FFC4F420CECB88002FA119 /* VendingMachine.swift in Sources */,
 				7394883120C9016900E6FD49 /* Cantata.swift in Sources */,
 				7394882F20C9015300E6FD49 /* TOP.swift in Sources */,
-				73FFC4F920CEDA31002FA119 /* ProductType.swift in Sources */,
 				73E2D73620C67A5300E78BC7 /* Beverage.swift in Sources */,
 				73E2D73820C697E500E78BC7 /* Milk.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,

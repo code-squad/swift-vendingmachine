@@ -10,22 +10,23 @@ import Foundation
 
 protocol StockManagable {
     func add(beverage: Beverage)
-    func readBuyableProducts(price: Int) -> [ProductType:Int]
-    func buy(_ productType: ProductType) -> Beverage?
-    func readAllStock() -> [ProductType:Products]
-    func readStock(_ productType: ProductType) -> Int
+    func readBuyableProducts(price: Int) -> [Products]
+    func buy(_ selected: Products) throws -> Beverage
+    func readAllStock() -> [ObjectIdentifier:Products]
+    func readStock(_ productType: ObjectIdentifier) -> Int
     func remove(_ conditionHandler: (Beverage) -> Bool ) -> [Beverage]
 }
 
 class VendingMachine: NSObject, AvailableVendingMachine {
     
     private var balance: Int = 0
-    private var stockManager: StockManagable
-    private var history = [Beverage]()
+    private let stockManager: StockManagable
+    private var history: History
     private let hotTemperature: Double = 90.0
     
-    init(stockManager: StockManagable) {
+    init(stockManager: StockManagable, history: History) {
         self.stockManager = stockManager
+        self.history = history
     }
     
     func insertMoney(_ price: Int) {
@@ -40,21 +41,18 @@ class VendingMachine: NSObject, AvailableVendingMachine {
         self.stockManager.add(beverage: beverage)
     }
     
-    func readBuyableProducts() -> [ProductType:Int] {
+    func readBuyableProducts() -> [Products] {
         return self.stockManager.readBuyableProducts(price: self.balance)
     }
     
-    func buy(_ productType: ProductType) throws -> Beverage {
-        if productType.price > self.balance { throw Error.insufficientBalance }
-        guard let removed = self.stockManager.buy(productType) else {
-            throw Error.soldOut
-        }
-        self.balance -= productType.price
-        self.history.append(removed)
-        return removed
+    func buy(_ products: Products) throws -> Beverage {
+        let selected = try self.stockManager.buy(products)
+        self.balance = selected.minusBeveragePrice(from: self.balance)
+        self.history.addPurchased(selected)
+        return selected
     }
     
-    func readAllStock() -> [ProductType:Products] {
+    func readAllStock() -> [ObjectIdentifier:Products] {
         return self.stockManager.readAllStock()
     }
     
@@ -72,10 +70,10 @@ class VendingMachine: NSObject, AvailableVendingMachine {
     }
     
     func readPurchaseHistory() -> [Beverage] {
-        return self.history
+        return self.history.readPurchased()
     }
     
-    func readStock(_ productType: ProductType) -> Int {
+    func readStock(_ productType: ObjectIdentifier) -> Int {
         return self.stockManager.readStock(productType)
     }
 }
@@ -83,17 +81,11 @@ class VendingMachine: NSObject, AvailableVendingMachine {
 extension VendingMachine {
     enum Error: Swift.Error {
         case insufficientBalance
-        case soldOut
-        case selectMenuError
         
         var errorMessage: String {
             switch self {
             case .insufficientBalance:
                 return "잔액이 부족합니다."
-            case .soldOut:
-                return "재고가 부족합니다."
-            case .selectMenuError:
-                return "없는 메뉴를 선택했습니다. 다시 선택하세요"
             }
         }
     }
