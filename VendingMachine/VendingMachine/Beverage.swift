@@ -12,7 +12,7 @@ class Beverage: CustomStringConvertible, Validate {
     
     private let brand: String
     private let volume: Int
-    private let price: Int
+    private (set) var price: Int
     private let name: String
     private let expirationDate: Date
     var kind: String {
@@ -33,7 +33,7 @@ class Beverage: CustomStringConvertible, Validate {
         return "\(kind) - \(self.brand), \(self.volume)ml, \(self.price)원, \(self.name), \(dateFormatter.string(from: self.expirationDate))"
     }
     
-    func isValidate(_ today: Date) -> Bool {
+   func isValidate(_ today: Date) -> Bool {
         return today < self.expirationDate
     }
     
