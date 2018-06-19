@@ -10,6 +10,12 @@ import Foundation
 
 struct InputView {
     
+//    enum menu: Int {
+//        case addMoney : 1
+//        case addBeverage: 2
+//        
+//    }
+    
     func inputCoin() -> Int {
         let coin = Int(readLine() ?? "") ?? 0
         return coin
