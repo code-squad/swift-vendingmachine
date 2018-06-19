@@ -23,6 +23,10 @@ struct OutputView {
     init(_ vendingMachine: AvailableVendingMachine) {
         self.vendingMachine = vendingMachine
     }
+    
+    static func startMessage() {
+        print("자판기를 시작합니다.\n1. 관리자모드\n2. 사용자모드\n> ", terminator: "")
+    }
 
     func printBalance() {
         print("현재 투입한 금액이 \(vendingMachine.readBalance())원 입니다.")
