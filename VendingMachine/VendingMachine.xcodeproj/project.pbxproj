@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7319946820D38F6000AE3730 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7319946720D38F6000AE3730 /* Formatter.swift */; };
 		738548A320D77184000AE4EB /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FFC51D20D249AB002FA119 /* OutputView.swift */; };
-		738548A420D77184000AE4EB /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7319946720D38F6000AE3730 /* Formatter.swift */; };
 		738548A520D77184000AE4EB /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FFC51F20D24D15002FA119 /* InputView.swift */; };
 		738548A620D77184000AE4EB /* StockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FFC4F620CED90D002FA119 /* StockManager.swift */; };
 		738548A720D77184000AE4EB /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
@@ -70,7 +68,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		7319946720D38F6000AE3730 /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		7394882E20C9015300E6FD49 /* TOP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOP.swift; sourceTree = "<group>"; };
 		7394883020C9016900E6FD49 /* Cantata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cantata.swift; sourceTree = "<group>"; };
 		7394883220C9019B00E6FD49 /* Georgia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Georgia.swift; sourceTree = "<group>"; };
@@ -196,7 +193,6 @@
 			isa = PBXGroup;
 			children = (
 				73FFC51D20D249AB002FA119 /* OutputView.swift */,
-				7319946720D38F6000AE3730 /* Formatter.swift */,
 				73FFC51F20D24D15002FA119 /* InputView.swift */,
 				73FFC4F620CED90D002FA119 /* StockManager.swift */,
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
@@ -302,7 +298,6 @@
 			files = (
 				738548B820D77272000AE4EB /* SpriteUnitTest.swift in Sources */,
 				738548A320D77184000AE4EB /* OutputView.swift in Sources */,
-				738548A420D77184000AE4EB /* Formatter.swift in Sources */,
 				738548A520D77184000AE4EB /* InputView.swift in Sources */,
 				738548B620D7726F000AE4EB /* CokeUnitTest.swift in Sources */,
 				738548BB20D77272000AE4EB /* TOPUnitTests.swift in Sources */,
@@ -338,7 +333,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				73E2D73A20C6B4E900E78BC7 /* Soda.swift in Sources */,
-				7319946820D38F6000AE3730 /* Formatter.swift in Sources */,
 				7394883C20C91E0800E6FD49 /* StrawberryMilk.swift in Sources */,
 				73FFC4F420CECB88002FA119 /* VendingMachine.swift in Sources */,
 				7394883120C9016900E6FD49 /* Cantata.swift in Sources */,
