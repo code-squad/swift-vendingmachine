@@ -15,22 +15,19 @@ class Beverage: NSObject {
     private let price: Int
     private let name: String
     private let manufacturedDate: Date
+    private let expiration: TimeInterval
     
-    init(brand: String, capacity: Int, price: Int, name: String, manufacturedDate: String) {
+    init(brand: String, capacity: Int, price: Int, name: String, manufacturedDate: String, expiration: TimeInterval) {
         self.brand = brand
         self.capacity = capacity
         self.price = price
         self.name = name
         self.manufacturedDate = manufacturedDate.customDateFormat
-    }
-    
-    var productType: ProductType? {
-        let selfType = String(self.description.split(separator: ",").first ?? "")
-        return ProductType(rawValue: selfType)
+        self.expiration = expiration
     }
     
     override var description: String {
-        return "\(type(of: self)), \(self.brand), \(self.capacity)ml, \(self.price)원, \(self.name), \(self.manufacturedDate.customDateFormat)"
+        return "\(self.name)"
     }
     
     func isExpensive(than price: Int) -> Bool {
@@ -38,14 +35,22 @@ class Beverage: NSObject {
     }
     
     func isExpired(_ checkDate: Date) -> Bool {
-        return manufacturedDate + self.productType!.expiratation < checkDate
+        return manufacturedDate + self.expiration < checkDate
     }
     
     override func isEqual(_ object: Any?) -> Bool {
         guard let beverage = object as? Beverage else {
             return false
         }
-        return self.productType! == beverage.productType!
+        return ObjectIdentifier(type(of: self)) == ObjectIdentifier(type(of: beverage))
+    }
+    
+    func minusBeveragePrice(from balance: Int) -> Int {
+        return balance - self.price
+    }
+    
+    var beveragePrice: Int {
+        return self.price
     }
 }
 

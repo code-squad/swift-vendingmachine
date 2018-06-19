@@ -10,9 +10,10 @@ import Foundation
 
 protocol AvailableVendingMachine {
     func readBalance() -> Int
-    func readAllStock() -> [ProductType:Products]
-    func readStock(_ productType: ProductType) -> Int
-    func buy(_ productType: ProductType) throws -> Beverage
+    func readAllStock() -> [ObjectIdentifier:Products]
+    func readBuyableProducts() -> [Products]
+    func readStock(_ productType: ObjectIdentifier) -> Int
+    func buy(_ products: Products) throws -> Beverage
 }
 
 struct OutputView {
@@ -29,16 +30,17 @@ struct OutputView {
 
     func printAllStock() {
         print("===========전체 음료 목록==========")
-        for (prodcutType, products) in vendingMachine.readAllStock() {
-            print("\(prodcutType) \(prodcutType.price)원 (\(products.count)개)")
+        for product in self.vendingMachine.readAllStock().values {
+            print("\(product.beverageType)(\(product.count)개)")
         }
         print("================================")
     }
 
-    func printBuyableProducts(_ buyableList: [ProductType]) {
+    func printBuyableProducts() {
+        let buyableProducts = self.vendingMachine.readBuyableProducts()
         print("=========현재 잔액으로 구매가능한 음료===========")
-        for index in buyableList.indices {
-            print("\(index + 1)) \(buyableList[index]) \(buyableList[index].price)원, 재고: \(self.vendingMachine.readStock(buyableList[index]))개")
+        for index in buyableProducts.indices {
+            print("\(index+1))\(buyableProducts[index].beverageType) \(buyableProducts[index].productPrice)원 재고: \(buyableProducts[index].count)개")
         }
         print("=========================================")
     }
@@ -48,8 +50,7 @@ struct OutputView {
         print("2. 음료구매", terminator: "\n> ")
     }
     
-    func printSoldBeverage(_ productType: ProductType) throws {
-        let beverage = try self.vendingMachine.buy(productType)
-        print("\(beverage.productType!)를 구매하셨습니다. \(productType.price)원을 차감합니다.")
+    func printSoldBeverage(_ soldBeverage: Beverage) {
+        print("\(soldBeverage)를 구매하셨습니다. \(abs(soldBeverage.minusBeveragePrice(from: 0)))원을 차감합니다.")
     }
 }

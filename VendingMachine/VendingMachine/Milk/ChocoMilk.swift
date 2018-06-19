@@ -18,6 +18,6 @@ class ChocoMilk: Milk {
     }
     
     convenience init() {
-        self.init(brand: "서울우유", capacity: 250, price: ProductType.ChocoMilk.price, name: "초코우유", manufacturedDate: Date().today, hasCacao: true)
+        self.init(brand: "서울우유", capacity: 250, price: 1300, name: "초코우유", manufacturedDate: Date().today, hasCacao: true)
     }
 }

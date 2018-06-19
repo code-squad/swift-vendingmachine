@@ -9,43 +9,46 @@
 import Foundation
 
 class StockManager: NSObject, StockManagable {
+
+    private var stock: [ObjectIdentifier:Products]
     
-    private var stock: [ProductType:Products]
-    
-    init(stock: [ProductType:Products]) {
+    init(stock: [ObjectIdentifier:Products]) {
         self.stock = stock
     }
     
     func add(beverage: Beverage) {
-        guard let productType = beverage.productType else {
+        let productType = ObjectIdentifier(type(of: beverage))
+        guard let products = self.stock[productType] else {
+            self.stock[productType] = Products(beverages: [beverage])
             return
         }
-        if let products = self.stock[productType] {
-            products.append(beverage)
-        } else {
-            self.stock[productType] = Products(beverages: [beverage])
+        products.append(beverage)
+    }
+    
+    func readBuyableProducts(price: Int) -> [Products] {
+        return self.stock.values.filter { $0.isCheaper(than: price) }
+    }
+    
+    func buy(_ selected: Products) throws -> Beverage {
+        let productsKey = try findKeyOfProducts(selected)
+        guard let removed = self.stock[productsKey]?.remove() else {
+            throw Error.outOfStock
         }
+        return removed
     }
     
-    // 구매가능한 [음료종류:재고]로 반환
-    func readBuyableProducts(price: Int) -> [ProductType:Int] {
-        return self.stock.filter { $0.key.price <= price }.mapValues{ $0.count }
-    }
-    
-    func buy(_ productType: ProductType) -> Beverage? {
-        guard let products = self.stock[productType] else { return nil }
-        if products.count == 0 {
-            self.stock.removeValue(forKey: productType)
-            return nil
-        } else {
-            return products.remove()
+    private func findKeyOfProducts(_ selected: Products) throws -> ObjectIdentifier {
+        for (productsKey, products) in self.stock {
+            if products == selected {
+                return productsKey
+            }
         }
+        throw Error.selectMenuError
     }
     
-    func readAllStock() -> [ProductType:Products] {
+    func readAllStock() -> [ObjectIdentifier:Products] {
         return self.stock
     }
-    
 
     func remove(_ conditionHandler: (Beverage) -> Bool ) -> [Beverage] {
         var removed = [Beverage]()
@@ -58,7 +61,7 @@ class StockManager: NSObject, StockManagable {
         return removed
     }
     
-    func readStock(_ productType: ProductType) -> Int {
+    func readStock(_ productType: ObjectIdentifier) -> Int {
         return self.stock[productType]?.count ?? 0
     }
     
@@ -102,6 +105,21 @@ class Products: NSObject, Sequence {
         }
         return self.beverages == product.beverages
     }
+    
+    var beverageType: String {
+        return self.beverages.last?.description ?? ""
+    }
+    
+    func isCheaper(than price: Int) -> Bool {
+        guard let beverage = self.beverages.first else {
+            return false
+        }
+        return !beverage.isExpensive(than: price)
+    }
+    
+    var productPrice: Int {
+        return self.beverages.first?.beveragePrice ?? 0
+    }
 }
 
 extension Products: IteratorProtocol {
@@ -109,5 +127,21 @@ extension Products: IteratorProtocol {
     
     func next() -> Element? {
         return beverages.popLast()
+    }
+}
+
+extension StockManager {
+    enum Error: Swift.Error {
+        case outOfStock
+        case selectMenuError
+        
+        var errorMessage: String {
+            switch self {
+            case .outOfStock:
+                return "재고가 부족합니다."
+            case .selectMenuError:
+                return "메뉴에 없는 음료입니다."
+            }
+        }
     }
 }
