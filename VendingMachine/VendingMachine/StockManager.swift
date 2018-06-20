@@ -46,8 +46,8 @@ class StockManager: NSObject, StockManagable {
         throw Error.selectMenuError
     }
     
-    func readAllStock() -> [ObjectIdentifier:Products] {
-        return self.stock
+    func readAllStock() -> [Products] {
+        return self.stock.values.map { $0 as Products }
     }
 
     func remove(_ conditionHandler: (Beverage) -> Bool ) -> [Beverage] {
