@@ -50,6 +50,7 @@ struct OutputView {
     }
 
     func printMenu() {
+        print("Q. 사용종료")
         print("1. 금액추가")
         print("2. 음료구매", terminator: "\n> ")
     }
