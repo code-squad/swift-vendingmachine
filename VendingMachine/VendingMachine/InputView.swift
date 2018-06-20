@@ -38,7 +38,7 @@ struct InputView {
                 return .administrator
             case "2":
                 return .user
-            case "q":
+            case "Q":
                 return .quit
             default:
                 throw Error.modeSelectError

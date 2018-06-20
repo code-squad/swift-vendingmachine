@@ -20,6 +20,14 @@ func main() {
         do{
             OutputView.startMessage()
             let mode = try InputView.selectMode()
+            switch mode {
+            case .administrator:
+                
+            case .user:
+                
+            case .quit:
+                return
+            }
         } catch let error as InputView.Error {
             print(error.errorMessage)
             continue
