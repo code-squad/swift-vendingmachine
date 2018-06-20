@@ -8,9 +8,9 @@
 
 import Foundation
 
-protocol AvailableVendingMachine {
+protocol VendingMachinePrintable {
     func readBalance() -> Int
-    func readAllStock() -> [ObjectIdentifier:Products]
+    func readAllStock() -> [Products]
     func readBuyableProducts() -> [Products]
     func readStock(_ productType: ObjectIdentifier) -> Int
     func buy(_ products: Products) throws -> Beverage
@@ -18,14 +18,20 @@ protocol AvailableVendingMachine {
 
 struct OutputView {
     
-    private var vendingMachine: AvailableVendingMachine
+    private var vendingMachine: VendingMachinePrintable
     
-    init(_ vendingMachine: AvailableVendingMachine) {
+    init(_ vendingMachine: VendingMachinePrintable) {
         self.vendingMachine = vendingMachine
     }
     
     static func startMessage() {
-        print("자판기를 시작합니다.\n1. 관리자모드\n2. 사용자모드\n> ", terminator: "")
+        print("자판기를 시작합니다.\n1. 관리자모드\n2. 사용자모드\nQ. 사용종료\n> ", terminator: "")
+    }
+    
+    static func startAdminModeMessage() {
+        print("관리자모드를 시작합니다.")
+        print("1. 재고추가\n2. 재고삭제")
+        print("3. 유통기한지난 음료 삭제")
     }
 
     func printBalance() {
@@ -33,9 +39,9 @@ struct OutputView {
     }
 
     func printAllStock() {
-        print("===========전체 음료 목록==========")
-        for product in self.vendingMachine.readAllStock().values {
-            print("\(product.beverageType)(\(product.count)개)")
+        print("===========전체 재고 목록==========")
+        for stock in self.vendingMachine.readAllStock() {
+            print("\(stock.beverageType)(\(stock.count)개)")
         }
         print("================================")
     }
