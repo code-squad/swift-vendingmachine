@@ -13,7 +13,7 @@ protocol StockManagable {
     func add(beverage: Beverage)
     func readBuyableProducts(price: Int) -> [Products]
     func buy(_ selected: Products) throws -> Beverage
-    func readAllStock() -> [ObjectIdentifier:Products]
+    func readAllStock() -> [Products]
     func remove(_ conditionHandler: (Beverage) -> Bool ) -> [Beverage]
     func readStock(_ productType: ObjectIdentifier) -> Int
 }
@@ -21,7 +21,7 @@ protocol StockManagable {
 // user와 admin의 공통 사용 메서드
 protocol ProductsCheckable {
     func readBuyableProducts() -> [Products]
-    func readAllStock() -> [ObjectIdentifier:Products]
+    func readAllStock() -> [Products]
 }
 
 // User가 VendingMachine에서 사용할 메서드
@@ -39,14 +39,14 @@ protocol VendingMachineManagable: ProductsCheckable {
     func readStock(_ productType: ObjectIdentifier) -> Int
 }
 
-class VendingMachine: NSObject {
+class VendingMachine: NSObject, VendingMachinePrintable {
     
     private var balance: Int = 0
     private let stockManager: StockManagable
     private var history: History
     private let hotTemperature: Double = 90.0
     
-    private init(stockManager: StockManagable, history: History) {
+    init(stockManager: StockManagable, history: History) {
         self.stockManager = stockManager
         self.history = history
     }
@@ -79,7 +79,7 @@ extension VendingMachine: ProductsCheckable {
         return self.stockManager.readBuyableProducts(price: self.balance)
     }
     
-    func readAllStock() -> [ObjectIdentifier:Products] {
+    func readAllStock() -> [Products] {
         return self.stockManager.readAllStock()
     }
 }
