@@ -12,6 +12,8 @@ class UnitTestVendingMachine: XCTestCase {
     
     var date: DateFormatter!
     var today: DateFormatter!
+    var vendingmachine: Vendingmachine!
+    
     
     override func setUp() {
         super.setUp()
@@ -19,6 +21,36 @@ class UnitTestVendingMachine: XCTestCase {
         date.dateFormat = "yyyyMMdd"
         self.today = DateFormatter()
         today.dateFormat = "yyyyMMdd"
+        
+        let beverageSet = [
+            StrawberryMilk.init("서울우유", 200, 1000, "날마다딸기우유", date.date(from: "20180501") ?? Date()),
+            ChocoMilk.init("서울우유", 200, 1000, "날마다초코우유", date.date(from: "20190701") ?? Date()),
+            ChocoMilk.init("서울우유", 200, 1000, "날마다초코우유", date.date(from: "20180602") ?? Date()),
+            Coke.init("팹시", 350, 2000, "다이어트콜라", date.date(from: "20181005") ?? Date()),
+            Coke.init("팹시", 350, 2000, "다이어트콜라", date.date(from: "20181005") ?? Date()),
+            Sprite.init("스프라이트", 300, 1500, "스프라이트", date.date(from: "20181015") ?? Date()),
+            Top.init("맥심", 400, 3000, "TOP아메리카노", date.date(from: "20181010") ?? Date())
+        ]
+        
+        self.vendingmachine = Vendingmachine(beverageSet)
+        
+    }
+
+    
+    func testCountOfInventory() {
+        let count = vendingmachine.countOfInventory("딸기우유")
+        XCTAssertEqual(count, 1)
+    }
+    
+    func testCheckBalance() {
+        let addBalance = vendingmachine.addBalance(1000)
+        let balance = vendingmachine.checkBalance()
+        XCTAssertEqual(balance, 1000)
+    }
+    
+    func testPriceOfBeverage() {
+        let price = vendingmachine.makePriceOfBeverage("티오피")
+        XCTAssertEqual(price, 3000)
     }
     
     func testStrawberryMilkNotNil() {
