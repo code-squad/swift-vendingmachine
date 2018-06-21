@@ -47,7 +47,7 @@ class StockManager: NSObject, StockManagable {
     }
     
     func readAllStock() -> [Products] {
-        return self.stock.values.map { $0 as Products }
+        return self.stock.values.filter { $0.count != 0 }
     }
 
     func remove(_ conditionHandler: (Beverage) -> Bool ) -> [Beverage] {

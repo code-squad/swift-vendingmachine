@@ -48,10 +48,10 @@ struct OutputView {
         print("현재 투입한 금액이 \(vendingMachine.readBalance())원 입니다.")
     }
 
-    func printAllStock() {
+    static func printAllStock(_ stock: [Products]) {
         print("===========전체 재고 목록==========")
-        for stock in self.vendingMachine.readAllStock() {
-            print("\(stock.beverageType)(\(stock.count)개)")
+        for index in stock.indices {
+            print("\(index+1)) \(stock[index].beverageType)(\(stock[index].count)개)")
         }
         print("================================")
     }

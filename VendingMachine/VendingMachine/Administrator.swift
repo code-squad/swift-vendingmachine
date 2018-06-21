@@ -10,6 +10,12 @@ import Foundation
 
 class Administrator {
     
+    let vendingMachine: VendingMachineManagable
+    
+    init(_ vendingMachine: VendingMachineManagable) {
+        self.vendingMachine = vendingMachine
+    }
+    
     static func makeBeverage(_ menuNumber: Int) -> Beverage? {
         switch menuNumber {
         case 1:
@@ -29,5 +35,10 @@ class Administrator {
         default:
             return nil
         }
+    }
+    
+    func removeBeverage(_ menuNumber: Int) {
+        let allstock = self.vendingMachine.readAllStock()
+        allstock[menuNumber-1].remove()
     }
 }
