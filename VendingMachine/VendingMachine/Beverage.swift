@@ -26,6 +26,10 @@ class Beverage: NSObject {
         self.expiration = expiration
     }
     
+    override required convenience init() {
+        self.init(brand: "노브랜드", capacity: 100, price: 100, name: "노브랜드", manufacturedDate: Date().today, expiration: 864000)
+    }
+    
     override var description: String {
         return "\(self.name)"
     }

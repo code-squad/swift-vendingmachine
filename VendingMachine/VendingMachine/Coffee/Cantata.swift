@@ -16,7 +16,7 @@ class Cantata: Coffee {
         super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate, caffeineContent: caffeineContent, temperature: temperature)
     }
     
-    convenience init() {
+    convenience required init() {
         self.init(brand: "칸타타", capacity: 180, price: 1200, name: "칸타타커피", manufacturedDate: Date().today, caffeineContent: 35.5, flavor: "라떼", temperature: 27.5)
     }
 }

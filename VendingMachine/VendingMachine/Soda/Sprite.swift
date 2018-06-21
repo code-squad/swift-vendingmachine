@@ -17,7 +17,7 @@ class Sprite: Soda {
         super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate, calories: calories)
     }
     
-    convenience init() {
+    convenience required init() {
         self.init(brand: "사이다", capacity: 200, price: 1000, name: "코카콜라", manufacturedDate: Date().today, calories: 35, hasOneMoreOnCap: false)
     }
 }

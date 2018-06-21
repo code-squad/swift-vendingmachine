@@ -16,7 +16,7 @@ class Georgia: Coffee {
         super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate, caffeineContent: caffeineContent, temperature: temperature)
     }
     
-    convenience init() {
+    convenience required init() {
         self.init(brand: "조지아", capacity: 150, price: 900, name: "조지아커피", manufacturedDate: Date().today, caffeineContent: 20.5, flavor: "아메리카노", temperature: 27.5)
     }
 }
