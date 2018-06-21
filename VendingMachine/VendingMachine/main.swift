@@ -17,6 +17,7 @@ enum Mode: CaseIterable {
 let ADDBEVERAGE = 1
 let REMOVEBEVERAGE = 2
 let REMOVEEXPIRATION = 3
+let EXITTOSELECTMODE = 4
 
 func main() {
     
@@ -64,8 +65,12 @@ func runAdminMode(_ vendingMachine: VendingMachineManagable & VendingMachinePrin
             vendingMachine.add(beverage: beverage)
         case REMOVEBEVERAGE:
             admin.removeBeverage(option)
+        case REMOVEEXPIRATION:
+            admin.removeExpiration()
+        case EXITTOSELECTMODE:
+            return
         default:
-            break
+            continue
         }
     }
     
