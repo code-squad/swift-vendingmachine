@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		73810B1520D91DBF0019DF2B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73810B1420D91DBF0019DF2B /* User.swift */; };
+		73810B3A20DB3DAB0019DF2B /* Administrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73810B3920DB3DAA0019DF2B /* Administrator.swift */; };
 		738548A320D77184000AE4EB /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FFC51D20D249AB002FA119 /* OutputView.swift */; };
 		738548A520D77184000AE4EB /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FFC51F20D24D15002FA119 /* InputView.swift */; };
 		738548A620D77184000AE4EB /* StockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FFC4F620CED90D002FA119 /* StockManager.swift */; };
@@ -70,6 +71,7 @@
 
 /* Begin PBXFileReference section */
 		73810B1420D91DBF0019DF2B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		73810B3920DB3DAA0019DF2B /* Administrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Administrator.swift; sourceTree = "<group>"; };
 		7394882E20C9015300E6FD49 /* TOP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOP.swift; sourceTree = "<group>"; };
 		7394883020C9016900E6FD49 /* Cantata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cantata.swift; sourceTree = "<group>"; };
 		7394883220C9019B00E6FD49 /* Georgia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Georgia.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				73FFC51F20D24D15002FA119 /* InputView.swift */,
 				73FFC4F620CED90D002FA119 /* StockManager.swift */,
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
+				73810B3920DB3DAA0019DF2B /* Administrator.swift */,
 				73E2D73520C67A5300E78BC7 /* Beverage.swift */,
 				73FFC4F320CECB88002FA119 /* VendingMachine.swift */,
 				73810B1420D91DBF0019DF2B /* User.swift */,
@@ -343,6 +346,7 @@
 				73E2D73620C67A5300E78BC7 /* Beverage.swift in Sources */,
 				73E2D73820C697E500E78BC7 /* Milk.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
+				73810B3A20DB3DAB0019DF2B /* Administrator.swift in Sources */,
 				7394883F20C91E3200E6FD49 /* ChocoMilk.swift in Sources */,
 				73FFC51B20D244AF002FA119 /* History.swift in Sources */,
 				7394884220C9201600E6FD49 /* Coke.swift in Sources */,
