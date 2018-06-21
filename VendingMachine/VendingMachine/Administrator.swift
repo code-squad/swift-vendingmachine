@@ -41,4 +41,8 @@ class Administrator {
         let allstock = self.vendingMachine.readAllStock()
         allstock[menuNumber-1].remove()
     }
+    
+    func removeExpiration() {
+        self.vendingMachine.removeExpired()
+    }
 }
