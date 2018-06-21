@@ -11,7 +11,7 @@ import Foundation
 class Top: Coffee {
     
     override var kind: String {
-        return "Top"
+        return "티오피"
     }
     private let temperature = -20
     

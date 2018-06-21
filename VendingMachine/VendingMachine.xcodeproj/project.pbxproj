@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
+		D6C4614E20DB993400E984E4 /* Vendingmachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBE1EE20BD1F32007EFA4D /* Vendingmachine.swift */; };
 		D6EBE1AA20B517C6007EFA4D /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBE1A920B517C6007EFA4D /* Beverage.swift */; };
 		D6EBE1AC20B55987007EFA4D /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBE1AB20B55987007EFA4D /* Milk.swift */; };
 		D6EBE1AE20B579D2007EFA4D /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBE1AD20B579D2007EFA4D /* Soda.swift */; };
@@ -279,6 +280,7 @@
 				D6EBE1DE20BBAC27007EFA4D /* Validate.swift in Sources */,
 				D6EBE1EB20BBC1C9007EFA4D /* Fanta.swift in Sources */,
 				D6EBE1E220BBAC37007EFA4D /* Coffee.swift in Sources */,
+				D6C4614E20DB993400E984E4 /* Vendingmachine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

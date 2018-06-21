@@ -10,8 +10,6 @@ import Foundation
 
 let expirationDate = DateFormatter()
 expirationDate.dateFormat = "yyyyMMdd"
-let today = DateFormatter()
-today.dateFormat = "yyyyMMdd"
 
 let beverageSet = [
     StrawberryMilk.init("서울우유", 200, 1000, "날마다딸기우유", expirationDate.date(from: "20190701") ?? Date()),
@@ -35,18 +33,44 @@ let beverageSet = [
 ]
 
 var vendingMachine = Vendingmachine.init(beverageSet)
-
-for beverage in beverageSet {
-    print(vendingMachine.countOfInventory(beverage.kind))
+let outputView = OutputView()
+let inputView = InputView()
+var coin = 0
+vendingMachine.addBalance(coin)
+var run = true
+while run {
+    outputView.showMessagesSet(vendingMachine,coin)
+    let menu = inputView.inputMenu()
+    switch menu {
+    case .inputCoin:
+        outputView.showMessages(.addMoney)
+        coin = inputView.inputCoin()
+        vendingMachine.addBalance(coin)
+    case .purchasesBeverage:
+        outputView.showMessages(.chooseBeverage)
+        let kindOfBeverage = outputView.showBeveragesList(vendingMachine)
+        let inputNumber = inputView.inputNumberOfBeverage()
+        let range = vendingMachine.inventory.keys.count
+        let kind = kindOfBeverage[inputNumber-1]
+        if inputNumber <= range {
+            let price = vendingMachine.makePriceOfBeverage(kind)
+            if price < vendingMachine.balance {
+                vendingMachine.buyBeverage(kind)
+                outputView.showPurchases(kind, price)
+            } else {
+                outputView.showMessages(.lowBalance)
+            }
+        } else {
+            outputView.showMessages(.invalidMenu)
+        }
+    case .showPurchases:
+        outputView.showPurchasesList(vendingMachine)
+    case .exit:
+        outputView.showMessages(.exit)
+        run = false
+    case .invalidMenu:
+        outputView.showMessages(.invalidMenu)
+    }
 }
 
 
-//while true {
-//    let inputView = InputView()
-//    let outputView = OutputView()
-//    var vendingmachine = Vendingmachine()
-//    let inputCoin = inputView.inputCoin()
-//    let addCoin = vendingmachine.addBalance(inputCoin)
-//    let balance = vendingmachine.checkBalance()
-//    let showInfo = outputView.showInformation(balance)
-//}
