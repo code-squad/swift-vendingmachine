@@ -17,16 +17,6 @@ protocol VendingMachineUserModePrintable: VendingMachinePrintable {
     func readBuyableProducts() -> [Products]
 }
 
-enum BeverageMenu: String, CaseIterable {
-    case 티오피
-    case 칸타타
-    case 조지아
-    case 딸기우유
-    case 초코우유
-    case 콜라
-    case 사이다
-}
-
 struct OutputView {
     
     private var vendingMachine: VendingMachineUserModePrintable
@@ -74,15 +64,15 @@ struct OutputView {
         print("2. 음료구매", terminator: "\n> ")
     }
     
-    func printSoldBeverage(_ soldBeverage: Beverage) {
+    static func printSoldBeverage(_ soldBeverage: Beverage) {
         print("\(soldBeverage)를 구매하셨습니다. \(abs(soldBeverage.minusBeveragePrice(from: 0)))원을 차감합니다.")
     }
     
     static func printBeverageMenu() {
         
         print("=============추가 가능 메뉴==============")
-        for index in BeverageMenu.allCases.indices {
-            print("\(index+1). \(BeverageMenu.allCases[index])")
+        for index in Administrator.allBeverageType.indices {
+            print("\(index+1). \(Administrator.allBeverageType[index])")
         }
         print("=====================================")
     }

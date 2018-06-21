@@ -18,6 +18,10 @@ class Coffee: Beverage {
         super.init(brand: brand, capacity: capacity, price: price, name: name, manufacturedDate: manufacturedDate, expiration: 10 * 86400)
     }
     
+    required convenience init() {
+        self.init(brand: "커피", capacity: 1000, price: 1000, name: "커피", manufacturedDate: Date().today, caffeineContent: 10, temperature: 30)
+    }
+    
     func isNonCaffeine() -> Bool {
         return self.caffeineContent == 0
     }

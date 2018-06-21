@@ -8,33 +8,19 @@
 
 import Foundation
 
+
 class Administrator {
     
     let vendingMachine: VendingMachineManagable
+    
+    static let allBeverageType = [TOP.self, Cantata.self, Georgia.self, StrawberryMilk.self, ChocoMilk.self, Coke.self, Sprite.self]
     
     init(_ vendingMachine: VendingMachineManagable) {
         self.vendingMachine = vendingMachine
     }
     
     static func makeBeverage(_ menuNumber: Int) -> Beverage? {
-        switch menuNumber {
-        case 1:
-            return TOP()
-        case 2:
-            return Cantata()
-        case 3:
-            return Georgia()
-        case 4:
-            return StrawberryMilk()
-        case 5:
-            return ChocoMilk()
-        case 6:
-            return Coke()
-        case 7:
-            return Sprite()
-        default:
-            return nil
-        }
+        return self.allBeverageType[menuNumber-1].init()
     }
     
     func removeBeverage(_ menuNumber: Int) {

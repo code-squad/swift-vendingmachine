@@ -90,7 +90,8 @@ func runUserMode(_ vendingMachine: UserAvailable & VendingMachineUserModePrintab
         case INSERTCOIN:
             user.insertCoint(option)
         case BUYBEVERAGE:
-            try user.buyBeverage(option)
+            let buyables = vendingMachine.readBuyableProducts()
+            OutputView.printSoldBeverage(try vendingMachine.buy(buyables[option - 1]))
         case EXITTOSELECTMODE:
             return
         default:
