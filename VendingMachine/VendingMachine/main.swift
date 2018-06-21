@@ -14,10 +14,12 @@ enum Mode: CaseIterable {
     case quit
 }
 
+let EXITTOSELECTMODE = 0
 let ADDBEVERAGE = 1
 let REMOVEBEVERAGE = 2
 let REMOVEEXPIRATION = 3
-let EXITTOSELECTMODE = 4
+let INSERTCOIN = 1
+let BUYBEVERAGE = 2
 
 func main() {
     
@@ -32,7 +34,7 @@ func main() {
             case .administrator:
                 try runAdminMode(vendingMachine)
             case .user:
-                runUserMode()
+                try runUserMode(vendingMachine)
             case .quit:
                 return
             }
@@ -49,7 +51,6 @@ func main() {
 }
 
 func runAdminMode(_ vendingMachine: VendingMachineManagable & VendingMachinePrintable) throws {
-    let outputView = OutputView(vendingMachine)
     let admin = Administrator(vendingMachine)
     while true {
         OutputView.printAllStock(vendingMachine.readAllStock())
@@ -76,7 +77,26 @@ func runAdminMode(_ vendingMachine: VendingMachineManagable & VendingMachinePrin
     
 }
 
-func runUserMode() {
+func runUserMode(_ vendingMachine: UserAvailable & VendingMachinePrintable) throws {
+    let outputView = OutputView(vendingMachine)
+    let user = User(vendingMachine)
+    OutputView.printAllStock(vendingMachine.readAllStock())
+    while true {
+        outputView.printBalance()
+        outputView.printBuyableProducts()
+        outputView.printMenu()
+        let (menu, option) = InputView.selectMenu()
+        switch menu {
+        case INSERTCOIN:
+            user.insertCoint(option)
+        case BUYBEVERAGE:
+            try user.buyBeverage(option)
+        case EXITTOSELECTMODE:
+            return
+        default:
+            continue
+        }
+    }
     
 }
 
