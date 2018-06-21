@@ -9,11 +9,12 @@
 import Foundation
 
 protocol VendingMachinePrintable {
-    func readBalance() -> Int
     func readAllStock() -> [Products]
+}
+
+protocol VendingMachineUserModePrintable: VendingMachinePrintable {
+    func readBalance() -> Int
     func readBuyableProducts() -> [Products]
-    func readStock(_ productType: ObjectIdentifier) -> Int
-    func buy(_ products: Products) throws -> Beverage
 }
 
 enum BeverageMenu: String, CaseIterable {
@@ -28,9 +29,9 @@ enum BeverageMenu: String, CaseIterable {
 
 struct OutputView {
     
-    private var vendingMachine: VendingMachinePrintable
+    private var vendingMachine: VendingMachineUserModePrintable
     
-    init(_ vendingMachine: VendingMachinePrintable) {
+    init(_ vendingMachine: VendingMachineUserModePrintable) {
         self.vendingMachine = vendingMachine
     }
     
