@@ -11,7 +11,7 @@ import Foundation
 class Georgia: Coffee {
     
     override var kind: String {
-        return "Georgia"
+        return "조지아"
     }
     private let temperature = 70
     

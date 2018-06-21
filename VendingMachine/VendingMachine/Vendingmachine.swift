@@ -10,16 +10,16 @@ import Foundation
 
 struct Vendingmachine {
 
-    private var balance: Int = 0
-    private var inventory: [String: [Beverage]] = [:]
-    private var purchases: [Beverage] = []
+    private (set) var balance: Int = 0
+    private (set) var inventory: [String: [Beverage]] = [:]
+    private (set) var purchases: [Beverage] = []
     
     init(_ beverageSet: [Beverage]) {
         for item in beverageSet {
             addPurchases(item)
         }
     }
-
+    
     //자판기 금액을 원하는 금액만큼 올리는 메소드
     mutating func addBalance(_ inputMoney: Int) {
         self.balance += inputMoney
@@ -40,7 +40,8 @@ struct Vendingmachine {
         let soldBeverage = self.inventory[beverage]?.removeFirst()
         guard let beverage = soldBeverage else { return }
         self.purchases.append(beverage)
-        self.balance -= beverage.price
+        let price = beverage.price
+        self.balance -= price
     }
 
     //잔액을 확인하는 메소드
@@ -49,7 +50,7 @@ struct Vendingmachine {
     }
 
     //전체 상품 재고를 (사전으로 표현하는) 종류별로 리턴하는 메소드
-    func showInventory() -> [String: [Beverage]] {
+    func checkInventory() -> [String: [Beverage]] {
         return self.inventory.filter({$0.value.count > 0})
     }
 
@@ -68,20 +69,26 @@ struct Vendingmachine {
         for beverages in self.inventory.values {
             let coffee = beverages.compactMap({$0 as? Coffee}).filter({$0.isHot()})
             hotBeverages.append(contentsOf: coffee)
-            
         }
         return hotBeverages
     }
 
     //시작이후 구매 상품 이력을 배열로 리턴하는 메소드
-    func showOfPurchases() -> [Beverage] {
+    func checkPurchases() -> [Beverage] {
         return self.purchases
     }
     
     //특정 음료의 재고를 리턴하는 메소드
     func countOfInventory(_ kind: String) -> Int {
         return inventory[kind]?.count ?? 0
-
+    }
+    
+    //음료의 가격을 리턴하는 메소드
+    func makePriceOfBeverage(_ kind: String) -> Int {
+        guard let price = self.inventory[kind]?.first?.price else {
+            return 0
+        }
+        return price
     }
     
     

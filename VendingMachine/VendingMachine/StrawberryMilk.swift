@@ -11,7 +11,7 @@ import Foundation
 class StrawberryMilk: Milk {
 
     override var kind: String {
-        return "StrawberryMilk"
+        return "딸기우유"
     }
     private let farmCode = "farmJeju"
     

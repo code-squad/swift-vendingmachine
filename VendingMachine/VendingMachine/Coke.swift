@@ -11,7 +11,7 @@ import Foundation
 class Coke: Soda {
     
     override var kind: String {
-        return "Coke"
+        return "팹시콜라"
     }
     private let calorie = 5
     
