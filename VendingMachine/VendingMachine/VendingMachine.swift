@@ -22,12 +22,12 @@ protocol StockManagable {
 protocol ProductsCheckable {
     func readBuyableProducts() -> [Products]
     func readAllStock() -> [Products]
+    func readBalance() -> Int
 }
 
 // User가 VendingMachine에서 사용할 메서드
 protocol UserAvailable: ProductsCheckable {
     func insertMoney(_ price: Int)
-    func readBalance() -> Int
     func buy(_ products: Products) throws -> Beverage
 }
 
@@ -49,6 +49,10 @@ class VendingMachine: NSObject, VendingMachinePrintable {
     init(stockManager: StockManagable, history: History) {
         self.stockManager = stockManager
         self.history = history
+    }
+    
+    func readBalance() -> Int {
+        return self.balance
     }
     
     func removeHot() -> [Beverage] {
@@ -88,10 +92,6 @@ extension VendingMachine: UserAvailable {
 
     func insertMoney(_ price: Int) {
         self.balance += price
-    }
-    
-    func readBalance() -> Int {
-        return self.balance
     }
     
     func buy(_ products: Products) throws -> Beverage {

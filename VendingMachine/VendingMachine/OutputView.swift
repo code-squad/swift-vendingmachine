@@ -40,9 +40,10 @@ struct OutputView {
     
     static func startAdminModeMessage() {
         print("관리자모드를 시작합니다.")
-        print("1. 재고추가\n2. 재고삭제")
-        print("3. 유통기한 지난 음료 삭제")
-        print("4. 모드 선택 메뉴로\n> ", terminator: "")
+        print("0. 모드 선택 메뉴로")
+        print("1. 재고추가")
+        print("2. 재고삭제")
+        print("3. 유통기한 지난 음료 삭제\n> ", terminator: "")
     }
 
     func printBalance() {
@@ -67,7 +68,7 @@ struct OutputView {
     }
 
     func printMenu() {
-        print("Q. 사용종료")
+        print("0. 모드 선택 메뉴로")
         print("1. 금액추가")
         print("2. 음료구매", terminator: "\n> ")
     }
