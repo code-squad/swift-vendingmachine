@@ -61,7 +61,7 @@ func runAdminMode(_ vendingMachine: VendingMachineManagable & VendingMachinePrin
         case ADDBEVERAGE:
             // 추가하려는 메뉴가 있는지 확인하고 있으면 생성해서 자판기에 추가
             guard let beverage = Administrator.makeBeverage(option) else {
-                throw StockManager.Error.selectMenuError
+                throw Administrator.Error.selectMenuError
             }
             vendingMachine.add(beverage: beverage)
         case REMOVEBEVERAGE:

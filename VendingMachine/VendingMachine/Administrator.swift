@@ -46,3 +46,16 @@ class Administrator {
         self.vendingMachine.removeExpired()
     }
 }
+
+extension Administrator {
+    enum Error: Swift.Error {
+        case selectMenuError
+        
+        var errorMessage: String {
+            switch self {
+            case .selectMenuError:
+                return "메뉴에 없는 음료입니다."
+            }
+        }
+    }
+}
