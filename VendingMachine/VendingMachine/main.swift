@@ -46,14 +46,22 @@ func main() {
 
 func runAdminMode(_ vendingMachine: VendingMachineManagable & VendingMachinePrintable) throws {
     let outputView = OutputView(vendingMachine)
-    OutputView.startAdminModeMessage()
-    let (menu, option) = InputView.selectMenu()
-    switch menu {
-    case ADDBEVERAGE:
-        // 음료 추가
-        // 전체 재고 보여주기
-    default:
-        break
+    
+    while true {
+        outputView.printAllStock()
+        OutputView.printBeverageMenu()
+        OutputView.startAdminModeMessage()
+        let (menu, option) = InputView.selectMenu()
+        switch menu {
+        case ADDBEVERAGE:
+            // 추가하려는 메뉴가 있는지 확인하고 있으면 생성해서 자판기에 추가
+            guard let beverage = Administrator.makeBeverage(option) else {
+                throw StockManager.Error.selectMenuError
+            }
+            vendingMachine.add(beverage: beverage)
+        default:
+            break
+        }
     }
     
 }
