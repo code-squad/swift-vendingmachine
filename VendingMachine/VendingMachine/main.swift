@@ -23,7 +23,7 @@ let BUYBEVERAGE = 2
 
 func main() {
     
-    let vendingMachine = VendingMachine(stockManager: StockManager(stock: [:]), history: History(purchased: []))
+    let vendingMachine = VendingMachine.shared()
     setupDefaultBeveages(vendingMachine)
     
     while true {
