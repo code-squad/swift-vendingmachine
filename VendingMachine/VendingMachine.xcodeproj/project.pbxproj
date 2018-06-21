@@ -49,6 +49,7 @@
 		73E2D73820C697E500E78BC7 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E2D73720C697E500E78BC7 /* Milk.swift */; };
 		73E2D73A20C6B4E900E78BC7 /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E2D73920C6B4E900E78BC7 /* Soda.swift */; };
 		73E2D73C20C6B6FB00E78BC7 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E2D73B20C6B6FB00E78BC7 /* Coffee.swift */; };
+		73E5F64C20DBA1320093569E /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E5F64B20DBA1320093569E /* Money.swift */; };
 		73FFC4F420CECB88002FA119 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FFC4F320CECB88002FA119 /* VendingMachine.swift */; };
 		73FFC4F720CED90D002FA119 /* StockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FFC4F620CED90D002FA119 /* StockManager.swift */; };
 		73FFC51B20D244AF002FA119 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FFC51A20D244AF002FA119 /* History.swift */; };
@@ -97,6 +98,7 @@
 		73E2D73720C697E500E78BC7 /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 		73E2D73920C6B4E900E78BC7 /* Soda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soda.swift; sourceTree = "<group>"; };
 		73E2D73B20C6B6FB00E78BC7 /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
+		73E5F64B20DBA1320093569E /* Money.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
 		73FFC4F320CECB88002FA119 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 		73FFC4F620CED90D002FA119 /* StockManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockManager.swift; sourceTree = "<group>"; };
 		73FFC51A20D244AF002FA119 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				73810B3920DB3DAA0019DF2B /* Administrator.swift */,
 				73E2D73520C67A5300E78BC7 /* Beverage.swift */,
 				73FFC4F320CECB88002FA119 /* VendingMachine.swift */,
+				73E5F64B20DBA1320093569E /* Money.swift */,
 				73810B1420D91DBF0019DF2B /* User.swift */,
 				73FFC51A20D244AF002FA119 /* History.swift */,
 				7394882D20C900ED00E6FD49 /* Coffee */,
@@ -344,6 +347,7 @@
 				7394883120C9016900E6FD49 /* Cantata.swift in Sources */,
 				7394882F20C9015300E6FD49 /* TOP.swift in Sources */,
 				73E2D73620C67A5300E78BC7 /* Beverage.swift in Sources */,
+				73E5F64C20DBA1320093569E /* Money.swift in Sources */,
 				73E2D73820C697E500E78BC7 /* Milk.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
 				73810B3A20DB3DAB0019DF2B /* Administrator.swift in Sources */,

@@ -41,7 +41,7 @@ protocol VendingMachineManagable: ProductsCheckable {
 
 class VendingMachine: NSObject, VendingMachinePrintable {
     
-    private var balance: Int = 0
+    private var money: Money = Money()
     private let stockManager: StockManagable
     private var history: History
     private let hotTemperature: Double = 90.0
@@ -59,7 +59,7 @@ class VendingMachine: NSObject, VendingMachinePrintable {
     
     
     func readBalance() -> Int {
-        return self.balance
+        return self.money.readBalance()
     }
     
     func removeHot() -> [Beverage] {
@@ -87,7 +87,7 @@ class VendingMachine: NSObject, VendingMachinePrintable {
 extension VendingMachine: ProductsCheckable {
     
     func readBuyableProducts() -> [Products] {
-        return self.stockManager.readBuyableProducts(price: self.balance)
+        return self.stockManager.readBuyableProducts(price: self.money.readBalance())
     }
     
     func readAllStock() -> [Products] {
@@ -98,12 +98,12 @@ extension VendingMachine: ProductsCheckable {
 extension VendingMachine: UserAvailable {
 
     func insertMoney(_ price: Int) {
-        self.balance += price
+        self.money.increaseBalance(price)
     }
     
     func buy(_ products: Products) throws -> Beverage {
         let selected = try self.stockManager.buy(products)
-        self.balance = selected.minusBeveragePrice(from: self.balance)
+        self.money.decreaseBalance(selected.beveragePrice)
         self.history.addPurchased(selected)
         return selected
     }
