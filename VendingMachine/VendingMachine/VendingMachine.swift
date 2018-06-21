@@ -39,7 +39,7 @@ protocol VendingMachineManagable: ProductsCheckable {
     func readStock(_ productType: ObjectIdentifier) -> Int
 }
 
-class VendingMachine: NSObject, VendingMachinePrintable {
+class VendingMachine: NSObject, VendingMachinePrintable, VendingMachineUserModePrintable {
     
     private var money: Money = Money()
     private let stockManager: StockManagable

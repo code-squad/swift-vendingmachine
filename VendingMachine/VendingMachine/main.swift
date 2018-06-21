@@ -77,7 +77,7 @@ func runAdminMode(_ vendingMachine: VendingMachineManagable & VendingMachinePrin
     
 }
 
-func runUserMode(_ vendingMachine: UserAvailable & VendingMachinePrintable) throws {
+func runUserMode(_ vendingMachine: UserAvailable & VendingMachineUserModePrintable) throws {
     let outputView = OutputView(vendingMachine)
     let user = User(vendingMachine)
     OutputView.printAllStock(vendingMachine.readAllStock())
