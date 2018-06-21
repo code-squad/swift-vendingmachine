@@ -46,10 +46,17 @@ class VendingMachine: NSObject, VendingMachinePrintable {
     private var history: History
     private let hotTemperature: Double = 90.0
     
-    init(stockManager: StockManagable, history: History) {
+    private static let sharedVendingMachine = VendingMachine(stockManager: StockManager(stock: [:]), history: History(purchased: []))
+    
+    private init(stockManager: StockManagable, history: History) {
         self.stockManager = stockManager
         self.history = history
     }
+    
+    class func shared() -> VendingMachine {
+        return self.sharedVendingMachine
+    }
+    
     
     func readBalance() -> Int {
         return self.balance
