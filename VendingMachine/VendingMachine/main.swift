@@ -38,6 +38,9 @@ func main() {
         } catch let error as InputView.Error {
             print(error.errorMessage)
             continue
+        } catch let error as StockManager.Error {
+            print(error.errorMessage)
+            continue
         } catch {
             fatalError("unexpected error")
         }
@@ -46,9 +49,9 @@ func main() {
 
 func runAdminMode(_ vendingMachine: VendingMachineManagable & VendingMachinePrintable) throws {
     let outputView = OutputView(vendingMachine)
-    
+    let admin = Administrator(vendingMachine)
     while true {
-        outputView.printAllStock()
+        OutputView.printAllStock(vendingMachine.readAllStock())
         OutputView.printBeverageMenu()
         OutputView.startAdminModeMessage()
         let (menu, option) = InputView.selectMenu()
@@ -59,6 +62,8 @@ func runAdminMode(_ vendingMachine: VendingMachineManagable & VendingMachinePrin
                 throw StockManager.Error.selectMenuError
             }
             vendingMachine.add(beverage: beverage)
+        case REMOVEBEVERAGE:
+            admin.removeBeverage(option)
         default:
             break
         }
