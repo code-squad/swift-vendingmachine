@@ -79,7 +79,6 @@ func runAdminMode(_ vendingMachine: VendingMachineManagable & VendingMachinePrin
 
 func runUserMode(_ vendingMachine: UserAvailable & VendingMachineUserModePrintable) throws {
     let outputView = OutputView(vendingMachine)
-    let user = User(vendingMachine)
     OutputView.printAllStock(vendingMachine.readAllStock())
     while true {
         outputView.printBalance()
@@ -88,7 +87,7 @@ func runUserMode(_ vendingMachine: UserAvailable & VendingMachineUserModePrintab
         let (menu, option) = InputView.selectMenu()
         switch menu {
         case INSERTCOIN:
-            user.insertCoint(option)
+            vendingMachine.insertMoney(option)
         case BUYBEVERAGE:
             let buyables = vendingMachine.readBuyableProducts()
             OutputView.printSoldBeverage(try vendingMachine.buy(buyables[option - 1]))
