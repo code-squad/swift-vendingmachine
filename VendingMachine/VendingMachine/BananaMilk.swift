@@ -18,6 +18,10 @@ class BananaMilk: Milk {
     override init(_ brand: String, _ volume: Int, _ price: Int, _ name: String, _ date: Date) {
         super.init(brand, volume, price, name, date)
     }
+    
+    convenience init() {
+        self.init("서울우유", 200, 1000, "날마다바나나우유", expirationDate.date(from: "20190702") ?? Date())
+    }
 
     override func checkFarmCode() -> String {
         return self.farmCode

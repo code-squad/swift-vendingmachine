@@ -8,18 +8,27 @@
 
 import Foundation
 
-struct Vendingmachine {
+struct Vendingmachine: Sequence, IteratorProtocol {
+    typealias Element = [Beverage]
 
-    private (set) var balance: Int = 0
+    subscript(item: String) -> [Beverage]? {
+        return self.inventory[item]
+    }
+    
+    mutating func next() -> Element? {
+        return self.inventory.popFirst()?.value
+    }
+
+    private var balance: Int = 0
     private (set) var inventory: [String: [Beverage]] = [:]
     private (set) var purchases: [Beverage] = []
-    
+
     init(_ beverageSet: [Beverage]) {
         for item in beverageSet {
             addPurchases(item)
         }
     }
-    
+
     //자판기 금액을 원하는 금액만큼 올리는 메소드
     mutating func addBalance(_ inputMoney: Int) {
         self.balance += inputMoney
@@ -32,7 +41,7 @@ struct Vendingmachine {
 
     //현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
     func buyableOfList() -> [String] {
-        return self.inventory.filter({$0.value.count > 0}).filter({($0.value[0].price) < self.balance}).map({$0.key})
+        return self.inventory.filter({$0.value.count > 0}).filter({($0.value[0].price) <= self.balance}).map({$0.key})
     }
     
     //음료수를 구매하는 메소드
@@ -43,7 +52,7 @@ struct Vendingmachine {
         let price = beverage.price
         self.balance -= price
     }
-
+    
     //잔액을 확인하는 메소드
     func checkBalance() -> Int {
         return self.balance
@@ -90,6 +99,8 @@ struct Vendingmachine {
         }
         return price
     }
-    
-    
+
 }
+
+
+

@@ -19,6 +19,10 @@ class StrawberryMilk: Milk {
         super.init(brand, volume, price, name, date)
     }
     
+    convenience init() {
+        self.init("서울우유", 200, 1000, "날마다딸기우유", expirationDate.date(from: "20180701") ?? Date())
+    }
+    
     override func checkFarmCode() -> String {
         return self.farmCode
     }

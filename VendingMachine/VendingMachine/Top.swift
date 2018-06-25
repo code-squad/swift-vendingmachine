@@ -19,6 +19,10 @@ class Top: Coffee {
         super.init(brand, volume, price, name, date)
     }
     
+    convenience init() {
+        self.init("맥심", 400, 3000, "TOP아메리카노", expirationDate.date(from: "20181010") ?? Date())
+    }
+    
     override func isHot() -> Bool {
         return 50 < self.temperature
     }

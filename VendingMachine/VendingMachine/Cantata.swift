@@ -18,6 +18,10 @@ class Cantata: Coffee {
     override init(_ brand: String, _ volume: Int, _ price: Int, _ name: String, _ date: Date) {
         super.init(brand, volume, price, name, date)
     }
+    
+    convenience init() {
+        self.init("칸타타", 400, 3000, "아메리카노", expirationDate.date(from: "20181110") ?? Date())
+    }
 
     override func isHot() -> Bool {
         return 50 < self.temperature

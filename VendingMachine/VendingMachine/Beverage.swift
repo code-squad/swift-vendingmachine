@@ -36,6 +36,5 @@ class Beverage: CustomStringConvertible, Validate {
    func isValidate(_ today: Date) -> Bool {
         return today < self.expirationDate
     }
-    
-    
+
 }
