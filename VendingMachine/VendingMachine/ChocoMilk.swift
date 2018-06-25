@@ -19,6 +19,10 @@ class ChocoMilk: Milk {
         super.init(brand, volume, price, name, date)
     }
     
+    convenience init() {
+        self.init("서울우유", 200, 1000, "날마다초코우유", expirationDate.date(from: "20190702") ?? Date())
+    }
+    
     override func checkFarmCode() -> String {
         return self.farmCode
     }

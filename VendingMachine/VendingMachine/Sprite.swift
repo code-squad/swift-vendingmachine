@@ -18,6 +18,10 @@ class Sprite: Soda {
     override init(_ brand: String, _ volume: Int, _ price: Int, _ name: String, _ date: Date) {
         super.init(brand, volume, price, name, date)
     }
+    
+    convenience init() {
+        self.init("스프라이트", 300, 1500, "스프라이트", expirationDate.date(from: "20181015") ?? Date())
+    }
 
     override func isLowCalorie() -> Bool {
         return 10 > self.calorie

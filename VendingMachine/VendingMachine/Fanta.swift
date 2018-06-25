@@ -19,6 +19,10 @@ class Fanta: Soda {
         super.init(brand, volume, price, name, date)
     }
     
+    convenience init() {
+        self.init("환타", 350, 2500, "파인", expirationDate.date(from: "20181011") ?? Date())
+    }
+    
     override func isLowCalorie() -> Bool {
         return 10 > self.calorie
     }
