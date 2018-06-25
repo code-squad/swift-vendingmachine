@@ -12,9 +12,9 @@ class Beverage: CustomStringConvertible, Validate {
     
     private let brand: String
     private let volume: Int
-    private (set) var price: Int
     private let name: String
     private let expirationDate: Date
+    var price: Int
     var kind: String {
         return "음료"
     }
