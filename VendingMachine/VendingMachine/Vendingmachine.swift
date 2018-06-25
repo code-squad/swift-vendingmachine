@@ -8,20 +8,11 @@
 
 import Foundation
 
-struct Vendingmachine: Sequence, IteratorProtocol {
-    typealias Element = [Beverage]
-
-    subscript(item: String) -> [Beverage]? {
-        return self.inventory[item]
-    }
-    
-    mutating func next() -> Element? {
-        return self.inventory.popFirst()?.value
-    }
+class Vendingmachine {
 
     private var balance: Int = 0
-    private (set) var inventory: [String: [Beverage]] = [:]
-    private (set) var purchases: [Beverage] = []
+    private var inventory: [String: [Beverage]] = [:]
+    private var purchases: [Beverage] = []
 
     init(_ beverageSet: [Beverage]) {
         for item in beverageSet {
@@ -29,13 +20,17 @@ struct Vendingmachine: Sequence, IteratorProtocol {
         }
     }
 
+    subscript(item: String) -> [Beverage]? {
+        return self.inventory[item]
+    }
+    
     //자판기 금액을 원하는 금액만큼 올리는 메소드
-    mutating func addBalance(_ inputMoney: Int) {
+    func addBalance(_ inputMoney: Int) {
         self.balance += inputMoney
     }
 
     //특정 상품 인스턴스를 넘겨서 재고를 추가하는 메소드
-    mutating func addPurchases(_ beverage: Beverage) {
+    func addPurchases(_ beverage: Beverage) {
         self.inventory[beverage.kind, default: []].append(beverage)
     }
 
@@ -45,7 +40,7 @@ struct Vendingmachine: Sequence, IteratorProtocol {
     }
     
     //음료수를 구매하는 메소드
-    mutating func buyBeverage(_ beverage: String) {
+    func buyBeverage(_ beverage: String) {
         let soldBeverage = self.inventory[beverage]?.removeFirst()
         guard let beverage = soldBeverage else { return }
         self.purchases.append(beverage)
@@ -100,6 +95,15 @@ struct Vendingmachine: Sequence, IteratorProtocol {
         return price
     }
 
+    //음료의 종류를 리턴하는 메소드
+    func makeKindOfBeverage() -> [String] {
+        var kind: [String] = []
+        for item in self.inventory.values {
+            kind.append(item.map({$0.kind}).first ?? "")
+        }
+        return kind
+    }
+    
 }
 
 

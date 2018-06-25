@@ -36,7 +36,7 @@ while run {
         outputView.showMessages(.chooseBeverage)
         let kindOfBeverage = outputView.showBeveragesList()
         let inputNumber = inputView.inputNumberOfBeverage()
-        let range = vendingMachine.inventory.keys.count
+        let range = vendingMachine.makeKindOfBeverage().count
         let kind = kindOfBeverage[inputNumber-1]
         guard inputNumber <= range else { outputView.showMessages(.invalidMenu)
             continue }
@@ -46,7 +46,7 @@ while run {
         vendingMachine.buyBeverage(kind)
         outputView.showPurchases(kind, price)
     case .showPurchases:
-        outputView.showPurchasesList(vendingMachine)
+        outputView.showPurchasesList()
     case .exit:
         outputView.showMessages(.exit)
         run = false

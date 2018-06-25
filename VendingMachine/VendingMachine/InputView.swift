@@ -33,7 +33,5 @@ struct InputView {
         let number = Int(readLine() ?? "") ?? 0
         return number
     }
-    
 
-    
 }

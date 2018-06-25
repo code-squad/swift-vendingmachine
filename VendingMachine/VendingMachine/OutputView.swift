@@ -47,9 +47,12 @@ struct OutputView {
     
     private func showInventory() {
         print("=> ", terminator: "")
-        for item in vendingmachine {
-            let beverages = item.map({$0.kind})
-            print("\(beverages.first ?? "")(\(beverages.count)개) ", terminator: "")
+        let kind = vendingmachine.makeKindOfBeverage()
+        for item in kind {
+            let beverage = vendingmachine[item]
+            if let kind = beverage?.map({$0.kind}) {
+                print("\(kind.first ?? "")(\(kind.count)개) ", terminator: "")
+            }
         }
     }
     
@@ -58,11 +61,12 @@ struct OutputView {
         var kindOfBeverge: [String] = []
         let buyableList = vendingMachine.buyableOfList()
         for buyable in buyableList {
-            if let first: Beverage = vendingmachine.inventory[buyable]?.first {
-                print("\(order))\(first.kind) \(first.price)원(\(vendingmachine.inventory[buyable]!.count)개)")
-                order += 1
-                kindOfBeverge.append(first.kind)
+            let list = vendingMachine[buyable]
+            if let kind = list?.map({$0.kind}), let price = list?.map({$0.price}) {
+                print("\(order))\(kind.first ?? "") \(price.first ?? 0)원(\(kind.count)개)")
+                kindOfBeverge.append(kind.first ?? "")
             }
+            order += 1
         }
         return kindOfBeverge
     }
@@ -71,8 +75,8 @@ struct OutputView {
         print("\(purchases)를 구매하셨습니다. \(price)원을 차감합니다.\n")
     }
     
-    func showPurchasesList(_ vendingmachine: Vendingmachine) {
-        let purchases = vendingmachine.purchases
+    func showPurchasesList() {
+        let purchases = vendingmachine.checkPurchases()
         guard !purchases.isEmpty else { print("구매하신 음료가 없습니다 ")
             return }
         let item = purchases.map({$0.kind})
