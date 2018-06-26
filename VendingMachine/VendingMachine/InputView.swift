@@ -38,5 +38,10 @@ struct InputView {
         let mode = Int(readLine() ?? "") ?? 0
         return mode
     }
+    
+    func inputControlNumber() -> Int {
+        let controlNumber = Int(readLine() ?? "") ?? 0
+        return controlNumber
+    }
 
 }

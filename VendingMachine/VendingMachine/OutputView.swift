@@ -13,6 +13,7 @@ struct OutputView {
     enum Messages: String {
         case menu = "\n1. 금액추가\n2. 음료구매\n3. 구매이력 확인\n4. 종료"
         case mode = "1. 관리자 모드\n2. 사용자 모드"
+        case controlInventory = "1. 재고 추가\n2. 재고 삭제"
         case addMoney = "투입할 금액을 입력해주세요."
         case chooseBeverage = "구매하실 음료번호를 입력해주세요."
         case invalidMenu = "잘못된 번호를 입력하셨습니다. 다시 입력해주세요."
