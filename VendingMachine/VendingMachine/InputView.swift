@@ -17,7 +17,7 @@ struct InputView {
         case exit = 4
         case invalidMenu
     }
-    
+
     func inputMenu() -> Menu {
         let inputNumber = Int(readLine() ?? "") ?? 0
         guard let number = Menu(rawValue: inputNumber) else { return Menu.invalidMenu}
@@ -32,6 +32,11 @@ struct InputView {
     func inputNumberOfBeverage() -> Int {
         let number = Int(readLine() ?? "") ?? 0
         return number
+    }
+    
+    func inputMode() -> Int {
+        let mode = Int(readLine() ?? "") ?? 0
+        return mode
     }
 
 }

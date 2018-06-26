@@ -11,12 +11,14 @@ import Foundation
 struct OutputView {
     
     enum Messages: String {
-        case memu = "\n1. 금액추가\n2. 음료구매\n3. 구매이력 확인\n4. 종료"
+        case menu = "\n1. 금액추가\n2. 음료구매\n3. 구매이력 확인\n4. 종료"
+        case mode = "1. 관리자 모드\n2. 사용자 모드"
         case addMoney = "투입할 금액을 입력해주세요."
         case chooseBeverage = "구매하실 음료번호를 입력해주세요."
         case invalidMenu = "잘못된 번호를 입력하셨습니다. 다시 입력해주세요."
         case lowBalance = "잔액이 부족합니다."
         case invalidBalance = "1000원이상 금액을 추가하셔야 음료 구매가 가능합니다"
+        case start = "자판기를 시작합니다"
         case exit = "프로그램을 종료합니다."
     }
     
@@ -33,8 +35,8 @@ struct OutputView {
         } else {
             showBeveragesList()
         }
-        showMessages(.memu)
-        print("> ", terminator: "")
+        showMessages(.menu)
+        showInputLine()
     }
     
     func showMessages(_ message: Messages) {
@@ -81,6 +83,10 @@ struct OutputView {
             return }
         let item = purchases.map({$0.kind})
         print("구매목록: \(item) ")
+    }
+    
+    func showInputLine() {
+        print("> ", terminator: "")
     }
 
 }
