@@ -18,8 +18,10 @@ struct OutputView {
         case chooseBeverage = "구매하실 음료번호를 입력해주세요."
         case invalidMenu = "잘못된 번호를 입력하셨습니다. 다시 입력해주세요."
         case lowBalance = "잔액이 부족합니다."
-        case invalidBalance = "1000원이상 금액을 추가하셔야 음료 구매가 가능합니다"
-        case start = "자판기를 시작합니다"
+        case invalidBalance = "1000원이상 금액을 추가하셔야 음료 구매가 가능합니다."
+        case addInventory = "재고에 추가하실 음료번호를 입력해주세요."
+        case removeInventory = "재고에서 삭제하실 음료번호를 입력해주세요"
+        case start = "자판기를 시작합니다."
         case exit = "프로그램을 종료합니다."
     }
     
@@ -90,4 +92,20 @@ struct OutputView {
         print("> ", terminator: "")
     }
 
+    func showInventoryList() -> ([String]) {
+        var order = 1
+        var kindOfBeverge: [String] = []
+        let kind = vendingmachine.makeKindOfBeverage()
+        for item in kind {
+            let list = vendingMachine[item]
+            if let kind = list?.map({$0.kind}) {
+                print("\(order))\(kind.first ?? "") (\(kind.count)개)")
+                kindOfBeverge.append(kind.first ?? "")
+            }
+            
+            order += 1
+        }
+        return kindOfBeverge
+    }
+    
 }
