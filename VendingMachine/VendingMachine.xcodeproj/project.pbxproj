@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
+		D691906020E2269900FE4E57 /* VendingmachineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D691905F20E2269900FE4E57 /* VendingmachineController.swift */; };
 		D6C4614E20DB993400E984E4 /* Vendingmachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBE1EE20BD1F32007EFA4D /* Vendingmachine.swift */; };
 		D6C4615020DC9B0700E984E4 /* BeverageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C4614F20DC9B0700E984E4 /* BeverageFactory.swift */; };
 		D6EBE1AA20B517C6007EFA4D /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBE1A920B517C6007EFA4D /* Beverage.swift */; };
@@ -59,6 +60,7 @@
 /* Begin PBXFileReference section */
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		D691905F20E2269900FE4E57 /* VendingmachineController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingmachineController.swift; sourceTree = "<group>"; };
 		D6C4614F20DC9B0700E984E4 /* BeverageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageFactory.swift; sourceTree = "<group>"; };
 		D6EBE1A920B517C6007EFA4D /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 		D6EBE1AB20B55987007EFA4D /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
+				D691905F20E2269900FE4E57 /* VendingmachineController.swift */,
 				D6C4614F20DC9B0700E984E4 /* BeverageFactory.swift */,
 				D6EBE1A920B517C6007EFA4D /* Beverage.swift */,
 				D6EBE1AB20B55987007EFA4D /* Milk.swift */,
@@ -256,6 +259,7 @@
 				D6EBE1C020B6972B007EFA4D /* Cantata.swift in Sources */,
 				D6EBE1B220B692CB007EFA4D /* StrawberryMilk.swift in Sources */,
 				D6EBE1AA20B517C6007EFA4D /* Beverage.swift in Sources */,
+				D691906020E2269900FE4E57 /* VendingmachineController.swift in Sources */,
 				D6EBE1AC20B55987007EFA4D /* Milk.swift in Sources */,
 				D6EBE1B420B69518007EFA4D /* ChocoMilk.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
