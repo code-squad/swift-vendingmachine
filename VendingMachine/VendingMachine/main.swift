@@ -25,10 +25,11 @@ while run {
     outputView.showMessages(.mode)
     outputView.showInputLine()
     let mode = inputView.inputMode()
-    
     switch mode {
     case 1:
-        
+        outputView.showMessages(.controlInventory)
+        outputView.showInputLine()
+        let controlNumber = inputView.inputControlNumber()
     case 2:
         var customer = true
         while customer {
