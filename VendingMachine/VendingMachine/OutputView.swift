@@ -47,7 +47,7 @@ struct OutputView {
     }
     
     private func showInformation() {
-        print("현재 투입한 금액이 \(vendingMachine.checkBalance())원 입니다. 다음과 같은 음료가 있습니다.")
+        print("현재 투입한 금액이 \(vendingmachine.checkBalance())원 입니다. 다음과 같은 음료가 있습니다.")
     }
     
     private func showInventory() {
@@ -64,9 +64,9 @@ struct OutputView {
     func showBeveragesList() -> [String] {
         var order = 1
         var kindOfBeverge: [String] = []
-        let buyableList = vendingMachine.buyableOfList()
+        let buyableList = vendingmachine.buyableOfList()
         for buyable in buyableList {
-            let list = vendingMachine[buyable]
+            let list = vendingmachine[buyable]
             if let kind = list?.map({$0.kind}), let price = list?.map({$0.price}) {
                 print("\(order))\(kind.first ?? "") \(price.first ?? 0)원(\(kind.count)개)")
                 kindOfBeverge.append(kind.first ?? "")
@@ -97,12 +97,11 @@ struct OutputView {
         var kindOfBeverge: [String] = []
         let kind = vendingmachine.makeKindOfBeverage()
         for item in kind {
-            let list = vendingMachine[item]
+            let list = vendingmachine[item]
             if let kind = list?.map({$0.kind}) {
                 print("\(order))\(kind.first ?? "") (\(kind.count)개)")
                 kindOfBeverge.append(kind.first ?? "")
             }
-            
             order += 1
         }
         return kindOfBeverge

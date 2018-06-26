@@ -35,8 +35,8 @@ class Vendingmachine {
     }
 
     //재고를 삭제하는 메소드
-    func removeInventory(_ beverage: Beverage, index: Int) {
-        self.inventory[beverage.kind, default: []].remove(at: index)
+    func removeInventory(_ beverage: String) {
+        self.inventory[beverage]?.removeFirst()
     }
     
     //현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
@@ -104,7 +104,7 @@ class Vendingmachine {
     func makeKindOfBeverage() -> [String] {
         var kind: [String] = []
         for item in self.inventory.values {
-            kind.append(item.map({$0.kind}).first ?? "")
+            kind.append(item.first?.kind ?? "")
         }
         return kind
     }
