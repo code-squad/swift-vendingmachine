@@ -13,26 +13,27 @@ expirationDate.dateFormat = "yyyyMMdd"
 
 let beverageSet = BeverageFactory().setBeverage()
 let vendingmachine = Vendingmachine.init(beverageSet)
-let outputView = OutputView(vendingmachine)
-var coin = vendingmachine.checkBalance()
-vendingmachine.addBalance(coin)
-var vendingmachineController = VendingmachineController.init(vendingmachine, outputView, coin)
+let adminOutputView = AdminOutputView(vendingmachine)
+let userOutputView = UserOutputView(vendingmachine)
+let adminController = AdminController(vendingmachine, adminOutputView)
+var userController = UserController.init(vendingmachine, userOutputView)
 let inputView = InputView()
 
-
+var coin = vendingmachine.checkBalance()
+vendingmachine.addBalance(coin)
 
 var run = true
 while run {
-    outputView.showMessages(.start)
-    outputView.showMessages(.mode)
-    outputView.showInputLine()
+    adminOutputView.showMessages(.start)
+    adminOutputView.showMessages(.mode)
+    adminOutputView.showInputLine()
     let mode = inputView.inputMode()
     switch mode {
     case 1:
-        vendingmachineController.runAdminMode()
+        adminController.runAdminMode()
     case 2:
-        vendingmachineController.runUserMode()
-    default: outputView.showMessages(.invalidMenu)
+        userController.runUserMode()
+    default: adminOutputView.showMessages(.invalidMenu)
         continue
     }
 }
