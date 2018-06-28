@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Vendingmachine {
+class Vendingmachine: AdminVendingmachine, UserVendingmachine {
 
     private var balance: Int = 0
     private var inventory: [String: [Beverage]] = [:]
@@ -24,6 +24,8 @@ class Vendingmachine {
         return self.inventory[item]
     }
     
+    /* 사용자 */
+    
     //자판기 금액을 원하는 금액만큼 올리는 메소드
     func addBalance(_ inputMoney: Int) {
         self.balance += inputMoney
@@ -32,11 +34,6 @@ class Vendingmachine {
     //특정 상품 인스턴스를 넘겨서 재고를 추가하는 메소드
     func addPurchases(_ beverage: Beverage) {
         self.inventory[beverage.kind, default: []].append(beverage)
-    }
-
-    //재고를 삭제하는 메소드
-    func removeInventory(_ beverage: String) {
-        self.inventory[beverage]?.removeFirst()
     }
     
     //현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
@@ -109,9 +106,33 @@ class Vendingmachine {
         return kind
     }
     
-    
+    /* 관리자 */
+    //재고를 삭제하는 메소드
+    func removeInventory(_ beverage: String) {
+        self.inventory[beverage]?.removeFirst()
+    }
     
 }
+
+protocol AdminVendingmachine {
+    func removeInventory(_ beverage: String)
+    func makeKindOfBeverage() -> [String]
+    func addPurchases(_ beverage: Beverage)
+    subscript(item: String) -> [Beverage]? { get }
+}
+
+protocol UserVendingmachine {
+    func addBalance(_ inputMoney: Int)
+    func addPurchases(_ beverage: Beverage)
+    func buyableOfList() -> [String]
+    func buyBeverage(_ beverage: String)
+    func checkBalance() -> Int
+    func checkPurchases() -> [Beverage]
+    func makePriceOfBeverage(_ kind: String) -> Int
+    func makeKindOfBeverage() -> [String]
+    subscript(item: String) -> [Beverage]? { get }
+}
+
 
 
 
