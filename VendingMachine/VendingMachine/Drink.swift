@@ -28,7 +28,7 @@ class Drink : CustomStringConvertible{
     }
     
     func getDetail() -> String {
-        return ("\(brand), \(size), \(price), \(brand), \(manufacturingDate)")
+        return ("\(brand), \(size)ml, \(price)원, \(brand), \(manufacturingDate)")
     }
 }
 
