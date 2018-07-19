@@ -8,7 +8,11 @@
 
 import Foundation
 
-class Drink {
+protocol CustomStringConvertible {
+    func getDetail() -> String
+}
+
+class Drink : CustomStringConvertible{
     let brand : String
     let size : Int
     let price : Int
@@ -23,7 +27,9 @@ class Drink {
         self.manufacturingDate = manufacturingDate
     }
     
-    
+    func getDetail() -> String {
+        return ("\(brand), \(size), \(price), \(brand), \(manufacturingDate)")
+    }
 }
 
 class Milk : Drink {
@@ -39,6 +45,7 @@ class Milk : Drink {
         self.flavor = flavor
         super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDate: manufacturingDate)
     }
+    
 }
 
 class Soda : Drink {
