@@ -12,19 +12,24 @@ protocol CustomStringConvertible {
     func getDetail() -> String
 }
 
-class Drink : CustomStringConvertible{
+class Drink : CustomStringConvertible {
     private let brand : String
     private let size : Int
     private let price : Int
     private let name : String
     private let manufacturingDate : Date
+    private let formatter = DateFormatter()
     
-    init(barnd:String, size:Int,price:Int, name:String, manufacturingDate:Date) {
+    init?(barnd:String, size:Int,price:Int, name:String, manufacturingDate:String) {
+        self.formatter.dateFormat = "yyyyMMdd"
         self.brand = barnd
         self.size = size
         self.price = price
         self.name = name
-        self.manufacturingDate = manufacturingDate
+        guard let date = formatter.date(from: manufacturingDate) else {
+            return nil
+        }
+        self.manufacturingDate = date
     }
     
     func getDetail() -> String {
@@ -41,7 +46,7 @@ class Milk : Drink {
     
     private let flavor : Flavor
     
-    init(flavor:Flavor,barnd:String, size:Int,price:Int, name:String, manufacturingDate:Date){
+    init?(flavor:Flavor,barnd:String, size:Int,price:Int, name:String, manufacturingDate:String){
         self.flavor = flavor
         super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDate: manufacturingDate)
     }
@@ -57,7 +62,7 @@ class Soda : Drink {
     
     private let flavor : Flavor
     
-    init(flavor:Flavor,barnd:String, size:Int,price:Int, name:String, manufacturingDate:Date){
+    init?(flavor:Flavor,barnd:String, size:Int,price:Int, name:String, manufacturingDate:String){
         self.flavor = flavor
         super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDate: manufacturingDate)
     }
@@ -72,7 +77,7 @@ class Coffee : Drink{
     
     private let flavor : Flavor
     
-    init(flavor:Flavor,barnd:String, size:Int,price:Int, name:String, manufacturingDate:Date){
+    init?(flavor:Flavor,barnd:String, size:Int,price:Int, name:String, manufacturingDate:String){
         self.flavor = flavor
         super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDate: manufacturingDate)
     }
