@@ -13,11 +13,11 @@ protocol CustomStringConvertible {
 }
 
 class Drink : CustomStringConvertible{
-    let brand : String
-    let size : Int
-    let price : Int
-    let name : String
-    let manufacturingDate : Date
+    private let brand : String
+    private let size : Int
+    private let price : Int
+    private let name : String
+    private let manufacturingDate : Date
     
     init(barnd:String, size:Int,price:Int, name:String, manufacturingDate:Date) {
         self.brand = barnd
@@ -39,7 +39,7 @@ class Milk : Drink {
         case banana
     }
     
-    let flavor : Flavor
+    private let flavor : Flavor
     
     init(flavor:Flavor,barnd:String, size:Int,price:Int, name:String, manufacturingDate:Date){
         self.flavor = flavor
@@ -55,7 +55,7 @@ class Soda : Drink {
         case fanta
     }
     
-    let flavor : Flavor
+    private let flavor : Flavor
     
     init(flavor:Flavor,barnd:String, size:Int,price:Int, name:String, manufacturingDate:Date){
         self.flavor = flavor
@@ -70,7 +70,7 @@ class Coffee : Drink{
         case georgia
     }
     
-    let flavor : Flavor
+    private let flavor : Flavor
     
     init(flavor:Flavor,barnd:String, size:Int,price:Int, name:String, manufacturingDate:Date){
         self.flavor = flavor
