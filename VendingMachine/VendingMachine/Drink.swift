@@ -8,11 +8,23 @@
 
 import Foundation
 
-/// 날자 입출력 처리를 위한 변수
-var formatter : DateFormatter {
-    let formatter = DateFormatter()
-    formatter.dateFormat = "yyyyMMdd"
-    return formatter
+/// 날자 입출력 포맷. 전역변수로 선언
+let dateFormat = "yyyyMMdd"
+
+extension Date {
+    func toString (format:String)->String?{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        return dateFormatter.string(from: self)
+    }
+}
+
+extension String{
+    func toDate(format:String)->Date?{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        return dateFormatter.date(from: self)
+    }
 }
 
 /// 모든 음료수의 수퍼클래스
@@ -28,14 +40,15 @@ class Drink : CustomStringConvertible {
         self.size = size
         self.price = price
         self.name = name
-        guard let date = formatter.date(from: manufacturingDate) else {
+        guard let date = manufacturingDate.toDate(format: dateFormat) else {
             return nil
         }
         self.manufacturingDate = date
     }
     
     var description : String  {
-        return ("\(brand), \(size)ml, \(price)원, \(brand), \(formatter.string(from: manufacturingDate))")
+        // 생성자에서 dateFormat 옵셔널 검사가 완료 됬으므로 여기선 강제 래핑
+        return ("\(brand), \(size)ml, \(price)원, \(brand), \(manufacturingDate.toString(format: dateFormat)!)")
     }
 }
 
