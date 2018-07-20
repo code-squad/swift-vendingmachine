@@ -8,16 +8,22 @@
 
 import Foundation
 
+/// 날자 입출력 처리를 위한 변수
+var formatter : DateFormatter {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyyMMdd"
+    return formatter
+}
+
+/// 모든 음료수의 수퍼클래스
 class Drink : CustomStringConvertible {
     private let brand : String
     private let size : Int
     private let price : Int
     private let name : String
     private let manufacturingDate : Date
-    private let formatter = DateFormatter()
     
     init?(barnd:String, size:Int,price:Int, name:String, manufacturingDate:String) {
-        self.formatter.dateFormat = "yyyyMMdd"
         self.brand = barnd
         self.size = size
         self.price = price
@@ -33,17 +39,19 @@ class Drink : CustomStringConvertible {
     }
 }
 
+/// 우유 클래스
 class Milk : Drink {
 }
 class ChocoMilk : Milk {
 }
 
-
+/// 탄산음료 클래스
 class Soda : Drink {
 }
 class Coke : Soda {
 }
 
+/// 커피 클래스
 class Coffee : Drink{
 }
 class TopCoffee : Coffee{
