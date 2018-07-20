@@ -34,50 +34,19 @@ class Drink : CustomStringConvertible {
 }
 
 class Milk : Drink {
-    enum Flavor {
-        case strawberry
-        case choco
-        case banana
-    }
-    
-    private let flavor : Flavor
-    
-    init?(flavor:Flavor,barnd:String, size:Int,price:Int, name:String, manufacturingDate:String){
-        self.flavor = flavor
-        super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDate: manufacturingDate)
-    }
-    
+}
+class ChocoMilk : Milk {
 }
 
+
 class Soda : Drink {
-    enum Flavor{
-        case coke
-        case cider
-        case fanta
-    }
-    
-    private let flavor : Flavor
-    
-    init?(flavor:Flavor,barnd:String, size:Int,price:Int, name:String, manufacturingDate:String){
-        self.flavor = flavor
-        super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDate: manufacturingDate)
-    }
+}
+class Coke : Soda {
 }
 
 class Coffee : Drink{
-    enum Flavor {
-        case top
-        case cantata
-        case georgia
-    }
-    
-    private let flavor : Flavor
-    
-    init?(flavor:Flavor,barnd:String, size:Int,price:Int, name:String, manufacturingDate:String){
-        self.flavor = flavor
-        super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDate: manufacturingDate)
-    }
 }
-
+class TopCoffee : Coffee{
+}
 
 
