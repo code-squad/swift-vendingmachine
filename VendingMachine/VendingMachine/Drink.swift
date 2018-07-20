@@ -8,10 +8,6 @@
 
 import Foundation
 
-protocol CustomStringConvertible {
-    func getDetail() -> String
-}
-
 class Drink : CustomStringConvertible {
     private let brand : String
     private let size : Int
@@ -32,7 +28,7 @@ class Drink : CustomStringConvertible {
         self.manufacturingDate = date
     }
     
-    func getDetail() -> String {
+    var description : String  {
         return ("\(brand), \(size)ml, \(price)원, \(brand), \(formatter.string(from: manufacturingDate))")
     }
 }
