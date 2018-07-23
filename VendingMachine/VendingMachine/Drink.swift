@@ -50,7 +50,7 @@ class Drink : CustomStringConvertible {
     
     var description : String  {
         // 생성자에서 dateFormat 옵셔널 검사가 완료 됬으므로 여기선 강제 래핑
-        return ("\(brand), \(size)ml, \(price)원, \(brand), \(manufacturingDate.toString(format: dateFormat)!)")
+        return ("\(String(describing: type(of: self))) - \(brand), \(size)ml, \(price)원, \(brand), \(manufacturingDate.toString(format: dateFormat)!)")
     }
 }
 
