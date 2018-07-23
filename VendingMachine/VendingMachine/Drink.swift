@@ -152,13 +152,13 @@ protocol CheckNoCaffeine {
 }
 /// 에너지 드링크 클래스
 class EnergyDrink : Drink, CheckNoCaffeine {
-    private let noCaffeine : Bool
-    init?(barnd: String, size: Int, price: Int, name: String, manufacturingDate: String, noCaffeine: Bool) {
-        self.noCaffeine = noCaffeine
+    private let zeroCaffeine : Bool
+    init?(barnd: String, size: Int, price: Int, name: String, manufacturingDate: String, zeroCaffeine: Bool) {
+        self.zeroCaffeine = zeroCaffeine
         super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDate: manufacturingDate)
     }
     func isNoCaffeine() -> Bool {
-        return self.noCaffeine
+        return self.zeroCaffeine
     }
 }
 
