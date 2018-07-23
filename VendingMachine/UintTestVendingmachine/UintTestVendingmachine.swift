@@ -20,15 +20,13 @@ class UintTestVendingmachine: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        let drink1 = ChocoMilk(barnd: "Mail", size: 200, price: 1000, name: "초코초코", manufacturingDate: "20181023")
-        if drink1!.description == "Mail, 200ml, 1000원, 초코초코, 20181023" {
-            XCTAssert(true)
-        }
-        else {
-            XCTAssert(false)
-        }
-        
+    func testEnergeDrinkIsNoCaffeine() {
+        let eDrink1 = EnergyDrink(barnd: "Mail", size: 200, price: 1000, name: "초코초코", manufacturingDate: "20181023",noCaffeine:true)
+        XCTAssert(eDrink1!.isNoCaffeine())
+    }
+    func testEnergeDrinkIsNoCaffeineFalse() {
+        let eDrink1 = EnergyDrink(barnd: "Mail", size: 200, price: 1000, name: "초코초코", manufacturingDate: "20181023",noCaffeine:false)
+        XCTAssert(!(eDrink1!.isNoCaffeine()))
     }
     
     
