@@ -14,6 +14,7 @@ let dateFormat = "yyyyMMdd"
 extension Date {
     func toString (format:String)->String?{
         let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier:"ko_KR")
         dateFormatter.dateFormat = format
         return dateFormatter.string(from: self)
     }
@@ -22,6 +23,7 @@ extension Date {
 extension String{
     func toDate(format:String)->Date?{
         let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier:"ko_KR")
         dateFormatter.dateFormat = format
         return dateFormatter.date(from: self)
     }
