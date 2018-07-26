@@ -10,7 +10,14 @@ import Foundation
 
 class VendingMachine {
     /// init
-    init(){}
+    init(){
+        self.mainInventory.append(self.chocoMilkInventory)
+        self.mainInventory.append(self.lowSugarChocoMilkInventory)
+        self.mainInventory.append(self.cokeInventory)
+        self.mainInventory.append(self.zeroCalorieCokeInventory)
+        self.mainInventory.append(self.hotTopCoffeeInventory)
+        self.mainInventory.append(self.energyDrinkInventory)
+    }
     
     /// 자판기에 들어있는 금액
     private var insertedMoney = 0
@@ -42,7 +49,7 @@ class VendingMachine {
     
     // 재고 추가 함수
     /// 저과당 우유인지 아닌지 분류 후 추가
-    func addChocoMilk(chocoMilk: ChocoMilk){
+    private func addChocoMilk(chocoMilk: ChocoMilk){
         if chocoMilk.isLowSugar() {
             lowSugarChocoMilkInventory.append(chocoMilk)
         } else {
@@ -50,7 +57,7 @@ class VendingMachine {
         }
     }
     /// 제로칼로리 콜라인지 아닌지 분류 후 추가
-    func addCoke(coke: Coke) {
+    private func addCoke(coke: Coke) {
         if coke.isZeroCalorie() {
             zeroCalorieCokeInventory.append(coke)
         } else {
@@ -58,7 +65,7 @@ class VendingMachine {
         }
     }
     /// 무과당 Top 커피인지 체크 후 추가
-    func addTopCoffee(topCoffee:TopCoffee)->()?{
+    private func addTopCoffee(topCoffee:TopCoffee)->()?{
         if topCoffee.isZeroSugar() {
             hotTopCoffeeInventory.append(topCoffee)
             return ()
@@ -67,7 +74,7 @@ class VendingMachine {
         }
     }
     /// 디카페인인지 체크 후 추가
-    func addEnergyDrink(energyDrink: EnergyDrink)->()?{
+    private func addEnergyDrink(energyDrink: EnergyDrink)->()?{
         if energyDrink.isNoCaffeine() {
             return nil
         } else {
@@ -87,5 +94,10 @@ class VendingMachine {
         }
         return ()
     }
+    
+    /// 전체 재고를 배열로 담는 변수
+    var mainInventory : [[Drink]] = []
+    
+    
 }
 
