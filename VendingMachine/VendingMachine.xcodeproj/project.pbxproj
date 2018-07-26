@@ -12,6 +12,7 @@
 		D5040850210591A70076D70A /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 		D5040851210591A70076D70A /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53220C2210078460001DE45 /* Drink.swift */; };
 		D504085321099F4A0076D70A /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D504085221099F4A0076D70A /* VendingMachine.swift */; };
+		D50408542109BDC50076D70A /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D504085221099F4A0076D70A /* VendingMachine.swift */; };
 		D53220C3210078460001DE45 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53220C2210078460001DE45 /* Drink.swift */; };
 /* End PBXBuildFile section */
 
@@ -195,6 +196,7 @@
 				D5040850210591A70076D70A /* main.swift in Sources */,
 				D5040851210591A70076D70A /* Drink.swift in Sources */,
 				D504084B2105919A0076D70A /* UintTestVendingmachine.swift in Sources */,
+				D50408542109BDC50076D70A /* VendingMachine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
