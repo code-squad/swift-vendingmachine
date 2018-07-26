@@ -11,6 +11,7 @@
 		D504084B2105919A0076D70A /* UintTestVendingmachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D504084A2105919A0076D70A /* UintTestVendingmachine.swift */; };
 		D5040850210591A70076D70A /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 		D5040851210591A70076D70A /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53220C2210078460001DE45 /* Drink.swift */; };
+		D504085321099F4A0076D70A /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D504085221099F4A0076D70A /* VendingMachine.swift */; };
 		D53220C3210078460001DE45 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53220C2210078460001DE45 /* Drink.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,7 @@
 		D50408482105919A0076D70A /* UintTestVendingmachine.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UintTestVendingmachine.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D504084A2105919A0076D70A /* UintTestVendingmachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UintTestVendingmachine.swift; sourceTree = "<group>"; };
 		D504084C2105919A0076D70A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D504085221099F4A0076D70A /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 		D53220C2210078460001DE45 /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,6 +78,7 @@
 			children = (
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
 				D53220C2210078460001DE45 /* Drink.swift */,
+				D504085221099F4A0076D70A /* VendingMachine.swift */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 			files = (
 				D53220C3210078460001DE45 /* Drink.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
+				D504085321099F4A0076D70A /* VendingMachine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
