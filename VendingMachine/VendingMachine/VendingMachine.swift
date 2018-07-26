@@ -7,3 +7,19 @@
 //
 
 import Foundation
+
+class VendingMachine {
+    /// 자판기에 들어있는 금액
+    private var insertedMoney = 0
+    
+    /// 금액 추가 함수
+    func inserMoney(money:Int){
+        self.insertedMoney += money
+    }
+    /// 금액 사용 함수
+    func useMoney(money:Int){
+        self.insertedMoney -= money
+    }
+    
+    
+}
