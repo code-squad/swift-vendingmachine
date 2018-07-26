@@ -54,12 +54,8 @@ class Drink : CustomStringConvertible {
     }
 }
 
-/// lowFat 체크 프로토콜
-protocol CheckLowFat {
-    func isLowFat() -> Bool
-}
 /// 우유 클래스
-class Milk : Drink, CheckLowFat {
+class Milk : Drink {
     private let lowFat : Bool
     
     init?(barnd: String, size: Int, price: Int, name: String, manufacturingDate: String, lowFat: Bool) {
@@ -71,11 +67,7 @@ class Milk : Drink, CheckLowFat {
     }
 }
 
-/// lowSugar 체크 프로토콜
-protocol CheckLowSugar {
-    func isLowSugar()->Bool
-}
-class ChocoMilk : Milk , CheckLowSugar{
+class ChocoMilk : Milk {
     let lowSugar : Bool
     init?(barnd: String, size: Int, price: Int, name: String, manufacturingDate: String, lowFat: Bool, lowSugar:Bool) {
         self.lowSugar = lowSugar
@@ -85,44 +77,34 @@ class ChocoMilk : Milk , CheckLowSugar{
         return self.lowSugar
     }
 }
-/// isPET 체크 프로토콜
-protocol CheckPET {
-    func isPET()->Bool
-}
+
 /// 탄산음료 클래스
-class Soda : Drink, CheckPET {
-    private let PET : Bool
+class Soda : Drink {
+    private let usingPET : Bool
     
-    init?(barnd: String, size: Int, price: Int, name: String, manufacturingDate: String, PET: Bool) {
-        self.PET = PET
+    init?(barnd: String, size: Int, price: Int, name: String, manufacturingDate: String, usingPET: Bool) {
+        self.usingPET = usingPET
         super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDate: manufacturingDate)
     }
     func isPET() -> Bool {
-        return self.PET
+        return self.usingPET
     }
 }
-/// zeroCalorie 체크 프로토콜
-protocol CheckZeroCalorie {
-    func isZeroCalorie()->Bool
-}
-class Coke : Soda, CheckZeroCalorie {
+
+class Coke : Soda {
     private let zeroCalorie : Bool
     
-    init?(barnd: String, size: Int, price: Int, name: String, manufacturingDate: String, PET: Bool,zeroCalorie:Bool) {
+    init?(barnd: String, size: Int, price: Int, name: String, manufacturingDate: String, usingPET: Bool,zeroCalorie:Bool) {
         self.zeroCalorie = zeroCalorie
-        super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDate: manufacturingDate, PET: PET)
+        super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDate: manufacturingDate, usingPET: usingPET)
     }
     func isZeroCalorie() -> Bool {
         return self.zeroCalorie
     }
 }
 
-/// hot 체크 프로토콜
-protocol CheckHot {
-    func isHot()->Bool
-}
 /// 커피 클래스
-class Coffee : Drink, CheckHot{
+class Coffee : Drink{
     private let hot : Bool
     init?(barnd: String, size: Int, price: Int, name: String, manufacturingDate: String, hot: Bool) {
         self.hot = hot
@@ -132,11 +114,8 @@ class Coffee : Drink, CheckHot{
         return self.hot
     }
 }
-/// zeroSugar 체크 프로토콜
-protocol CheckZeroSugar {
-    func isZeroSugar()->Bool
-}
-class TopCoffee : Coffee, CheckZeroSugar{
+
+class TopCoffee : Coffee {
     private let zeroSugar : Bool
     init?(barnd: String, size: Int, price: Int, name: String, manufacturingDate: String,hot: Bool, zeroSugar: Bool) {
         self.zeroSugar = zeroSugar
@@ -146,12 +125,9 @@ class TopCoffee : Coffee, CheckZeroSugar{
         return self.zeroSugar
     }
 }
-/// noCaffeine 체크 프로토콜
-protocol CheckNoCaffeine {
-    func isNoCaffeine()->Bool
-}
+
 /// 에너지 드링크 클래스
-class EnergyDrink : Drink, CheckNoCaffeine {
+class EnergyDrink : Drink {
     private let zeroCaffeine : Bool
     init?(barnd: String, size: Int, price: Int, name: String, manufacturingDate: String, zeroCaffeine: Bool) {
         self.zeroCaffeine = zeroCaffeine
