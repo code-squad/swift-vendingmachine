@@ -100,22 +100,38 @@ class DrinkInventory {
         return result
     }
     
-    /// 전체 재고 종류별 리턴
-//    func getAllDrinkDetail()->String{
-//        var message = ""
-//        if let someDrink = lowSugarChocoMilkInventory.first {
-//            message += someDrink
-//        }
-//        if message.count == 0 {
-//            message = "재고가 없습니다"
-//        }
-//        return message
-//    }
+    /// 따듯한 음료만 리턴
+    func getAllHotDrink()->String{
+        // result
+        var result = ""
+        for drink in hotTopCoffeeInventory {
+            result += drink.description
+        }
+        return result
+    }
+    
+    /// 각종 음료의 마지막을 팝한다. 없으면 닐 리턴
+    func popLowSugarChocoMilk()->ChocoMilk?{
+        return lowSugarChocoMilkInventory.removeFirst()
+    }
+    func popChocoMilk()->ChocoMilk?{
+        return chocoMilkInventory.removeFirst()
+    }
+    func popCokeInventory()->Coke?{
+        return cokeInventory.removeFirst()
+    }
+    func popZeroCalorieCokeInventory()->Coke?{
+        return zeroCalorieCokeInventory.removeFirst()
+    }
+    func popHotTopCoffeeInventory()->TopCoffee?{
+        return hotTopCoffeeInventory.removeFirst()
+    }
+    func popEnergyDrinkInventory()->EnergyDrink?{
+        return energyDrinkInventory.removeFirst()
+    }
 }
 
 class VendingMachine {
-
-    
     /// 자판기에 들어있는 금액
     private var insertedMoney = 0
     
@@ -127,8 +143,71 @@ class VendingMachine {
     func minusMoney(money:Int){
         self.insertedMoney -= money
     }
+    /// 금액 확인 함수
+    func getMoney()->Int{
+        return self.insertedMoney
+    }
     
-  
+    /// 재고창고
+    private var drinkInventory = DrinkInventory()
+    
+    /// 주문한 음료수가 쌓이는 곳
+    private var orderedDrinks : [Drink] = []
+    
+    /// 주문한 음료수 전체 내용 리턴
+    func getOrederdDrinks()->[Drink]{
+        return orderedDrinks
+    }
+    
+    /// 종류별 음료수 주문
+    func orderLowSugarChocoMilk()->()?{
+        // 재고가 없으면 닐 리턴
+        guard let drink = drinkInventory.popLowSugarChocoMilk() else {
+            return nil
+        }
+        orderedDrinks.append(drink)
+        return ()
+    }
+    func orderChocoMilk->()?{
+        // 재고가 없으면 닐 리턴
+        guard let drink = drinkInventory.popChocoMilk() else {
+            return nil
+        }
+        orderedDrinks.append(drink)
+        return ()
+    }
+    func orderCoke()->()?{
+        // 재고가 없으면 닐 리턴
+        guard let drink = drinkInventory.popCokeInventory()() else {
+            return nil
+        }
+        orderedDrinks.append(drink)
+        return ()
+    }
+    func orderZeroCalorieCoke()->()?{
+        // 재고가 없으면 닐 리턴
+        guard let drink = drinkInventory.popZeroCalorieCokeInventory() else {
+            return nil
+        }
+        orderedDrinks.append(drink)
+        return ()
+    }
+    func orderHotTopCoffee()->()?{
+        // 재고가 없으면 닐 리턴
+        guard let drink = drinkInventory.popHotTopCoffeeInventory() else {
+            return nil
+        }
+        orderedDrinks.append(drink)
+        return ()
+    }
+    func orderEnergyDrink()->()?{
+        // 재고가 없으면 닐 리턴
+        guard let drink = drinkInventory.popEnergyDrinkInventory() else {
+            return nil
+        }
+        orderedDrinks.append(drink)
+        return ()
+    }
     
 }
 
