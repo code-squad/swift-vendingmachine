@@ -8,30 +8,10 @@
 
 import Foundation
 
-class VendingMachine {
+class DrinkInventory {
     /// init
     init(){
-        self.mainInventory.append(self.chocoMilkInventory)
-        self.mainInventory.append(self.lowSugarChocoMilkInventory)
-        self.mainInventory.append(self.cokeInventory)
-        self.mainInventory.append(self.zeroCalorieCokeInventory)
-        self.mainInventory.append(self.hotTopCoffeeInventory)
-        self.mainInventory.append(self.energyDrinkInventory)
     }
-    
-    /// 자판기에 들어있는 금액
-    private var insertedMoney = 0
-    
-    /// 금액 추가 함수
-    func plusMoney(money:Int){
-        self.insertedMoney += money
-    }
-    /// 금액 사용 함수
-    func minusMoney(money:Int){
-        self.insertedMoney -= money
-    }
-    
-  
     
     /// 초코우유 재고
     private var lowSugarChocoMilkInventory : [ChocoMilk] = []
@@ -95,9 +75,60 @@ class VendingMachine {
         return ()
     }
     
-    /// 전체 재고를 배열로 담는 변수
-    var mainInventory : [[Drink]] = []
+    /// 전체 재고 출력 함수
+    func getTotalDrinkDetail() -> String{
+        // 결과 출력용 변수
+        var result = ""
+        if let drink = lowSugarChocoMilkInventory.first {
+            result += "\(drink.getName()) \(lowSugarChocoMilkInventory.count)개"
+        }
+        if let drink = chocoMilkInventory.first {
+            result += "\(drink.getName()) \(chocoMilkInventory.count)개"
+        }
+        if let drink = cokeInventory.first {
+            result += "\(drink.getName()) \(cokeInventory.count)개"
+        }
+        if let drink = zeroCalorieCokeInventory.first {
+            result += "\(drink.getName()) \(zeroCalorieCokeInventory.count)개"
+        }
+        if let drink = hotTopCoffeeInventory.first {
+            result += "\(drink.getName()) \(hotTopCoffeeInventory.count)개"
+        }
+        if let drink = energyDrinkInventory.first {
+            result += "\(drink.getName()) \(energyDrinkInventory.count)개"
+        }
+        return result
+    }
     
+    /// 전체 재고 종류별 리턴
+//    func getAllDrinkDetail()->String{
+//        var message = ""
+//        if let someDrink = lowSugarChocoMilkInventory.first {
+//            message += someDrink
+//        }
+//        if message.count == 0 {
+//            message = "재고가 없습니다"
+//        }
+//        return message
+//    }
+}
+
+class VendingMachine {
+
+    
+    /// 자판기에 들어있는 금액
+    private var insertedMoney = 0
+    
+    /// 금액 추가 함수
+    func plusMoney(money:Int){
+        self.insertedMoney += money
+    }
+    /// 금액 사용 함수
+    func minusMoney(money:Int){
+        self.insertedMoney -= money
+    }
+    
+  
     
 }
 
