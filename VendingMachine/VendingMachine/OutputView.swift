@@ -16,8 +16,7 @@ struct OutputView {
     
     /// 재고 출력 메세지
     func printGettableDrink(drinks:String){
-        print("현재 구매가능한 음료수------")
-        print(drinks)
-        print("입니다------------------")
+        print("---현재 구매가능한 음료수---")
+        print(drinks+"----------------------")
     }
 }

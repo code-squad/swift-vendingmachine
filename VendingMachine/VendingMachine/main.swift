@@ -39,8 +39,22 @@ func main(){
     vendingMachine.addDrink(drink: chocoMilk)
     vendingMachine.addDrink(drink: chocoMilk)
     
+    /// 인풋뷰 선언
+    let inputView = InputView()
+    inputView.startVendingMachine()
+    /// 아웃풋뷰 선언
+    let outputView = OutputView()
     
-    
+    outputView.printMoney(money: vendingMachine.getMoney())
+    outputView.printGettableDrink(drinks: vendingMachine.getAllInventory())
+    while true {
+        
+        
+        print("반복중")
+        
+        break
+        
+    }
     
 }
 
