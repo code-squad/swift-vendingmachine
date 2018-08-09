@@ -214,5 +214,10 @@ class VendingMachine {
     func addDrink(drink:Drink)->()?{
         return self.drinkInventory.addInventory(drink: drink)
     }
+    
+    /// 남아있는 모든 재고 확인
+    func getAllInventory()->String{
+        return drinkInventory.getTotalDrinkDetail
+    }
 }
 
