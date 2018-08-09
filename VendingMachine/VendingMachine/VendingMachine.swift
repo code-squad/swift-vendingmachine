@@ -168,7 +168,7 @@ class VendingMachine {
         orderedDrinks.append(drink)
         return ()
     }
-    func orderChocoMilk->()?{
+    func orderChocoMilk()->()?{
         // 재고가 없으면 닐 리턴
         guard let drink = drinkInventory.popChocoMilk() else {
             return nil
@@ -178,7 +178,7 @@ class VendingMachine {
     }
     func orderCoke()->()?{
         // 재고가 없으면 닐 리턴
-        guard let drink = drinkInventory.popCokeInventory()() else {
+        guard let drink = drinkInventory.popCokeInventory() else {
             return nil
         }
         orderedDrinks.append(drink)
@@ -209,5 +209,10 @@ class VendingMachine {
         return ()
     }
     
+    
+    /// 재고 추가
+    func addDrink(drink:Drink)->()?{
+        return self.drinkInventory.addInventory(drink: drink)
+    }
 }
 
