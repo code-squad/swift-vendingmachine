@@ -41,8 +41,30 @@ class UintTestVendingmachine: XCTestCase {
             XCTAssert(false)
         }
         else { XCTAssert(true) }
-        
     }
+    
+    func testGetTotalDrinkDetailFuncTrue(){
+        var inven = DrinkInventory()
+        let eDrink1 = EnergyDrink(barnd: "Mail", size: 200, price: 1000, name: "핫식스", manufacturingDate: "20181023",zeroCaffeine:false)
+        inven.addInventory(drink: eDrink1)
+        let totalInven = inven.getTotalDrinkDetail()
+        if totalInven.count == 0 {            
+            XCTAssert(false)
+        }
+        else { XCTAssert(true) }
+    }
+    func testGetTotalDrinkDetailFuncFail(){
+        var inven = DrinkInventory()
+        let eDrink1 = EnergyDrink(barnd: "Mail", size: 200, price: 1000, name: "핫식스", manufacturingDate: "20181023",zeroCaffeine:false)
+        inven.addInventory(drink: eDrink1)
+        let totalInven = inven.getTotalDrinkDetail()
+        if totalInven.count == 0 {
+            XCTAssert(true)
+        }
+        else { XCTAssert(false) }
+    }
+    
+    
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
