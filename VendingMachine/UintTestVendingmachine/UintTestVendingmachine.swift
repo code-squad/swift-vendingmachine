@@ -30,20 +30,19 @@ class UintTestVendingmachine: XCTestCase {
     }
     
     func testmakeVendinMachine(){
-        var vendingMachine = VendingMachine()
+        _ = VendingMachine()
         XCTAssert(true)
     }
     
     func testAddDrink(){
-        var vendingMachine = VendingMachine()
-        var chocoMilk = ChocoMilk(barnd: "매일", size: 200, price: 1000, name: "초코우유", manufacturingDate: "20180726", lowFat: false, lowSugar: false)
-        if vendingMachine.addInventory(drink: chocoMilk) == nil {
+        var inven = DrinkInventory()
+        let eDrink1 = EnergyDrink(barnd: "Mail", size: 200, price: 1000, name: "초코초코", manufacturingDate: "20181023",zeroCaffeine:false)
+        if inven.addInventory(drink: eDrink1) == nil {
             XCTAssert(false)
         }
-        XCTAssert(true)
+        else { XCTAssert(true) }
+        
     }
-    
-//    func 
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
