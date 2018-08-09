@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+struct OutputView {
+    /// 자판기 금액을 리턴한다
+    func printMoney(money:Int){
+        print("현재 자판기에 입력된 금액은 \(money)원 입니다.")
+    }
+    
+}
