@@ -13,6 +13,8 @@
 		D5040851210591A70076D70A /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53220C2210078460001DE45 /* Drink.swift */; };
 		D504085321099F4A0076D70A /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D504085221099F4A0076D70A /* VendingMachine.swift */; };
 		D50408542109BDC50076D70A /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D504085221099F4A0076D70A /* VendingMachine.swift */; };
+		D51B5CAF211C66AC002F57ED /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51B5CAE211C66AC002F57ED /* InputView.swift */; };
+		D51B5CB0211C66AC002F57ED /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51B5CAE211C66AC002F57ED /* InputView.swift */; };
 		D53220C3210078460001DE45 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53220C2210078460001DE45 /* Drink.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +37,7 @@
 		D504084A2105919A0076D70A /* UintTestVendingmachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UintTestVendingmachine.swift; sourceTree = "<group>"; };
 		D504084C2105919A0076D70A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D504085221099F4A0076D70A /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
+		D51B5CAE211C66AC002F57ED /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		D53220C2210078460001DE45 /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,6 +83,7 @@
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
 				D53220C2210078460001DE45 /* Drink.swift */,
 				D504085221099F4A0076D70A /* VendingMachine.swift */,
+				D51B5CAE211C66AC002F57ED /* InputView.swift */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";
@@ -184,6 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D53220C3210078460001DE45 /* Drink.swift in Sources */,
+				D51B5CAF211C66AC002F57ED /* InputView.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
 				D504085321099F4A0076D70A /* VendingMachine.swift in Sources */,
 			);
@@ -195,6 +200,7 @@
 			files = (
 				D5040850210591A70076D70A /* main.swift in Sources */,
 				D5040851210591A70076D70A /* Drink.swift in Sources */,
+				D51B5CB0211C66AC002F57ED /* InputView.swift in Sources */,
 				D504084B2105919A0076D70A /* UintTestVendingmachine.swift in Sources */,
 				D50408542109BDC50076D70A /* VendingMachine.swift in Sources */,
 			);
