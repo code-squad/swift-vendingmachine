@@ -18,17 +18,25 @@ func main(){
         ,
         let hot6 = EnergyDrink(
             barnd: "핫식스", size: 200, price: 1000, name: "핫식스", manufacturingDate: "20171012", zeroCaffeine: false),
-        let coke = Coke(barnd: "팹시", size: 350, price: 2000, name: "다이어트콜라", manufacturingDate: "20171005", usingPET: false, zeroCalorie: false),
+        let coke = Coke(barnd: "팹시", size: 350, price: 2000, name: "콜라", manufacturingDate: "20171005", usingPET: false, zeroCalorie: false),
         let topCoffee = TopCoffee(barnd: "맥심", size: 400, price: 3000, name: "TOP아메리카노", manufacturingDate: "20171010", hot: false, zeroSugar: false),
-        let chocoMilk  = ChocoMilk(barnd: "서울우유", size: 200, price: 1000, name: "그냥초코우유", manufacturingDate: "20171009", lowFat: true, lowSugar: false)
+        let chocoMilk  = ChocoMilk(barnd: "서울우유", size: 200, price: 1000, name: "그냥초코우유", manufacturingDate: "20171009", lowFat: true, lowSugar: false),
+        let zeroCalorieCoke = Coke(barnd: "팹시", size: 350, price: 2000, name: "다이어트콜라", manufacturingDate: "20171005", usingPET: false, zeroCalorie: true)
         else {
             return ()
     }
     // 음료수 추가
     vendingMachine.addDrink(drink: lowSugarChocoMilk)
+    vendingMachine.addDrink(drink: lowSugarChocoMilk)
+    vendingMachine.addDrink(drink: hot6)
     vendingMachine.addDrink(drink: hot6)
     vendingMachine.addDrink(drink: coke)
+    vendingMachine.addDrink(drink: coke)
+    vendingMachine.addDrink(drink: zeroCalorieCoke)
+    vendingMachine.addDrink(drink: zeroCalorieCoke)
     vendingMachine.addDrink(drink: topCoffee)
+    vendingMachine.addDrink(drink: topCoffee)
+    vendingMachine.addDrink(drink: chocoMilk)
     vendingMachine.addDrink(drink: chocoMilk)
     
     
