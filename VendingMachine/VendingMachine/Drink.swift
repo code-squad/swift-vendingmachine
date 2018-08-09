@@ -37,6 +37,10 @@ class Drink : CustomStringConvertible {
     private let name : String
     private let manufacturingDate : Date
     
+    func getPrice() ->Int {
+        return self.price
+    }
+    
     init?(barnd:String, size:Int,price:Int, name:String, manufacturingDate:String) {
         self.brand = barnd
         self.size = size
