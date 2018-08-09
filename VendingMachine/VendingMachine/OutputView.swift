@@ -14,4 +14,10 @@ struct OutputView {
         print("현재 자판기에 입력된 금액은 \(money)원 입니다.")
     }
     
+    /// 재고 출력 메세지
+    func printGettableDrink(drinks:String){
+        print("현재 구매가능한 음료수------")
+        print(drinks)
+        print("입니다------------------")
+    }
 }
