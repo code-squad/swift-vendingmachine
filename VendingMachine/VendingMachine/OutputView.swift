@@ -33,4 +33,9 @@ struct OutputView {
     func wrongMenu(){
         print("잘못된 메뉴입니다")
     }
+    
+    /// 종료시 출력메세지
+    func quitMessage(){
+        print("자판기를 종료합니다.")
+    }
 }

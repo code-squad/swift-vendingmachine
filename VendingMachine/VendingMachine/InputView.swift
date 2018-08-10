@@ -18,6 +18,7 @@ struct InputView {
     func firstMenu()->String{
         print("1. 돈 추가투입")
         print("2. 음료 선택")
+        print("q. 종료")
         return getUserInput()
     }
     
@@ -26,13 +27,6 @@ struct InputView {
         print("얼마를 투입하시겠습니까?")
         let money = getUserInput()
         return Checker.checkChangePlusInt(money)
-    }
-    
-    /// 2차메뉴. 음료수 가격 재고 출력후 선택
-    func secondMenu()->String{
-        print("1. 돈 추가투입")
-        print("2. 음료 선택")
-        return getUserInput()
     }
     
     /// 음료수를 선택할 경우 몇개를 구입할지 묻는다
