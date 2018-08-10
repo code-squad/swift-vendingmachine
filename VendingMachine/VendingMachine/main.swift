@@ -41,18 +41,38 @@ func main(){
     
     /// 인풋뷰 선언
     let inputView = InputView()
-    inputView.startVendingMachine()
     /// 아웃풋뷰 선언
     let outputView = OutputView()
     
-    outputView.printMoney(money: vendingMachine.getMoney())
-    outputView.printGettableDrink(drinks: vendingMachine.getAllInventory())
-    while true {
+    outputView.mainMenu()
+    /// 첫번째 스텝 진행 순서
+    func firstStep()->String{
+        outputView.printMoney(money: vendingMachine.getMoney())
+        outputView.printGettableDrink(drinks: vendingMachine.getAllInventory())
+        let firstMenu = inputView.firstMenu()
+        return firstMenu
+    }
+    /// 돈 추가를 선택시 진행순서
+    func insertMoneyStep(){
+        if let money = inputView.insertMoney() {
+            vendingMachine.plusMoney(money: money)
+        }
+        else {
+            outputView.wrongMoney()
+        }
+    }
+    
+    
+    while true {        
+        var firstMenu = firstStep()
+        
+        switch firstMenu {
+        case "1" : insertMoneyStep()
+//        case "2" :
+        default : outputView.wrongMenu()
+        }
         
         
-        print("반복중")
-        
-        break
         
     }
     
