@@ -19,10 +19,18 @@ struct OutputView {
     }
     
     /// 재고 출력 메세지
-    func printGettableDrink(drinks:[String]){
+    func printGettableDrink(drinks:[InventoryDetail?]){
+        // 메뉴번호를 출력하기 위한 변수
+        var menuNumber = 1
         print("---현재 구매가능한 음료수---")
         for drink in drinks {
-            print("\(drinks.index(of: drink)!+1). \(drink)")
+            if drink != nil {
+            print("\(menuNumber). \(drink!.getDrinkName())-\(drink!.getDrinkPrice())원-\(drink!.getDrinkNumber())개")
+            }
+            else {
+                print("\(menuNumber). 재고 없음")
+            }
+            menuNumber += 1 
         }
         print("----------------------")
     }
@@ -41,4 +49,5 @@ struct OutputView {
     func quitMessage(){
         print("자판기를 종료합니다.")
     }
+    
 }
