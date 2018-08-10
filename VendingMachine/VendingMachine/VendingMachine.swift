@@ -74,29 +74,29 @@ class DrinkInventory {
         }
         return ()
     }
+    /// 인벤토리별로 재고 출력. 없으면 매진으로 출력
+    private func getDrinkInventory(drinkInventory: [Drink])-> String{
+        var result = ""
+        // 재고가 있을경우
+        if let drink = drinkInventory.first {
+            result += "\(drink.getName())-\(drink.getPrice())원-\(drinkInventory.count)개"
+        } // 없을경우
+        else {
+            result += "재고 없음"
+        }
+        return result+"\n"
+    }
     
     /// 전체 재고 출력 함수
     func getTotalDrinkDetail() -> String{
         // 결과 출력용 변수
         var result = ""
-        if let drink = lowSugarChocoMilkInventory.first {
-            result += "\(drink.getName())-\(drink.getPrice())원-\(lowSugarChocoMilkInventory.count)개\n"
-        }
-        if let drink = chocoMilkInventory.first {
-            result += "\(drink.getName())-\(drink.getPrice())원-\(chocoMilkInventory.count)개\n"
-        }
-        if let drink = cokeInventory.first {
-            result += "\(drink.getName())-\(drink.getPrice())원-\(cokeInventory.count)개\n"
-        }
-        if let drink = zeroCalorieCokeInventory.first {
-            result += "\(drink.getName())-\(drink.getPrice())원-\(zeroCalorieCokeInventory.count)개\n"
-        }
-        if let drink = hotTopCoffeeInventory.first {
-            result += "\(drink.getName())-\(drink.getPrice())원-\(hotTopCoffeeInventory.count)개\n"
-        }
-        if let drink = energyDrinkInventory.first {
-            result += "\(drink.getName())-\(drink.getPrice())원-\(energyDrinkInventory.count)개\n"
-        }
+        result += getDrinkInventory(drinkInventory: lowSugarChocoMilkInventory)
+        result += getDrinkInventory(drinkInventory: chocoMilkInventory)
+        result += getDrinkInventory(drinkInventory: cokeInventory)
+        result += getDrinkInventory(drinkInventory: zeroCalorieCokeInventory)
+        result += getDrinkInventory(drinkInventory: hotTopCoffeeInventory)
+        result += getDrinkInventory(drinkInventory: energyDrinkInventory)
         return result
     }
     
