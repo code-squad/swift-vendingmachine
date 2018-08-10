@@ -84,19 +84,19 @@ class DrinkInventory {
         else {
             result += "재고 없음"
         }
-        return result+"\n"
+        return result
     }
     
     /// 전체 재고 출력 함수
-    func getTotalDrinkDetail() -> String{
+    func getTotalDrinkDetail() -> [String]{
         // 결과 출력용 변수
-        var result = ""
-        result += getDrinkInventory(drinkInventory: lowSugarChocoMilkInventory)
-        result += getDrinkInventory(drinkInventory: chocoMilkInventory)
-        result += getDrinkInventory(drinkInventory: cokeInventory)
-        result += getDrinkInventory(drinkInventory: zeroCalorieCokeInventory)
-        result += getDrinkInventory(drinkInventory: hotTopCoffeeInventory)
-        result += getDrinkInventory(drinkInventory: energyDrinkInventory)
+        var result : [String] = []
+        result.append(getDrinkInventory(drinkInventory: lowSugarChocoMilkInventory))
+        result.append(getDrinkInventory(drinkInventory: chocoMilkInventory))
+        result.append(getDrinkInventory(drinkInventory: cokeInventory))
+        result.append(getDrinkInventory(drinkInventory: zeroCalorieCokeInventory))
+        result.append(getDrinkInventory(drinkInventory: hotTopCoffeeInventory))
+        result.append(getDrinkInventory(drinkInventory: energyDrinkInventory))
         return result
     }
     
@@ -216,7 +216,7 @@ class VendingMachine {
     }
     
     /// 남아있는 모든 재고 확인
-    func getAllInventory()->String{
+    func getAllInventory()->[String]{
         return drinkInventory.getTotalDrinkDetail()
     }
 }
