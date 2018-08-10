@@ -8,128 +8,7 @@
 
 import Foundation
 
-class DrinkInventory {
-    /// init
-    init(){
-    }
-    
-    /// 초코우유 재고
-    private var lowSugarChocoMilkInventory : [ChocoMilk] = []
-    private var chocoMilkInventory : [ChocoMilk] = []
-    
-    /// 콜라 재고
-    private var cokeInventory : [Coke] = []
-    private var zeroCalorieCokeInventory : [Coke] = []
-    
-    /// 커피 재고
-    private var hotTopCoffeeInventory : [TopCoffee] = []
-    
-    /// 에너지드링크 재고
-    private var energyDrinkInventory : [EnergyDrink] = []
-    
-    // 재고 추가 함수
-    /// 저과당 우유인지 아닌지 분류 후 추가
-    private func addChocoMilk(chocoMilk: ChocoMilk){
-        if chocoMilk.isLowSugar() {
-            lowSugarChocoMilkInventory.append(chocoMilk)
-        } else {
-            chocoMilkInventory.append(chocoMilk)
-        }
-    }
-    /// 제로칼로리 콜라인지 아닌지 분류 후 추가
-    private func addCoke(coke: Coke) {
-        if coke.isZeroCalorie() {
-            zeroCalorieCokeInventory.append(coke)
-        } else {
-            cokeInventory.append(coke)
-        }
-    }
-    /// 무과당 Top 커피인지 체크 후 추가
-    private func addTopCoffee(topCoffee:TopCoffee)->()?{
-        if topCoffee.isZeroSugar() {
-            hotTopCoffeeInventory.append(topCoffee)
-            return ()
-        } else {
-            return nil
-        }
-    }
-    /// 디카페인인지 체크 후 추가
-    private func addEnergyDrink(energyDrink: EnergyDrink)->()?{
-        if energyDrink.isNoCaffeine() {
-            return nil
-        } else {
-            energyDrinkInventory.append(energyDrink)
-        }
-        return ()
-    }
-    
-    /// 음료수 객체를 받아서 추가
-    func addInventory(drink:Any)->()?{
-        switch drink {
-        case is ChocoMilk : addChocoMilk(chocoMilk: drink as! ChocoMilk)
-        case is Coke : addCoke(coke: drink as! Coke)
-        case is TopCoffee : addTopCoffee(topCoffee: drink as! TopCoffee)
-        case is EnergyDrink : addEnergyDrink(energyDrink: drink as! EnergyDrink)
-        default : return nil
-        }
-        return ()
-    }
-    /// 인벤토리별로 재고 출력. 없으면 매진으로 출력
-    private func getDrinkInventory(drinkInventory: [Drink])-> String{
-        var result = ""
-        // 재고가 있을경우
-        if let drink = drinkInventory.first {
-            result += "\(drink.getName())-\(drink.getPrice())원-\(drinkInventory.count)개"
-        } // 없을경우
-        else {
-            result += "재고 없음"
-        }
-        return result
-    }
-    
-    /// 전체 재고 출력 함수
-    func getTotalDrinkDetail() -> [String]{
-        // 결과 출력용 변수
-        var result : [String] = []
-        result.append(getDrinkInventory(drinkInventory: lowSugarChocoMilkInventory))
-        result.append(getDrinkInventory(drinkInventory: chocoMilkInventory))
-        result.append(getDrinkInventory(drinkInventory: cokeInventory))
-        result.append(getDrinkInventory(drinkInventory: zeroCalorieCokeInventory))
-        result.append(getDrinkInventory(drinkInventory: hotTopCoffeeInventory))
-        result.append(getDrinkInventory(drinkInventory: energyDrinkInventory))
-        return result
-    }
-    
-    /// 따듯한 음료만 리턴
-    func getAllHotDrink()->String{
-        // result
-        var result = ""
-        for drink in hotTopCoffeeInventory {
-            result += drink.description
-        }
-        return result
-    }
-    
-    /// 각종 음료의 마지막을 팝한다. 없으면 닐 리턴
-    func popLowSugarChocoMilk()->ChocoMilk?{
-        return lowSugarChocoMilkInventory.removeFirst()
-    }
-    func popChocoMilk()->ChocoMilk?{
-        return chocoMilkInventory.removeFirst()
-    }
-    func popCokeInventory()->Coke?{
-        return cokeInventory.removeFirst()
-    }
-    func popZeroCalorieCokeInventory()->Coke?{
-        return zeroCalorieCokeInventory.removeFirst()
-    }
-    func popHotTopCoffeeInventory()->TopCoffee?{
-        return hotTopCoffeeInventory.removeFirst()
-    }
-    func popEnergyDrinkInventory()->EnergyDrink?{
-        return energyDrinkInventory.removeFirst()
-    }
-}
+
 
 class VendingMachine {
     /// 자판기에 들어있는 금액
@@ -216,8 +95,18 @@ class VendingMachine {
     }
     
     /// 남아있는 모든 재고 확인
-    func getAllInventory()->[String]{
+    func getAllInventory()->[InventoryDetail?]{
         return drinkInventory.getTotalDrinkDetail()
     }
+    
+    /// 주문한 모든 음료 확인
+    func getAllOrderdDrink()->[String]{
+        var result : [String] = []
+        for drink in  orderedDrinks {
+            result.append(drink.description)
+        }
+        return result
+    }
+    
 }
 

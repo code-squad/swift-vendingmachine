@@ -29,14 +29,8 @@ extension String{
     }
 }
 
-/// 음료의 이름과 가격을 리턴하는 함수.
-protocol DrinkDetail {
-    func getName()->String
-    func getPrice()->Int
-}
-
 /// 모든 음료수의 수퍼클래스
-class Drink : CustomStringConvertible, DrinkDetail {
+class Drink : CustomStringConvertible {
     private let brand : String
     private let size : Int
     private let price : Int

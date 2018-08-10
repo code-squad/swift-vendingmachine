@@ -61,9 +61,21 @@ func main(){
             outputView.wrongMoney()
         }
     }
-    /// 음료선택시 진행 순서
+    /// 1번 음료 선택시
+    func selectFirstDrink(){
+        guard let inventoryDetail = vendingMachine.getAllInventory()[1] else {
+            
+        }
+        let orderNumber = inputView.howMany(drink: inventoryDetail?.getDrinkName())
+        if inventoryDetail?.getDrinkNumber() > orderNumber
+    }
+    /// 음료 선택 시 진행 순서
     func selectDirnk(){
-        
+        let selectedDrink = inputView.whichDrink()
+        switch selectedDrink {
+//        case "1": vendingMachine.getFullInventory().
+        default : outputView.wrongMenu()
+        }
     }
 
     
@@ -74,7 +86,7 @@ func main(){
         case "2" : selectDirnk()
         case "q" :
             outputView.quitMessage()
-            break
+            return ()
         default : outputView.wrongMenu()
         }
         

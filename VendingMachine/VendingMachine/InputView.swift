@@ -37,7 +37,7 @@ struct InputView {
     /// 음료수를 선택할 경우 몇개를 구입할지 묻는다
     func howMany(drink:String)->Int?{
         print("\(drink) 를 몇개를 구입하시겟습니까?")
-        var number = getUserInput()
+        let number = getUserInput()
         return Checker.checkChangePlusInt(number)
     }
 }
