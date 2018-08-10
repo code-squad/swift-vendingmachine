@@ -46,7 +46,7 @@ func main(){
     
     outputView.mainMenu()
     /// 첫번째 스텝 진행 순서
-    func firstStep()->String{
+    func mainManu()->String{
         outputView.printMoney(money: vendingMachine.getMoney())
         outputView.printGettableDrink(drinks: vendingMachine.getAllInventory())
         let firstMenu = inputView.firstMenu()
@@ -61,14 +61,20 @@ func main(){
             outputView.wrongMoney()
         }
     }
-    
+    /// 음료선택시 진행 순서
+    func selectDirnk(){
+        
+    }
+
     
     while true {        
-        var firstMenu = firstStep()
-        
+        let firstMenu = mainManu()
         switch firstMenu {
         case "1" : insertMoneyStep()
-//        case "2" :
+        case "2" : selectDirnk()
+        case "q" :
+            outputView.quitMessage()
+            break
         default : outputView.wrongMenu()
         }
         
