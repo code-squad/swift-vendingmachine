@@ -23,4 +23,10 @@ struct OutputView {
         print("---현재 구매가능한 음료수---")
         print(drinks+"----------------------")
     }
+    
+    /// 잘못된 금액 입력시 나오는 메세지
+    func wrongMoney()->String{
+        print("잘못된 금액입니다.")
+    }
+    
 }
