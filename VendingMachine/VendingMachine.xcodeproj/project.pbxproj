@@ -17,6 +17,8 @@
 		D51B5CB0211C66AC002F57ED /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51B5CAE211C66AC002F57ED /* InputView.swift */; };
 		D51B5CB2211C6A8B002F57ED /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51B5CB1211C6A8B002F57ED /* OutputView.swift */; };
 		D51B5CB3211C6A8B002F57ED /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51B5CB1211C6A8B002F57ED /* OutputView.swift */; };
+		D52DF17F211D572000CA3250 /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52DF17E211D572000CA3250 /* Checker.swift */; };
+		D52DF180211D572000CA3250 /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52DF17E211D572000CA3250 /* Checker.swift */; };
 		D53220C3210078460001DE45 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53220C2210078460001DE45 /* Drink.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +43,7 @@
 		D504085221099F4A0076D70A /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 		D51B5CAE211C66AC002F57ED /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		D51B5CB1211C6A8B002F57ED /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
+		D52DF17E211D572000CA3250 /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
 		D53220C2210078460001DE45 /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,6 +91,7 @@
 				D504085221099F4A0076D70A /* VendingMachine.swift */,
 				D51B5CAE211C66AC002F57ED /* InputView.swift */,
 				D51B5CB1211C6A8B002F57ED /* OutputView.swift */,
+				D52DF17E211D572000CA3250 /* Checker.swift */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";
@@ -192,6 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D51B5CB2211C6A8B002F57ED /* OutputView.swift in Sources */,
+				D52DF17F211D572000CA3250 /* Checker.swift in Sources */,
 				D53220C3210078460001DE45 /* Drink.swift in Sources */,
 				D51B5CAF211C66AC002F57ED /* InputView.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
@@ -208,6 +213,7 @@
 				D51B5CB0211C66AC002F57ED /* InputView.swift in Sources */,
 				D504084B2105919A0076D70A /* UintTestVendingmachine.swift in Sources */,
 				D50408542109BDC50076D70A /* VendingMachine.swift in Sources */,
+				D52DF180211D572000CA3250 /* Checker.swift in Sources */,
 				D51B5CB3211C6A8B002F57ED /* OutputView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
