@@ -19,9 +19,12 @@ struct OutputView {
     }
     
     /// 재고 출력 메세지
-    func printGettableDrink(drinks:String){
+    func printGettableDrink(drinks:[String]){
         print("---현재 구매가능한 음료수---")
-        print(drinks+"----------------------")
+        for drink in drinks {
+            print("\(drinks.index(of: drink)!+1). \(drink)")
+        }
+        print("----------------------")
     }
     
     /// 잘못된 금액 입력시 출력메세지
