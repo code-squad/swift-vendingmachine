@@ -17,7 +17,7 @@ struct InputView {
     /// 1차 메뉴. 돈추가, 음료수 선택지
     func firstMenu()->String{
         print("1. 돈 추가투입")
-        print("2. 음료 목록으로 이동")
+        print("2. 음료 선택")
         return getUserInput()
     }
     
@@ -32,6 +32,7 @@ struct InputView {
     func secondMenu()->String{
         print("1. 돈 추가투입")
         print("2. 음료 선택")
+        return getUserInput()
     }
     
     /// 음료수를 선택할 경우 몇개를 구입할지 묻는다

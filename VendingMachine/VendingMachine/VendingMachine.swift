@@ -80,22 +80,22 @@ class DrinkInventory {
         // 결과 출력용 변수
         var result = ""
         if let drink = lowSugarChocoMilkInventory.first {
-            result += "\(drink.getName())-\(lowSugarChocoMilkInventory.count)개\n"
+            result += "\(drink.getName())-\(drink.getPrice())원-\(lowSugarChocoMilkInventory.count)개\n"
         }
         if let drink = chocoMilkInventory.first {
-            result += "\(drink.getName())-\(chocoMilkInventory.count)개\n"
+            result += "\(drink.getName())-\(drink.getPrice())원-\(chocoMilkInventory.count)개\n"
         }
         if let drink = cokeInventory.first {
-            result += "\(drink.getName())-\(cokeInventory.count)개\n"
+            result += "\(drink.getName())-\(drink.getPrice())원-\(cokeInventory.count)개\n"
         }
         if let drink = zeroCalorieCokeInventory.first {
-            result += "\(drink.getName())-\(zeroCalorieCokeInventory.count)개\n"
+            result += "\(drink.getName())-\(drink.getPrice())원-\(zeroCalorieCokeInventory.count)개\n"
         }
         if let drink = hotTopCoffeeInventory.first {
-            result += "\(drink.getName())-\(hotTopCoffeeInventory.count)개\n"
+            result += "\(drink.getName())-\(drink.getPrice())원-\(hotTopCoffeeInventory.count)개\n"
         }
         if let drink = energyDrinkInventory.first {
-            result += "\(drink.getName())-\(energyDrinkInventory.count)개\n"
+            result += "\(drink.getName())-\(drink.getPrice())원-\(energyDrinkInventory.count)개\n"
         }
         return result
     }
