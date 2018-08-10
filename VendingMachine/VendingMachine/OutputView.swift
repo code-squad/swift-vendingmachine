@@ -9,6 +9,10 @@
 import Foundation
 
 struct OutputView {
+    /// 시작 화면
+    func mainMenu(){
+        print("자판기 메인메뉴 입니다.")
+    }
     /// 자판기 금액을 리턴한다
     func printMoney(money:Int){
         print("현재 자판기에 입력된 금액은 \(money)원 입니다.")
