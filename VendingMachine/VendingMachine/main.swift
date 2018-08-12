@@ -43,7 +43,7 @@ func main(){
     let inputView = InputView()
     /// 아웃풋뷰 선언
     let outputView = OutputView()
-    
+    /// 메인메뉴 출력
     outputView.mainMenu()
     /// 첫번째 스텝 진행 순서
     func mainManu()->String{
@@ -86,6 +86,20 @@ func main(){
         return true
     }
     
+    /// 인벤토리->주문내역 으로 음료 이동
+    func moveDrink(drinkNumber:Int)->()?{
+        // 이전 단계에서 체크가 끝난 음료를 이동시킨다
+        switch drinkNumber {
+        case 1 : vendingMachine.orderLowSugarChocoMilk()
+        case 2 : vendingMachine.orderChocoMilk()
+        case 3 : vendingMachine.orderCoke()
+        case 4 : vendingMachine.orderZeroCalorieCoke()
+        case 5 : vendingMachine.orderHotTopCoffee()
+        case 6 : vendingMachine.orderEnergyDrink()
+        default : return nil
+        }
+        return ()
+    }
     
     /// 음료 선택후 구매 진행과정
     func buyingDrink(drinkNumber:Int){
@@ -99,9 +113,9 @@ func main(){
                 return ()
         }
         
-        guard drinkDetail.getDrinkCount() >= orderCount , vendingMachine.orderLowSugarChocoMilk() != nil else {
+        // 인벤토리->주문내역 으로 음료 이동
+        if moveDrink(drinkNumber: drinkNumber) == nil  {
             outputView.notEnoughDrink()
-            return ()
         }
         // 금액 차감
         vendingMachine.minusMoney(money: drinkDetail.getDrinkPrice()*orderCount)
@@ -120,7 +134,6 @@ func main(){
             outputView.wrongMenu()
         }
     }
-
     
     while true {        
         let firstMenu = mainManu()
@@ -132,11 +145,7 @@ func main(){
             return ()
         default : outputView.wrongMenu()
         }
-        
-        
-        
     }
-    
 }
 
 
