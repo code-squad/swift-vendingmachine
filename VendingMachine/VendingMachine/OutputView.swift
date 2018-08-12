@@ -61,7 +61,7 @@ struct OutputView {
     }
     
     /// 음료수 구매성공 메세지
-    func buyingSuccessMessage(dirnkName:String,drinkNumber:Int,drinkPirce:Int){
-        print("\(dirnkName) \(drinkNumber)개를 \(drinkPirce)원에 구매하였습니다.")
+    func buyingSuccessMessage(dirnkName:String,drinkCount:Int,drinkPirce:Int){
+        print("\(dirnkName) \(drinkCount)개를 \(drinkPirce)원에 구매하였습니다.")
     }
 }
