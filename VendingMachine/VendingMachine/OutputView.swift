@@ -50,4 +50,18 @@ struct OutputView {
         print("자판기를 종료합니다.")
     }
     
+    /// 재고가 없는 물건 주문시 출력메세지
+    func notEnoughDrink(){
+        print("음료 재고가 없습니다.")
+    }
+    
+    /// 숫자를 입력해야되는데 숫자가 아닌경우
+    func notNumeric(){
+        print("정수가 아닙니다.")
+    }
+    
+    /// 음료수 구매성공 메세지
+    func buyingSuccessMessage(dirnkName:String,drinkNumber:Int,drinkPirce:Int){
+        print("\(dirnkName) \(drinkNumber)개를 \(drinkPirce)원에 구매하였습니다.")
+    }
 }
