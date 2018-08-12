@@ -61,9 +61,10 @@ func main(){
             outputView.wrongMoney()
         }
     }
-    /// 음료선택시 재고가 남아있는지 체크
+    /// 음료선택시 재고가 남아있는지 체크후 해당 음료의 정보를 가저온다
     func checkInventoryCount(dirnkNumber:Int)->InventoryDetail?{
-        guard let drinkDetail : InventoryDetail = vendingMachine.getAllInventory()[dirnkNumber] else {
+        // 메뉴번호-1 이 실제 배열임
+        guard let drinkDetail : InventoryDetail = vendingMachine.getAllInventory()[dirnkNumber-1] else {
             outputView.notEnoughDrink()
             return nil
         }
