@@ -12,12 +12,12 @@ import Foundation
 struct InventoryDetail  {
     private let drinkName : String
     private let drinkPrice : Int
-    private var drinkNumber : Int
+    private var drinkCount : Int
     
-    init(drinkName:String, drinkPrice:Int,drinkNumber: Int){
+    init(drinkName:String, drinkPrice:Int,drinkCount: Int){
         self.drinkName = drinkName
         self.drinkPrice = drinkPrice
-        self.drinkNumber = drinkNumber
+        self.drinkCount = drinkCount
     }
     
     func getDrinkName()->String{
@@ -26,12 +26,12 @@ struct InventoryDetail  {
     func getDrinkPrice()->Int{
         return self.drinkPrice
     }
-    func getDrinkNumber()->Int{
-        return self.drinkNumber
+    func getDrinkCount()->Int{
+        return self.drinkCount
     }
 }
 
-
+/// 음료배열을 여러개 가지는 음료창고
 class DrinkInventory {
     /// init
     init(){
@@ -102,7 +102,7 @@ class DrinkInventory {
     private func getDrinkInventory(drinkInventory: [Drink])-> InventoryDetail?{
         // 재고가 있을경우
         if let drink = drinkInventory.first {
-            let inventoryDetail = InventoryDetail(drinkName: drink.getName(), drinkPrice: drink.getPrice(), drinkNumber: drinkInventory.count)
+            let inventoryDetail = InventoryDetail(drinkName: drink.getName(), drinkPrice: drink.getPrice(), drinkCount: drinkInventory.count)
             return inventoryDetail
         } // 없을경우
         else {
