@@ -61,20 +61,63 @@ func main(){
             outputView.wrongMoney()
         }
     }
-    /// 1번 음료 선택시
-    func selectFirstDrink(){
-        guard let inventoryDetail = vendingMachine.getAllInventory()[1] else {
-            
+    /// 음료선택시 재고가 남아있는지 체크
+    func checkInventoryCount(dirnkNumber:Int)->InventoryDetail?{
+        guard let drinkDetail : InventoryDetail = vendingMachine.getAllInventory()[dirnkNumber] else {
+            outputView.notEnoughDrink()
+            return nil
         }
-        let orderNumber = inputView.howMany(drink: inventoryDetail?.getDrinkName())
-        if inventoryDetail?.getDrinkNumber() > orderNumber
+        return drinkDetail
     }
+    /// 원하는 수량이 >0 인지 체크
+    func getOrderCount(drinkName:String)->Int?{
+        guard let orderCount = inputView.howMany(drink: drinkName) else {
+            outputView.notNumeric()
+            return nil
+        }
+        return orderCount
+    }
+    /// 원하는 수량이 재고와 맞는지 체크
+    func checkEnoughDrinkCount(drinkCount:Int,orderCount:Int)->Bool{
+        guard drinkCount >= orderCount else {
+            outputView.notEnoughDrink()
+            return false
+        }
+        return true
+    }
+    
+    
+    /// 음료 선택후 구매 진행과정
+    func buyingDrink(drinkNumber:Int){
+        /// 구매가 가능한지 체크한다
+        guard let drinkDetail = checkInventoryCount(dirnkNumber: drinkNumber) // 구매하려는 음료가 잔고가 있는지
+            , let orderCount = getOrderCount(drinkName: drinkDetail.getDrinkName()) // 원하는 수량이 >0 인지
+            , checkEnoughDrinkCount(drinkCount: drinkDetail.getDrinkCount(), orderCount: orderCount) == true
+            // 잔고 >= 원하는 수량 인지
+            else {
+                // 하나라도 잘못되면 단계 취소
+                return ()
+        }
+        
+        guard drinkDetail.getDrinkCount() >= orderCount , vendingMachine.orderLowSugarChocoMilk() != nil else {
+            outputView.notEnoughDrink()
+            return ()
+        }
+        // 금액 차감
+        vendingMachine.minusMoney(money: drinkDetail.getDrinkPrice()*orderCount)
+        // 성공메세지 출력
+        outputView.buyingSuccessMessage(dirnkName: drinkDetail.getDrinkName(), drinkCount: orderCount, drinkPirce: drinkDetail.getDrinkPrice()*orderCount)
+    }
+    
     /// 음료 선택 시 진행 순서
     func selectDirnk(){
-        let selectedDrink = inputView.whichDrink()
-        switch selectedDrink {
-//        case "1": vendingMachine.getFullInventory().
-        default : outputView.wrongMenu()
+        // 음료 번호를 선택한다. 1~Checker.maxDrinuNumber 사이면 통과
+        if let selectedDrinkNumber = Checker.isRightDrinkNumber(inputView.whichDrink()) {
+            // 음료 구매가 진행된다
+            buyingDrink(drinkNumber: selectedDrinkNumber)
+        } // 잘못된 선택일 경우
+        else {
+            outputView.wrongMenu()
         }
     }
 
