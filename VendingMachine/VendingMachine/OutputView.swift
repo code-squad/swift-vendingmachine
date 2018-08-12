@@ -25,7 +25,7 @@ struct OutputView {
         print("---현재 구매가능한 음료수---")
         for drink in drinks {
             if drink != nil {
-            print("\(menuNumber). \(drink!.getDrinkName())-\(drink!.getDrinkPrice())원-\(drink!.getDrinkNumber())개")
+            print("\(menuNumber). \(drink!.getDrinkName())-\(drink!.getDrinkPrice())원-\(drink!.getDrinkCount())개")
             }
             else {
                 print("\(menuNumber). 재고 없음")
