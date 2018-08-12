@@ -102,6 +102,19 @@ func main(){
         return ()
     }
     
+    /// 금액 차감 단계
+    func calculateMoney(drinkPrice:Int)->()?{
+        if vendingMachine.getMoney() >= drinkPrice {
+            // 금액 차감
+            vendingMachine.minusMoney(money: drinkPrice)
+        } // 금액부족
+        else {
+            outputView.notEnoughMoney()
+            return nil
+        }
+        return ()
+    }
+    
     /// 음료 선택후 구매 진행과정
     func buyingDrink(drinkNumber:Int){
         /// 구매가 가능한지 체크한다
@@ -113,13 +126,16 @@ func main(){
                 // 하나라도 잘못되면 단계 취소
                 return ()
         }
+        // 돈 계산
+        if calculateMoney(drinkPrice: drinkDetail.getDrinkPrice()*orderCount) == nil {
+            return ()
+        }
         
         // 인벤토리->주문내역 으로 음료 이동
         if moveDrink(drinkNumber: drinkNumber) == nil  {
             outputView.notEnoughDrink()
         }
-        // 금액 차감
-        vendingMachine.minusMoney(money: drinkDetail.getDrinkPrice()*orderCount)
+        
         // 성공메세지 출력
         outputView.buyingSuccessMessage(dirnkName: drinkDetail.getDrinkName(), drinkCount: orderCount, drinkPirce: drinkDetail.getDrinkPrice()*orderCount)
     }
