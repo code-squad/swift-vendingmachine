@@ -64,4 +64,8 @@ struct OutputView {
     func buyingSuccessMessage(dirnkName:String,drinkCount:Int,drinkPirce:Int){
         print("\(dirnkName) \(drinkCount)개를 \(drinkPirce)원에 구매하였습니다.")
     }
+    /// 주문금액이 잔고보다 클 경우
+    func notEnoughMoney(){
+        print("잔액이 부족합니다.")
+    }
 }
