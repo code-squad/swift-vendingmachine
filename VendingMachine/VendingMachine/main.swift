@@ -117,6 +117,7 @@ func main(){
         }
         return ()
     }
+    
     /// 음료번호를 받아서 음료타입으로 리턴
     func dirnkNumberToType(drinkNumber:InputView.DrinkNumber)->DrinkInventory.DrinkType{
         switch drinkNumber {
@@ -128,7 +129,6 @@ func main(){
         case .six : return DrinkInventory.DrinkType.energyDrink
         }
     }
-    
     
     /// 음료 선택후 구매 진행과정
     func buyingDrink(drinkNumber:InputView.DrinkNumber){
@@ -154,7 +154,6 @@ func main(){
             // 이동 실패시
             print(outputView.notEnoughDrink())
         }
-        
     }
     
     /// 음료 선택 시 진행 순서
