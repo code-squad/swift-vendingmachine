@@ -15,11 +15,16 @@ struct InputView {
     }
     
     /// 1차 메뉴. 돈추가, 음료수 선택지
-    func firstMenu()->String{
-        print("1. 돈 추가투입")
-        print("2. 음료 선택")
-        print("q. 종료")
-        return getUserInput()
+    enum FirstMenu{
+        case
+        insertMoney
+        ,selectDrink
+        ,quit
+    }
+    
+    /// 첫번째 메뉴를 위한 입력을 받는다
+    func receiveFirstMenu()->FirstMenu?{
+        return Checker.checkFirstMenuInput(input: getUserInput())
     }
     
     /// 돈 추가 선택시

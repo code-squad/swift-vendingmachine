@@ -31,4 +31,14 @@ struct Checker {
         return number
     }
     
+    /// 첫번째 메뉴 체크함수. 1,2,q 이외에는 닐
+    static func checkFirstMenuInput(input:String)->InputView.FirstMenu?{
+        switch input {
+        case "1" : return InputView.FirstMenu.insertMoney
+        case "2" : return InputView.FirstMenu.selectDrink
+        case "q" : return InputView.FirstMenu.quit
+        default : return nil
+        }
+    }
+    
 }

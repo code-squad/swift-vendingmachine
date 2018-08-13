@@ -46,11 +46,13 @@ func main(){
     /// 메인메뉴 출력
     print(outputView.mainMenu())
     /// 첫번째 스텝 진행 순서
-    func mainMenu()->String{
+    func mainMenu()->InputView.FirstMenu?{
+        // 시작 메세지. 소지금, 구입가능 음료 리스트, 메뉴 출력
         print(outputView.returnMoney(money: vendingMachine.getMoney()))
         print(outputView.returnGettableDrink(drinks: vendingMachine.getAllInventory()))
-        let firstMenu = inputView.firstMenu()
-        return firstMenu
+        print(outputView.firstMenu())
+        
+        return inputView.receiveFirstMenu()
     }
     /// 돈 추가를 선택시 진행순서
     func insertMoneyStep(){
@@ -103,10 +105,10 @@ func main(){
     }
     
     /// 금액 차감 단계
-    func calculateMoney(drinkPrice:Int)->()?{
-        if vendingMachine.getMoney() >= drinkPrice {
+    func calculateMoney(drink:InventoryDetail,orderCount:Int)->()?{
+        if vendingMachine.getMoney() >= drink.drinkPrice*orderCount {
             // 금액 차감
-            vendingMachine.minusMoney(money: drinkPrice)
+            vendingMachine.minusMoney(money: drink.drinkPrice*orderCount)
         } // 금액부족
         else {
             print(outputView.notEnoughMoney())
@@ -127,7 +129,7 @@ func main(){
                 return ()
         }
         // 돈 계산
-        if calculateMoney(drinkPrice: drinkDetail.drinkPrice*orderCount) == nil {
+        if calculateMoney(drink: drinkDetail,orderCount:orderCount) == nil {
             return ()
         }
         
@@ -151,16 +153,23 @@ func main(){
             print(outputView.wrongMenu())
         }
     }
-    
-    while true {        
-        let firstMenu = mainMenu()
-        switch firstMenu {
-        case "1" : insertMoneyStep()
-        case "2" : selectDirnk()
-        case "q" :
-            print(outputView.quitMessage())
-            return ()
-        default : print(outputView.wrongMenu())
+    // 프로그램 시작
+    while true {
+        // 메인메뉴임을 알림
+        print(outputView.firstMenu())
+        // 유저입력값을 첫번째 메뉴로 치환한다
+        if let firstMenu = mainMenu() {
+            switch firstMenu {
+            case .insertMoney : insertMoneyStep()
+            case .selectDrink : selectDirnk()
+            case .quit :
+                // 종료를 선택하면 종료메세지 후 리턴
+                print(outputView.quitMessage())
+                return ()
+            }
+        } // 잘못된 메뉴 선택시
+        else {
+            print(outputView.wrongMenu())
         }
     }
 }

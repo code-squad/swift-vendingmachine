@@ -72,4 +72,13 @@ struct OutputView {
     func notEnoughMoney()->String{
         return("잔액이 부족합니다.")
     }
+    
+    /// 1차 메뉴. 돈추가, 음료수 선택지
+    func firstMenu()->String{
+        var result = ""
+        result += ("1. 돈 추가투입\n")
+        result += ("2. 음료 선택\n")
+        result += ("q. 종료\n")
+        return result
+    }
 }
