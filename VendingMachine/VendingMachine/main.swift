@@ -54,6 +54,7 @@ func main(){
         
         return inputView.receiveFirstMenu()
     }
+    
     /// 돈 추가를 선택시 진행순서
     func insertMoneyStep(){
         if let money = inputView.insertMoney() {
@@ -63,15 +64,17 @@ func main(){
             print(outputView.wrongMoney())
         }
     }
+    
     /// 음료선택시 재고가 남아있는지 체크후 해당 음료의 정보를 가저온다
-    func checkInventoryCount(dirnkNumber:Int)->InventoryDetail?{
+    func checkInventoryCount(dirnkNumber:InputView.DrinkNumber)->InventoryDetail?{
         // 메뉴번호-1 이 실제 배열임
-        guard let drinkDetail : InventoryDetail = vendingMachine.getAllInventory()[dirnkNumber-1] else {
+        guard let drinkDetail : InventoryDetail = vendingMachine.getAllInventory()[dirnkNumber.rawValue-1] else {
             print(outputView.notEnoughDrink())
             return nil
         }
         return drinkDetail
     }
+    
     /// 원하는 수량이 >0 인지 체크
     func getOrderCount(drinkName:String)->Int?{
         guard let orderCount = inputView.howMany(drink: drinkName) else {
@@ -80,6 +83,7 @@ func main(){
         }
         return orderCount
     }
+    
     /// 원하는 수량이 재고와 맞는지 체크
     func checkEnoughDrinkCount(drinkCount:Int,orderCount:Int)->Bool{
         guard drinkCount >= orderCount else {
@@ -118,7 +122,7 @@ func main(){
     }
     
     /// 음료 선택후 구매 진행과정
-    func buyingDrink(drinkNumber:Int){
+    func buyingDrink(drinkNumber:InputView.DrinkNumber){
         /// 구매가 가능한지 체크한다
         guard let drinkDetail = checkInventoryCount(dirnkNumber: drinkNumber) // 구매하려는 음료가 잔고가 있는지
             , let orderCount = getOrderCount(drinkName: drinkDetail.drinkName) // 원하는 수량이 >0 인지
@@ -134,7 +138,7 @@ func main(){
         }
         
         // 인벤토리->주문내역 으로 음료 이동
-        if moveDrink(drinkNumber: drinkNumber) == nil  {
+        if moveDrink(drinkNumber: drinkNumber.rawValue) == nil  {
             print(outputView.notEnoughDrink())
         }
         
@@ -145,7 +149,7 @@ func main(){
     /// 음료 선택 시 진행 순서
     func selectDirnk(){
         // 음료 번호를 선택한다. 1~Checker.maxDrinuNumber 사이면 통과
-        if let selectedDrinkNumber = Checker.isRightDrinkNumber(inputView.whichDrink()) {
+        if let selectedDrinkNumber = inputView.receiveDrinkNumberMenu() {
             // 음료 구매가 진행된다
             buyingDrink(drinkNumber: selectedDrinkNumber)
         } // 잘못된 선택일 경우
