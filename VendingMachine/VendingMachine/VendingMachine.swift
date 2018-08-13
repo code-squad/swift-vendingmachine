@@ -39,55 +39,80 @@ class VendingMachine {
     }
     
     /// 종류별 음료수 주문
-    func orderLowSugarChocoMilk()->()?{
+   private  func orderLowSugarChocoMilk()->InventoryDetail?{
         // 재고가 없으면 닐 리턴
         guard let drink = drinkInventory.popLowSugarChocoMilk() else {
             return nil
         }
         orderedDrinks.append(drink)
-        return ()
+        return InventoryDetail(drinkName: drink.getName(), drinkPrice: drink.getPrice(), drinkCount: 1)
     }
-    func orderChocoMilk()->()?{
+    private func orderChocoMilk()->InventoryDetail?{
         // 재고가 없으면 닐 리턴
         guard let drink = drinkInventory.popChocoMilk() else {
             return nil
         }
         orderedDrinks.append(drink)
-        return ()
+        return InventoryDetail(drinkName: drink.getName(), drinkPrice: drink.getPrice(), drinkCount: 1)
     }
-    func orderCoke()->()?{
+    private func orderCoke()->InventoryDetail?{
         // 재고가 없으면 닐 리턴
         guard let drink = drinkInventory.popCokeInventory() else {
             return nil
         }
         orderedDrinks.append(drink)
-        return ()
+        return InventoryDetail(drinkName: drink.getName(), drinkPrice: drink.getPrice(), drinkCount: 1)
     }
-    func orderZeroCalorieCoke()->()?{
+    private func orderZeroCalorieCoke()->InventoryDetail?{
         // 재고가 없으면 닐 리턴
         guard let drink = drinkInventory.popZeroCalorieCokeInventory() else {
             return nil
         }
         orderedDrinks.append(drink)
-        return ()
+        return InventoryDetail(drinkName: drink.getName(), drinkPrice: drink.getPrice(), drinkCount: 1)
     }
-    func orderHotTopCoffee()->()?{
+    private func orderHotTopCoffee()->InventoryDetail?{
         // 재고가 없으면 닐 리턴
         guard let drink = drinkInventory.popHotTopCoffeeInventory() else {
             return nil
         }
         orderedDrinks.append(drink)
-        return ()
+        return InventoryDetail(drinkName: drink.getName(), drinkPrice: drink.getPrice(), drinkCount: 1)
     }
-    func orderEnergyDrink()->()?{
+    private func orderEnergyDrink()->InventoryDetail?{
         // 재고가 없으면 닐 리턴
         guard let drink = drinkInventory.popEnergyDrinkInventory() else {
             return nil
         }
         orderedDrinks.append(drink)
-        return ()
+        return InventoryDetail(drinkName: drink.getName(), drinkPrice: drink.getPrice(), drinkCount: 1)
     }
     
+    /// 음료타입을 받아서 해당 음료 주문 후 재고정보를 리턴
+    func orderDrink(drinkType:DrinkInventory.DrinkType)->InventoryDetail?{
+        switch drinkType {
+        case .chocoMilk : return orderChocoMilk()
+        case .lowSugarChocoMilk : return orderLowSugarChocoMilk()
+        case .coke : return orderCoke()
+        case .zeroCalorieCoke : return orderZeroCalorieCoke()
+        case .hotTopCoffee : return orderHotTopCoffee()
+        case .energyDrink : return orderEnergyDrink()
+        }
+    }
+    
+    /// 음료다수주문 기능
+    func orderDrinks(drinkType:DrinkInventory.DrinkType,drinkCount:Int)->InventoryDetail?{
+        // 주문된 음료재고 정보를 기록한다
+        var orderInventoryDetail : InventoryDetail? = nil
+        var orderDrinkCount = 0
+        for _ in 1...drinkCount {
+            orderInventoryDetail = orderDrink(drinkType: drinkType)
+            if orderInventoryDetail != nil{
+                orderDrinkCount += orderInventoryDetail!.drinkCount
+            }
+        }
+        return orderInventoryDetail
+    }
     
     /// 재고 추가
     func addDrink(drink:Drink)->InventoryDetail?{

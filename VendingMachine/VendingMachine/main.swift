@@ -105,21 +105,6 @@ func main(){
         return true
     }
     
-    /// 인벤토리->주문내역 으로 음료 이동
-    func moveDrink(drinkNumber:Int)->()?{
-        // 이전 단계에서 체크가 끝난 음료를 이동시킨다
-        switch drinkNumber {
-        case 1 : vendingMachine.orderLowSugarChocoMilk()
-        case 2 : vendingMachine.orderChocoMilk()
-        case 3 : vendingMachine.orderCoke()
-        case 4 : vendingMachine.orderZeroCalorieCoke()
-        case 5 : vendingMachine.orderHotTopCoffee()
-        case 6 : vendingMachine.orderEnergyDrink()
-        default : return nil
-        }
-        return ()
-    }
-    
     /// 금액 차감 단계
     func calculateMoney(drink:InventoryDetail,orderCount:Int)->()?{
         if vendingMachine.getMoney() >= drink.drinkPrice*orderCount {
@@ -132,6 +117,18 @@ func main(){
         }
         return ()
     }
+    /// 음료번호를 받아서 음료타입으로 리턴
+    func dirnkNumberToType(drinkNumber:InputView.DrinkNumber)->DrinkInventory.DrinkType{
+        switch drinkNumber {
+        case .one : return DrinkInventory.DrinkType.lowSugarChocoMilk
+        case .two : return DrinkInventory.DrinkType.chocoMilk
+        case .three : return DrinkInventory.DrinkType.coke
+        case .four : return DrinkInventory.DrinkType.zeroCalorieCoke
+        case .five : return DrinkInventory.DrinkType.hotTopCoffee
+        case .six : return DrinkInventory.DrinkType.energyDrink
+        }
+    }
+    
     
     /// 음료 선택후 구매 진행과정
     func buyingDrink(drinkNumber:InputView.DrinkNumber){
@@ -150,14 +147,13 @@ func main(){
         }
         
         // 인벤토리->주문내역 으로 음료 이동
-        if moveDrink(drinkNumber: drinkNumber.rawValue) == nil {
+        if let orderedDrinks = vendingMachine.orderDrinks(drinkType: dirnkNumberToType(drinkNumber: drinkNumber), drinkCount: orderCount) {
+            // 성공메세지 출력
+            print(outputView.buyingSuccessMessage(drinkDetail: orderedDrinks))
+        } else {
             // 이동 실패시
             print(outputView.notEnoughDrink())
-        } else {
-            // 성공메세지 출력
-            print(outputView.buyingSuccessMessage(dirnkName: drinkDetail.drinkName, drinkCount: orderCount, drinkPrice: drinkDetail.drinkPrice*orderCount))
         }
-        
         
     }
     
