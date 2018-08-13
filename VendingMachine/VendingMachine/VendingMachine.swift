@@ -90,8 +90,8 @@ class VendingMachine {
     
     
     /// 재고 추가
-    func addDrink(drink:Drink)->()?{
-        return self.drinkInventory.addInventory(drink: drink)
+    func addDrink(drink:Drink)->InventoryDetail?{
+        return self.drinkInventory.addInventory(undefinedDrink: drink)
     }
     
     /// 남아있는 모든 재고 확인
