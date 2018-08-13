@@ -30,7 +30,6 @@ struct OutputView {
             result += ("\(menuNumber). \(drink!.drinkName)-\(drink!.drinkPrice)원-\(drink!.drinkCount)개\n")
             }
             else {
-//                result += ("\(menuNumber). 재고 없음")
             }
             menuNumber += 1
         }
