@@ -27,7 +27,7 @@ struct OutputView {
         result += ("---현재 구매가능한 음료수---\n")
         for drink in drinks {
             if drink != nil {
-            result += ("\(menuNumber). \(drink!.getDrinkName())-\(drink!.getDrinkPrice())원-\(drink!.getDrinkCount())개")
+            result += ("\(menuNumber). \(drink!.drinkName)-\(drink!.drinkPrice)원-\(drink!.drinkCount)개")
             }
             else {
                 result += ("\(menuNumber). 재고 없음")
