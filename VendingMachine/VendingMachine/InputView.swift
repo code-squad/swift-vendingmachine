@@ -43,11 +43,6 @@ struct InputView {
         let money = getUserInput()
         return Checker.checkChangePlusInt(money)
     }
-    /// 음료를 선택할경우 어떤 음료를 선택할지 묻는다
-    func whichDrink()->String{
-        print("어떤 음류수를 선택하시겠습니까?")
-        return getUserInput()
-    }
     
     /// 음료수를 선택할 경우 몇개를 구입할지 묻는다
     func howMany(drink:String)->Int?{
