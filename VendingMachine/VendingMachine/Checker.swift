@@ -41,4 +41,16 @@ struct Checker {
         }
     }
     
+    /// 음료 종류 선택을 위한 체크함수, 1~maxDrinkNumber 까지 허용
+    static func checkDrinkNumber(input:String)->InputView.DrinkNumber?{        
+        switch input {
+        case "1" : return InputView.DrinkNumber.one
+        case "2" : return InputView.DrinkNumber.two
+        case "3" : return InputView.DrinkNumber.three
+        case "4" : return InputView.DrinkNumber.four
+        case "5" : return InputView.DrinkNumber.five
+        case "6" : return InputView.DrinkNumber.six
+        default : return nil
+        }
+    }
 }

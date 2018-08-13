@@ -27,6 +27,16 @@ struct InputView {
         return Checker.checkFirstMenuInput(input: getUserInput())
     }
     
+    /// 음료 종류를 선택하는 메뉴
+    enum DrinkNumber : Int{
+        case one=1,two,three,four,five,six
+    }
+    
+    /// 음료 종류 선택을 위한 입력을 받는다
+    func receiveDrinkNumberMenu()->DrinkNumber?{
+        return Checker.checkDrinkNumber(input: getUserInput())
+    }
+    
     /// 돈 추가 선택시
     func insertMoney()->Int?{
         print("얼마를 투입하시겠습니까?")
