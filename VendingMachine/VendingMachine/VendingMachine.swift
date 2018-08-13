@@ -111,6 +111,7 @@ class VendingMachine {
                 orderDrinkCount += orderInventoryDetail!.drinkCount
             }
         }
+        orderInventoryDetail?.drinkCount = orderDrinkCount
         return orderInventoryDetail
     }
     
