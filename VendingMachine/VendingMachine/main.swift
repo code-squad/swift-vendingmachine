@@ -39,6 +39,18 @@ func main(){
     vendingMachine.addDrink(drink: chocoMilk)
     vendingMachine.addDrink(drink: chocoMilk)
     
+    vendingMachine.addDrink(drink: lowSugarChocoMilk)
+    vendingMachine.addDrink(drink: hot6)
+    vendingMachine.addDrink(drink: hot6)
+    vendingMachine.addDrink(drink: zeroCalorieCoke)
+    vendingMachine.addDrink(drink: zeroCalorieCoke)
+    vendingMachine.addDrink(drink: topCoffee)
+    vendingMachine.addDrink(drink: topCoffee)
+    vendingMachine.addDrink(drink: chocoMilk)
+    vendingMachine.addDrink(drink: chocoMilk)
+    vendingMachine.addDrink(drink: chocoMilk)
+    vendingMachine.addDrink(drink: chocoMilk)
+    
     /// 인풋뷰 선언
     let inputView = InputView()
     /// 아웃풋뷰 선언
@@ -138,16 +150,21 @@ func main(){
         }
         
         // 인벤토리->주문내역 으로 음료 이동
-        if moveDrink(drinkNumber: drinkNumber.rawValue) == nil  {
+        if moveDrink(drinkNumber: drinkNumber.rawValue) == nil {
+            // 이동 실패시
             print(outputView.notEnoughDrink())
+        } else {
+            // 성공메세지 출력
+            print(outputView.buyingSuccessMessage(dirnkName: drinkDetail.drinkName, drinkCount: orderCount, drinkPrice: drinkDetail.drinkPrice*orderCount))
         }
         
-        // 성공메세지 출력
-        print(outputView.buyingSuccessMessage(dirnkName: drinkDetail.drinkName, drinkCount: orderCount, drinkPirce: drinkDetail.drinkPrice*orderCount))
+        
     }
     
     /// 음료 선택 시 진행 순서
     func selectDirnk(){
+        // 음료 번호 선택 매뉴 알림 메세지
+        print(outputView.whichDrink())
         // 음료 번호를 선택한다. 1~Checker.maxDrinuNumber 사이면 통과
         if let selectedDrinkNumber = inputView.receiveDrinkNumberMenu() {
             // 음료 구매가 진행된다
@@ -159,8 +176,6 @@ func main(){
     }
     // 프로그램 시작
     while true {
-        // 메인메뉴임을 알림
-        print(outputView.firstMenu())
         // 유저입력값을 첫번째 메뉴로 치환한다
         if let firstMenu = mainMenu() {
             switch firstMenu {
