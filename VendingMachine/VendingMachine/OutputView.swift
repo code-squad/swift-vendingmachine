@@ -65,8 +65,8 @@ struct OutputView {
     }
     
     /// 음료수 구매성공 메세지
-    func buyingSuccessMessage(dirnkName:String,drinkCount:Int,drinkPrice:Int)->String{
-        return("\(dirnkName) \(drinkCount)개를 \(drinkPrice)원에 구매하였습니다.")
+    func buyingSuccessMessage(drinkName:String,drinkCount:Int,drinkPrice:Int)->String{
+        return("\(drinkName) \(drinkCount)개를 \(drinkPrice)원에 구매하였습니다.")
     }
     /// 주문금액이 잔고보다 클 경우
     func notEnoughMoney()->String{
