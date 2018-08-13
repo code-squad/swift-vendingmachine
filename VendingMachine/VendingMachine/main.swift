@@ -119,15 +119,15 @@ func main(){
     func buyingDrink(drinkNumber:Int){
         /// 구매가 가능한지 체크한다
         guard let drinkDetail = checkInventoryCount(dirnkNumber: drinkNumber) // 구매하려는 음료가 잔고가 있는지
-            , let orderCount = getOrderCount(drinkName: drinkDetail.getDrinkName()) // 원하는 수량이 >0 인지
-            , checkEnoughDrinkCount(drinkCount: drinkDetail.getDrinkCount(), orderCount: orderCount) == true
+            , let orderCount = getOrderCount(drinkName: drinkDetail.drinkName) // 원하는 수량이 >0 인지
+            , checkEnoughDrinkCount(drinkCount: drinkDetail.drinkCount, orderCount: orderCount) == true
             // 잔고 >= 원하는 수량 인지
             else {
                 // 하나라도 잘못되면 단계 취소
                 return ()
         }
         // 돈 계산
-        if calculateMoney(drinkPrice: drinkDetail.getDrinkPrice()*orderCount) == nil {
+        if calculateMoney(drinkPrice: drinkDetail.drinkPrice*orderCount) == nil {
             return ()
         }
         
@@ -137,7 +137,7 @@ func main(){
         }
         
         // 성공메세지 출력
-        print(outputView.buyingSuccessMessage(dirnkName: drinkDetail.getDrinkName(), drinkCount: orderCount, drinkPirce: drinkDetail.getDrinkPrice()*orderCount))
+        print(outputView.buyingSuccessMessage(dirnkName: drinkDetail.drinkName, drinkCount: orderCount, drinkPirce: drinkDetail.drinkPrice*orderCount))
     }
     
     /// 음료 선택 시 진행 순서
