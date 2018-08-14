@@ -98,12 +98,16 @@ func main(){
     }
     
     /// 원하는 수량이 재고와 맞는지 체크
-    func checkEnoughDrinkCount(drinkCount:Int,orderCount:Int)->Bool{
-        guard drinkCount >= orderCount else {
+    func checkEnoughDrinkCount(drinkDetail:InventoryDetail,orderCount:Int)->Bool{
+        if drinkDetail.isEnoughDrink(orderCount: orderCount)  {
+            // 재고 충분시
+            return true
+        } // 재고부족시
+        else {
             outputView.printMessage(message: OutputView.errorMessage.notEnoughDrink.rawValue)
             return false
         }
-        return true
+        
     }
     
     /// 음료번호를 받아서 음료타입으로 리턴
@@ -125,6 +129,8 @@ func main(){
         guard let drinkDetail = getInventoryDetail(drinkNumber: drinkNumber)
             // 원하는 수량이 >0 인지
             , let orderCount = receiveOrderCount(drinkName: drinkDetail.drinkName)
+            // 재고수량 >= 주문수량 인지
+            , checkEnoughDrinkCount(drinkDetail: drinkDetail, orderCount: orderCount)
             else {
                 // 하나라도 잘못되면 단계 취소
                 return ()

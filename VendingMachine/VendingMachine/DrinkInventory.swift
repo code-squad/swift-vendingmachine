@@ -19,6 +19,10 @@ struct InventoryDetail  {
         self.drinkPrice = drinkPrice
         self.drinkCount = drinkCount
     }
+    
+    func isEnoughDrink(orderCount:Int)->Bool{
+        return self.drinkCount >= orderCount
+    }
 }
 
 /// 음료배열을 여러개 가지는 음료창고
