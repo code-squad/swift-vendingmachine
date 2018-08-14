@@ -125,8 +125,6 @@ func main(){
         guard let drinkDetail = getInventoryDetail(drinkNumber: drinkNumber)
             // 원하는 수량이 >0 인지
             , let orderCount = receiveOrderCount(drinkName: drinkDetail.drinkName)
-            // 잔고 >= 원하는 수량 인지
-            , checkEnoughDrinkCount(drinkCount: drinkDetail.drinkCount, orderCount: orderCount) == true
             else {
                 // 하나라도 잘못되면 단계 취소
                 return ()
