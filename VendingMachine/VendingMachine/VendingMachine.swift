@@ -89,7 +89,7 @@ class VendingMachine {
     }
     
     /// 음료타입을 받아서 해당 음료 주문 후 재고정보를 리턴
-    func orderDrink(drinkType:DrinkInventory.DrinkType)->InventoryDetail?{
+    func moveDrink(drinkType:DrinkInventory.DrinkType)->InventoryDetail?{
         switch drinkType {
         case .chocoMilk : return orderChocoMilk()
         case .lowSugarChocoMilk : return orderLowSugarChocoMilk()
@@ -106,7 +106,7 @@ class VendingMachine {
         var orderInventoryDetail : InventoryDetail? = nil
         var orderDrinkCount = 0
         for _ in 1...drinkCount {
-            orderInventoryDetail = orderDrink(drinkType: drinkType)
+            orderInventoryDetail = moveDrink(drinkType: drinkType)
             if orderInventoryDetail != nil{
                 orderDrinkCount += orderInventoryDetail!.drinkCount
             }

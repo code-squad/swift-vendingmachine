@@ -133,15 +133,13 @@ func main(){
         if vendingMachine.calculateMoney(drink: drinkDetail,orderCount:orderCount) == false {
             return ()
         }
-        
+        // 입력받은 음료 번호를 음료 타입으로 변환
+        let drinkType = drinkNumberToType(drinkNumber: drinkNumber)
         // 인벤토리->주문내역 으로 음료 이동
-        if let orderedDrinks = vendingMachine.orderDrinks(drinkType: drinkNumberToType(drinkNumber: drinkNumber), drinkCount: orderCount) {
-            // 성공메세지 출력
-            print(outputView.buyingSuccessMessage(drinkDetail: orderedDrinks))
-        } else {
-            // 이동 실패시
-            outputView.printMessage(message: OutputView.errorMessage.notEnoughDrink.rawValue)
-        }
+        let result = vendingMachine.orderDrinks(drinkType:drinkType, drinkCount: orderCount)
+        // 결과를 출력
+        outputView.printMessage(message: outputView.buyingResult(drinkDetail: result))
+        
     }
     
     /// 음료 선택 시 진행 순서
