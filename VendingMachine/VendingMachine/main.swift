@@ -89,7 +89,7 @@ func main(){
     }
     
     /// 원하는 수량이 >0 인지 체크
-    func getOrderCount(drinkName:String)->Int?{
+    func receiveOrderCount(drinkName:String)->Int?{
         guard let orderCount = inputView.howMany(drink: drinkName) else {
             outputView.printMessage(message: OutputView.errorMessage.notNumeric.rawValue)
             return nil
@@ -124,7 +124,7 @@ func main(){
          // 구매하려는 음료가 잔고가 있는지
         guard let drinkDetail = getInventoryDetail(drinkNumber: drinkNumber)
             // 원하는 수량이 >0 인지
-            , let orderCount = getOrderCount(drinkName: drinkDetail.drinkName)
+            , let orderCount = receiveOrderCount(drinkName: drinkDetail.drinkName)
             // 잔고 >= 원하는 수량 인지
             , checkEnoughDrinkCount(drinkCount: drinkDetail.drinkCount, orderCount: orderCount) == true
             else {
