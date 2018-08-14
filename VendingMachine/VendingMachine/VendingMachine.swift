@@ -134,5 +134,16 @@ class VendingMachine {
         return result
     }
     
+    /// 금액 차감 기능
+    func calculateMoney(drink:InventoryDetail,orderCount:Int)->Bool{
+        if self.getMoney() >= drink.drinkPrice*orderCount {
+            // 금액 차감
+            self.minusMoney(money: drink.drinkPrice*orderCount)
+            return true
+        } // 금액부족
+        else {
+            return false
+        }
+    }
 }
 

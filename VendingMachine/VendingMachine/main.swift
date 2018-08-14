@@ -105,19 +105,6 @@ func main(){
         return true
     }
     
-    /// 금액 차감 단계
-    func calculateMoney(drink:InventoryDetail,orderCount:Int)->()?{
-        if vendingMachine.getMoney() >= drink.drinkPrice*orderCount {
-            // 금액 차감
-            vendingMachine.minusMoney(money: drink.drinkPrice*orderCount)
-        } // 금액부족
-        else {
-            outputView.printMessage(message: OutputView.errorMessage.notEnoughMoney.rawValue)
-            return nil
-        }
-        return ()
-    }
-    
     /// 음료번호를 받아서 음료타입으로 리턴
     func drinkNumberToType(drinkNumber:InputView.DrinkNumber)->DrinkInventory.DrinkType{
         switch drinkNumber {
@@ -133,16 +120,18 @@ func main(){
     /// 음료 선택후 구매 진행과정
     func buyingDrink(drinkNumber:InputView.DrinkNumber){
         /// 구매가 가능한지 체크한다
-        guard let drinkDetail = checkInventoryCount(drinkNumber: drinkNumber) // 구매하려는 음료가 잔고가 있는지
-            , let orderCount = getOrderCount(drinkName: drinkDetail.drinkName) // 원하는 수량이 >0 인지
-            , checkEnoughDrinkCount(drinkCount: drinkDetail.drinkCount, orderCount: orderCount) == true
+         // 구매하려는 음료가 잔고가 있는지
+        guard let drinkDetail = checkInventoryCount(drinkNumber: drinkNumber)
+            // 원하는 수량이 >0 인지
+            , let orderCount = getOrderCount(drinkName: drinkDetail.drinkName)
             // 잔고 >= 원하는 수량 인지
+            , checkEnoughDrinkCount(drinkCount: drinkDetail.drinkCount, orderCount: orderCount) == true
             else {
                 // 하나라도 잘못되면 단계 취소
                 return ()
         }
         // 돈 계산
-        if calculateMoney(drink: drinkDetail,orderCount:orderCount) == nil {
+        if vendingMachine.calculateMoney(drink: drinkDetail,orderCount:orderCount) == false {
             return ()
         }
         
