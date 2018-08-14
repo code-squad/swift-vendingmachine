@@ -56,7 +56,7 @@ func main(){
     /// 아웃풋뷰 선언
     let outputView = OutputView()
     /// 메인메뉴 출력
-    print(outputView.mainMenu())
+    outputView.printMessage(message: outputView.welcomMessage())
     /// 첫번째 스텝 진행 순서
     func mainMenu()->InputView.FirstMenu?{
         // 시작 메세지. 소지금, 구입가능 음료 리스트, 메뉴 출력
@@ -73,7 +73,7 @@ func main(){
             vendingMachine.plusMoney(money: money)
         }
         else {
-            print(outputView.wrongMoney())
+            outputView.printMessage(message: OutputView.errorMessage.notNumeric.rawValue)
         }
     }
     
@@ -81,7 +81,7 @@ func main(){
     func checkInventoryCount(dirnkNumber:InputView.DrinkNumber)->InventoryDetail?{
         // 메뉴번호-1 이 실제 배열임
         guard let drinkDetail : InventoryDetail = vendingMachine.getAllInventory()[dirnkNumber.rawValue-1] else {
-            print(outputView.notEnoughDrink())
+            outputView.printMessage(message: OutputView.errorMessage.notEnoughDrink.rawValue)
             return nil
         }
         return drinkDetail
@@ -90,7 +90,7 @@ func main(){
     /// 원하는 수량이 >0 인지 체크
     func getOrderCount(drinkName:String)->Int?{
         guard let orderCount = inputView.howMany(drink: drinkName) else {
-            print(outputView.notNumeric())
+            outputView.printMessage(message: OutputView.errorMessage.notNumeric.rawValue)
             return nil
         }
         return orderCount
@@ -99,7 +99,7 @@ func main(){
     /// 원하는 수량이 재고와 맞는지 체크
     func checkEnoughDrinkCount(drinkCount:Int,orderCount:Int)->Bool{
         guard drinkCount >= orderCount else {
-            print(outputView.notEnoughDrink())
+            outputView.printMessage(message: OutputView.errorMessage.notEnoughDrink.rawValue)
             return false
         }
         return true
@@ -112,7 +112,7 @@ func main(){
             vendingMachine.minusMoney(money: drink.drinkPrice*orderCount)
         } // 금액부족
         else {
-            print(outputView.notEnoughMoney())
+            outputView.printMessage(message: OutputView.errorMessage.notEnoughMoney.rawValue)
             return nil
         }
         return ()
@@ -152,7 +152,7 @@ func main(){
             print(outputView.buyingSuccessMessage(drinkDetail: orderedDrinks))
         } else {
             // 이동 실패시
-            print(outputView.notEnoughDrink())
+            outputView.printMessage(message: OutputView.errorMessage.notEnoughDrink.rawValue)
         }
     }
     
@@ -166,7 +166,7 @@ func main(){
             buyingDrink(drinkNumber: selectedDrinkNumber)
         } // 잘못된 선택일 경우
         else {
-            print(outputView.wrongMenu())
+            outputView.printMessage(message: OutputView.errorMessage.wrongMenu.rawValue)
         }
     }
     // 프로그램 시작
@@ -178,12 +178,12 @@ func main(){
             case .selectDrink : selectDirnk()
             case .quit :
                 // 종료를 선택하면 종료메세지 후 리턴
-                print(outputView.quitMessage())
+                outputView.printMessage(message: OutputView.errorMessage.quitMessage.rawValue)
                 return ()
             }
         } // 잘못된 메뉴 선택시
         else {
-            print(outputView.wrongMenu())
+            outputView.printMessage(message: OutputView.errorMessage.wrongMenu.rawValue)
         }
     }
 }
