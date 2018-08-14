@@ -16,13 +16,12 @@ struct OutputView {
     
     /// 에러 출력 메세지들
     enum errorMessage : String {
-        case
-        wrongMoney : "잘못된 금액입니다."
-        ,wrongMenu : "잘못된 메뉴입니다."
-        ,quitMessage : "자판기를 종료합니다."
-        ,notEnoughDrink : "음료 재고가 부족합니다"
-        ,notNumeric : "잘못된 수 입니다."
-        ,notEnoughMoney : "입력된 금액이 부족합니다."
+        case wrongMoney = "잘못된 금액입니다."
+        case wrongMenu = "잘못된 메뉴입니다."
+        case quitMessage = "자판기를 종료합니다."
+        case notEnoughDrink = "음료 재고가 부족합니다"
+        case notNumeric = "잘못된 수 입니다."
+        case notEnoughMoney = "입력된 금액이 부족합니다."
     }
     
     /// 시작 화면
