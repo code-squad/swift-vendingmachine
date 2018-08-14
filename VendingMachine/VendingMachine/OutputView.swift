@@ -56,9 +56,20 @@ struct OutputView {
     func buyingSuccessMessage(drinkName:String,drinkCount:Int,drinkPrice:Int)->String{
         return("\(drinkName) \(drinkCount)개를 \(drinkPrice)원에 구매하였습니다.")
     }
-    // 재고정보를 받아서 구매성공메세지를 리턴하는 같은 함수
+    /// 재고정보를 받아서 구매성공메세지를 리턴하는 같은 함수
     func buyingSuccessMessage(drinkDetail:InventoryDetail)->String{
         return("\(drinkDetail.drinkName) \(drinkDetail.drinkCount)개를 \(drinkDetail.drinkCount * drinkDetail.drinkPrice)원에 구매하였습니다.")
+    }
+    
+    /// 재고정보를 받아서 구매 결과를 표시. 성공 or 실패
+    func buyingResult(drinkDetail:InventoryDetail?)->String{
+        // 구매 성공시
+        if let result = drinkDetail {
+            return buyingSuccessMessage(drinkDetail: result)
+        } // 구매실패시
+        else {
+            return OutputView.errorMessage.notEnoughDrink.rawValue
+        }
     }
     
     /// 1차 메뉴. 돈추가, 음료수 선택지
