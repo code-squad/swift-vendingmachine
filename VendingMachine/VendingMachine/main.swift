@@ -98,7 +98,7 @@ func main(){
     }
     
     /// 원하는 수량이 재고와 맞는지 체크
-    func checkEnoughDrinkCount(drinkDetail:InventoryDetail,orderCount:Int)->Bool{
+    func isEnoughDrinkCount(drinkDetail:InventoryDetail,orderCount:Int)->Bool{
         if drinkDetail.isEnoughDrink(orderCount: orderCount)  {
             // 재고 충분시
             return true
@@ -130,7 +130,7 @@ func main(){
             // 원하는 수량이 >0 인지
             , let orderCount = receiveOrderCount(drinkName: drinkDetail.drinkName)
             // 재고수량 >= 주문수량 인지
-            , checkEnoughDrinkCount(drinkDetail: drinkDetail, orderCount: orderCount)
+            , isEnoughDrinkCount(drinkDetail: drinkDetail, orderCount: orderCount)
             else {
                 // 하나라도 잘못되면 단계 취소
                 return ()
