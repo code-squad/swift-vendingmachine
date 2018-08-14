@@ -78,9 +78,10 @@ func main(){
     }
     
     /// 음료선택시 재고가 남아있는지 체크후 해당 음료의 정보를 가저온다
-    func checkInventoryCount(drinkNumber:InputView.DrinkNumber)->InventoryDetail?{
+    func getInventoryDetail(drinkNumber:InputView.DrinkNumber)->InventoryDetail?{
         // 메뉴번호-1 이 실제 배열임
         guard let drinkDetail : InventoryDetail = vendingMachine.getAllInventory()[drinkNumber.rawValue-1] else {
+            // 음료재고가 0이면 에러
             outputView.printMessage(message: OutputView.errorMessage.notEnoughDrink.rawValue)
             return nil
         }
@@ -121,7 +122,7 @@ func main(){
     func buyingDrink(drinkNumber:InputView.DrinkNumber){
         /// 구매가 가능한지 체크한다
          // 구매하려는 음료가 잔고가 있는지
-        guard let drinkDetail = checkInventoryCount(drinkNumber: drinkNumber)
+        guard let drinkDetail = getInventoryDetail(drinkNumber: drinkNumber)
             // 원하는 수량이 >0 인지
             , let orderCount = getOrderCount(drinkName: drinkDetail.drinkName)
             // 잔고 >= 원하는 수량 인지
