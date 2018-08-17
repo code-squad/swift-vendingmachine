@@ -9,15 +9,17 @@
 import Foundation
 
 /// 재고정보를 담당할 구조체. 음료의 정보를 받아서 이름,가격,개수 만 저장한다.
-struct InventoryDetail  {
+struct InventoryDetail {
     let drinkName : String
     let drinkPrice : Int
     var drinkCount : Int
+    let drinkType : Drink.Type
     
-    init(drinkName:String, drinkPrice:Int,drinkCount: Int){
+    init(drinkName:String, drinkPrice:Int,drinkCount: Int, drinkType : Drink.Type){
         self.drinkName = drinkName
         self.drinkPrice = drinkPrice
         self.drinkCount = drinkCount
+        self.drinkType = drinkType
     }
     
     func isEnoughDrink(orderCount:Int)->Bool{
