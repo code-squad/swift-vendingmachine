@@ -8,8 +8,8 @@
 
 import Foundation
 
-/// 재고정보를 담당할 구조체. 음료의 정보를 받아서 이름,가격,개수 만 저장한다.
-struct InventoryDetail {
+/// 재고정보를 담당할 구조체. 음료의 정보를 받아서 이름,가격,개수,음료타입
+struct StoredDrinkDetail {
     let drinkName : String
     let drinkPrice : Int
     var drinkCount : Int
@@ -26,6 +26,33 @@ struct InventoryDetail {
         return self.drinkCount >= orderCount
     }
 }
+
+/// 재고정보를 배열로 가짐
+struct InventoryDetail {
+    var storedDrinksDetail : [StoredDrinkDetail] = []
+    init(){}
+    init(drinkDetails:[StoredDrinkDetail]){
+        self.storedDrinksDetail = drinkDetails
+    }
+    
+    /// 재고 출력 메세지
+    func getAllDrinkDetails()->String{
+        // 결과출력을 위한 변수
+        var result = ""
+        // 번호를 위한 변수
+        var number = 1
+        result += ("---현재 구매가능한 음료수---\n")
+        for drink in storedDrinksDetail {
+            result += ("\(number). \(drink.drinkName)-\(drink.drinkPrice)원-\(drink.drinkCount)개\n")
+            number += 1
+        }        
+        result += ("----------------------")
+        return result
+    }
+    
+    
+}
+
 
 /// 음료배열을 여러개 가지는 음료창고
 class DrinkInventory {
@@ -121,7 +148,7 @@ class DrinkInventory {
     }
     
     /// 음료수 객체를 받아서 추가
-    func addInventory(undefinedDrink:Any)->InventoryDetail?{
+    func addInventory(undefinedDrink:Any)->StoredDrinkDetail?{
         // 객체를 받아서 추가할 수 있는 음료의 종류인지 확인한다
         if let drink = checkDrinkType(drink: undefinedDrink) {
             // 추가할 수 있는 음료면 추가해준다
@@ -133,17 +160,17 @@ class DrinkInventory {
             }
             // 재고정보로 변환하여 리턴한다
             let drinkDetail = undefinedDrink as! Drink
-            return InventoryDetail(drinkName: drinkDetail.getName(), drinkPrice: drinkDetail.getPrice(), drinkCount: 1, drinkType: drink)
+            return StoredDrinkDetail(drinkName: drinkDetail.getName(), drinkPrice: drinkDetail.getPrice(), drinkCount: 1, drinkType: drink)
         }// 추가할수 없는 종류의 경우
         else {
             return nil
         }
     }
     /// 인벤토리별로 재고 출력. 없으면 매진으로 출력
-    private func getDrinkInventory(drinkInventory: [Drink])-> InventoryDetail?{
+    private func getDrinkDetail(drinkInventory: [Drink])-> StoredDrinkDetail?{
         // 재고가 있을경우
         if let drink = drinkInventory.first {
-            let inventoryDetail = InventoryDetail(drinkName: drink.getName(), drinkPrice: drink.getPrice(), drinkCount: drinkInventory.count,drinkType: checkDrinkType(drink: drink)!)
+            let inventoryDetail = StoredDrinkDetail(drinkName: drink.getName(), drinkPrice: drink.getPrice(), drinkCount: drinkInventory.count,drinkType: checkDrinkType(drink: drink)!)
             return inventoryDetail
         } // 없을경우
         else {
@@ -153,15 +180,27 @@ class DrinkInventory {
     }
     
     /// 전체 재고 출력 함수
-    func getTotalDrinkDetail() -> [InventoryDetail?]{
+    func getTotalDrinkDetail() -> InventoryDetail{
         // 결과 출력용 변수
-        var result : [InventoryDetail?] = []
-        result.append(getDrinkInventory(drinkInventory: lowSugarChocoMilkInventory))
-        result.append(getDrinkInventory(drinkInventory: chocoMilkInventory))
-        result.append(getDrinkInventory(drinkInventory: cokeInventory))
-        result.append(getDrinkInventory(drinkInventory: zeroCalorieCokeInventory))
-        result.append(getDrinkInventory(drinkInventory: hotTopCoffeeInventory))
-        result.append(getDrinkInventory(drinkInventory: energyDrinkInventory))
+        var result = InventoryDetail()
+        if let drinkDetail = getDrinkDetail(drinkInventory: lowSugarChocoMilkInventory) {
+            result.storedDrinksDetail.append(drinkDetail)
+        }
+        if let drinkDetail = getDrinkDetail(drinkInventory: chocoMilkInventory) {
+            result.storedDrinksDetail.append(drinkDetail)
+        }
+        if let drinkDetail = getDrinkDetail(drinkInventory: cokeInventory) {
+            result.storedDrinksDetail.append(drinkDetail)
+        }
+        if let drinkDetail = getDrinkDetail(drinkInventory: zeroCalorieCokeInventory) {
+            result.storedDrinksDetail.append(drinkDetail)
+        }
+        if let drinkDetail = getDrinkDetail(drinkInventory: hotTopCoffeeInventory) {
+            result.storedDrinksDetail.append(drinkDetail)
+        }
+        if let drinkDetail = getDrinkDetail(drinkInventory: energyDrinkInventory) {
+            result.storedDrinksDetail.append(drinkDetail)
+        }
         return result
     }
     

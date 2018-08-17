@@ -8,15 +8,22 @@
 
 import Foundation
 
+protocol VendingMachineMenu {
+    func getMoney()->Int
+    func getAllAvailableDrinks()->InventoryDetail
+    func getMainMenu(menu:InputView.FirstMenu)throws->String
+    func addDrink(drink:Drink)->StoredDrinkDetail?
+}
 
-
-class VendingMachine {
+class VendingMachine : VendingMachineMenu {
+    
     /// 자판기에 들어있는 금액
     private var insertedMoney = 0
     
     /// 금액 추가 함수
-    func plusMoney(money:Int){
+    func plusMoney(money:Int)->String{
         self.insertedMoney += money
+        return "\(money)원을 추가하였습니다."
     }
     /// 금액 사용 함수
     func minusMoney(money:Int){
@@ -39,57 +46,57 @@ class VendingMachine {
     }
     
     /// 종류별 음료수 주문
-   private  func orderLowSugarChocoMilk()->InventoryDetail?{
+   private  func orderLowSugarChocoMilk()->StoredDrinkDetail?{
         // 재고가 없으면 닐 리턴
         guard let drink = drinkInventory.popLowSugarChocoMilk() else {
             return nil
         }
         orderedDrinks.append(drink)
-        return InventoryDetail(drinkName: drink.getName(), drinkPrice: drink.getPrice(), drinkCount: 1)
+    return StoredDrinkDetail(drinkName: drink.getName(), drinkPrice: drink.getPrice(), drinkCount: 1,drinkType: DrinkInventory.DrinkType.lowSugarChocoMilk)
     }
-    private func orderChocoMilk()->InventoryDetail?{
+    private func orderChocoMilk()->StoredDrinkDetail?{
         // 재고가 없으면 닐 리턴
         guard let drink = drinkInventory.popChocoMilk() else {
             return nil
         }
         orderedDrinks.append(drink)
-        return InventoryDetail(drinkName: drink.getName(), drinkPrice: drink.getPrice(), drinkCount: 1)
+        return StoredDrinkDetail(drinkName: drink.getName(), drinkPrice: drink.getPrice(), drinkCount: 1, drinkType: DrinkInventory.DrinkType.chocoMilk)
     }
-    private func orderCoke()->InventoryDetail?{
+    private func orderCoke()->StoredDrinkDetail?{
         // 재고가 없으면 닐 리턴
         guard let drink = drinkInventory.popCokeInventory() else {
             return nil
         }
         orderedDrinks.append(drink)
-        return InventoryDetail(drinkName: drink.getName(), drinkPrice: drink.getPrice(), drinkCount: 1)
+        return StoredDrinkDetail(drinkName: drink.getName(), drinkPrice: drink.getPrice(), drinkCount: 1, drinkType: DrinkInventory.DrinkType.coke)
     }
-    private func orderZeroCalorieCoke()->InventoryDetail?{
+    private func orderZeroCalorieCoke()->StoredDrinkDetail?{
         // 재고가 없으면 닐 리턴
         guard let drink = drinkInventory.popZeroCalorieCokeInventory() else {
             return nil
         }
         orderedDrinks.append(drink)
-        return InventoryDetail(drinkName: drink.getName(), drinkPrice: drink.getPrice(), drinkCount: 1)
+        return StoredDrinkDetail(drinkName: drink.getName(), drinkPrice: drink.getPrice(), drinkCount: 1, drinkType: DrinkInventory.DrinkType.zeroCalorieCoke)
     }
-    private func orderHotTopCoffee()->InventoryDetail?{
+    private func orderHotTopCoffee()->StoredDrinkDetail?{
         // 재고가 없으면 닐 리턴
         guard let drink = drinkInventory.popHotTopCoffeeInventory() else {
             return nil
         }
         orderedDrinks.append(drink)
-        return InventoryDetail(drinkName: drink.getName(), drinkPrice: drink.getPrice(), drinkCount: 1)
+        return StoredDrinkDetail(drinkName: drink.getName(), drinkPrice: drink.getPrice(), drinkCount: 1, drinkType: DrinkInventory.DrinkType.hotTopCoffee)
     }
-    private func orderEnergyDrink()->InventoryDetail?{
+    private func orderEnergyDrink()->StoredDrinkDetail?{
         // 재고가 없으면 닐 리턴
         guard let drink = drinkInventory.popEnergyDrinkInventory() else {
             return nil
         }
         orderedDrinks.append(drink)
-        return InventoryDetail(drinkName: drink.getName(), drinkPrice: drink.getPrice(), drinkCount: 1)
+        return StoredDrinkDetail(drinkName: drink.getName(), drinkPrice: drink.getPrice(), drinkCount: 1, drinkType: DrinkInventory.DrinkType.energyDrink)
     }
     
     /// 음료타입을 받아서 해당 음료 주문 후 재고정보를 리턴
-    func moveDrink(drinkType:DrinkInventory.DrinkType)->InventoryDetail?{
+    func moveDrink(drinkType:DrinkInventory.DrinkType)->StoredDrinkDetail?{
         switch drinkType {
         case .chocoMilk : return orderChocoMilk()
         case .lowSugarChocoMilk : return orderLowSugarChocoMilk()
@@ -101,27 +108,19 @@ class VendingMachine {
     }
     
     /// 음료다수주문 기능
-    func orderDrinks(drinkType:DrinkInventory.DrinkType,drinkCount:Int)->InventoryDetail?{
-        // 주문된 음료재고 정보를 기록한다
-        var orderInventoryDetail : InventoryDetail? = nil
-        var orderDrinkCount = 0
+    func orderDrinks(drinkType:DrinkInventory.DrinkType,drinkCount:Int){
+        // 음료타입과 개수를 받아서 해당 음료를 주문리스트로 옮긴다
         for _ in 1...drinkCount {
-            orderInventoryDetail = moveDrink(drinkType: drinkType)
-            if orderInventoryDetail != nil{
-                orderDrinkCount += orderInventoryDetail!.drinkCount
-            }
         }
-        orderInventoryDetail?.drinkCount = orderDrinkCount
-        return orderInventoryDetail
     }
     
     /// 재고 추가
-    func addDrink(drink:Drink)->InventoryDetail?{
+    func addDrink(drink:Drink)->StoredDrinkDetail?{
         return self.drinkInventory.addInventory(undefinedDrink: drink)
     }
     
     /// 남아있는 모든 재고 확인
-    func getAllInventory()->[InventoryDetail?]{
+    func getAllAvailableDrinks()->InventoryDetail{
         return drinkInventory.getTotalDrinkDetail()
     }
     
@@ -135,7 +134,7 @@ class VendingMachine {
     }
     
     /// 금액 차감 기능
-    func calculateMoney(drink:InventoryDetail,orderCount:Int)->Bool{
+    func calculateMoney(drink:StoredDrinkDetail,orderCount:Int)->Bool{
         if self.getMoney() >= drink.drinkPrice*orderCount {
             // 금액 차감
             self.minusMoney(money: drink.drinkPrice*orderCount)
@@ -144,6 +143,48 @@ class VendingMachine {
         else {
             return false
         }
+    }
+    
+    /// 메인메뉴에서 선택 후 분기
+    func getMainMenu(menu: InputView.FirstMenu) throws -> String{
+        switch menu {
+        case .insertMoney : return plusMoney(money: try InputView.insertMoney())
+        case .selectDrink : return try selectDrink()
+        case .quit : throw OutputView.errorMessage.quitMessage
+        }
+    }
+    
+    /// 음료 선택 시 진행 순서
+    func selectDrink() throws ->String {
+        // 음료 번호를 선택한다. 입력값이 재고번호에 있으면 통과
+        let orderDrinkNumber = try receiveDrinkNumber()
+        // 원하는 음료의 정보를 담는 변수
+        let storedDrinkDetail = self.getAllAvailableDrinks().storedDrinksDetail[orderDrinkNumber+1]
+        
+        // 원하는 개수를 입력받는다
+        let orderDrinkCount = try InputView.howMany(drink: storedDrinkDetail.drinkName)
+        
+        // 재고 < 원하는개수 이면 에러
+        if storedDrinkDetail.drinkCount < orderDrinkCount {
+            throw OutputView.errorMessage.notEnoughDrink
+        }
+        
+        // 입력된금액 < 주문금액 이면 에러
+        if self.getMoney() < storedDrinkDetail.drinkCount * storedDrinkDetail.drinkPrice {
+            throw OutputView.errorMessage.notEnoughMoney
+        }
+        
+        // 인벤토리->주문내역 으로 음료 이동
+        self.orderDrinks(drinkType:storedDrinkDetail.drinkType, drinkCount: orderDrinkCount)
+        
+        // 완료 메세지 리턴
+        return "\(storedDrinkDetail.drinkName) \(orderDrinkCount)개를 \(storedDrinkDetail.drinkCount * storedDrinkDetail.drinkPrice)원에 구입하였습니다."
+    }
+    
+    /// 유저입력을 받아서 재고번호에 있으면 해당 재고의 음료타입을 리턴
+    func receiveDrinkNumber() throws -> Int {
+        let orderDrinkNumber = try Checker.isRightDrinkNumber(orderDrinkNumber: InputView.whichDrink(), inventoryDetail:self.getAllAvailableDrinks() )
+        return orderDrinkNumber
     }
 }
 
