@@ -10,7 +10,7 @@ import Foundation
 
 struct InputView {
     /// 사용자 입력을 받는다
-    private func getUserInput() -> String {
+    static private func getUserInput() -> String {
         return readLine()!
     }
     
@@ -23,8 +23,11 @@ struct InputView {
     }
     
     /// 첫번째 메뉴를 위한 입력을 받는다
-    func receiveFirstMenu()->FirstMenu?{
-        return Checker.checkFirstMenuInput(input: getUserInput())
+    func receiveFirstMenu() throws -> FirstMenu{
+        guard let result = Checker.checkFirstMenuInput(input: getUserInput()) else {
+            throw OutputView.errorMessage.wrongMenu
+        }
+        return result
     }
     
     /// 음료 종류를 선택하는 메뉴
@@ -33,21 +36,28 @@ struct InputView {
     }
     
     /// 음료 종류 선택을 위한 입력을 받는다
-    func receiveDrinkNumberMenu()->DrinkNumber?{
-        return Checker.checkDrinkNumber(input: getUserInput())
-    }
+//    func receiveDrinkNumberMenu()->DrinkNumber?{
+//        return Checker.checkDrinkNumber(input: InputView.getUserInput())
+//    }
     
     /// 돈 추가 선택시
-    func insertMoney()->Int?{
+    static func insertMoney() throws ->Int{
         print("얼마를 투입하시겠습니까?")
         let money = getUserInput()
-        return Checker.checkChangePlusInt(money)
+        // 입력값이 양의 정수인제 체크
+        guard let result = Checker.checkChangePlusInt(money)  else {
+            throw OutputView.errorMessage.notNumeric
+        }
+        return result
     }
     
     /// 음료수를 선택할 경우 몇개를 구입할지 묻는다
-    func howMany(drink:String)->Int?{
+    static func howMany(drink:String) throws ->Int{
         print("\(drink) 를 몇개를 구입하시겟습니까?")
         let number = getUserInput()
-        return Checker.checkChangePlusInt(number)
+        guard let result = Checker.checkChangePlusInt(number) else {
+            throw OutputView.errorMessage.notNumeric
+        }
+        return result
     }
 }
