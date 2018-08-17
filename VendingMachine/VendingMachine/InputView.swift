@@ -23,7 +23,7 @@ struct InputView {
     }
     
     /// 첫번째 메뉴를 위한 입력을 받는다
-    func receiveFirstMenu() throws -> FirstMenu{
+    static func receiveFirstMenu() throws -> FirstMenu{
         guard let result = Checker.checkFirstMenuInput(input: getUserInput()) else {
             throw OutputView.errorMessage.wrongMenu
         }
@@ -59,5 +59,11 @@ struct InputView {
             throw OutputView.errorMessage.notNumeric
         }
         return result
+    }
+    
+    /// 음료를 선택할경우 어떤 음료를 선택할지 묻는다
+    static func whichDrink()->String{
+        print("어떤 음류수를 선택하시겠습니까?")
+        return getUserInput()
     }
 }
