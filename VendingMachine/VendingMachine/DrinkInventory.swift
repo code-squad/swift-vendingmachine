@@ -13,9 +13,9 @@ struct InventoryDetail {
     let drinkName : String
     let drinkPrice : Int
     var drinkCount : Int
-    let drinkType : Drink.Type
+    let drinkType : DrinkInventory.DrinkType
     
-    init(drinkName:String, drinkPrice:Int,drinkCount: Int, drinkType : Drink.Type){
+    init(drinkName:String, drinkPrice:Int,drinkCount: Int, drinkType : DrinkInventory.DrinkType){
         self.drinkName = drinkName
         self.drinkPrice = drinkPrice
         self.drinkCount = drinkCount
