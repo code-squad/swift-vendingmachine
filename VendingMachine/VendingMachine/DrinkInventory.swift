@@ -255,4 +255,23 @@ class DrinkInventory {
     func popEnergyDrinkInventory()->EnergyDrink?{
         return energyDrinkInventory.removeFirst()
     }
+    
+    /// 입력받은 타입의 음료를 복사해서 1개 추가한다
+    private func addOneSelf(drinkType:DrinkType){
+        switch drinkType {
+        case .chocoMilk : addChocoMilk(chocoMilk: chocoMilkInventory[0])
+        case .lowSugarChocoMilk : addChocoMilk(chocoMilk: lowSugarChocoMilkInventory[0])
+        case .coke : addCoke(coke: cokeInventory[0])
+        case .zeroCalorieCoke : addCoke(coke: zeroCalorieCokeInventory[0])
+        case .hotTopCoffee : addTopCoffee(topCoffee: hotTopCoffeeInventory[0])
+        case .energyDrink : addEnergyDrink(energyDrink: energyDrinkInventory[0])
+        }
+    }
+    
+    /// 해당타입의 음료를 여러번 추가한다
+    func addDrinkSelfDuplicate(drinkType:DrinkType,drinkCount:Int){
+        for _ in 1...drinkCount {
+            addOneSelf(drinkType: drinkType)
+        }
+    }
 }
