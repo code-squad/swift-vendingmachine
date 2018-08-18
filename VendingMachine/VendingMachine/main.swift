@@ -66,14 +66,10 @@ func main(){
             let firstMenu = try InputView.receiveFirstMenu()
             // 메인메뉴에서 선택한 메뉴를 실행
             outputView.printMessage(message: try vendingMachine.getMainMenu(menu: firstMenu)) 
-        }
-        // 종료 메뉴 선택시
-//        catch let error as  OutputView.errorMessage where error is  {
-//            outputView.printMessage(message: OutputView.errorMessage.quitMessage.toString())
-//            return ()
-//        } // 종료 이외의 메뉴 선택시
+        } // 에러메세지 출력부분
         catch let error as OutputView.errorMessage {
             outputView.printMessage(message: error.toString())
+            // 종료선택 혹은 모든재고 소진시 프로그램 종료
             if error == .noDrinks || error == .quitMessage {
                 return ()
             }
