@@ -41,7 +41,7 @@ struct OutputView {
     
     /// 시작 화면
     func welcomMessage()->String{
-        return("자판기 메인메뉴 입니다.")
+        return("자판기 프로그램을 시작합니다..")
     }
     /// 자판기 금액을 리턴한다
     func returnMoney(money:Int)->String{
@@ -77,7 +77,6 @@ struct OutputView {
         return result
     }
     
-    
     /// 1차 메뉴. 돈추가, 음료수 선택지
     func adminFirstMenu()->String{
         var result = ""
@@ -87,8 +86,17 @@ struct OutputView {
         return result
     }
     
+    /// 모드선택 메뉴
+    func modeSelectMenu()->String{
+        var result = ""
+        result += ("1. 관리자 모드 진입\n")
+        result += ("2. 사용자 모드 진입\n")
+        result += ("q. 종료\n")
+        return result
+    }
+    
     /// 프로그램 시작시 나오는 메인메뉴 출력문
-    func mainMenu(vendingMachine:VendingMachineUserMenu)throws->String{
+    func mainMenu(vendingMachine:VendingMachine)throws->String{
         // 리턴용 함수
         var result = ""
         // 시작 메세지. 소지금, 구입가능 음료 리스트, 메뉴 출력
@@ -98,7 +106,7 @@ struct OutputView {
             throw OutputView.errorMessage.noDrinks
         }
         result += inventoryDetail.getAllDrinkDetails()+"\n"
-        result += userFirstMenu()        
+        result += modeSelectMenu()        
         return result
     }
 }
