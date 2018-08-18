@@ -26,24 +26,21 @@ struct Checker {
     }
     
     /// 첫번째 메뉴 체크함수. 1,2,q 이외에는 닐
-    static func checkFirstMenuInput(input:String)->InputView.FirstMenu?{
+    static func checkUserFirstMenuInput(input:String)->InputView.UserFirstMenu?{
         switch input {
-        case "1" : return InputView.FirstMenu.insertMoney
-        case "2" : return InputView.FirstMenu.selectDrink
-        case "q" : return InputView.FirstMenu.quit
+        case "1" : return InputView.UserFirstMenu.insertMoney
+        case "2" : return InputView.UserFirstMenu.selectDrink
+        case "q" : return InputView.UserFirstMenu.quit
         default : return nil
         }
     }
     
-    /// 음료 종류 선택을 위한 체크함수, 1~maxDrinkNumber 까지 허용
-    static func checkDrinkNumber(input:String)->InputView.DrinkNumber?{        
+    /// 첫번째 메뉴 체크함수. 1,2,q 이외에는 닐
+    static func checkAdminFirstMenuInput(input:String)->InputView.AdminFirstMenu?{
         switch input {
-        case "1" : return InputView.DrinkNumber.one
-        case "2" : return InputView.DrinkNumber.two
-        case "3" : return InputView.DrinkNumber.three
-        case "4" : return InputView.DrinkNumber.four
-        case "5" : return InputView.DrinkNumber.five
-        case "6" : return InputView.DrinkNumber.six
+        case "1" : return InputView.AdminFirstMenu.addDrink
+        case "2" : return InputView.AdminFirstMenu.removeDrink
+        case "q" : return InputView.AdminFirstMenu.quit
         default : return nil
         }
     }
