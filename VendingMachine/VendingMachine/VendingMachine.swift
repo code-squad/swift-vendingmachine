@@ -119,6 +119,30 @@ class VendingMachine : VendingMachineMenu {
         return movedDrinkDetail
     }
     
+    /// 음료타입을 받아서 해당 음료 제거 후 재고정보를 리턴
+    func removeDrink(drinkType:DrinkInventory.DrinkType)->StoredDrinkDetail?{
+        switch drinkType {
+        case .chocoMilk : return drinkInventory.getDrinkDetail(drink: drinkInventory.popChocoMilk()!)
+        case .lowSugarChocoMilk : return drinkInventory.getDrinkDetail(drink: drinkInventory.popLowSugarChocoMilk()!)
+        case .coke : return drinkInventory.getDrinkDetail(drink: drinkInventory.popCokeInventory()!)
+        case .zeroCalorieCoke : return drinkInventory.getDrinkDetail(drink: drinkInventory.popZeroCalorieCokeInventory()!)
+        case .hotTopCoffee : return drinkInventory.getDrinkDetail(drink: drinkInventory.popHotTopCoffeeInventory()!)
+        case .energyDrink : return drinkInventory.getDrinkDetail(drink: drinkInventory.popEnergyDrinkInventory()!)
+        }
+    }
+    
+    /// 음료 다수 제거 기능
+    func removeDrinks(drinkType:DrinkInventory.DrinkType,drinkCount:Int)->StoredDrinkDetail?{
+        // 이동된 음료의 정보를 담을 변수
+        var movedDrinkDetail : StoredDrinkDetail? = nil
+        // 음료타입과 개수를 받아서 해당 음료를 주문리스트로 옮긴다
+        for count in 1...drinkCount {
+            movedDrinkDetail = removeDrink(drinkType: drinkType)
+            movedDrinkDetail?.drinkCount = count
+        }
+        return movedDrinkDetail
+    }
+    
     /// 재고 추가
     func addDrink(drink:Drink)->StoredDrinkDetail?{
         return self.drinkInventory.addInventory(undefinedDrink: drink)
