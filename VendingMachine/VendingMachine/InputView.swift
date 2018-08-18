@@ -14,31 +14,37 @@ struct InputView {
         return readLine()!
     }
     
-    /// 1차 메뉴. 돈추가, 음료수 선택지
-    enum FirstMenu{
+    /// 사용자용 1차 메뉴. 돈추가, 음료수 선택지
+    enum UserFirstMenu{
         case
         insertMoney
         ,selectDrink
         ,quit
     }
     
-    /// 첫번째 메뉴를 위한 입력을 받는다
-    static func receiveFirstMenu() throws -> FirstMenu{
-        guard let result = Checker.checkFirstMenuInput(input: getUserInput()) else {
+    /// 관리자용 1차 메뉴. 돈추가, 음료수 선택지
+    enum AdminFirstMenu{
+        case
+        addDrink
+        ,removeDrink
+        ,quit
+    }
+    
+    /// 사용자용 첫번째 메뉴를 위한 입력을 받는다
+    static func receiveUserFirstMenu() throws -> UserFirstMenu{
+        guard let result = Checker.checkUserFirstMenuInput(input: getUserInput()) else {
             throw OutputView.errorMessage.wrongMenu
         }
         return result
     }
     
-    /// 음료 종류를 선택하는 메뉴
-    enum DrinkNumber : Int{
-        case one=1,two,three,four,five,six
+    /// 관리자용 첫번째 메뉴를 위한 입력을 받는다
+    static func receiveAdminFirstMenu() throws -> AdminFirstMenu{
+        guard let result = Checker.checkAdminFirstMenuInput(input: getUserInput()) else {
+            throw OutputView.errorMessage.wrongMenu
+        }
+        return result
     }
-    
-    /// 음료 종류 선택을 위한 입력을 받는다
-//    func receiveDrinkNumberMenu()->DrinkNumber?{
-//        return Checker.checkDrinkNumber(input: InputView.getUserInput())
-//    }
     
     /// 돈 추가 선택시
     static func insertMoney() throws ->Int{

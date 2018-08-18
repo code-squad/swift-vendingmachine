@@ -69,7 +69,7 @@ struct OutputView {
     }
     
     /// 1차 메뉴. 돈추가, 음료수 선택지
-    func firstMenu()->String{
+    func userFirstMenu()->String{
         var result = ""
         result += ("1. 돈 추가투입\n")
         result += ("2. 음료 선택\n")
@@ -77,8 +77,18 @@ struct OutputView {
         return result
     }
     
+    
+    /// 1차 메뉴. 돈추가, 음료수 선택지
+    func adminFirstMenu()->String{
+        var result = ""
+        result += ("1. 음료 추가\n")
+        result += ("2. 음료 제거\n")
+        result += ("q. 종료\n")
+        return result
+    }
+    
     /// 프로그램 시작시 나오는 메인메뉴 출력문
-    func mainMenu(vendingMachine:VendingMachineMenu)throws->String{
+    func mainMenu(vendingMachine:VendingMachineUserMenu)throws->String{
         // 리턴용 함수
         var result = ""
         // 시작 메세지. 소지금, 구입가능 음료 리스트, 메뉴 출력
@@ -88,7 +98,7 @@ struct OutputView {
             throw OutputView.errorMessage.noDrinks
         }
         result += inventoryDetail.getAllDrinkDetails()+"\n"
-        result += firstMenu()        
+        result += userFirstMenu()        
         return result
     }
 }
