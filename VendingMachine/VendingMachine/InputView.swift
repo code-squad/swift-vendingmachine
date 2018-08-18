@@ -46,6 +46,22 @@ struct InputView {
         return result
     }
     
+    /// 관리자, 사용자 선택메뉴
+    enum ModeSelectMenu{
+        case
+        admin
+        ,user
+        ,quit
+    }
+    
+    /// 사용자용 첫번째 메뉴를 위한 입력을 받는다
+    static func receiveModeSelectMenu() throws -> ModeSelectMenu{
+        guard let result = Checker.checkModeSelectMenuInput(input: getUserInput()) else {
+            throw OutputView.errorMessage.wrongMenu
+        }
+        return result
+    }
+    
     /// 돈 추가 선택시
     static func insertMoney() throws ->Int{
         print("얼마를 투입하시겠습니까?")
