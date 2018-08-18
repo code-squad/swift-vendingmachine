@@ -73,7 +73,7 @@ struct OutputView {
         var result = ""
         result += ("1. 돈 추가투입\n")
         result += ("2. 음료 선택\n")
-        result += ("q. 종료\n")
+        result += ("q. 모드 선택\n")
         return result
     }
     
@@ -82,7 +82,7 @@ struct OutputView {
         var result = ""
         result += ("1. 음료 추가\n")
         result += ("2. 음료 제거\n")
-        result += ("q. 종료\n")
+        result += ("q. 모드 선택\n")
         return result
     }
     
@@ -91,7 +91,7 @@ struct OutputView {
         var result = ""
         result += ("1. 관리자 모드 진입\n")
         result += ("2. 사용자 모드 진입\n")
-        result += ("q. 종료\n")
+        result += ("q. 자판기 종료\n")
         return result
     }
     
