@@ -30,11 +30,11 @@ struct OutputView {
             case .wrongMoney : return "잘못된 금액입니다."
             case .wrongMenu : return "잘못된 메뉴입니다."
             case .quitMessage : return "자판기를 종료합니다."
-            case .notEnoughDrink : return "음료 재고가 부족합니다"
+            case .notEnoughDrink : return "음료 재고가 부족합니다."
             case .notNumeric : return "잘못된 수 입니다."
             case .notEnoughMoney : return "입력된 금액이 부족합니다."
             case .wrongDrink : return "잘못된 음료입니다."
-            case .noDrinks : return "판매가능한 음료가 없습니다."
+            case .noDrinks : return "판매가능한 음료가 없습니다."+errorMessage.quitMessage.toString
             }
         }
     }
