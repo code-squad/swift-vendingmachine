@@ -193,7 +193,7 @@ class VendingMachine : VendingMachineUserMenu, VendingMachineAdminMenu {
     
     func getAdminMainMenu(menu: InputView.AdminFirstMenu) throws -> String {
         switch menu {
-        case .addDrink : return ""
+        case .addDrink : return try duplicateDrink()
         case .removeDrink : return try reduceDrink()
         case .quit : throw OutputView.errorMessage.toModeSelect
         }
@@ -231,7 +231,7 @@ class VendingMachine : VendingMachineUserMenu, VendingMachineAdminMenu {
         return totalOrderPrice
     }
     
-    /// 음료 선택 시 진행 순서
+    /// 유저가 음료 선택 시 진행 순서
     func buyDrink() throws ->String {
         // 음료 번호를 선택한다. 입력값이 재고번호에 있으면 통과. 음료의 재고정보를 리턴받는다
         let storedDrinkDetail = try selectDrink()
@@ -254,7 +254,7 @@ class VendingMachine : VendingMachineUserMenu, VendingMachineAdminMenu {
         return "\(movedDrinkDetail.drinkName) \(movedDrinkDetail.drinkCount)개를 \(totalOrderPrice)원에 구입하였습니다."
     }
     
-    /// 음료 선택 시 진행 순서
+    /// 관리자가 음료 제거 선택 시 진행 순서
     func reduceDrink() throws ->String {
         // 음료 번호를 선택한다. 입력값이 재고번호에 있으면 통과. 음료의 재고정보를 리턴받는다
         let storedDrinkDetail = try selectDrink()
@@ -269,6 +269,21 @@ class VendingMachine : VendingMachineUserMenu, VendingMachineAdminMenu {
         
         // 완료 메세지 리턴
         return "\(movedDrinkDetail.drinkName) \(movedDrinkDetail.drinkCount)개를 제거하였습니다."
+    }
+    
+    /// 관리자가 음료 추가 선택시
+    func duplicateDrink() throws->String{
+        // 음료 번호를 선택한다. 입력값이 재고번호에 있으면 통과. 음료의 재고정보를 리턴받는다
+        let storedDrinkDetail = try selectDrink()
+        
+        // 원하는 개수를 입력받는다
+        let orderDrinkCount = try InputView.howMany(drink: storedDrinkDetail.drinkName)
+        
+        // 음료 제거. 제거된 음료의 정보 저장
+        drinkInventory.addDrinkSelfDuplicate(drinkType: storedDrinkDetail.drinkType, drinkCount: orderDrinkCount)
+        
+        // 완료 메세지 리턴
+        return "\(storedDrinkDetail.drinkName) \(orderDrinkCount)개를 추가하였습니다."
     }
     
     /// 유저입력을 받아서 재고번호에 있으면 해당 재고의 음료타입을 리턴
