@@ -19,7 +19,7 @@ protocol VendingMachineUserMenu : vendinMachineMenu {
 }
 /// 관리자용 메뉴
 protocol VendingMachineAdminMenu : vendinMachineMenu {
-    func getAdminMainMenu(menu:InputView.UserFirstMenu)throws->String
+    func getAdminMainMenu(menu:InputView.AdminFirstMenu)throws->String
 }
 
 class VendingMachine : VendingMachineUserMenu, VendingMachineAdminMenu {
@@ -190,8 +190,12 @@ class VendingMachine : VendingMachineUserMenu, VendingMachineAdminMenu {
         }
     }
     
-    func getAdminMainMenu(menu: InputView.UserFirstMenu) throws -> String {
-        return ""
+    func getAdminMainMenu(menu: InputView.AdminFirstMenu) throws -> String {
+        switch menu {
+        case .addDrink : return ""
+        case .removeDrink : return try reduceDrink()
+        case .quit : throw OutputView.errorMessage.quitMessage
+        }
     }
     
     /// 음료번호를 입력받아서 해당 음료의 재고정보를 리턴한다
@@ -247,6 +251,23 @@ class VendingMachine : VendingMachineUserMenu, VendingMachineAdminMenu {
         
         // 완료 메세지 리턴
         return "\(movedDrinkDetail.drinkName) \(movedDrinkDetail.drinkCount)개를 \(totalOrderPrice)원에 구입하였습니다."
+    }
+    
+    /// 음료 선택 시 진행 순서
+    func reduceDrink() throws ->String {
+        // 음료 번호를 선택한다. 입력값이 재고번호에 있으면 통과. 음료의 재고정보를 리턴받는다
+        let storedDrinkDetail = try selectDrink()
+        
+        // 원하는 개수를 입력받는다
+        let orderDrinkCount = try isEnoughDrink(storedDrinkDetail: storedDrinkDetail)
+        
+        // 음료 제거. 제거된 음료의 정보 저장
+        guard let movedDrinkDetail = removeDrinks(drinkType: storedDrinkDetail.drinkType, drinkCount: orderDrinkCount) else {
+            throw OutputView.errorMessage.notEnoughDrink
+        }
+        
+        // 완료 메세지 리턴
+        return "\(movedDrinkDetail.drinkName) \(movedDrinkDetail.drinkCount)개를 제거하였습니다."
     }
     
     /// 유저입력을 받아서 재고번호에 있으면 해당 재고의 음료타입을 리턴
