@@ -154,18 +154,22 @@ class VendingMachine : VendingMachineMenu {
     func getMainMenu(menu: InputView.FirstMenu) throws -> String{
         switch menu {
         case .insertMoney : return plusMoney(money: try InputView.insertMoney())
-        case .selectDrink : return try selectDrink()
+        case .selectDrink : return try buyDrink()
         case .quit : throw OutputView.errorMessage.quitMessage
         }
     }
     
-    /// 음료 선택 시 진행 순서
-    func selectDrink() throws ->String {
+    /// 음료번호를 입력받아서 해당 음료의 재고정보를 리턴한다
+    func selectDrink()throws->StoredDrinkDetail{
         // 음료 번호를 선택한다. 입력값이 재고번호에 있으면 통과
         let orderDrinkNumber = try receiveDrinkNumber()
         // 원하는 음료의 정보를 담는 변수. 실제메뉴번호-1 -> 배열인덱스 이므로 -1 을 해준다.
         let storedDrinkDetail = self.getAllAvailableDrinks().storedDrinksDetail[orderDrinkNumber-1]
-        
+        return storedDrinkDetail
+    }
+    
+    /// 원하는 음료개수를 입력받아서 재고정보의 재고수와 배교한다
+    func isEnoughDrink(storedDrinkDetail:StoredDrinkDetail)throws->Int{
         // 원하는 개수를 입력받는다
         let orderDrinkCount = try InputView.howMany(drink: storedDrinkDetail.drinkName)
         
@@ -173,14 +177,31 @@ class VendingMachine : VendingMachineMenu {
         if storedDrinkDetail.drinkCount < orderDrinkCount {
             throw OutputView.errorMessage.notEnoughDrink
         }
-        
+        return orderDrinkCount
+    }
+    
+    /// 원하는 음료의 가격을 잔액과 배교한다
+    func isEnoughMoney(storedDrinkDetail:StoredDrinkDetail,orderDrinkCount:Int)throws->Int{
         // 총 주문금액 변수
         let totalOrderPrice = orderDrinkCount * storedDrinkDetail.drinkPrice
         // 입력된금액 < 주문금액 이면 에러
         if self.getMoney() < totalOrderPrice {
             throw OutputView.errorMessage.notEnoughMoney
         }
+        return totalOrderPrice
+    }
+    
+    /// 음료 선택 시 진행 순서
+    func buyDrink() throws ->String {
+        // 음료 번호를 선택한다. 입력값이 재고번호에 있으면 통과. 음료의 재고정보를 리턴받는다
+        let storedDrinkDetail = try selectDrink()
         
+        // 원하는 개수를 입력받는다
+        let orderDrinkCount = try isEnoughDrink(storedDrinkDetail: storedDrinkDetail)
+        
+        // 총 주문금액 변수
+        let totalOrderPrice = try isEnoughMoney(storedDrinkDetail: storedDrinkDetail, orderDrinkCount: orderDrinkCount)
+            
         // 금액 사용
         self.minusMoney(money: totalOrderPrice)
         
