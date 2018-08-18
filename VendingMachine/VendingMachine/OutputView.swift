@@ -75,8 +75,6 @@ struct OutputView {
         return result
     }
     
-
-    
     /// 프로그램 시작시 나오는 메인메뉴 출력문
     func mainMenu(vendingMachine:VendingMachineMenu)->String{
         // 리턴용 함수
