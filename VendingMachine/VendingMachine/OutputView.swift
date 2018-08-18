@@ -24,6 +24,7 @@ struct OutputView {
         case notEnoughMoney
         case wrongDrink
         case noDrinks
+        case toModeSelect
         
         func toString()->String {
             switch self {
@@ -35,6 +36,7 @@ struct OutputView {
             case .notEnoughMoney : return "입력된 금액이 부족합니다."
             case .wrongDrink : return "잘못된 음료입니다."
             case .noDrinks : return "판매가능한 음료가 없습니다. \(errorMessage.quitMessage.toString)"
+            case .toModeSelect : return "모드선택으로 이동합니다."
             }
         }
     }
@@ -99,14 +101,42 @@ struct OutputView {
     func mainMenu(vendingMachine:VendingMachine)throws->String{
         // 리턴용 함수
         var result = ""
-        // 시작 메세지. 소지금, 구입가능 음료 리스트, 메뉴 출력
-        result += returnMoney(money: vendingMachine.getMoney())+"\n"
+        result += try getAllDrinkList(vendingMachine: vendingMachine)+"\n"
+        result += modeSelectMenu()        
+        return result
+    }
+    
+    /// 구매가능한 음료수 리스트 출력
+    func getAllDrinkList(vendingMachine:VendingMachine)throws->String{
+        // 리턴용 함수
+        var result = ""
+        // 구입가능 음료 리스트
         let inventoryDetail = vendingMachine.getAllAvailableDrinks()
         guard inventoryDetail.storedDrinksDetail.count > 0 else {
             throw OutputView.errorMessage.noDrinks
         }
         result += inventoryDetail.getAllDrinkDetails()+"\n"
-        result += modeSelectMenu()        
+        return result
+    }
+    /// 프로그램 시작시 나오는 메인메뉴 출력문
+    func userMenu(vendingMachine:VendingMachine)throws->String{
+        // 리턴용 함수
+        var result = ""
+        // 시작 메세지. 소지금, 구입가능 음료 리스트, 메뉴 출력
+        result += returnMoney(money: vendingMachine.getMoney())+"\n"
+        result += try getAllDrinkList(vendingMachine: vendingMachine)+"\n"
+        result += userFirstMenu()
+        return result
+    }
+    
+    /// 프로그램 시작시 나오는 메인메뉴 출력문
+    func adminMenu(vendingMachine:VendingMachine)throws->String{
+        // 리턴용 함수
+        var result = ""
+        // 시작 메세지. 소지금, 구입가능 음료 리스트, 메뉴 출력
+        result += returnMoney(money: vendingMachine.getMoney())+"\n"
+        result += try getAllDrinkList(vendingMachine: vendingMachine)+"\n"
+        result += adminFirstMenu()
         return result
     }
 }
