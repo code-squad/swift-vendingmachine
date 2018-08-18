@@ -25,7 +25,7 @@ struct Checker {
         return number
     }
     
-    /// 첫번째 메뉴 체크함수. 1,2,q 이외에는 닐
+    /// 사용자 메뉴 체크함수. 1,2,q 이외에는 닐
     static func checkUserFirstMenuInput(input:String)->InputView.UserFirstMenu?{
         switch input {
         case "1" : return InputView.UserFirstMenu.insertMoney
@@ -35,12 +35,22 @@ struct Checker {
         }
     }
     
-    /// 첫번째 메뉴 체크함수. 1,2,q 이외에는 닐
+    /// 관리자 메뉴 체크함수. 1,2,q 이외에는 닐
     static func checkAdminFirstMenuInput(input:String)->InputView.AdminFirstMenu?{
         switch input {
         case "1" : return InputView.AdminFirstMenu.addDrink
         case "2" : return InputView.AdminFirstMenu.removeDrink
         case "q" : return InputView.AdminFirstMenu.quit
+        default : return nil
+        }
+    }
+    
+    /// 모드선택메뉴 체크함수. 1,2,q 이외에는 닐
+    static func checkModeSelectMenuInput(input:String)->InputView.ModeSelectMenu?{
+        switch input {
+        case "1" : return InputView.ModeSelectMenu.admin
+        case "2" : return InputView.ModeSelectMenu.user
+        case "q" : return InputView.ModeSelectMenu.quit
         default : return nil
         }
     }
