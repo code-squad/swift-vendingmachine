@@ -155,8 +155,8 @@ class DrinkInventory {
     /// 객체를 받아서 음료종류인지 체크. 맞으면 enum, 아니면 닐 리턴
     func checkDrinkType(drink:Any)->DrinkType?{
         switch drink {
-        case is ChocoMilk : return DrinkType.chocoMilk
-        case is Coke : return DrinkType.coke
+        case is ChocoMilk : return checkChocoMilkType(chocoMilk: drink as! ChocoMilk)
+        case is Coke : return checkCokeType(coke: drink as! Coke)
         case is TopCoffee : return checkTopCoffeeType(topCoffee: drink as! TopCoffee)
         case is EnergyDrink : return CheckNEnergyDrinkType(energyDrink: drink as! EnergyDrink)
         default : return nil
