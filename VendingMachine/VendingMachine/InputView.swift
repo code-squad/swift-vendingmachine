@@ -75,7 +75,7 @@ struct InputView {
     
     /// 음료수를 선택할 경우 몇개를 구입할지 묻는다
     static func howMany(drink:String) throws ->Int{
-        print("\(drink) 를 몇개를 구입하시겟습니까?")
+        print("\(drink) 몇개를 선택하시겟습니까?")
         let number = getUserInput()
         guard let result = Checker.checkChangePlusInt(number) else {
             throw OutputView.errorMessage.notNumeric
