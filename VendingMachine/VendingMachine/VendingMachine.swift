@@ -7,15 +7,22 @@
 //
 
 import Foundation
-
-protocol VendingMachineMenu {
+/// 자판기의 기본적인 메뉴
+protocol vendinMachineMenu {
     func getMoney()->Int
     func getAllAvailableDrinks()->InventoryDetail
-    func getMainMenu(menu:InputView.FirstMenu)throws->String
     func addDrink(drink:Drink)->StoredDrinkDetail?
 }
+/// 사용자용 메뉴
+protocol VendingMachineUserMenu : vendinMachineMenu {
+    func getUserMainMenu(menu:InputView.UserFirstMenu)throws->String
+}
+/// 관리자용 메뉴
+protocol VendingMachineAdminMenu : vendinMachineMenu {
+    func getAdminMainMenu(menu:InputView.UserFirstMenu)throws->String
+}
 
-class VendingMachine : VendingMachineMenu {
+class VendingMachine : VendingMachineUserMenu, VendingMachineAdminMenu {
     
     /// 자판기에 들어있는 금액
     private var insertedMoney = 0
@@ -175,12 +182,16 @@ class VendingMachine : VendingMachineMenu {
     }
     
     /// 메인메뉴에서 선택 후 분기
-    func getMainMenu(menu: InputView.FirstMenu) throws -> String{
+    func getUserMainMenu(menu: InputView.UserFirstMenu) throws -> String{
         switch menu {
         case .insertMoney : return plusMoney(money: try InputView.insertMoney())
         case .selectDrink : return try buyDrink()
         case .quit : throw OutputView.errorMessage.quitMessage
         }
+    }
+    
+    func getAdminMainMenu(menu: InputView.UserFirstMenu) throws -> String {
+        return ""
     }
     
     /// 음료번호를 입력받아서 해당 음료의 재고정보를 리턴한다
