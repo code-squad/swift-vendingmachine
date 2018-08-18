@@ -23,6 +23,7 @@ struct OutputView {
         case notNumeric
         case notEnoughMoney
         case wrongDrink
+        case noDrinks
         
         func toString()->String {
             switch self {
@@ -32,7 +33,8 @@ struct OutputView {
             case .notEnoughDrink : return "음료 재고가 부족합니다"
             case .notNumeric : return "잘못된 수 입니다."
             case .notEnoughMoney : return "입력된 금액이 부족합니다."
-            case .wrongDrink : return "잘못된 음료입니다"
+            case .wrongDrink : return "잘못된 음료입니다."
+            case .noDrinks : return "판매가능한 음료가 없습니다."
             }
         }
     }
@@ -76,12 +78,16 @@ struct OutputView {
     }
     
     /// 프로그램 시작시 나오는 메인메뉴 출력문
-    func mainMenu(vendingMachine:VendingMachineMenu)->String{
+    func mainMenu(vendingMachine:VendingMachineMenu)throws->String{
         // 리턴용 함수
         var result = ""
         // 시작 메세지. 소지금, 구입가능 음료 리스트, 메뉴 출력
         result += returnMoney(money: vendingMachine.getMoney())+"\n"
-        result += vendingMachine.getAllAvailableDrinks().getAllDrinkDetails()+"\n"
+        let inventoryDetail = vendingMachine.getAllAvailableDrinks()
+        guard inventoryDetail.storedDrinksDetail.count > 0 else {
+            throw OutputView.errorMessage.noDrinks
+        }
+        result += inventoryDetail.getAllDrinkDetails()+"\n"
         result += firstMenu()        
         return result
     }
