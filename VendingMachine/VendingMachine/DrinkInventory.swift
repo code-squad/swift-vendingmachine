@@ -195,6 +195,12 @@ class DrinkInventory {
         
     }
     
+    /// 음료객체를 받아서 재고정보로 출력
+    func getDrinkDetail(drink: Drink)-> StoredDrinkDetail?{
+            let inventoryDetail = StoredDrinkDetail(drinkName: drink.getName(), drinkPrice: drink.getPrice(), drinkCount: 1 ,drinkType: checkDrinkType(drink: drink)!)
+            return inventoryDetail
+    }
+    
     /// 전체 재고 출력 함수
     func getTotalDrinkDetail() -> InventoryDetail{
         // 결과 출력용 변수
