@@ -119,8 +119,24 @@ class DrinkInventory {
         return ()
     }
     
+    /// 초코우유를 받아서 저과당인지 아닌지 음료타입 리턴
+    private func checkChocoMilkType(chocoMilk:ChocoMilk)->DrinkType{
+        if chocoMilk.lowSugar {
+            return DrinkType.lowSugarChocoMilk
+        } else {
+            return DrinkType.chocoMilk
+        }
+    }
+    /// 콜라를 받아서 제로칼롤리인지 아닌지 음료타입 리턴
+    private func checkCokeType(coke:Coke)->DrinkType{
+        if coke.isZeroCalorie() {
+            return DrinkType.zeroCalorieCoke
+        } else {
+            return DrinkType.coke
+        }
+    }
     /// 따뜻한 top 커피인지 체크
-    private func checkHotTopCoffee(topCoffee:TopCoffee)->DrinkType?{
+    private func checkTopCoffeeType(topCoffee:TopCoffee)->DrinkType?{
         if topCoffee.isZeroSugar() {
             return DrinkType.hotTopCoffee
         } else {
@@ -128,7 +144,7 @@ class DrinkInventory {
         }
     }
     /// 디카페인이 아닌 에너지음료인지 체크
-    private func CheckNoCaffeineEnergyDrink(energyDrink: EnergyDrink)->DrinkType?{
+    private func CheckNEnergyDrinkType(energyDrink: EnergyDrink)->DrinkType?{
         if energyDrink.isNoCaffeine() {
             return nil
         } else {
@@ -141,8 +157,8 @@ class DrinkInventory {
         switch drink {
         case is ChocoMilk : return DrinkType.chocoMilk
         case is Coke : return DrinkType.coke
-        case is TopCoffee : return checkHotTopCoffee(topCoffee: drink as! TopCoffee)
-        case is EnergyDrink : return CheckNoCaffeineEnergyDrink(energyDrink: drink as! EnergyDrink)
+        case is TopCoffee : return checkTopCoffeeType(topCoffee: drink as! TopCoffee)
+        case is EnergyDrink : return CheckNEnergyDrinkType(energyDrink: drink as! EnergyDrink)
         default : return nil
         }
     }
