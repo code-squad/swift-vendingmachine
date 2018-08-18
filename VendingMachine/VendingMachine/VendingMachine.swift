@@ -12,6 +12,7 @@ protocol vendinMachineMenu {
     func getMoney()->Int
     func getAllAvailableDrinks()->InventoryDetail
     func addDrink(drink:Drink)->StoredDrinkDetail?
+//    func getModeSelect(menu:InputView.ModeSelectMenu)throws->String
 }
 /// 사용자용 메뉴
 protocol VendingMachineUserMenu : vendinMachineMenu {
@@ -186,7 +187,7 @@ class VendingMachine : VendingMachineUserMenu, VendingMachineAdminMenu {
         switch menu {
         case .insertMoney : return plusMoney(money: try InputView.insertMoney())
         case .selectDrink : return try buyDrink()
-        case .quit : throw OutputView.errorMessage.quitMessage
+        case .quit : throw OutputView.errorMessage.toModeSelect
         }
     }
     
@@ -194,7 +195,7 @@ class VendingMachine : VendingMachineUserMenu, VendingMachineAdminMenu {
         switch menu {
         case .addDrink : return ""
         case .removeDrink : return try reduceDrink()
-        case .quit : throw OutputView.errorMessage.quitMessage
+        case .quit : throw OutputView.errorMessage.toModeSelect
         }
     }
     
@@ -275,5 +276,7 @@ class VendingMachine : VendingMachineUserMenu, VendingMachineAdminMenu {
         let orderDrinkNumber = try Checker.isRightDrinkNumber(orderDrinkNumber: InputView.whichDrink(), inventoryDetail:self.getAllAvailableDrinks() )
         return orderDrinkNumber
     }
+    
+    
 }
 
