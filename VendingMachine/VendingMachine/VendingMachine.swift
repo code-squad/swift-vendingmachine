@@ -108,10 +108,15 @@ class VendingMachine : VendingMachineMenu {
     }
     
     /// 음료다수주문 기능
-    func orderDrinks(drinkType:DrinkInventory.DrinkType,drinkCount:Int){
+    func orderDrinks(drinkType:DrinkInventory.DrinkType,drinkCount:Int)->StoredDrinkDetail?{
+        // 이동된 음료의 정보를 담을 변수
+        var movedDrinkDetail : StoredDrinkDetail? = nil
         // 음료타입과 개수를 받아서 해당 음료를 주문리스트로 옮긴다
-        for _ in 1...drinkCount {
+        for count in 1...drinkCount {
+            movedDrinkDetail = moveDrink(drinkType: drinkType)
+            movedDrinkDetail?.drinkCount = count
         }
+        return movedDrinkDetail
     }
     
     /// 재고 추가
@@ -158,8 +163,8 @@ class VendingMachine : VendingMachineMenu {
     func selectDrink() throws ->String {
         // 음료 번호를 선택한다. 입력값이 재고번호에 있으면 통과
         let orderDrinkNumber = try receiveDrinkNumber()
-        // 원하는 음료의 정보를 담는 변수
-        let storedDrinkDetail = self.getAllAvailableDrinks().storedDrinksDetail[orderDrinkNumber+1]
+        // 원하는 음료의 정보를 담는 변수. 실제메뉴번호-1 -> 배열인덱스 이므로 -1 을 해준다.
+        let storedDrinkDetail = self.getAllAvailableDrinks().storedDrinksDetail[orderDrinkNumber-1]
         
         // 원하는 개수를 입력받는다
         let orderDrinkCount = try InputView.howMany(drink: storedDrinkDetail.drinkName)
@@ -169,16 +174,23 @@ class VendingMachine : VendingMachineMenu {
             throw OutputView.errorMessage.notEnoughDrink
         }
         
+        // 총 주문금액 변수
+        let totalOrderPrice = orderDrinkCount * storedDrinkDetail.drinkPrice
         // 입력된금액 < 주문금액 이면 에러
-        if self.getMoney() < storedDrinkDetail.drinkCount * storedDrinkDetail.drinkPrice {
+        if self.getMoney() < totalOrderPrice {
             throw OutputView.errorMessage.notEnoughMoney
         }
         
-        // 인벤토리->주문내역 으로 음료 이동
-        self.orderDrinks(drinkType:storedDrinkDetail.drinkType, drinkCount: orderDrinkCount)
+        // 금액 사용
+        self.minusMoney(money: totalOrderPrice)
+        
+        // 인벤토리->주문내역 으로 음료 이동. 이동된 음료의 정보 저장
+        guard let movedDrinkDetail = self.orderDrinks(drinkType:storedDrinkDetail.drinkType, drinkCount: orderDrinkCount) else {
+            throw OutputView.errorMessage.notEnoughDrink
+        }
         
         // 완료 메세지 리턴
-        return "\(storedDrinkDetail.drinkName) \(orderDrinkCount)개를 \(storedDrinkDetail.drinkCount * storedDrinkDetail.drinkPrice)원에 구입하였습니다."
+        return "\(movedDrinkDetail.drinkName) \(movedDrinkDetail.drinkCount)개를 \(totalOrderPrice)원에 구입하였습니다."
     }
     
     /// 유저입력을 받아서 재고번호에 있으면 해당 재고의 음료타입을 리턴
