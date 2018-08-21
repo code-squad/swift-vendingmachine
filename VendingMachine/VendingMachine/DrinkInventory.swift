@@ -50,9 +50,12 @@ struct InventoryDetail {
         return result
     }
     
-    
+    mutating func takeDrinkDetail(drinkInventory:StoredDrinkDetail?){
+        if let drinkDetail = drinkInventory {
+            self.storedDrinksDetail.append(drinkDetail)
+        }
+    }
 }
-
 
 /// 음료배열을 여러개 가지는 음료창고
 class DrinkInventory {
@@ -155,13 +158,13 @@ class DrinkInventory {
     
     /// 음료수 객체를 받아서 추가
     func addInventory(undefinedDrink:Drink)->StoredDrinkDetail?{
-            switch undefinedDrink.drinkType {
-            case .chocoMilk,.lowSugarChocoMilk : addChocoMilk(chocoMilk: undefinedDrink as! ChocoMilk)
-            case .coke,.zeroCalorieCoke : addCoke(coke: undefinedDrink as! Coke)
-            case .hotTopCoffee : addTopCoffee(topCoffee: undefinedDrink as! TopCoffee)
-            case .energyDrink : addEnergyDrink(energyDrink: undefinedDrink as! EnergyDrink)
-            // 추가할수 없는 종류의 경우
-            case .none : return nil
+        switch undefinedDrink.drinkType {
+        case .chocoMilk,.lowSugarChocoMilk : addChocoMilk(chocoMilk: undefinedDrink as! ChocoMilk)
+        case .coke,.zeroCalorieCoke : addCoke(coke: undefinedDrink as! Coke)
+        case .hotTopCoffee : addTopCoffee(topCoffee: undefinedDrink as! TopCoffee)
+        case .energyDrink : addEnergyDrink(energyDrink: undefinedDrink as! EnergyDrink)
+        // 추가할수 없는 종류의 경우
+        case .none : return nil
         }
         return StoredDrinkDetail(drinkName: undefinedDrink.getName(), drinkPrice: undefinedDrink.getPrice(), drinkCount: 1, drinkType: undefinedDrink.drinkType)
     }
@@ -180,32 +183,20 @@ class DrinkInventory {
     
     /// 음료객체를 받아서 재고정보로 출력
     func getDrinkDetail(drink: Drink)-> StoredDrinkDetail?{
-            let inventoryDetail = StoredDrinkDetail(drinkName: drink.getName(), drinkPrice: drink.getPrice(), drinkCount: 1 ,drinkType: drink.drinkType)
-            return inventoryDetail
+        let inventoryDetail = StoredDrinkDetail(drinkName: drink.getName(), drinkPrice: drink.getPrice(), drinkCount: 1 ,drinkType: drink.drinkType)
+        return inventoryDetail
     }
     
     /// 전체 재고 출력 함수
     func getTotalDrinkDetail() -> InventoryDetail{
         // 결과 출력용 변수
         var result = InventoryDetail()
-        if let drinkDetail = getDrinkDetail(drinkInventory: lowSugarChocoMilkInventory) {
-            result.storedDrinksDetail.append(drinkDetail)
-        }
-        if let drinkDetail = getDrinkDetail(drinkInventory: chocoMilkInventory) {
-            result.storedDrinksDetail.append(drinkDetail)
-        }
-        if let drinkDetail = getDrinkDetail(drinkInventory: cokeInventory) {
-            result.storedDrinksDetail.append(drinkDetail)
-        }
-        if let drinkDetail = getDrinkDetail(drinkInventory: zeroCalorieCokeInventory) {
-            result.storedDrinksDetail.append(drinkDetail)
-        }
-        if let drinkDetail = getDrinkDetail(drinkInventory: hotTopCoffeeInventory) {
-            result.storedDrinksDetail.append(drinkDetail)
-        }
-        if let drinkDetail = getDrinkDetail(drinkInventory: energyDrinkInventory) {
-            result.storedDrinksDetail.append(drinkDetail)
-        }
+        result.takeDrinkDetail(drinkInventory: getDrinkDetail(drinkInventory: lowSugarChocoMilkInventory))
+        result.takeDrinkDetail(drinkInventory: getDrinkDetail(drinkInventory: chocoMilkInventory))
+        result.takeDrinkDetail(drinkInventory: getDrinkDetail(drinkInventory: cokeInventory))
+        result.takeDrinkDetail(drinkInventory: getDrinkDetail(drinkInventory: zeroCalorieCokeInventory))
+        result.takeDrinkDetail(drinkInventory: getDrinkDetail(drinkInventory: hotTopCoffeeInventory))
+        result.takeDrinkDetail(drinkInventory: getDrinkDetail(drinkInventory: energyDrinkInventory))        
         return result
     }
     

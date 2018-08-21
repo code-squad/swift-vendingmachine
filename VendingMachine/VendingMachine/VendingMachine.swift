@@ -190,7 +190,7 @@ class VendingMachine : VendingMachineUserMenu, VendingMachineAdminMenu {
         case .insertMoney : return plusMoney(money: try InputView.insertMoney())
         case .selectDrink : return try buyDrink()
         case .quit : throw OutputView.errorMessage.toModeSelect
-        case .none : return OutputView.errorMessage.wrongMenu.toString()
+        case .none : return OutputView.errorMessage.wrongMenu.description
         }
     }
     
@@ -199,7 +199,7 @@ class VendingMachine : VendingMachineUserMenu, VendingMachineAdminMenu {
         case .addDrink : return try duplicateDrink()
         case .removeDrink : return try reduceDrink()
         case .quit : throw OutputView.errorMessage.toModeSelect
-        case .none : return OutputView.errorMessage.wrongMenu.toString()
+        case .none : return OutputView.errorMessage.wrongMenu.description
         }
     }
     
