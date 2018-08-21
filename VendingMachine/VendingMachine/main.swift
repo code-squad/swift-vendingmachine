@@ -36,7 +36,7 @@ func main(){
     func userMode()throws{
         outputView.printMessage(message: try outputView.userMenu(vendingMachine: vendingMachine))
         // 메인메뉴를 입력받는다
-        let userFirstMenu = try InputView.receiveUserFirstMenu()
+        let userFirstMenu = InputView.receiveUserFirstMenu()
         // 메인메뉴에서 선택한 메뉴를 실행
         outputView.printMessage(message: try vendingMachine.getUserMainMenu(menu: userFirstMenu))
     }
@@ -44,19 +44,20 @@ func main(){
     func adminMode()throws{
         outputView.printMessage(message: try outputView.adminMenu(vendingMachine: vendingMachine))
         // 메인메뉴를 입력받는다
-        let adminFirstMenu = try InputView.receiveAdminFirstMenu()
+        let adminFirstMenu = InputView.receiveAdminFirstMenu()
         // 메인메뉴에서 선택한 메뉴를 실행
         outputView.printMessage(message: try vendingMachine.getAdminMainMenu(menu: adminFirstMenu))
     }
     /// 모드 선택시
     func selectMode()throws{
         // 모드를 선택한다
-        let selectedMode = try InputView.receiveModeSelectMenu()
+        let selectedMode = InputView.receiveModeSelectMenu()
         while true {
             switch selectedMode {
             case .admin : try adminMode()
             case .user : try userMode()
             case .quit : throw OutputView.errorMessage.quitMessage
+            case .none : throw OutputView.errorMessage.wrongMenu
             }
         }
     }

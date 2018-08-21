@@ -26,32 +26,32 @@ struct Checker {
     }
     
     /// 사용자 메뉴 체크함수. 1,2,q 이외에는 닐
-    static func checkUserFirstMenuInput(input:String)->InputView.UserFirstMenu?{
+    static func checkUserFirstMenuInput(input:String)->InputView.UserFirstMenu{
         switch input {
-        case "1" : return InputView.UserFirstMenu.insertMoney
-        case "2" : return InputView.UserFirstMenu.selectDrink
-        case "q" : return InputView.UserFirstMenu.quit
-        default : return nil
+        case "1" : return .insertMoney
+        case "2" : return .selectDrink
+        case "q" : return .quit
+        default : return .none
         }
     }
     
     /// 관리자 메뉴 체크함수. 1,2,q 이외에는 닐
-    static func checkAdminFirstMenuInput(input:String)->InputView.AdminFirstMenu?{
+    static func checkAdminFirstMenuInput(input:String)->InputView.AdminFirstMenu{
         switch input {
-        case "1" : return InputView.AdminFirstMenu.addDrink
-        case "2" : return InputView.AdminFirstMenu.removeDrink
-        case "q" : return InputView.AdminFirstMenu.quit
-        default : return nil
+        case "1" : return .addDrink
+        case "2" : return .removeDrink
+        case "q" : return .quit
+        default : return .none
         }
     }
     
     /// 모드선택메뉴 체크함수. 1,2,q 이외에는 닐
-    static func checkModeSelectMenuInput(input:String)->InputView.ModeSelectMenu?{
+    static func checkModeSelectMenuInput(input:String)->InputView.ModeSelectMenu{
         switch input {
-        case "1" : return InputView.ModeSelectMenu.admin
-        case "2" : return InputView.ModeSelectMenu.user
-        case "q" : return InputView.ModeSelectMenu.quit
-        default : return nil
+        case "1" : return .admin
+        case "2" : return .user
+        case "q" : return .quit
+        default : return .none
         }
     }
 }
