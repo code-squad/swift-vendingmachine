@@ -283,8 +283,8 @@ class VendingMachine : VendingMachineUserMenu, VendingMachineAdminMenu {
         // 원하는 개수를 입력받는다
         let orderDrinkCount = try InputView.howMany(drink: storedDrinkDetail.drinkName)
         
-        // 음료 제거. 제거된 음료의 정보 저장
-        drinkInventory.addDrinkSelfDuplicate(drinkType: storedDrinkDetail.drinkType, drinkCount: orderDrinkCount)
+        // 음료 추가.
+        try drinkInventory.addDrinkSelfDuplicate(drinkType: storedDrinkDetail.drinkType, drinkCount: orderDrinkCount)
         
         // 완료 메세지 리턴
         return "\(storedDrinkDetail.drinkName) \(orderDrinkCount)개를 추가하였습니다."
