@@ -240,7 +240,7 @@ class DrinkInventory {
     }
     
     /// 입력받은 타입의 음료를 복사해서 1개 추가한다
-    private func addOneSelf(drinkType:DrinkType){
+    private func addOneSelf(drinkType:DrinkType)throws{
         switch drinkType {
         case .chocoMilk : addChocoMilk(chocoMilk: chocoMilkInventory[0])
         case .lowSugarChocoMilk : addChocoMilk(chocoMilk: lowSugarChocoMilkInventory[0])
@@ -248,14 +248,14 @@ class DrinkInventory {
         case .zeroCalorieCoke : addCoke(coke: zeroCalorieCokeInventory[0])
         case .hotTopCoffee : addTopCoffee(topCoffee: hotTopCoffeeInventory[0])
         case .energyDrink : addEnergyDrink(energyDrink: energyDrinkInventory[0])
-        case .none : break
+        case .none : throw OutputView.errorMessage.wrongDrink
         }
     }
     
     /// 해당타입의 음료를 여러번 추가한다
-    func addDrinkSelfDuplicate(drinkType:DrinkType,drinkCount:Int){
+    func addDrinkSelfDuplicate(drinkType:DrinkType,drinkCount:Int)throws{
         for _ in 1...drinkCount {
-            addOneSelf(drinkType: drinkType)
+            try addOneSelf(drinkType: drinkType)
         }
     }
 }
