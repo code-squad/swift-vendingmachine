@@ -20,6 +20,7 @@ struct InputView {
         insertMoney
         ,selectDrink
         ,quit
+        ,none
     }
     
     /// 관리자용 1차 메뉴. 돈추가, 음료수 선택지
@@ -28,22 +29,17 @@ struct InputView {
         addDrink
         ,removeDrink
         ,quit
+        ,none
     }
     
     /// 사용자용 첫번째 메뉴를 위한 입력을 받는다
-    static func receiveUserFirstMenu() throws -> UserFirstMenu{
-        guard let result = Checker.checkUserFirstMenuInput(input: getUserInput()) else {
-            throw OutputView.errorMessage.wrongMenu
-        }
-        return result
+    static func receiveUserFirstMenu() -> UserFirstMenu{
+        return Checker.checkUserFirstMenuInput(input: getUserInput())
     }
     
     /// 관리자용 첫번째 메뉴를 위한 입력을 받는다
-    static func receiveAdminFirstMenu() throws -> AdminFirstMenu{
-        guard let result = Checker.checkAdminFirstMenuInput(input: getUserInput()) else {
-            throw OutputView.errorMessage.wrongMenu
-        }
-        return result
+    static func receiveAdminFirstMenu() -> AdminFirstMenu{
+        return Checker.checkAdminFirstMenuInput(input: getUserInput())
     }
     
     /// 관리자, 사용자 선택메뉴
@@ -52,14 +48,12 @@ struct InputView {
         admin
         ,user
         ,quit
+        ,none
     }
     
     /// 사용자용 첫번째 메뉴를 위한 입력을 받는다
-    static func receiveModeSelectMenu() throws -> ModeSelectMenu{
-        guard let result = Checker.checkModeSelectMenuInput(input: getUserInput()) else {
-            throw OutputView.errorMessage.wrongMenu
-        }
-        return result
+    static func receiveModeSelectMenu() -> ModeSelectMenu{
+        return Checker.checkModeSelectMenuInput(input: getUserInput())
     }
     
     /// 돈 추가 선택시
