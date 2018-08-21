@@ -36,6 +36,7 @@ class Drink : CustomStringConvertible {
     private let price : Int
     private let name : String
     private let manufacturingDate : Date
+    let drinkType : DrinkInventory.DrinkType
     
     func getPrice() ->Int {
         return self.price
@@ -44,11 +45,12 @@ class Drink : CustomStringConvertible {
         return self.name
     }
     
-    init?(barnd:String, size:Int,price:Int, name:String, manufacturingDate:String) {
+    init?(barnd:String, size:Int,price:Int, name:String, manufacturingDate:String,drinkType:DrinkInventory.DrinkType) {
         self.brand = barnd
         self.size = size
         self.price = price
         self.name = name
+        self.drinkType = drinkType
         guard let date = manufacturingDate.toDate(format: dateFormat) else {
             return nil
         }
@@ -65,9 +67,9 @@ class Drink : CustomStringConvertible {
 class Milk : Drink {
     private let lowFat : Bool
     
-    init?(barnd: String, size: Int, price: Int, name: String, manufacturingDate: String, lowFat: Bool) {
+    init?(barnd: String, size: Int, price: Int, name: String, manufacturingDate: String, lowFat: Bool,drinkType:DrinkInventory.DrinkType) {
         self.lowFat = lowFat
-        super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDate: manufacturingDate)
+        super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDate: manufacturingDate,drinkType:drinkType)
     }
     func isLowFat() -> Bool {
         return self.lowFat
@@ -78,7 +80,8 @@ class ChocoMilk : Milk {
     let lowSugar : Bool
     init?(barnd: String, size: Int, price: Int, name: String, manufacturingDate: String, lowFat: Bool, lowSugar:Bool) {
         self.lowSugar = lowSugar
-        super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDate: manufacturingDate, lowFat: lowFat)
+        let drinkType = lowSugar ? DrinkInventory.DrinkType.lowSugarChocoMilk : DrinkInventory.DrinkType.chocoMilk
+        super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDate: manufacturingDate, lowFat: lowFat,drinkType:drinkType)
     }
     func isLowSugar() -> Bool {
         return self.lowSugar
@@ -89,9 +92,9 @@ class ChocoMilk : Milk {
 class Soda : Drink {
     private let usingPET : Bool
     
-    init?(barnd: String, size: Int, price: Int, name: String, manufacturingDate: String, usingPET: Bool) {
+    init?(barnd: String, size: Int, price: Int, name: String, manufacturingDate: String, usingPET: Bool,drinkType:DrinkInventory.DrinkType) {
         self.usingPET = usingPET
-        super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDate: manufacturingDate)
+        super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDate: manufacturingDate,drinkType:drinkType)
     }
     func isPET() -> Bool {
         return self.usingPET
@@ -103,7 +106,8 @@ class Coke : Soda {
     
     init?(barnd: String, size: Int, price: Int, name: String, manufacturingDate: String, usingPET: Bool,zeroCalorie:Bool) {
         self.zeroCalorie = zeroCalorie
-        super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDate: manufacturingDate, usingPET: usingPET)
+        let drinkType = zeroCalorie ? DrinkInventory.DrinkType.zeroCalorieCoke : DrinkInventory.DrinkType.coke
+        super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDate: manufacturingDate, usingPET: usingPET,drinkType:drinkType)
     }
     func isZeroCalorie() -> Bool {
         return self.zeroCalorie
@@ -113,9 +117,9 @@ class Coke : Soda {
 /// 커피 클래스
 class Coffee : Drink{
     private let hot : Bool
-    init?(barnd: String, size: Int, price: Int, name: String, manufacturingDate: String, hot: Bool) {
+    init?(barnd: String, size: Int, price: Int, name: String, manufacturingDate: String, hot: Bool,drinkType:DrinkInventory.DrinkType) {
         self.hot = hot
-        super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDate: manufacturingDate)
+        super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDate: manufacturingDate,drinkType:drinkType)
     }
     func isHot() -> Bool {
         return self.hot
@@ -126,7 +130,8 @@ class TopCoffee : Coffee {
     private let zeroSugar : Bool
     init?(barnd: String, size: Int, price: Int, name: String, manufacturingDate: String,hot: Bool, zeroSugar: Bool) {
         self.zeroSugar = zeroSugar
-        super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDate: manufacturingDate,hot: hot)
+        let drinkType = zeroSugar ? DrinkInventory.DrinkType.zeroCalorieCoke : DrinkInventory.DrinkType.none
+        super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDate: manufacturingDate,hot: hot,drinkType:drinkType)
     }
     func isZeroSugar() -> Bool {
         return self.zeroSugar
@@ -138,7 +143,8 @@ class EnergyDrink : Drink {
     private let zeroCaffeine : Bool
     init?(barnd: String, size: Int, price: Int, name: String, manufacturingDate: String, zeroCaffeine: Bool) {
         self.zeroCaffeine = zeroCaffeine
-        super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDate: manufacturingDate)
+        let drinkType = zeroCaffeine ? DrinkInventory.DrinkType.energyDrink : DrinkInventory.DrinkType.none
+        super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDate: manufacturingDate,drinkType:drinkType)
     }
     func isNoCaffeine() -> Bool {
         return self.zeroCaffeine

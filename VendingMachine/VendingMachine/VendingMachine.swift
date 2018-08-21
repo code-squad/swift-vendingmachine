@@ -112,6 +112,7 @@ class VendingMachine : VendingMachineUserMenu, VendingMachineAdminMenu {
         case .zeroCalorieCoke : return orderZeroCalorieCoke()
         case .hotTopCoffee : return orderHotTopCoffee()
         case .energyDrink : return orderEnergyDrink()
+        case .none : return nil
         }
     }
     
@@ -136,6 +137,7 @@ class VendingMachine : VendingMachineUserMenu, VendingMachineAdminMenu {
         case .zeroCalorieCoke : return drinkInventory.getDrinkDetail(drink: drinkInventory.popZeroCalorieCokeInventory()!)
         case .hotTopCoffee : return drinkInventory.getDrinkDetail(drink: drinkInventory.popHotTopCoffeeInventory()!)
         case .energyDrink : return drinkInventory.getDrinkDetail(drink: drinkInventory.popEnergyDrinkInventory()!)
+        case .none : return nil
         }
     }
     
