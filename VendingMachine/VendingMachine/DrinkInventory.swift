@@ -68,6 +68,7 @@ class DrinkInventory {
         ,zeroCalorieCoke
         ,hotTopCoffee
         ,energyDrink
+        ,none
     }
     /// 초코우유 재고
     private var lowSugarChocoMilkInventory : [ChocoMilk] = []
@@ -152,52 +153,34 @@ class DrinkInventory {
         }
     }
     
-    /// 객체를 받아서 음료종류인지 체크. 맞으면 enum, 아니면 닐 리턴
-    func checkDrinkType(drink:Any)->DrinkType?{
-        switch drink {
-        case is ChocoMilk : return checkChocoMilkType(chocoMilk: drink as! ChocoMilk)
-        case is Coke : return checkCokeType(coke: drink as! Coke)
-        case is TopCoffee : return checkTopCoffeeType(topCoffee: drink as! TopCoffee)
-        case is EnergyDrink : return CheckNEnergyDrinkType(energyDrink: drink as! EnergyDrink)
-        default : return nil
-        }
-    }
-    
     /// 음료수 객체를 받아서 추가
-    func addInventory(undefinedDrink:Any)->StoredDrinkDetail?{
-        // 객체를 받아서 추가할 수 있는 음료의 종류인지 확인한다
-        if let drink = checkDrinkType(drink: undefinedDrink) {
-            // 추가할 수 있는 음료면 추가해준다
-            switch drink {
+    func addInventory(undefinedDrink:Drink)->StoredDrinkDetail?{
+            switch undefinedDrink.drinkType {
             case .chocoMilk,.lowSugarChocoMilk : addChocoMilk(chocoMilk: undefinedDrink as! ChocoMilk)
             case .coke,.zeroCalorieCoke : addCoke(coke: undefinedDrink as! Coke)
             case .hotTopCoffee : addTopCoffee(topCoffee: undefinedDrink as! TopCoffee)
             case .energyDrink : addEnergyDrink(energyDrink: undefinedDrink as! EnergyDrink)
-            }
-            // 재고정보로 변환하여 리턴한다
-            let drinkDetail = undefinedDrink as! Drink
-            return StoredDrinkDetail(drinkName: drinkDetail.getName(), drinkPrice: drinkDetail.getPrice(), drinkCount: 1, drinkType: drink)
-        }// 추가할수 없는 종류의 경우
-        else {
-            return nil
+            // 추가할수 없는 종류의 경우
+            case .none : return nil
         }
+        return StoredDrinkDetail(drinkName: undefinedDrink.getName(), drinkPrice: undefinedDrink.getPrice(), drinkCount: 1, drinkType: undefinedDrink.drinkType)
     }
+    
     /// 인벤토리별로 재고 출력. 없으면 매진으로 출력
     private func getDrinkDetail(drinkInventory: [Drink])-> StoredDrinkDetail?{
         // 재고가 있을경우
         if let drink = drinkInventory.first {
-            let inventoryDetail = StoredDrinkDetail(drinkName: drink.getName(), drinkPrice: drink.getPrice(), drinkCount: drinkInventory.count,drinkType: checkDrinkType(drink: drink)!)
+            let inventoryDetail = StoredDrinkDetail(drinkName: drink.getName(), drinkPrice: drink.getPrice(), drinkCount: drinkInventory.count,drinkType: drink.drinkType)
             return inventoryDetail
         } // 없을경우
         else {
             return nil
-        }
-        
+        }        
     }
     
     /// 음료객체를 받아서 재고정보로 출력
     func getDrinkDetail(drink: Drink)-> StoredDrinkDetail?{
-            let inventoryDetail = StoredDrinkDetail(drinkName: drink.getName(), drinkPrice: drink.getPrice(), drinkCount: 1 ,drinkType: checkDrinkType(drink: drink)!)
+            let inventoryDetail = StoredDrinkDetail(drinkName: drink.getName(), drinkPrice: drink.getPrice(), drinkCount: 1 ,drinkType: drink.drinkType)
             return inventoryDetail
     }
     
@@ -265,6 +248,7 @@ class DrinkInventory {
         case .zeroCalorieCoke : addCoke(coke: zeroCalorieCokeInventory[0])
         case .hotTopCoffee : addTopCoffee(topCoffee: hotTopCoffeeInventory[0])
         case .energyDrink : addEnergyDrink(energyDrink: energyDrinkInventory[0])
+        case .none : break
         }
     }
     
