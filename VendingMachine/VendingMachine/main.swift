@@ -73,7 +73,7 @@ func main(){
             }
         } // 에러메세지 출력부분
         catch let error as OutputView.errorMessage {
-            outputView.printMessage(message: error.toString())
+            outputView.printMessage(message: error.description)
             // 종료선택 혹은 모든재고 소진시 프로그램 종료
             if error == .noDrinks || error == .quitMessage {
                 return ()

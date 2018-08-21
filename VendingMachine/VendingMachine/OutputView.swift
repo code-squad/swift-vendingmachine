@@ -15,7 +15,7 @@ struct OutputView {
     }
     
     /// 에러 출력 메세지들
-    enum errorMessage : Error {
+    enum errorMessage : Error, CustomStringConvertible {
         case wrongMoney
         case wrongMenu
         case quitMessage
@@ -26,7 +26,7 @@ struct OutputView {
         case noDrinks
         case toModeSelect
         
-        func toString()->String {
+        var description: String {
             switch self {
             case .wrongMoney : return "잘못된 금액입니다."
             case .wrongMenu : return "잘못된 메뉴입니다."
@@ -35,7 +35,7 @@ struct OutputView {
             case .notNumeric : return "잘못된 수 입니다."
             case .notEnoughMoney : return "입력된 금액이 부족합니다."
             case .wrongDrink : return "잘못된 음료입니다."
-            case .noDrinks : return "판매가능한 음료가 없습니다. \(errorMessage.quitMessage.toString)"
+            case .noDrinks : return "판매가능한 음료가 없습니다. \(errorMessage.quitMessage.description)"
             case .toModeSelect : return "모드선택으로 이동합니다."
             }
         }
