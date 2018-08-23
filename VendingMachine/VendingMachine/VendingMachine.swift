@@ -236,16 +236,25 @@ extension VendingMachine : VendingMachineUserMenu {
 extension VendingMachine : VendingMachineAdminMenu {
     /// 음료타입을 받아서 해당 음료 제거 후 재고정보를 리턴
     func removeDrink(drinkType:DrinkInventory.DrinkType)->StoredDrinkDetail?{
+        // 결과출려
+        let drink : Drink?
+        // 음료타입을 받아서 해당 음료를 pop 한다
         switch drinkType {
-        case .chocoMilk : return drinkInventory.getDrinkDetail(drink: drinkInventory.popChocoMilk()!)
-        case .lowSugarChocoMilk : return drinkInventory.getDrinkDetail(drink: drinkInventory.popLowSugarChocoMilk()!)
-        case .coke : return drinkInventory.getDrinkDetail(drink: drinkInventory.popCokeInventory()!)
-        case .zeroCalorieCoke : return drinkInventory.getDrinkDetail(drink: drinkInventory.popZeroCalorieCokeInventory()!)
-        case .hotTopCoffee : return drinkInventory.getDrinkDetail(drink: drinkInventory.popHotTopCoffeeInventory()!)
-        case .energyDrink : return drinkInventory.getDrinkDetail(drink: drinkInventory.popEnergyDrinkInventory()!)
+        case .chocoMilk : drink = drinkInventory.popChocoMilk()
+        case .lowSugarChocoMilk : drink =  drinkInventory.popLowSugarChocoMilk()
+        case .coke : drink = drinkInventory.popCokeInventory()
+        case .zeroCalorieCoke : drink = drinkInventory.popZeroCalorieCokeInventory()
+        case .hotTopCoffee : drink = drinkInventory.popHotTopCoffeeInventory()
+        case .energyDrink : drink = drinkInventory.popEnergyDrinkInventory()
         case .none : return nil
         }
+        // 제거한 음료객체를 받아서 음료정보로 리턴한다
+        guard let storedDrinkDetail = drink else   {
+            return nil
+        }
+        return drinkInventory.getDrinkDetail(drink: storedDrinkDetail)
     }
+    
     
     /// 음료 다수 제거 기능
     func removeDrinks(drinkType:DrinkInventory.DrinkType,drinkCount:Int)->StoredDrinkDetail?{
