@@ -9,28 +9,23 @@
 import Foundation
 
 func main(){
-    
-    // 자판기 생성
-    let vendingMachine = VendingMachine()
-    
-    // 음료수 추가
-    _ = vendingMachine.addDrink(drink: ChocoMilk(barnd: "서울우유", size: 200, price: 1000, name: "저과당초코우유", manufacturingDate: "20171009", lowFat: true, lowSugar: true)!)
-    _ = vendingMachine.addDrink(drink: Coke(barnd: "팹시", size: 350, price: 2000, name: "다이어트콜라", manufacturingDate: "20171005", usingPET: false, zeroCalorie: true)!)
-    _ = vendingMachine.addDrink(drink: Coke(barnd: "팹시", size: 350, price: 2000, name: "다이어트콜라", manufacturingDate: "20171005", usingPET: false, zeroCalorie: true)!)
-    _ = vendingMachine.addDrink(drink: Coke(barnd: "팹시", size: 350, price: 2000, name: "다이어트콜라", manufacturingDate: "20171005", usingPET: false, zeroCalorie: true)!)
-    _ =  vendingMachine.addDrink(drink: Coke(barnd: "팹시", size: 350, price: 2000, name: "콜라", manufacturingDate: "20171005", usingPET: false, zeroCalorie: false)!)
-    _ = vendingMachine.addDrink(drink: Coke(barnd: "팹시", size: 350, price: 2000, name: "콜라", manufacturingDate: "20171005", usingPET: false, zeroCalorie: false)!)
-    _ = vendingMachine.addDrink(drink: TopCoffee(barnd: "맥심", size: 400, price: 3000, name: "TOP아메리카노", manufacturingDate: "20171010", hot: false, zeroSugar: false)!)
-    _ = vendingMachine.addDrink(drink: TopCoffee(barnd: "맥심", size: 400, price: 3000, name: "TOP아메리카노", manufacturingDate: "20171010", hot: false, zeroSugar: false)!)
-    _ = vendingMachine.addDrink(drink: ChocoMilk(barnd: "서울우유", size: 200, price: 1000, name: "그냥초코우유", manufacturingDate: "20171009", lowFat: true, lowSugar: false)!)
-    _ = vendingMachine.addDrink(drink: ChocoMilk(barnd: "서울우유", size: 200, price: 1000, name: "그냥초코우유", manufacturingDate: "20171009", lowFat: true, lowSugar: false)!)
-    _ = vendingMachine.addDrink(drink: EnergyDrink(barnd: "핫식스", size: 200, price: 1000, name: "핫식스", manufacturingDate: "20171012", zeroCaffeine: false)!)
-    _ = vendingMachine.addDrink(drink: EnergyDrink(barnd: "핫식스", size: 200, price: 1000, name: "핫식스", manufacturingDate: "20171012", zeroCaffeine: false)!)
-    
     /// 아웃풋뷰 선언
     let outputView = OutputView()
     /// 메인메뉴 출력
     outputView.printMessage(message: outputView.welcomMessage())
+    /// 자판기 생성
+    var vendingMachine : VendingMachine
+    do {
+        vendingMachine = try makeVendingMachine()
+    }
+    catch let error as OutputView.errorMessage {
+        outputView.printMessage(message: error.description)
+        return ()
+    }
+    catch {
+        outputView.printMessage(message: error.localizedDescription)
+        return ()
+    }
     
     /// 사용자 모드 선택시
     func userMode()throws{
@@ -53,11 +48,19 @@ func main(){
         // 모드를 선택한다
         let selectedMode = InputView.receiveModeSelectMenu()
         while true {
-            switch selectedMode {
-            case .admin : try adminMode()
-            case .user : try userMode()
-            case .quit : throw OutputView.errorMessage.quitMessage
-            case .none : throw OutputView.errorMessage.wrongMenu
+            do {
+                switch selectedMode {
+                case .admin : try adminMode()
+                case .user : try userMode()
+                case .quit : throw OutputView.errorMessage.quitMessage
+                case .none : throw OutputView.errorMessage.wrongMenu
+                }
+            }
+            catch let error as OutputView.errorMessage{
+                outputView.printMessage(message: error.description)
+                if error == .toModeSelect || error == .wrongMenu || error == .quitMessage {
+                    throw error
+                }
             }
         }
     }
@@ -73,7 +76,6 @@ func main(){
             }
         } // 에러메세지 출력부분
         catch let error as OutputView.errorMessage {
-            outputView.printMessage(message: error.description)
             // 종료선택 혹은 모든재고 소진시 프로그램 종료
             if error == .noDrinks || error == .quitMessage {
                 return ()
@@ -85,6 +87,24 @@ func main(){
     }
 }
 
+// 자판기 생성 및 음료추가 함수
+func makeVendingMachine()throws->VendingMachine {
+    let vendingMachine = VendingMachine()
+    // 음료수 추가
+    _ = try vendingMachine.addDrink(drink: ChocoMilk(barnd: "서울우유", size: 200, price: 1000, name: "저과당초코우유", manufacturingDate: "20171009", lowFat: true, lowSugar: true)!)
+    _ = try vendingMachine.addDrink(drink: Coke(barnd: "팹시", size: 350, price: 2000, name: "다이어트콜라", manufacturingDate: "20171005", usingPET: false, zeroCalorie: true)!)
+    _ = try vendingMachine.addDrink(drink: Coke(barnd: "팹시", size: 350, price: 2000, name: "다이어트콜라", manufacturingDate: "20171005", usingPET: false, zeroCalorie: true)!)
+    _ = try vendingMachine.addDrink(drink: Coke(barnd: "팹시", size: 350, price: 2000, name: "다이어트콜라", manufacturingDate: "20171005", usingPET: false, zeroCalorie: true)!)
+    _ = try  vendingMachine.addDrink(drink: Coke(barnd: "팹시", size: 350, price: 2000, name: "콜라", manufacturingDate: "20171005", usingPET: false, zeroCalorie: false)!)
+    _ = try vendingMachine.addDrink(drink: Coke(barnd: "팹시", size: 350, price: 2000, name: "콜라", manufacturingDate: "20171005", usingPET: false, zeroCalorie: false)!)
+    _ = try vendingMachine.addDrink(drink: TopCoffee(brand: "맥심", size: 400, price: 3000, name: "TOP아메리카노", manufacturingDate: "20171010", hot: false, zeroSugar: false)!)
+    _ = try vendingMachine.addDrink(drink: TopCoffee(brand: "맥심", size: 400, price: 3000, name: "TOP아메리카노", manufacturingDate: "20171010", hot: false, zeroSugar: false)!)
+    _ = try vendingMachine.addDrink(drink: ChocoMilk(barnd: "서울우유", size: 200, price: 1000, name: "그냥초코우유", manufacturingDate: "20171009", lowFat: true, lowSugar: false)!)
+    _ = try vendingMachine.addDrink(drink: ChocoMilk(barnd: "서울우유", size: 200, price: 1000, name: "그냥초코우유", manufacturingDate: "20171009", lowFat: true, lowSugar: false)!)
+    _ = try vendingMachine.addDrink(drink: EnergyDrink(barnd: "핫식스", size: 200, price: 1000, name: "핫식스", manufacturingDate: "20171012", zeroCaffeine: false)!)
+    _ = try vendingMachine.addDrink(drink: EnergyDrink(barnd: "핫식스", size: 200, price: 1000, name: "핫식스", manufacturingDate: "20171012", zeroCaffeine: false)!)
+    return vendingMachine
+}
 
 main()
 
