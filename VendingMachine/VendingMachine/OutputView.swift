@@ -25,6 +25,7 @@ struct OutputView {
         case wrongDrink
         case noDrinks
         case toModeSelect
+        case failMakingVendingMachine
         
         var description: String {
             switch self {
@@ -37,6 +38,7 @@ struct OutputView {
             case .wrongDrink : return "잘못된 음료입니다."
             case .noDrinks : return "판매가능한 음료가 없습니다. \(errorMessage.quitMessage.description)"
             case .toModeSelect : return "모드선택으로 이동합니다."
+            case .failMakingVendingMachine : return "자판기 초기적재에 실패하였습니다. \(errorMessage.quitMessage.description)"
             }
         }
     }
