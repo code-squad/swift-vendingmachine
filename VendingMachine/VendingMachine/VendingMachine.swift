@@ -11,8 +11,7 @@ import Foundation
 protocol vendinMachineMenu {
     func getMoney()->Int
     func getAllAvailableDrinks()->InventoryDetail
-    func addDrink(drink:Drink)->StoredDrinkDetail?
-//    func getModeSelect(menu:InputView.ModeSelectMenu)throws->String
+    func addDrink(drink:Drink)throws->StoredDrinkDetail?
 }
 /// 사용자용 메뉴
 protocol VendingMachineUserMenu : vendinMachineMenu {
@@ -45,80 +44,21 @@ class VendingMachine : vendinMachineMenu  {
     private var drinkInventory = DrinkInventory()
     
     /// 주문한 음료수가 쌓이는 곳
-    private var orderedDrinks : [Drink] = []
+    private var orderedDrinks = DrinkInventory()
     
     /// 주문한 음료수 전체 내용 리턴
-    func getOrederdDrinks()->[Drink]{
-        return orderedDrinks
-    }
-    
-    /// 종류별 음료수 주문
-   private  func orderLowSugarChocoMilk()->StoredDrinkDetail?{
-        // 재고가 없으면 닐 리턴
-        guard let drink = drinkInventory.popLowSugarChocoMilk() else {
-            return nil
-        }
-        orderedDrinks.append(drink)
-    return StoredDrinkDetail(drinkName: drink.getName(), drinkPrice: drink.getPrice(), drinkCount: 1,drinkType: DrinkInventory.DrinkType.lowSugarChocoMilk)
-    }
-    private func orderChocoMilk()->StoredDrinkDetail?{
-        // 재고가 없으면 닐 리턴
-        guard let drink = drinkInventory.popChocoMilk() else {
-            return nil
-        }
-        orderedDrinks.append(drink)
-        return StoredDrinkDetail(drinkName: drink.getName(), drinkPrice: drink.getPrice(), drinkCount: 1, drinkType: DrinkInventory.DrinkType.chocoMilk)
-    }
-    private func orderCoke()->StoredDrinkDetail?{
-        // 재고가 없으면 닐 리턴
-        guard let drink = drinkInventory.popCokeInventory() else {
-            return nil
-        }
-        orderedDrinks.append(drink)
-        return StoredDrinkDetail(drinkName: drink.getName(), drinkPrice: drink.getPrice(), drinkCount: 1, drinkType: DrinkInventory.DrinkType.coke)
-    }
-    private func orderZeroCalorieCoke()->StoredDrinkDetail?{
-        // 재고가 없으면 닐 리턴
-        guard let drink = drinkInventory.popZeroCalorieCokeInventory() else {
-            return nil
-        }
-        orderedDrinks.append(drink)
-        return StoredDrinkDetail(drinkName: drink.getName(), drinkPrice: drink.getPrice(), drinkCount: 1, drinkType: DrinkInventory.DrinkType.zeroCalorieCoke)
-    }
-    private func orderHotTopCoffee()->StoredDrinkDetail?{
-        // 재고가 없으면 닐 리턴
-        guard let drink = drinkInventory.popHotTopCoffeeInventory() else {
-            return nil
-        }
-        orderedDrinks.append(drink)
-        return StoredDrinkDetail(drinkName: drink.getName(), drinkPrice: drink.getPrice(), drinkCount: 1, drinkType: DrinkInventory.DrinkType.hotTopCoffee)
-    }
-    private func orderEnergyDrink()->StoredDrinkDetail?{
-        // 재고가 없으면 닐 리턴
-        guard let drink = drinkInventory.popEnergyDrinkInventory() else {
-            return nil
-        }
-        orderedDrinks.append(drink)
-        return StoredDrinkDetail(drinkName: drink.getName(), drinkPrice: drink.getPrice(), drinkCount: 1, drinkType: DrinkInventory.DrinkType.energyDrink)
+    func getAllOrderdDrink()->String{
+        return orderedDrinks.getTotalDrinkDetail().getAllDrinkDetails()
     }
     
     /// 재고 추가
-    func addDrink(drink:Drink)->StoredDrinkDetail?{
-        return self.drinkInventory.addInventory(undefinedDrink: drink)
+    func addDrink(drink:Drink)throws->StoredDrinkDetail?{
+        return try self.drinkInventory.addInventory(undefinedDrink: drink)
     }
     
     /// 남아있는 모든 재고 확인
     func getAllAvailableDrinks()->InventoryDetail{
         return drinkInventory.getTotalDrinkDetail()
-    }
-    
-    /// 주문한 모든 음료 확인
-    func getAllOrderdDrink()->[String]{
-        var result : [String] = []
-        for drink in  orderedDrinks {
-            result.append(drink.description)
-        }
-        return result
     }
     
     /// 금액 차감 기능
@@ -173,30 +113,21 @@ class VendingMachine : vendinMachineMenu  {
 }
 
 extension VendingMachine : VendingMachineUserMenu {
-    
-    /// 음료타입을 받아서 해당 음료 주문 후 재고정보를 리턴
-    func moveDrink(drinkType:DrinkInventory.DrinkType)->StoredDrinkDetail?{
-        switch drinkType {
-        case .chocoMilk : return orderChocoMilk()
-        case .lowSugarChocoMilk : return orderLowSugarChocoMilk()
-        case .coke : return orderCoke()
-        case .zeroCalorieCoke : return orderZeroCalorieCoke()
-        case .hotTopCoffee : return orderHotTopCoffee()
-        case .energyDrink : return orderEnergyDrink()
-        case .none : return nil
-        }
-    }
-    
-    /// 음료다수주문 기능
-    func orderDrinks(drinkType:DrinkInventory.DrinkType,drinkCount:Int)->StoredDrinkDetail?{
+    /// 음료주문 기능
+    func orderDrinks(drinkType:DrinkInventory.DrinkType,drinkCount:Int)throws->StoredDrinkDetail?{
+        // 음료타입과 개수를 받아서 해당 음료를 재고에서 빼낸다
+        let movedDrinks = try drinkInventory.popDrinks(drinkType: drinkType, drinkCount: drinkCount)
         // 이동된 음료의 정보를 담을 변수
         var movedDrinkDetail : StoredDrinkDetail? = nil
-        // 음료타입과 개수를 받아서 해당 음료를 주문리스트로 옮긴다
-        for count in 1...drinkCount {
-            movedDrinkDetail = moveDrink(drinkType: drinkType)
-            movedDrinkDetail?.drinkCount = count
+        // 빼낸 갯수만큼 주문내역으로 옮긴다
+        for _ in 1...drinkCount {
+            movedDrinkDetail = try orderedDrinks.addInventory(undefinedDrink: movedDrinks.popDrink())
         }
-        return movedDrinkDetail
+        guard var result = movedDrinkDetail else {
+            throw OutputView.errorMessage.notEnoughDrink
+        }
+        result.drinkCount = drinkCount
+        return result
     }
     
     /// 유저가 음료 선택 시 진행 순서
@@ -214,12 +145,14 @@ extension VendingMachine : VendingMachineUserMenu {
         self.minusMoney(money: totalOrderPrice)
         
         // 인벤토리->주문내역 으로 음료 이동. 이동된 음료의 정보 저장
-        guard let movedDrinkDetail = self.orderDrinks(drinkType:storedDrinkDetail.drinkType, drinkCount: orderDrinkCount) else {
+        let movedDrinkDetail = try orderDrinks(drinkType:storedDrinkDetail.drinkType, drinkCount: orderDrinkCount)
+        
+        guard let resultDrink = movedDrinkDetail else {
             throw OutputView.errorMessage.notEnoughDrink
         }
         
         // 완료 메세지 리턴
-        return "\(movedDrinkDetail.drinkName) \(movedDrinkDetail.drinkCount)개를 \(totalOrderPrice)원에 구입하였습니다."
+        return "\(resultDrink.drinkName) \(resultDrink.drinkCount)개를 \(totalOrderPrice)원에 구입하였습니다."
     }
     
     /// 메인메뉴에서 선택 후 분기
@@ -234,38 +167,12 @@ extension VendingMachine : VendingMachineUserMenu {
 }
 
 extension VendingMachine : VendingMachineAdminMenu {
-    /// 음료타입을 받아서 해당 음료 제거 후 재고정보를 리턴
-    func removeDrink(drinkType:DrinkInventory.DrinkType)->StoredDrinkDetail?{
-        // 결과출려
-        let drink : Drink?
-        // 음료타입을 받아서 해당 음료를 pop 한다
-        switch drinkType {
-        case .chocoMilk : drink = drinkInventory.popChocoMilk()
-        case .lowSugarChocoMilk : drink =  drinkInventory.popLowSugarChocoMilk()
-        case .coke : drink = drinkInventory.popCokeInventory()
-        case .zeroCalorieCoke : drink = drinkInventory.popZeroCalorieCokeInventory()
-        case .hotTopCoffee : drink = drinkInventory.popHotTopCoffeeInventory()
-        case .energyDrink : drink = drinkInventory.popEnergyDrinkInventory()
-        case .none : return nil
-        }
-        // 제거한 음료객체를 받아서 음료정보로 리턴한다
-        guard let storedDrinkDetail = drink else   {
-            return nil
-        }
-        return drinkInventory.getDrinkDetail(drink: storedDrinkDetail)
-    }
-    
-    
     /// 음료 다수 제거 기능
-    func removeDrinks(drinkType:DrinkInventory.DrinkType,drinkCount:Int)->StoredDrinkDetail?{
-        // 이동된 음료의 정보를 담을 변수
-        var movedDrinkDetail : StoredDrinkDetail? = nil
-        // 음료타입과 개수를 받아서 해당 음료를 주문리스트로 옮긴다
-        for count in 1...drinkCount {
-            movedDrinkDetail = removeDrink(drinkType: drinkType)
-            movedDrinkDetail?.drinkCount = count
-        }
-        return movedDrinkDetail
+    func removeDrinks(drinkType:DrinkInventory.DrinkType,drinkCount:Int)throws->StoredDrinkDetail?{
+        // 음료타입과 개수를 받아서 해당 음료를 리스트로 옮긴다
+        let movedDrinks = try drinkInventory.popDrinks(drinkType: drinkType, drinkCount: drinkCount)
+        // 리스트의 정보를 출력한다
+        return movedDrinks.getDrinkDetail()
     }
     
     /// 관리자가 음료 제거 선택 시 진행 순서
@@ -277,10 +184,9 @@ extension VendingMachine : VendingMachineAdminMenu {
         let orderDrinkCount = try isEnoughDrink(storedDrinkDetail: storedDrinkDetail)
         
         // 음료 제거. 제거된 음료의 정보 저장
-        guard let movedDrinkDetail = removeDrinks(drinkType: storedDrinkDetail.drinkType, drinkCount: orderDrinkCount) else {
+        guard let movedDrinkDetail = try removeDrinks(drinkType: storedDrinkDetail.drinkType, drinkCount: orderDrinkCount) else {
             throw OutputView.errorMessage.notEnoughDrink
-        }
-        
+        }        
         // 완료 메세지 리턴
         return "\(movedDrinkDetail.drinkName) \(movedDrinkDetail.drinkCount)개를 제거하였습니다."
     }
