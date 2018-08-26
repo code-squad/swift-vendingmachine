@@ -34,7 +34,7 @@ class DrinkSlot {
     func getDrinkDetail()-> StoredDrinkDetail?{
         // 재고가 있을경우
         if let drink = self.drinks.first {
-            let inventoryDetail = StoredDrinkDetail(drinkName: drink.name, drinkPrice: drink.price, drinkCount: self.drinks.count,drinkType: drink.drinkType)
+            let inventoryDetail = StoredDrinkDetail(drink:drink, drinkCount: self.drinks.count)
             return inventoryDetail
         } // 없을경우
         else {
@@ -59,20 +59,21 @@ class DrinkSlot {
             else {
                 throw OutputView.errorMessage.notEnoughDrink
         }
-        // 복제해서 추가할 변수
-        var newDrink : Drink? = nil
+        // 복제해서 추가할 음료정보
+        var newDrinkInformation : DrinkInformation?
         switch firstDrink {
-        case is ChocoMilk : newDrink = (firstDrink as! ChocoMilk).duplicateSelf()
-        case is Coke : newDrink = (firstDrink as! Coke).duplicateSelf()
-        case is TopCoffee : newDrink = (firstDrink as! TopCoffee).duplicateSelf()
-        case is EnergyDrink : newDrink = (firstDrink as! EnergyDrink).duplicateSelf()
+        case is ChocoMilk : newDrinkInformation = ChocoMilkInformation(chocoMilk: firstDrink as! ChocoMilk)
+        case is Coke : newDrinkInformation = CokeInformation(coke: firstDrink as! Coke)
+        case is TopCoffee : newDrinkInformation = TopCoffeeInformation(topCoffee: firstDrink as! TopCoffee)
+        case is EnergyDrink : newDrinkInformation = EnergyDrinkInformation(energyDrink: firstDrink as! EnergyDrink)
         default : throw OutputView.errorMessage.wrongDrink
         }
         // 복사결과가 옵셔널이면 에러출력
-        guard let result = newDrink else {
+        guard let drinkInformation = newDrinkInformation else {
             throw OutputView.errorMessage.wrongDrink
         }
-        drinks.append(result)
+        // 음료정보를 음료로 변환하여 추가한다
+        drinks.append(Drink(drinkInformation: drinkInformation))
     }
 }
 
