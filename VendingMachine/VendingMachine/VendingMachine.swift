@@ -88,7 +88,7 @@ class VendingMachine : vendinMachineMenu  {
     /// 원하는 음료개수를 입력받아서 재고정보의 재고수와 배교한다
     func isEnoughDrink(storedDrinkDetail:StoredDrinkDetail)throws->Int{
         // 원하는 개수를 입력받는다
-        let orderDrinkCount =  try isEnoughDrink(storedDrinkDetail: storedDrinkDetail)
+        let orderDrinkCount =  try InputView.howMany(drink: storedDrinkDetail.drinkName)
         
         // 재고 < 원하는개수 이면 에러
         if storedDrinkDetail.drinkCount < orderDrinkCount {
@@ -200,7 +200,7 @@ extension VendingMachine : VendingMachineAdminMenu {
         let storedDrinkDetail = try selectDrink()
         
         // 원하는 개수를 입력받는다
-        let orderDrinkCount = try isEnoughDrink(storedDrinkDetail: storedDrinkDetail)
+        let orderDrinkCount = try InputView.howMany(drink: storedDrinkDetail.drinkName)
         
         // 음료 추가.
         try drinkInventory.addDrinkSelfDuplicate(drinkType: storedDrinkDetail.drinkType, drinkCount: orderDrinkCount)
