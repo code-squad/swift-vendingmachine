@@ -14,56 +14,6 @@ protocol OrderedDrinkInventory {
     func getTotalDrinkDetail()->InventoryDetail
 }
 
-
-/// 재고정보를 담당할 구조체. 음료의 정보를 받아서 이름,가격,개수,음료타입
-struct StoredDrinkDetail {
-    let drinkName : String
-    let drinkPrice : Int
-    var drinkCount : Int
-    let drinkType : DrinkInventory.DrinkType
-    
-    init(drinkName:String, drinkPrice:Int,drinkCount: Int, drinkType : DrinkInventory.DrinkType){
-        self.drinkName = drinkName
-        self.drinkPrice = drinkPrice
-        self.drinkCount = drinkCount
-        self.drinkType = drinkType
-    }
-    
-    func isEnoughDrink(orderCount:Int)->Bool{
-        return self.drinkCount >= orderCount
-    }
-}
-
-/// 재고정보를 배열로 가짐
-struct InventoryDetail {
-    var storedDrinksDetail : [StoredDrinkDetail] = []
-    init(){}
-    init(drinkDetails:[StoredDrinkDetail]){
-        self.storedDrinksDetail = drinkDetails
-    }
-    
-    /// 재고 출력 메세지
-    func getAllDrinkDetails()->String{
-        // 결과출력을 위한 변수
-        var result = ""
-        // 번호를 위한 변수
-        var number = 1
-        result += ("---현재 구매가능한 음료수---\n")
-        for drink in storedDrinksDetail {
-            result += ("\(number). \(drink.drinkName)-\(drink.drinkPrice)원-\(drink.drinkCount)개\n")
-            number += 1
-        }        
-        result += ("----------------------")
-        return result
-    }
-    
-    mutating func takeDrinkDetail(drinkInventory:StoredDrinkDetail?){
-        if let drinkDetail = drinkInventory {
-            self.storedDrinksDetail.append(drinkDetail)
-        }
-    }
-}
-
 /// 음료배열을 여러개 가지는 음료창고
 class DrinkInventory {
     /// init
@@ -96,7 +46,7 @@ class DrinkInventory {
     
     /// 음료객체를 받아서 재고정보로 출력
     func getDrinkDetail(drink: Drink)-> StoredDrinkDetail?{
-        let inventoryDetail = StoredDrinkDetail(drinkName: drink.name, drinkPrice: drink.price, drinkCount: 1 ,drinkType: drink.drinkType)
+        let inventoryDetail = StoredDrinkDetail(drink:drink, drinkCount: 1)
         return inventoryDetail
     }
     
@@ -132,7 +82,7 @@ class DrinkInventory {
         // 추가할수 없는 종류의 경우
         case .none : return nil
         }
-        return StoredDrinkDetail(drinkName: undefinedDrink.name, drinkPrice: undefinedDrink.price, drinkCount: 1, drinkType: undefinedDrink.drinkType)
+        return StoredDrinkDetail(drink:undefinedDrink ,drinkCount: 1)
     }
     
     /// 전체 재고 출력 함수
