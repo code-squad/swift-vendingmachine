@@ -35,7 +35,7 @@ class VendingMachine : vendinMachineMenu  {
     func minusMoney(money:Int){
         self.insertedMoney -= money
     }
-    /// 금액 확인 함수
+    /// 금액 출력 함수
     func getMoney()->Int{
         return self.insertedMoney
     }
@@ -117,7 +117,7 @@ class VendingMachine : vendinMachineMenu  {
 
 extension VendingMachine : VendingMachineUserMenu {
     /// 음료주문 기능
-    func orderDrinks(drinkType:DrinkInventory.DrinkType,drinkCount:Int)throws->StoredDrinkDetail?{
+    func orderDrinks(drinkType:DrinkType,drinkCount:Int)throws->StoredDrinkDetail?{
         // 음료타입과 개수를 받아서 해당 음료를 재고에서 빼낸다
         let movedDrinks = try drinkInventory.popDrinks(drinkType: drinkType, drinkCount: drinkCount)
         // 이동된 음료의 정보를 담을 변수
@@ -171,7 +171,7 @@ extension VendingMachine : VendingMachineUserMenu {
 
 extension VendingMachine : VendingMachineAdminMenu {
     /// 음료 다수 제거 기능
-    func removeDrinks(drinkType:DrinkInventory.DrinkType,drinkCount:Int)throws->StoredDrinkDetail?{
+    func removeDrinks(drinkType:DrinkType,drinkCount:Int)throws->StoredDrinkDetail?{
         // 음료타입과 개수를 받아서 해당 음료를 리스트로 옮긴다
         let movedDrinks = try drinkInventory.popDrinks(drinkType: drinkType, drinkCount: drinkCount)
         // 리스트의 정보를 출력한다
