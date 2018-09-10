@@ -72,12 +72,12 @@ class Drink : CustomStringConvertible {
     }
     
     /// 음료값*주문수량 <= 잔액 인지 체크해주는 함수
-    func isPossibleBuying(orderCount:Int,balance:Int)->Bool{
+    func calculatePrice(orderCount:Int,balance:Int)throws->Int{
         if self.price * orderCount <= balance {
-            return true
+            return self.price * orderCount
         }
         else {
-            return false
+            throw OutputView.errorMessage.notEnoughMoney
         }
     }
 }
