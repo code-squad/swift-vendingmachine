@@ -71,7 +71,7 @@ class VendingMachine : vendinMachineMenu  {
         else {
             return false
         }
-    }    
+    }
     
     /// 음료번호를 입력받아서 해당 음료의 재고정보를 리턴한다
     func selectDrink()throws->StoredDrinkDetail{
@@ -79,23 +79,24 @@ class VendingMachine : vendinMachineMenu  {
         let orderDrinkNumber = try receiveDrinkNumber()
         // 원하는 음료의 정보를 담는 변수. 실제메뉴번호-1 -> 배열인덱스 이므로 -1 을 해준다.
         let storedDrinkDetail = self.getAllAvailableDrinks().storedDrinksDetail
-        if orderDrinkNumber > storedDrinkDetail.count {
-            throw OutputView.errorMessage.wrongDrink
-        }
+//        // 선택한 음료 번호가 음료메뉴개수 보다 클 경우 에러 - receiveDrinkNumber 에서 체크하기때문에 우선 주석처리
+//        if orderDrinkNumber > storedDrinkDetail.count {
+//            throw OutputView.errorMessage.wrongDrink
+//        }
         return storedDrinkDetail[orderDrinkNumber-1]
     }
     
-    /// 원하는 음료개수를 입력받아서 재고정보의 재고수와 배교한다
-    func isEnoughDrink(storedDrinkDetail:StoredDrinkDetail)throws->Int{
-        // 원하는 개수를 입력받는다
-        let orderDrinkCount =  try InputView.howMany(drink: storedDrinkDetail.drinkName)
-        
-        // 재고 < 원하는개수 이면 에러
-        if storedDrinkDetail.drinkCount < orderDrinkCount {
-            throw OutputView.errorMessage.notEnoughDrink
-        }
-        return orderDrinkCount
-    }
+//    /// 원하는 음료개수를 입력받아서 재고정보의 재고수와 배교한다
+//    func isEnoughDrink(storedDrinkDetail:StoredDrinkDetail)throws->Int{
+//        // 원하는 개수를 입력받는다
+//        let orderDrinkCount =  try InputView.howMany(drink: storedDrinkDetail.drinkName)
+//
+//        // 재고 < 원하는개수 이면 에러
+//        if storedDrinkDetail.drinkCount < orderDrinkCount {
+//            throw OutputView.errorMessage.notEnoughDrink
+//        }
+//        return orderDrinkCount
+//    }
     
     /// 원하는 음료의 가격을 잔액과 배교한다
     func isEnoughMoney(storedDrinkDetail:StoredDrinkDetail,orderDrinkCount:Int)throws->Int{
@@ -117,20 +118,13 @@ class VendingMachine : vendinMachineMenu  {
 
 extension VendingMachine : VendingMachineUserMenu {
     /// 음료주문 기능
-    func orderDrinks(drinkType:DrinkType,drinkCount:Int)throws->StoredDrinkDetail?{
+    func orderDrinks(drinkType:DrinkType,drinkCount:Int)throws->StoredDrinkDetail{
         // 음료타입과 개수를 받아서 해당 음료를 재고에서 빼낸다
         let movedDrinks = try drinkInventory.popDrinks(drinkType: drinkType, drinkCount: drinkCount)
-        // 이동된 음료의 정보를 담을 변수
-        var movedDrinkDetail : StoredDrinkDetail? = nil
-        // 빼낸 갯수만큼 주문내역으로 옮긴다
-        for _ in 1...drinkCount {
-            movedDrinkDetail = try orderedDrinks.addInventory(undefinedDrink: movedDrinks.popDrink())
-        }
-        guard var result = movedDrinkDetail else {
-            throw OutputView.errorMessage.notEnoughDrink
-        }
-        result.drinkCount = drinkCount
-        return result
+        // 이동된 음료를 주문리스트에 넣고 옮겨진 음료정보를 기록한다
+        let movedDrinksDetail : StoredDrinkDetail = try self.orderedDrinks.addDrinks(drinks: movedDrinks)
+        // 옮겨진 음료정보를 리턴한다
+        return movedDrinksDetail
     }
     
     /// 유저가 음료 선택 시 진행 순서
@@ -139,23 +133,25 @@ extension VendingMachine : VendingMachineUserMenu {
         let storedDrinkDetail = try selectDrink()
         
         // 원하는 개수를 입력받는다
-        let orderDrinkCount = try isEnoughDrink(storedDrinkDetail: storedDrinkDetail)
+        let orderDrinkCount = try InputView.howMany(drink: storedDrinkDetail.drinkName)
+//            try isEnoughDrink(storedDrinkDetail: storedDrinkDetail)
         
         // 총 주문금액 변수
-        let totalOrderPrice = try isEnoughMoney(storedDrinkDetail: storedDrinkDetail, orderDrinkCount: orderDrinkCount)
+        let totalOrderPrice = try drinkInventory.calculatePrice(orderCount: orderDrinkCount, balance: self.getMoney(), drinkType: storedDrinkDetail.drinkType)
         
         // 금액 사용
         self.minusMoney(money: totalOrderPrice)
         
+        
         // 인벤토리->주문내역 으로 음료 이동. 이동된 음료의 정보 저장
-        let movedDrinkDetail = try orderDrinks(drinkType:storedDrinkDetail.drinkType, drinkCount: orderDrinkCount)
+        let movedDrinksDetail = try orderDrinks(drinkType:storedDrinkDetail.drinkType, drinkCount: orderDrinkCount)
         
-        guard let resultDrink = movedDrinkDetail else {
-            throw OutputView.errorMessage.notEnoughDrink
-        }
-        
+//        guard let resultDrink = movedDrinkDetail else {
+//            throw OutputView.errorMessage.notEnoughDrink
+//        }
+//
         // 완료 메세지 리턴
-        return "\(resultDrink.drinkName) \(resultDrink.drinkCount)개를 \(totalOrderPrice)원에 구입하였습니다."
+        return "\(movedDrinksDetail.drinkName) \(movedDrinksDetail.drinkCount)개를 \(totalOrderPrice)원에 구입하였습니다."
     }
     
     /// 메인메뉴에서 선택 후 분기
@@ -184,7 +180,7 @@ extension VendingMachine : VendingMachineAdminMenu {
         let storedDrinkDetail = try selectDrink()
         
         // 원하는 개수를 입력받는다
-        let orderDrinkCount = try isEnoughDrink(storedDrinkDetail: storedDrinkDetail)
+        let orderDrinkCount = try InputView.howMany(drink: storedDrinkDetail.drinkName)
         
         // 음료 제거. 제거된 음료의 정보 저장
         guard let movedDrinkDetail = try removeDrinks(drinkType: storedDrinkDetail.drinkType, drinkCount: orderDrinkCount) else {
