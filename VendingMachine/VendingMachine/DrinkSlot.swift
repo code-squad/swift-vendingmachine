@@ -61,22 +61,71 @@ class DrinkSlot<T:Drink> {
         if drinks.isEmpty {
             throw OutputView.errorMessage.notEnoughDrink
         }
+        // 리턴용 슬롯
         return drinks.removeFirst()
     }
     
+    /// 음료 배출
+    func popDrinks(drinkCount:Int)throws->DrinkSlot<Drink>{
+        // 재고 체크
+        if drinks.count < drinkCount {
+            throw OutputView.errorMessage.notEnoughDrink
+        }
+        // 리턴용 슬롯
+        let restulDrinkSlot = DrinkSlot<Drink>(drinkType: self.drinkType)
+        // 입력개수 만큼 기존 음료슬롯에서 음료를 빼서 결과변수에 추가
+        for _ in 1...drinkCount {
+            try restulDrinkSlot.addDrink(drink: popDrink())
+        }
+        // 결과 리턴
+        return restulDrinkSlot
+    }
+    
     /// 음료 복제
-    func duplicate()throws{
-        // 재고가 있을경우
+    func duplicate(drinkCount:Int)throws{
+        // 재고가 있는지 체크
         guard let firstDrink = self.drinks.first
             // 없을경우
             else {
                 throw OutputView.errorMessage.notEnoughDrink
         }
-        // 복제해서 추가할 음료정보
-        let newDrinkInformation = firstDrink.duplicateSelf() as! T
         
-        // 음료정보를 음료로 변환하여 추가한다
-        drinks.append(newDrinkInformation)
+        // 입력개수 만큼 증가
+        for _ in 1...drinkCount {
+            // 복제해서 추가할 음료정보
+            let newDrinkInformation = firstDrink.duplicateSelf() as! T
+            
+            // 음료정보를 음료로 변환하여 추가한다
+            drinks.append(newDrinkInformation)
+        }        
+    }
+    
+    /// 음료 구입 가능 금액 여부 확인 함수 
+    func calculatePrice(orderCount:Int,balance:Int)throws->Int{
+        if self.drinks.isEmpty == false  {
+            return try drinks[0].calculatePrice(orderCount: orderCount, balance: balance)
+        }
+        throw OutputView.errorMessage.notEnoughMoney
+    }
+    
+    /// 음료슬롯을 받아서 전부 추가
+    func addDrinkSlot(drinkSlot:DrinkSlot<T>)throws->StoredDrinkDetail{
+        // 옮겨진 음료들의 정보를 담는 음료정보 변수
+        guard let result = drinkSlot.getDrinkDetail() else {
+            // 0개면 에러
+            throw OutputView.errorMessage.notEnoughDrink
+        }
+        // 서로 타입이 다른 음료일 경우 에러
+        if self.drinkType != result.drinkType {
+            throw OutputView.errorMessage.wrongDrink
+        }
+        
+        // 음료 개수만큼 음료를 추출한다. 이경우는 전부
+        for _ in 1...result.drinkCount {
+            try self.addDrink(drink: drinkSlot.popDrink())
+        }
+        // 옴기는 과정이 완료되면 결과정보 리턴
+        return result
     }
 }
 
