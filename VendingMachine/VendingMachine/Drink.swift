@@ -29,25 +29,6 @@ extension String{
     }
 }
 
-/// 음료객체의 모든 값을 저장,전달하는 객체
-class DrinkInformation {
-    fileprivate let brand : String
-    fileprivate let size : Int
-    fileprivate let price : Int
-    fileprivate let name : String
-    fileprivate let manufacturingDate : Date
-    let drinkType : DrinkInventory.DrinkType
-    
-    init(drink:Drink){
-        self.brand = drink.brand
-        self.size = drink.size
-        self.price = drink.price
-        self.name = drink.name
-        self.manufacturingDate = drink.manufacturingDate
-        self.drinkType = drink.drinkType
-    }
-}
-
 /// 모든 음료수의 수퍼클래스
 class Drink : CustomStringConvertible {
     fileprivate let brand : String
@@ -55,41 +36,49 @@ class Drink : CustomStringConvertible {
     fileprivate let price : Int
     fileprivate let name : String
     fileprivate let manufacturingDate : Date
-    let drinkType : DrinkInventory.DrinkType
+    let drinkType : DrinkType
     
-    init?(barnd:String, size:Int,price:Int, name:String, manufacturingDate:String,drinkType:DrinkInventory.DrinkType) {
+    // 직접 생성시 생성자. 날자를 문자열로 입력받기 때문에 잘못된형태를 위해 옵셔널 선언
+    init?(barnd:String, size:Int,price:Int, name:String, manufacturingDateString:String,drinkType:DrinkType) {
         self.brand = barnd
         self.size = size
         self.price = price
         self.name = name
         self.drinkType = drinkType
-        guard let date = manufacturingDate.toDate() else {
+        guard let newDate = manufacturingDateString.toDate() else {
             return nil
         }
-        self.manufacturingDate = date
-    }
-    init(drinkInformation:DrinkInformation){
-        self.brand = drinkInformation.brand
-        self.size = drinkInformation.size
-        self.price = drinkInformation.price
-        self.name = drinkInformation.name
-        self.manufacturingDate = drinkInformation.manufacturingDate
-        self.drinkType = drinkInformation.drinkType
+        self.manufacturingDate = newDate
     }
     
+    // 복제를 위한 생성자. 생성일자를 Date 로 직접받기 때문에 옵셔널 아님
+    init(barnd:String, size:Int,price:Int, name:String, manufacturingDate:Date,drinkType:DrinkType) {
+        self.brand = barnd
+        self.size = size
+        self.price = price
+        self.name = name
+        self.drinkType = drinkType
+        self.manufacturingDate = manufacturingDate
+    }
+    /// 자기복제 함수
+    func duplicateSelf()->Drink{
+        return Drink(barnd: self.brand, size: self.size, price: self.price, name: self.name
+            , manufacturingDate: self.manufacturingDate, drinkType: self.drinkType)
+    }
+    /// toString 의 역할
     var description : String  {
         // 생성자에서 dateFormat 옵셔널 검사가 완료 됬으므로 여기선 강제 래핑
         return ("\(String(describing: type(of: self))) - \(brand), \(size)ml, \(price)원, \(brand), \(manufacturingDate.toString())")
     }
-}
-
-/// 우유 정보를 담는 객체
-class MilkInformation : DrinkInformation {
-    fileprivate let lowFat : Bool
     
-    init(milk:Milk){
-        self.lowFat = milk.lowFat
-        super.init(drink: milk)
+    /// 음료값*주문수량 <= 잔액 인지 체크해주는 함수
+    func isPossibleBuying(orderCount:Int,balance:Int)->Bool{
+        if self.price * orderCount <= balance {
+            return true
+        }
+        else {
+            return false
+        }
     }
 }
 
@@ -97,150 +86,134 @@ class MilkInformation : DrinkInformation {
 class Milk : Drink {
     fileprivate let lowFat : Bool
     
-    init?(barnd: String, size: Int, price: Int, name: String, manufacturingDate: String, lowFat: Bool,drinkType:DrinkInventory.DrinkType) {
+    init?(barnd: String, size: Int, price: Int, name: String, manufacturingDateString: String, lowFat: Bool,drinkType:DrinkType) {
+        self.lowFat = lowFat
+        super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDateString: manufacturingDateString,drinkType:drinkType)
+    }
+    init(barnd: String, size: Int, price: Int, name: String, manufacturingDate: Date, lowFat: Bool,drinkType:DrinkType) {
         self.lowFat = lowFat
         super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDate: manufacturingDate,drinkType:drinkType)
     }
-    init(milkInformation:MilkInformation){
-        self.lowFat = milkInformation.lowFat
-        super.init(drinkInformation: milkInformation)
-    }
-}
-
-/// 초코우유 정보를 담는 객체
-class ChocoMilkInformation : MilkInformation {
-    fileprivate let lowSugar : Bool
     
-    init(chocoMilk:ChocoMilk){
-        self.lowSugar = chocoMilk.lowSugar
-        super.init(milk: chocoMilk)
+    override func duplicateSelf() -> Milk {
+        return Milk(barnd: super.brand, size:super.size, price: super.price, name: super.name, manufacturingDate: super.manufacturingDate, lowFat: self.lowFat, drinkType: super.drinkType)
     }
 }
 
 class ChocoMilk : Milk {
     fileprivate let lowSugar : Bool
-    init?(barnd: String, size: Int, price: Int, name: String, manufacturingDate: String, lowFat: Bool, lowSugar:Bool) {
+    
+    init?(barnd: String, size: Int, price: Int, name: String, manufacturingDateString: String, lowFat: Bool, lowSugar:Bool) {
         self.lowSugar = lowSugar
-        let drinkType = lowSugar ? DrinkInventory.DrinkType.lowSugarChocoMilk : DrinkInventory.DrinkType.chocoMilk
+        let drinkType : DrinkType = lowSugar ? .lowSugarChocoMilk : .chocoMilk
+        super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDateString: manufacturingDateString, lowFat: lowFat,drinkType:drinkType)
+    }
+    init(barnd: String, size: Int, price: Int, name: String, manufacturingDate: Date, lowFat: Bool, lowSugar:Bool) {
+        self.lowSugar = lowSugar
+        let drinkType : DrinkType = lowSugar ? .lowSugarChocoMilk : .chocoMilk
         super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDate: manufacturingDate, lowFat: lowFat,drinkType:drinkType)
     }
-    init(chocoMilkInformation:ChocoMilkInformation){
-        self.lowSugar = chocoMilkInformation.lowSugar
-        super.init(milkInformation: chocoMilkInformation)
+    
+    override func duplicateSelf() -> ChocoMilk {
+        return ChocoMilk(barnd: super.brand, size:super.size, price: super.price, name: super.name, manufacturingDate: super.manufacturingDate, lowFat: super.lowFat, lowSugar: self.lowSugar)
     }
 }
 
-/// 탄산음료 정보를 담는 객체
-class SodaInformation : DrinkInformation {
-    fileprivate let usingPET : Bool
-    
-    init(soda:Soda){
-        self.usingPET = soda.usingPET
-        super.init(drink: soda)
-    }
-}
 /// 탄산음료 클래스
 class Soda : Drink {
     fileprivate let usingPET : Bool
-    init?(barnd: String, size: Int, price: Int, name: String, manufacturingDate: String, usingPET: Bool,drinkType:DrinkInventory.DrinkType) {
+    init?(barnd: String, size: Int, price: Int, name: String, manufacturingDateString: String, usingPET: Bool,drinkType:DrinkType) {
+        self.usingPET = usingPET
+        super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDateString: manufacturingDateString,drinkType:drinkType)
+    }
+    init(barnd: String, size: Int, price: Int, name: String, manufacturingDate: Date, usingPET: Bool,drinkType:DrinkType) {
         self.usingPET = usingPET
         super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDate: manufacturingDate,drinkType:drinkType)
     }
-    init(sodaInformation:SodaInformation){
-        self.usingPET = sodaInformation.usingPET
-        super.init(drinkInformation: sodaInformation)
+    
+    override func duplicateSelf() -> Soda {
+        return Soda(barnd: super.brand, size:super.size, price: super.price, name: super.name, manufacturingDate: super.manufacturingDate, usingPET: self.usingPET, drinkType: super.drinkType)
     }
 }
 
-/// 콜라 정보를 담는 객체
-class CokeInformation : SodaInformation {
-    fileprivate let zeroCalorie : Bool
-    
-    init(coke:Coke){
-        self.zeroCalorie = coke.zeroCalorie
-        super.init(soda: coke)
-    }
-}
+
 class Coke : Soda {
     fileprivate let zeroCalorie : Bool
-    init?(barnd: String, size: Int, price: Int, name: String, manufacturingDate: String, usingPET: Bool,zeroCalorie:Bool) {
+    
+    init?(barnd: String, size: Int, price: Int, name: String, manufacturingDateString: String, usingPET: Bool,zeroCalorie:Bool) {
         self.zeroCalorie = zeroCalorie
-        let drinkType = zeroCalorie ? DrinkInventory.DrinkType.zeroCalorieCoke : DrinkInventory.DrinkType.coke
-        super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDate: manufacturingDate, usingPET: usingPET,drinkType:drinkType)
+        let drinkType : DrinkType = zeroCalorie ? .zeroCalorieCoke : .coke
+        super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDateString: manufacturingDateString, usingPET: usingPET,drinkType:drinkType)
     }
-    init(cokeInformation:CokeInformation){
-        self.zeroCalorie = cokeInformation.zeroCalorie
-        super.init(sodaInformation: cokeInformation)
+    init(barnd: String, size: Int, price: Int, name: String, manufacturingDate: Date, usingPET: Bool,zeroCalorie:Bool) {
+        self.zeroCalorie = zeroCalorie
+        let drinkType : DrinkType = zeroCalorie ? .zeroCalorieCoke : .coke
+        super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDate: manufacturingDate, usingPET: usingPET, drinkType:drinkType)
+    }
+    
+    override func duplicateSelf() -> Coke {
+        return Coke(barnd: super.brand, size:super.size, price: super.price, name: super.name, manufacturingDate: super.manufacturingDate, usingPET: super.usingPET,zeroCalorie:self.zeroCalorie)
     }
 }
 
-/// 커피 정보를 담는 객체
-class CoffeeInformation : DrinkInformation {
-    fileprivate let hot : Bool
-    
-    init(coffee:Coffee){
-        self.hot = coffee.hot
-        super.init(drink: coffee)
-    }
-}
 /// 커피 클래스
 class Coffee : Drink{
     fileprivate let hot : Bool
-    init?(barnd: String, size: Int, price: Int, name: String, manufacturingDate: String, hot: Bool,drinkType:DrinkInventory.DrinkType) {
+    
+    init?(barnd: String, size: Int, price: Int, name: String, manufacturingDateString: String, hot: Bool,drinkType:DrinkType) {
+        self.hot = hot
+        super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDateString: manufacturingDateString,drinkType:drinkType)
+    }
+    
+    init(barnd: String, size: Int, price: Int, name: String, manufacturingDate: Date, hot: Bool,drinkType:DrinkType) {
         self.hot = hot
         super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDate: manufacturingDate,drinkType:drinkType)
     }
-    init(coffeeInformation:CoffeeInformation){
-        self.hot = coffeeInformation.hot
-        super.init(drinkInformation: coffeeInformation)
+    
+    override func duplicateSelf() -> Coffee {
+        return Coffee(barnd: super.brand, size:super.size, price: super.price, name: super.name, manufacturingDate: super.manufacturingDate, hot: self.hot, drinkType: super.drinkType)
     }
 }
 
-/// TOP커피 정보를 담는 객체
-class TopCoffeeInformation : CoffeeInformation {
-    fileprivate let zeroSugar : Bool
-    
-    init(topCoffee:TopCoffee){
-        self.zeroSugar = topCoffee.zeroSugar
-        super.init(coffee: topCoffee)
-    }
-}
+
 class TopCoffee : Coffee {
     fileprivate let zeroSugar : Bool
-    init?(brand: String, size: Int, price: Int, name: String, manufacturingDate: String,hot: Bool, zeroSugar: Bool) {
+    
+    init?(brand: String, size: Int, price: Int, name: String, manufacturingDateString: String,hot: Bool, zeroSugar: Bool) {
         self.zeroSugar = zeroSugar
-        let drinkType = zeroSugar ? DrinkInventory.DrinkType.zeroCalorieCoke : DrinkInventory.DrinkType.none
+        let drinkType : DrinkType  = zeroSugar ? .hotTopCoffee : .none
+        super.init(barnd: brand, size: size, price: price, name: name, manufacturingDateString: manufacturingDateString,hot: hot,drinkType:drinkType)
+    }
+    
+    init(brand: String, size: Int, price: Int, name: String, manufacturingDate: Date,hot: Bool, zeroSugar: Bool) {
+        self.zeroSugar = zeroSugar
+        let drinkType : DrinkType  = zeroSugar ? .hotTopCoffee : .none
         super.init(barnd: brand, size: size, price: price, name: name, manufacturingDate: manufacturingDate,hot: hot,drinkType:drinkType)
     }
-    init(topCoffeeInformation:TopCoffeeInformation){
-        self.zeroSugar = topCoffeeInformation.zeroSugar
-        super.init(coffeeInformation: topCoffeeInformation)
+    
+    override func duplicateSelf() -> TopCoffee {
+        return TopCoffee(brand: super.brand, size:super.size, price: super.price, name: super.name, manufacturingDate: super.manufacturingDate, hot: super.hot, zeroSugar: self.zeroSugar)
     }
 }
 
-/// 에너지드링크 정보를 담는 객체
-class EnergyDrinkInformation : DrinkInformation {
-    fileprivate let zeroCaffeine : Bool
-    
-    init(energyDrink:EnergyDrink){
-        self.zeroCaffeine = energyDrink.zeroCaffeine
-        super.init(drink: energyDrink)
-    }
-}
 /// 에너지 드링크 클래스
 class EnergyDrink : Drink {
     fileprivate let zeroCaffeine : Bool
-    init?(barnd: String, size: Int, price: Int, name: String, manufacturingDate: String, zeroCaffeine: Bool) {
+    
+    init?(barnd: String, size: Int, price: Int, name: String, manufacturingDateString: String, zeroCaffeine: Bool) {
         self.zeroCaffeine = zeroCaffeine
-        let drinkType = zeroCaffeine ? DrinkInventory.DrinkType.energyDrink : DrinkInventory.DrinkType.none
-        super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDate: manufacturingDate,drinkType:drinkType)
+        let drinkType : DrinkType = zeroCaffeine ? .energyDrink : .none
+        super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDateString: manufacturingDateString, drinkType:drinkType)
     }
-    func duplicateSelf()->EnergyDrink?{
-        return EnergyDrink(barnd: self.brand, size: self.size, price: self.price, name: self.name, manufacturingDate: self.manufacturingDate.toString(), zeroCaffeine:self.zeroCaffeine)
+    
+    init(barnd: String, size: Int, price: Int, name: String, manufacturingDate: Date, zeroCaffeine: Bool) {
+        self.zeroCaffeine = zeroCaffeine
+        let drinkType : DrinkType = zeroCaffeine ? .energyDrink : .none
+        super.init(barnd: barnd, size: size, price: price, name: name, manufacturingDate: manufacturingDate, drinkType:drinkType)
     }
-    init(energyDrinkInformation:EnergyDrinkInformation){
-        self.zeroCaffeine = energyDrinkInformation.zeroCaffeine
-        super.init(drinkInformation: energyDrinkInformation)
+    
+    override func duplicateSelf()->EnergyDrink{
+        return EnergyDrink(barnd: self.brand, size: self.size, price: self.price, name: self.name, manufacturingDate: self.manufacturingDate, zeroCaffeine:self.zeroCaffeine)
     }
 }
 
@@ -250,7 +223,7 @@ struct StoredDrinkDetail {
     let drinkName : String
     let drinkPrice : Int
     var drinkCount : Int
-    let drinkType : DrinkInventory.DrinkType
+    let drinkType : DrinkType
     
     init(drink:Drink,drinkCount: Int){
         self.drinkName = drink.name
