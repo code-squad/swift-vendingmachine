@@ -20,7 +20,7 @@ struct Checker {
     
     /// 문자열을 받아서 재고메뉴번호 범위인지 체크
     static func isRightDrinkNumber(orderDrinkNumber: String,inventoryDetail:InventoryDetail)throws->Int{
-        guard let number = Int(orderDrinkNumber), number > 0, number <= inventoryDetail.storedDrinksDetail.count+1 else {
+        guard let number = Int(orderDrinkNumber), number > 0, number <= inventoryDetail.storedDrinksDetail.count else {
             throw OutputView.errorMessage.wrongMenu        }
         return number
     }
