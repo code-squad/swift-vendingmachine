@@ -29,20 +29,6 @@ class DrinkInventory {
     /// 슬롯들을 모아놓는 변수 선언
     var drinkSlots : [DrinkSlot<Drink>] = []
     
-    /// 초코우유 재고
-    private let lowSugarChocoMilkInventory = DrinkSlot(drinkType: DrinkType.lowSugarChocoMilk)
-    private let chocoMilkInventory = DrinkSlot(drinkType: DrinkType.chocoMilk)
-    
-    /// 콜라 재고
-    private let cokeInventory = DrinkSlot(drinkType: DrinkType.coke)
-    private let zeroCalorieCokeInventory = DrinkSlot(drinkType: DrinkType.zeroCalorieCoke)
-    
-    /// 커피 재고
-    private let hotTopCoffeeInventory = DrinkSlot(drinkType: DrinkType.hotTopCoffee)
-    
-    /// 에너지드링크 재고
-    private let energyDrinkInventory = DrinkSlot(drinkType: DrinkType.energyDrink)
-    
     /// 음료객체를 받아서 재고정보로 출력
     func getDrinkDetail(drink: Drink)-> StoredDrinkDetail?{
         let inventoryDetail = StoredDrinkDetail(drink:drink, drinkCount: 1)
@@ -56,9 +42,7 @@ class DrinkInventory {
             // 음료슬롯의 음료타입이 맞으면
             if drinkSlot.drinkType == drinkType {
                 // 입력개수 만큼 증가
-                for _ in 1...drinkCount {
-                    try drinkSlot.duplicate()
-                }
+                try drinkSlot.duplicate(drinkCount: drinkCount)                
                 // 증가 후 반복문 종료
                 break
             }
@@ -98,20 +82,45 @@ class DrinkInventory {
     
     /// 음료 여러개 추출
     func popDrinks(drinkType:DrinkType,drinkCount:Int)throws->DrinkSlot<Drink>{
-        // 결과 출력용 음료슬롯 생성
-        let drinks = DrinkSlot(drinkType: drinkType)
         // 음료슬롯 전부를 체크한다
         for drinkSlot in drinkSlots {
             // 음료슬롯의 음료타입이 맞으면
             if drinkSlot.drinkType == drinkType {
-                // 입력개수 만큼 기존 음료슬롯에서 음료를 빼서 결과변수에 추가
-                for _ in 1...drinkCount {
-                    try drinks.addDrink(drink: drinkSlot.popDrink())
-                }
+                // 음료슬롯을 리턴
+                return try drinkSlot.popDrinks(drinkCount: drinkCount)
             }
         }
-        return drinks
-    }    
+        // 가능한 음료가 없다면
+        throw OutputView.errorMessage.wrongDrink
+    }
+    
+    /// 음료 구입 가능 여부 확인 함수 
+    func calculatePrice(orderCount:Int,balance:Int,drinkType:DrinkType)throws->Int{
+        // 음료슬롯 전부를 체크한다
+        for drinkSlot in drinkSlots {
+            // 음료슬롯의 음료타입이 맞으면
+            if drinkSlot.drinkType == drinkType {
+                // 구입가능여부확인 함수를 리턴
+                return try drinkSlot.calculatePrice(orderCount: orderCount, balance: balance)
+            }
+        }
+        // 맞는 타입이 없으면
+        throw OutputView.errorMessage.wrongDrink
+    }
+    
+    /// 음료슬롯에 음료슬롯을 더하는 함수
+    func addDrinks(drinks:DrinkSlot<Drink>)throws->StoredDrinkDetail{
+        // 음료슬롯 전부를 체크한다
+        for drinkSlot in drinkSlots {
+            // 음료슬롯의 음료타입이 맞으면
+            if drinkSlot.drinkType == drinks.drinkType {
+                // 구입가능여부확인 함수를 리턴
+                return try drinkSlot.addDrinkSlot(drinkSlot: drinkSlot)
+            }
+        }
+        // 맞는 타입이 없으면
+        throw OutputView.errorMessage.wrongDrink
+    }
 }
 
 
