@@ -8,20 +8,33 @@
 
 import Foundation
 
+
+/// 음료 종류
+enum DrinkType{
+    case
+     lowSugarChocoMilk
+    ,chocoMilk
+    ,coke
+    ,zeroCalorieCoke
+    ,hotTopCoffee
+    ,energyDrink
+    ,none
+}
+
 /// 음료 한종류를 가지고 있는 객체
-class DrinkSlot {
+class DrinkSlot<T:Drink> {
     // 음료배열을 가진다
-    private var drinks:[Drink]=[]
+    private var drinks:[T]=[]
     
     // 어떤 음료의 슬롯인지
-    let drinkType : DrinkInventory.DrinkType
+    let drinkType : DrinkType
     
-    init(drinkType:DrinkInventory.DrinkType){
+    init(drinkType:DrinkType){
         self.drinkType = drinkType
     }
     
     /// 음료 추가
-    func addDrink(drink:Drink)throws{
+    func addDrink(drink:T)throws{
         if drink.drinkType == self.drinkType {
             drinks.append(drink)
         }
@@ -43,7 +56,7 @@ class DrinkSlot {
     }
     
     /// 음료 배출
-    func popDrink()throws->Drink{
+    func popDrink()throws->T{
         // 재고 체크
         if drinks.isEmpty {
             throw OutputView.errorMessage.notEnoughDrink
@@ -60,20 +73,10 @@ class DrinkSlot {
                 throw OutputView.errorMessage.notEnoughDrink
         }
         // 복제해서 추가할 음료정보
-        var newDrinkInformation : DrinkInformation?
-        switch firstDrink {
-        case is ChocoMilk : newDrinkInformation = ChocoMilkInformation(chocoMilk: firstDrink as! ChocoMilk)
-        case is Coke : newDrinkInformation = CokeInformation(coke: firstDrink as! Coke)
-        case is TopCoffee : newDrinkInformation = TopCoffeeInformation(topCoffee: firstDrink as! TopCoffee)
-        case is EnergyDrink : newDrinkInformation = EnergyDrinkInformation(energyDrink: firstDrink as! EnergyDrink)
-        default : throw OutputView.errorMessage.wrongDrink
-        }
-        // 복사결과가 옵셔널이면 에러출력
-        guard let drinkInformation = newDrinkInformation else {
-            throw OutputView.errorMessage.wrongDrink
-        }
+        let newDrinkInformation = firstDrink.duplicateSelf() as! T
+        
         // 음료정보를 음료로 변환하여 추가한다
-        drinks.append(Drink(drinkInformation: drinkInformation))
+        drinks.append(newDrinkInformation)
     }
 }
 
