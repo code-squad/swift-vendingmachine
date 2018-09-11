@@ -273,3 +273,13 @@ struct InventoryDetail {
         return storedDrinksDetail[drinkNumber-1]
     }
 }
+
+/// 음료주문에 쓰이는 객체. 음료타입, 개수만 가지고 있다
+class OrderDetail{
+    let drinkType : DrinkType
+    let drinkCount : Int
+    init(drinkType : DrinkType,drinkCount : Int){
+        self.drinkType = drinkType
+        self.drinkCount = drinkCount
+    }
+}
