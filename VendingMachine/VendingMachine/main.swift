@@ -11,6 +11,8 @@ import Foundation
 func main(){
     /// 아웃풋뷰 선언
     let outputView = OutputView()
+    /// 인풋뷰 선언
+    let inputView = InputView()
     /// 메인메뉴 출력
     outputView.printMessage(message: outputView.welcomMessage())
     /// 자판기 생성
@@ -29,24 +31,74 @@ func main(){
     
     /// 사용자 모드 선택시
     func userMode()throws{
-        outputView.printMessage(message: try outputView.userMenu(vendingMachine: vendingMachine))
-        // 메인메뉴를 입력받는다
-        let userFirstMenu = InputView.receiveUserFirstMenu()
-        // 메인메뉴에서 선택한 메뉴를 실행
-        outputView.printMessage(message: try vendingMachine.getUserMainMenu(menu: userFirstMenu))
+        do {
+            // 유저메뉴를 출력한다
+            outputView.printMessage(message: try outputView.userMenu(vendingMachine: vendingMachine))
+            // 사용자 첫째 메뉴를 입력받는다
+            let userFirstMenu = inputView.receiveUserFirstMenu()
+            // 입력받은 메뉴를 체크한다
+            try Checker.checkUserFirstMenuInput(input: userFirstMenu)
+            // 초기정보를 선언한다
+            var orderDetail = OrderDetail(drinkType: .none, drinkCount: 0)
+            var drinkPrice = 0
+            
+            // 메뉴에 맞는 초기정보를 작성한다
+            // 돈 추가의 경우
+            if userFirstMenu == .insertMoney {
+                drinkPrice = try inputView.insertMoney()
+            } // 음료선택의 경우
+            else if userFirstMenu == .selectDrink {
+                // 주문정보를 받는다
+                orderDetail = try commonDrinkTask()
+            }
+            
+            // 주문정보와 메뉴로 작업함수를 실행한다
+            outputView.printMessage(message: try vendingMachine.getUserMainMenu(menu: userFirstMenu, orderDetail: orderDetail, drinkPrice: drinkPrice))
+        }
+        catch OutputView.errorMessage.wrongMenu {
+            outputView.printMessage(message: OutputView.errorMessage.wrongMenu.description)
+        }
     }
-    /// 관리자 모드 선택시
+    
+    /// 관리자 모드 선택시 - 이부분 내부에서도 무한반복 필요. 우선 한번만 한다고 가정하고 쭉 짠다.
     func adminMode()throws{
-        outputView.printMessage(message: try outputView.adminMenu(vendingMachine: vendingMachine))
-        // 메인메뉴를 입력받는다
-        let adminFirstMenu = InputView.receiveAdminFirstMenu()
-        // 메인메뉴에서 선택한 메뉴를 실행
-        outputView.printMessage(message: try vendingMachine.getAdminMainMenu(menu: adminFirstMenu))
+        do {
+            outputView.printMessage(message: try outputView.adminMenu(vendingMachine: vendingMachine))
+            // 관리자 첫째 메뉴를 입력받는다
+            let adminFirstMenu = inputView.receiveAdminFirstMenu()
+            // 입력받은 메뉴를 체크한다
+            try Checker.checkAdminFirstMenuInput(input: adminFirstMenu)
+            
+            // 초기정보를 선언한다
+            let orderDetail = try commonDrinkTask()
+            
+            // 주문정보와 메뉴로 작업함수를 실행한다
+            outputView.printMessage(message: try vendingMachine.getAdminMainMenu(menu: adminFirstMenu, orderDetail: orderDetail))
+        }
+        catch OutputView.errorMessage.wrongMenu {
+            outputView.printMessage(message: OutputView.errorMessage.wrongMenu.description)
+        }
     }
+    
+    /// 관리자가 음료 제거 선택 시 진행 순서
+    func commonDrinkTask() throws -> OrderDetail {
+        // 음료번호 입력받음        
+        let userNumber = try inputView.whichDrink()
+        // 재고정보 추출
+        let inventoryDetail = vendingMachine.getAllAvailableDrinks()
+        // 메뉴에 있는지 체크 - 리턴값 음료정보
+        let selectedDrinkDetail = try inventoryDetail.selectDrinkDetail(drinkNumber: userNumber)
+        // 음료개수 입력
+        let drinkCount = try inputView.howMany(drink: selectedDrinkDetail.drinkName)
+        // 주문정보를 객체로 리턴
+        return OrderDetail(drinkType: selectedDrinkDetail.drinkType, drinkCount: drinkCount)
+    }
+    
+    
     /// 모드 선택시
     func selectMode()throws{
         // 모드를 선택한다
-        let selectedMode = InputView.receiveModeSelectMenu()
+        let selectedMode = inputView.receiveModeSelectMenu()
         while true {
             do {
                 switch selectedMode {
