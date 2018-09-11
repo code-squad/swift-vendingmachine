@@ -79,24 +79,9 @@ class VendingMachine : vendinMachineMenu  {
         let orderDrinkNumber = try receiveDrinkNumber()
         // 원하는 음료의 정보를 담는 변수. 실제메뉴번호-1 -> 배열인덱스 이므로 -1 을 해준다.
         let storedDrinkDetail = self.getAllAvailableDrinks().storedDrinksDetail
-//        // 선택한 음료 번호가 음료메뉴개수 보다 클 경우 에러 - receiveDrinkNumber 에서 체크하기때문에 우선 주석처리
-//        if orderDrinkNumber > storedDrinkDetail.count {
-//            throw OutputView.errorMessage.wrongDrink
-//        }
+        // 결과 리턴
         return storedDrinkDetail[orderDrinkNumber-1]
     }
-    
-//    /// 원하는 음료개수를 입력받아서 재고정보의 재고수와 배교한다
-//    func isEnoughDrink(storedDrinkDetail:StoredDrinkDetail)throws->Int{
-//        // 원하는 개수를 입력받는다
-//        let orderDrinkCount =  try InputView.howMany(drink: storedDrinkDetail.drinkName)
-//
-//        // 재고 < 원하는개수 이면 에러
-//        if storedDrinkDetail.drinkCount < orderDrinkCount {
-//            throw OutputView.errorMessage.notEnoughDrink
-//        }
-//        return orderDrinkCount
-//    }
     
     /// 원하는 음료의 가격을 잔액과 배교한다
     func isEnoughMoney(storedDrinkDetail:StoredDrinkDetail,orderDrinkCount:Int)throws->Int{
@@ -146,10 +131,6 @@ extension VendingMachine : VendingMachineUserMenu {
         // 인벤토리->주문내역 으로 음료 이동. 이동된 음료의 정보 저장
         let movedDrinksDetail = try orderDrinks(drinkType:storedDrinkDetail.drinkType, drinkCount: orderDrinkCount)
         
-//        guard let resultDrink = movedDrinkDetail else {
-//            throw OutputView.errorMessage.notEnoughDrink
-//        }
-//
         // 완료 메세지 리턴
         return "\(movedDrinksDetail.drinkName) \(movedDrinksDetail.drinkCount)개를 \(totalOrderPrice)원에 구입하였습니다."
     }
