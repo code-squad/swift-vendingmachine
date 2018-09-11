@@ -265,4 +265,11 @@ struct InventoryDetail {
             self.storedDrinksDetail.append(drinkDetail)
         }
     }
+    
+    func selectDrinkDetail(drinkNumber:Int)throws->StoredDrinkDetail{
+        if drinkNumber > storedDrinksDetail.count {
+            throw OutputView.errorMessage.wrongMenu
+        }
+        return storedDrinksDetail[drinkNumber-1]
+    }
 }
