@@ -18,31 +18,21 @@ struct Checker {
         return number
     }
     
-//    /// 문자열을 받아서 재고메뉴번호 범위인지 체크
-//    static func isRightDrinkNumber(orderDrinkNumber: Int,inventoryDetail:InventoryDetail)throws->StoredDrinksDetail{
-//        if orderDrinkNumber <= inventoryDetail.storedDrinksDetail.count {
-//            throw OutputView.errorMessage.wrongMenu
-//        }
-//        return inventoryDetail.storedDrinksDetail[orderDrinkNumber-1]
-//    }
-//    
     /// 사용자 메뉴 체크함수. 1,2,q 이외에는 닐
-    static func checkUserFirstMenuInput(input:String)->InputView.UserFirstMenu{
+    static func checkUserFirstMenuInput(input:InputView.UserFirstMenu)throws{
         switch input {
-        case "1" : return .insertMoney
-        case "2" : return .selectDrink
-        case "q" : return .quit
-        default : return .none
+        case .insertMoney,.selectDrink : return
+        case .quit : throw OutputView.errorMessage.toModeSelect
+        default : throw OutputView.errorMessage.wrongMenu
         }
     }
     
     /// 관리자 메뉴 체크함수. 1,2,q 이외에는 닐
-    static func checkAdminFirstMenuInput(input:String)->InputView.AdminFirstMenu{
+    static func checkAdminFirstMenuInput(input:InputView.AdminFirstMenu)throws{
         switch input {
-        case "1" : return .addDrink
-        case "2" : return .removeDrink
-        case "q" : return .quit
-        default : return .none
+        case .addDrink,.removeDrink : return 
+        case .quit : throw OutputView.errorMessage.toModeSelect
+        default : throw OutputView.errorMessage.wrongMenu
         }
     }
     
