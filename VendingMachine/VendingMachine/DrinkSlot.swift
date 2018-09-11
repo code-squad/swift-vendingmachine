@@ -82,7 +82,7 @@ class DrinkSlot<T:Drink> {
     }
     
     /// 음료 복제
-    func duplicate(drinkCount:Int)throws{
+    func duplicate(drinkCount:Int)throws->StoredDrinkDetail{
         // 재고가 있는지 체크
         guard let firstDrink = self.drinks.first
             // 없을경우
@@ -97,7 +97,8 @@ class DrinkSlot<T:Drink> {
             
             // 음료정보를 음료로 변환하여 추가한다
             drinks.append(newDrinkInformation)
-        }        
+        }
+        return StoredDrinkDetail(drink: firstDrink, drinkCount: drinkCount)
     }
     
     /// 음료 구입 가능 금액 여부 확인 함수 

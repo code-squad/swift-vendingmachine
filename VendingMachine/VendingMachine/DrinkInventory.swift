@@ -36,15 +36,15 @@ class DrinkInventory {
     }
     
     /// 해당타입의 음료를 여러번 추가한다
-    func addDrinkSelfDuplicate(drinkType:DrinkType,drinkCount:Int)throws{
+    func addDrinkSelfDuplicate(orderDetail:OrderDetail)throws->StoredDrinkDetail{
         // 음료슬롯 전부를 체크한다
         for drinkSlot in drinkSlots {
             // 음료슬롯의 음료타입이 맞으면
-            if drinkSlot.drinkType == drinkType {
+            if drinkSlot.drinkType == orderDetail.drinkType {
                 // 입력개수 만큼 증가
-                try drinkSlot.duplicate(drinkCount: drinkCount)                
+                let resultDetail = try drinkSlot.duplicate(drinkCount: orderDetail.drinkCount)
                 // 증가 후 반복문 종료
-                break
+                return resultDetail
             }
         }
         // 만약 모든 음료슬롯에 해당 타입이 없다면 잘못된음료 에러 리턴
@@ -79,15 +79,15 @@ class DrinkInventory {
         // 결과 리턴
         return result
     }
-    
+  
     /// 음료 여러개 추출
-    func popDrinks(drinkType:DrinkType,drinkCount:Int)throws->DrinkSlot<Drink>{
+    func popDrinks(orderDetail:OrderDetail)throws->DrinkSlot<Drink>{
         // 음료슬롯 전부를 체크한다
         for drinkSlot in drinkSlots {
             // 음료슬롯의 음료타입이 맞으면
-            if drinkSlot.drinkType == drinkType {
+            if drinkSlot.drinkType == orderDetail.drinkType {
                 // 음료슬롯을 리턴
-                return try drinkSlot.popDrinks(drinkCount: drinkCount)
+                return try drinkSlot.popDrinks(drinkCount: orderDetail.drinkCount)
             }
         }
         // 가능한 음료가 없다면
