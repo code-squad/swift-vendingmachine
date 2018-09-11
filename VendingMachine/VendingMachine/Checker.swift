@@ -18,13 +18,14 @@ struct Checker {
         return number
     }
     
-    /// 문자열을 받아서 재고메뉴번호 범위인지 체크
-    static func isRightDrinkNumber(orderDrinkNumber: String,inventoryDetail:InventoryDetail)throws->Int{
-        guard let number = Int(orderDrinkNumber), number > 0, number <= inventoryDetail.storedDrinksDetail.count else {
-            throw OutputView.errorMessage.wrongMenu        }
-        return number
-    }
-    
+//    /// 문자열을 받아서 재고메뉴번호 범위인지 체크
+//    static func isRightDrinkNumber(orderDrinkNumber: Int,inventoryDetail:InventoryDetail)throws->StoredDrinksDetail{
+//        if orderDrinkNumber <= inventoryDetail.storedDrinksDetail.count {
+//            throw OutputView.errorMessage.wrongMenu
+//        }
+//        return inventoryDetail.storedDrinksDetail[orderDrinkNumber-1]
+//    }
+//    
     /// 사용자 메뉴 체크함수. 1,2,q 이외에는 닐
     static func checkUserFirstMenuInput(input:String)->InputView.UserFirstMenu{
         switch input {
