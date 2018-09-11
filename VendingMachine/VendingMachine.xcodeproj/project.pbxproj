@@ -92,11 +92,11 @@
 		839DA90B1F8D1F95009E05F3 /* VendingMachine */ = {
 			isa = PBXGroup;
 			children = (
-				839DA90C1F8D1F95009E05F3 /* main.swift */,
 				D53220C2210078460001DE45 /* Drink.swift */,
 				D534D75B212FB63400BA54F6 /* DrinkSlot.swift */,
 				D5616BBF211D951700173121 /* DrinkInventory.swift */,
 				D504085221099F4A0076D70A /* VendingMachine.swift */,
+				839DA90C1F8D1F95009E05F3 /* main.swift */,
 				D51B5CAE211C66AC002F57ED /* InputView.swift */,
 				D51B5CB1211C6A8B002F57ED /* OutputView.swift */,
 				D52DF17E211D572000CA3250 /* Checker.swift */,
