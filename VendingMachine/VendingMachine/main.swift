@@ -15,9 +15,9 @@ struct VendingMachine {
     }
     
     static func inventory() -> [Beverage] {
-        let strawBerryDate = Date(timeIntervalSinceReferenceDate: 545000000)
-        let cokeDate = Date(timeIntervalSinceReferenceDate: 545500000)
-        let topCoffeeDate = Date(timeIntervalSinceReferenceDate: 545850000)
+        let strawBerryDate = Date(timeIntervalSinceNow: -convertSeconds(10))
+        let cokeDate = Date(timeIntervalSinceNow: -convertSeconds(15))
+        let topCoffeeDate = Date(timeIntervalSinceNow: -convertSeconds(20))
         
         let strawberryMilk = Milk(fat: 0.2, brand: "매일우유", capacity: 125, price: 1200, name: "상하목장유기농딸기우유", dateOfManufacture: strawBerryDate, manufacturer: "매일우유")
         let coke = Soda(sodium: 120, brand: "펩시", capacity: 350, price: 1500, name: "다이어트콜라", dateOfManufacture: cokeDate, manufacturer: "펩시")
@@ -29,6 +29,11 @@ struct VendingMachine {
         beverage.append(topCoffee)
         
         return beverage
+    }
+    
+    static func convertSeconds(_ date: Int) -> Double {
+        // 1일 : 86400초
+        return Double(date * 86400)
     }
     
     static func information(beverage : [Beverage]){
