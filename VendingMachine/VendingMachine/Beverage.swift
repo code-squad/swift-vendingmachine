@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Beverage : CustomStringConvertible {
+class Beverage : NSObject {
     
     private var brand: String
     private var capacity: Int
@@ -26,12 +26,12 @@ class Beverage : CustomStringConvertible {
         self.manufacturer = manufacturer
     }
     
-    var description: String {
+    override var description: String {
         let date = convertDate(from: self.dateOfManufacture)
         return "\(self.manufacturer), \(self.capacity)ml, \(self.price)원, \(self.brand), \(date)"
     }
     
-    func convertDate(from target: Date) -> String {
+    private func convertDate(from target: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "ko_KR")
         dateFormatter.dateFormat = "yyyyMMdd"
