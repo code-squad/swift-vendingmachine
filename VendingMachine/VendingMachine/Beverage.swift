@@ -38,4 +38,14 @@ class Beverage : NSObject {
         let date = dateFormatter.string(from: target)
         return date
     }
+    
+    // 유통기한 지났으면 true 리턴
+    public func validate(with date:Date) -> Bool {
+        return self.dateOfManufacture > date ? true : false
+    }
+    
+    // 대용량 음료 확인
+    public func isLargeCapacity() -> Bool {
+        return self.capacity >= 300ml ? true : false
+    }
 }
