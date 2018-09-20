@@ -49,8 +49,8 @@ class Beverage : NSObject {
         return Double(time / 86400)
     }
     
-    // 유통기한 지났으면 true 리턴 : 유통기한은 모든 제품 14일 기준
-    public func validate(with date:Date) -> Bool {
+    // 유통기한은 모든 제품 14일 기준
+    public func isExpirationDate(with date:Date) -> Bool {
         let betweenDate = convertDate(date.timeIntervalSince(self.dateOfManufacture))
         return betweenDate >= 14 ? true : false
     }
