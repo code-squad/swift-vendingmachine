@@ -8,6 +8,10 @@
 
 import Foundation
 
+struct DateUnit {
+    static let secondsOfOneday = 86400
+}
+
 struct VendingMachine {
     static func run(){
         let inventory = VendingMachine.inventory()
@@ -32,7 +36,7 @@ struct VendingMachine {
     
     static func convertSeconds(_ date: Int) -> Double {
         // 1일 : 86400초
-        return Double(date * 86400)
+        return Double(date * DateUnit.secondsOfOneday)
     }
     
     static func information(beverage : [Beverage]){
