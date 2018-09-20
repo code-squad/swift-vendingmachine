@@ -15,6 +15,10 @@ class Soda: Beverage {
         self.sodium = sodium
         super.init(brand: brand, capacity: capacity, price: price, name: name, dateOfManufacture: dateOfManufacture, manufacturer: manufacturer)
     }
+    
+    public func isSodium() -> Bool {
+        return self.sodium <= 100 ? true : false
+    }
 }
 
 class Coke: Soda {
@@ -23,6 +27,10 @@ class Coke: Soda {
     init(calorie: Int, sodium:Int, brand:String, capacity:Int, price:Int, name:String, dateOfManufacture:Date, manufacturer:String) {
         self.calorie = calorie
         super.init(sodium: sodium, brand: brand, capacity: capacity, price: price, name: name, dateOfManufacture: dateOfManufacture, manufacturer: manufacturer)
+    }
+    
+    public func isLowCalorie() -> Bool {
+        return self.calorie <= 100 ? true : false
     }
 }
 
@@ -33,6 +41,10 @@ class Cider: Soda {
         self.transFat = transFat
         super.init(sodium: sodium, brand: brand, capacity: capacity, price: price, name: name, dateOfManufacture: dateOfManufacture, manufacturer: manufacturer)
     }
+    
+    public func isNoneTransFat() -> Bool {
+        return self.transFat == 0 ? true : false
+    }
 }
 
 class Fanta: Soda {
@@ -41,5 +53,9 @@ class Fanta: Soda {
     init(taste: String, sodium:Int, brand:String, capacity:Int, price:Int, name:String, dateOfManufacture:Date, manufacturer:String) {
         self.taste = taste
         super.init(sodium: sodium, brand: brand, capacity: capacity, price: price, name: name, dateOfManufacture: dateOfManufacture, manufacturer: manufacturer)
+    }
+    
+    public func isOrangeTaste() -> Bool {
+        return self.taste == "Orange" ? true :false
     }
 }
