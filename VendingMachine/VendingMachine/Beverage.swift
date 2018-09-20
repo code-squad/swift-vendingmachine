@@ -39,30 +39,3 @@ class Beverage : NSObject {
         return date
     }
 }
-
-class Milk: Beverage {
-    private var fat: Double // 지방함량 (%)
-    
-    init(fat:Double, brand:String, capacity:Int, price:Int, name:String, dateOfManufacture:Date, manufacturer:String) {
-        self.fat = fat
-        super.init(brand: brand, capacity: capacity, price: price, name: name, dateOfManufacture: dateOfManufacture, manufacturer: manufacturer)
-    }
-}
-
-class Soda: Beverage {
-    private var sodium: Int // 나트륨함량 (mg)
-    
-    init(sodium:Int, brand:String, capacity:Int, price:Int, name:String, dateOfManufacture:Date, manufacturer:String) {
-        self.sodium = sodium
-        super.init(brand: brand, capacity: capacity, price: price, name: name, dateOfManufacture: dateOfManufacture, manufacturer: manufacturer)
-    }
-}
-
-class Coffee: Beverage {
-    private var caffeine: Int // 카페인함량 (mg)
-    
-    init(caffeine: Int, brand:String, capacity:Int, price:Int, name:String, dateOfManufacture:Date, manufacturer:String) {
-        self.caffeine = caffeine
-        super.init(brand: brand, capacity: capacity, price: price, name: name, dateOfManufacture: dateOfManufacture, manufacturer: manufacturer)
-    }
-}
