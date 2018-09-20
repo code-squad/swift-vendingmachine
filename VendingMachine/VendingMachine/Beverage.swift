@@ -45,8 +45,7 @@ class Beverage : NSObject {
     }
     
     private func convertDate(_ time: Double) -> Double {
-        // 1일 : 86400초
-        return Double(time / 86400)
+        return Double(time / Double(DateUnit.secondsOfOneday))
     }
     
     // 유통기한은 모든 제품 14일 기준
