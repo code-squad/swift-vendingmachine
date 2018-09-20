@@ -15,6 +15,10 @@ class Coffee: Beverage {
         self.caffeine = caffeine
         super.init(brand: brand, capacity: capacity, price: price, name: name, dateOfManufacture: dateOfManufacture, manufacturer: manufacturer)
     }
+    
+    public func isNoneCaffeine() -> Bool {
+        return self.caffeine == 0 ? true : false
+    }
 }
 
 class TOP: Coffee {
@@ -23,6 +27,10 @@ class TOP: Coffee {
     init(hot: Bool, caffeine: Int, brand:String, capacity:Int, price:Int, name:String, dateOfManufacture:Date, manufacturer:String) {
         self.hot = hot
         super.init(caffeine: caffeine, brand: brand, capacity: capacity, price: price, name: name, dateOfManufacture: dateOfManufacture, manufacturer: manufacturer)
+    }
+    
+    public func isHot() -> Bool {
+        return self.hot
     }
 }
 
@@ -33,6 +41,10 @@ class Cantata: Coffee {
         self.sugarFree = sugarFree
         super.init(caffeine: caffeine, brand: brand, capacity: capacity, price: price, name: name, dateOfManufacture: dateOfManufacture, manufacturer: manufacturer)
     }
+    
+    public func isSugarFree() -> Bool {
+        return self.sugarFree
+    }
 }
 
 class Georgia: Coffee {
@@ -41,5 +53,9 @@ class Georgia: Coffee {
     init(packageMaterial: String, caffeine: Int, brand:String, capacity:Int, price:Int, name:String, dateOfManufacture:Date, manufacturer:String) {
         self.packageMaterial = packageMaterial
         super.init(caffeine: caffeine, brand: brand, capacity: capacity, price: price, name: name, dateOfManufacture: dateOfManufacture, manufacturer: manufacturer)
+    }
+    
+    public func isCan() -> Bool {
+        return self.packageMaterial == "Can" ? true : false
     }
 }
