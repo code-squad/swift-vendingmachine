@@ -47,15 +47,21 @@ class Cider: Soda {
     }
 }
 
+enum FantaTaste {
+    case orange
+    case pineapple
+    case grape
+}
+
 class Fanta: Soda {
-    private var taste: String // 색상 (pineapple , orange , grape , etc..)
+    private var taste: FantaTaste // 색상 (pineapple , orange , grape , etc..)
     
-    init(taste: String, sodium:Int, brand:String, capacity:Int, price:Int, name:String, dateOfManufacture:Date, manufacturer:String) {
+    init(taste: FantaTaste, sodium:Int, brand:String, capacity:Int, price:Int, name:String, dateOfManufacture:Date, manufacturer:String) {
         self.taste = taste
         super.init(sodium: sodium, brand: brand, capacity: capacity, price: price, name: name, dateOfManufacture: dateOfManufacture, manufacturer: manufacturer)
     }
     
     public func isOrangeTaste() -> Bool {
-        return self.taste == "orange" ? true :false
+        return self.taste == FantaTaste.orange ? true :false
     }
 }

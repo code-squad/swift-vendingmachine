@@ -41,28 +41,28 @@ class UnitTestVendingMachine: XCTestCase {
     // Milk
     func testIsLowFat_저지방O() {
         let strawBerryDate = Date(timeIntervalSinceNow: -convertSeconds(10))
-        let strawberryMilk = StrawberryMilk(flavor: "light", fat: 0.2, brand: "매일우유", capacity: 125, price: 1200, name: "유기농딸기우유", dateOfManufacture: strawBerryDate, manufacturer: "매일우유")
+        let strawberryMilk = StrawberryMilk(flavor: Flavor.light, fat: 0.2, brand: "매일우유", capacity: 125, price: 1200, name: "유기농딸기우유", dateOfManufacture: strawBerryDate, manufacturer: "매일우유")
         XCTAssertTrue(strawberryMilk.isLowFat())
     }
     
     // Milk
     func testIsHighFat_저지방X() {
         let strawBerryDate = Date(timeIntervalSinceNow: -convertSeconds(10))
-        let strawberryMilk = StrawberryMilk(flavor: "light", fat: 0.8, brand: "매일우유", capacity: 125, price: 1200, name: "유기농딸기우유", dateOfManufacture: strawBerryDate, manufacturer: "매일우유")
+        let strawberryMilk = StrawberryMilk(flavor: Flavor.light, fat: 0.8, brand: "매일우유", capacity: 125, price: 1200, name: "유기농딸기우유", dateOfManufacture: strawBerryDate, manufacturer: "매일우유")
         XCTAssertFalse(strawberryMilk.isLowFat())
     }
     
     // StrawberryMilk
     func testIsNoneFlovor_향X() {
         let strawBerryDate = Date(timeIntervalSinceNow: -convertSeconds(10))
-        let strawberryMilk = StrawberryMilk(flavor: "none", fat: 0.2, brand: "매일우유", capacity: 125, price: 1200, name: "유기농딸기우유", dateOfManufacture: strawBerryDate, manufacturer: "매일우유")
+        let strawberryMilk = StrawberryMilk(flavor: Flavor.none, fat: 0.2, brand: "매일우유", capacity: 125, price: 1200, name: "유기농딸기우유", dateOfManufacture: strawBerryDate, manufacturer: "매일우유")
         XCTAssertTrue(strawberryMilk.isNoneFlavor())
     }
     
     // StrawberryMilk
     func testIsNoneFlovor_향O() {
         let strawBerryDate = Date(timeIntervalSinceNow: -convertSeconds(10))
-        let strawberryMilk = StrawberryMilk(flavor: "light", fat: 0.2, brand: "매일우유", capacity: 125, price: 1200, name: "유기농딸기우유", dateOfManufacture: strawBerryDate, manufacturer: "매일우유")
+        let strawberryMilk = StrawberryMilk(flavor: Flavor.light, fat: 0.2, brand: "매일우유", capacity: 125, price: 1200, name: "유기농딸기우유", dateOfManufacture: strawBerryDate, manufacturer: "매일우유")
         XCTAssertFalse(strawberryMilk.isNoneFlavor())
     }
     
@@ -83,14 +83,14 @@ class UnitTestVendingMachine: XCTestCase {
     // BananaMilk
     func testIsWhiteColor_흰색바나나우유O() {
         let bananaDate = Date(timeIntervalSinceNow: -convertSeconds(10))
-        let bananaMilk = BananaMilk(color: "white", fat: 0.4, brand: "매일우유", capacity: 240, price: 1500, name: "바나나는원래하얗다", dateOfManufacture: bananaDate, manufacturer: "매일우유")
+        let bananaMilk = BananaMilk(color: BananaMilkColor.white, fat: 0.4, brand: "매일우유", capacity: 240, price: 1500, name: "바나나는원래하얗다", dateOfManufacture: bananaDate, manufacturer: "매일우유")
         XCTAssertTrue(bananaMilk.isWhiteColor())
     }
     
     // BananaMilk
     func testIsWhiteColor_흰색바나나우유X() {
         let bananaDate = Date(timeIntervalSinceNow: -convertSeconds(10))
-        let bananaMilk = BananaMilk(color: "yellow", fat: 0.4, brand: "매일우유", capacity: 240, price: 1500, name: "바나나는원래하얗다", dateOfManufacture: bananaDate, manufacturer: "매일우유")
+        let bananaMilk = BananaMilk(color: BananaMilkColor.yellow, fat: 0.4, brand: "매일우유", capacity: 240, price: 1500, name: "바나나는원래하얗다", dateOfManufacture: bananaDate, manufacturer: "매일우유")
         XCTAssertFalse(bananaMilk.isWhiteColor())
     }
     
@@ -139,14 +139,14 @@ class UnitTestVendingMachine: XCTestCase {
     // Fanta
     func testIsOrangeTaste_오렌지향() {
         let fantaDate = Date(timeIntervalSinceNow: -convertSeconds(15))
-        let fanta = Fanta(taste: "orange", sodium: 100, brand: "코카콜라", capacity: 355, price: 900, name: "오렌지맛환타", dateOfManufacture: fantaDate, manufacturer: "코카콜라")
+        let fanta = Fanta(taste: FantaTaste.orange, sodium: 100, brand: "코카콜라", capacity: 355, price: 900, name: "오렌지맛환타", dateOfManufacture: fantaDate, manufacturer: "코카콜라")
         XCTAssertTrue(fanta.isOrangeTaste())
     }
     
     // Fanta
     func testIsOrangeTaste_파인애플향() {
         let fantaDate = Date(timeIntervalSinceNow: -convertSeconds(15))
-        let fanta = Fanta(taste: "pineapple", sodium: 100, brand: "코카콜라", capacity: 355, price: 900, name: "오렌지맛환타", dateOfManufacture: fantaDate, manufacturer: "코카콜라")
+        let fanta = Fanta(taste: FantaTaste.pineapple, sodium: 100, brand: "코카콜라", capacity: 355, price: 900, name: "오렌지맛환타", dateOfManufacture: fantaDate, manufacturer: "코카콜라")
         XCTAssertFalse(fanta.isOrangeTaste())
     }
     
@@ -195,14 +195,14 @@ class UnitTestVendingMachine: XCTestCase {
     // Georgia
     func testIsCan_캔음료() {
         let georgiaDate = Date(timeIntervalSinceNow: -convertSeconds(15))
-        let georgia = Georgia(packageMaterial: "can", caffeine: 80, brand: "코카콜라", capacity: 240, price: 1800, name: "조지아", dateOfManufacture: georgiaDate, manufacturer: "코카콜라")
+        let georgia = Georgia(packageMaterial: Material.can, caffeine: 80, brand: "코카콜라", capacity: 240, price: 1800, name: "조지아", dateOfManufacture: georgiaDate, manufacturer: "코카콜라")
         XCTAssertTrue(georgia.isCan())
     }
     
     // Georgia
     func testIsCan_플라스틱음료() {
         let georgiaDate = Date(timeIntervalSinceNow: -convertSeconds(15))
-        let georgia = Georgia(packageMaterial: "plastic", caffeine: 100, brand: "코카콜라", capacity: 270, price: 1800, name: "조지아", dateOfManufacture: georgiaDate, manufacturer: "코카콜라")
+        let georgia = Georgia(packageMaterial: Material.plastic, caffeine: 100, brand: "코카콜라", capacity: 270, price: 1800, name: "조지아", dateOfManufacture: georgiaDate, manufacturer: "코카콜라")
         XCTAssertFalse(georgia.isCan())
     }
     
