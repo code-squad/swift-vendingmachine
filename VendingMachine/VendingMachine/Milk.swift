@@ -21,16 +21,22 @@ class Milk: Beverage {
     }
 }
 
+enum Flavor {
+    case strong
+    case light
+    case none
+}
+
 class StrawberryMilk: Milk {
-    private var flavor: String // 향 (풍미)
+    private var flavor: Flavor // 향 (풍미)
     
-    init(flavor:String, fat: Double, brand: String, capacity: Int, price: Int, name: String, dateOfManufacture: Date, manufacturer: String) {
+    init(flavor:Flavor, fat: Double, brand: String, capacity: Int, price: Int, name: String, dateOfManufacture: Date, manufacturer: String) {
         self.flavor = flavor
         super.init(fat: fat, brand: brand, capacity: capacity, price: price, name: name, dateOfManufacture: dateOfManufacture, manufacturer: manufacturer)
     }
     
     public func isNoneFlavor() -> Bool {
-        return self.flavor == "none" ? true : false
+        return self.flavor == Flavor.none ? true : false
     }
 }
 
@@ -47,14 +53,19 @@ class ChocolateMilk: Milk {
     }
 }
 
+enum BananaMilkColor {
+    case white
+    case yellow
+}
+
 class BananaMilk: Milk {
-    private var color: String // 색상 (yellow , light yellow , white , etc..)
-    init(color: String, fat: Double, brand: String, capacity: Int, price: Int, name: String, dateOfManufacture: Date, manufacturer: String) {
+    private var color: BananaMilkColor // 색상 (yellow , light yellow , white , etc..)
+    init(color: BananaMilkColor, fat: Double, brand: String, capacity: Int, price: Int, name: String, dateOfManufacture: Date, manufacturer: String) {
         self.color = color
         super.init(fat: fat, brand: brand, capacity: capacity, price: price, name: name, dateOfManufacture: dateOfManufacture, manufacturer: manufacturer)
     }
     
     public func isWhiteColor() -> Bool {
-        return self.color == "white" ? true : false
+        return self.color == BananaMilkColor.white ? true : false
     }
 }

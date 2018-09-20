@@ -47,15 +47,21 @@ class Cantata: Coffee {
     }
 }
 
+enum Material {
+    case can
+    case plastic
+    case glass
+}
+
 class Georgia: Coffee {
-    private var packageMaterial: String // 패키지재질 ( Can , Plastic , Glass , etc..)
+    private var packageMaterial: Material // 패키지재질 ( Can , Plastic , Glass , etc..)
     
-    init(packageMaterial: String, caffeine: Int, brand:String, capacity:Int, price:Int, name:String, dateOfManufacture:Date, manufacturer:String) {
+    init(packageMaterial: Material, caffeine: Int, brand:String, capacity:Int, price:Int, name:String, dateOfManufacture:Date, manufacturer:String) {
         self.packageMaterial = packageMaterial
         super.init(caffeine: caffeine, brand: brand, capacity: capacity, price: price, name: name, dateOfManufacture: dateOfManufacture, manufacturer: manufacturer)
     }
     
     public func isCan() -> Bool {
-        return self.packageMaterial == "can" ? true : false
+        return self.packageMaterial == Material.can ? true : false
     }
 }
