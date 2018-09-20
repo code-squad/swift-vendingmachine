@@ -16,3 +16,29 @@ class Milk: Beverage {
         super.init(brand: brand, capacity: capacity, price: price, name: name, dateOfManufacture: dateOfManufacture, manufacturer: manufacturer)
     }
 }
+
+class StrawberryMilk: Milk {
+    private var flavor: String // 향 (풍미)
+    
+    init(flavor:String, fat: Double, brand: String, capacity: Int, price: Int, name: String, dateOfManufacture: Date, manufacturer: String) {
+        self.flavor = flavor
+        super.init(fat: fat, brand: brand, capacity: capacity, price: price, name: name, dateOfManufacture: dateOfManufacture, manufacturer: manufacturer)
+    }
+}
+
+class ChocolateMilk: Milk {
+    private var concentration: Double // 농도 (%)
+    
+    init(concentration: Double, fat: Double, brand: String, capacity: Int, price: Int, name: String, dateOfManufacture: Date, manufacturer: String) {
+        self.concentration = concentration
+        super.init(fat: fat, brand: brand, capacity: capacity, price: price, name: name, dateOfManufacture: dateOfManufacture, manufacturer: manufacturer)
+    }
+}
+
+class BananaMilk: Milk {
+    private var color: String // 색상 (yellow , light yellow , while , etc..)
+    init(color: String, fat: Double, brand: String, capacity: Int, price: Int, name: String, dateOfManufacture: Date, manufacturer: String) {
+        self.color = color
+        super.init(fat: fat, brand: brand, capacity: capacity, price: price, name: name, dateOfManufacture: dateOfManufacture, manufacturer: manufacturer)
+    }
+}
