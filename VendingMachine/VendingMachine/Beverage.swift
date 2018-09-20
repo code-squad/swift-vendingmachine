@@ -46,6 +46,6 @@ class Beverage : NSObject {
     
     // 대용량 음료 확인
     public func isLargeCapacity() -> Bool {
-        return self.capacity >= 300ml ? true : false
+        return self.capacity >= 300 ? true : false
     }
 }
