@@ -28,7 +28,12 @@ class Beverage : NSObject {
     
     override var description: String {
         let date = convertDate(from: self.dateOfManufacture)
-        return "\(self.manufacturer), \(self.capacity)ml, \(self.price)원, \(self.brand), \(date)"
+        return "\(self.className) - \(self.manufacturer), \(self.capacity)ml, \(self.price)원, \(self.brand), \(date)"
+    }
+    
+    // 클래스명 출력
+    override var className: String {
+        return String(describing: type(of: self))
     }
     
     private func convertDate(from target: Date) -> String {
