@@ -17,7 +17,7 @@ class Milk: Beverage {
     }
     
     public func isLowFat() -> Bool {
-        return self.fat <= 30 ? true : false
+        return self.fat <= 0.3 ? true : false
     }
 }
 
@@ -30,7 +30,7 @@ class StrawberryMilk: Milk {
     }
     
     public func isNoneFlavor() -> Bool {
-        return self.flavor == "None" ? true : false
+        return self.flavor == "none" ? true : false
     }
 }
 
@@ -43,7 +43,7 @@ class ChocolateMilk: Milk {
     }
     
     public func isLowConcentration() -> Bool {
-        return self.concentration <= 30 ? true : false
+        return self.concentration <= 0.3 ? true : false
     }
 }
 
