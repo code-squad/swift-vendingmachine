@@ -16,3 +16,30 @@ class Soda: Beverage {
         super.init(brand: brand, capacity: capacity, price: price, name: name, dateOfManufacture: dateOfManufacture, manufacturer: manufacturer)
     }
 }
+
+class Coke: Soda {
+    private var calorie: Int // 칼로리 (kcal)
+    
+    init(calorie: Int, sodium:Int, brand:String, capacity:Int, price:Int, name:String, dateOfManufacture:Date, manufacturer:String) {
+        self.calorie = calorie
+        super.init(sodium: sodium, brand: brand, capacity: capacity, price: price, name: name, dateOfManufacture: dateOfManufacture, manufacturer: manufacturer)
+    }
+}
+
+class Cider: Soda {
+    private var transFat: Int // 트랜스지방 (g)
+    
+    init(transFat: Int, sodium:Int, brand:String, capacity:Int, price:Int, name:String, dateOfManufacture:Date, manufacturer:String) {
+        self.transFat = transFat
+        super.init(sodium: sodium, brand: brand, capacity: capacity, price: price, name: name, dateOfManufacture: dateOfManufacture, manufacturer: manufacturer)
+    }
+}
+
+class Fanta: Soda {
+    private var taste: String // 색상 (pineapple , orange , grape , etc..)
+    
+    init(taste: String, sodium:Int, brand:String, capacity:Int, price:Int, name:String, dateOfManufacture:Date, manufacturer:String) {
+        self.taste = taste
+        super.init(sodium: sodium, brand: brand, capacity: capacity, price: price, name: name, dateOfManufacture: dateOfManufacture, manufacturer: manufacturer)
+    }
+}
