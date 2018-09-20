@@ -56,6 +56,6 @@ class Georgia: Coffee {
     }
     
     public func isCan() -> Bool {
-        return self.packageMaterial == "Can" ? true : false
+        return self.packageMaterial == "can" ? true : false
     }
 }
