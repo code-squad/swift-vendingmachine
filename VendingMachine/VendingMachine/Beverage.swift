@@ -27,21 +27,13 @@ class Beverage : NSObject {
     }
     
     override var description: String {
-        let date = convertDate(from: self.dateOfManufacture)
-        return "\(self.className) - \(self.manufacturer), \(self.capacity)ml, \(self.price)원, \(self.brand), \(date)"
+        let simpleDateStyle = self.dateOfManufacture.simpleDateStyle
+        return "\(self.className) - \(self.manufacturer), \(self.capacity)ml, \(self.price)원, \(self.brand), \(simpleDateStyle)"
     }
     
     // 클래스명 출력
     override var className: String {
         return String(describing: type(of: self))
-    }
-    
-    private func convertDate(from target: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "ko_KR")
-        dateFormatter.dateFormat = "yyyyMMdd"
-        let date = dateFormatter.string(from: target)
-        return date
     }
     
     private func convertDate(_ time: Double) -> Double {
@@ -57,5 +49,16 @@ class Beverage : NSObject {
     // 대용량 음료 확인
     public func isLargeCapacity() -> Bool {
         return self.capacity >= 300 ? true : false
+    }
+}
+
+extension Date {
+    var simpleDateStyle : String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .full
+        dateFormatter.locale = Locale(identifier: "ko_KR")
+        dateFormatter.dateFormat = "yyyyMMdd"
+        let date = dateFormatter.string(from: self)
+        return date
     }
 }
