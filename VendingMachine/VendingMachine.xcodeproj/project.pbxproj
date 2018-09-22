@@ -17,6 +17,8 @@
 		473FE17E21536A0B00A07CAB /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473FE174215339FF00A07CAB /* Soda.swift */; };
 		473FE17F21536A0B00A07CAB /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473FE17721533A0500A07CAB /* Coffee.swift */; };
 		473FE18121536A2D00A07CAB /* UnitTestVendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473FE16B215334D500A07CAB /* UnitTestVendingMachine.swift */; };
+		47D515CC21564A6200FDD23C /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D515CB21564A6200FDD23C /* Utility.swift */; };
+		47D515CD21564A6200FDD23C /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D515CB21564A6200FDD23C /* Utility.swift */; };
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +42,7 @@
 		473FE171215339F800A07CAB /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 		473FE174215339FF00A07CAB /* Soda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soda.swift; sourceTree = "<group>"; };
 		473FE17721533A0500A07CAB /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
+		47D515CB21564A6200FDD23C /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
+				47D515CB21564A6200FDD23C /* Utility.swift */,
 				473CE64E2150F02A006BADDC /* Beverage.swift */,
 				473FE171215339F800A07CAB /* Milk.swift */,
 				473FE174215339FF00A07CAB /* Soda.swift */,
@@ -192,6 +196,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47D515CD21564A6200FDD23C /* Utility.swift in Sources */,
 				473FE17C21536A0B00A07CAB /* Beverage.swift in Sources */,
 				473FE18121536A2D00A07CAB /* UnitTestVendingMachine.swift in Sources */,
 				473FE17A21536A0700A07CAB /* main.swift in Sources */,
@@ -207,6 +212,7 @@
 			files = (
 				473FE175215339FF00A07CAB /* Soda.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
+				47D515CC21564A6200FDD23C /* Utility.swift in Sources */,
 				473FE172215339F800A07CAB /* Milk.swift in Sources */,
 				473CE64F2150F02A006BADDC /* Beverage.swift in Sources */,
 				473FE17821533A0500A07CAB /* Coffee.swift in Sources */,

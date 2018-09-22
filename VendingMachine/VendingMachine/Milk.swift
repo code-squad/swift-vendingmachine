@@ -21,18 +21,12 @@ class Milk: Beverage {
     }
 }
 
-enum Flavor {
-    case strong
-    case light
-    case none
-}
-
 class StrawberryMilk: Milk {
     private var flavor: Flavor // 향 (풍미)
     
     init(dateOfManufacture : Date) {
         self.flavor = Flavor.light
-        super.init(fat: 0.2, brand: "매일우유", capacity: 125, price: 1200, name: "유기농딸기우유", dateOfManufacture: dateOfManufacture, manufacturer: "매일우유")
+        super.init(fat: 0.2, brand: Brand.maeil.description, capacity: 125, price: 1200, name: Product.organicStrawberryMilk.description, dateOfManufacture: dateOfManufacture, manufacturer: Brand.maeil.description)
     }
     
     init(flavor:Flavor, fat: Double, brand: String, capacity: Int, price: Int, name: String, dateOfManufacture: Date, manufacturer: String) {
@@ -50,7 +44,7 @@ class ChocolateMilk: Milk {
     
     init(dateOfManufacture : Date) {
         self.concentration = 0.1
-        super.init(fat: 0.7, brand: "서울우유", capacity: 200, price: 900, name: "서울초코우유", dateOfManufacture: dateOfManufacture, manufacturer: "서울우유")
+        super.init(fat: 0.7, brand: Brand.seoulMilk.description, capacity: 200, price: 900, name: Product.seoulChocoMilk.description, dateOfManufacture: dateOfManufacture, manufacturer: Brand.seoulMilk.description)
     }
     
     init(concentration: Double, fat: Double, brand: String, capacity: Int, price: Int, name: String, dateOfManufacture: Date, manufacturer: String) {
@@ -63,17 +57,12 @@ class ChocolateMilk: Milk {
     }
 }
 
-enum BananaMilkColor {
-    case white
-    case yellow
-}
-
 class BananaMilk: Milk {
     private var color: BananaMilkColor // 색상 (yellow , light yellow , white , etc..)
     
     init(dateOfManufacture : Date) {
         self.color = BananaMilkColor.white
-        super.init(fat: 0.4, brand: "매일우유", capacity: 240, price: 1500, name: "바나나는원래하얗다", dateOfManufacture: dateOfManufacture, manufacturer: "매일우유")
+        super.init(fat: 0.4, brand: Brand.maeil.description, capacity: 240, price: 1500, name: Product.bananasAreNaturallyWhite.description, dateOfManufacture: dateOfManufacture, manufacturer: Brand.maeil.description)
     }
     
     init(color: BananaMilkColor, fat: Double, brand: String, capacity: Int, price: Int, name: String, dateOfManufacture: Date, manufacturer: String) {
