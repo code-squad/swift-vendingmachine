@@ -26,7 +26,7 @@ class TOP: Coffee {
     
     init(dateOfManufacture : Date) {
         self.hot = true
-        super.init(caffeine: 120, brand: "맥심", capacity: 275, price: 1800, name: "TOP커피", dateOfManufacture: dateOfManufacture, manufacturer: "맥심")
+        super.init(caffeine: 120, brand: Brand.maxim.description, capacity: 275, price: 1800, name: Product.topCoffee.description, dateOfManufacture: dateOfManufacture, manufacturer: Brand.maxim.description)
     }
     
     init(hot: Bool, caffeine: Int, brand:String, capacity:Int, price:Int, name:String, dateOfManufacture:Date, manufacturer:String) {
@@ -44,7 +44,7 @@ class Cantata: Coffee {
     
     init(dateOfManufacture : Date) {
         self.sugarFree = true
-        super.init(caffeine: 100, brand: "롯데칠성음료", capacity: 275, price: 1400, name: "칸타타", dateOfManufacture: dateOfManufacture, manufacturer: "롯데칠성음료")
+        super.init(caffeine: 100, brand: Brand.lotteChilsung.description, capacity: 275, price: 1400, name: Product.cantataCoffee.description, dateOfManufacture: dateOfManufacture, manufacturer: Brand.lotteChilsung.description)
     }
     
     init(sugarFree: Bool, caffeine: Int, brand:String, capacity:Int, price:Int, name:String, dateOfManufacture:Date, manufacturer:String) {
@@ -57,18 +57,12 @@ class Cantata: Coffee {
     }
 }
 
-enum Material {
-    case can
-    case plastic
-    case glass
-}
-
 class Georgia: Coffee {
     private var packageMaterial: Material // 패키지재질 ( Can , Plastic , Glass , etc..)
     
     init(dateOfManufacture : Date) {
         self.packageMaterial = Material.can
-        super.init(caffeine: 80, brand: "코카콜라", capacity: 240, price: 1800, name: "조지아커피", dateOfManufacture: dateOfManufacture, manufacturer: "코카콜라")
+        super.init(caffeine: 80, brand: Brand.cocacola.description, capacity: 240, price: 1800, name: Product.georgiaCoffee.description, dateOfManufacture: dateOfManufacture, manufacturer: Brand.cocacola.description)
     }
     
     init(packageMaterial: Material, caffeine: Int, brand:String, capacity:Int, price:Int, name:String, dateOfManufacture:Date, manufacturer:String) {
