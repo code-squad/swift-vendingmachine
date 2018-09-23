@@ -8,40 +8,36 @@
 
 import Foundation
 
-struct DateUnit {
-    static let secondsOfOneday = 86400
-}
-
 struct VendingMachine {
+    static var inventory = [[Beverage]]()
+    
     static func run(){
-        let inventory = VendingMachine.inventory()
-        _ = VendingMachine.information(beverage: inventory)
+        inventory = VendingMachine.initInventory()
+        _ = VendingMachine.inventoryInformation()
     }
     
-    static func inventory() -> [Beverage] {
-        let strawBerryDate = Date(timeIntervalSinceNow: -convertSeconds(10))
-        let cokeDate = Date(timeIntervalSinceNow: -convertSeconds(15))
-        let topCoffeeDate = Date(timeIntervalSinceNow: -convertSeconds(20))
+    /*
+     재고 생성 기준
+     1. 유통기한 랜덤
+     2. 제품 종류 및 제품당 개수 랜덤
+     */
+    static func initInventory() -> [[Beverage]] {
+        var beverages = [[Beverage]]()
+        let numberOfBeverageType = Int.random(in: 4...8)
+        for _ in 1...numberOfBeverageType {
+            let numberPerItem = Int.random(in: 1...9)
+            let beverage = RandomBeverage.random(select: numberPerItem)
+            beverages.append(beverage)
+        }
         
-        let strawberryMilk = StrawberryMilk(dateOfManufacture: strawBerryDate)
-        let coke = Coke(dateOfManufacture: cokeDate)
-        let topCoffee = TOP(dateOfManufacture: topCoffeeDate)
-
-        var beverage = [Beverage]()
-        beverage.append(strawberryMilk)
-        beverage.append(coke)
-        beverage.append(topCoffee)
-        return beverage
+        return beverages
     }
     
-    static func convertSeconds(_ date: Int) -> Double {
-        // 1일 : 86400초
-        return Double(date * DateUnit.secondsOfOneday)
-    }
-    
-    static func information(beverage : [Beverage]){
-        for item in beverage {
-            print(item.description)
+    static func inventoryInformation(){
+        for beverageType in self.inventory {
+            for beverage in beverageType {
+                print(beverage.description)
+            }
         }
     }
 }

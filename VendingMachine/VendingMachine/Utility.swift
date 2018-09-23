@@ -8,6 +8,10 @@
 
 import Foundation
 
+struct DateUnit {
+    static let secondsOfOneday = 86400
+}
+
 enum Flavor {
     case strong
     case light
@@ -74,5 +78,31 @@ enum Product : CustomStringConvertible {
         case .cantataCoffee:            return "칸타타커피"
         case .georgiaCoffee:            return "조지아커피"
         }
+    }
+}
+
+struct RandomBeverage {
+    static func random(select : Int) -> [Beverage] {
+        var beverages = [Beverage]()
+        for _ in 1...Int.random(in: 2...5) {
+            let randomDate = -convertSeconds(Int.random(in: 1...20))
+            switch select {
+            case 1: beverages.append(StrawberryMilk(dateOfManufacture: Date(timeIntervalSinceNow: randomDate)))
+            case 2: beverages.append(ChocolateMilk(dateOfManufacture: Date(timeIntervalSinceNow: randomDate)))
+            case 3: beverages.append(BananaMilk(dateOfManufacture: Date(timeIntervalSinceNow: randomDate)))
+            case 4: beverages.append(Coke(dateOfManufacture: Date(timeIntervalSinceNow: randomDate)))
+            case 5: beverages.append(Cider(dateOfManufacture: Date(timeIntervalSinceNow: randomDate)))
+            case 6: beverages.append(Fanta(dateOfManufacture: Date(timeIntervalSinceNow: randomDate)))
+            case 7: beverages.append(TOP(dateOfManufacture: Date(timeIntervalSinceNow: randomDate)))
+            case 8: beverages.append(Cantata(dateOfManufacture: Date(timeIntervalSinceNow: randomDate)))
+            case 9: beverages.append(Georgia(dateOfManufacture: Date(timeIntervalSinceNow: randomDate)))
+            default: beverages.append(StrawberryMilk(dateOfManufacture: Date(timeIntervalSinceNow: randomDate)))
+            }
+        }
+        return beverages
+    }
+    
+    static func convertSeconds(_ date: Int) -> Double {
+        return Double(date * DateUnit.secondsOfOneday)
     }
 }
