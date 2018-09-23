@@ -27,8 +27,7 @@ class Beverage : NSObject {
     }
     
     override var description: String {
-        let simpleDateStyle = self.dateOfManufacture.simpleDateStyle
-        return "\(self.className) - \(self.manufacturer), \(self.capacity)ml, \(self.price)원, \(self.brand), \(simpleDateStyle)"
+        return "\(self.name) \(self.price)원"
     }
     
     // 클래스명 출력

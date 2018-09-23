@@ -14,4 +14,9 @@ class Customer {
     public func charge(with money : Int) {
         self.balance += money
     }
+    
+    public func presentBalance() -> Int {
+        return self.balance
+    }
+
 }
