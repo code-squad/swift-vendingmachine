@@ -16,11 +16,6 @@ struct VendingMachine {
         _ = VendingMachine.inventoryInformation()
     }
     
-    /*
-     재고 생성 기준
-     1. 유통기한 랜덤
-     2. 제품 종류 및 제품당 개수 랜덤
-     */
     static func initInventory() -> [[Beverage]] {
         var beverages = [[Beverage]]()
         let numberOfBeverageType = Int.random(in: 4...8)
