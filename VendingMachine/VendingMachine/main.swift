@@ -9,13 +9,18 @@
 import Foundation
 
 struct VendingMachine {
-    static func run(){
-        let inventory = Inventory()
-        inventory.information()
-        
-        let customer = Customer()
-        customer.charge(with: 10000)
+    var inventory = Inventory()
+    var customer = Customer()
+    
+    func run() {
+        // 메뉴 출력
+        // 1. 잔액 2. 재고 3. 선택목록 리스트
+        let balance = customer.presentBalance()
+        OutputView.printPresentBalance(with: balance)
+        let list = self.inventory.list()
+        OutputView.printInventoryList(with: list)
     }
 }
 
-VendingMachine.run()
+let vendingMachine = VendingMachine()
+vendingMachine.run()

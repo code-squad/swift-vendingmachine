@@ -23,6 +23,10 @@
 		47D515D02157713A00FDD23C /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D515CE2157713A00FDD23C /* Inventory.swift */; };
 		47D515D22157752D00FDD23C /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D515D12157752D00FDD23C /* Customer.swift */; };
 		47D515D32157752D00FDD23C /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D515D12157752D00FDD23C /* Customer.swift */; };
+		47D515D5215775CA00FDD23C /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D515D4215775CA00FDD23C /* InputView.swift */; };
+		47D515D6215775CA00FDD23C /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D515D4215775CA00FDD23C /* InputView.swift */; };
+		47D515D82157A11400FDD23C /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D515D72157A11400FDD23C /* OutputView.swift */; };
+		47D515D92157A11400FDD23C /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D515D72157A11400FDD23C /* OutputView.swift */; };
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +53,8 @@
 		47D515CB21564A6200FDD23C /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		47D515CE2157713A00FDD23C /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
 		47D515D12157752D00FDD23C /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
+		47D515D4215775CA00FDD23C /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		47D515D72157A11400FDD23C /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,6 +115,8 @@
 				473FE171215339F800A07CAB /* Milk.swift */,
 				473FE174215339FF00A07CAB /* Soda.swift */,
 				473FE17721533A0500A07CAB /* Coffee.swift */,
+				47D515D4215775CA00FDD23C /* InputView.swift */,
+				47D515D72157A11400FDD23C /* OutputView.swift */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";
@@ -207,10 +215,12 @@
 				47D515D02157713A00FDD23C /* Inventory.swift in Sources */,
 				47D515CD21564A6200FDD23C /* Utility.swift in Sources */,
 				473FE17C21536A0B00A07CAB /* Beverage.swift in Sources */,
+				47D515D92157A11400FDD23C /* OutputView.swift in Sources */,
 				473FE18121536A2D00A07CAB /* UnitTestVendingMachine.swift in Sources */,
 				473FE17A21536A0700A07CAB /* main.swift in Sources */,
 				473FE17D21536A0B00A07CAB /* Milk.swift in Sources */,
 				47D515D32157752D00FDD23C /* Customer.swift in Sources */,
+				47D515D6215775CA00FDD23C /* InputView.swift in Sources */,
 				473FE17E21536A0B00A07CAB /* Soda.swift in Sources */,
 				473FE17F21536A0B00A07CAB /* Coffee.swift in Sources */,
 			);
@@ -225,7 +235,9 @@
 				47D515CF2157713A00FDD23C /* Inventory.swift in Sources */,
 				47D515D22157752D00FDD23C /* Customer.swift in Sources */,
 				47D515CC21564A6200FDD23C /* Utility.swift in Sources */,
+				47D515D82157A11400FDD23C /* OutputView.swift in Sources */,
 				473FE172215339F800A07CAB /* Milk.swift in Sources */,
+				47D515D5215775CA00FDD23C /* InputView.swift in Sources */,
 				473CE64F2150F02A006BADDC /* Beverage.swift in Sources */,
 				473FE17821533A0500A07CAB /* Coffee.swift in Sources */,
 			);
