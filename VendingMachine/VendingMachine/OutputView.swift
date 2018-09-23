@@ -21,4 +21,8 @@ struct OutputView {
     public static func printPresentBalance(with balance: Int) {
         print("현재 투입한 금액이 \(balance)원 입니다.")
     }
+    
+    public static func printSelectMenu() {
+        print(Menu.allCases.map({"\($0.rawValue + 1). \($0.description)"}).joined(separator: "\n"))
+    }
 }

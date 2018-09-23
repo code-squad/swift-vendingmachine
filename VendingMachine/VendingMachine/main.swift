@@ -19,6 +19,7 @@ struct VendingMachine {
         OutputView.printPresentBalance(with: balance)
         let list = self.inventory.list()
         OutputView.printInventoryList(with: list)
+        OutputView.printSelectMenu()
     }
 }
 
