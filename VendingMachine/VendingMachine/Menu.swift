@@ -22,10 +22,11 @@ enum Menu : Int, CaseIterable , CustomStringConvertible {
     public static func select(type : Int , with : Int) {
         switch type {
         case 1:
-            let customer = Customer.sharedBalance
+            let customer = Customer.shared
             customer.charge(with: with)
         case 2:
-            print("음료 구매, 재고 상태 변경!")
+            let inventory = Inventory.shared
+            inventory.remove(target: with)
         default:
             print(InputError.inputRangeExceeded)
         }

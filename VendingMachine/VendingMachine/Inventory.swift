@@ -9,6 +9,8 @@
 import Foundation
 
 class Inventory {
+    static let shared = Inventory() // for Singleton
+    
     private var beverages: [[Beverage]]
     
     init() {
@@ -24,5 +26,10 @@ class Inventory {
     
     public func list() -> [[Beverage]] {
         return self.beverages
+    }
+    
+    public func remove(target: Int) {
+        let index = target - 1
+        self.beverages[index].removeFirst()
     }
 }

@@ -9,8 +9,8 @@
 import Foundation
 
 struct VendingMachine {
-    var inventory = Inventory()
-    var customer = Customer.sharedBalance
+    var inventory = Inventory.shared
+    var customer = Customer.shared
     
     func run() throws {
         while true {
