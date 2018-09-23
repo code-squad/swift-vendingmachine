@@ -10,8 +10,11 @@ import Foundation
 
 struct VendingMachine {
     static func run(){
-        let inventory = Inventory.init()
-        inventory.inventoryInformation()
+        let inventory = Inventory()
+        inventory.information()
+        
+        let customer = Customer()
+        customer.charge(with: 10000)
     }
 }
 
