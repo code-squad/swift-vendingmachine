@@ -29,6 +29,8 @@
 		47D515D92157A11400FDD23C /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D515D72157A11400FDD23C /* OutputView.swift */; };
 		47D515DB2157AC7500FDD23C /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D515DA2157AC7500FDD23C /* Menu.swift */; };
 		47D515DC2157AC7500FDD23C /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D515DA2157AC7500FDD23C /* Menu.swift */; };
+		47D515DE2157BBEC00FDD23C /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D515DD2157BBEC00FDD23C /* Error.swift */; };
+		47D515DF2157BBEC00FDD23C /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D515DD2157BBEC00FDD23C /* Error.swift */; };
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +60,7 @@
 		47D515D4215775CA00FDD23C /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		47D515D72157A11400FDD23C /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		47D515DA2157AC7500FDD23C /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		47D515DD2157BBEC00FDD23C /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,6 +124,7 @@
 				47D515DA2157AC7500FDD23C /* Menu.swift */,
 				47D515D4215775CA00FDD23C /* InputView.swift */,
 				47D515D72157A11400FDD23C /* OutputView.swift */,
+				47D515DD2157BBEC00FDD23C /* Error.swift */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";
@@ -219,6 +223,7 @@
 				47D515D02157713A00FDD23C /* Inventory.swift in Sources */,
 				47D515CD21564A6200FDD23C /* Utility.swift in Sources */,
 				473FE17C21536A0B00A07CAB /* Beverage.swift in Sources */,
+				47D515DF2157BBEC00FDD23C /* Error.swift in Sources */,
 				47D515D92157A11400FDD23C /* OutputView.swift in Sources */,
 				473FE18121536A2D00A07CAB /* UnitTestVendingMachine.swift in Sources */,
 				473FE17A21536A0700A07CAB /* main.swift in Sources */,
@@ -239,6 +244,7 @@
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
 				47D515CF2157713A00FDD23C /* Inventory.swift in Sources */,
 				47D515D22157752D00FDD23C /* Customer.swift in Sources */,
+				47D515DE2157BBEC00FDD23C /* Error.swift in Sources */,
 				47D515CC21564A6200FDD23C /* Utility.swift in Sources */,
 				47D515DB2157AC7500FDD23C /* Menu.swift in Sources */,
 				47D515D82157A11400FDD23C /* OutputView.swift in Sources */,
