@@ -10,7 +10,7 @@ import Foundation
 
 struct VendingMachine {
     var inventory = Inventory()
-    var customer = Customer()
+    var customer = Customer.sharedBalance
     
     func run() throws {
         // 메뉴 출력

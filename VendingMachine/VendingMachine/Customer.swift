@@ -9,14 +9,15 @@
 import Foundation
 
 class Customer {
+    static let sharedBalance = Customer() // for Singleton
+    
     private var balance = 0
     
     public func charge(with money : Int) {
         self.balance += money
     }
-    
+
     public func presentBalance() -> Int {
         return self.balance
     }
-
 }
