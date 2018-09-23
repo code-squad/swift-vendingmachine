@@ -22,7 +22,7 @@ class Inventory {
         self.beverages = beverages
     }
     
-    public func inventoryInformation() {
+    public func information() {
         for beverages in self.beverages {
             for beverage in beverages {
                 print(beverage.description)
