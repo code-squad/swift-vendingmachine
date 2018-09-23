@@ -18,4 +18,15 @@ enum Menu : Int, CaseIterable , CustomStringConvertible {
         case .purchaseBeverage: return "음료구매"
         }
     }
+    
+    public static func select(type : Int , with : Int) {
+        switch type {
+        case 1:
+            print("잔액 충전")
+        case 2:
+            print("음료 구매, 재고 상태 변경!")
+        default:
+            print(InputError.inputRangeExceeded)
+        }
+    }
 }
