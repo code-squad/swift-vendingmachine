@@ -9,7 +9,7 @@
 import Foundation
 
 class Customer {
-    static let sharedBalance = Customer() // for Singleton
+    static let shared = Customer() // for Singleton
     
     private var balance = 0
     
