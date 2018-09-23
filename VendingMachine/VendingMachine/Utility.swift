@@ -84,19 +84,21 @@ enum Product : CustomStringConvertible {
 struct RandomBeverage {
     static func random(select : Int) -> [Beverage] {
         var beverages = [Beverage]()
-        for _ in 1...Int.random(in: 2...5) {
-            let randomDate = -convertSeconds(Int.random(in: 1...20))
+        let numberOfBeverageType = Int.random(in: 2...5)
+        for _ in 1...numberOfBeverageType {
+            let randomDate = Int.random(in: 1...20)
+            let secondsOfDate = -convertSeconds(randomDate)
             switch select {
-            case 1: beverages.append(StrawberryMilk(dateOfManufacture: Date(timeIntervalSinceNow: randomDate)))
-            case 2: beverages.append(ChocolateMilk(dateOfManufacture: Date(timeIntervalSinceNow: randomDate)))
-            case 3: beverages.append(BananaMilk(dateOfManufacture: Date(timeIntervalSinceNow: randomDate)))
-            case 4: beverages.append(Coke(dateOfManufacture: Date(timeIntervalSinceNow: randomDate)))
-            case 5: beverages.append(Cider(dateOfManufacture: Date(timeIntervalSinceNow: randomDate)))
-            case 6: beverages.append(Fanta(dateOfManufacture: Date(timeIntervalSinceNow: randomDate)))
-            case 7: beverages.append(TOP(dateOfManufacture: Date(timeIntervalSinceNow: randomDate)))
-            case 8: beverages.append(Cantata(dateOfManufacture: Date(timeIntervalSinceNow: randomDate)))
-            case 9: beverages.append(Georgia(dateOfManufacture: Date(timeIntervalSinceNow: randomDate)))
-            default: beverages.append(StrawberryMilk(dateOfManufacture: Date(timeIntervalSinceNow: randomDate)))
+            case 1: beverages.append(StrawberryMilk(dateOfManufacture: Date(timeIntervalSinceNow: secondsOfDate)))
+            case 2: beverages.append(ChocolateMilk(dateOfManufacture: Date(timeIntervalSinceNow: secondsOfDate)))
+            case 3: beverages.append(BananaMilk(dateOfManufacture: Date(timeIntervalSinceNow: secondsOfDate)))
+            case 4: beverages.append(Coke(dateOfManufacture: Date(timeIntervalSinceNow: secondsOfDate)))
+            case 5: beverages.append(Cider(dateOfManufacture: Date(timeIntervalSinceNow: secondsOfDate)))
+            case 6: beverages.append(Fanta(dateOfManufacture: Date(timeIntervalSinceNow: secondsOfDate)))
+            case 7: beverages.append(TOP(dateOfManufacture: Date(timeIntervalSinceNow: secondsOfDate)))
+            case 8: beverages.append(Cantata(dateOfManufacture: Date(timeIntervalSinceNow: secondsOfDate)))
+            case 9: beverages.append(Georgia(dateOfManufacture: Date(timeIntervalSinceNow: secondsOfDate)))
+            default: beverages.append(StrawberryMilk(dateOfManufacture: Date(timeIntervalSinceNow: secondsOfDate)))
             }
         }
         return beverages
