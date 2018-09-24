@@ -34,8 +34,6 @@ struct VendingMachine {
 do {
     let vendingMachine = VendingMachine()
     try vendingMachine.run()
-} catch let error as InputError {
-    print(error.description)
-} catch let error as MachineError {
+} catch let error as Errorable {
     print(error.description)
 }
