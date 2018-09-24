@@ -25,4 +25,8 @@ struct OutputView {
     public static func printSelectMenu() {
         print(Menu.allCases.map({"\($0.rawValue + 1). \($0.description)"}).joined(separator: "\n"))
     }
+    
+    public static func printPurchase(with beverage : Beverage) {
+        print("\(beverage.beverageName())를 구매하셨습니다. \(beverage.beveragePrice())원을 차감합니다.")
+    }
 }
