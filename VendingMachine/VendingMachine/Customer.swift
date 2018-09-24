@@ -20,4 +20,8 @@ class Customer {
     public func presentBalance() -> Int {
         return self.balance
     }
+    
+    public func remove(with money: Int) {
+        self.balance -= money
+    }
 }

@@ -32,4 +32,15 @@ class Inventory {
         let index = target - 1
         self.beverages[index].removeFirst()
     }
+    
+    public func isAvailablePurchase(target: Int , balance: Int) -> Bool {
+        let index = target - 1
+        let result = self.beverages[index][0].isAvailablePurchase(with: balance)
+        return result
+    }
+    
+    public func beveragePrice(target: Int) -> Int {
+        let index = target - 1
+        return self.beverages[index][0].beveragePrice()
+    }
 }

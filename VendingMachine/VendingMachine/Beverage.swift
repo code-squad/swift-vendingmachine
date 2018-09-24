@@ -49,6 +49,15 @@ class Beverage : NSObject {
     public func isLargeCapacity() -> Bool {
         return self.capacity >= 300 ? true : false
     }
+    
+    // 현재 잔액으로 구매 가능한지 확인
+    public func isAvailablePurchase(with balance:Int) -> Bool {
+        return balance >= self.price ? true : false
+    }
+    
+    public func beveragePrice() -> Int {
+        return self.price
+    }
 }
 
 extension Date {
