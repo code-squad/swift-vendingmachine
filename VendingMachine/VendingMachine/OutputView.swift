@@ -29,4 +29,8 @@ struct OutputView {
     public static func printPurchase(with beverage : Beverage) {
         print("\(beverage.beverageName())를 구매하셨습니다. \(beverage.beveragePrice())원을 차감합니다.")
     }
+    
+    public static func printError(with error : Errorable) {
+        print(error.description)
+    }
 }
