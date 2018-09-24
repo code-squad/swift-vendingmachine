@@ -11,11 +11,11 @@ import Foundation
 struct InputView {
     
     public static func selectMenuType() throws -> (Int, Int) {
-        guard let input = InputView.readInput() else { throw InputError.inputNil }
+        guard let input = InputView.readInput() else { throw InputError.empty }
         let elements = input.components(separatedBy: " ")
-        guard elements.count == 2 else { throw InputError.inputError }
-        guard let type = Int(elements[0]) else { throw InputError.inputError }
-        guard let value = Int(elements[1]) else { throw InputError.inputError }
+        guard elements.count == 2 else { throw InputError.incorrect }
+        guard let type = Int(elements[0]) else { throw InputError.incorrect }
+        guard let value = Int(elements[1]) else { throw InputError.incorrect }
         return (type , value)
     }
     
