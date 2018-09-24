@@ -23,3 +23,13 @@ enum InputError: Error , CustomStringConvertible {
         }
     }
 }
+
+enum MachineError: Error, CustomStringConvertible {
+    case lackBalance
+    
+    var description: String {
+        switch self {
+        case .lackBalance: return "잔액이 부족합니다."
+        }
+    }
+}
