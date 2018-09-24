@@ -14,11 +14,10 @@ struct VendingMachine {
     
     func run() throws {
         while true {
-            // 메뉴 출력
-            // 1. 잔액 2. 재고 3. 선택목록 리스트
+            // 출력 : 1. 잔액 2. 재고 3. 선택 메뉴
             let balance = customer.presentBalance()
-            OutputView.printPresentBalance(with: balance)
             let list = self.inventory.list()
+            OutputView.printPresentBalance(with: balance)
             OutputView.printInventoryList(with: list)
             OutputView.printSelectMenu()
             
