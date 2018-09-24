@@ -19,7 +19,7 @@ enum Menu : Int, CaseIterable , CustomStringConvertible {
         }
     }
     
-    public static func select(type : Int , with element : Int) {
+    public static func select(type : Int , with element : Int) throws {
         let customer = Customer.shared
         let inventory = Inventory.shared
         
@@ -30,11 +30,10 @@ enum Menu : Int, CaseIterable , CustomStringConvertible {
             // 1. 판단 : 잔돈 >= 음료금액
             // 2. 처리 : 잔액차감 , 음료재고차감
             let isBalanceRemain = inventory.isAvailablePurchase(target: element, balance: customer.presentBalance())
-            if isBalanceRemain {
+            guard isBalanceRemain else { throw MachineError.lackBalance }
                 let beverage = inventory.remove(target: element)
                 customer.remove(with: beverage.beveragePrice())
                 OutputView.printPurchase(with: beverage)
-            }
         default:
             print(InputError.inputRangeExceeded)
         }

@@ -26,7 +26,7 @@ struct VendingMachine {
             let (type, value) = try InputView.selectMenuType()
             
             // 메뉴 선택
-            Menu.select(type: type, with: value)
+            try Menu.select(type: type, with: value)
         }
     }
 }
@@ -34,6 +34,8 @@ struct VendingMachine {
 do {
     let vendingMachine = VendingMachine()
     try vendingMachine.run()
-} catch {
-    print(InputError.inputError)
+} catch let error as InputError {
+    print(error.description)
+} catch let error as MachineError {
+    print(error.description)
 }
