@@ -19,14 +19,22 @@ enum Menu : Int, CaseIterable , CustomStringConvertible {
         }
     }
     
-    public static func select(type : Int , with : Int) {
+    public static func select(type : Int , with element : Int) {
+        let customer = Customer.shared
+        let inventory = Inventory.shared
+        
         switch type {
         case 1:
-            let customer = Customer.shared
-            customer.charge(with: with)
+            customer.charge(with: element)
         case 2:
-            let inventory = Inventory.shared
-            inventory.remove(target: with)
+            // 1. 판단 : 잔돈 >= 음료금액
+            // 2. 처리 : 잔액차감 , 음료재고차감
+            let isBalanceRemain = inventory.isAvailablePurchase(target: element, balance: customer.presentBalance())
+            if isBalanceRemain {
+                inventory.remove(target: element)
+                let beveragePrice = inventory.beveragePrice(target: element)
+                customer.remove(with: beveragePrice)
+            }
         default:
             print(InputError.inputRangeExceeded)
         }
