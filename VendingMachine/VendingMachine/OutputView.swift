@@ -33,4 +33,9 @@ struct OutputView {
     public static func printError(with error : Errorable) {
         print(error.description)
     }
+    
+    public static func printHistory(with beverages : [Beverage]) {
+        print("다음과 같은 구매이력이 있습니다.")
+        print(beverages.map({"\($0.description)"}).joined(separator: "\n"))
+    }
 }
