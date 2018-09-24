@@ -31,9 +31,9 @@ enum Menu : Int, CaseIterable , CustomStringConvertible {
             // 2. 처리 : 잔액차감 , 음료재고차감
             let isBalanceRemain = inventory.isAvailablePurchase(target: element, balance: customer.presentBalance())
             if isBalanceRemain {
-                inventory.remove(target: element)
-                let beveragePrice = inventory.beveragePrice(target: element)
-                customer.remove(with: beveragePrice)
+                let beverage = inventory.remove(target: element)
+                customer.remove(with: beverage.beveragePrice())
+                OutputView.printPurchase(with: beverage)
             }
         default:
             print(InputError.inputRangeExceeded)

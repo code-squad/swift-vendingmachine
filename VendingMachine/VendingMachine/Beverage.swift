@@ -58,6 +58,10 @@ class Beverage : NSObject {
     public func beveragePrice() -> Int {
         return self.price
     }
+    
+    public func beverageName() -> String {
+        return self.name
+    }
 }
 
 extension Date {
