@@ -31,6 +31,10 @@ class Inventory {
     public func remove(target: Int) -> Beverage {
         let index = target - 1
         let beverage = self.beverages[index].removeFirst()
+        
+        // 2차원 배열에서 빈배열의 경우 없애주기 위한 작업
+        self.beverages = self.beverages.filter({$0.count > 0})
+
         return beverage
     }
     
