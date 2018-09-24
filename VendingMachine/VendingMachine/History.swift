@@ -16,7 +16,7 @@ class History {
         self.beverages.append(beverage)
     }
     
-    public func list()  {
-        print("\(self.beverages.map({ $0.description }))")
+    public func list() -> [Beverage] {
+        return self.beverages
     }
 }

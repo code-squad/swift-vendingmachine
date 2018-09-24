@@ -39,7 +39,8 @@ enum Menu : Int, CaseIterable , CustomStringConvertible {
                 OutputView.printPurchase(with: beverage)
                 history.add(with: beverage)
         case 3:
-            history.list()
+            let list = history.list()
+            OutputView.printHistory(with: list)
         default:
             throw InputError.rangeExceed
         }
