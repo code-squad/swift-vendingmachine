@@ -35,7 +35,7 @@ enum Menu : Int, CaseIterable , CustomStringConvertible {
                 customer.remove(with: beverage.beveragePrice())
                 OutputView.printPurchase(with: beverage)
         default:
-            print(InputError.rangeExceed)
+            throw InputError.rangeExceed
         }
     }
 }

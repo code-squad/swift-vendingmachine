@@ -21,9 +21,9 @@ enum InputError : Errorable {
     var description: String {
         switch self {
         case .unknown:              return "알 수 없는 에러가 발생하였습니다."
-        case .incorrect:           return "잘못 입력하셨습니다."
-        case .empty:             return "입력값이 비어있습니다."
-        case .rangeExceed:   return "입력를 범위 초과하였습니다."
+        case .incorrect:            return "잘못 입력하셨습니다."
+        case .empty:                return "입력값이 비어있습니다."
+        case .rangeExceed:          return "입력범위를 초과하였습니다."
         }
     }
 }
