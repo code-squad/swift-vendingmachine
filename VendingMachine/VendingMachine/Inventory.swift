@@ -19,6 +19,15 @@ class Inventory {
         for _ in 1...numberOfBeverageType {
             let numberPerItem = Int.random(in: 1...9)
             let beverage = RandomBeverage.random(select: numberPerItem)
+            // 음료 중복 확인
+            var isDuplicate = false
+            for savedItem in beverages {
+                if beverage[0].className == savedItem[0].className {
+                    isDuplicate = true
+                    break
+                }
+            }
+            if isDuplicate { continue }
             beverages.append(beverage)
         }
         self.beverages = beverages
