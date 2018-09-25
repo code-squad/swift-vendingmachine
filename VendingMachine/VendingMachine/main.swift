@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct VendingMachine {
+struct Main {
     var inventory = Inventory.shared
     var customer = Customer.shared
     
@@ -22,17 +22,17 @@ struct VendingMachine {
             OutputView.printSelectMenu()
             
             // 입력값 받기
-            let (type, value) = try InputView.selectMenuType()
+            let menuType = try InputView.selectMenuType()
             
-            // 메뉴 선택
-            try Menu.select(type: type, with: value)
+            // 메뉴에 따른 실행
+            try VendingMachine.excute(with: menuType)
         }
     }
 }
 
 do {
-    let vendingMachine = VendingMachine()
-    try vendingMachine.run()
+    let main = Main()
+    try main.run()
 } catch let error as Errorable {
     OutputView.printError(with: error)
 }

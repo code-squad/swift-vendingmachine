@@ -21,28 +21,12 @@ enum Menu : Int, CaseIterable , CustomStringConvertible {
         }
     }
     
-    public static func select(type : Int , with element : Int) throws {
-        let customer = Customer.shared
-        let inventory = Inventory.shared
-        let history = History.shared
-        
+    public static func select(with type : Int ) throws -> Menu {
         switch type {
-        case 1:
-            customer.charge(with: element)
-        case 2:
-            // 1. 판단 : 잔돈 >= 음료금액
-            // 2. 처리 : 잔액차감 , 음료재고차감 , 구매내역 저장
-            let isBalanceRemain = inventory.isAvailablePurchase(target: element, balance: customer.presentBalance())
-            guard isBalanceRemain else { throw MachineError.lackBalance }
-                let beverage = inventory.remove(target: element)
-                customer.remove(with: beverage.beveragePrice())
-                OutputView.printPurchase(with: beverage)
-                history.add(with: beverage)
-        case 3:
-            let list = history.list()
-            OutputView.printHistory(with: list)
-        default:
-            throw InputError.rangeExceed
+        case 1: return Menu.addBalance
+        case 2: return Menu.purchaseBeverage
+        case 3: return Menu.historyList
+        default: throw InputError.rangeExceed
         }
     }
 }
