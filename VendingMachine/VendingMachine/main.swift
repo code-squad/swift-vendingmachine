@@ -12,7 +12,7 @@ struct Main {
     var inventory = Inventory.shared
     var customer = Customer.shared
     
-    func run() throws {
+    public func run() throws {
         while true {
             // 출력 : 1. 잔액 2. 재고 3. 선택 메뉴
             let balance = customer.presentBalance()
@@ -25,7 +25,8 @@ struct Main {
             let menuType = try InputView.selectMenuType()
             
             // 메뉴에 따른 실행
-            try VendingMachine.excute(with: menuType)
+            let vendingMachine = VendingMachine()
+            try vendingMachine.excute(with: menuType)
         }
     }
 }

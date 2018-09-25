@@ -11,7 +11,7 @@ import Foundation
 struct InputView {
     static let shared = InputView() // for Singleton
     
-    public static var element = 0
+    public static var correspondingInputValue = 0 // 메뉴에 해당되는 입력값
     
     public static func selectMenuType() throws -> Menu {
         guard let input = InputView.readInput() else { throw InputError.empty }
@@ -21,7 +21,7 @@ struct InputView {
         guard let value = Int(elements[1]) else { throw InputError.incorrect }
         
         let menuType = try Menu.select(with: type)
-        self.element = value
+        self.correspondingInputValue = value
         return menuType
     }
     
