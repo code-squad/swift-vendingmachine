@@ -38,7 +38,8 @@ class Inventory {
         return beverage
     }
     
-    public func isAvailablePurchase(target: Int , balance: Int) -> Bool {
+    public func isAvailablePurchase(target: Int , balance: Int) throws -> Bool {
+        guard target <= self.beverages.count else { throw InputError.rangeExceed }
         let index = target - 1
         let result = self.beverages[index][0].isAvailablePurchase(with: balance)
         return result

@@ -32,7 +32,7 @@ struct VendingMachine {
         // 1. 판단 : 잔돈 >= 음료금액
         // 2. 처리 : 잔액차감 , 음료재고차감 , 구매내역 저장
         if let value = self.value {
-            let isBalanceRemain = inventory.isAvailablePurchase(target: value, balance: customer.presentBalance())
+            let isBalanceRemain = try inventory.isAvailablePurchase(target: value, balance: customer.presentBalance())
             guard isBalanceRemain else { throw MachineError.lackBalance }
             let beverage = inventory.remove(target: value)
             customer.remove(with: beverage.beveragePrice())
