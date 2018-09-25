@@ -23,18 +23,22 @@ struct VendingMachine {
     }
     
     public func addBalance(){
-        customer.charge(with: value)
+        if let value = self.value {
+            customer.charge(with: value)
+        }
     }
     
     public func purchaseBeverage() throws {
         // 1. 판단 : 잔돈 >= 음료금액
         // 2. 처리 : 잔액차감 , 음료재고차감 , 구매내역 저장
-        let isBalanceRemain = inventory.isAvailablePurchase(target: value, balance: customer.presentBalance())
-        guard isBalanceRemain else { throw MachineError.lackBalance }
-        let beverage = inventory.remove(target: value)
-        customer.remove(with: beverage.beveragePrice())
-        history.add(with: beverage)
-        OutputView.printPurchase(with: beverage)
+        if let value = self.value {
+            let isBalanceRemain = inventory.isAvailablePurchase(target: value, balance: customer.presentBalance())
+            guard isBalanceRemain else { throw MachineError.lackBalance }
+            let beverage = inventory.remove(target: value)
+            customer.remove(with: beverage.beveragePrice())
+            history.add(with: beverage)
+            OutputView.printPurchase(with: beverage)
+        }
     }
     
     public func historyList(){

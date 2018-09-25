@@ -11,17 +11,17 @@ import Foundation
 struct InputView {
     static let shared = InputView() // for Singleton
     
-    public static var correspondingInputValue = 0 // 메뉴에 해당되는 입력값
+    public static var correspondingInputValue:Int? // 메뉴에 해당되는 입력값
     
     public static func selectMenuType() throws -> Menu {
         guard let input = InputView.readInput() else { throw InputError.empty }
         let elements = input.components(separatedBy: " ")
-        guard elements.count == 2 else { throw InputError.incorrect }
         guard let type = Int(elements[0]) else { throw InputError.incorrect }
-        guard let value = Int(elements[1]) else { throw InputError.incorrect }
-        
+        if elements.count == 2 {
+            guard let value = Int(elements[1]) else { throw InputError.incorrect }
+            self.correspondingInputValue = value
+        }
         let menuType = try Menu.select(with: type)
-        self.correspondingInputValue = value
         return menuType
     }
     
