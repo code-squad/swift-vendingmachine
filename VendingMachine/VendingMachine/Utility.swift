@@ -82,7 +82,7 @@ enum Product : CustomStringConvertible {
 }
 
 struct RandomBeverage {
-    static func random(select : Int) -> [Beverage] {
+    public static func random(select : Int) -> [Beverage] {
         var beverages = [Beverage]()
         let numberOfBeverageType = Int.random(in: 2...5)
         for _ in 1...numberOfBeverageType {
@@ -104,7 +104,7 @@ struct RandomBeverage {
         return beverages
     }
     
-    static func convertSeconds(_ date: Int) -> Double {
+    private static func convertSeconds(_ date: Int) -> Double {
         return Double(date * DateUnit.secondsOfOneday)
     }
 }
