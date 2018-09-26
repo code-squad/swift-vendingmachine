@@ -22,13 +22,13 @@ struct VendingMachine {
         }
     }
     
-    public func addBalance(){
+    private func addBalance(){
         if let value = self.value {
             customer.charge(with: value)
         }
     }
     
-    public func purchaseBeverage() throws {
+    private func purchaseBeverage() throws {
         // 1. 판단 : 잔돈 >= 음료금액
         // 2. 처리 : 잔액차감 , 음료재고차감 , 구매내역 저장
         if let value = self.value {
@@ -41,7 +41,7 @@ struct VendingMachine {
         }
     }
     
-    public func historyList(){
+    private func historyList(){
         let list = history.list()
         OutputView.printHistory(with: list)
     }
