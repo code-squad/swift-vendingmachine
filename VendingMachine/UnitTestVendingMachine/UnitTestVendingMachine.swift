@@ -15,12 +15,81 @@ class UnitTestVendingMachine: XCTestCase {
         return Double(date * 86400)
     }
     
+    // History
+    // 클래스 전체를 테스트 실행할 때 또 다른 히스토리가 동작할 경우에 싱글톤 방식때문인지 결과값이 겹침
+    func testHistory_구매리스트_5개구매() {
+        let date = Date(timeIntervalSinceNow: -convertSeconds(15))
+        let coke1 = Coke(dateOfManufacture: date)
+        let coke2 = Coke(dateOfManufacture: date)
+        let strawberryMilk1 = StrawberryMilk(dateOfManufacture: date)
+        let strawberryMilk2 = StrawberryMilk(dateOfManufacture: date)
+        let strawberryMilk3 = StrawberryMilk(dateOfManufacture: date)
+        let beverages = [[coke1,coke2] , [strawberryMilk1,strawberryMilk2,strawberryMilk3]]
+        // 재고 추가
+        let inventory = Inventory.shared
+        inventory.stockUp(with: beverages)
+        // 잔액 추가
+        let customer = Customer.shared
+        customer.charge(with: 10000)
+        // 구매 목록
+        let history = History.shared
+        let machine = VendingMachine()
+        
+        do {
+            try machine.excute(with: Menu.purchaseBeverage , value: 2)
+            try machine.excute(with: Menu.purchaseBeverage , value: 2)
+            try machine.excute(with: Menu.purchaseBeverage , value: 2)
+            try machine.excute(with: Menu.purchaseBeverage , value: 1)
+            try machine.excute(with: Menu.purchaseBeverage , value: 1)
+            let compareBeverages = [strawberryMilk1,strawberryMilk2,strawberryMilk3,coke1,coke2]
+            XCTAssertEqual(history.list(), compareBeverages)
+        } catch let error {
+            print(error)
+        }
+    }
+    
+    // Inventory
+    func testRemove_구매할때리스트에서삭제O() {
+        let date = Date(timeIntervalSinceNow: -convertSeconds(15))
+        let coke1 = Coke(dateOfManufacture: date)
+        let coke2 = Coke(dateOfManufacture: date)
+        let strawberryMilk1 = StrawberryMilk(dateOfManufacture: date)
+        let strawberryMilk2 = StrawberryMilk(dateOfManufacture: date)
+        let strawberryMilk3 = StrawberryMilk(dateOfManufacture: date)
+        let beverages = [[coke1,coke2] , [strawberryMilk1,strawberryMilk2,strawberryMilk3]]
+        let inventory = Inventory()
+        inventory.stockUp(with: beverages)
+        _ = inventory.remove(target: 1)
+        let compareBeverages = [[coke2] , [strawberryMilk1,strawberryMilk2,strawberryMilk3]]
+        XCTAssertEqual(inventory.list(), compareBeverages)
+    }
+    
+    // Inventory
+    func testIsAvailablePurchase_구매가능O(){
+        let date = Date(timeIntervalSinceNow: -convertSeconds(15))
+        let coke = Coke(dateOfManufacture: date)
+        let beverages = [[coke]]
+        let inventory = Inventory()
+        inventory.stockUp(with: beverages)
+        XCTAssertTrue(try inventory.isAvailablePurchase(target: 1, balance: 3000))
+    }
+    
+    // Inventory
+    func testIsAvailablePurchase_구매가능X(){
+        let date = Date(timeIntervalSinceNow: -convertSeconds(15))
+        let coke = Coke(dateOfManufacture: date)
+        let beverages = [[coke]]
+        let inventory = Inventory()
+        inventory.stockUp(with: beverages)
+        XCTAssertFalse(try inventory.isAvailablePurchase(target: 1, balance: 800))
+    }
+    
     // Beverage
     func testValidate_유통기한초과O() {
         let cokeDate = Date(timeIntervalSinceNow: -convertSeconds(15))
         let coke = Coke(calorie: 300, sodium: 120, brand: "펩시", capacity: 350, price: 1500, name: "다이어트콜라", dateOfManufacture: cokeDate, manufacturer: "펩시")
         let today = Date(timeIntervalSinceNow: 0)
-        let isOverExpirationDate = coke.validate(with: today)
+        let isOverExpirationDate = coke.isExpirationDate(with: today)
         XCTAssertTrue(isOverExpirationDate)
     }
 
