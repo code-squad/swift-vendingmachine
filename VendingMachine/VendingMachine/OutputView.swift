@@ -9,10 +9,11 @@
 import Foundation
 
 struct OutputView {
-    public static func printInventoryList(with beverages: [[Beverage]]) {
+    public static func printInventoryList(with beverages: [[Beverage]]?) throws {
+        guard let beverage = beverages else { throw MachineError.outOfStock }
         var result = ""
-        for index in 0..<beverages.count {
-            result += ("\(index+1)) \(beverages[index][0].description) (\(beverages[index].count)개)\n")
+        for index in 0..<beverage.count {
+            result += ("\(index+1)) \(beverage[index][0].description) (\(beverage[index].count)개)\n")
         }
         print("다음과 같은 음료가 있습니다.")
         print(result)

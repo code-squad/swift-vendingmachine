@@ -13,16 +13,17 @@ struct InputView {
     
     public static var correspondingInputValue:Int? // 메뉴에 해당되는 입력값
     
-    public static func selectMenuType() throws -> Menu {
+    public static func selectMenuType() throws -> (Menu , Int) {
         guard let input = InputView.readInput() else { throw InputError.empty }
         let elements = input.components(separatedBy: " ")
         guard let type = Int(elements[0]) else { throw InputError.incorrect }
+        var value = 0
         if elements.count == 2 {
-            guard let value = Int(elements[1]) else { throw InputError.incorrect }
-            self.correspondingInputValue = value
+            guard let element = Int(elements[1]) else { throw InputError.incorrect }
+            value = element
         }
         let menuType = try Menu.select(with: type)
-        return menuType
+        return (menuType , value)
     }
     
     // 입력값 받는 함수

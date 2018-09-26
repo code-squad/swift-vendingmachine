@@ -30,10 +30,12 @@ enum InputError : Errorable {
 
 enum MachineError : Errorable {
     case lackBalance
+    case outOfStock
     
     var description: String {
         switch self {
         case .lackBalance: return "잔액이 부족합니다."
+        case .outOfStock: return "재고가 없습니다."
         }
     }
 }
