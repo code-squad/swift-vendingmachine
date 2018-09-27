@@ -9,8 +9,6 @@
 import Foundation
 
 struct InputView {
-    static let shared = InputView() // for Singleton
-    
     public static var correspondingInputValue:Int? // 메뉴에 해당되는 입력값
     
     public static func selectMenuType() throws -> (Menu , Int) {
