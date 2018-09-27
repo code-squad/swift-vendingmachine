@@ -9,7 +9,6 @@
 import Foundation
 
 class History {
-    static let shared = History() // for Singleton
     private var beverages = [Beverage]()
     
     public func add(with beverage : Beverage) {

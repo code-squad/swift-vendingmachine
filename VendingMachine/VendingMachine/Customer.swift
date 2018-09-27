@@ -8,9 +8,7 @@
 
 import Foundation
 
-class Customer {
-    static let shared = Customer() // for Singleton
-    
+class Customer {    
     private var balance = 0
     
     public func charge(with money : Int) {
