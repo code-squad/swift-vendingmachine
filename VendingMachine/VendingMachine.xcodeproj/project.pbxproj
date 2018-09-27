@@ -25,8 +25,6 @@
 		479CE77221591AAB0025FCB7 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479CE77021591AAB0025FCB7 /* History.swift */; };
 		47D515CC21564A6200FDD23C /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D515CB21564A6200FDD23C /* Utility.swift */; };
 		47D515CD21564A6200FDD23C /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D515CB21564A6200FDD23C /* Utility.swift */; };
-		47D515CF2157713A00FDD23C /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D515CE2157713A00FDD23C /* Inventory.swift */; };
-		47D515D02157713A00FDD23C /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D515CE2157713A00FDD23C /* Inventory.swift */; };
 		47D515D22157752D00FDD23C /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D515D12157752D00FDD23C /* Customer.swift */; };
 		47D515D32157752D00FDD23C /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D515D12157752D00FDD23C /* Customer.swift */; };
 		47D515D5215775CA00FDD23C /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D515D4215775CA00FDD23C /* InputView.swift */; };
@@ -64,7 +62,6 @@
 		473FE17721533A0500A07CAB /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		479CE77021591AAB0025FCB7 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		47D515CB21564A6200FDD23C /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
-		47D515CE2157713A00FDD23C /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
 		47D515D12157752D00FDD23C /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		47D515D4215775CA00FDD23C /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		47D515D72157A11400FDD23C /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
@@ -125,7 +122,6 @@
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
 				473F0EC2215A0F0B00574DA9 /* VendingMachine.swift */,
 				47D515D12157752D00FDD23C /* Customer.swift */,
-				47D515CE2157713A00FDD23C /* Inventory.swift */,
 				473F0EE3215BD8AE00574DA9 /* Stock.swift */,
 				47D515CB21564A6200FDD23C /* Utility.swift */,
 				473CE64E2150F02A006BADDC /* Beverage.swift */,
@@ -232,7 +228,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				47D515D02157713A00FDD23C /* Inventory.swift in Sources */,
 				47D515CD21564A6200FDD23C /* Utility.swift in Sources */,
 				479CE77221591AAB0025FCB7 /* History.swift in Sources */,
 				473FE17C21536A0B00A07CAB /* Beverage.swift in Sources */,
@@ -257,7 +252,6 @@
 			files = (
 				473FE175215339FF00A07CAB /* Soda.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
-				47D515CF2157713A00FDD23C /* Inventory.swift in Sources */,
 				47D515D22157752D00FDD23C /* Customer.swift in Sources */,
 				47D515DE2157BBEC00FDD23C /* Error.swift in Sources */,
 				47D515CC21564A6200FDD23C /* Utility.swift in Sources */,

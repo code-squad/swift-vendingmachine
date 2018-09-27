@@ -8,36 +8,34 @@
 
 import Foundation
 
-struct VendingMachine {
-    private let customer = Customer.shared
-    private let inventory = Inventory.shared
-    private let history = History.shared
+class VendingMachine {
+    static let shared = VendingMachine()
+    private var beverages: [[Beverage]]?
     
-    public func excute(with type : Menu , value : Int) throws {
-        switch type {
-        case .addBalance: self.addBalance(value: value)
-        case .purchaseBeverage: try self.purchaseBeverage(value: value)
-        case .historyList: self.historyList()
-        }
+    // 재고 추가
+    public func stockUp(with beverages: [[Beverage]]) {
+        self.beverages = beverages
     }
     
-    private func addBalance(value : Int){
-        customer.charge(with: value)
+    public func list() -> [[Beverage]]? {
+        return self.beverages
     }
     
-    private func purchaseBeverage(value : Int) throws {
-        // 1. 판단 : 잔돈 >= 음료금액
-        // 2. 처리 : 잔액차감 , 음료재고차감 , 구매내역 저장
-        let isBalanceRemain = try inventory.isAvailablePurchase(target: value, balance: customer.presentBalance())
-        guard isBalanceRemain else { throw MachineError.lackBalance }
-        guard let beverage = inventory.remove(target: value) else { throw MachineError.outOfStock }
-        customer.remove(with: beverage.beveragePrice())
-        history.add(with: beverage)
-        OutputView.printPurchase(with: beverage)
+    public func remove(target: Int) -> Beverage? {
+        let index = target - 1
+        let beverage = self.beverages?[index].removeFirst()
+        
+        // 2차원 배열에서 빈배열의 경우 없애주기 위한 작업
+        self.beverages = self.beverages?.filter({$0.count > 0})
+        
+        return beverage
     }
     
-    private func historyList(){
-        let list = history.list()
-        OutputView.printHistory(with: list)
+    public func isAvailablePurchase(target: Int , balance: Int) throws -> Bool {
+        guard let beverages = self.beverages else { throw MachineError.outOfStock }
+        guard target <= beverages.count else { throw InputError.rangeExceed }
+        let index = target - 1
+        let result = beverages[index][0].isAvailablePurchase(with: balance)
+        return result
     }
 }
