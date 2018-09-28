@@ -26,12 +26,11 @@ class UnitTestVendingMachine: XCTestCase {
         let strawberryMilk3 = StrawberryMilk(dateOfManufacture: date)
         let beverages = [[coke1,coke2] , [strawberryMilk1,strawberryMilk2,strawberryMilk3]]
         // 재고 추가
-        let inventory = VendingMachine(with: beverages)
+        let vendingMachine = VendingMachine(with: beverages)
         // 잔액 추가
         let cash = Cash()
-        cash.charge(with: 10000)
-        // 구매 목록
-        let history = History()
+        cash.addBalance(with: 10000)
+
         let main = Main()
         do {
             try main.selectMenu(with: Menu.purchaseBeverage , value: 2)
@@ -40,13 +39,13 @@ class UnitTestVendingMachine: XCTestCase {
             try main.selectMenu(with: Menu.purchaseBeverage , value: 1)
             try main.selectMenu(with: Menu.purchaseBeverage , value: 1)
             let compareBeverages = [strawberryMilk1,strawberryMilk2,strawberryMilk3,coke1,coke2]
-            XCTAssertEqual(history.list(), compareBeverages)
+            XCTAssertEqual(vendingMachine.historyList(), compareBeverages)
         } catch let error {
             print(error)
         }
     }
     
-    // Inventory
+    // VendingMachine
     func testRemove_구매할때리스트에서삭제O() {
         let date = Date(timeIntervalSinceNow: -convertSeconds(15))
         let coke1 = Coke(dateOfManufacture: date)
@@ -55,30 +54,27 @@ class UnitTestVendingMachine: XCTestCase {
         let strawberryMilk2 = StrawberryMilk(dateOfManufacture: date)
         let strawberryMilk3 = StrawberryMilk(dateOfManufacture: date)
         let beverages = [[coke1,coke2] , [strawberryMilk1,strawberryMilk2,strawberryMilk3]]
-        let vendingMachine = VendingMachine()
-        vendingMachine.stockUp(with: beverages)
+        let vendingMachine = VendingMachine(with: beverages)
         _ = vendingMachine.remove(target: 1)
         let compareBeverages = [[coke2] , [strawberryMilk1,strawberryMilk2,strawberryMilk3]]
-        XCTAssertEqual(vendingMachine.list(), compareBeverages)
+        XCTAssertEqual(vendingMachine.stockList(), compareBeverages)
     }
     
-    // Inventory
+    // VendingMachine
     func testIsAvailablePurchase_구매가능O(){
         let date = Date(timeIntervalSinceNow: -convertSeconds(15))
         let coke = Coke(dateOfManufacture: date)
         let beverages = [[coke]]
-        let vendingMachine = VendingMachine()
-        vendingMachine.stockUp(with: beverages)
+        let vendingMachine = VendingMachine(with: beverages)
         XCTAssertTrue(try vendingMachine.isAvailablePurchase(target: 1, balance: 3000))
     }
     
-    // Inventory
+    // VendingMachine
     func testIsAvailablePurchase_구매가능X(){
         let date = Date(timeIntervalSinceNow: -convertSeconds(15))
         let coke = Coke(dateOfManufacture: date)
         let beverages = [[coke]]
-        let vendingMachine = VendingMachine()
-        vendingMachine.stockUp(with: beverages)
+        let vendingMachine = VendingMachine(with: beverages)
         XCTAssertFalse(try vendingMachine.isAvailablePurchase(target: 1, balance: 800))
     }
     
