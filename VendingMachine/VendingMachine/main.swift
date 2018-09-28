@@ -9,7 +9,7 @@
 import Foundation
 
 struct Main {
-    let vendingMachine = VendingMachine.shared
+    let vendingMachine = VendingMachine(with: Stock.prepareStock())
     let customer = Customer()
     let history = History()
     
@@ -60,11 +60,6 @@ struct Main {
 }
 
 do {
-    // 재고 추가
-    let stock = Stock.prepareStock()
-    let vendingMachine = VendingMachine.shared
-    vendingMachine.stockUp(with: stock)
-    
     // 시작
     let main = Main()
     try main.run()
