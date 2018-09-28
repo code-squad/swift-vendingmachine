@@ -1,5 +1,5 @@
 //
-//  Customer.swift
+//  Cash.swift
 //  VendingMachine
 //
 //  Created by oingbong on 2018. 9. 23..
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Customer {    
+class Cash {    
     private var balance = 0
     
     public func charge(with money : Int) {
