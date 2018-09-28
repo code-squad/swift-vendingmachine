@@ -28,8 +28,8 @@ class UnitTestVendingMachine: XCTestCase {
         // 재고 추가
         let inventory = VendingMachine(with: beverages)
         // 잔액 추가
-        let customer = Customer()
-        customer.charge(with: 10000)
+        let cash = Cash()
+        cash.charge(with: 10000)
         // 구매 목록
         let history = History()
         let main = Main()
