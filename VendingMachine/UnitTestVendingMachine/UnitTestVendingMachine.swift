@@ -26,10 +26,9 @@ class UnitTestVendingMachine: XCTestCase {
         let strawberryMilk3 = StrawberryMilk(dateOfManufacture: date)
         let beverages = [[coke1,coke2] , [strawberryMilk1,strawberryMilk2,strawberryMilk3]]
         // 재고 추가
-        let inventory = VendingMachine.shared
-        inventory.stockUp(with: beverages)
+        let inventory = VendingMachine(with: beverages)
         // 잔액 추가
-        let customer = Customer.shared
+        let customer = Customer()
         customer.charge(with: 10000)
         // 구매 목록
         let history = History()
