@@ -11,7 +11,7 @@ import Foundation
 class Cash {    
     private var balance = 0
     
-    public func charge(with money : Int) {
+    public func addBalance(with money : Int) {
         self.balance += money
     }
 
