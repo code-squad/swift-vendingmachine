@@ -17,11 +17,6 @@ class VendingMachine {
         self.beverages = beverages
     }
     
-    // 재고 추가
-    public func stockUp(with beverages: [[Beverage]]) {
-        self.beverages = beverages
-    }
-    
     public func stockList() -> [[Beverage]]? {
         return self.beverages
     }
