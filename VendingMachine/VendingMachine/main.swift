@@ -10,16 +10,14 @@ import Foundation
 
 struct Main {
     let vendingMachine = VendingMachine(with: Stock.prepareStock())
-    let cash = Cash()
-    let history = History()
     
     public func run() throws {
         while true {
             // 출력 : 1. 잔액 2. 재고 3. 선택 메뉴
-            let balance = cash.presentBalance()
-            let list = vendingMachine.list()
+            let balance =  vendingMachine.presentBalance()
+            let stockList = vendingMachine.stockList()
             OutputView.printPresentBalance(with: balance)
-            try OutputView.printInventoryList(with: list)
+            try OutputView.printInventoryList(with: stockList)
             OutputView.printSelectMenu()
             
             // 입력값 받기
@@ -39,22 +37,20 @@ struct Main {
     }
     
     private func addBalance(value : Int){
-        cash.charge(with: value)
+        vendingMachine.addBalance(value: value)
     }
     
     private func purchaseBeverage(value : Int) throws {
         // 1. 판단 : 잔돈 >= 음료금액
         // 2. 처리 : 잔액차감 , 음료재고차감 , 구매내역 저장
-        let isBalanceRemain = try vendingMachine.isAvailablePurchase(target: value, balance: cash.presentBalance())
+        let isBalanceRemain = try vendingMachine.isAvailablePurchase(target: value, balance: vendingMachine.presentBalance())
         guard isBalanceRemain else { throw MachineError.lackBalance }
         guard let beverage = vendingMachine.remove(target: value) else { throw MachineError.outOfStock }
-        cash.remove(with: beverage.beveragePrice())
-        history.add(with: beverage)
         OutputView.printPurchase(with: beverage)
     }
     
     private func historyList(){
-        let list = history.list()
+        let list = vendingMachine.historyList()
         OutputView.printHistory(with: list)
     }
 }
