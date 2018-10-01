@@ -93,12 +93,12 @@ class VendingMachine {
         return beverages
     }
     
-    public func expiredBeverages() throws -> [[Beverage]] {
+    public func expiredBeverages() throws -> [[Beverage:Int]] {
         // 출력
         // 유통기한 지난 음료 리스트
         guard let stockList = self.stockList() else { throw MachineError.outOfStock }
         
-        var expiredBeverages = [[Beverage]]()
+        var expiredBeverages = [[Beverage:Int]]()
         var addIndex = 0
         for index in 0..<stockList.count {
             if let beverages = expiredBeverage(with: stockList[index]) {
@@ -111,14 +111,61 @@ class VendingMachine {
         return expiredBeverages
     }
     
-    private func expiredBeverage(with beverages : [Beverage]) -> [Beverage]? {
+    private func expiredBeverage(with beverages : [Beverage]) -> [Beverage:Int]? {
         let today = Date(timeIntervalSinceNow: 0)
-        var expiredBeverages = [Beverage]()
+        var expiredBeverages = [Beverage:Int]()
         for index in 0..<beverages.count {
             if beverages[index].isExpirationDate(with: today) {
-                expiredBeverages.append(beverages[index])
+                expiredBeverages.updateValue(index, forKey: beverages[index])
             }
         }
         return expiredBeverages.count == 0 ? nil : expiredBeverages
+    }
+    
+    public static func printExpiredBeverages(with beverages : [[Beverage:Int]]) {
+        var result = ""
+        for index in 0..<beverages.count {
+            result += ("\(index+1)) \(beverages[index].map({ $0.key.beverageName() })[0]) (\(beverages[index].count)개)\n")
+        }
+        print("유통기한(14일)이 지난 음료 리스트입니다.")
+        print(result)
+    }
+    
+    public func removeExpiredBeverage(with expiredBeverages : [[Beverage:Int]]) throws -> [Beverage] {
+        /*
+         key : className 동일한 것 찾기
+         value : index 찾아서 제거하기
+         
+         과정
+         1. 재고목록을 복사합니다.
+         2. 유통기한이 지난 음료와 재고목록과 비교하여 있는 경우 삭제합니다.
+         3. 삭제할 때 뒤의 index 부터 삭제를 하기 위해 삭제해야 될 인덱스값 추출 후에 정렬하고 제거합니다.
+         * : reverse 함수를 사용해보려 했으나 Dictionary는 정렬하는게 쉽지 않아서 값 추출 이후에 정렬하는 것으로 대체하였습니다.
+         4. 변경된 재고목록으로 대체 저장합니다.
+         */
+        guard var stockList = self.stockList() else { throw MachineError.outOfStock }
+        var removedExpiredBeverages = [Beverage]()
+        for expiredIndex in 0..<expiredBeverages.count {
+            for stockIndex in 0..<stockList.count {
+                let expiredBeverageName = expiredBeverages[expiredIndex].map({ $0.key.beverageName() })[0]
+                let stockBeverageName = stockList[stockIndex][0].beverageName()
+                if expiredBeverageName == stockBeverageName {
+                    var removeIndexList = [Int]()
+                    for expiredBeverage in expiredBeverages[expiredIndex] {
+                        let removeIndex = expiredBeverage.value
+                        removeIndexList.append(removeIndex)
+                    }
+                    for removeIndex in removeIndexList.sorted(by: >) {
+                        let beverage = stockList[stockIndex].remove(at: removeIndex)
+                        removedExpiredBeverages.append(beverage)
+                    }
+                }
+            
+            }
+        }
+        
+        self.beverages = stockList
+        
+        return removedExpiredBeverages
     }
 }

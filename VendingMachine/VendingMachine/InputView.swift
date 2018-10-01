@@ -64,4 +64,11 @@ struct InputView {
         }
         return (target , amount)
     }
+    
+    public static func isRemoveExpiredBeverages() throws -> Bool {
+        guard let input = InputView.readInput() else { throw InputError.empty }
+        guard let select = Int(input) else { throw InputError.incorrect }
+        guard select == 1 || select == 2 else { throw InputError.rangeExceed }
+        return select == 1 ? true : false
+    }
 }

@@ -68,12 +68,21 @@ struct OutputView {
         print(beverages.map({"\($0.description)"}).joined(separator: "\n"))
     }
     
-    public static func printExpiredBeverages(with beverages : [[Beverage]]) {
+    public static func printExpiredBeverages(with beverages : [[Beverage:Int]]) {
         var result = ""
         for index in 0..<beverages.count {
-            result += ("\(index+1)) \(beverages[index][0].beverageName()) (\(beverages[index].count)개)\n")
+            result += ("\(index+1)) \(beverages[index].map({ $0.key.beverageName() })[0]) (\(beverages[index].count)개)\n")
         }
-        print("유통기한(14일)이 지난 음료 리스트입니다.")
+        print("유통기한(14일)이 지난 음료 리스트입니다. 삭제하시겠습니까?")
         print(result)
+        print("1. 삭제하기")
+        print("2. 종료하기")
+    }
+    
+    public static func printRemoveExpiredBeverages(with beverages : [Beverage]) {
+        print("아래 음료 목록이 제거되었습니다.")
+        for beverage in beverages {
+            print("\(beverage.beverageName()) 음료가 제거되었습니다.")
+        }
     }
 }

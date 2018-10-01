@@ -76,9 +76,14 @@ struct AdminMode {
         // 유통기한 지난 음료 리스트
         let expiredBeverages = try vendingMachine.expiredBeverages()
         OutputView.printExpiredBeverages(with: expiredBeverages)
-        
+
         // 입력 선택
-        // 1) 폐기할 음료 선택 및 수량
-        // 2) 종료하기
+        // 1) 음료를 폐기합니다.
+        // 2) 아무런 작업하지 않고 종료합니다.
+        let isRemoveExpiredBeverages = try InputView.isRemoveExpiredBeverages()
+        if isRemoveExpiredBeverages {
+            let removedBeverages = try vendingMachine.removeExpiredBeverage(with: expiredBeverages)
+            OutputView.printRemoveExpiredBeverages(with: removedBeverages)
+        }
     }
 }
