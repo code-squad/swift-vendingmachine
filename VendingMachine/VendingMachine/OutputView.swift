@@ -44,4 +44,18 @@ struct OutputView {
         print("자판기를 시작합니다.")
         print(Mode.allCases.map({"\($0.rawValue + 1). \($0.description)"}).joined(separator: "\n"))
     }
+    
+    public static func printSelectMenuAdmin() {
+        print("원하는 작업을 선택해주세요.")
+        print(MenuAdmin.allCases.map({"\($0.rawValue + 1). \($0.description)"}).joined(separator: "\n"))
+    }
+    
+    public static func printAppendableBeverages() {
+        print("추가 할 음료를 선택해주세요.")
+        print(Product.allCases.map({"\($0.rawValue + 1)) \($0.description)"}).joined(separator: "\n"))
+    }
+    
+    public static func printAddedBeverages(with beverages : [Beverage]) {
+        print("\(beverages[0].beverageName()) 음료가 \(beverages.count)개 추가되었습니다.")
+    }
 }

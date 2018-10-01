@@ -7,3 +7,51 @@
 //
 
 import Foundation
+
+struct AdminMode {
+    let vendingMachine : VendingMachine
+    
+    init(with vendingMachine : VendingMachine) {
+        self.vendingMachine = vendingMachine
+    }
+    
+    public func start() throws {
+        var isContinue = true
+        while isContinue {
+            OutputView.printSelectMenuAdmin()
+            let type = try InputView.selectMenuTypeAdmin()
+            isContinue = try self.selectMenu(with: type)
+        }
+    }
+    
+    public func selectMenu(with type : MenuAdmin) throws -> Bool {
+        switch type {
+        case .addStock:
+            // 재고추가
+            try self.addStock()
+            return true
+        case .deleteStock:
+            // 재고삭제
+            return true
+        case .disposeOfExpiredDrinks:
+            // 유통기한 지난 음료 폐기
+            return true
+        case .exit:
+            return false
+        }
+    }
+    
+    private func addStock() throws {
+        // 출력
+        // 추가 가능한 음료 리스트
+        OutputView.printAppendableBeverages()
+        
+        // 입력 선택
+        // 1) 추가할 음료 선택 및 수량
+        // 2) 종료하기
+        let (target , amount) = try InputView.selectAddBeverage()
+        let beverages = AddingBeverage.select(target: target, amonut: amount)
+        let addedBeverages = vendingMachine.addStock(with: beverages)
+        OutputView.printAddedBeverages(with: addedBeverages)
+    }
+}

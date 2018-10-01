@@ -10,6 +10,7 @@ import Foundation
 
 struct UserMode {
     let vendingMachine : VendingMachine
+    
     init(with vendingMachine : VendingMachine) {
         self.vendingMachine = vendingMachine
     }

@@ -24,6 +24,8 @@ struct Main {
         switch type {
         case .admin:
             // 관리자 메뉴 선택
+            let adminMode = AdminMode(with: vendingMachine)
+            try adminMode.start()
             return true
         case .user:
             // 사용자 메뉴 선택

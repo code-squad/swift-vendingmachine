@@ -43,4 +43,25 @@ struct InputView {
         let modeType = try Mode.select(with: type)
         return modeType
     }
+    
+    public static func selectMenuTypeAdmin() throws -> MenuAdmin {
+        guard let input = InputView.readInput() else { throw InputError.empty }
+        guard let type = Int(input) else { throw InputError.incorrect }
+        let menuType = try MenuAdmin.select(with: type)
+        return menuType
+    }
+    
+    public static func selectAddBeverage() throws -> (Int , Int) {
+        guard let input = InputView.readInput() else { throw InputError.empty }
+        let elements = input.components(separatedBy: " ")
+        guard elements.count == 2 else { throw InputError.incorrect }
+        
+        guard let target = Int(elements[0]) else { throw InputError.incorrect }
+        var amount = 1
+        if elements.count == 2 {
+            guard let element = Int(elements[1]) else { throw InputError.incorrect }
+            amount = element
+        }
+        return (target , amount)
+    }
 }

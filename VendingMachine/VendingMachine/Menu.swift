@@ -56,3 +56,29 @@ enum Mode : Int, CaseIterable , CustomStringConvertible {
         }
     }
 }
+
+enum MenuAdmin : Int, CaseIterable , CustomStringConvertible {
+    case addStock
+    case deleteStock
+    case disposeOfExpiredDrinks
+    case exit
+    
+    var description: String {
+        switch self {
+        case .addStock: return "재고추가"
+        case .deleteStock: return "재고삭제"
+        case .disposeOfExpiredDrinks: return "유툥기한 지난 음료 폐기"
+        case .exit: return "종료하기"
+        }
+    }
+    
+    public static func select(with type : Int ) throws -> MenuAdmin {
+        switch type {
+        case 1: return MenuAdmin.addStock
+        case 2: return MenuAdmin.deleteStock
+        case 3: return MenuAdmin.disposeOfExpiredDrinks
+        case 4: return MenuAdmin.exit
+        default: throw InputError.rangeExceed
+        }
+    }
+}
