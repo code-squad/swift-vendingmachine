@@ -92,4 +92,33 @@ class VendingMachine {
         
         return beverages
     }
+    
+    public func expiredBeverages() throws -> [[Beverage]] {
+        // 출력
+        // 유통기한 지난 음료 리스트
+        guard let stockList = self.stockList() else { throw MachineError.outOfStock }
+        
+        var expiredBeverages = [[Beverage]]()
+        var addIndex = 0
+        for index in 0..<stockList.count {
+            if let beverages = expiredBeverage(with: stockList[index]) {
+                expiredBeverages.append(beverages)
+                addIndex += 1
+            }
+        }
+        
+        guard expiredBeverages.count > 0 else { throw MachineError.outOfExpiredStock }
+        return expiredBeverages
+    }
+    
+    private func expiredBeverage(with beverages : [Beverage]) -> [Beverage]? {
+        let today = Date(timeIntervalSinceNow: 0)
+        var expiredBeverages = [Beverage]()
+        for index in 0..<beverages.count {
+            if beverages[index].isExpirationDate(with: today) {
+                expiredBeverages.append(beverages[index])
+            }
+        }
+        return expiredBeverages.count == 0 ? nil : expiredBeverages
+    }
 }
