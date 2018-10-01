@@ -12,46 +12,28 @@ struct Main {
     let vendingMachine = VendingMachine(with: Stock.prepareStock())
     
     public func run() throws {
-        while true {
-            // 출력 : 1. 잔액 2. 재고 3. 선택 메뉴
-            let balance =  vendingMachine.presentBalance()
-            let stockList = vendingMachine.stockList()
-            OutputView.printPresentBalance(with: balance)
-            try OutputView.printInventoryList(with: stockList)
-            OutputView.printSelectMenu()
-            
-            // 입력값 받기
-            let (menuType, value) = try InputView.selectMenuType()
-            
-            // 메뉴에 따른 실행
-            try self.selectMenu(with: menuType, value: value)
+        var isContinue = true
+        while isContinue {
+            OutputView.printSelectMode()
+            let mode = try InputView.selectModeType()
+            isContinue = try self.selectMode(with: mode)
         }
     }
-    
-    public func selectMenu(with type : Menu , value : Int) throws {
+
+    public func selectMode(with type : Mode) throws -> Bool {
         switch type {
-        case .addBalance: self.addBalance(value: value)
-        case .purchaseBeverage: try self.purchaseBeverage(value: value)
-        case .historyList: self.historyList()
+        case .admin:
+            // 관리자 메뉴 선택
+            return true
+        case .user:
+            // 사용자 메뉴 선택
+            let userMode = UserMode(with: vendingMachine)
+            try userMode.start()
+            return true
+        case .exit:
+            // 종료하기
+            return false
         }
-    }
-    
-    private func addBalance(value : Int){
-        vendingMachine.addBalance(value: value)
-    }
-    
-    private func purchaseBeverage(value : Int) throws {
-        // 1. 판단 : 잔돈 >= 음료금액
-        // 2. 처리 : 잔액차감 , 음료재고차감 , 구매내역 저장
-        let isBalanceRemain = try vendingMachine.isAvailablePurchase(target: value, balance: vendingMachine.presentBalance())
-        guard isBalanceRemain else { throw MachineError.lackBalance }
-        guard let beverage = vendingMachine.remove(target: value) else { throw MachineError.outOfStock }
-        OutputView.printPurchase(with: beverage)
-    }
-    
-    private func historyList(){
-        let list = vendingMachine.historyList()
-        OutputView.printHistory(with: list)
     }
 }
 
@@ -59,6 +41,7 @@ do {
     // 시작
     let main = Main()
     try main.run()
+//    try main.dd()
 } catch let error as Errorable {
     OutputView.printError(with: error)
 }

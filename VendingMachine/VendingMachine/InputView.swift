@@ -36,4 +36,11 @@ struct InputView {
         if inputValue.isEmpty { return nil }
         return inputValue
     }
+    
+    public static func selectModeType() throws -> Mode {
+        guard let input = InputView.readInput() else { throw InputError.empty }
+        guard let type = Int(input) else { throw InputError.incorrect }
+        let modeType = try Mode.select(with: type)
+        return modeType
+    }
 }

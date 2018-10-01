@@ -39,4 +39,9 @@ struct OutputView {
         print("다음과 같은 구매이력이 있습니다.")
         print(beverages.map({"\($0.description)"}).joined(separator: "\n"))
     }
+    
+    public static func printSelectMode() {
+        print("자판기를 시작합니다.")
+        print(Mode.allCases.map({"\($0.rawValue + 1). \($0.description)"}).joined(separator: "\n"))
+    }
 }
