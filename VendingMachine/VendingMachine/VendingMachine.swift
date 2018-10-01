@@ -79,4 +79,17 @@ class VendingMachine {
         self.beverages.append(addBeverages)
         return addBeverages
     }
+    
+    public func removeStock(target : Int , amount : Int) -> [Beverage] {
+        let index = target - 1
+        var beverages = [Beverage]()
+        for _ in 1...amount {
+            beverages.append(self.beverages[index].removeFirst())
+        }
+        
+        // 2차원 배열에서 빈배열의 경우 없애주기 위한 작업
+        self.beverages = self.beverages.filter({$0.count > 0})
+        
+        return beverages
+    }
 }

@@ -58,4 +58,8 @@ struct OutputView {
     public static func printAddedBeverages(with beverages : [Beverage]) {
         print("\(beverages[0].beverageName()) 음료가 \(beverages.count)개 추가되었습니다.")
     }
+    
+    public static func printRemovedBeverages(with beverages : [Beverage]) {
+        print("\(beverages[0].beverageName()) 음료가 \(beverages.count)개 제거되었습니다.")
+    }
 }

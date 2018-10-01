@@ -32,6 +32,7 @@ struct AdminMode {
             return true
         case .deleteStock:
             // 재고삭제
+            try self.deleteStock()
             return true
         case .disposeOfExpiredDrinks:
             // 유통기한 지난 음료 폐기
@@ -53,5 +54,19 @@ struct AdminMode {
         let beverages = AddingBeverage.select(target: target, amonut: amount)
         let addedBeverages = vendingMachine.addStock(with: beverages)
         OutputView.printAddedBeverages(with: addedBeverages)
+    }
+    
+    private func deleteStock() throws {
+        // 출력
+        // 제거 가능한 음료 리스트
+        let stockList = vendingMachine.stockList()
+        try OutputView.printInventoryList(with: stockList)
+        
+        // 입력 선택
+        // 1) 제거할 음료 선택 및 수량
+        // 2) 종료하기
+        let (target , amount) = try InputView.selectAddBeverage()
+        let removedBeverages = vendingMachine.removeStock(target: target, amount: amount)
+        OutputView.printRemovedBeverages(with: removedBeverages)
     }
 }
