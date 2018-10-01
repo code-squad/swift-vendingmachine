@@ -81,14 +81,24 @@ enum Product : CustomStringConvertible {
     }
 }
 
-struct RandomBeverage {
-    public static func random(select : Int) -> [Beverage] {
-        var beverages = [Beverage]()
+struct AddingBeverage {
+    public static func random(target : Int) -> [Beverage] {
         let numberOfBeverageType = Int.random(in: 2...5)
-        for _ in 1...numberOfBeverageType {
+        let beverages = addBeverage(with: target, amonut: numberOfBeverageType)
+        return beverages
+    }
+    
+    public static func select(target : Int , amonut : Int) -> [Beverage] {
+        let beverages = addBeverage(with: target, amonut: amonut)
+        return beverages
+    }
+    
+    private static func addBeverage(with target : Int , amonut : Int) -> [Beverage] {
+        var beverages = [Beverage]()
+        for _ in 1...amonut {
             let randomDate = Int.random(in: 1...20)
             let secondsOfDate = -convertSeconds(randomDate)
-            switch select {
+            switch target {
             case 1: beverages.append(StrawberryMilk(dateOfManufacture: Date(timeIntervalSinceNow: secondsOfDate)))
             case 2: beverages.append(ChocolateMilk(dateOfManufacture: Date(timeIntervalSinceNow: secondsOfDate)))
             case 3: beverages.append(BananaMilk(dateOfManufacture: Date(timeIntervalSinceNow: secondsOfDate)))
