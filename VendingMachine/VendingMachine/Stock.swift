@@ -15,7 +15,7 @@ struct Stock {
         let numberOfBeverageType = Int.random(in: 4...8)
         for _ in 1...numberOfBeverageType {
             let numberPerItem = Int.random(in: 1...9)
-            let beverage = RandomBeverage.random(select: numberPerItem)
+            let beverage = AddingBeverage.random(target: numberPerItem)
             // 음료 중복 확인
             var isDuplicate = false
             for savedItem in beverages {

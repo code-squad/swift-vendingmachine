@@ -55,7 +55,7 @@ enum Brand : CustomStringConvertible {
     }
 }
 
-enum Product : CustomStringConvertible {
+enum Product : Int, CustomStringConvertible , CaseIterable {
     case organicStrawberryMilk
     case seoulChocoMilk
     case bananasAreNaturallyWhite
@@ -84,18 +84,18 @@ enum Product : CustomStringConvertible {
 struct AddingBeverage {
     public static func random(target : Int) -> [Beverage] {
         let numberOfBeverageType = Int.random(in: 2...5)
-        let beverages = addBeverage(with: target, amonut: numberOfBeverageType)
+        let beverages = addBeverage(with: target, amount: numberOfBeverageType)
         return beverages
     }
     
     public static func select(target : Int , amonut : Int) -> [Beverage] {
-        let beverages = addBeverage(with: target, amonut: amonut)
+        let beverages = addBeverage(with: target, amount: amonut)
         return beverages
     }
     
-    private static func addBeverage(with target : Int , amonut : Int) -> [Beverage] {
+    private static func addBeverage(with target : Int , amount : Int) -> [Beverage] {
         var beverages = [Beverage]()
-        for _ in 1...amonut {
+        for _ in 1...amount {
             let randomDate = Int.random(in: 1...20)
             let secondsOfDate = -convertSeconds(randomDate)
             switch target {
