@@ -8,7 +8,33 @@
 
 import Foundation
 
-struct OutputView {
+protocol CommonPrintable {
+    static func printInventoryList(with beverages: [[Beverage]]?) throws
+}
+
+protocol UserPrintable : CommonPrintable {
+    static func printPresentBalance(with balance: Int)
+    static func printSelectMenu()
+    static func printPurchase(with beverage : Beverage)
+    static func printHistory(with beverages : [Beverage])
+    
+}
+
+protocol AdminPrintable : CommonPrintable {
+    static func printSelectMenuAdmin()
+    static func printAppendableBeverages()
+    static func printAddedBeverages(with beverages : [Beverage])
+    static func printRemovedBeverages(with beverages : [Beverage])
+    static func printExpiredBeverages(with beverages : [[Beverage:Int]])
+    static func printRemoveExpiredBeverages(with beverages : [Beverage])
+}
+
+protocol MainPrintable {
+    static func printError(with error : Errorable)
+    static func printSelectMode()
+}
+
+struct OutputView : UserPrintable , AdminPrintable {
     public static func printInventoryList(with beverages: [[Beverage]]?) throws {
         guard let beverage = beverages else { throw MachineError.outOfStock }
         var result = ""
@@ -61,11 +87,6 @@ struct OutputView {
     
     public static func printRemovedBeverages(with beverages : [Beverage]) {
         print("\(beverages[0].beverageName()) 음료가 \(beverages.count)개 제거되었습니다.")
-    }
-    
-    public static func printExpiredBeverages(with beverages : [Beverage]) {
-        print("유통기한(14일)이 지난 음료 리스트입니다.")
-        print(beverages.map({"\($0.description)"}).joined(separator: "\n"))
     }
     
     public static func printExpiredBeverages(with beverages : [[Beverage:Int]]) {
