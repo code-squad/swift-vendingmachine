@@ -8,9 +8,26 @@
 
 import Foundation
 
+protocol CommonWritable {
+    static func readInput() -> String?
+    static func isEmpty(to value:String?) -> String?
+}
+
+protocol UserWritable {
+    static func selectMenuType() throws -> (Menu , Int)
+}
+
+protocol AdminWritable {
+    static func selectMenuTypeAdmin() throws -> MenuAdmin
+    static func selectAddBeverage() throws -> (Int , Int)
+    static func isRemoveExpiredBeverages() throws -> Bool
+}
+
+protocol MainWritable {
+    static func selectModeType() throws -> Mode
+}
+
 struct InputView {
-    public static var correspondingInputValue:Int? // 메뉴에 해당되는 입력값
-    
     public static func selectMenuType() throws -> (Menu , Int) {
         guard let input = InputView.readInput() else { throw InputError.empty }
         let elements = input.components(separatedBy: " ")
