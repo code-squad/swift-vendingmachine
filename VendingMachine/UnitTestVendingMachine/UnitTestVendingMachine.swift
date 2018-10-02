@@ -15,8 +15,140 @@ class UnitTestVendingMachine: XCTestCase {
         return Double(date * 86400)
     }
     
-    // Integration Test
-    func test_통합테스트() {
+    // AdminMode
+    func test_AdminMode_유통기한지난재고_삭제() {
+        let date = Date(timeIntervalSinceNow: -convertSeconds(10))
+        let expiredDate = Date(timeIntervalSinceNow: -convertSeconds(15))
+        let coke1 = Coke(dateOfManufacture: date)
+        let coke2 = Coke(dateOfManufacture: date)
+        let strawberryMilk1 = StrawberryMilk(dateOfManufacture: date)
+        let strawberryMilk2 = StrawberryMilk(dateOfManufacture: date)
+        let strawberryMilk3 = StrawberryMilk(dateOfManufacture: date)
+        let topCoffee1 = TOP(dateOfManufacture: expiredDate)
+        let topCoffee2 = TOP(dateOfManufacture: expiredDate)
+        let beverages = [[coke1,coke2] , [strawberryMilk1,strawberryMilk2,strawberryMilk3],[topCoffee1,topCoffee2]]
+        // 재고 추가
+        let vendingMachine = VendingMachine(with: beverages)
+        
+        // 유통기한 지난 음료
+        var expiredBeverages = [[Beverage:Int]]()
+        var expiredBeverage = [Beverage:Int]()
+        expiredBeverage.updateValue(0, forKey: topCoffee1)
+        expiredBeverage.updateValue(1, forKey: topCoffee2)
+        expiredBeverages.append(expiredBeverage)
+        
+        let compareBeverages = [[coke1,coke2] , [strawberryMilk1,strawberryMilk2,strawberryMilk3]]
+        
+        do {
+            _ = try vendingMachine.removeExpiredBeverage(with: expiredBeverages)
+            
+        } catch let error {
+            print(error)
+        }
+        if let stockList = vendingMachine.stockList() {
+            let list = stockList.filter({ $0.count > 0 })
+            XCTAssertEqual(list, compareBeverages)
+        }
+        
+    }
+    
+    // AdminMode
+    func test_AdminMode_유통기한지난재고_확인() {
+        let date = Date(timeIntervalSinceNow: -convertSeconds(10))
+        let expiredDate = Date(timeIntervalSinceNow: -convertSeconds(15))
+        let coke1 = Coke(dateOfManufacture: date)
+        let coke2 = Coke(dateOfManufacture: date)
+        let strawberryMilk1 = StrawberryMilk(dateOfManufacture: date)
+        let strawberryMilk2 = StrawberryMilk(dateOfManufacture: date)
+        let strawberryMilk3 = StrawberryMilk(dateOfManufacture: date)
+        let topCoffee1 = TOP(dateOfManufacture: expiredDate)
+        let topCoffee2 = TOP(dateOfManufacture: expiredDate)
+        let beverages = [[coke1,coke2] , [strawberryMilk1,strawberryMilk2,strawberryMilk3],[topCoffee1,topCoffee2]]
+        // 재고 추가
+        let vendingMachine = VendingMachine(with: beverages)
+        
+        // 유통기한 지난 음료
+        var expiredBeverages = [[Beverage:Int]]()
+        var expiredBeverage = [Beverage:Int]()
+        expiredBeverage.updateValue(0, forKey: topCoffee1)
+        expiredBeverage.updateValue(1, forKey: topCoffee2)
+        expiredBeverages.append(expiredBeverage)
+
+        do {
+            XCTAssertEqual(try vendingMachine.expiredBeverages(), expiredBeverages)
+        } catch let error {
+            print(error)
+        }
+    }
+    
+    // AdminMode
+    func test_AdminMode_재고삭제() {
+        let date = Date(timeIntervalSinceNow: -convertSeconds(15))
+        let coke1 = Coke(dateOfManufacture: date)
+        let coke2 = Coke(dateOfManufacture: date)
+        let strawberryMilk1 = StrawberryMilk(dateOfManufacture: date)
+        let strawberryMilk2 = StrawberryMilk(dateOfManufacture: date)
+        let strawberryMilk3 = StrawberryMilk(dateOfManufacture: date)
+        let beverages = [[coke1,coke2] , [strawberryMilk1,strawberryMilk2,strawberryMilk3]]
+        // 재고 추가
+        let vendingMachine = VendingMachine(with: beverages)
+
+        // 입력값에서는 index 1 부터 시작
+        _ = vendingMachine.removeStock(target: 1, amount: 1)
+        _ = vendingMachine.removeStock(target: 2, amount: 1)
+        
+        let compareBeverages = [[coke2] , [strawberryMilk2,strawberryMilk3]]
+        
+        XCTAssertEqual(vendingMachine.stockList(), compareBeverages)
+    }
+    
+    // AdminMode
+    func test_AdminMode_재고추가() {
+        let date = Date(timeIntervalSinceNow: -convertSeconds(15))
+        let coke1 = Coke(dateOfManufacture: date)
+        let coke2 = Coke(dateOfManufacture: date)
+        let strawberryMilk1 = StrawberryMilk(dateOfManufacture: date)
+        let strawberryMilk2 = StrawberryMilk(dateOfManufacture: date)
+        let strawberryMilk3 = StrawberryMilk(dateOfManufacture: date)
+        let beverages = [[coke1,coke2] , [strawberryMilk1,strawberryMilk2,strawberryMilk3]]
+        // 재고 추가
+        let vendingMachine = VendingMachine(with: beverages)
+
+        let topCoffee1 = TOP(dateOfManufacture: date)
+        let topCoffee2 = TOP(dateOfManufacture: date)
+        let addBeverages = [topCoffee1 , topCoffee2]
+        _ = vendingMachine.addStock(with: addBeverages)
+        
+        let compareBeverages = [[coke1,coke2] , [strawberryMilk1,strawberryMilk2,strawberryMilk3] , [topCoffee1,topCoffee2]]
+        
+        XCTAssertEqual(vendingMachine.stockList(), compareBeverages)
+    }
+    
+    // UserMode
+    func test_UserMode_잔액추가() {
+        let date = Date(timeIntervalSinceNow: -convertSeconds(15))
+        let coke1 = Coke(dateOfManufacture: date)
+        let coke2 = Coke(dateOfManufacture: date)
+        let strawberryMilk1 = StrawberryMilk(dateOfManufacture: date)
+        let strawberryMilk2 = StrawberryMilk(dateOfManufacture: date)
+        let strawberryMilk3 = StrawberryMilk(dateOfManufacture: date)
+        let beverages = [[coke1,coke2] , [strawberryMilk1,strawberryMilk2,strawberryMilk3]]
+        // 재고 추가
+        let vendingMachine = VendingMachine(with: beverages)
+        // 잔액 추가
+        vendingMachine.addBalance(value: 10000)
+        
+        let userMode = UserMode(with: vendingMachine)
+        do {
+            _ = try userMode.selectMenu(with: Menu.addBalance , value: 5000)
+            XCTAssertEqual(vendingMachine.presentBalance(), 15000)
+        } catch let error {
+            print(error)
+        }
+    }
+    
+    // UserMode
+    func test_UserMode_통합테스트() {
         let date = Date(timeIntervalSinceNow: -convertSeconds(15))
         let coke1 = Coke(dateOfManufacture: date)
         let coke2 = Coke(dateOfManufacture: date)
@@ -29,13 +161,13 @@ class UnitTestVendingMachine: XCTestCase {
         // 잔액 추가
         vendingMachine.addBalance(value: 10000)
 
-        let main = Main()
+        let userMode = UserMode(with: vendingMachine)
         do {
-            try main.selectMenu(with: Menu.purchaseBeverage , value: 2)
-            try main.selectMenu(with: Menu.purchaseBeverage , value: 2)
-            try main.selectMenu(with: Menu.purchaseBeverage , value: 2)
-            try main.selectMenu(with: Menu.purchaseBeverage , value: 1)
-            try main.selectMenu(with: Menu.purchaseBeverage , value: 1)
+            _ = try userMode.selectMenu(with: Menu.purchaseBeverage , value: 2)
+            _ = try userMode.selectMenu(with: Menu.purchaseBeverage , value: 2)
+            _ = try userMode.selectMenu(with: Menu.purchaseBeverage , value: 2)
+            _ = try userMode.selectMenu(with: Menu.purchaseBeverage , value: 1)
+            _ = try userMode.selectMenu(with: Menu.purchaseBeverage , value: 1)
             let compareBeverages = [strawberryMilk1,strawberryMilk2,strawberryMilk3,coke1,coke2]
             XCTAssertEqual(vendingMachine.historyList(), compareBeverages)
         } catch let error {
