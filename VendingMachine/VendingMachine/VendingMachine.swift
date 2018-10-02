@@ -9,13 +9,10 @@
 import Foundation
 
 protocol Common {
-    var beverages:[[Beverage]] { set get }
     func stockList() -> [[Beverage]]?
 }
 
 protocol Userable : Common {
-    var cash:Cash { set get }
-    var history:History { set get }
     func remove(target:Int) -> Beverage?
     func addBalance(value:Int)
     func presentBalance() -> Int
@@ -32,9 +29,9 @@ protocol Adminible : Common {
 }
 
 class VendingMachine : Userable , Adminible {
-    internal var beverages: [[Beverage]]
-    internal var cash = Cash()
-    internal var history = History()
+    private var beverages: [[Beverage]]
+    private var cash = Cash()
+    private var history = History()
     
     init(with beverages: [[Beverage]]) {
         self.beverages = beverages

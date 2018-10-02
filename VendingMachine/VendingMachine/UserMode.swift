@@ -9,18 +9,18 @@
 import Foundation
 
 struct UserMode {
-    let vendingMachine : VendingMachine
+    let userable : Userable
     
-    init(with vendingMachine : VendingMachine) {
-        self.vendingMachine = vendingMachine
+    init(with userable : Userable) {
+        self.userable = userable
     }
     
     public func start() throws {
         var isContinue = true
         while isContinue {
             // 출력 : 1. 잔액 2. 재고 3. 선택 메뉴
-            let balance =  vendingMachine.presentBalance()
-            let stockList = vendingMachine.stockList()
+            let balance =  userable.presentBalance()
+            let stockList = userable.stockList()
             OutputView.printPresentBalance(with: balance)
             try OutputView.printInventoryList(with: stockList)
             OutputView.printSelectMenu()
@@ -50,20 +50,20 @@ struct UserMode {
     }
     
     private func addBalance(value : Int){
-        vendingMachine.addBalance(value: value)
+        userable.addBalance(value: value)
     }
     
     private func purchaseBeverage(value : Int) throws {
         // 1. 판단 : 잔돈 >= 음료금액
         // 2. 처리 : 잔액차감 , 음료재고차감 , 구매내역 저장
-        let isBalanceRemain = try vendingMachine.isAvailablePurchase(target: value, balance: vendingMachine.presentBalance())
+        let isBalanceRemain = try userable.isAvailablePurchase(target: value, balance: userable.presentBalance())
         guard isBalanceRemain else { throw MachineError.lackBalance }
-        guard let beverage = vendingMachine.remove(target: value) else { throw MachineError.outOfStock }
+        guard let beverage = userable.remove(target: value) else { throw MachineError.outOfStock }
         OutputView.printPurchase(with: beverage)
     }
     
     private func historyList(){
-        let list = vendingMachine.historyList()
+        let list = userable.historyList()
         OutputView.printHistory(with: list)
     }
 }
