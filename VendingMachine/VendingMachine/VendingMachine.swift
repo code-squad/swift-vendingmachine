@@ -8,10 +8,33 @@
 
 import Foundation
 
-class VendingMachine {
-    private var beverages: [[Beverage]]
-    private var cash = Cash()
-    private var history = History()
+protocol Common {
+    var beverages:[[Beverage]] { set get }
+    func stockList() -> [[Beverage]]?
+}
+
+protocol Userable : Common {
+    var cash:Cash { set get }
+    var history:History { set get }
+    func remove(target:Int) -> Beverage?
+    func addBalance(value:Int)
+    func presentBalance() -> Int
+    func historyList() -> [Beverage]
+    func isAvailablePurchase(target: Int , balance: Int) throws -> Bool
+}
+
+protocol Adminible : Common {
+    func addStock(with addBeverages : [Beverage]) -> [Beverage]
+    func removeStock(target : Int , amount : Int) -> [Beverage]
+    func expiredBeverages() throws -> [[Beverage:Int]]
+    func expiredBeverage(with beverages : [Beverage]) -> [Beverage:Int]?
+    func removeExpiredBeverage(with expiredBeverages : [[Beverage:Int]]) throws -> [Beverage]
+}
+
+class VendingMachine : Userable , Adminible {
+    internal var beverages: [[Beverage]]
+    internal var cash = Cash()
+    internal var history = History()
     
     init(with beverages: [[Beverage]]) {
         self.beverages = beverages
@@ -111,7 +134,7 @@ class VendingMachine {
         return expiredBeverages
     }
     
-    private func expiredBeverage(with beverages : [Beverage]) -> [Beverage:Int]? {
+    internal func expiredBeverage(with beverages : [Beverage]) -> [Beverage:Int]? {
         let today = Date(timeIntervalSinceNow: 0)
         var expiredBeverages = [Beverage:Int]()
         for index in 0..<beverages.count {
@@ -120,15 +143,6 @@ class VendingMachine {
             }
         }
         return expiredBeverages.count == 0 ? nil : expiredBeverages
-    }
-    
-    public static func printExpiredBeverages(with beverages : [[Beverage:Int]]) {
-        var result = ""
-        for index in 0..<beverages.count {
-            result += ("\(index+1)) \(beverages[index].map({ $0.key.beverageName() })[0]) (\(beverages[index].count)개)\n")
-        }
-        print("유통기한(14일)이 지난 음료 리스트입니다.")
-        print(result)
     }
     
     public func removeExpiredBeverage(with expiredBeverages : [[Beverage:Int]]) throws -> [Beverage] {
