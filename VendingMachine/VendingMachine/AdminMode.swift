@@ -9,10 +9,10 @@
 import Foundation
 
 struct AdminMode {
-    let adminible : Adminible
+    let manageable : Manageable
 
-    init(with adminible : Adminible) {
-        self.adminible = adminible
+    init(with manageable : Manageable) {
+        self.manageable = manageable
     }
     
     public func start() throws {
@@ -54,28 +54,28 @@ struct AdminMode {
         
         let (target , amount) = try InputView.selectAddBeverage()
         let beverages = AddingBeverage.select(target: target, amonut: amount)
-        let addedBeverages = adminible.addStock(with: beverages)
+        let addedBeverages = manageable.addStock(with: beverages)
         OutputView.printAddedBeverages(with: addedBeverages)
     }
     
     private func deleteStock() throws {
         // 출력
         // 제거 가능한 음료 리스트
-        let stockList = adminible.stockList()
+        let stockList = manageable.stockList()
         try OutputView.printInventoryList(with: stockList)
         
         // 입력 선택
         // 1) 제거할 음료 선택 및 수량
         // 2) 종료하기
         let (target , amount) = try InputView.selectAddBeverage()
-        let removedBeverages = adminible.removeStock(target: target, amount: amount)
+        let removedBeverages = manageable.removeStock(target: target, amount: amount)
         OutputView.printRemovedBeverages(with: removedBeverages)
     }
     
     private func disposeOfExpiredDrinks() throws {
         // 출력
         // 유통기한 지난 음료 리스트
-        let expiredBeverages = try adminible.expiredBeverages()
+        let expiredBeverages = try manageable.expiredBeverages()
         OutputView.printExpiredBeverages(with: expiredBeverages)
 
         // 입력 선택
@@ -83,7 +83,7 @@ struct AdminMode {
         // 2) 아무런 작업하지 않고 종료합니다.
         let isRemoveExpiredBeverages = try InputView.isRemoveExpiredBeverages()
         if isRemoveExpiredBeverages {
-            let removedBeverages = try adminible.removeExpiredBeverage(with: expiredBeverages)
+            let removedBeverages = try manageable.removeExpiredBeverage(with: expiredBeverages)
             OutputView.printRemoveExpiredBeverages(with: removedBeverages)
         }
     }

@@ -20,7 +20,7 @@ protocol Userable : Common {
     func isAvailablePurchase(target: Int , balance: Int) throws -> Bool
 }
 
-protocol Adminible : Common {
+protocol Manageable : Common {
     func addStock(with addBeverages : [Beverage]) -> [Beverage]
     func removeStock(target : Int , amount : Int) -> [Beverage]
     func expiredBeverages() throws -> [[Beverage:Int]]
@@ -28,7 +28,7 @@ protocol Adminible : Common {
     func removeExpiredBeverage(with expiredBeverages : [[Beverage:Int]]) throws -> [Beverage]
 }
 
-class VendingMachine : Userable , Adminible {
+class VendingMachine : Userable , Manageable {
     private var beverages: [[Beverage]]
     private var cash = Cash()
     private var history = History()

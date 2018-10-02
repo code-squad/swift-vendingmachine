@@ -34,7 +34,7 @@ protocol MainPrintable {
     static func printSelectMode()
 }
 
-struct OutputView : UserPrintable , AdminPrintable {
+struct OutputView : UserPrintable , AdminPrintable , MainPrintable {
     public static func printInventoryList(with beverages: [[Beverage]]?) throws {
         guard let beverage = beverages else { throw MachineError.outOfStock }
         var result = ""
