@@ -12,68 +12,68 @@ protocol Common {
     func stockList() -> [[Beverage]]?
 }
 
-protocol Userable : Common {
-    func remove(target:Int) -> Beverage?
-    func addBalance(value:Int)
+protocol Userable: Common {
+    func remove(target: Int) -> Beverage?
+    func addBalance(value: Int)
     func presentBalance() -> Int
     func historyList() -> [Beverage]
-    func isAvailablePurchase(target: Int , balance: Int) throws -> Bool
+    func isAvailablePurchase(target: Int, balance: Int) throws -> Bool
 }
 
-protocol Manageable : Common {
-    func addStock(with addBeverages : [Beverage]) -> [Beverage]
-    func removeStock(target : Int , amount : Int) -> [Beverage]
-    func expiredBeverages() throws -> [[Beverage:Int]]
-    func expiredBeverage(with beverages : [Beverage]) -> [Beverage:Int]?
-    func removeExpiredBeverage(with expiredBeverages : [[Beverage:Int]]) throws -> [Beverage]
+protocol Manageable: Common {
+    func addStock(with addBeverages: [Beverage]) -> [Beverage]
+    func removeStock(target: Int, amount: Int) -> [Beverage]
+    func expiredBeverages() throws -> [[Beverage: Int]]
+    func expiredBeverage(with beverages: [Beverage]) -> [Beverage: Int]?
+    func removeExpiredBeverage(with expiredBeverages: [[Beverage: Int]]) throws -> [Beverage]
 }
 
-class VendingMachine : Userable , Manageable {
+class VendingMachine: Userable, Manageable {
     private var beverages: [[Beverage]]
     private var cash = Cash()
     private var history = History()
-    
+
     init(with beverages: [[Beverage]]) {
         self.beverages = beverages
     }
-    
+
     public func stockList() -> [[Beverage]]? {
         return self.beverages
     }
-    
+
     public func remove(target: Int) -> Beverage? {
         let index = target - 1
         let beverage = self.beverages[index].removeFirst()
-        
+
         self.cash.remove(with: beverage.beveragePrice())
         self.history.add(with: beverage)
-        
+
         // 2차원 배열에서 빈배열의 경우 없애주기 위한 작업
         self.beverages = self.beverages.filter({$0.count > 0})
-        
+
         return beverage
     }
-    
-    public func addBalance(value : Int) {
+
+    public func addBalance(value: Int) {
         self.cash.addBalance(with: value)
     }
-    
+
     public func presentBalance() -> Int {
         return self.cash.presentBalance()
     }
-    
+
     public func historyList() -> [Beverage] {
         return self.history.list()
     }
-    
-    public func isAvailablePurchase(target: Int , balance: Int) throws -> Bool {
+
+    public func isAvailablePurchase(target: Int, balance: Int) throws -> Bool {
         guard target <= self.beverages.count else { throw InputError.rangeExceed }
         let index = target - 1
         let result = beverages[index][0].isAvailablePurchase(with: balance)
         return result
     }
-    
-    public func addStock(with addBeverages : [Beverage]) -> [Beverage] {
+
+    public func addStock(with addBeverages: [Beverage]) -> [Beverage] {
         /*
          1. 기존 리스트에 있는 음료
          self.beverages [[Beverage]] 안에 있는 [Beverage]에 값을 추가 할 수 없어서
@@ -82,7 +82,7 @@ class VendingMachine : Userable , Manageable {
          2. 새로운 음료
          (1)번의 리스트에서 매칭되는 것이 없다면 새로 추가합니다.
          */
-        
+
         // 1
         for index in 0..<self.beverages.count {
             if self.beverages[index][0].className == addBeverages[0].className {
@@ -99,26 +99,26 @@ class VendingMachine : Userable , Manageable {
         self.beverages.append(addBeverages)
         return addBeverages
     }
-    
-    public func removeStock(target : Int , amount : Int) -> [Beverage] {
+
+    public func removeStock(target: Int, amount: Int) -> [Beverage] {
         let index = target - 1
         var beverages = [Beverage]()
         for _ in 1...amount {
             beverages.append(self.beverages[index].removeFirst())
         }
-        
+
         // 2차원 배열에서 빈배열의 경우 없애주기 위한 작업
         self.beverages = self.beverages.filter({$0.count > 0})
-        
+
         return beverages
     }
-    
-    public func expiredBeverages() throws -> [[Beverage:Int]] {
+
+    public func expiredBeverages() throws -> [[Beverage: Int]] {
         // 출력
         // 유통기한 지난 음료 리스트
         guard let stockList = self.stockList() else { throw MachineError.outOfStock }
-        
-        var expiredBeverages = [[Beverage:Int]]()
+
+        var expiredBeverages = [[Beverage: Int]]()
         var addIndex = 0
         for index in 0..<stockList.count {
             if let beverages = expiredBeverage(with: stockList[index]) {
@@ -126,14 +126,14 @@ class VendingMachine : Userable , Manageable {
                 addIndex += 1
             }
         }
-        
+
         guard expiredBeverages.count > 0 else { throw MachineError.outOfExpiredStock }
         return expiredBeverages
     }
-    
-    internal func expiredBeverage(with beverages : [Beverage]) -> [Beverage:Int]? {
+
+    internal func expiredBeverage(with beverages: [Beverage]) -> [Beverage: Int]? {
         let today = Date(timeIntervalSinceNow: 0)
-        var expiredBeverages = [Beverage:Int]()
+        var expiredBeverages = [Beverage: Int]()
         for index in 0..<beverages.count {
             if beverages[index].isExpirationDate(with: today) {
                 expiredBeverages.updateValue(index, forKey: beverages[index])
@@ -141,8 +141,8 @@ class VendingMachine : Userable , Manageable {
         }
         return expiredBeverages.count == 0 ? nil : expiredBeverages
     }
-    
-    public func removeExpiredBeverage(with expiredBeverages : [[Beverage:Int]]) throws -> [Beverage] {
+
+    public func removeExpiredBeverage(with expiredBeverages: [[Beverage: Int]]) throws -> [Beverage] {
         /*
          key : className 동일한 것 찾기
          value : index 찾아서 제거하기
@@ -171,12 +171,12 @@ class VendingMachine : Userable , Manageable {
                         removedExpiredBeverages.append(beverage)
                     }
                 }
-            
+
             }
         }
-        
+
         self.beverages = stockList
-        
+
         return removedExpiredBeverages
     }
 }

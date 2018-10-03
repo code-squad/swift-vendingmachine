@@ -8,17 +8,17 @@
 
 import Foundation
 
-class Cash {    
+class Cash {
     private var balance = 0
-    
-    public func addBalance(with money : Int) {
+
+    public func addBalance(with money: Int) {
         self.balance += money
     }
 
     public func presentBalance() -> Int {
         return self.balance
     }
-    
+
     public func remove(with money: Int) {
         self.balance -= money
     }

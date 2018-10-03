@@ -35,14 +35,14 @@ enum Material {
     case glass
 }
 
-enum Brand : CustomStringConvertible {
+enum Brand: CustomStringConvertible {
     case maeil
     case seoulMilk
     case pepsi
     case cocacola
     case maxim
     case lotteChilsung
-    
+
     var description: String {
         switch self {
         case .maeil:            return "매일우유"
@@ -55,7 +55,7 @@ enum Brand : CustomStringConvertible {
     }
 }
 
-enum Product : Int, CustomStringConvertible , CaseIterable {
+enum Product: Int, CustomStringConvertible, CaseIterable {
     case organicStrawberryMilk
     case seoulChocoMilk
     case bananasAreNaturallyWhite
@@ -65,7 +65,7 @@ enum Product : Int, CustomStringConvertible , CaseIterable {
     case topCoffee
     case cantataCoffee
     case georgiaCoffee
-    
+
     var description: String {
         switch self {
         case .organicStrawberryMilk:    return "유기농딸기우유"
@@ -82,18 +82,18 @@ enum Product : Int, CustomStringConvertible , CaseIterable {
 }
 
 struct AddingBeverage {
-    public static func random(target : Int) -> [Beverage] {
+    public static func random(target: Int) -> [Beverage] {
         let numberOfBeverageType = Int.random(in: 2...5)
         let beverages = addBeverage(with: target, amount: numberOfBeverageType)
         return beverages
     }
-    
-    public static func select(target : Int , amonut : Int) -> [Beverage] {
+
+    public static func select(target: Int, amonut: Int) -> [Beverage] {
         let beverages = addBeverage(with: target, amount: amonut)
         return beverages
     }
-    
-    private static func addBeverage(with target : Int , amount : Int) -> [Beverage] {
+
+    private static func addBeverage(with target: Int, amount: Int) -> [Beverage] {
         var beverages = [Beverage]()
         for _ in 1...amount {
             let randomDate = Int.random(in: 1...20)
@@ -113,7 +113,7 @@ struct AddingBeverage {
         }
         return beverages
     }
-    
+
     private static func convertSeconds(_ date: Int) -> Double {
         return Double(date * DateUnit.secondsOfOneday)
     }

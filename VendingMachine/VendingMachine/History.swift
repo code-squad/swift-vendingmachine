@@ -10,11 +10,11 @@ import Foundation
 
 class History {
     private var beverages = [Beverage]()
-    
-    public func add(with beverage : Beverage) {
+
+    public func add(with beverage: Beverage) {
         self.beverages.append(beverage)
     }
-    
+
     public func list() -> [Beverage] {
         return self.beverages
     }

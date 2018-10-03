@@ -8,12 +8,12 @@
 
 import Foundation
 
-enum Menu : Int, CaseIterable , CustomStringConvertible {
+enum Menu: Int, CaseIterable, CustomStringConvertible {
     case addBalance
     case purchaseBeverage
     case historyList
     case exit
-    
+
     var description: String {
         switch self {
         case .addBalance: return "금액추가"
@@ -22,8 +22,8 @@ enum Menu : Int, CaseIterable , CustomStringConvertible {
         case .exit: return "종료하기"
         }
     }
-    
-    public static func select(with type : Int ) throws -> Menu {
+
+    public static func select(with type: Int ) throws -> Menu {
         switch type {
         case 1: return Menu.addBalance
         case 2: return Menu.purchaseBeverage
@@ -34,11 +34,11 @@ enum Menu : Int, CaseIterable , CustomStringConvertible {
     }
 }
 
-enum Mode : Int, CaseIterable , CustomStringConvertible {
+enum Mode: Int, CaseIterable, CustomStringConvertible {
     case admin
     case user
     case exit
-    
+
     var description: String {
         switch self {
         case .admin: return "관리자모드"
@@ -46,8 +46,8 @@ enum Mode : Int, CaseIterable , CustomStringConvertible {
         case .exit: return "종료"
         }
     }
-    
-    public static func select(with type : Int ) throws -> Mode {
+
+    public static func select(with type: Int ) throws -> Mode {
         switch type {
         case 1: return Mode.admin
         case 2: return Mode.user
@@ -57,12 +57,12 @@ enum Mode : Int, CaseIterable , CustomStringConvertible {
     }
 }
 
-enum MenuAdmin : Int, CaseIterable , CustomStringConvertible {
+enum MenuAdmin: Int, CaseIterable, CustomStringConvertible {
     case addStock
     case deleteStock
     case disposeOfExpiredDrinks
     case exit
-    
+
     var description: String {
         switch self {
         case .addStock: return "재고추가"
@@ -71,8 +71,8 @@ enum MenuAdmin : Int, CaseIterable , CustomStringConvertible {
         case .exit: return "종료하기"
         }
     }
-    
-    public static func select(with type : Int ) throws -> MenuAdmin {
+
+    public static func select(with type: Int ) throws -> MenuAdmin {
         switch type {
         case 1: return MenuAdmin.addStock
         case 2: return MenuAdmin.deleteStock

@@ -27,7 +27,7 @@ struct Stock {
             if isDuplicate { continue }
             beverages.append(beverage)
         }
-        
+
         return beverages
     }
 }

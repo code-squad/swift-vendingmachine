@@ -10,7 +10,7 @@ import Foundation
 
 struct Main {
     let vendingMachine = VendingMachine(with: Stock.prepareStock())
-    
+
     public func run() throws {
         var isContinue = true
         while isContinue {
@@ -20,7 +20,7 @@ struct Main {
         }
     }
 
-    public func selectMode(with type : Mode) throws -> Bool {
+    public func selectMode(with type: Mode) throws -> Bool {
         switch type {
         case .admin:
             // 관리자 메뉴 선택
