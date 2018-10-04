@@ -9,12 +9,12 @@
 import Foundation
 
 struct AdminMode {
-    let manageable : Manageable
+    let manageable: Manageable
 
-    init(with manageable : Manageable) {
+    init(with manageable: Manageable) {
         self.manageable = manageable
     }
-    
+
     public func start() throws {
         var isContinue = true
         while isContinue {
@@ -23,8 +23,8 @@ struct AdminMode {
             isContinue = try self.selectMenu(with: type)
         }
     }
-    
-    public func selectMenu(with type : MenuAdmin) throws -> Bool {
+
+    public func selectMenu(with type: MenuAdmin) throws -> Bool {
         switch type {
         case .addStock:
             // 재고추가
@@ -42,36 +42,36 @@ struct AdminMode {
             return false
         }
     }
-    
+
     private func addStock() throws {
         // 출력
         // 추가 가능한 음료 리스트
         OutputView.printAppendableBeverages()
-        
+
         // 입력 선택
         // 1) 추가할 음료 선택 및 수량
         // 2) 종료하기
-        
-        let (target , amount) = try InputView.selectAddBeverage()
+
+        let (target, amount) = try InputView.selectAddBeverage()
         let beverages = AddingBeverage.select(target: target, amonut: amount)
         let addedBeverages = manageable.addStock(with: beverages)
         OutputView.printAddedBeverages(with: addedBeverages)
     }
-    
+
     private func deleteStock() throws {
         // 출력
         // 제거 가능한 음료 리스트
         let stockList = manageable.stockList()
         try OutputView.printInventoryList(with: stockList)
-        
+
         // 입력 선택
         // 1) 제거할 음료 선택 및 수량
         // 2) 종료하기
-        let (target , amount) = try InputView.selectAddBeverage()
+        let (target, amount) = try InputView.selectAddBeverage()
         let removedBeverages = manageable.removeStock(target: target, amount: amount)
         OutputView.printRemovedBeverages(with: removedBeverages)
     }
-    
+
     private func disposeOfExpiredDrinks() throws {
         // 출력
         // 유통기한 지난 음료 리스트

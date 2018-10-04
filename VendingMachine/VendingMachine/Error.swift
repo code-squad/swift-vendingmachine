@@ -8,16 +8,16 @@
 
 import Foundation
 
-protocol Errorable : Error , CustomStringConvertible {
+protocol Errorable: Error, CustomStringConvertible {
     var description: String { get }
 }
 
-enum InputError : Errorable {
+enum InputError: Errorable {
     case unknown
     case incorrect
     case empty
     case rangeExceed
-    
+
     var description: String {
         switch self {
         case .unknown:              return "알 수 없는 에러가 발생하였습니다."
@@ -28,11 +28,11 @@ enum InputError : Errorable {
     }
 }
 
-enum MachineError : Errorable {
+enum MachineError: Errorable {
     case lackBalance
     case outOfStock
     case outOfExpiredStock
-    
+
     var description: String {
         switch self {
         case .lackBalance: return "잔액이 부족합니다."
