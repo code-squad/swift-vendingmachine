@@ -14,11 +14,6 @@ class Beverage: NSObject {
     private var price: Int
     private var name: String
     private var date: Date
-    private var displayableDate: String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyyMMdd"
-        return formatter.string(from: date)
-    }
     
     override var description: String {
         let displayable = convert()
@@ -31,5 +26,11 @@ class Beverage: NSObject {
         self.price = price
         self.name = name
         self.date = date
+    }
+    
+    private func convert() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+        return formatter.string(from: date)
     }
 }
