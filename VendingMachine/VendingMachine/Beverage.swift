@@ -17,8 +17,7 @@ class Beverage: NSObject {
     private var expire: Date
     
     override var description: String {
-        let displayable = convert()
-        return "\(brand), \(volume)ml, \(price)원, \(name), \(displayable)"
+        return "\(brand), \(volume)ml, \(price)원, \(name), \(date.readable)"
     }
     
     init(brand: String, volume: Int, price: Int, name: String, date: Date, expire: Date) {
