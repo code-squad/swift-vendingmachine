@@ -12,6 +12,7 @@
 		3E719043217466F400CB4510 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E719042217466F400CB4510 /* Milk.swift */; };
 		3E7190452174671400CB4510 /* Alcohol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7190442174671400CB4510 /* Alcohol.swift */; };
 		3E7190472174674400CB4510 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7190462174674400CB4510 /* Coffee.swift */; };
+		3E7190492174762A00CB4510 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7190482174762A00CB4510 /* DateExtension.swift */; };
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		3E719042217466F400CB4510 /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 		3E7190442174671400CB4510 /* Alcohol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alcohol.swift; sourceTree = "<group>"; };
 		3E7190462174674400CB4510 /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
+		3E7190482174762A00CB4510 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,6 +94,7 @@
 				3E719042217466F400CB4510 /* Milk.swift */,
 				3E7190442174671400CB4510 /* Alcohol.swift */,
 				3E7190462174674400CB4510 /* Coffee.swift */,
+				3E7190482174762A00CB4510 /* DateExtension.swift */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E71902521744A2000CB4510 /* Beverage.swift in Sources */,
+				3E7190492174762A00CB4510 /* DateExtension.swift in Sources */,
 				3E719043217466F400CB4510 /* Milk.swift in Sources */,
 				3E7190452174671400CB4510 /* Alcohol.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
