@@ -26,19 +26,23 @@ class Beer: Alcohol {
     }
 }
 
-class Wine: Alcohol {
-    private var aging: Int // 숙성 기간
-    private var type : Type
-    
-    enum `Type` {
-        case white
-        case red
-        case sparkling
+class RiceWine: Alcohol {
+    private var area: Area
+    override var expire: Date {
+        return Date(timeInterval: Date.convert(weeks: 2), since: super.expire)
+    }
+    var isSeoulRiceWine: Bool {
+        return area == .seoul
+    }
+    enum Area {
+        case seoul
+        case busan
+        case jeju
+        case gwangju
     }
     
-    init(aging: Int, type: Type, alcohol: Double, brand: String, volume: Int, price: Int, name: String, date: Date, expire: Date) {
-        self.aging = aging
-        self.type = type
-        super.init(alcohol: alcohol, brand: brand, volume: volume, price: price, name: name, date: date, expire: expire)
+    init(area: Area, alcohol: Double, brand: String, volume: Int, price: Int, name: String, date: Date) {
+        self.area = area
+        super.init(alcohol: alcohol, brand: brand, volume: volume, price: price, name: name, date: date)
     }
 }
