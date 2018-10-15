@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		3E71902521744A2000CB4510 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E71902421744A2000CB4510 /* Beverage.swift */; };
 		3E71903B217459A700CB4510 /* VendingMachineUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E71903A217459A700CB4510 /* VendingMachineUnitTests.swift */; };
+		3E719043217466F400CB4510 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E719042217466F400CB4510 /* Milk.swift */; };
+		3E7190452174671400CB4510 /* Alcohol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7190442174671400CB4510 /* Alcohol.swift */; };
+		3E7190472174674400CB4510 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7190462174674400CB4510 /* Coffee.swift */; };
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +32,9 @@
 		3E719038217459A700CB4510 /* VendingMachineUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E71903A217459A700CB4510 /* VendingMachineUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineUnitTests.swift; sourceTree = "<group>"; };
 		3E71903C217459A700CB4510 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3E719042217466F400CB4510 /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
+		3E7190442174671400CB4510 /* Alcohol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alcohol.swift; sourceTree = "<group>"; };
+		3E7190462174674400CB4510 /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,6 +89,9 @@
 			children = (
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
 				3E71902421744A2000CB4510 /* Beverage.swift */,
+				3E719042217466F400CB4510 /* Milk.swift */,
+				3E7190442174671400CB4510 /* Alcohol.swift */,
+				3E7190462174674400CB4510 /* Coffee.swift */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";
@@ -186,7 +195,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E71902521744A2000CB4510 /* Beverage.swift in Sources */,
+				3E719043217466F400CB4510 /* Milk.swift in Sources */,
+				3E7190452174671400CB4510 /* Alcohol.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
+				3E7190472174674400CB4510 /* Coffee.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
