@@ -7,11 +7,25 @@
 //
 
 import Foundation
-//
-//let milk = Beverage(brand: "서울우유", volume: 200, price: 1000, name: "날마다딸기우유", date: Date(timeIntervalSinceNow: 360000))
-//let pepsi = Beverage(brand: "팹시", volume: 350, price: 2000, name: "다이어트콜라", date: Date(timeIntervalSinceNow: 720000))
-//let maxim = Beverage(brand: "맥심", volume: 400, price: 3000, name: "TOP아메리카노", date: Date(timeIntervalSinceNow: 250000))
-//
-//print(milk)
-//print(pepsi)
-//print(maxim)
+
+class VendingMachine {
+    var list: [Beverage] = []
+    
+    init(_ list: [Beverage]) {
+        self.list = list
+    }
+    
+    func display() {
+        list.forEach {
+            print($0)
+        }
+    }
+}
+
+let beverages: [Beverage] = [
+    Latte(milk: 0.2, art: .none, caffeine: 0.3, brand: "맥심", volume: 250, price: 3000, name: "TOP라때", date: Date(timeIntervalSinceNow: -Date.convert(weeks: 1))),
+    FruitMilk(fruit: .strawberry, fat: 0.3, code: "강원03-21", brand: "서울우유", volume: 250, price: 2000, name: "딸기듬뿍", date: Date(timeIntervalSinceNow: -Date.convert(weeks: 2))),
+    RiceWine(area: .busan, alcohol: 0.3, brand: "금정산성토산주", volume: 400, price: 7000, name: "금정산성막걸리", date: Date(timeIntervalSinceNow: -Date.convert(days: 5)))
+]
+
+VendingMachine(beverages).display()
