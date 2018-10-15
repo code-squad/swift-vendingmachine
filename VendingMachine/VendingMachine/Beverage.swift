@@ -1,0 +1,34 @@
+//
+//  Beverage.swift
+//  VendingMachine
+//
+//  Created by 이동건 on 15/10/2018.
+//  Copyright © 2018 JK. All rights reserved.
+//
+
+import Foundation
+
+class Beverage: CustomStringConvertible {
+    private var brand: String
+    private var volume: Int
+    private var price: Int
+    private var name: String
+    private var date: Date
+    private var displayableDate: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+        return formatter.string(from: date)
+    }
+    
+    var description: String {
+        return "\(brand), \(volume)ml, \(price)원, \(name), \(displayableDate)"
+    }
+    
+    init(brand: String, volume: Int, price: Int, name: String, date: Date) {
+        self.brand = brand
+        self.volume = volume
+        self.price = price
+        self.name = name
+        self.date = date
+    }
+}
