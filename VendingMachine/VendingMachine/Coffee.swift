@@ -36,7 +36,7 @@ class Latte: Coffee {
         case none
     }
     
-    init(milk: Double, art: Art, caffeine: Double, code: String, brand: String, volume: Int, price: Int, name: String, date: Date) {
+    init(milk: Double, art: Art, caffeine: Double, brand: String, volume: Int, price: Int, name: String, date: Date) {
         self.milk = milk
         self.art = art
         super.init(caffeine: caffeine, brand: brand, volume: volume, price: price, name: name, date: date)
@@ -55,7 +55,7 @@ class Affogato: Coffee {
         case caramel
     }
     
-    init(iceCream: Flavor, caffeine: Double, code: String, brand: String, volume: Int, price: Int, name: String, date: Date) {
+    init(iceCream: Flavor, caffeine: Double, brand: String, volume: Int, price: Int, name: String, date: Date) {
         self.iceCream = iceCream
         super.init(caffeine: caffeine, brand: brand, volume: volume, price: price, name: name, date: date)
     }
