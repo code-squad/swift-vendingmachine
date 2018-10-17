@@ -9,25 +9,24 @@
 import XCTest
 
 class VendingMachineUnitTests: XCTestCase {
-
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    func testExpiredBeverage() {
+        let riceWine = RiceWine(area: .busan, alcohol: 0.3, brand: "부산막걸리", volume: 450, price: 4000, name: "생탁", date: Date(timeIntervalSinceNow: -Date.convert(weeks: 3)))
+        XCTAssertFalse(riceWine.isValidate())
     }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func testNotExpiredRiceWine() {
+        let riceWine = RiceWine(area: .busan, alcohol: 0.3, brand: "부산막걸리", volume: 450, price: 4000, name: "생탁", date: Date(timeIntervalSinceNow: -Date.convert(weeks: 3)))
+        XCTAssertFalse(riceWine.isValidate(at: Date(timeIntervalSinceNow: -Date.convert(weeks: 2))))
     }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testLowFatMilk() {
+        let milk = Milk(fat: 0.1, code: "강릉-5-24", brand: "서울우유", volume: 300, price: 2000, name: "저지방 우유", date: Date(timeIntervalSinceNow: -Date.convert(days: 5)))
+        XCTAssertTrue(milk.isLowFat)
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testNotLowFatMilk() {
+        let milk = Milk(fat: 0.3, code: "강릉-5-24", brand: "서울우유", volume: 300, price: 2000, name: "흰 우유", date: Date(timeIntervalSinceNow: -Date.convert(days: 5)))
+        XCTAssertFalse(milk.isLowFat)
     }
-
 }
