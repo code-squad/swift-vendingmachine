@@ -9,7 +9,7 @@
 import Foundation
 
 class VendingMachine {
-    var list: [Beverage] = []
+    private var list: [Beverage] = []
     
     init(_ list: [Beverage]) {
         self.list = list
