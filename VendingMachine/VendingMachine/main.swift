@@ -15,9 +15,9 @@ class VendingMachine {
         self.list = list
     }
     
-    func display() {
+    func display(_ handler: (Beverage)->()) {
         list.forEach {
-            print($0)
+            handler($0)
         }
     }
 }
@@ -28,4 +28,4 @@ let beverages: [Beverage] = [
     RiceWine(area: .busan, alcohol: 0.3, brand: "금정산성토산주", volume: 400, price: 7000, name: "금정산성막걸리", date: Date(timeIntervalSinceNow: -Date.convert(days: 5)))
 ]
 
-VendingMachine(beverages).display()
+VendingMachine(beverages).display { print($0) }
