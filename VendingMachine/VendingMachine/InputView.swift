@@ -10,9 +10,10 @@ import Foundation
 
 enum MenuType: Int {
     static func description(with stocks: Stocks, _ account: Int) -> String {
-        var result = "현재 투입한 금액이 \(account)원입니다. 다음과 같은 음료가 있습니다.\n"
-        let beverageDiscription = account == 0 ? "=> \(stocks.info)" : "\(stocks.priceTags)"
+        var result = "현재 투입한 금액이 \(account)원입니다. 다음과 같은 음료가 있습니다."
+        let beverageDiscription = account == 0 ? "\(stocks.infos)" : "\(stocks.priceTags)"
         result += beverageDiscription
+        result += "\n1. 금액추가\n2. 음료구매\n> "
         return result
     }
     case deposit = 1
@@ -33,7 +34,7 @@ enum MenuType: Int {
 class InputView {
     
     static func read(with stocks: Stocks, account: Int) throws -> (menu: MenuType, value: Int) {
-        print(MenuType.description(with: stocks, account))
+        print(MenuType.description(with: stocks, account), terminator: "")
         do {
             guard let rawValue = readLine() else { throw VendingMachineError.wrongInput }
             let result = try analysis(rawValue)

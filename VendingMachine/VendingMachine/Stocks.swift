@@ -16,22 +16,25 @@ class Stocks {
         return bundles
     }
     
-    var info: String {
-        var result = ""
-        stocks.forEach {
-            guard let representation = $0.first else { return }
-            result += " \(representation.summary(isSelectable: false, with: $0.count))"
+    var infos: String {
+        var result = "\n=>"
+        bundles.forEach {
+            guard let form = $0.getBundleTag({ (beverage, count) -> (String) in
+                return " \(beverage.summary(isSelectable: false)) \(count)개"
+            }) else { return }
+            result += form
         }
         return result
     }
     
     var priceTags: String {
         var result = ""
-        stocks.enumerated().forEach {
-            guard let representation = $0.element.first else { return }
-            let prefix = "\($0.offset + 1)) "
-            let info = "\(representation.summary(isSelectable: true, with: $0.element.count))"
-            result += "\((prefix + info))\n"
+        bundles.enumerated().forEach {
+            let index = $0.offset + 1
+            guard let form = $0.element.getBundleTag({ [index] (beverage, count) -> (String) in
+                return "\n\(index)) \(beverage.summary(isSelectable: true)) \(count)개"
+            }) else { return }
+            result += form
         }
         return result
     }
