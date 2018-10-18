@@ -10,11 +10,10 @@ import Foundation
 
 class Stocks {
     private var list: [Beverage]
-    private var stocks: [[Beverage]] {
-        let milks: [Milk] = list.compactMap { $0 as? Milk }
-        let alcohols: [Alcohol] = list.compactMap { $0 as? Alcohol }
-        let coffees: [Coffee] = list.compactMap { $0 as? Coffee }
-        return [milks, alcohols, coffees]
+    private var bundles: [BeverageBundle] {
+        let group = Dictionary(grouping: list, by: { $0.className })
+        let bundles = group.values.map { BeverageBundle($0) }
+        return bundles
     }
     
     var info: String {
@@ -35,15 +34,14 @@ class Stocks {
             result += "\((prefix + info))\n"
         }
         return result
-        
     }
     
     init(_ list: [Beverage]) {
         self.list = list
     }
     
-    func append(_ beverage: Beverage) -> [[Beverage]] {
+    func append(_ beverage: Beverage) -> [BeverageBundle] {
         list.append(beverage)
-        return stocks
+        return bundles
     }
 }
