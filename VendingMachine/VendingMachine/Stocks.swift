@@ -16,25 +16,13 @@ class Stocks {
         return bundles
     }
     
-    var infos: String {
-        var result = "\n=>"
-        bundles.forEach {
-            guard let form = $0.getBundleTag({ (beverage, count) -> (String) in
-                return " \(beverage.summary(isSelectable: false)) \(count)개"
-            }) else { return }
-            result += form
-        }
-        return result
-    }
-    
-    var priceTags: String {
-        var result = ""
+    // 잔액이 0 이면 가격을 제외한 목록만, 0 이상이라면 가격과 함께 선택 가능한 리스트 형태로 출력
+    func getInfo(hasAccount: Bool, handler: (BeverageBundle)->(String)) -> String {
+        var result = hasAccount ? "" : "\n=>"
         bundles.enumerated().forEach {
-            let index = $0.offset + 1
-            guard let form = $0.element.getBundleTag({ [index] (beverage, count) -> (String) in
-                return "\n\(index)) \(beverage.summary(isSelectable: true)) \(count)개"
-            }) else { return }
-            result += form
+            var prefix = hasAccount ? "\n\($0.offset + 1)) " : ""
+            prefix += handler($0.element)
+            result += prefix
         }
         return result
     }
