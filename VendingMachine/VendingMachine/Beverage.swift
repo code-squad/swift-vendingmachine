@@ -34,6 +34,7 @@ class Beverage: NSObject {
         return target < expire
     }
     
+    // isSelectable = 선택할 수 있는지 유무 : 잔액이 0 이라면 선택X / 그 이상이라면 선택할 수 있게 가격과 함께 반환
     func summary(isSelectable: Bool) -> String {
         return isSelectable ? "\(name) \(price)원" : "\(name)"
     }
