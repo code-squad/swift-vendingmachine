@@ -24,7 +24,7 @@ class Beverage: NSObject {
     
     init(brand: String, volume: Int, price: Int, name: String, date: Date) {
         self.brand = brand
-        self.volume = volume
+y        self.volume = volume
         self.price = price
         self.name = name
         self.date = date
@@ -33,4 +33,9 @@ class Beverage: NSObject {
     func isValidate(at target: Date = Date()) -> Bool {
         return target < expire
     }
+    
+    func summary(isSelectable: Bool, with count: Int) -> String {
+        return isSelectable ? "\(name) \(price)원 (\(count)개)" : "\(name) (\(count)개)"
+    }
+    
 }
