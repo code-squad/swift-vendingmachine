@@ -24,7 +24,7 @@ class Beverage: NSObject {
     
     init(brand: String, volume: Int, price: Int, name: String, date: Date) {
         self.brand = brand
-y        self.volume = volume
+        self.volume = volume
         self.price = price
         self.name = name
         self.date = date
@@ -34,8 +34,8 @@ y        self.volume = volume
         return target < expire
     }
     
-    func summary(isSelectable: Bool, with count: Int) -> String {
-        return isSelectable ? "\(name) \(price)원 (\(count)개)" : "\(name) (\(count)개)"
+    func summary(isSelectable: Bool) -> String {
+        return isSelectable ? "\(name) \(price)원" : "\(name)"
     }
     
 }
