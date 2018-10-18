@@ -11,8 +11,8 @@ import Foundation
 class BeverageBundle {
     private var beverages: [Beverage]
     
-    func getBundleTag(_ handler: (Beverage, Int)->(String)) -> String? {
-        guard let first = beverages.first else { return nil }
+    func getBundleTag(_ handler: (Beverage, Int)->(String)) -> String {
+        let first = beverages.first!
         return handler(first, beverages.count)
     }
     
