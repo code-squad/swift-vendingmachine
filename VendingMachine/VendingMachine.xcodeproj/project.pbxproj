@@ -14,6 +14,13 @@
 		3E4694F121787F07001B5FE5 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4694F021787F07001B5FE5 /* Validator.swift */; };
 		3E4694F321799B43001B5FE5 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4694F221799B43001B5FE5 /* OutputView.swift */; };
 		3E4694F52179B0DC001B5FE5 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4694F42179B0DC001B5FE5 /* History.swift */; };
+		3E4694F62179B89A001B5FE5 /* Stocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4694E621782502001B5FE5 /* Stocks.swift */; };
+		3E4694F72179B8A2001B5FE5 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4694E8217831E5001B5FE5 /* VendingMachine.swift */; };
+		3E4694F82179B8A5001B5FE5 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4694EA21783272001B5FE5 /* InputView.swift */; };
+		3E4694F92179B8A7001B5FE5 /* VendingMachineError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4694EC2178328C001B5FE5 /* VendingMachineError.swift */; };
+		3E4694FA2179B8AA001B5FE5 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4694F021787F07001B5FE5 /* Validator.swift */; };
+		3E4694FB2179B8AC001B5FE5 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4694F221799B43001B5FE5 /* OutputView.swift */; };
+		3E4694FC2179B8AE001B5FE5 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4694F42179B0DC001B5FE5 /* History.swift */; };
 		3E71902521744A2000CB4510 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E71902421744A2000CB4510 /* Beverage.swift */; };
 		3E71903B217459A700CB4510 /* VendingMachineUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E71903A217459A700CB4510 /* VendingMachineUnitTests.swift */; };
 		3E719043217466F400CB4510 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E719042217466F400CB4510 /* Milk.swift */; };
@@ -219,13 +226,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E4694FB2179B8AC001B5FE5 /* OutputView.swift in Sources */,
 				3E71904C2174849F00CB4510 /* Alcohol.swift in Sources */,
+				3E4694FC2179B8AE001B5FE5 /* History.swift in Sources */,
 				3E71904F217484A600CB4510 /* DateExtension.swift in Sources */,
 				3E71904D217484A100CB4510 /* Milk.swift in Sources */,
 				3E71903B217459A700CB4510 /* VendingMachineUnitTests.swift in Sources */,
+				3E4694FA2179B8AA001B5FE5 /* Validator.swift in Sources */,
 				3E719050217484A900CB4510 /* Identifier.swift in Sources */,
 				3E71904E217484A400CB4510 /* Coffee.swift in Sources */,
+				3E4694F62179B89A001B5FE5 /* Stocks.swift in Sources */,
+				3E4694F82179B8A5001B5FE5 /* InputView.swift in Sources */,
 				3E719051217484AC00CB4510 /* Beverage.swift in Sources */,
+				3E4694F72179B8A2001B5FE5 /* VendingMachine.swift in Sources */,
+				3E4694F92179B8A7001B5FE5 /* VendingMachineError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
