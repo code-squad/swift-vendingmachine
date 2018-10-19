@@ -16,6 +16,10 @@ class History {
         return list.isEmpty
     }
     
+    func hasHistory(of beverage: Beverage) -> Bool {
+        return list.contains(where: {$0.beverage.isEqual(beverage)})
+    }
+    
     func append(_ history: Beverage) {
         list.append((history, Date()))
     }
