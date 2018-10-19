@@ -30,17 +30,7 @@ class Stocks {
         return value <= bundles.count
     }
     
-    // 잔액이 0 이면 가격을 제외한 목록만, 0 이상이라면 가격과 함께 선택 가능한 리스트 형태로 출력
-    func getInfo(hasAccount: Bool, handler: ([Beverage])->(String)) -> String {
-        var result = hasAccount ? "" : "\n=>"
-        bundles.enumerated().forEach {
-            var prefix = hasAccount ? "\n\($0.offset + 1))" : ""
-            prefix += handler($0.element)
-            result += prefix
-        }
-        return result
-    }
-    
+    // 현재 잔액으로 구매할 수 있는 음료 목록
     func availables(with money: Int) -> [Beverage] {
         return bundles.compactMap { $0.first }.filter { $0.isPurchasable(with: money) }
     }
