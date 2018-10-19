@@ -10,7 +10,11 @@ import Foundation
 
 class Stocks {
     private var bundles: [[Beverage]]
-    
+    var availables: [Beverage:Int] {
+        let beverages = bundles.compactMap { $0.first }
+        let count = bundles.compactMap {$0.count}
+        return Dictionary(uniqueKeysWithValues: zip(beverages, count))
+    }
     init(_ list: [Beverage]) {
         // 종류 별로 묶음
         self.bundles = Dictionary(grouping: list, by: { $0.className }).values.map { $0 }
