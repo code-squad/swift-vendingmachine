@@ -11,6 +11,7 @@ import Foundation
 class VendingMachine {
     private var stocks: Stocks
     private var account: Int = 0
+    private (set) var history = History()
     var availables: [(Beverage,Int)] {
         return stocks.availables
     }
@@ -42,6 +43,7 @@ class VendingMachine {
         do {
             let order = try stocks.buy(at: index, account)
             account -= order.price
+            history.append(order.beverage)
             return order.beverage
         } catch let err {
             throw err 
