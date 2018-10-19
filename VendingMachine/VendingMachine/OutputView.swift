@@ -9,7 +9,7 @@
 import Foundation
 
 enum Comment {
-    case buy(Beverage, price: Int)
+    case buy(beverage: Beverage, price: Int)
     case introdution(account: Int)
     case list([(beverage: Beverage, count: Int)], isSelectable: Bool)
 }
