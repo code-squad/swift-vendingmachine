@@ -10,10 +10,11 @@ import Foundation
 
 class Stocks {
     private var bundles: [[Beverage]]
-    var availables: [Beverage:Int] {
+    var availables: [(Beverage, Int)] {
         let beverages = bundles.compactMap { $0.first }
-        let count = bundles.compactMap {$0.count}
-        return Dictionary(uniqueKeysWithValues: zip(beverages, count))
+        let counts = bundles.compactMap {$0.count}
+        
+        return zip(beverages, counts).compactMap { ($0, $1)}
     }
     init(_ list: [Beverage]) {
         // 종류 별로 묶음
@@ -33,5 +34,12 @@ class Stocks {
     // 현재 잔액으로 구매할 수 있는 음료 목록
     func availables(with money: Int) -> [Beverage] {
         return bundles.compactMap { $0.first }.filter { $0.isPurchasable(with: money) }
+    }
+    
+    // 음료수 구매 메소드
+    func buy(at index: Int, _ account: Int) throws -> Beverage {
+        let beverage = bundles[index - 1].removeFirst()
+        if !beverage.isPurchasable(with: account) { throw VendingMachineError.outOfBudget }
+        return beverage
     }
 }
