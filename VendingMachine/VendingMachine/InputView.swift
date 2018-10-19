@@ -8,11 +8,11 @@
 
 import Foundation
 
-enum MenuType: Int {
+enum MenuType: String {
     static let description = "\n1. 금액추가\n2. 음료구매\n> "
     
-    case deposit = 1
-    case purchase
+    case deposit = "1"
+    case purchase = "2"
 }
 
 class InputView {

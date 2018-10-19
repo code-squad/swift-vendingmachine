@@ -14,8 +14,8 @@ class Validator {
     static func validate(_ rawValue: String?, with stocks: Stocks) throws -> UserChoice {
         guard let rawValue = rawValue else { throw VendingMachineError.wrongInput }
         let parsed = rawValue.split(separator: " ").map { String($0) }
-        guard let selected = Int(parsed[0]), let menu = MenuType(rawValue: selected) else { throw VendingMachineError.wrongInput }
-        guard let value = Int(parsed[1]) else { throw VendingMachineError.wrongInput }
+        guard let first = parsed.first, let menu = MenuType(rawValue: first) else { throw VendingMachineError.wrongInput }
+        guard let second = parsed.last, let value = Int(second) else { throw VendingMachineError.wrongInput }
         if !checkRange(of: (menu, value), stocks: stocks) { throw VendingMachineError.wrongInput }
         return (menu, value)
     }
