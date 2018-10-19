@@ -17,7 +17,7 @@ enum MenuType: Int {
 
 class InputView {
     
-    static func read(with menu: [Beverage:Int], account: Int) -> String? {
+    static func read(with menu: [(Beverage,Int)], account: Int) -> String? {
         let intro = Comment.introdution(account: account)
         let list = Comment.list(menu, isSelectable: account != 0)
         OutputView.display(with: intro)
