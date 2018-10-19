@@ -33,13 +33,14 @@ class Stocks {
     
     // 현재 잔액으로 구매할 수 있는 음료 목록
     func availables(with money: Int) -> [Beverage] {
-        return bundles.compactMap { $0.first }.filter { $0.isPurchasable(with: money) }
+        return bundles.compactMap { $0.first }.filter { $0.isPurchasable(with: money) != nil }
     }
     
     // 음료수 구매 메소드
-    func buy(at index: Int, _ account: Int) throws -> Beverage {
+    func buy(at index: Int, _ account: Int) throws -> (beverage: Beverage, price: Int) {
         let beverage = bundles[index - 1].removeFirst()
-        if !beverage.isPurchasable(with: account) { throw VendingMachineError.outOfBudget }
-        return beverage
+        bundles = bundles.filter { $0.count != 0 }
+        guard let price = beverage.isPurchasable(with: account) else { throw VendingMachineError.outOfBudget }
+        return (beverage,price)
     }
 }
