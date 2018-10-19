@@ -10,14 +10,7 @@ import Foundation
 
 
 class Main {
-    private static let beverages: [Beverage] = [
-        Latte(milk: 0.2, art: .none, caffeine: 0.3, brand: "맥심", volume: 250, price: 3000, name: "TOP라때", date: Date(timeIntervalSinceNow: -Date.convert(weeks: 1))),
-        FruitMilk(fruit: .strawberry, fat: 0.3, code: "강원03-21", brand: "서울우유", volume: 250, price: 2000, name: "딸기듬뿍", date: Date(timeIntervalSinceNow: -Date.convert(weeks: 2))),
-        FruitMilk(fruit: .strawberry, fat: 0.3, code: "강원03-21", brand: "서울우유", volume: 250, price: 2000, name: "딸기듬뿍", date: Date(timeIntervalSinceNow: -Date.convert(weeks: 1))),
-        RiceWine(area: .busan, alcohol: 0.3, brand: "금정산성토산주", volume: 400, price: 7000, name: "금정산성막걸리", date: Date(timeIntervalSinceNow: -Date.convert(days: 5))),
-        RiceWine(area: .busan, alcohol: 0.3, brand: "금정산성토산주", volume: 400, price: 7000, name: "금정산성막걸리", date: Date(timeIntervalSinceNow: -Date.convert(days: 3))),
-        RiceWine(area: .busan, alcohol: 0.3, brand: "금정산성토산주", volume: 400, price: 7000, name: "금정산성막걸리", date: Date(timeIntervalSinceNow: -Date.convert(days: 6)))
-    ]
+    private static let beverages: [Beverage] = Beverage.sample
     private static var stocks = Stocks(beverages)
     private static let machine = VendingMachine(stocks)
     private static var history = History()
