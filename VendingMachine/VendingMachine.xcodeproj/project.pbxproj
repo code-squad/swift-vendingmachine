@@ -13,6 +13,7 @@
 		3E4694ED2178328C001B5FE5 /* VendingMachineError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4694EC2178328C001B5FE5 /* VendingMachineError.swift */; };
 		3E4694F121787F07001B5FE5 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4694F021787F07001B5FE5 /* Validator.swift */; };
 		3E4694F321799B43001B5FE5 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4694F221799B43001B5FE5 /* OutputView.swift */; };
+		3E4694F52179B0DC001B5FE5 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4694F42179B0DC001B5FE5 /* History.swift */; };
 		3E71902521744A2000CB4510 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E71902421744A2000CB4510 /* Beverage.swift */; };
 		3E71903B217459A700CB4510 /* VendingMachineUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E71903A217459A700CB4510 /* VendingMachineUnitTests.swift */; };
 		3E719043217466F400CB4510 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E719042217466F400CB4510 /* Milk.swift */; };
@@ -48,6 +49,7 @@
 		3E4694EC2178328C001B5FE5 /* VendingMachineError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineError.swift; sourceTree = "<group>"; };
 		3E4694F021787F07001B5FE5 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		3E4694F221799B43001B5FE5 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
+		3E4694F42179B0DC001B5FE5 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		3E71902421744A2000CB4510 /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 		3E719038217459A700CB4510 /* VendingMachineUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E71903A217459A700CB4510 /* VendingMachineUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineUnitTests.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				3E4694EC2178328C001B5FE5 /* VendingMachineError.swift */,
 				3E4694F021787F07001B5FE5 /* Validator.swift */,
 				3E4694F221799B43001B5FE5 /* OutputView.swift */,
+				3E4694F42179B0DC001B5FE5 /* History.swift */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 			files = (
 				3E4694F321799B43001B5FE5 /* OutputView.swift in Sources */,
 				3E71902521744A2000CB4510 /* Beverage.swift in Sources */,
+				3E4694F52179B0DC001B5FE5 /* History.swift in Sources */,
 				3E7190492174762A00CB4510 /* DateExtension.swift in Sources */,
 				3E719043217466F400CB4510 /* Milk.swift in Sources */,
 				3E71904B2174809800CB4510 /* Identifier.swift in Sources */,

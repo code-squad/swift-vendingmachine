@@ -12,6 +12,7 @@ enum Comment {
     case buy(beverage: Beverage, price: Int)
     case introdution(account: Int)
     case list([(beverage: Beverage, count: Int)], isSelectable: Bool)
+    case history(history: History)
 }
 
 class OutputView {
@@ -31,6 +32,13 @@ class OutputView {
                 result += "\(element.beverage.summary(isSelectable: isSelectable)) (\(element.count)개)"
             }
             return print(result, terminator: "")
+        case .history(let list):
+            if list.isEmpty {
+                print("히스토리가 없습니다.")
+            }
+            list.handle { (name, date) in
+                print("상품 : \(name) / 구매날짜: \(date.readable)")
+            }
         }
     }
     

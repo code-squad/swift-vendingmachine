@@ -28,6 +28,8 @@ class Validator {
             return value > 0
         case .purchase:
             return stocks.hasBundle(value)
+        case .history:
+            return true
         }
     }
 }

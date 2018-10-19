@@ -20,6 +20,7 @@ class Main {
     ]
     private static var stocks = Stocks(beverages)
     private static let machine = VendingMachine(stocks)
+    private static var history = History()
     
     static func start() {
         while true {
@@ -37,6 +38,9 @@ class Main {
                     let beverage = try machine.buy(at: value)
                     let price = remain - machine.transactions
                     OutputView.display(with: Comment.buy(beverage: beverage, price: price))
+                    history.append(beverage)
+                case .history:
+                    OutputView.display(with: Comment.history(history: history))
                 }
             } catch let err as VendingMachineError {
                 OutputView.display(with: err)
