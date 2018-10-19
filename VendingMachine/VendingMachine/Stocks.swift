@@ -37,12 +37,7 @@ class Stocks {
         return result
     }
     
-    init(_ list: [Beverage]) {
-        self.list = list
-    }
-    
-    func append(_ beverage: Beverage) -> [BeverageBundle] {
-        list.append(beverage)
-        return bundles
+    func availables(with money: Int) -> [Beverage] {
+        return bundles.compactMap { $0.first }.filter { $0.isPurchasable(with: money) }
     }
 }
