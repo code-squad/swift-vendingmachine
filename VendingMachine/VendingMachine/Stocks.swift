@@ -16,6 +16,11 @@ class Stocks {
         
         return zip(beverages, counts).compactMap { ($0, $1)}
     }
+    
+    var expired: [Beverage] {
+        return bundles.joined().filter { !$0.isValidate() }
+    }
+    
     init(_ list: [Beverage]) {
         // 종류 별로 묶음
         self.bundles = Dictionary(grouping: list, by: { $0.className }).values.map { $0 }
