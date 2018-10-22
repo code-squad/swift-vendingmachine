@@ -16,7 +16,7 @@ class VendingMachine {
         return stocks.availables
     }
     // 금액을 넣고 잔액을 확인할 수 있는 프로퍼티
-    var transactions: Int {
+    var remain: Int {
         set {
             account += newValue
         }
