@@ -22,7 +22,7 @@ class Main {
     }
     
     private static func input() throws -> Validator.UserChoice {
-        let rawValue = InputView.read(with: machine.availables, account: machine.remain)
+        let rawValue = InputView.read(with: machine.bundles, account: machine.remain)
         return try Validator.validate(rawValue, with: stocks)
     }
     
@@ -35,7 +35,7 @@ class Main {
             machine.remain = value
         case .purchase:
             let item = try machine.buy(at: value)
-            OutputView.display(with: Comment.buy(beverage: item.beverage, price: item.price))
+            OutputView.display(with: Comment.buy(beverage: item))
         case .history:
             OutputView.display(with: Comment.history(history: machine.history))
         }
