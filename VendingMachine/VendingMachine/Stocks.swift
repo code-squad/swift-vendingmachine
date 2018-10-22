@@ -42,10 +42,12 @@ class Stocks {
     }
     
     // 음료수 구매 메소드
-    func buy(at index: Int, _ account: Int) throws -> (beverage: Beverage, price: Int) {
-        let beverage = bundles[index - 1].removeFirst()
+    
+    func buy(at item: Beverage, _ account: Int) throws -> Int {
+        var bundle = self.bundles.filter { $0.first?.className == item.className }.first
+        bundle?.removeFirst()
         bundles = bundles.filter { $0.count != 0 }
-        guard let price = beverage.isPurchasable(with: account) else { throw VendingMachineError.outOfBudget }
-        return (beverage,price)
+        guard let price = item.isPurchasable(with: account) else { throw VendingMachineError.outOfBudget }
+        return price
     }
 }

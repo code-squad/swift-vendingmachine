@@ -12,7 +12,7 @@ class VendingMachine {
     private var stocks: Stocks
     private var account: Int = 0
     private (set) var history = History()
-    var availables: [(Beverage,Int)] {
+    var availables: [(beverage: Beverage, count: Int)] {
         return stocks.availables
     }
     // 금액을 넣고 잔액을 확인할 수 있는 프로퍼티
@@ -39,10 +39,11 @@ class VendingMachine {
     }
     
     // 음료수 구매 메소드
-    func buy(at index: Int) throws -> Beverage {
-        let order = try stocks.buy(at: index, account)
-        account -= order.price
-        history.append(order.beverage)
-        return order.beverage
+    func buy(at index: Int) throws -> (beverage: Beverage, price: Int) {
+        let beverage = availables[index - 1].beverage
+        let price = try stocks.buy(at: beverage, account)
+        account -= price
+        history.append(beverage)
+        return (beverage, price)
     }
 }
