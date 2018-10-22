@@ -34,8 +34,10 @@ class Main {
         case .deposit:
             machine.remain = value
         case .purchase:
+            let origin = machine.remain
             let item = try machine.buy(at: value)
-            OutputView.display(with: Comment.buy(beverage: item))
+            let after = machine.remain
+            OutputView.display(with: Comment.buy(beverage: item, price: origin - after))
         case .history:
             OutputView.display(with: Comment.history(history: machine.history))
         }
