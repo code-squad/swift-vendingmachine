@@ -16,7 +16,7 @@ class Main {
     
     static func start() {
         while true {
-            let remain = machine.transactions
+            let remain = machine.remain
             let menu = machine.availables
             let rawValue = InputView.read(with: menu, account: remain)
             do {
@@ -25,10 +25,10 @@ class Main {
                 let value = validated.value
                 switch menu {
                 case .deposit:
-                    machine.transactions = value
+                    machine.remain = value
                 case .purchase:
                     let beverage = try machine.buy(at: value)
-                    let price = remain - machine.transactions
+                    let price = remain - machine.remain
                     OutputView.display(with: Comment.buy(beverage: beverage, price: price))
                 case .history:
                     OutputView.display(with: Comment.history(history: machine.history))

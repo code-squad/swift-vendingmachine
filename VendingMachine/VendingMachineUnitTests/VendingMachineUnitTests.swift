@@ -42,11 +42,11 @@ class VendingMachineUnitTests: XCTestCase {
     }
     
     private func giveAccount(money: Int) {
-        machine.transactions = money
+        machine.remain = money
     }
     
     private func giveAvailableBeveragesInAccount() -> [Beverage] {
-        return machine.availables(with: machine.transactions)
+        return machine.availables(with: machine.remain)
     }
     
     private func giveAvailableBeveragesInStocks() -> [(beverage: Beverage, count: Int)] {
