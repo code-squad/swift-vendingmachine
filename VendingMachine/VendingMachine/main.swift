@@ -14,33 +14,39 @@ class Main {
     private static var stocks = Stocks(beverages)
     private static let machine = VendingMachine(stocks)
     
-    static func start() {
+    static func start() throws {
         while true {
-            let remain = machine.remain
-            let menu = machine.availables
-            let rawValue = InputView.read(with: menu, account: remain)
-            do {
-                let validated = try Validator.validate(rawValue, with: stocks)
-                let menu = validated.menu
-                let value = validated.value
-                switch menu {
-                case .deposit:
-                    machine.remain = value
-                case .purchase:
-                    let beverage = try machine.buy(at: value)
-                    let price = remain - machine.remain
-                    OutputView.display(with: Comment.buy(beverage: beverage, price: price))
-                case .history:
-                    OutputView.display(with: Comment.history(history: machine.history))
-                }
-            } catch let err as VendingMachineError {
-                OutputView.display(with: err)
-            } catch {
-                OutputView.display(with: .unknown)
-            }
+            let choice = try input()
+            try handleOrder(choice)
+        }
+    }
+    
+    private static func input() throws -> Validator.UserChoice {
+        let rawValue = InputView.read(with: machine.availables, account: machine.remain)
+        return try Validator.validate(rawValue, with: stocks)
+    }
+    
+    private static func handleOrder(_ choice: Validator.UserChoice) throws {
+        let menu = choice.menu
+        let value = choice.value
+        
+        switch menu {
+        case .deposit:
+            machine.remain = value
+        case .purchase:
+            let beforeRemain = machine.remain
+            let beverage = try machine.buy(at: value)
+            let price = beforeRemain - machine.remain
+            OutputView.display(with: Comment.buy(beverage: beverage, price: price))
+        case .history:
+            OutputView.display(with: Comment.history(history: machine.history))
         }
     }
 }
 
-Main.start()
+do {
+    try Main.start()
+} catch let err as VendingMachineError {
+    OutputView.display(with: err)
+}
 
