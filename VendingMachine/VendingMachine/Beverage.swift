@@ -43,11 +43,9 @@ class Beverage: NSObject {
         return isSelectable ? "\(name) \(price)원" : "\(name)"
     }
     
-    override func isEqual(_ object: Any?) -> Bool {
-        guard let compared = object as? Beverage else { return false }
-        return compared.brand == self.brand && compared.name == self.name && compared.date == self.date
+    func isEqual(to object: Beverage?) -> Bool {
+        return object?.brand == self.brand && object?.name == self.name && object?.date == self.date
     }
-    
 }
 
 extension Beverage {

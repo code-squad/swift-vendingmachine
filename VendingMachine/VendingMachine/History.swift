@@ -17,7 +17,7 @@ class History {
     }
     
     func hasHistory(of beverage: Beverage) -> Bool {
-        return list.contains(where: {$0.beverage.isEqual(beverage)})
+        return list.contains(where: {$0.beverage.isEqual(to: beverage)})
     }
     
     func append(_ history: Beverage) {
