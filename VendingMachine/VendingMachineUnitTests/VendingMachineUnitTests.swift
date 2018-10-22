@@ -33,9 +33,9 @@ class VendingMachineUnitTests: XCTestCase {
         do {
             let item = try machine.buy(at: 1)
             let after = giveAvailableBeveragesInStocks()
-            XCTAssertTrue(before.contains(where: {$0.beverage.isEqual(to: item)}), "구매한 음료가 일치하지 않습니다.")
+            XCTAssertTrue(before.contains(where: {$0.beverage.isEqual(to: item.beverage)}), "구매한 음료가 일치하지 않습니다.")
             XCTAssertFalse(after.contains(where: {$0.beverage.isEqual(to: item)}), "구매한 음료가 여전히 재고에 존재합니다.")
-            XCTAssertTrue(machine.history.hasHistory(of: item), "구매한 음료가 구매 내역에 존재하지 않습니다.")
+            XCTAssertTrue(machine.history.hasHistory(of: item.beverage), "구매한 음료가 구매 내역에 존재하지 않습니다.")
         }catch let err {
             XCTFail("\((err as! VendingMachineError))")
         }
