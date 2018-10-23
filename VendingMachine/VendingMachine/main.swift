@@ -11,8 +11,7 @@ import Foundation
 
 class Main {
     private static let beverages: [Beverage] = Beverage.sample
-    private static var stocks = Stocks(beverages)
-    private static let machine = VendingMachine(stocks)
+    private static let machine = VendingMachine(Stocks(beverages))
     
     static func start() throws {
         while true {
@@ -25,7 +24,7 @@ class Main {
         OutputView.display(with: Comment.introdution(account: machine.remain))
         OutputView.display(with: Comment.list(machine.bundles, hasPrice: machine.remain != 0))
         let rawValue = InputView.read()
-        return try Validator.validate(rawValue, with: stocks)
+        return try Validator.validate(rawValue, with: machine.bundles)
     }
     
     private static func handleOrder(_ choice: Validator.UserChoice) throws {
