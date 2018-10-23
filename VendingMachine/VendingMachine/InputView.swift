@@ -19,10 +19,6 @@ enum MenuType: String {
 class InputView {
     
     static func read(with menu: [(Beverage,Int)], account: Int) -> String? {
-        let intro = Comment.introdution(account: account)
-        let list = Comment.list(menu, isSelectable: account != 0)
-        OutputView.display(with: intro)
-        OutputView.display(with: list)
         print(MenuType.description, terminator: "")
         return readLine()
     }
