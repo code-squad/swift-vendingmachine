@@ -8,10 +8,17 @@
 
 import Foundation
 
-class History {
+class History: CustomStringConvertible {
     typealias PurchaseHistory = (beverage: Beverage, date: Date)
     
     private var list: [PurchaseHistory] = []
+    var description: String {
+        var result = ""
+        list.forEach {
+            result += "상품 : \($0.beverage) / 구매날짜: \($0.date.readable)\n"
+        }
+        return result
+    }
     var isEmpty: Bool {
         return list.isEmpty
     }
@@ -22,11 +29,5 @@ class History {
     
     func append(_ history: Beverage) {
         list.append((history, Date()))
-    }
-    
-    func handle(_ handler: (_ name: String, _ date: Date)->()) {
-        list.forEach {
-            handler($0.beverage.summary(isSelectable: false), $0.date)
-        }
     }
 }
