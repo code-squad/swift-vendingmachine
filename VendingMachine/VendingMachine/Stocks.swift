@@ -10,11 +10,11 @@ import Foundation
 
 class Stocks {
     private var list: [Beverage]
-    var bundles: [(beverage: Beverage, count: Int)] {
+    var bundles: Bundles {
         let bundles = Dictionary(grouping: list, by: { $0.className }).values.map { $0 }
         let beverages = bundles.compactMap { $0.first }
         let counts = bundles.compactMap {$0.count}
-        return zip(beverages, counts).compactMap { ($0, $1)}
+        return Bundles(zip(beverages, counts).compactMap { ($0, $1)}.map {Bundle(list: $0)})
     }
     
     var expired: [Beverage] {
