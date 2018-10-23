@@ -9,15 +9,21 @@
 import Foundation
 
 class Bundle {
-    private var list: (beverage: Beverage, count: Int)
+    private var list: [Beverage]
+    
     var beverage: Beverage {
-        return list.beverage
+        return list.first!
     }
+    
     var count: Int {
         return list.count
     }
     
-    init(list: (beverage: Beverage, count: Int)) {
+    init(list: [Beverage]) {
         self.list = list
+    }
+    
+    func contains(_ beverage: Beverage) -> Bool {
+        return list.contains(beverage)
     }
 }
