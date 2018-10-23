@@ -18,7 +18,8 @@ class Bundles {
         self.bundles = bundles
     }
     
-    func get(at index: Int) -> Beverage {
+    func get(at index: Int) throws -> Beverage {
+        if index <= 0 { throw VendingMachineError.wrongInput }
         return bundles[index - 1].beverage
     }
     
