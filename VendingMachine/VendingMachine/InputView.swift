@@ -18,7 +18,7 @@ enum MenuType: String {
 
 class InputView {
     
-    static func read(with menu: [(Beverage,Int)], account: Int) -> String? {
+    static func read() -> String? {
         print(MenuType.description, terminator: "")
         return readLine()
     }
