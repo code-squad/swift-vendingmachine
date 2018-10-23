@@ -11,23 +11,23 @@ import Foundation
 class Validator {
     typealias UserChoice = (menu: MenuType, value: Int)
     
-    static func validate(_ rawValue: String?, with stocks: Stocks) throws -> UserChoice {
+    static func validate(_ rawValue: String?, with bundles: Bundles) throws -> UserChoice {
         guard let rawValue = rawValue else { throw VendingMachineError.wrongInput }
         let parsed = rawValue.split(separator: " ").map { String($0) }
         guard let first = parsed.first, let menu = MenuType(rawValue: first) else { throw VendingMachineError.wrongInput }
         guard let second = parsed.last, let value = Int(second) else { throw VendingMachineError.wrongInput }
-        if !checkRange(of: (menu, value), stocks: stocks) { throw VendingMachineError.wrongInput }
+        if !checkRange(of: (menu, value), bundles: bundles) { throw VendingMachineError.wrongInput }
         return (menu, value)
     }
     
-    private static func checkRange(of user: UserChoice, stocks: Stocks) -> Bool {
+    private static func checkRange(of user: UserChoice, bundles: Bundles) -> Bool {
         let menu = user.menu
         let value = user.value
         switch menu {
         case .deposit:
             return value > 0
         case .purchase:
-            return stocks.hasBundle(value)
+            return bundles.hasBundle(of: value)
         case .history:
             return true
         }

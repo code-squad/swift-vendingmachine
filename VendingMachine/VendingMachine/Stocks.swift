@@ -27,10 +27,6 @@ class Stocks {
         list.append(beverage)
     }
     
-    func hasBundle(_ value: Int) -> Bool {
-        return value <= bundles.count
-    }
-    
     // 현재 잔액으로 구매할 수 있는 음료 목록
     func availables(with money: Int) -> [Beverage] {
         return list.filter { $0.isPurchasable(with: money) != nil }

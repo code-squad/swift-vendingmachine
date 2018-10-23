@@ -23,6 +23,10 @@ class Bundles {
         return bundles[index - 1].beverage
     }
     
+    func hasBundle(of index: Int) -> Bool {
+        return count > 0 && count <= index
+    }
+    
     func display(_ handler: (_ offset: Int, _ beverage: Beverage, _ count: Int)->(String)) -> String {
         var result = ""
         bundles.enumerated().forEach {
