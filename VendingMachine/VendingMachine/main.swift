@@ -24,7 +24,7 @@ class Main {
     private static func input() throws -> Validator.UserChoice {
         OutputView.display(with: Comment.introdution(account: machine.remain))
         OutputView.display(with: Comment.list(machine.bundles, hasPrice: machine.remain != 0))
-        let rawValue = InputView.read(with: machine.bundles, account: machine.remain)
+        let rawValue = InputView.read()
         return try Validator.validate(rawValue, with: stocks)
     }
     
