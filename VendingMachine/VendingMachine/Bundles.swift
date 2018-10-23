@@ -30,4 +30,9 @@ class Bundles {
         }
         return result
     }
+    
+    func contains(_ beverage: Beverage) -> Bool {
+        return !bundles.filter {$0.contains(beverage)}.isEmpty
+    }
+    
 }
