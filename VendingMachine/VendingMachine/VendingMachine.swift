@@ -40,7 +40,7 @@ class VendingMachine {
     
     // 음료수 구매 메소드
     func buy(at index: Int) throws -> Beverage {
-        let beverage = bundles.get(at: index)
+        let beverage = try bundles.get(at: index)
         let price = try stocks.buy(at: beverage, account)
         account -= price
         history.append(beverage)
