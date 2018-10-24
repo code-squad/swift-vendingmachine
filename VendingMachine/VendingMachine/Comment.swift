@@ -25,10 +25,19 @@ enum Comment: CustomStringConvertible {
             return result
         case .history(let list):
             return list.isEmpty ? "히스토리가 없습니다." : "\(list)"
+        case .add(let beverage, let count):
+            return "\(beverage.tag(hasPrice: true))를 \(count)개 추가하였습니다."
+        case .remove(let beverage):
+            return "\(beverage.tag(hasPrice: false))를 폐기하였습니다."
+        case .exit:
+            return "모드 선택으로 돌아갑니다."
         }
     }
     case buy(beverage: Beverage, price: Int)
     case introdution(account: Int)
     case list(Bundles, hasPrice: Bool)
     case history(history: History)
+    case add(Beverage, Int)
+    case remove(Beverage)
+    case exit
 }
