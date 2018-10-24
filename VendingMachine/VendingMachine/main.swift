@@ -8,6 +8,10 @@
 
 import Foundation
 
+protocol VendingMachineHandlerDelegate: class {
+    associatedtype Menu
+    func handle(_ menu: Menu, value: Int) throws -> Comment?
+}
 
 class Main {
     private static let beverages: [Beverage] = Beverage.sample
