@@ -15,11 +15,14 @@ enum VendingMachineError: Error, CustomStringConvertible {
             return "❌ 올바른 값을 입력해주세요. ❌"
         case .outOfBudget:
             return "❌ 금액이 부족합니다. ❌"
+        case .outOfStock:
+            return "❌ 재고가 존재하지 않습니다. ❌"
         case .unknown:
             return "👻 알 수 없는 오류가 발생하였습니다. 👻"
         }
     }
     case wrongInput
     case outOfBudget
+    case outOfStock
     case unknown
 }
