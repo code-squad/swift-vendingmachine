@@ -14,44 +14,45 @@ protocol VendingMachineHandlerDelegate: class {
 }
 
 class Main {
-    private static let beverages: [Beverage] = Beverage.sample
+    private static let beverages: [Beverage] = WareHouse.generateBeverages(10)
     private static let machine = VendingMachine(Stocks(beverages))
+    private static let manager = Manager(machine)
+    private static let user = User(machine)
     
-    static func start() throws {
+    static func run() throws {
+        let mode = try setMode()
         while true {
-            let choice = try input()
-            try handleOrder(choice)
+            guard let comment = try handle(mode) else { break }
+            OutputView.display(with: comment)
         }
+        OutputView.display(with: .exit)
     }
     
-    private static func input() throws -> Validator.UserChoice {
-        OutputView.display(with: Comment.introdution(account: machine.remain))
-        OutputView.display(with: Comment.list(machine.bundles, hasPrice: machine.remain != 0))
-        let rawValue = InputView.read()
-        return try Validator.validate(rawValue, with: machine.bundles)
+    // 모드 선택
+    private static func setMode() throws -> Mode {
+        let mode = try InputView.read(type: Mode.self)
+        return mode
     }
     
-    private static func handleOrder(_ choice: Validator.UserChoice) throws {
-        let menu = choice.menu
-        let value = choice.value
-        
-        switch menu {
-        case .deposit:
-            machine.remain = value
-        case .purchase:
-            let origin = machine.remain
-            let item = try machine.buy(at: value)
-            let after = machine.remain
-            OutputView.display(with: Comment.buy(beverage: item, price: origin - after))
-        case .history:
-            OutputView.display(with: Comment.history(history: machine.history))
+    // 모드에 따른 메소드 호출
+    private static func handle(_ mode: Mode) throws -> Comment? {
+        switch mode {
+        case .manager:
+            let menu = try InputView.read(type: ManagerMenu.self)
+            return try manager.handle(menu)
+        case .user:
+            OutputView.display(with: Comment.introdution(account: user.remain))
+            OutputView.display(with: Comment.list(user.bundles, hasPrice: user.remain != 0))
+            let (menu, value) = try InputView.readUserInput()
+            return try user.handle(menu, value: value)
         }
     }
 }
 
-do {
-    try Main.start()
-} catch let err as VendingMachineError {
-    OutputView.display(with: err)
+while true {
+    do {
+        try Main.run()
+    } catch let err as VendingMachineError {
+        OutputView.display(with: err)
+    }
 }
-
