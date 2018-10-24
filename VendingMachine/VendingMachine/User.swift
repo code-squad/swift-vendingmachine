@@ -13,9 +13,6 @@ class User {
     var bundles: Bundles {
         return machine.bundles
     }
-    var history: History {
-        return machine.userHistory
-    }
     var remain: Int {
         return machine.remain
     }
@@ -24,13 +21,36 @@ class User {
         self.machine = machine
     }
     
-    func buy(at index: Int) throws -> (Beverage, Int) {
+    private func buy(at index: Int) throws -> (Beverage, Int) {
         if index < 0 || index > bundles.count { throw VendingMachineError.wrongInput }
         return try machine.buy(at: index)
     }
     
-    func deposit(_ money: Int) throws {
+    private func deposit(_ money: Int) throws {
         if money < 0 { throw VendingMachineError.wrongInput }
         machine.deposit(money)
     }
+}
+
+extension User: VendingMachineHandlerDelegate {
+    typealias Menu = UserMenu
+    
+    func handle(_ menu: UserMenu, value: Int) throws -> Comment? {
+        switch menu {
+        case .deposit:
+            // OutputView 처리
+            try deposit(value)
+            return .introdution(account: value)
+        case .purchase:
+            // OutputView 처리
+            let (beverage, price) = try buy(at: value)
+            return .buy(beverage: beverage, price: price)
+        case .history:
+            let history = machine.userHistory
+            return .history(history: history)
+        case .exit:
+            return nil
+        }
+    }
+    
 }
