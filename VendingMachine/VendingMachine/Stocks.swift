@@ -34,9 +34,13 @@ class Stocks {
     
     // 음료수 구매 메소드
     func buy(at item: Beverage, _ account: Int) throws -> Int {
-        guard let index = list.firstIndex(of: item) else { throw VendingMachineError.unknown }
-        list.remove(at: index)
+        try remove(at: item)
         guard let price = item.isPurchasable(with: account) else { throw VendingMachineError.outOfBudget }
         return price
+    }
+    
+    func remove(at item: Beverage) throws {
+        guard let index = list.firstIndex(of: item) else { throw VendingMachineError.outOfStock }
+        list.remove(at: index)
     }
 }
