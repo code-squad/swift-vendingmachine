@@ -28,9 +28,6 @@ class VendingMachine {
     private var account: Int = 0
     private var history = History()
     
-    weak var manager: VendingMachineManagerDelegate?
-    weak var user: VendingMachineUserDelegate?
-    
     init(_ stocks: Stocks) {
         self.stocks = stocks
     }
