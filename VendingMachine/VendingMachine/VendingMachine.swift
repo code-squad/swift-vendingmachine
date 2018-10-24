@@ -7,43 +7,74 @@
 //
 
 import Foundation
+protocol VendingMachineDelegate: class {
+    var bundles: Bundles { get }
+}
+
+protocol VendingMachineManagerDelegate: VendingMachineDelegate {
+    func add(_ beverage: Beverage)
+    func remove(at index: Int) throws -> Beverage
+}
+
+protocol VendingMachineUserDelegate: VendingMachineDelegate {
+    var userHistory: History { get }
+    var remain: Int { get }
+    func deposit(_ money: Int)
+    func buy(at index: Int) throws -> (Beverage, Int)
+}
 
 class VendingMachine {
     private var stocks: Stocks
     private var account: Int = 0
-    private (set) var history = History()
-    var bundles: Bundles {
-        return stocks.bundles
-    }
-    // 금액을 넣고 잔액을 확인할 수 있는 프로퍼티
-    var remain: Int {
-        set {
-            account += newValue
-        }
-        get {
-            return account
-        }
-    }
+    private var history = History()
+    
+    weak var manager: VendingMachineManagerDelegate?
+    weak var user: VendingMachineUserDelegate?
     
     init(_ stocks: Stocks) {
         self.stocks = stocks
-    }
-    
-    func append(_ beverage: Beverage) {
-        stocks.append(beverage)
     }
     
     // 현재 잔액으로 구매할 수 있는 음료 목록
     func availables(with money: Int) -> [Beverage] {
         return stocks.availables(with: money)
     }
+}
+
+extension VendingMachine: VendingMachineDelegate {
+    var bundles: Bundles {
+        return stocks.bundles
+    }
+}
+
+extension VendingMachine: VendingMachineManagerDelegate {
+    func add(_ beverage: Beverage) {
+        stocks.append(beverage)
+    }
     
+    func remove(at index: Int) throws -> Beverage {
+        let beverage = try bundles.get(at: index)
+        try stocks.remove(at: beverage)
+        return beverage
+    }
+}
+
+extension VendingMachine: VendingMachineUserDelegate {
+    var userHistory: History {
+        return history
+    }
+    var remain: Int {
+        return account
+    }
+    func deposit(_ money: Int) {
+        account += money
+    }
     // 음료수 구매 메소드
-    func buy(at index: Int) throws -> Beverage {
+    func buy(at index: Int) throws -> (Beverage, Int) {
         let beverage = try bundles.get(at: index)
         let price = try stocks.buy(at: beverage, account)
         account -= price
         history.append(beverage)
-        return beverage
+        return (beverage, price)
     }
 }
