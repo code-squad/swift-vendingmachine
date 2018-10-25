@@ -11,9 +11,8 @@ import Foundation
 class InputView {
     static func read<T: Discriptable>(type: T.Type) throws -> T where T.RawValue == String {
         print(T.description, terminator: "")
-        guard let rawValue = readLine() else { throw VendingMachineError.wrongInput }
-        guard let menu = T(rawValue: rawValue) else { throw VendingMachineError.wrongInput }
-        return menu
+        let result: (menu: T, rawValue: String?) = try readRawInput(type: type)
+        return result.menu
     }
     
     static func readUserInput() throws -> (UserMenu, Int) {
@@ -22,18 +21,17 @@ class InputView {
     }
     
     static func read<T: RawRepresentable>(type: T.Type) throws -> (T, Int) where T.RawValue == String {
-        guard let rawValue = readLine() else { throw VendingMachineError.wrongInput }
-        
-        let parsed = rawValue.split(separator: " ").map { String($0) }
-        
-        guard let first = parsed.first,let menu = T(rawValue: first) else {
-            throw VendingMachineError.wrongInput
-        }
-        guard let second = parsed.last, let value = Int(second) else {
-            throw VendingMachineError.wrongInput
-        }
-        
-        return (menu, value)
+        let result: (menu: T, rawValue: String?) = try readRawInput(type: type)
+        guard let rawValue = result.rawValue, let value = Int(rawValue) else { throw VendingMachineError.wrongInput }
+        return (result.menu, value)
+    }
+    
+    private static func readRawInput<T: RawRepresentable>(type: T.Type) throws -> (menu: T, rawValue: String?) where T.RawValue == String{
+        guard let rawInput = readLine() else { throw VendingMachineError.wrongInput }
+        let parsed = rawInput.split(separator: " ").map { String($0) }
+        guard let rawMenu = parsed.first, let menu = T(rawValue: rawMenu) else { throw VendingMachineError.wrongInput }
+        let rawValue: String? = parsed.count == 2 ? parsed.last : nil
+        return (menu, rawValue)
     }
     
     static func read() throws -> Int {
