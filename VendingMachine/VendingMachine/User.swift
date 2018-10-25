@@ -22,12 +22,12 @@ class User {
     }
     
     private func buy(at index: Int) throws -> (Beverage, Int) {
-        if index < 0 || index > bundles.count { throw VendingMachineError.wrongInput }
+        if index < 0 || index > bundles.count { throw InputError.wrongInput }
         return try machine.buy(at: index)
     }
     
     private func deposit(_ money: Int) throws {
-        if money < 0 { throw VendingMachineError.wrongInput }
+        if money < 0 { throw InputError.wrongInput }
         machine.deposit(money)
     }
 }

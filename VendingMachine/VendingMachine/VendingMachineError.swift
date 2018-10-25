@@ -11,8 +11,6 @@ import Foundation
 enum VendingMachineError: Error, CustomStringConvertible {
     var description: String {
         switch self {
-        case .wrongInput:
-            return "❌ 올바른 값을 입력해주세요. ❌"
         case .outOfBudget:
             return "❌ 금액이 부족합니다. ❌"
         case .outOfStock:
@@ -21,7 +19,6 @@ enum VendingMachineError: Error, CustomStringConvertible {
             return "👻 알 수 없는 오류가 발생하였습니다. 👻"
         }
     }
-    case wrongInput
     case outOfBudget
     case outOfStock
     case unknown

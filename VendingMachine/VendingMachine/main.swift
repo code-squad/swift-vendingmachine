@@ -52,7 +52,7 @@ class Main {
 while true {
     do {
         try Main.run()
-    } catch let err as VendingMachineError {
-        OutputView.display(with: err)
+    } catch {
+        OutputView.display(with: error)
     }
 }
