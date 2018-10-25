@@ -22,20 +22,20 @@ class InputView {
     
     static func read<T: RawRepresentable>(type: T.Type) throws -> (T, Int) where T.RawValue == String {
         let result: (menu: T, rawValue: String?) = try readRawInput(type: type)
-        guard let rawValue = result.rawValue, let value = Int(rawValue) else { throw VendingMachineError.wrongInput }
+        guard let rawValue = result.rawValue, let value = Int(rawValue) else { throw InputError.wrongInput }
         return (result.menu, value)
     }
     
     private static func readRawInput<T: RawRepresentable>(type: T.Type) throws -> (menu: T, rawValue: String?) where T.RawValue == String{
-        guard let rawInput = readLine() else { throw VendingMachineError.wrongInput }
+        guard let rawInput = readLine() else { throw InputError.noInput }
         let parsed = rawInput.split(separator: " ").map { String($0) }
-        guard let rawMenu = parsed.first, let menu = T(rawValue: rawMenu) else { throw VendingMachineError.wrongInput }
+        guard let rawMenu = parsed.first, let menu = T(rawValue: rawMenu) else { throw InputError.wrongInput }
         let rawValue: String? = parsed.count == 2 ? parsed.last : nil
         return (menu, rawValue)
     }
     
     static func read() throws -> Int {
-        guard let rawValue = readLine(), let index = Int(rawValue) else { throw VendingMachineError.wrongInput }
+        guard let rawValue = readLine(), let index = Int(rawValue) else { throw InputError.wrongInput }
         return index
     }
 }

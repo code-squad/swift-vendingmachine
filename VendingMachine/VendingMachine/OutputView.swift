@@ -13,7 +13,7 @@ class OutputView {
         print(comment)
     }
     
-    static func display(with error: VendingMachineError) {
+    static func display(with error: Error) {
         print(error)
     }
 }
