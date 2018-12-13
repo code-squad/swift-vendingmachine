@@ -12,8 +12,5 @@ enum BeverageCategory {
     case milk
     case softDrink
     case coffee
-}
-
-protocol Groupable {
-    var group: BeverageCategory { get }
+    case etc
 }

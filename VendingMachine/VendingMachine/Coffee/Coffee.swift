@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Coffee: Beverage, Groupable {
+class Coffee: BeverageGroup {
     private let ice: Bool
 
     init(brand: String, name: String, volume: Int, price: Int, dateOfManufacture: Date, ice: Bool) {
@@ -16,7 +16,7 @@ class Coffee: Beverage, Groupable {
         super.init(brand: brand, name: name, volume: volume, price: price, dateOfManufacture: dateOfManufacture)
     }
 
-    var group: BeverageCategory {
+    override var group: BeverageCategory {
         return .coffee
     }
 
