@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+extension Date {
+
+    func addingDayInterval(_ days: Double) -> Date {
+        let secondsOfADay: Double = 86400
+        return self.addingTimeInterval(secondsOfADay * days)
+    }
+
+}
