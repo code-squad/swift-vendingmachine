@@ -14,7 +14,7 @@ func main() {
     let sprite = Sprite(volume: 250, price: 1200, dateOfManufacture: Date(timeIntervalSinceNow: -30*aDay), package: .can)
     let cantata = Cantata(name: "칸타타 더치블랙", volume: 275, price: 2200, dateOfManufacture: Date(timeIntervalSinceNow: -20*aDay), ice: false)
     let beverages: [Beverage] = [chocolateMilk, sprite, cantata]
-    
+
     beverages.forEach { beverage in
         print("\(beverage.className) - \(beverage)")
     }

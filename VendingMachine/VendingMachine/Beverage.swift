@@ -30,4 +30,8 @@ class Beverage: NSObject {
         return "\(brand), \(name), \(volume)ml, \(price)원, \(date)"
     }
 
+    override var className: String {
+            return String(describing: type(of: self))
+    }
+
 }
