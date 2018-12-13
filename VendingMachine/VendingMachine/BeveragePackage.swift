@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+enum BeveragePackage {
+    case paper
+    case plastic
+    case can
+}
