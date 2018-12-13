@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+class Georgia: Coffee {
+
+    convenience init(name: String, volume: Int, price: Int, dateOfManufacture: Date, ice: Bool) {
+        let brand = "조지아"
+        self.init(brand: brand, name: name, volume: volume, price: price, dateOfManufacture: dateOfManufacture, ice: ice)
+    }
+
+}
