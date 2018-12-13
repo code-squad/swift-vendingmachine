@@ -18,20 +18,20 @@ class UnitTestCoffee: XCTestCase {
             name: "칸타타 더치블랙",
             volume: 275,
             price: 2200,
-            dateOfManufacture: Date(timeIntervalSinceNow: -8*86400),
+            dateOfManufacture: Date.subtractingDaysFromNow(by: 8),
             ice: false)
         self.georgia = Georgia(
             name: "조지아 카페라떼",
             volume: 300,
             price: 2500,
-            dateOfManufacture: Date(timeIntervalSinceNow: -20*86400),
+            dateOfManufacture: Date.subtractingDaysFromNow(by: 20),
             ice: false)
         self.coffee = Coffee(
             brand: "스타벅스",
             name: "스타벅스 카페라떼",
             volume: 215,
             price: 1700,
-            dateOfManufacture: Date(timeIntervalSinceNow: -12*86400),
+            dateOfManufacture: Date.subtractingDaysFromNow(by: 12),
             ice: true)
     }
 

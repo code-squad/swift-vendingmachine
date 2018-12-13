@@ -8,11 +8,27 @@
 
 import Foundation
 
-extension Date {
+extension Double {
 
-    func addingDayInterval(_ days: Double) -> Date {
+    func convertDaysIntoSeconds() -> TimeInterval {
         let secondsOfADay: Double = 86400
-        return self.addingTimeInterval(secondsOfADay * days)
+        return self * secondsOfADay
     }
 
 }
+
+extension Date {
+
+    func addingDayInterval(_ days: Double) -> Date {
+        let dayInterval = days.convertDaysIntoSeconds()
+        return self.addingTimeInterval(dayInterval)
+    }
+
+    static func subtractingDaysFromNow(by days: Double) -> Date {
+        let dayInterval = -1 * days.convertDaysIntoSeconds()
+        let now = Date()
+        return Date(timeInterval: dayInterval, since: now)
+    }
+
+}
+

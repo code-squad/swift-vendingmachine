@@ -20,20 +20,20 @@ class UnitTestMilk: XCTestCase {
             name: "언니몰래먹는딸기우유",
             volume: 200,
             price: 2000,
-            dateOfManufacture: Date(timeIntervalSinceNow: -8*86400),
+            dateOfManufacture: Date.subtractingDaysFromNow(by: 8),
             package: .plastic)
         self.chocolateMilk = ChocolateMilk(
             brand: "푸르밀",
             name: "가나초코우유",
             volume: 300,
             price: 1200,
-            dateOfManufacture: Date(timeIntervalSinceNow: -12*86400))
+            dateOfManufacture: Date.subtractingDaysFromNow(by: 12))
         self.pureMilk = Milk.init(
             brand: "남양유업",
             name: "맛있는우유GT",
             volume: 200,
             price: 900,
-            dateOfManufacture: Date(timeIntervalSinceNow: -3*86400),
+            dateOfManufacture: Date.subtractingDaysFromNow(by: 3),
             flavor: nil)
     }
 
@@ -66,17 +66,17 @@ class UnitTestMilk: XCTestCase {
     }
 
     func testClassMilk_NamedPureMilk_ValidatesNow() {
-        let now = Date(timeIntervalSinceNow: 0)
+        let now = Date()
         XCTAssertTrue(pureMilk.validate(when: now))
     }
 
     func testSubClassOfMilk_NamedStrawberryMilk_ValidatesNow() {
-        let now = Date(timeIntervalSinceNow: 0)
+        let now = Date()
         XCTAssertTrue(strawberryMilk.validate(when: now))
     }
 
     func testSubClassOfMilk_NamedChocolateMilk_DoesNotValidatesNow() {
-        let now = Date(timeIntervalSinceNow: 0)
+        let now = Date()
         XCTAssertFalse(chocolateMilk.validate(when: now))
     }
 
