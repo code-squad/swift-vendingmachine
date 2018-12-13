@@ -117,13 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
-				A39E9B1721BF8818008444C3 /* Beverage.swift */,
-				A39E9B5821C28DFA008444C3 /* BeverageGroup.swift */,
-				A39E9B1F21BF9D5E008444C3 /* BeverageCategory.swift */,
-				A39E9B4721C20409008444C3 /* BeveragePackage.swift */,
-				A39E9B3621C1FC0C008444C3 /* Milk */,
-				A39E9B3521C1FBFA008444C3 /* Coffee */,
-				A39E9B3721C1FC45008444C3 /* SoftDrink */,
+				A39E9B5B21C28F5B008444C3 /* Beverage */,
 				A39E9B4A21C22FE4008444C3 /* Date.swift */,
 			);
 			path = VendingMachine;
@@ -168,6 +162,20 @@
 				A39E9B4421C202B2008444C3 /* Pepsi.swift */,
 			);
 			path = SoftDrink;
+			sourceTree = "<group>";
+		};
+		A39E9B5B21C28F5B008444C3 /* Beverage */ = {
+			isa = PBXGroup;
+			children = (
+				A39E9B1721BF8818008444C3 /* Beverage.swift */,
+				A39E9B5821C28DFA008444C3 /* BeverageGroup.swift */,
+				A39E9B1F21BF9D5E008444C3 /* BeverageCategory.swift */,
+				A39E9B4721C20409008444C3 /* BeveragePackage.swift */,
+				A39E9B3621C1FC0C008444C3 /* Milk */,
+				A39E9B3721C1FC45008444C3 /* SoftDrink */,
+				A39E9B3521C1FBFA008444C3 /* Coffee */,
+			);
+			path = Beverage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
