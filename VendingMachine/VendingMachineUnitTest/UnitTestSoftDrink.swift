@@ -17,19 +17,19 @@ class UnitTestSoftDrink: XCTestCase {
         self.pepsi = Pepsi(
             volume: 500,
             price: 1800,
-            dateOfManufacture: Date(timeIntervalSinceNow: -40*86400),
+            dateOfManufacture: Date.subtractingDaysFromNow(by: 40),
             package: .plastic)
         self.sprite = Sprite(
             volume: 250,
             price: 1200,
-            dateOfManufacture: Date(timeIntervalSinceNow: -30*86400),
+            dateOfManufacture: Date.subtractingDaysFromNow(by: 30),
             package: .can)
         self.soda = SoftDrink(
             brand: "롯데",
             name: "밀키스",
             volume: 340,
             price: 1300,
-            dateOfManufacture: Date(timeIntervalSinceNow: -20*86400),
+            dateOfManufacture: Date.subtractingDaysFromNow(by: 20),
             package: .plastic)
     }
 
