@@ -9,5 +9,10 @@
 import Foundation
 
 class ChocolateMilk: Milk {
-    
+
+    convenience init(brand: String, name: String, volume: Int, price: Int, dateOfManufacture: Date) {
+        let flavor = "초코"
+        self.init(brand: brand, name: name, volume: volume, price: price, dateOfManufacture: dateOfManufacture, flavor: flavor)
+    }
+
 }
