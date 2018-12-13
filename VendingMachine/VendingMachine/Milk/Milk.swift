@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Milk: Beverage, Groupable {
+class Milk: BeverageGroup {
     private let flavor: String?
     private let package: BeveragePackage
     private let useByDate: Double = 10
@@ -32,7 +32,7 @@ class Milk: Beverage, Groupable {
             package: BeveragePackage.paper)
     }
 
-    var group: BeverageCategory {
+    override var group: BeverageCategory {
         return .milk
     }
 

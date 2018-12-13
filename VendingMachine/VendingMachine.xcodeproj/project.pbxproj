@@ -37,6 +37,8 @@
 		A39E9B5321C24B47008444C3 /* UnitTestMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39E9B5221C24B47008444C3 /* UnitTestMilk.swift */; };
 		A39E9B5521C25139008444C3 /* UnitTestCoffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39E9B5421C25139008444C3 /* UnitTestCoffee.swift */; };
 		A39E9B5721C253AB008444C3 /* UnitTestSoftDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39E9B5621C253AB008444C3 /* UnitTestSoftDrink.swift */; };
+		A39E9B5921C28DFA008444C3 /* BeverageGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39E9B5821C28DFA008444C3 /* BeverageGroup.swift */; };
+		A39E9B5A21C28DFA008444C3 /* BeverageGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39E9B5821C28DFA008444C3 /* BeverageGroup.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -72,6 +74,7 @@
 		A39E9B5221C24B47008444C3 /* UnitTestMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestMilk.swift; sourceTree = "<group>"; };
 		A39E9B5421C25139008444C3 /* UnitTestCoffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestCoffee.swift; sourceTree = "<group>"; };
 		A39E9B5621C253AB008444C3 /* UnitTestSoftDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestSoftDrink.swift; sourceTree = "<group>"; };
+		A39E9B5821C28DFA008444C3 /* BeverageGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageGroup.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +118,7 @@
 			children = (
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
 				A39E9B1721BF8818008444C3 /* Beverage.swift */,
+				A39E9B5821C28DFA008444C3 /* BeverageGroup.swift */,
 				A39E9B1F21BF9D5E008444C3 /* BeverageCategory.swift */,
 				A39E9B4721C20409008444C3 /* BeveragePackage.swift */,
 				A39E9B3621C1FC0C008444C3 /* Milk */,
@@ -267,6 +271,7 @@
 				A39E9B2021BF9D5E008444C3 /* BeverageCategory.swift in Sources */,
 				A39E9B4B21C22FE4008444C3 /* Date.swift in Sources */,
 				A39E9B4221C2025D008444C3 /* Sprite.swift in Sources */,
+				A39E9B5921C28DFA008444C3 /* BeverageGroup.swift in Sources */,
 				A39E9B1E21BF9D11008444C3 /* Coffee.swift in Sources */,
 				A39E9B4521C202B2008444C3 /* Pepsi.swift in Sources */,
 				A39E9B4821C20409008444C3 /* BeveragePackage.swift in Sources */,
@@ -281,6 +286,7 @@
 				A39E9B4D21C248A2008444C3 /* Beverage.swift in Sources */,
 				A39E9B4E21C248A5008444C3 /* BeverageCategory.swift in Sources */,
 				A39E9B3A21C1FF69008444C3 /* StrawberryMilk.swift in Sources */,
+				A39E9B5A21C28DFA008444C3 /* BeverageGroup.swift in Sources */,
 				A39E9B3D21C20088008444C3 /* Georgia.swift in Sources */,
 				A39E9B4321C2025D008444C3 /* Sprite.swift in Sources */,
 				A39E9B5721C253AB008444C3 /* UnitTestSoftDrink.swift in Sources */,
