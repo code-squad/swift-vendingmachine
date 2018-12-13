@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+class Sprite: SoftDrink {
+
+    convenience init(volume: Int, price: Int, dateOfManufacture: Date, package: BeveragePackage) {
+        let brand = "코카콜라컴퍼니"
+        let name = "스프라이트"
+        self.init(brand: brand, name: name, volume: volume, price: price, dateOfManufacture: dateOfManufacture, package: package)
+    }
+
+}
