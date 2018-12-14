@@ -39,6 +39,8 @@
 		A39E9B5721C253AB008444C3 /* UnitTestSoftDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39E9B5621C253AB008444C3 /* UnitTestSoftDrink.swift */; };
 		A39E9B5921C28DFA008444C3 /* BeverageGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39E9B5821C28DFA008444C3 /* BeverageGroup.swift */; };
 		A39E9B5A21C28DFA008444C3 /* BeverageGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39E9B5821C28DFA008444C3 /* BeverageGroup.swift */; };
+		A39E9B5E21C34C51008444C3 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39E9B5D21C34C51008444C3 /* VendingMachine.swift */; };
+		A39E9B5F21C34C55008444C3 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39E9B5D21C34C51008444C3 /* VendingMachine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -75,6 +77,7 @@
 		A39E9B5421C25139008444C3 /* UnitTestCoffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestCoffee.swift; sourceTree = "<group>"; };
 		A39E9B5621C253AB008444C3 /* UnitTestSoftDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestSoftDrink.swift; sourceTree = "<group>"; };
 		A39E9B5821C28DFA008444C3 /* BeverageGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageGroup.swift; sourceTree = "<group>"; };
+		A39E9B5D21C34C51008444C3 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
+				A39E9B5D21C34C51008444C3 /* VendingMachine.swift */,
 				A39E9B5B21C28F5B008444C3 /* Beverage */,
 				A39E9B4A21C22FE4008444C3 /* Date.swift */,
 			);
@@ -283,6 +287,7 @@
 				A39E9B1E21BF9D11008444C3 /* Coffee.swift in Sources */,
 				A39E9B4521C202B2008444C3 /* Pepsi.swift in Sources */,
 				A39E9B4821C20409008444C3 /* BeveragePackage.swift in Sources */,
+				A39E9B5E21C34C51008444C3 /* VendingMachine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +312,7 @@
 				A39E9B5321C24B47008444C3 /* UnitTestMilk.swift in Sources */,
 				A39E9B4F21C248AB008444C3 /* Milk.swift in Sources */,
 				A39E9B3421C1FBF1008444C3 /* Cantata.swift in Sources */,
+				A39E9B5F21C34C55008444C3 /* VendingMachine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
