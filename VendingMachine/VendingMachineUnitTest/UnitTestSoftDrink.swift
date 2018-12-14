@@ -38,11 +38,11 @@ class UnitTestSoftDrink: XCTestCase {
     }
 
     func testClassSoftDrinkAndOneSubClassOfSoftDrinkHaveSameGroup() {
-        XCTAssertTrue(pepsi.isInSameGroup(with: soda))
+        XCTAssertTrue(pepsi.isInEqualGroup(with: soda))
     }
 
     func testClassSoftDrinkAndAnotherSubClassOfSoftDrinkHaveSameGroup() {
-        XCTAssertTrue(sprite.isInSameGroup(with: soda))
+        XCTAssertTrue(sprite.isInEqualGroup(with: soda))
     }
 
 }

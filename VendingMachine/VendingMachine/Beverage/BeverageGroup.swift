@@ -14,7 +14,7 @@ class BeverageGroup: Beverage {
         return .etc
     }
 
-    func isInSameGroup(with beverage: BeverageGroup) -> Bool {
+    func isInEqualGroup(with beverage: BeverageGroup) -> Bool {
         return self.group == beverage.group
     }
 

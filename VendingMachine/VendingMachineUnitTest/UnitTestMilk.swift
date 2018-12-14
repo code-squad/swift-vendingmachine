@@ -42,11 +42,11 @@ class UnitTestMilk: XCTestCase {
     }
 
     func testClassMilkAndOneSubClassOfMilkHaveSameGroup() {
-        XCTAssertTrue(strawberryMilk.isInSameGroup(with: pureMilk))
+        XCTAssertTrue(strawberryMilk.isInEqualGroup(with: pureMilk))
     }
 
     func testClassMilkAndAnotherSubClassOfMilkHaveSameGroup() {
-        XCTAssertTrue(chocolateMilk.isInSameGroup(with: pureMilk))
+        XCTAssertTrue(chocolateMilk.isInEqualGroup(with: pureMilk))
     }
 
     func testClassMilk_NamedPureMilk_HasNoFlavor() {

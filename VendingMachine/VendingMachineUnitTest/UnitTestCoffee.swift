@@ -40,11 +40,11 @@ class UnitTestCoffee: XCTestCase {
     }
 
     func testClassCoffeeAndOneSubClassOfCoffeeHaveSameGroup() {
-        XCTAssertTrue(cantata.isInSameGroup(with: coffee))
+        XCTAssertTrue(cantata.isInEqualGroup(with: coffee))
     }
 
     func testClassCoffeeAndAnotherSubClassOfCoffeeHaveSameGroup() {
-        XCTAssertTrue(georgia.isInSameGroup(with: coffee))
+        XCTAssertTrue(georgia.isInEqualGroup(with: coffee))
     }
 
     func testClassCoffee_isNotHot() {
