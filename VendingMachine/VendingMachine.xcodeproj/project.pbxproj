@@ -43,6 +43,10 @@
 		A39E9B5F21C34C55008444C3 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39E9B5D21C34C51008444C3 /* VendingMachine.swift */; };
 		A39E9B6121C3524E008444C3 /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39E9B6021C3524E008444C3 /* Inventory.swift */; };
 		A39E9B6221C3524E008444C3 /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39E9B6021C3524E008444C3 /* Inventory.swift */; };
+		A39E9B6521C37BCC008444C3 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39E9B6421C37BCC008444C3 /* InputView.swift */; };
+		A39E9B6621C37BCC008444C3 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39E9B6421C37BCC008444C3 /* InputView.swift */; };
+		A39E9B6821C37BD6008444C3 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39E9B6721C37BD6008444C3 /* OutputView.swift */; };
+		A39E9B6921C37BD6008444C3 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39E9B6721C37BD6008444C3 /* OutputView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -81,6 +85,8 @@
 		A39E9B5821C28DFA008444C3 /* BeverageGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageGroup.swift; sourceTree = "<group>"; };
 		A39E9B5D21C34C51008444C3 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 		A39E9B6021C3524E008444C3 /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
+		A39E9B6421C37BCC008444C3 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		A39E9B6721C37BD6008444C3 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +131,7 @@
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
 				A39E9B5D21C34C51008444C3 /* VendingMachine.swift */,
 				A39E9B6021C3524E008444C3 /* Inventory.swift */,
+				A39E9B6321C37BBE008444C3 /* View */,
 				A39E9B5B21C28F5B008444C3 /* Beverage */,
 				A39E9B4A21C22FE4008444C3 /* Date.swift */,
 			);
@@ -184,6 +191,15 @@
 				A39E9B3521C1FBFA008444C3 /* Coffee */,
 			);
 			path = Beverage;
+			sourceTree = "<group>";
+		};
+		A39E9B6321C37BBE008444C3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A39E9B6421C37BCC008444C3 /* InputView.swift */,
+				A39E9B6721C37BD6008444C3 /* OutputView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,6 +307,8 @@
 				A39E9B5921C28DFA008444C3 /* BeverageGroup.swift in Sources */,
 				A39E9B1E21BF9D11008444C3 /* Coffee.swift in Sources */,
 				A39E9B4521C202B2008444C3 /* Pepsi.swift in Sources */,
+				A39E9B6521C37BCC008444C3 /* InputView.swift in Sources */,
+				A39E9B6821C37BD6008444C3 /* OutputView.swift in Sources */,
 				A39E9B4821C20409008444C3 /* BeveragePackage.swift in Sources */,
 				A39E9B5E21C34C51008444C3 /* VendingMachine.swift in Sources */,
 			);
@@ -302,6 +320,7 @@
 			files = (
 				A39E9B5121C248B7008444C3 /* SoftDrink.swift in Sources */,
 				A39E9B4D21C248A2008444C3 /* Beverage.swift in Sources */,
+				A39E9B6921C37BD6008444C3 /* OutputView.swift in Sources */,
 				A39E9B4E21C248A5008444C3 /* BeverageCategory.swift in Sources */,
 				A39E9B3A21C1FF69008444C3 /* StrawberryMilk.swift in Sources */,
 				A39E9B5A21C28DFA008444C3 /* BeverageGroup.swift in Sources */,
@@ -317,6 +336,7 @@
 				A39E9B5021C248B1008444C3 /* Coffee.swift in Sources */,
 				A39E9B5321C24B47008444C3 /* UnitTestMilk.swift in Sources */,
 				A39E9B4F21C248AB008444C3 /* Milk.swift in Sources */,
+				A39E9B6621C37BCC008444C3 /* InputView.swift in Sources */,
 				A39E9B3421C1FBF1008444C3 /* Cantata.swift in Sources */,
 				A39E9B5F21C34C55008444C3 /* VendingMachine.swift in Sources */,
 			);
