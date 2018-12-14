@@ -16,4 +16,8 @@ class Sprite: SoftDrink {
         self.init(brand: brand, name: name, volume: volume, price: price, dateOfManufacture: dateOfManufacture, package: package)
     }
 
+    convenience init() {
+        self.init(volume: 250, price: 1200, dateOfManufacture: Date.subtractingDaysFromNow(by: 30), package: .can)
+    }
+
 }

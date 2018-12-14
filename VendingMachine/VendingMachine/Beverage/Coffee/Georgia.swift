@@ -15,4 +15,8 @@ class Georgia: Coffee {
         self.init(brand: brand, name: name, volume: volume, price: price, dateOfManufacture: dateOfManufacture, ice: ice)
     }
 
+    convenience init() {
+        self.init(name: "조지아 카페라떼", volume: 300, price: 2500, dateOfManufacture: Date.subtractingDaysFromNow(by: 10), ice: true)
+    }
+
 }
