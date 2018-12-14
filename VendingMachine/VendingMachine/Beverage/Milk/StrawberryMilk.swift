@@ -20,4 +20,8 @@ class StrawberryMilk: Milk {
         self.init(brand: brand, name: name, volume: volume, price: price, dateOfManufacture: dateOfManufacture, flavor: flavor, package: package)
     }
 
+    convenience init() {
+        self.init(brand: "서울우유", name: "언니몰래먹는딸기우유", volume: 200, price: 2000, dateOfManufacture: Date.subtractingDaysFromNow(by: 3))
+    }
+
 }

@@ -15,4 +15,8 @@ class Cantata: Coffee {
         self.init(brand: brand, name: name, volume: volume, price: price, dateOfManufacture: dateOfManufacture, ice: ice)
     }
 
+    convenience init() {
+        self.init(name: "칸타타 더치블랙", volume: 275, price: 2200, dateOfManufacture: Date.subtractingDaysFromNow(by: 12), ice: false)
+    }
+
 }
