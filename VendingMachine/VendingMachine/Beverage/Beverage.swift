@@ -34,4 +34,8 @@ class Beverage: NSObject {
             return String(describing: type(of: self))
     }
 
+    func isBuyable(for cash: Int) -> Bool {
+        return price <= cash
+    }
+
 }
