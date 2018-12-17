@@ -9,9 +9,9 @@
 import Foundation
 
 func main() {
-    let mandarineMilk = MandarineMilk()
-    let cocaCola = CocaCola()
-    let starbucksDoubleShot = StarbucksDoubleShot()
+    let mandarineMilk = MandarineMilk(openDate: Date(before: 2))
+    let cocaCola = CocaCola(openDate: Date(before: 4))
+    let starbucksDoubleShot = StarbucksDoubleShot(openDate: Date(before: 6))
     
     print(mandarineMilk)
     print(cocaCola)
