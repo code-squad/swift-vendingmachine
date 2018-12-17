@@ -12,7 +12,7 @@ func main() {
     let sampleBeverages = [ChocolateMilk(), ChocolateMilk(), StrawberryMilk(),
                            Sprite(), Sprite(), Sprite(), Pepsi(), Pepsi(), Pepsi(), Pepsi(),
                            Cantata(), Cantata(), Cantata(), Georgia()]
-    let beginningBalance = 1000
+    let beginningBalance = 1500
     let initialInventory = Inventory(list: [:])
     let vendingMachine = VendingMachine(beginningBalance: beginningBalance, initialInventory: initialInventory)
     sampleBeverages.forEach { beverage in

@@ -12,21 +12,27 @@ struct OutputView {
     private static let menu = MenuItem.allCases
         .map { "\($0.rawValue). \($0.message)" }
         .joined(separator: "\n")
-    
-    private static let listForm: (String, Int) -> Void = { (name: String, stock: Int) in
-        print("\(name)(\(stock)개)", separator: " ")
-    }
 
     private static let balanceForm: (Int) -> Void = { (balance: Int) in
         print("현재 투입한 금액은 \(balance)입니다.")
     }
 
+    private static let allListForm: (String, Int, Bool) -> Void = { (name: String, stock: Int, buyable: Bool) in
+        let mark = buyable ? "✅" : "🚫"
+        print("\(mark) \(name)(\(stock)개)")
+    }
+
+    private static let buyableListForm: (Int, String) -> Void = { (index: Int, name: String) in
+        print("   ┗ \(index). \(name)")
+    }
+
     static func start(_ vendingMachine: VendingMachine) {
         vendingMachine.showBalance(with: balanceForm)
-        print("--------음료목록--------")
-        vendingMachine.showListOfAll(with: listForm)
-        print("----------------------")
+        print("--------전체음료목록--------")
+        vendingMachine.showListOfAll(with: allListForm)
+        print("------------------------")
         print(menu)
+        vendingMachine.showListOfBuyable(with: buyableListForm)
     }
 }
 
