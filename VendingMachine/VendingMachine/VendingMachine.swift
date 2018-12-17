@@ -17,14 +17,12 @@ struct VendingMachine {
         self.inventory = initialInventory
     }
 
-//    자판기 금액을 원하는 금액만큼 올리는 메소드
     mutating func insert(money: Int) -> Bool {
         guard money > 0 else { return false }
         balance += money
         return true
     }
 
-//    잔액을 확인하는 메소드
     func showBalance(with show: (Int) -> Void) {
         show(balance)
     }
@@ -41,7 +39,6 @@ struct VendingMachine {
         guard let beverage = inventory.remove(selected: pack) else { throw VendingMachineError.outOfStock }
         return beverage
     }
-//    시작이후 구매 상품 이력을 배열로 리턴하는 메소드
 
     func showListOfAll(with show: (String, Int) -> Void) {
         let list = inventory.getListOfAll()
