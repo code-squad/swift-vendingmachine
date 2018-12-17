@@ -24,10 +24,7 @@ class Beverage: NSObject {
     }
 
     override var description: String {
-        let dateFormat = DateFormatter()
-        dateFormat.dateFormat = "yyyyMMdd"
-        let date = dateFormat.string(from: dateOfManufacture)
-        return "\(brand), \(name), \(volume)ml, \(price)원, \(date)"
+        return "\(name) \(price)원"
     }
 
     override var className: String {
