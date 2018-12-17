@@ -37,6 +37,10 @@ class Inventory {
         return list.values.filter { $0.isBuyable(with: money) }
     }
 
+    func getListOfHotBeverages() -> [Pack] {
+        return list.values.filter { $0.hasHotBeverage() }
+    }
+
     private func findID(of pack: Pack) -> ObjectIdentifier? {
         for item in list {
             if item.value == pack { return item.key }
