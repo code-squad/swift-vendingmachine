@@ -11,10 +11,12 @@ import Foundation
 struct VendingMachine {
     private var balance: Int
     private var inventory: Inventory
+    private var history: History
 
     init(beginningBalance: Int = 0, initialInventory: Inventory) {
         self.balance = beginningBalance
         self.inventory = initialInventory
+        self.history = History()
     }
 
     mutating func insert(money: Int) -> Bool {
@@ -34,6 +36,7 @@ struct VendingMachine {
     mutating func buy(beverage pack: Pack) -> Beverage? {
         guard let beverage = inventory.remove(selected: pack) else { return nil }
         balance = beverage.subtractPrice(from: balance)
+        history.update(purchase: beverage)
         return beverage
     }
 

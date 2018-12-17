@@ -51,6 +51,8 @@
 		A3D446AB21C7A4CE00C2ADCA /* Pack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D446A921C7A4CE00C2ADCA /* Pack.swift */; };
 		A3D446AD21C804D300C2ADCA /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D446AC21C804D300C2ADCA /* MenuController.swift */; };
 		A3D446AE21C804D300C2ADCA /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D446AC21C804D300C2ADCA /* MenuController.swift */; };
+		A3D446B021C813D800C2ADCA /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D446AF21C813D800C2ADCA /* History.swift */; };
+		A3D446B121C813D800C2ADCA /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D446AF21C813D800C2ADCA /* History.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -93,6 +95,7 @@
 		A39E9B6721C37BD6008444C3 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		A3D446A921C7A4CE00C2ADCA /* Pack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pack.swift; sourceTree = "<group>"; };
 		A3D446AC21C804D300C2ADCA /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
+		A3D446AF21C813D800C2ADCA /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +141,7 @@
 				A39E9B5D21C34C51008444C3 /* VendingMachine.swift */,
 				A39E9B6021C3524E008444C3 /* Inventory.swift */,
 				A3D446A921C7A4CE00C2ADCA /* Pack.swift */,
+				A3D446AF21C813D800C2ADCA /* History.swift */,
 				A39E9B6321C37BBE008444C3 /* View */,
 				A39E9B5B21C28F5B008444C3 /* Beverage */,
 				A39E9B4A21C22FE4008444C3 /* Date.swift */,
@@ -314,6 +318,7 @@
 				A39E9B2021BF9D5E008444C3 /* BeverageCategory.swift in Sources */,
 				A39E9B4B21C22FE4008444C3 /* Date.swift in Sources */,
 				A39E9B4221C2025D008444C3 /* Sprite.swift in Sources */,
+				A3D446B021C813D800C2ADCA /* History.swift in Sources */,
 				A39E9B5921C28DFA008444C3 /* BeverageGroup.swift in Sources */,
 				A39E9B1E21BF9D11008444C3 /* Coffee.swift in Sources */,
 				A39E9B4521C202B2008444C3 /* Pepsi.swift in Sources */,
@@ -346,6 +351,7 @@
 				A39E9B4C21C22FE4008444C3 /* Date.swift in Sources */,
 				A39E9B5021C248B1008444C3 /* Coffee.swift in Sources */,
 				A39E9B5321C24B47008444C3 /* UnitTestMilk.swift in Sources */,
+				A3D446B121C813D800C2ADCA /* History.swift in Sources */,
 				A39E9B4F21C248AB008444C3 /* Milk.swift in Sources */,
 				A3D446AB21C7A4CE00C2ADCA /* Pack.swift in Sources */,
 				A39E9B6621C37BCC008444C3 /* InputView.swift in Sources */,
