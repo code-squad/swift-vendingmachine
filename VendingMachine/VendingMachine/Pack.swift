@@ -42,4 +42,12 @@ class Pack: NSObject {
         return beverages.isEmpty
     }
 
+    func hasHotBeverage() -> Bool {
+        for beverage in beverages {
+            guard let coffee = beverage as? Coffee else { continue }
+            if coffee.isHot() { return true }
+        }
+        return false
+    }
+
 }

@@ -33,6 +33,10 @@ struct VendingMachine {
         return inventory.getListBuyable(with: balance)
     }
 
+    func getListOfHotBeverages() -> [Pack] {
+        return inventory.getListOfHotBeverages()
+    }
+
     mutating func buy(beverage pack: Pack) -> Beverage? {
         guard let beverage = inventory.remove(selected: pack) else { return nil }
         balance = beverage.subtractPrice(from: balance)
