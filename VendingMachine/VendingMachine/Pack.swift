@@ -50,4 +50,15 @@ class Pack: NSObject {
         return false
     }
 
+    func removeExpiredBeverages() -> [Beverage] {
+        var expiredBeverages: [Beverage] = []
+        for (index, beverage) in beverages.enumerated() {
+            guard let milk = beverage as? Milk else { continue }
+            if milk.validate(when: Date()) { continue }
+            beverages.remove(at: index)
+            expiredBeverages.append(milk)
+        }
+        return expiredBeverages
+    }
+
 }

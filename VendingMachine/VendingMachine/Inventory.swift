@@ -41,6 +41,14 @@ class Inventory {
         return list.values.filter { $0.hasHotBeverage() }
     }
 
+    func removeExpiredBeverages() -> [Beverage] {
+        var expiredBeverages: [Beverage] = []
+        for pack in list.values {
+            pack.removeExpiredBeverages().forEach { expiredBeverages.append($0) }
+        }
+        return expiredBeverages
+    }
+
     private func findID(of pack: Pack) -> ObjectIdentifier? {
         for item in list {
             if item.value == pack { return item.key }
