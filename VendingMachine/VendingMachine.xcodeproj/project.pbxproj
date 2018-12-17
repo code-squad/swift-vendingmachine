@@ -47,6 +47,8 @@
 		A39E9B6621C37BCC008444C3 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39E9B6421C37BCC008444C3 /* InputView.swift */; };
 		A39E9B6821C37BD6008444C3 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39E9B6721C37BD6008444C3 /* OutputView.swift */; };
 		A39E9B6921C37BD6008444C3 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39E9B6721C37BD6008444C3 /* OutputView.swift */; };
+		A3D446AA21C7A4CE00C2ADCA /* Pack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D446A921C7A4CE00C2ADCA /* Pack.swift */; };
+		A3D446AB21C7A4CE00C2ADCA /* Pack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D446A921C7A4CE00C2ADCA /* Pack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -87,6 +89,7 @@
 		A39E9B6021C3524E008444C3 /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
 		A39E9B6421C37BCC008444C3 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		A39E9B6721C37BD6008444C3 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
+		A3D446A921C7A4CE00C2ADCA /* Pack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +137,7 @@
 				A39E9B6321C37BBE008444C3 /* View */,
 				A39E9B5B21C28F5B008444C3 /* Beverage */,
 				A39E9B4A21C22FE4008444C3 /* Date.swift */,
+				A3D446A921C7A4CE00C2ADCA /* Pack.swift */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";
@@ -296,6 +300,7 @@
 				A39E9B3921C1FF69008444C3 /* StrawberryMilk.swift in Sources */,
 				A39E9B3C21C20088008444C3 /* Georgia.swift in Sources */,
 				A39E9B1821BF8818008444C3 /* Beverage.swift in Sources */,
+				A3D446AA21C7A4CE00C2ADCA /* Pack.swift in Sources */,
 				A39E9B6121C3524E008444C3 /* Inventory.swift in Sources */,
 				A39E9B1A21BF9216008444C3 /* Milk.swift in Sources */,
 				A39E9B1C21BF9D08008444C3 /* SoftDrink.swift in Sources */,
@@ -336,6 +341,7 @@
 				A39E9B5021C248B1008444C3 /* Coffee.swift in Sources */,
 				A39E9B5321C24B47008444C3 /* UnitTestMilk.swift in Sources */,
 				A39E9B4F21C248AB008444C3 /* Milk.swift in Sources */,
+				A3D446AB21C7A4CE00C2ADCA /* Pack.swift in Sources */,
 				A39E9B6621C37BCC008444C3 /* InputView.swift in Sources */,
 				A39E9B3421C1FBF1008444C3 /* Cantata.swift in Sources */,
 				A39E9B5F21C34C55008444C3 /* VendingMachine.swift in Sources */,
