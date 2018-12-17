@@ -43,6 +43,13 @@ struct VendingMachine {
     }
 //    시작이후 구매 상품 이력을 배열로 리턴하는 메소드
 
+    func showListOfAll(with show: (String, Int) -> Void) {
+        let list = inventory.getListOfAll()
+        for pack in list {
+            show(pack.key.description, pack.value)
+        }
+    }
+
 }
 
 enum VendingMachineError: Error {
