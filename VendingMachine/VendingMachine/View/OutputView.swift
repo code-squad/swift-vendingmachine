@@ -14,7 +14,7 @@ struct OutputView {
         .joined(separator: "\n")
 
     private static let balanceForm: (Int) -> Void = { (balance: Int) in
-        print("현재 투입한 금액은 \(balance)입니다.")
+        print("💰 현재 투입한 금액은 \(balance)원입니다.")
     }
 
     private static let allListForm: (String, Int, Bool) -> Void = { (name: String, stock: Int, buyable: Bool) in
@@ -22,15 +22,16 @@ struct OutputView {
         print("\(mark) \(name)(\(stock)개)")
     }
 
-    private static let buyableListForm: (Int, String) -> Void = { (index: Int, name: String) in
-        print("   ┗ \(index). \(name)")
+    private static let buyableListForm: (Bool, Int, String) -> Void = { (last: Bool, index: Int, name: String) in
+        let branch = last ? "┗" : "┣"
+        print("   \(branch) \(index). \(name)")
     }
 
     static func start(_ vendingMachine: VendingMachine) {
         vendingMachine.showBalance(with: balanceForm)
-        print("--------전체음료목록--------")
+        print("----------전체음료목록----------")
         vendingMachine.showListOfAll(with: allListForm)
-        print("------------------------")
+        print("----------------------------")
         print(menu)
         vendingMachine.showListOfBuyable(with: buyableListForm)
     }
