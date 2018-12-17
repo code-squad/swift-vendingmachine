@@ -15,8 +15,11 @@ func main() {
     
     let cola = Beverage(brand: "코카콜라", size: 185, price: 1300, name: "코카콜라", openDate: Date(timeIntervalSinceNow: oneDay * 287))
     
+    let starbucksCoffee = Beverage(brand: "동서식품", size: 200, price: 1400, name: "스타벅스 더블샷 에스프레소 & 크림", openDate: Date(timeIntervalSinceNow: oneDay * 365))
+    
     print(milk)
     print(cola)
+    print(starbucksCoffee)
 }
 
 main()
