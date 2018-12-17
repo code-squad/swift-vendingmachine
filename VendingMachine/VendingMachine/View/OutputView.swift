@@ -55,6 +55,7 @@ struct OutputView {
     }
 
     static func showMessage(of error: MessagePrintable) {
+        print("\(clear)\(home)")
         print(error.message)
     }
 
