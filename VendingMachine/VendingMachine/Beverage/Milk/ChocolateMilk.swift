@@ -21,7 +21,7 @@ class ChocolateMilk: Milk {
     }
 
     convenience init() {
-        self.init(brand: "푸르밀", name: "가나초코우유", volume: 300, price: 1200, dateOfManufacture: Date.subtractingDaysFromNow(by: 3))
+        self.init(brand: "푸르밀", name: "가나 초코우유", volume: 300, price: 1200, dateOfManufacture: Date.subtractingDaysFromNow(by: 3))
     }
 
 }
