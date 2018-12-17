@@ -11,6 +11,7 @@
 		7DACE6F621C79BC100CF11BA /* ExtensionDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DACE6F521C79BC100CF11BA /* ExtensionDate.swift */; };
 		7DACE6F821C79EC800CF11BA /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DACE6F721C79EC800CF11BA /* Milk.swift */; };
 		7DACE6FA21C79EE700CF11BA /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DACE6F921C79EE700CF11BA /* Coffee.swift */; };
+		7DACE6FC21C79F4500CF11BA /* CarbonatedDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DACE6FB21C79F4500CF11BA /* CarbonatedDrink.swift */; };
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		7DACE6F521C79BC100CF11BA /* ExtensionDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDate.swift; sourceTree = "<group>"; };
 		7DACE6F721C79EC800CF11BA /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 		7DACE6F921C79EE700CF11BA /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
+		7DACE6FB21C79F4500CF11BA /* CarbonatedDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonatedDrink.swift; sourceTree = "<group>"; };
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -70,6 +72,7 @@
 				7DACE6F521C79BC100CF11BA /* ExtensionDate.swift */,
 				7DACE6F721C79EC800CF11BA /* Milk.swift */,
 				7DACE6F921C79EE700CF11BA /* Coffee.swift */,
+				7DACE6FB21C79F4500CF11BA /* CarbonatedDrink.swift */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";
@@ -135,6 +138,7 @@
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
 				7DACE6F621C79BC100CF11BA /* ExtensionDate.swift in Sources */,
 				7DACE6F821C79EC800CF11BA /* Milk.swift in Sources */,
+				7DACE6FC21C79F4500CF11BA /* CarbonatedDrink.swift in Sources */,
 				7DACE6B821C769F800CF11BA /* Beverage.swift in Sources */,
 				7DACE6FA21C79EE700CF11BA /* Coffee.swift in Sources */,
 			);
