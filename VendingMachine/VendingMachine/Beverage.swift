@@ -10,20 +10,20 @@ import Foundation
 
 class Beverage: CustomStringConvertible {
     var description: String {
-        return "\(self.brand), \(self.size), \(self.price), \(self.name), \(self.packDate)"
+        return "\(self.brand), \(self.size), \(self.price), \(self.name), \(self.openDate)"
     }
     
     private var brand: String
     private var size: Int
     private var price: Int
     private var name: String
-    private var packDate: Date
+    private var openDate: Date
     
-    init(brand:String, size:Int, price:Int, name:String, packDate:Date) {
+    init(brand:String, size:Int, price:Int, name:String, openDate:Date) {
         self.brand = brand
         self.size = size
         self.price = price
         self.name = name
-        self.packDate = packDate
+        self.openDate = openDate
     }
 }
