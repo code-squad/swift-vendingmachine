@@ -35,4 +35,8 @@ class Beverage: NSObject {
         return price <= cash
     }
 
+    func subtractPrice(from balance: Int) -> Int {
+        return balance - price
+    }
+
 }

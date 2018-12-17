@@ -35,8 +35,9 @@ struct VendingMachine {
         return inventory.getListBuyable(with: balance)
     }
 
-    func buy(beverage pack: Pack) throws -> Beverage {
+    mutating func buy(beverage pack: Pack) throws -> Beverage {
         guard let beverage = inventory.remove(selected: pack) else { throw VendingMachineError.outOfStock }
+        balance = beverage.subtractPrice(from: balance)
         return beverage
     }
 
