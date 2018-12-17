@@ -23,10 +23,6 @@ struct VendingMachine {
         return true
     }
 
-    func showBalance(with show: (Int) -> Void) {
-        show(balance)
-    }
-
     func add(beverage: Beverage) {
         inventory.add(beverage: beverage)
     }
@@ -41,9 +37,17 @@ struct VendingMachine {
         return beverage
     }
 
+    func isEmpty() -> Bool {
+        return inventory.isEmpty()
+    }
+
 }
 
 extension VendingMachine {
+
+    func showBalance(with show: (Int) -> Void) {
+        show(balance)
+    }
 
     func showListOfAll(with show: (String, Int, Bool) -> Void) {
         let list = inventory.getListOfAll()
@@ -63,4 +67,15 @@ extension VendingMachine {
         }
     }
 
+}
+
+enum VendingMachineError: Error, MessagePrintable {
+    case outOfStock
+
+    var message: String {
+        switch self {
+        case .outOfStock:
+            return "⚠️ 죄송합니다. 모든 품목이 품절되었습니다. ⚠️\n   익일 재고 보충 예정입니다. 감사합니다."
+        }
+    }
 }

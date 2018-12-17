@@ -30,7 +30,8 @@ struct OutputView {
         print("   \(branch) \(index). \(name)")
     }
 
-    static func start(_ vendingMachine: VendingMachine) {
+    static func start(_ vendingMachine: VendingMachine) throws {
+        if vendingMachine.isEmpty() { throw VendingMachineError.outOfStock }
         vendingMachine.showBalance(with: balanceForm)
         print("----------전체음료목록----------")
         vendingMachine.showListOfAll(with: allListForm)
@@ -53,17 +54,12 @@ struct OutputView {
         beverage.showPurchase(with: purchaseForm)
     }
 
+    static func showMessage(of error: MessagePrintable) {
+        print(error.message)
+    }
+
 }
 
-enum MenuItem: Int, CaseIterable {
-    case insertCoin = 1, purchaseBeverage
-    
-    var message: String{
-        switch self {
-        case .insertCoin:
-            return "금액추가"
-        case .purchaseBeverage:
-            return "음료구매"
-        }
-    }
+protocol MessagePrintable {
+    var message: String { get }
 }

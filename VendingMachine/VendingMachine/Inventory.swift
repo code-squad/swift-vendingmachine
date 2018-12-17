@@ -49,4 +49,11 @@ class Inventory {
         return list[id]?.removeOne()
     }
 
+    func isEmpty() -> Bool {
+        for item in list {
+            guard item.value.isEmpty() else { return false }
+        }
+        return true
+    }
+
 }
