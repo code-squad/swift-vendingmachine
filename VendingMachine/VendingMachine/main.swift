@@ -18,7 +18,9 @@ func main() {
     sampleBeverages.forEach { beverage in
         vendingMachine.add(beverage: beverage)
     }
-    InputView.showBeverageList(of: vendingMachine)
+    OutputView.start(vendingMachine)
+    guard let menuSelected = InputView.readMenu() else { return }
+    print(menuSelected)
 }
 
 main()
