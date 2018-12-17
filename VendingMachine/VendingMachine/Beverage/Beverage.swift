@@ -31,7 +31,7 @@ class Beverage: NSObject {
     }
 
     override var className: String {
-            return String(describing: type(of: self))
+        return String(describing: type(of: self))
     }
 
     func isBuyable(for cash: Int) -> Bool {
