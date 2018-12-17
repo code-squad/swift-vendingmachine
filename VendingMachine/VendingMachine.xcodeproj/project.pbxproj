@@ -54,6 +54,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7DACE70321C7A4B900CF11BA /* Milks */ = {
+			isa = PBXGroup;
+			children = (
+				7DACE6F721C79EC800CF11BA /* Milk.swift */,
+				7DACE6FD21C7A00D00CF11BA /* MandarineMilk.swift */,
+			);
+			path = Milks;
+			sourceTree = "<group>";
+		};
+		7DACE70421C7A4D000CF11BA /* Coffees */ = {
+			isa = PBXGroup;
+			children = (
+				7DACE6F921C79EE700CF11BA /* Coffee.swift */,
+				7DACE70121C7A3EA00CF11BA /* StarbucksDoubleShot.swift */,
+			);
+			path = Coffees;
+			sourceTree = "<group>";
+		};
+		7DACE70521C7A4EB00CF11BA /* CarbonatedDrink */ = {
+			isa = PBXGroup;
+			children = (
+				7DACE6FB21C79F4500CF11BA /* CarbonatedDrink.swift */,
+				7DACE6FF21C7A37C00CF11BA /* CocaCola.swift */,
+			);
+			path = CarbonatedDrink;
+			sourceTree = "<group>";
+		};
+		7DACE70621C7A50300CF11BA /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				7DACE6F521C79BC100CF11BA /* ExtensionDate.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		839DA9001F8D1F95009E05F3 = {
 			isa = PBXGroup;
 			children = (
@@ -74,14 +109,11 @@
 			isa = PBXGroup;
 			children = (
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
-				7DACE70121C7A3EA00CF11BA /* StarbucksDoubleShot.swift */,
-				7DACE6FD21C7A00D00CF11BA /* MandarineMilk.swift */,
-				7DACE6FF21C7A37C00CF11BA /* CocaCola.swift */,
 				7DACE6B721C769F800CF11BA /* Beverage.swift */,
-				7DACE6F521C79BC100CF11BA /* ExtensionDate.swift */,
-				7DACE6F721C79EC800CF11BA /* Milk.swift */,
-				7DACE6F921C79EE700CF11BA /* Coffee.swift */,
-				7DACE6FB21C79F4500CF11BA /* CarbonatedDrink.swift */,
+				7DACE70321C7A4B900CF11BA /* Milks */,
+				7DACE70421C7A4D000CF11BA /* Coffees */,
+				7DACE70521C7A4EB00CF11BA /* CarbonatedDrink */,
+				7DACE70621C7A50300CF11BA /* Extension */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";
