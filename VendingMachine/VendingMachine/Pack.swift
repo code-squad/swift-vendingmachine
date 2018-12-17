@@ -29,4 +29,13 @@ class Pack: NSObject {
         return beverages.removeFirst()
     }
 
+    var count: Int {
+        return beverages.count
+    }
+
+    override var description: String {
+        guard let one = beverages.first else { return "" }
+        return one.className
+    }
+
 }

@@ -25,6 +25,14 @@ class Inventory {
         list[beverageType] = Pack(beverages: [beverage])
     }
 
+    func getListOfAll() -> [Pack: Int] {
+        var listOfAll: [Pack: Int] = [:]
+        for pack in list.values {
+            listOfAll[pack] = pack.count
+        }
+        return listOfAll
+    }
+
     //    현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
     func getListBuyable(with money: Int) -> [Pack] {
         return list.values.filter { $0.isBuyable(with: money) }

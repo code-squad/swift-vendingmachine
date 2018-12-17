@@ -10,4 +10,11 @@ import Foundation
 
 struct InputView {
 
+    private static func listForm(name: String, stock: Int) {
+        print("\(name)(\(stock)개)", separator: " ")
+    }
+
+    static func showBeverageList(of vendingMachine: VendingMachine){
+        vendingMachine.showListOfAll(with: listForm(name:stock:))
+    }
 }
