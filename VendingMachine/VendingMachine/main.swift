@@ -16,22 +16,31 @@ func main() {
     sampleBeverages.forEach { beverage in vendingMachine.add(beverage: beverage) }
 
     while(true) {
-        OutputView.start(vendingMachine)
-        guard let menuSelected = InputView.readMenu() else { continue }
-        guard let firstMenu = MenuItem(rawValue: menuSelected.first) else { continue }
-        
-        switch firstMenu {
-        case .insertCoin:
-            let moneyInserted = menuSelected.second
-            guard vendingMachine.insert(money: moneyInserted) else { continue }
-            OutputView.showInsertion(of: moneyInserted)
-        case .purchaseBeverage:
-            let listBuyable = vendingMachine.getListBuyable()
-            let beverageSelected = menuSelected.second - 1
-            guard beverageSelected < listBuyable.count else { continue }
-            let packSelected = listBuyable[beverageSelected]
-            guard let beveragePurchased = vendingMachine.buy(beverage: packSelected) else { continue }
-            OutputView.showPurchase(of: beveragePurchased)
+        do {
+            try OutputView.start(vendingMachine)
+            let input = InputView.readInput()
+            let menu = try MenuController.readMenu(from: input)
+
+            switch menu.item {
+            case .insertCoin:
+                let moneyInserted = menu.value
+                guard vendingMachine.insert(money: moneyInserted) else { continue }
+                OutputView.showInsertion(of: moneyInserted)
+            case .purchaseBeverage:
+                let listBuyable = vendingMachine.getListBuyable()
+                let beverageSelected = menu.value - 1
+                guard beverageSelected < listBuyable.count else { throw MenuError.outOfList }
+                let packSelected = listBuyable[beverageSelected]
+                guard let beveragePurchased = vendingMachine.buy(beverage: packSelected) else { continue }
+                OutputView.showPurchase(of: beveragePurchased)
+            }
+        } catch let error as MenuError {
+            OutputView.showMessage(of: error)
+        } catch let error as VendingMachineError {
+            OutputView.showMessage(of: error)
+            break
+        } catch {
+            fatalError("UNEXPECTED ERROR")
         }
     }
 
