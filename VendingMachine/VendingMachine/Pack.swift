@@ -35,7 +35,7 @@ class Pack: NSObject {
 
     override var description: String {
         guard let one = beverages.first else { return "" }
-        return one.className
+        return one.description
     }
 
 }
