@@ -27,6 +27,7 @@ class Inventory {
     func getListOfAll() -> [Pack: Int] {
         var listOfAll: [Pack: Int] = [:]
         for pack in list.values {
+            if pack.isEmpty() { continue }
             listOfAll[pack] = pack.count
         }
         return listOfAll

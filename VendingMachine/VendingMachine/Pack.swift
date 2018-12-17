@@ -38,4 +38,8 @@ class Pack: NSObject {
         return one.description
     }
 
+    func isEmpty() -> Bool {
+        return beverages.isEmpty
+    }
+
 }
