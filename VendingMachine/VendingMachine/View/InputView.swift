@@ -10,7 +10,7 @@ import Foundation
 
 struct InputView {
 
-    static func readMenu() -> (Int, Int)? {
+    static func readMenu() -> (first: Int, second: Int)? {
         guard let input: String = readLine() else { return nil }
         let menuSelected = input.split(separator: " ")
         guard menuSelected.count == 2 else { return nil }

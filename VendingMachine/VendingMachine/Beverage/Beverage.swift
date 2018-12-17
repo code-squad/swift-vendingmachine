@@ -40,3 +40,11 @@ class Beverage: NSObject {
     }
 
 }
+
+extension Beverage {
+
+    func showPurchase(with show: (String, Int) -> Void) {
+        show(name, price)
+    }
+
+}

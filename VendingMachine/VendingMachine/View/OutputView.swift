@@ -9,12 +9,15 @@
 import Foundation
 
 struct OutputView {
+    private static let escape = "\u{001B}["
+    private static let clear = "\(escape)2J"
+    private static let home = "\(escape)0;0H"
     private static let menu = MenuItem.allCases
         .map { "\($0.rawValue). \($0.message)" }
         .joined(separator: "\n")
 
     private static let balanceForm: (Int) -> Void = { (balance: Int) in
-        print("💰 현재 투입한 금액은 \(balance)원입니다.")
+        print("💰 현재 잔액은 \(balance)원입니다.")
     }
 
     private static let allListForm: (String, Int, Bool) -> Void = { (name: String, stock: Int, buyable: Bool) in
@@ -35,6 +38,21 @@ struct OutputView {
         print(menu)
         vendingMachine.showListOfBuyable(with: buyableListForm)
     }
+
+    static func showInsertion(of money: Int) {
+        print("\(clear)\(home)")
+        print("☑️ \(money)원을 투입하셨습니다.")
+    }
+
+    private static let purchaseForm: (String, Int) -> Void = { (name: String, price: Int) in
+        print("\(clear)\(home)")
+        print("☑️ \(name)를 구매하셨습니다. \(price)원을 차감합니다. 💸")
+    }
+
+    static func showPurchase(of beverage: Beverage) {
+        beverage.showPurchase(with: purchaseForm)
+    }
+
 }
 
 enum MenuItem: Int, CaseIterable {
