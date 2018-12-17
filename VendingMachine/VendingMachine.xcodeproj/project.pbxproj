@@ -14,6 +14,7 @@
 		7DACE6FC21C79F4500CF11BA /* CarbonatedDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DACE6FB21C79F4500CF11BA /* CarbonatedDrink.swift */; };
 		7DACE6FE21C7A00D00CF11BA /* MandarineMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DACE6FD21C7A00D00CF11BA /* MandarineMilk.swift */; };
 		7DACE70021C7A37C00CF11BA /* CocaCola.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DACE6FF21C7A37C00CF11BA /* CocaCola.swift */; };
+		7DACE70221C7A3EA00CF11BA /* StarbucksDoubleShot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DACE70121C7A3EA00CF11BA /* StarbucksDoubleShot.swift */; };
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		7DACE6FB21C79F4500CF11BA /* CarbonatedDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonatedDrink.swift; sourceTree = "<group>"; };
 		7DACE6FD21C7A00D00CF11BA /* MandarineMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MandarineMilk.swift; sourceTree = "<group>"; };
 		7DACE6FF21C7A37C00CF11BA /* CocaCola.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocaCola.swift; sourceTree = "<group>"; };
+		7DACE70121C7A3EA00CF11BA /* StarbucksDoubleShot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarbucksDoubleShot.swift; sourceTree = "<group>"; };
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
+				7DACE70121C7A3EA00CF11BA /* StarbucksDoubleShot.swift */,
 				7DACE6FD21C7A00D00CF11BA /* MandarineMilk.swift */,
 				7DACE6FF21C7A37C00CF11BA /* CocaCola.swift */,
 				7DACE6B721C769F800CF11BA /* Beverage.swift */,
@@ -141,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DACE70221C7A3EA00CF11BA /* StarbucksDoubleShot.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
 				7DACE6F621C79BC100CF11BA /* ExtensionDate.swift in Sources */,
 				7DACE6F821C79EC800CF11BA /* Milk.swift in Sources */,
