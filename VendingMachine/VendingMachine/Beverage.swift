@@ -10,7 +10,9 @@ import Foundation
 
 class Beverage: CustomStringConvertible {
     var description: String {
-        return "\(self.brand), \(self.size), \(self.price), \(self.name), \(self.openDate)"
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMdd"
+        return "\(self.brand), \(self.size)ml, \(self.price)원, \(self.name), \(dateFormatter.string(from: self.openDate))"
     }
     
     private var brand: String
