@@ -40,10 +40,19 @@ struct VendingMachine {
         return beverage
     }
 
-    func showListOfAll(with show: (String, Int) -> Void) {
+    func showListOfAll(with show: (String, Int, Bool) -> Void) {
         let list = inventory.getListOfAll()
+        let listBuyable = getListBuyable()
         for pack in list {
-            show(pack.key.description, pack.value)
+            let buyable = listBuyable.contains(pack.key)
+            show(pack.key.description, pack.value, buyable)
+        }
+    }
+
+    func showListOfBuyable(with show: (Int, String) -> Void) {
+        let listBuyable = getListBuyable()
+        for (index, packBuyable) in listBuyable.enumerated() {
+            show(index+1, packBuyable.description)
         }
     }
 
