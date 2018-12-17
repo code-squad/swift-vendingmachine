@@ -35,8 +35,8 @@ struct VendingMachine {
         return inventory.getListBuyable(with: balance)
     }
 
-    mutating func buy(beverage pack: Pack) throws -> Beverage {
-        guard let beverage = inventory.remove(selected: pack) else { throw VendingMachineError.outOfStock }
+    mutating func buy(beverage pack: Pack) -> Beverage? {
+        guard let beverage = inventory.remove(selected: pack) else { return nil }
         balance = beverage.subtractPrice(from: balance)
         return beverage
     }
@@ -63,8 +63,4 @@ extension VendingMachine {
         }
     }
 
-}
-
-enum VendingMachineError: Error {
-    case outOfStock
 }
