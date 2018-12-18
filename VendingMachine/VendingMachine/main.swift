@@ -17,7 +17,8 @@ func main() {
 
     while(true) {
         do {
-            try OutputView.start(vendingMachine)
+            if vendingMachine.isEmpty() { throw VendingMachineError.outOfStock }
+            OutputView.start(vendingMachine)
             let input = InputView.readInput()
             let menu = try MenuController.readMenu(from: input)
 
