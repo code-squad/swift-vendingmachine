@@ -20,3 +20,11 @@ class History {
     }
 
 }
+
+extension History: Equatable {
+
+    static func == (lhs: History, rhs: History) -> Bool {
+        return lhs.purchases == rhs.purchases
+    }
+
+}
