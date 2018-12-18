@@ -9,9 +9,6 @@
 import Foundation
 
 class CocaColaZero: CarbonatedDrink {
-    override var description: String {
-        return "CocaColaZero - \(super.description)"
-    }
     init(openDate: Date) {
         super.init(calorie: 0,
                    brand: "코카콜라",
