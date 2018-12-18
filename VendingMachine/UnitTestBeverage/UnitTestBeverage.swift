@@ -23,6 +23,12 @@ class UnitTestBeverage: XCTestCase {
         XCTAssertEqual(starbucksDS.isHot, true)
         XCTAssertEqual(starbucksDS.hasMilk, true)
     }
+    
+    func testTOPTheBlack() {
+        let topTheBlack = TOPTheBlack(openDate: Date(before: 4))
+        XCTAssertEqual(topTheBlack.hasMilk, false)
+        XCTAssertEqual(topTheBlack.isHot, false)
+    }
 
     func testPerformanceExample() {
         // This is an example of a performance test case.
