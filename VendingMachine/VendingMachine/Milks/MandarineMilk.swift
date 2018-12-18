@@ -9,6 +9,9 @@
 import Foundation
 
 class MandarineMilk: Milk {
+    override var description: String {
+        return "MandarineMilk - \(super.description)"
+    }
     init(openDate: Date) {
         super.init(lactose: 27,
                    brand: "빙그레",

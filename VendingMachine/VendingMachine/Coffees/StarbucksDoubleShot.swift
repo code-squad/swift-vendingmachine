@@ -9,6 +9,9 @@
 import Foundation
 
 class StarbucksDoubleShot: Coffee {
+    override var description: String {
+        return "StarbucksDoubleShot - \(super.description)"
+    }
     init(openDate: Date) {
         super.init(hasMilk: true,
                    isHot: true,
