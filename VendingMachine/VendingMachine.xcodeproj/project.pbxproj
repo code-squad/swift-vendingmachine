@@ -31,6 +31,8 @@
 		7DACE72A21C8DF6800CF11BA /* CocaColaZero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DACE71321C8D42D00CF11BA /* CocaColaZero.swift */; };
 		7DACE72B21C8DF6A00CF11BA /* ExtensionDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DACE6F521C79BC100CF11BA /* ExtensionDate.swift */; };
 		7DACE72F21C8EC2200CF11BA /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DACE72E21C8EC2200CF11BA /* VendingMachine.swift */; };
+		7DACE73021C8EDF700CF11BA /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DACE72E21C8EC2200CF11BA /* VendingMachine.swift */; };
+		7DACE73221C8EE1300CF11BA /* UnitTestVendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DACE73121C8EE1300CF11BA /* UnitTestVendingMachine.swift */; };
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +64,7 @@
 		7DACE71B21C8DECE00CF11BA /* UnitTestBeverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestBeverage.swift; sourceTree = "<group>"; };
 		7DACE71D21C8DECE00CF11BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7DACE72E21C8EC2200CF11BA /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
+		7DACE73121C8EE1300CF11BA /* UnitTestVendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestVendingMachine.swift; sourceTree = "<group>"; };
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				7DACE71B21C8DECE00CF11BA /* UnitTestBeverage.swift */,
+				7DACE73121C8EE1300CF11BA /* UnitTestVendingMachine.swift */,
 				7DACE71D21C8DECE00CF11BA /* Info.plist */,
 			);
 			path = UnitTestBeverage;
@@ -255,6 +259,7 @@
 			files = (
 				7DACE72621C8DF5C00CF11BA /* StarbucksDoubleShot.swift in Sources */,
 				7DACE72B21C8DF6A00CF11BA /* ExtensionDate.swift in Sources */,
+				7DACE73021C8EDF700CF11BA /* VendingMachine.swift in Sources */,
 				7DACE72A21C8DF6800CF11BA /* CocaColaZero.swift in Sources */,
 				7DACE72121C8DF4000CF11BA /* Beverage.swift in Sources */,
 				7DACE72921C8DF6500CF11BA /* CocaCola.swift in Sources */,
@@ -265,6 +270,7 @@
 				7DACE72721C8DF5F00CF11BA /* TOPTheBlack.swift in Sources */,
 				7DACE72421C8DF5500CF11BA /* LactoseFreeMilk.swift in Sources */,
 				7DACE72521C8DF5800CF11BA /* Coffee.swift in Sources */,
+				7DACE73221C8EE1300CF11BA /* UnitTestVendingMachine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
