@@ -16,16 +16,16 @@ struct OutputView {
         .map { "\($0.rawValue). \($0.message)" }
         .joined(separator: "\n")
 
-    private static let balanceForm: (Int) -> Void = { (balance: Int) in
+    private static let balanceForm = { (balance: Int) in
         print("💰 현재 잔액은 \(balance)원입니다.")
     }
 
-    private static let allListForm: (String, Int, Bool) -> Void = { (name: String, stock: Int, buyable: Bool) in
+    private static let allListForm = { (name: String, stock: Int, buyable: Bool) in
         let mark = buyable ? "✅" : "🚫"
         print("\(mark) \(name)(\(stock)개)")
     }
 
-    private static let buyableListForm: (Bool, Int, String) -> Void = { (last: Bool, index: Int, name: String) in
+    private static let buyableListForm = { (last: Bool, index: Int, name: String) in
         let branch = last ? "┗" : "┣"
         print("   \(branch) \(index). \(name)")
     }
@@ -44,7 +44,7 @@ struct OutputView {
         print("☑️ \(money)원을 투입하셨습니다.")
     }
 
-    private static let purchaseForm: (String, Int) -> Void = { (name: String, price: Int) in
+    private static let purchaseForm = { (name: String, price: Int) in
         print("\(clear)\(home)")
         print("☑️ \(name)를 구매하셨습니다. \(price)원을 차감합니다. 💸")
     }
