@@ -14,6 +14,7 @@
 		7DACE6FC21C79F4500CF11BA /* CarbonatedDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DACE6FB21C79F4500CF11BA /* CarbonatedDrink.swift */; };
 		7DACE70A21C8B88D00CF11BA /* MandarineMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DACE70921C8B88D00CF11BA /* MandarineMilk.swift */; };
 		7DACE70C21C8B8D400CF11BA /* LactoseFreeMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DACE70B21C8B8D400CF11BA /* LactoseFreeMilk.swift */; };
+		7DACE70E21C8CB3300CF11BA /* StarbucksDoubleShot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DACE70D21C8CB3300CF11BA /* StarbucksDoubleShot.swift */; };
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		7DACE6FB21C79F4500CF11BA /* CarbonatedDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonatedDrink.swift; sourceTree = "<group>"; };
 		7DACE70921C8B88D00CF11BA /* MandarineMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MandarineMilk.swift; sourceTree = "<group>"; };
 		7DACE70B21C8B8D400CF11BA /* LactoseFreeMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LactoseFreeMilk.swift; sourceTree = "<group>"; };
+		7DACE70D21C8CB3300CF11BA /* StarbucksDoubleShot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarbucksDoubleShot.swift; sourceTree = "<group>"; };
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -66,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				7DACE6F921C79EE700CF11BA /* Coffee.swift */,
+				7DACE70D21C8CB3300CF11BA /* StarbucksDoubleShot.swift */,
 			);
 			path = Coffees;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DACE70E21C8CB3300CF11BA /* StarbucksDoubleShot.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
 				7DACE6F621C79BC100CF11BA /* ExtensionDate.swift in Sources */,
 				7DACE70C21C8B8D400CF11BA /* LactoseFreeMilk.swift in Sources */,
