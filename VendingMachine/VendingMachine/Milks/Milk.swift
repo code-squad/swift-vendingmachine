@@ -9,9 +9,13 @@
 import Foundation
 
 class Milk: Beverage {
-    private var lactose: Bool
-    init(hasLactose:Bool, brand: String, size: Int, price: Int, name: String, openDate: Date) {
-        self.lactose = hasLactose
+    private var lactose: Int
+    init(lactose: Int, brand: String, size: Int, price: Int, name: String, openDate: Date) {
+        self.lactose = lactose
         super.init(brand: brand, size: size, price: price, name: name, openDate: openDate)
+    }
+    
+    func hasLactose() -> Bool {
+        return self.lactose > 0
     }
 }
