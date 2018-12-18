@@ -11,8 +11,12 @@ import Foundation
 class History {
     private var purchases: [Beverage]
 
-    init() {
-        self.purchases = []
+    init(purchases: [Beverage]) {
+        self.purchases = purchases
+    }
+
+    convenience init() {
+        self.init(purchases: [])
     }
 
     func update(purchase beverage: Beverage) {
