@@ -10,6 +10,11 @@ import Foundation
 
 class LactoseFreeMilk: Milk {
     init() {
-        super.init(brand: "매일유업", size: 190, price: 1100, name: "소화가 잘되는 우유", openDate: Date(before: 2))
+        super.init(hasLactose: false,
+                   brand: "매일유업",
+                   size: 190,
+                   price: 1100,
+                   name: "소화가 잘되는 우유",
+                   openDate: Date(before: 2))
     }
 }
