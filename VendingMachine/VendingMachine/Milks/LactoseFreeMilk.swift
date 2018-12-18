@@ -9,9 +9,6 @@
 import Foundation
 
 class LactoseFreeMilk: Milk {
-    override var description: String {
-        return "LactoseFreeMilk - \(super.description)"
-    }
     init(openDate: Date) {
         super.init(lactose: 0,
                    brand: "매일유업",
