@@ -58,7 +58,13 @@ struct VendingMachine {
 
 }
 
-extension VendingMachine {
+protocol VendingMachinePrintable {
+    func showBalance(with: (Int) -> Void)
+    func showListOfAll(with: (String, Int, Bool) -> Void)
+    func showListOfBuyable(with: (Bool, Int, String) -> Void)
+}
+
+extension VendingMachine: VendingMachinePrintable {
 
     func showBalance(with show: (Int) -> Void) {
         show(balance)

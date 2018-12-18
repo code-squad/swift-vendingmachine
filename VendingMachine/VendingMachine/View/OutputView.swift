@@ -30,8 +30,7 @@ struct OutputView {
         print("   \(branch) \(index). \(name)")
     }
 
-    static func start(_ vendingMachine: VendingMachine) throws {
-        if vendingMachine.isEmpty() { throw VendingMachineError.outOfStock }
+    static func start(_ vendingMachine: VendingMachinePrintable) {
         vendingMachine.showBalance(with: balanceForm)
         print("----------전체음료목록----------")
         vendingMachine.showListOfAll(with: allListForm)
