@@ -53,6 +53,7 @@
 		A3D446AE21C804D300C2ADCA /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D446AC21C804D300C2ADCA /* MenuController.swift */; };
 		A3D446B021C813D800C2ADCA /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D446AF21C813D800C2ADCA /* History.swift */; };
 		A3D446B121C813D800C2ADCA /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D446AF21C813D800C2ADCA /* History.swift */; };
+		A3D446B321C8919400C2ADCA /* UnitTestVendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D446B221C8919400C2ADCA /* UnitTestVendingMachine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -96,6 +97,7 @@
 		A3D446A921C7A4CE00C2ADCA /* Pack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pack.swift; sourceTree = "<group>"; };
 		A3D446AC21C804D300C2ADCA /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		A3D446AF21C813D800C2ADCA /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
+		A3D446B221C8919400C2ADCA /* UnitTestVendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestVendingMachine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 				A39E9B5221C24B47008444C3 /* UnitTestMilk.swift */,
 				A39E9B5421C25139008444C3 /* UnitTestCoffee.swift */,
 				A39E9B5621C253AB008444C3 /* UnitTestSoftDrink.swift */,
+				A3D446B221C8919400C2ADCA /* UnitTestVendingMachine.swift */,
 			);
 			path = VendingMachineUnitTest;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A39E9B5121C248B7008444C3 /* SoftDrink.swift in Sources */,
+				A3D446B321C8919400C2ADCA /* UnitTestVendingMachine.swift in Sources */,
 				A39E9B4D21C248A2008444C3 /* Beverage.swift in Sources */,
 				A39E9B6921C37BD6008444C3 /* OutputView.swift in Sources */,
 				A39E9B4E21C248A5008444C3 /* BeverageCategory.swift in Sources */,
