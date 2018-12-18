@@ -9,7 +9,5 @@
 import Foundation
 
 class CarbonatedDrink: Beverage {
-    init(openDate: Date) {
-        super.init(brand: "코카콜라", size: 185, price: 1300, name: "코카콜라", openDate: openDate)
-    }
+    
 }
