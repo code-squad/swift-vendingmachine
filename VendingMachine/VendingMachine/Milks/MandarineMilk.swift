@@ -10,7 +10,7 @@ import Foundation
 
 class MandarineMilk: Milk {
     init(openDate: Date) {
-        super.init(hasLactose: true,
+        super.init(lactose: 27,
                    brand: "빙그레",
                    size: 240,
                    price: 1200,

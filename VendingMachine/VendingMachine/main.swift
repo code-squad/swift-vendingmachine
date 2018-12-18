@@ -9,7 +9,7 @@
 import Foundation
 
 func main() {
-    let mandarineMilk = Milk(openDate: Date(before: 2))
+    let mandarineMilk = MandarineMilk(openDate: Date(before: 2))
     let cocaCola = CarbonatedDrink(openDate: Date(before: 4))
     let starbucksDoubleShot = Coffee(openDate: Date(before: 6))
     
