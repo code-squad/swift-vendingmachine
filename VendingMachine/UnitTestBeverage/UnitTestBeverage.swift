@@ -44,6 +44,11 @@ class UnitTestBeverage: XCTestCase {
         let cocaCola = CocaCola(openDate: Date(before: 8))
         XCTAssertEqual(cocaCola.isLowCalorie(), false)
     }
+    
+    func testCocaColaZero() {
+        let cocaColaZero = CocaColaZero(openDate: Date(before: 10))
+        XCTAssertEqual(cocaColaZero.isLowCalorie(), true)
+    }
 
     func testPerformanceExample() {
         // This is an example of a performance test case.
