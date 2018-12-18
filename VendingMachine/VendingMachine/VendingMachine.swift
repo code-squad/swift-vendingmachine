@@ -52,6 +52,10 @@ struct VendingMachine {
         return inventory.isEmpty()
     }
 
+    func hasEqualHistory(with theOther: History) -> Bool {
+        return self.history == theOther
+    }
+
 }
 
 extension VendingMachine {
