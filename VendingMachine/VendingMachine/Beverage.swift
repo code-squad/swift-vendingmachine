@@ -13,11 +13,11 @@ class Beverage: CustomStringConvertible {
         return "\(self.brand), \(self.size)ml, \(self.price)원, \(self.name), \(self.openDate.toString())"
     }
     
-    private var brand: String
-    private var size: Int
-    private var price: Int
-    private var name: String
-    private var openDate: Date
+    private let brand: String
+    private let size: Int
+    private let price: Int
+    private let name: String
+    private let openDate: Date
     
     init(brand:String, size:Int, price:Int, name:String, openDate:Date) {
         self.brand = brand

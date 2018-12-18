@@ -9,7 +9,8 @@
 import Foundation
 
 class Milk: Beverage {
-    private var lactose: Int
+    private let lactose: Int
+    
     init(lactose: Int, brand: String, size: Int, price: Int, name: String, openDate: Date) {
         self.lactose = lactose
         super.init(brand: brand, size: size, price: price, name: name, openDate: openDate)
