@@ -22,6 +22,11 @@ class UnitTestBeverage: XCTestCase {
         let mandarineMilk = MandarineMilk(openDate: Date(before: 1))
         XCTAssertEqual(mandarineMilk.hasLactose(), true)
     }
+    
+    func testtLacotseFreeMilk() {
+        let lactoseFreeMilk = LactoseFreeMilk(openDate: Date(before: 2))
+        XCTAssertEqual(lactoseFreeMilk.hasLactose(), false)
+    }
 
     func testStarbucksDoubleShot() {
         let starbucksDS = StarbucksDoubleShot(openDate: Date(before: 2))
