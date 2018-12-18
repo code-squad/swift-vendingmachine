@@ -9,5 +9,12 @@
 import Foundation
 
 class Coffee: Beverage {
+    private let caffeine: Int
+    let isHot: Bool
     
+    init(caffeine: Int, isHot: Bool, brand: String, size: Int, price: Int, name: String, openDate: Date) {
+        self.caffeine = caffeine
+        self.isHot = isHot
+        super.init(brand: brand, size: size, price: price, name: name, openDate: openDate)
+    }
 }
