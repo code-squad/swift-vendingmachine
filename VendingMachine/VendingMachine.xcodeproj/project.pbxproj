@@ -17,6 +17,7 @@
 		7DACE70E21C8CB3300CF11BA /* StarbucksDoubleShot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DACE70D21C8CB3300CF11BA /* StarbucksDoubleShot.swift */; };
 		7DACE71021C8D0AA00CF11BA /* TOPTheBlack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DACE70F21C8D0AA00CF11BA /* TOPTheBlack.swift */; };
 		7DACE71221C8D15600CF11BA /* CocaCola.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DACE71121C8D15600CF11BA /* CocaCola.swift */; };
+		7DACE71421C8D42D00CF11BA /* CocaColaZero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DACE71321C8D42D00CF11BA /* CocaColaZero.swift */; };
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		7DACE70D21C8CB3300CF11BA /* StarbucksDoubleShot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarbucksDoubleShot.swift; sourceTree = "<group>"; };
 		7DACE70F21C8D0AA00CF11BA /* TOPTheBlack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOPTheBlack.swift; sourceTree = "<group>"; };
 		7DACE71121C8D15600CF11BA /* CocaCola.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocaCola.swift; sourceTree = "<group>"; };
+		7DACE71321C8D42D00CF11BA /* CocaColaZero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocaColaZero.swift; sourceTree = "<group>"; };
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,6 +85,7 @@
 			children = (
 				7DACE6FB21C79F4500CF11BA /* CarbonatedDrink.swift */,
 				7DACE71121C8D15600CF11BA /* CocaCola.swift */,
+				7DACE71321C8D42D00CF11BA /* CocaColaZero.swift */,
 			);
 			path = CarbonatedDrink;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 				7DACE70C21C8B8D400CF11BA /* LactoseFreeMilk.swift in Sources */,
 				7DACE6F821C79EC800CF11BA /* Milk.swift in Sources */,
 				7DACE71221C8D15600CF11BA /* CocaCola.swift in Sources */,
+				7DACE71421C8D42D00CF11BA /* CocaColaZero.swift in Sources */,
 				7DACE6FC21C79F4500CF11BA /* CarbonatedDrink.swift in Sources */,
 				7DACE6B821C769F800CF11BA /* Beverage.swift in Sources */,
 				7DACE71021C8D0AA00CF11BA /* TOPTheBlack.swift in Sources */,
