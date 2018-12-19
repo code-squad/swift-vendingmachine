@@ -24,11 +24,11 @@ struct VendingMachine {
         productLine.add(product: product)
     }
     
-    func buyableProducts() -> [Beverage] {
-        var buyableProducts: [Beverage] = []
+    func buyableProducts() -> [String] {
+        var buyableProducts: [String] = []
         for productLine in self.productLines.values {
             
         }
-        return [LactoseFreeMilk(openDate: Date(before: 3))]
+        return [""]
     }
 }
