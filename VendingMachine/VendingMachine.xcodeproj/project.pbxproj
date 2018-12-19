@@ -33,6 +33,7 @@
 		7DACE72F21C8EC2200CF11BA /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DACE72E21C8EC2200CF11BA /* VendingMachine.swift */; };
 		7DACE73021C8EDF700CF11BA /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DACE72E21C8EC2200CF11BA /* VendingMachine.swift */; };
 		7DACE73221C8EE1300CF11BA /* UnitTestVendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DACE73121C8EE1300CF11BA /* UnitTestVendingMachine.swift */; };
+		7DACE73421CA099100CF11BA /* ProductLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DACE73321CA099100CF11BA /* ProductLine.swift */; };
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,7 @@
 		7DACE71D21C8DECE00CF11BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7DACE72E21C8EC2200CF11BA /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 		7DACE73121C8EE1300CF11BA /* UnitTestVendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestVendingMachine.swift; sourceTree = "<group>"; };
+		7DACE73321CA099100CF11BA /* ProductLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductLine.swift; sourceTree = "<group>"; };
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -159,6 +161,7 @@
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
 				7DACE6B721C769F800CF11BA /* Beverage.swift */,
 				7DACE72E21C8EC2200CF11BA /* VendingMachine.swift */,
+				7DACE73321CA099100CF11BA /* ProductLine.swift */,
 				7DACE70321C7A4B900CF11BA /* Milks */,
 				7DACE70421C7A4D000CF11BA /* Coffees */,
 				7DACE70521C7A4EB00CF11BA /* CarbonatedDrink */,
@@ -291,6 +294,7 @@
 				7DACE71021C8D0AA00CF11BA /* TOPTheBlack.swift in Sources */,
 				7DACE70A21C8B88D00CF11BA /* MandarineMilk.swift in Sources */,
 				7DACE6FA21C79EE700CF11BA /* Coffee.swift in Sources */,
+				7DACE73421CA099100CF11BA /* ProductLine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
