@@ -29,6 +29,6 @@ struct VendingMachine {
         for productLine in self.productLines.values {
             
         }
-        return buyableProducts
+        return [LactoseFreeMilk(openDate: Date(before: 3))]
     }
 }
