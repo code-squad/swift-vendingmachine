@@ -10,11 +10,12 @@ import XCTest
 
 class UnitTestVendingMachine: XCTestCase {
 
+    var VM: VendingMachine!
+    
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
-        var VM = VendingMachine()
-        VM.insert(money: 1100)
+        VM = VendingMachine()
         
         let mandarineMilk = MandarineMilk(openDate: Date(before: 2))
         let lactoseFreeMilk = LactoseFreeMilk(openDate: Date(before: 3))
@@ -31,15 +32,22 @@ class UnitTestVendingMachine: XCTestCase {
         VM.add(product: cocaCola)
         VM.add(product: starbucksDoubleShot)
         VM.add(product: starbucksDoubleShot)
+        VM.add(product: topTheBlack)
+        VM.add(product: cocaColaZero)
     }
 
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testBuyableProducts1100() {
+        VM.insert(money: 1100)
+        XCTAssertEqual(VM.buyableProducts().count, 1)
+    }
+    
+    func testBuyableProducts1200() {
+        VM.insert(money: 1200)
+        XCTAssertEqual(VM.buyableProducts().count, 2)
     }
 
     func testPerformanceExample() {

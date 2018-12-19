@@ -23,4 +23,12 @@ struct VendingMachine {
         guard var productLine = self.productLines["\(type(of:product))"] else {return}
         productLine.add(product: product)
     }
+    
+    func buyableProducts() -> [Beverage] {
+        var buyableProducts: [Beverage] = []
+        for productLine in self.productLines.values {
+            
+        }
+        return buyableProducts
+    }
 }
