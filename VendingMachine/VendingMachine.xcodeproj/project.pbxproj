@@ -34,6 +34,7 @@
 		7DACE73021C8EDF700CF11BA /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DACE72E21C8EC2200CF11BA /* VendingMachine.swift */; };
 		7DACE73221C8EE1300CF11BA /* UnitTestVendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DACE73121C8EE1300CF11BA /* UnitTestVendingMachine.swift */; };
 		7DACE73421CA099100CF11BA /* ProductLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DACE73321CA099100CF11BA /* ProductLine.swift */; };
+		7DACE73521CA13CD00CF11BA /* ProductLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DACE73321CA099100CF11BA /* ProductLine.swift */; };
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -159,9 +160,9 @@
 			isa = PBXGroup;
 			children = (
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
-				7DACE6B721C769F800CF11BA /* Beverage.swift */,
 				7DACE72E21C8EC2200CF11BA /* VendingMachine.swift */,
 				7DACE73321CA099100CF11BA /* ProductLine.swift */,
+				7DACE6B721C769F800CF11BA /* Beverage.swift */,
 				7DACE70321C7A4B900CF11BA /* Milks */,
 				7DACE70421C7A4D000CF11BA /* Coffees */,
 				7DACE70521C7A4EB00CF11BA /* CarbonatedDrink */,
@@ -262,6 +263,7 @@
 			files = (
 				7DACE72621C8DF5C00CF11BA /* StarbucksDoubleShot.swift in Sources */,
 				7DACE72B21C8DF6A00CF11BA /* ExtensionDate.swift in Sources */,
+				7DACE73521CA13CD00CF11BA /* ProductLine.swift in Sources */,
 				7DACE73021C8EDF700CF11BA /* VendingMachine.swift in Sources */,
 				7DACE72A21C8DF6800CF11BA /* CocaColaZero.swift in Sources */,
 				7DACE72121C8DF4000CF11BA /* Beverage.swift in Sources */,
