@@ -10,13 +10,17 @@ import Foundation
 
 struct VendingMachine {
     private var balance: Int = 0
-    private var products: [String:[Beverage]] = [:]
+    private var productLines: [String:ProductLine] = [:]
     
     mutating func insert(money: Int) {
         self.balance += money
     }
     
     mutating func add(product: Beverage) {
-        products["\(type(of:product))"] = [product]
+        if self.productLines["\(type(of:product))"] == nil {
+            self.productLines["\(type(of:product))"] = ProductLine()
+        }
+        guard var productLine = self.productLines["\(type(of:product))"] else {return}
+        productLine.add(product: product)
     }
 }

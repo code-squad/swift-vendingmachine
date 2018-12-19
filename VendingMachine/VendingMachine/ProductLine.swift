@@ -10,4 +10,8 @@ import Foundation
 
 struct ProductLine {
     private var products: [Beverage] = []
+    
+    mutating func add(product:Beverage) {
+        self.products.append(product)
+    }
 }
