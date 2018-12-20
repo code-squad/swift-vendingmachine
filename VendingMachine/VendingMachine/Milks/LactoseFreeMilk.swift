@@ -15,6 +15,7 @@ class LactoseFreeMilk: Milk {
                    size: 190,
                    price: 1100,
                    name: "소화가 잘되는 우유",
-                   openDate: openDate)
+                   openDate: openDate,
+                   expiryDate: 5)
     }
 }

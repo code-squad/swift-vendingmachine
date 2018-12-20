@@ -18,13 +18,15 @@ class Beverage: CustomStringConvertible {
     private let price: Int
     private let name: String
     private let openDate: Date
+    private let expiryDate: Int
     
-    init(brand:String, size:Int, price:Int, name:String, openDate:Date) {
+    init(brand:String, size:Int, price:Int, name:String, openDate:Date, expiryDate: Int) {
         self.brand = brand
         self.size = size
         self.price = price
         self.name = name
         self.openDate = openDate
+        self.expiryDate = expiryDate
     }
     
     func buyableProduct(money: Int) -> String? {

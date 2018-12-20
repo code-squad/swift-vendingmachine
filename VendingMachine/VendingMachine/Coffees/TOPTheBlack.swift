@@ -16,6 +16,7 @@ class TOPTheBlack: Coffee {
                    size: 275,
                    price: 1800,
                    name: "맥심 티오피 더 블랙",
-                   openDate: openDate)
+                   openDate: openDate,
+                   expiryDate: 143)
     }
 }

@@ -11,9 +11,9 @@ import Foundation
 class Milk: Beverage {
     private let lactose: Int
     
-    init(lactose: Int, brand: String, size: Int, price: Int, name: String, openDate: Date) {
+    init(lactose: Int, brand: String, size: Int, price: Int, name: String, openDate: Date, expiryDate: Int) {
         self.lactose = lactose
-        super.init(brand: brand, size: size, price: price, name: name, openDate: openDate)
+        super.init(brand: brand, size: size, price: price, name: name, openDate: openDate, expiryDate: expiryDate)
     }
     
     func hasLactose() -> Bool {
