@@ -38,12 +38,16 @@ class ChocolateMilk: Milk {
                   package: package)
     }
 
-    convenience required init() {
+    convenience init(daysBefore: Double) {
         self.init(brand: "푸르밀",
                   name: "가나 초코우유",
                   volume: 300,
                   price: 1200,
-                  dateOfManufacture: Date.subtractingDaysFromNow(by: 3))
+                  dateOfManufacture: Date.subtractingDaysFromNow(by: daysBefore))
+    }
+
+    convenience required init() {
+        self.init(daysBefore: 3)
     }
 
     override class var title: String {
