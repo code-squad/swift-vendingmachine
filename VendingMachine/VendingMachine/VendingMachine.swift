@@ -65,7 +65,13 @@ struct VendingMachine {
     }
     
     func hotProducts() -> [Beverage] {
+        var hotProducts: [Beverage] = []
         
-        return [StarbucksDoubleShot(openDate: Date(before: 2)), StarbucksDoubleShot(openDate: Date(before: 3))]
+        for (_, productLine) in self.productLines {
+            guard let broughtProduct = productLine.hotProducts() else {continue}
+            hotProducts.append(contentsOf: broughtProduct)
+        }
+        
+        return hotProducts
     }
 }
