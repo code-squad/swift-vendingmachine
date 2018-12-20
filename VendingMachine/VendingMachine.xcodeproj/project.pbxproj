@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
+		A3032D6C21CB3E1000C2508E /* Executable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3032D6B21CB3E1000C2508E /* Executable.swift */; };
+		A3032D6D21CB3E1000C2508E /* Executable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3032D6B21CB3E1000C2508E /* Executable.swift */; };
 		A39E9B1821BF8818008444C3 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39E9B1721BF8818008444C3 /* Beverage.swift */; };
 		A39E9B1A21BF9216008444C3 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39E9B1921BF9216008444C3 /* Milk.swift */; };
 		A39E9B1C21BF9D08008444C3 /* SoftDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39E9B1B21BF9D08008444C3 /* SoftDrink.swift */; };
@@ -71,6 +73,7 @@
 /* Begin PBXFileReference section */
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		A3032D6B21CB3E1000C2508E /* Executable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Executable.swift; sourceTree = "<group>"; };
 		A39E9B1721BF8818008444C3 /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 		A39E9B1921BF9216008444C3 /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 		A39E9B1B21BF9D08008444C3 /* SoftDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoftDrink.swift; sourceTree = "<group>"; };
@@ -140,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
+				A3032D6B21CB3E1000C2508E /* Executable.swift */,
 				A39E9B5D21C34C51008444C3 /* VendingMachine.swift */,
 				A39E9B6021C3524E008444C3 /* Inventory.swift */,
 				A3D446A921C7A4CE00C2ADCA /* Pack.swift */,
@@ -329,6 +333,7 @@
 				A39E9B6821C37BD6008444C3 /* OutputView.swift in Sources */,
 				A39E9B4821C20409008444C3 /* BeveragePackage.swift in Sources */,
 				A39E9B5E21C34C51008444C3 /* VendingMachine.swift in Sources */,
+				A3032D6C21CB3E1000C2508E /* Executable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,6 +352,7 @@
 				A39E9B4321C2025D008444C3 /* Sprite.swift in Sources */,
 				A39E9B5721C253AB008444C3 /* UnitTestSoftDrink.swift in Sources */,
 				A39E9B5521C25139008444C3 /* UnitTestCoffee.swift in Sources */,
+				A3032D6D21CB3E1000C2508E /* Executable.swift in Sources */,
 				A3D446AE21C804D300C2ADCA /* MenuController.swift in Sources */,
 				A39E9B4621C202B2008444C3 /* Pepsi.swift in Sources */,
 				A39E9B4921C20409008444C3 /* BeveragePackage.swift in Sources */,
