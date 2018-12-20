@@ -26,4 +26,12 @@ class Beverage: CustomStringConvertible {
         self.name = name
         self.openDate = openDate
     }
+    
+    func buyableProduct(money: Int) -> String? {
+        if self.price <= money {
+            return "\(type(of:self))"
+        } else {
+            return nil
+        }
+    }
 }
