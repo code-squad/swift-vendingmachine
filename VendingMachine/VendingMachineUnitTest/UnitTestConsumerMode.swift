@@ -10,7 +10,7 @@ import XCTest
 
 class UnitTestVendingMachine: XCTestCase {
     private var vendingMachine: VendingMachine!
-//예를 들어서, 재고 몇 개 추가하고 잔액 얼마 추가하면 어떤 상품 구매가능, 불가능인지 확인하고 가능한 상품 구매하고, 잔액 바뀌고 재고 상태 바뀌고, 구매 상품 이력을 확인한다.
+
     override func setUp() {
         super.setUp()
         let emptyInventory = Inventory(list: [:])
@@ -95,25 +95,6 @@ class UnitTestVendingMachine: XCTestCase {
         let listBuyable = vendingMachine.getListBuyable()
         _ = vendingMachine.buy(beverage: listBuyable.first!)
         XCTAssertTrue(vendingMachine.getListBuyable().isEmpty)
-    }
-
-    func testHistoryOfBeveragesPurchasedIsUpdatedToTheHistoryWell() {
-        let pepsi = Pepsi(), pepsiTwo = Pepsi(), sprite = Sprite(), chocolateMilk = ChocolateMilk()
-        let cantata = Cantata(), georgia = Georgia(), strawberryMilk = StrawberryMilk()
-        let beverages = [pepsi, pepsiTwo, sprite, chocolateMilk, cantata, georgia, strawberryMilk]
-        beverages.forEach { beverage in vendingMachine.add(beverage: beverage)}
-
-        let enoughMoney = 100000
-        _ = vendingMachine.insert(money: enoughMoney)
-
-        var purhcases: [Beverage] = []
-        while(vendingMachine.isEmpty()) {
-            guard let item = vendingMachine.getListBuyable().first else { continue }
-            guard let beveragePurchased = vendingMachine.buy(beverage: item) else { continue }
-            purhcases.append(beveragePurchased)
-        }
-        let historyExpected = History(purchases: purhcases)
-        XCTAssertTrue(vendingMachine.hasEqualHistory(with: historyExpected))
     }
 
 }
