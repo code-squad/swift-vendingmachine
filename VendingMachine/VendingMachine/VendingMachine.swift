@@ -36,4 +36,8 @@ struct VendingMachine {
         let product = self.productLines[productName]?.bringOutProduct()
         return product
     }
+    
+    func checkBalance() -> String {
+        return String(self.balance)
+    }
 }
