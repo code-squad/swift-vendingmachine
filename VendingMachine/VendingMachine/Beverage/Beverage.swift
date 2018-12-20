@@ -10,7 +10,7 @@ import Foundation
 
 class Beverage: NSObject {
     private let brand: String
-    private let name: String
+    let name: String
     private let volume: Int
     private let price: Int
     private let dateOfManufacture: Date

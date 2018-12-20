@@ -18,7 +18,7 @@ protocol Consumer {
 protocol Manager {
     func add(beverage: Beverage)
     func getListOfAll() -> [Pack]
-    func remove(beverage: Pack) -> Beverage?
+    func remove(beverage: Int) -> Beverage?
     func removeExpiredBeverages() -> [Beverage]
 }
 
@@ -38,6 +38,8 @@ struct VendingMachine {
     private var balance: Int
     private var inventory: Inventory
     private var history: History
+    private let beverageTypes = [ChocolateMilk.self, StrawberryMilk.self,
+                                 Sprite.self, Pepsi.self, Cantata.self, Georgia.self]
 
     init(beginningBalance: Int = 0, initialInventory: Inventory) {
         self.balance = beginningBalance
@@ -81,20 +83,21 @@ extension VendingMachine: Consumer {
 }
 
 extension VendingMachine: Manager {
-    
+
     func add(beverage: Beverage) {
         inventory.add(beverage: beverage)
     }
 
     func getListOfAll() -> [Pack] {
-        let beverageTypes = [ChocolateMilk.self, StrawberryMilk.self,
-                             Sprite.self, Pepsi.self, Cantata.self, Georgia.self]
+    
         var packs: [Pack] = []
         inventory.getListOfAll().forEach { packs.append($0.key) }
         return packs
     }
 
-    func remove(beverage pack: Pack) -> Beverage? {
+    func remove(beverage number: Int) -> Beverage? {
+        guard number < beverageTypes.count else { return nil }
+        guard let pack = inventory.packOf(type: beverageTypes[number]) else { return nil }
         guard let beverage = inventory.remove(selected: pack) else { return nil }
         return beverage
     }
@@ -119,9 +122,17 @@ extension VendingMachine: PrintableForManager {
 
     func showListOfAll(with show: (String, Int, Bool) -> Void) {
         let list = inventory.getListOfAll()
-        for (index, pack) in list.enumerated() {
-            let stock = pack.value > 0 ? true : false
-            show("\(index+1). \(pack.key.description)", pack.value, stock)
+        for (index, type) in beverageTypes.enumerated() {
+            let index = index + 1
+            if inventory.hasNoBeverage(of: type) {
+                show("\(index). \(type.className())", 0, false)
+                continue
+            }
+            if let pack = inventory.packOf(type: type) {
+                guard let quantity = list[pack] else { continue }
+                show("\(index). \(type.className())", quantity, true)
+                continue
+            }
         }
     }
 
@@ -156,6 +167,7 @@ extension VendingMachine: PrintableForConsumer {
 enum VendingMachineError: Error, MessagePrintable {
     case outOfStock
     case notExistPack
+    case cannotRemove
 
     var message: String {
         switch self {
@@ -163,6 +175,8 @@ enum VendingMachineError: Error, MessagePrintable {
             return "⚠️ 죄송합니다. 모든 품목이 품절되었습니다. ⚠️\n   익일 재고 보충 예정입니다. 감사합니다."
         case .notExistPack:
             return "추가된 적이 없는 음료종류입니다."
+        case .cannotRemove:
+            return "더 이상 재고가 없습니다."
         }
     }
 }
