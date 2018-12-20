@@ -23,4 +23,12 @@ struct ProductLine {
     mutating func bringOutProduct() -> Beverage? {
         return self.products.popLast()
     }
+    
+    func productName() -> String {
+        return self.products[0].readName()
+    }
+    
+    func productCount() -> Int {
+        return self.products.count
+    }
 }

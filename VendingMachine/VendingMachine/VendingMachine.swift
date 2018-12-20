@@ -42,12 +42,12 @@ struct VendingMachine {
     }
     
     func checkInventory() -> [String:Int] {
+        var inventoryStatus: [String:Int] = [:]
         
-        return ["MandarineMilk": 1,
-                "LactoseFreeMilk": 2,
-                "StarbucksDoubleShot": 2,
-                "TOPTheBlack": 1,
-                "CocaCola": 3,
-                "CocaColaZero": 1]
+        for (_, productLine) in self.productLines {
+            inventoryStatus[productLine.productName()] = productLine.productCount()
+        }
+        
+        return inventoryStatus
     }
 }
