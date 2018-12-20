@@ -26,6 +26,9 @@ struct OutputView {
         print(mode)
     }
 
+    /*
+     Methods belows show VendingMachine of ManagerMode
+    */
     static func start(_ vendingMachine: PrintableForManager) {
         print("\n----------전체음료목록----------")
         vendingMachine.showListOfAll(with: allListForm)
@@ -73,6 +76,9 @@ struct OutputView {
         print("\(type(of:beverage).title)가 제거되었습니다.\n")
     }
 
+    /*
+     Methods belows show VendingMachine of ConsumerMode
+     */
     private static let balanceForm = { (balance: Int) in
         print("💰 현재 잔액은 \(balance)원입니다.")
     }

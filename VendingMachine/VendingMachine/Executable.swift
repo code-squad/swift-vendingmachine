@@ -12,7 +12,62 @@ protocol Executable {
     mutating func run()
 }
 
-struct ManagerMode: Executable {
+extension ManagerMode: Executable {
+
+    mutating func run() {
+        OutputView.clear()
+        while(true) {
+            do {
+                guard let menu = try readMenu() else { return }
+                if complete(menu: menu) { continue }
+                let value = try readValue()
+                switch menu {
+                case .addBeverage:
+                    try addBeverage(of: value)
+                case .removeBeverage:
+                    try removeBeverage(of: value)
+                default:
+                    continue
+                }
+            }  catch let error as MenuError {
+                OutputView.showMessage(of: error)
+            }  catch let error as VendingMachineError {
+                OutputView.showMessage(of: error)
+            } catch {
+                fatalError("UNEXPECTED ERROR")
+            }
+        }
+    }
+
+}
+
+extension ConsumerMode: Executable {
+
+    mutating func run() {
+        OutputView.clear()
+        while(true) {
+            do {
+                guard let menu = try readMenu() else { return }
+                switch menu.item {
+                case .insertCoin:
+                    guard insert(money: menu.value) else { continue }
+                case .purchaseBeverage:
+                    guard try purchase(beverage: menu.value) else { continue }
+                }
+            } catch let error as MenuError {
+                OutputView.showMessage(of: error)
+            } catch let error as VendingMachineError {
+                OutputView.showMessage(of: error)
+                break
+            } catch {
+                fatalError("UNEXPECTED ERROR")
+            }
+        }
+    }
+
+}
+
+struct ManagerMode {
     var vendingMachine: Manager & PrintableForManager
 
     init(vendingMachine: Manager & PrintableForManager) {
@@ -60,34 +115,9 @@ struct ManagerMode: Executable {
         OutputView.showRemoval(of: beverage)
     }
 
-    mutating func run() {
-        OutputView.clear()
-        while(true) {
-            do {
-                guard let menu = try readMenu() else { return }
-                if complete(menu: menu) { continue }
-                let value = try readValue()
-                switch menu {
-                case .addBeverage:
-                    try addBeverage(of: value)
-                case .removeBeverage:
-                    try removeBeverage(of: value)
-                default:
-                    continue
-                }
-            }  catch let error as MenuError {
-                OutputView.showMessage(of: error)
-            }  catch let error as VendingMachineError {
-                OutputView.showMessage(of: error)
-            } catch {
-                fatalError("UNEXPECTED ERROR")
-            }
-        }
-    }
-
 }
 
-struct ConsumerMode: Executable {
+struct ConsumerMode {
     var vendingMachine: Consumer & PrintableForConsumer
 
     init(vendingMachine: Consumer & PrintableForConsumer) {
@@ -116,28 +146,6 @@ struct ConsumerMode: Executable {
         guard let beverage = vendingMachine.buy(beverage: pack) else { return false }
         OutputView.showPurchase(of: beverage)
         return true
-    }
-
-    mutating func run() {
-        OutputView.clear()
-        while(true) {
-            do {
-                guard let menu = try readMenu() else { return }
-                switch menu.item {
-                case .insertCoin:
-                    guard insert(money: menu.value) else { continue }
-                case .purchaseBeverage:
-                    guard try purchase(beverage: menu.value) else { continue }
-                }
-            } catch let error as MenuError {
-                OutputView.showMessage(of: error)
-            } catch let error as VendingMachineError {
-                OutputView.showMessage(of: error)
-                break
-            } catch {
-                fatalError("UNEXPECTED ERROR")
-            }
-        }
     }
 
 }
