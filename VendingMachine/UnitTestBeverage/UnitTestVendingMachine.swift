@@ -82,6 +82,24 @@ class UnitTestVendingMachine: XCTestCase {
                                              "CocaColaZero": 1])
     }
     
+    func testCheckAddedInventory() {
+        let cocaCola = CocaCola(openDate: Date(before: 4))
+        let starbucksDoubleShot = StarbucksDoubleShot(openDate: Date(before: 6))
+        
+        VM.add(product: cocaCola)
+        VM.add(product: cocaCola)
+        VM.add(product: cocaCola)
+        VM.add(product: starbucksDoubleShot)
+        VM.add(product: starbucksDoubleShot)
+        
+        XCTAssertEqual(VM.checkInventory(), ["MandarineMilk": 1,
+                                             "LactoseFreeMilk": 2,
+                                             "StarbucksDoubleShot": 4,
+                                             "TOPTheBlack": 1,
+                                             "CocaCola": 6,
+                                             "CocaColaZero": 1])
+    }
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
