@@ -146,13 +146,21 @@
 			children = (
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
 				A3032D6B21CB3E1000C2508E /* Executable.swift */,
+				A38E66D921CC061600D45FF2 /* VendingMachine */,
+				A39E9B6321C37BBE008444C3 /* View */,
+				A39E9B5B21C28F5B008444C3 /* Beverage */,
+				A39E9B4A21C22FE4008444C3 /* Date.swift */,
+			);
+			path = VendingMachine;
+			sourceTree = "<group>";
+		};
+		A38E66D921CC061600D45FF2 /* VendingMachine */ = {
+			isa = PBXGroup;
+			children = (
 				A39E9B5D21C34C51008444C3 /* VendingMachine.swift */,
 				A39E9B6021C3524E008444C3 /* Inventory.swift */,
 				A3D446A921C7A4CE00C2ADCA /* Pack.swift */,
 				A3D446AF21C813D800C2ADCA /* History.swift */,
-				A39E9B6321C37BBE008444C3 /* View */,
-				A39E9B5B21C28F5B008444C3 /* Beverage */,
-				A39E9B4A21C22FE4008444C3 /* Date.swift */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";
