@@ -34,5 +34,6 @@ struct VendingMachine {
     
     func buy(product: String) -> Beverage {
         
+        return CocaCola(openDate: Date(before: 2))
     }
 }
