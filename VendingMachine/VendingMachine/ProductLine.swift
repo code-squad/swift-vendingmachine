@@ -31,4 +31,8 @@ struct ProductLine {
     func productCount() -> Int {
         return self.products.count
     }
+    
+    func expiredProducts() -> [Beverage] {
+        return self.products.filter() {$0.isExpiryDateOut() == true}
+    }
 }
