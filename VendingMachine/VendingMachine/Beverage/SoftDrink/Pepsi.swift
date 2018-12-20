@@ -29,4 +29,8 @@ class Pepsi: SoftDrink {
                   package: .plastic)
     }
 
+    override class var title: String {
+        return "펩시 콜라"
+    }
+
 }

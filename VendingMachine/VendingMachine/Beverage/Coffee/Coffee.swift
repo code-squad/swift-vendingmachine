@@ -27,8 +27,8 @@ class Coffee: BeverageGroup {
 
     convenience required init() {
         self.init(
-            brand: "스타벅스",
-            name: "스타벅스 카페모카",
+            brand: "노브랜드",
+            name: "커피",
             volume: 470,
             price: 3000,
             dateOfManufacture: Date.subtractingDaysFromNow(by: 10),
@@ -42,4 +42,9 @@ class Coffee: BeverageGroup {
     func isHot() -> Bool {
         return !ice
     }
+
+    override class var title: String {
+        return "커피"
+    }
+
 }

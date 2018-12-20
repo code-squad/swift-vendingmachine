@@ -47,7 +47,7 @@ class Milk: BeverageGroup {
     }
 
     convenience required init() {
-        self.init(brand: "서울우유",
+        self.init(brand: "노브랜드",
                   name: "우유",
                   volume: 250,
                   price: 1000,
@@ -66,6 +66,10 @@ class Milk: BeverageGroup {
 
     func validate(when date:Date) -> Bool {
         return date < expirationDate
+    }
+
+    override class var title: String {
+        return "우유"
     }
 
 }
