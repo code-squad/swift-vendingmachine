@@ -17,6 +17,7 @@ protocol Consumer {
 
 protocol Manager {
     func add(beverage: Beverage)
+    func add(beverage: Int) -> Bool
     func getListOfAll() -> [Pack]
     func remove(beverage: Int) -> Beverage?
     func removeExpiredBeverages() -> [Beverage]
@@ -24,7 +25,6 @@ protocol Manager {
 
 protocol PrintableForManager {
     func showListOfAll(with: (String, Int, Bool) -> Void)
-    func showListOfExpired(with: (String) -> Void)
     func showHistory(with: (String) -> Void)
 }
 
@@ -88,6 +88,13 @@ extension VendingMachine: Manager {
         inventory.add(beverage: beverage)
     }
 
+    func add(beverage number: Int) -> Bool {
+        guard number < beverageTypes.count else { return false }
+        let newBeverage = beverageTypes[number].init()
+        inventory.add(beverage: newBeverage)
+        return true
+    }
+
     func getListOfAll() -> [Pack] {
     
         var packs: [Pack] = []
@@ -110,11 +117,6 @@ extension VendingMachine: Manager {
 
 extension VendingMachine: PrintableForManager {
 
-    func showListOfExpired(with show: (String) -> Void) {
-        let listExpired = inventory.removeExpiredBeverages()
-        listExpired.forEach { show($0.description) }
-    }
-
     func showHistory(with show: (String) -> Void) {
         let listSample = ["음료1", "음료2"]
         listSample.forEach { show($0) }
@@ -125,14 +127,12 @@ extension VendingMachine: PrintableForManager {
         for (index, type) in beverageTypes.enumerated() {
             let index = index + 1
             if inventory.hasNoBeverage(of: type) {
-                show("\(index). \(type.className())", 0, false)
+                show("\(index). \(type.title)", 0, false)
                 continue
             }
-            if let pack = inventory.packOf(type: type) {
-                guard let quantity = list[pack] else { continue }
-                show("\(index). \(type.className())", quantity, true)
-                continue
-            }
+            guard let pack = inventory.packOf(type: type) else { continue }
+            guard let quantity = list[pack] else { continue }
+            show("\(index). \(type.title)", quantity, true)
         }
     }
 
