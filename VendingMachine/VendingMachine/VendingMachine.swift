@@ -34,6 +34,9 @@ struct VendingMachine {
     
     mutating func buy(productName: String) -> Beverage? {
         let product = self.productLines[productName]?.bringOutProduct()
+        if self.productLines[productName]?.productCount() == 0 {
+            self.productLines[productName] = nil
+        }
         return product
     }
     
