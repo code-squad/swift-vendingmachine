@@ -32,8 +32,8 @@ struct VendingMachine {
         return buyableProducts
     }
     
-    func buy(product: String) -> Beverage {
-        
-        return CocaCola(openDate: Date(before: 2))
+    mutating func buy(productName: String) -> Beverage? {
+        let product = self.productLines[productName]?.bringOutProduct()
+        return product
     }
 }
