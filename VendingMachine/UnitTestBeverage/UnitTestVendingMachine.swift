@@ -17,8 +17,8 @@ class UnitTestVendingMachine: XCTestCase {
         
         VM = VendingMachine()
         
-        let mandarineMilk = MandarineMilk(openDate: Date(before: 2))
-        let lactoseFreeMilk = LactoseFreeMilk(openDate: Date(before: 3))
+        let mandarineMilk = MandarineMilk(openDate: Date(before: 13))
+        let lactoseFreeMilk = LactoseFreeMilk(openDate: Date(before: 20))
         let starbucksDoubleShot = StarbucksDoubleShot(openDate: Date(before: 6))
         let topTheBlack = TOPTheBlack(openDate: Date(before: 7))
         let cocaCola = CocaCola(openDate: Date(before: 4))
@@ -98,6 +98,17 @@ class UnitTestVendingMachine: XCTestCase {
                                              "맥심 티오피 더 블랙": 1,
                                              "코카콜라": 6,
                                              "코카콜라 제로": 1])
+    }
+    
+    func testExpiredProducts() {
+        XCTAssertTrue(VM.expiredProducts().count == 3)
+    }
+    
+    func testExpiredAddedProducts() {
+        let mandarineMilk = MandarineMilk(openDate: Date(before: 13))
+        VM.add(product: mandarineMilk)
+        VM.add(product: mandarineMilk)
+        XCTAssertTrue(VM.expiredProducts().count == 5)
     }
     
     func testPerformanceExample() {
