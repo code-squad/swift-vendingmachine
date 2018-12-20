@@ -55,6 +55,13 @@ class UnitTestVendingMachine: XCTestCase {
         XCTAssertEqual(VM.buyableProducts().count, 5)
     }
 
+    func testBuyCocaCola() {
+        XCTAssertTrue(VM.buy(product: "CocaCola") is CocaCola)
+    }
+    
+    func testBuyMandarineMilk() {
+        XCTAssertTrue(VM.buy(product: "MandarineMilk") is MandarineMilk)
+    }
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
