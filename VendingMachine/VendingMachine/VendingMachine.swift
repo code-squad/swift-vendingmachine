@@ -40,4 +40,14 @@ struct VendingMachine {
     func checkBalance() -> String {
         return String(self.balance)
     }
+    
+    func checkInventory() -> [String:Int] {
+        
+        return ["MandarineMilk": 1,
+                "LactoseFreeMilk": 2,
+                "StarbucksDoubleShot": 2,
+                "TOPTheBlack": 1,
+                "CocaCola": 3,
+                "CocaColaZero": 1]
+    }
 }
