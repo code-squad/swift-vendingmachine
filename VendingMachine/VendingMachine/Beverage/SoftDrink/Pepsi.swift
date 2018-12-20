@@ -16,7 +16,7 @@ class Pepsi: SoftDrink {
         self.init(brand: brand, name: name, volume: volume, price: price, dateOfManufacture: dateOfManufacture, package: package)
     }
 
-    convenience init() {
+    convenience required init() {
         self.init(volume: 500, price: 1800, dateOfManufacture: Date.subtractingDaysFromNow(by: 40), package: .plastic)
     }
 

@@ -16,6 +16,16 @@ class Coffee: BeverageGroup {
         super.init(brand: brand, name: name, volume: volume, price: price, dateOfManufacture: dateOfManufacture)
     }
 
+    convenience required init() {
+        self.init(
+            brand: "스타벅스",
+            name: "스타벅스 카페모카",
+            volume: 470,
+            price: 3000,
+            dateOfManufacture: Date.subtractingDaysFromNow(by: 10),
+            ice: true)
+    }
+
     override var group: BeverageCategory {
         return .coffee
     }

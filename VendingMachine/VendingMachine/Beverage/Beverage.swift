@@ -23,6 +23,15 @@ class Beverage: NSObject {
         self.dateOfManufacture = dateOfManufacture
     }
 
+    convenience required override init() {
+        self.init(
+            brand: "노브랜드",
+            name: "물",
+            volume: 500,
+            price: 800,
+            dateOfManufacture: Date.subtractingDaysFromNow(by: 30))
+    }
+
     override var description: String {
         return "\(name) \(price)원"
     }
