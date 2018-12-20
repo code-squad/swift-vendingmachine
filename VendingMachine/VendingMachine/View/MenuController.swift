@@ -10,7 +10,7 @@ import Foundation
 
 struct MenuController {
 
-    static func readMenu(from input: String) throws -> (item: ConsumerMenuItem, value: Int) {
+    static func readConsumerMenu(from input: String) throws -> (item: ConsumerMenuItem, value: Int) {
         let menuSelected = input.split(separator: " ")
         guard menuSelected.count == 2 else { throw MenuError.invalidForm }
         guard let firstMenu = Int(menuSelected[0]) else { throw MenuError.notInt }
@@ -18,6 +18,12 @@ struct MenuController {
         guard let value = Int(menuSelected[1]) else { throw MenuError.notInt }
         guard value > 0 else { throw MenuError.notPositiveNumber }
         return (item, value)
+    }
+
+    static func readManagerMenu(from input: String) throws -> ManagerMenuItem {
+        guard let menu = Int(input) else { throw MenuError.notInt }
+        guard let item = ManagerMenuItem(rawValue: menu) else { throw MenuError.notSupported }
+        return item
     }
 
     static func readMode(from input: String) throws -> ExecutionMode {
@@ -49,7 +55,7 @@ enum ManagerMenuItem: Int, CaseIterable {
         case .addBeverage:
             return "재고추가"
         case .removeBeverage:
-            return "특정 재고삭제"
+            return "재고삭제"
         case .removeExpiredBeverages:
             return "유통기한만료 재고삭제"
         }
@@ -77,12 +83,11 @@ enum MenuError: Error, MessagePrintable {
     case outOfList
 
     private var guide: String {
-        let example = "ex) 1000원 투입 시 --> 1 1000\n     1번음료 구매 시 --> 2 1"
         switch self {
         case .invalidForm:
-            return "메뉴와 값을 띄어 입력해주세요.\n \(example)"
+            return "메뉴와 값을 띄어 입력해주세요.\nex) 1000원 투입 시 --> 1 1000\n    1번음료 구매 시 --> 2 1"
         case .notInt:
-            return "메뉴와 값은 숫자로 입력해주세요.\n \(example)"
+            return "메뉴와 값은 숫자로 입력해주세요."
         case .notSupported:
             return "지원하는 메뉴를 입력해주세요."
         case .notPositiveNumber:

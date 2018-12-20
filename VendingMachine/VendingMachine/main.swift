@@ -8,43 +8,39 @@
 
 import Foundation
 
-func main() {
+func defaultVendingMachine() -> VendingMachine {
     let sampleBeverages = [ChocolateMilk(), ChocolateMilk(), StrawberryMilk(),
                            Sprite(), Sprite(), Sprite(), Pepsi(), Pepsi(), Pepsi(), Pepsi(),
-                           Cantata(), Cantata(), Cantata(), Georgia()]
-    var vendingMachine = VendingMachine(beginningBalance: 2000, initialInventory: Inventory(list: [:]))
+                           Cantata(), Cantata(), Cantata(), Georgia(), Georgia()]
+    let vendingMachine = VendingMachine(
+        beginningBalance: 2000,
+        initialInventory: Inventory(list: [:]))
     sampleBeverages.forEach { beverage in vendingMachine.add(beverage: beverage) }
+    return vendingMachine
+}
 
+func decideMode(of vendingMachine: VendingMachine) -> Executable {
     while(true) {
         do {
-            if vendingMachine.isEmpty() { throw VendingMachineError.outOfStock }
-            OutputView.start(vendingMachine)
+            OutputView.selectMode()
             let input = InputView.readInput()
-            let menu = try MenuController.readMenu(from: input)
-
-            switch menu.item {
-            case .insertCoin:
-                let moneyInserted = menu.value
-                guard vendingMachine.insert(money: moneyInserted) else { continue }
-                OutputView.showInsertion(of: moneyInserted)
-            case .purchaseBeverage:
-                let listBuyable = vendingMachine.getListBuyable()
-                let beverageSelected = menu.value - 1
-                guard beverageSelected < listBuyable.count else { throw MenuError.outOfList }
-                let packSelected = listBuyable[beverageSelected]
-                guard let beveragePurchased = vendingMachine.buy(beverage: packSelected) else { continue }
-                OutputView.showPurchase(of: beveragePurchased)
+            let mode = try MenuController.readMode(from: input)
+            switch mode {
+            case .manager: return ManagerMode(vendingMachine: vendingMachine)
+            case .consumer: return ConsumerMode(vendingMachine: vendingMachine)
             }
         } catch let error as MenuError {
             OutputView.showMessage(of: error)
-        } catch let error as VendingMachineError {
-            OutputView.showMessage(of: error)
-            break
         } catch {
             fatalError("UNEXPECTED ERROR")
         }
     }
+}
 
+func main() {
+    let vendingMachine = defaultVendingMachine()
+    var vendingMachineMode = decideMode(of: vendingMachine)
+    vendingMachineMode.run()
 }
 
 main()

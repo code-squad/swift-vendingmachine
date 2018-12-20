@@ -12,16 +12,31 @@ struct OutputView {
     private static let escape = "\u{001B}["
     private static let clear = "\(escape)2J"
     private static let home = "\(escape)0;0H"
-    private static let menu = MenuItem.allCases
-        .map { "\($0.rawValue). \($0.message)" }
-        .joined(separator: "\n")
+    private static let mode = ExecutionMode.allCases
+        .map { "\($0.rawValue). \($0.name)" }.listed()
+    private static let managerMenu = ManagerMenuItem.allCases
+        .map { "\($0.rawValue). \($0.message)" }.listed()
+    private static let consumerMenu = ConsumerMenuItem.allCases
+        .map { "\($0.rawValue). \($0.message)" }.listed()
+
+    static func selectMode() {
+        print("자판기를 시작합니다.")
+        print(mode)
+    }
+
+    static func start(_ vendingMachine: PrintableForManager) {
+        print("----------전체음료목록----------")
+        vendingMachine.showListOfAll(with: allListForm)
+        print("----------------------------")
+        print(managerMenu)
+    }
 
     private static let balanceForm = { (balance: Int) in
         print("💰 현재 잔액은 \(balance)원입니다.")
     }
 
-    private static let allListForm = { (name: String, stock: Int, buyable: Bool) in
-        let mark = buyable ? "✅" : "🚫"
+    private static let allListForm = { (name: String, stock: Int, check: Bool) in
+        let mark = check ? "✅" : "🚫"
         print("\(mark) \(name)(\(stock)개)")
     }
 
@@ -30,12 +45,12 @@ struct OutputView {
         print("   \(branch) \(index). \(name)")
     }
 
-    static func start(_ vendingMachine: VendingMachinePrintable) {
+    static func start(_ vendingMachine: PrintableForConsumer) {
         vendingMachine.showBalance(with: balanceForm)
         print("----------전체음료목록----------")
-        vendingMachine.showListOfAll(with: allListForm)
+        vendingMachine.showListOfAllMarked(with: allListForm)
         print("----------------------------")
-        print(menu)
+        print(consumerMenu)
         vendingMachine.showListOfBuyable(with: buyableListForm)
     }
 
@@ -62,4 +77,12 @@ struct OutputView {
 
 protocol MessagePrintable {
     var message: String { get }
+}
+
+extension Array where Element == String{
+
+    func listed() -> String {
+        return self.joined(separator: "\n")
+    }
+
 }
