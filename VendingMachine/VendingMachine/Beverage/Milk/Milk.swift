@@ -32,6 +32,17 @@ class Milk: BeverageGroup {
             package: BeveragePackage.paper)
     }
 
+    convenience required init() {
+        self.init(
+            brand: "서울우유",
+            name: "우유",
+            volume: 250,
+            price: 1000,
+            dateOfManufacture: Date.subtractingDaysFromNow(by: 5),
+            flavor: nil,
+            package: BeveragePackage.paper)
+    }
+
     override var group: BeverageCategory {
         return .milk
     }

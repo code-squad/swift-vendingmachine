@@ -16,6 +16,16 @@ class SoftDrink: BeverageGroup {
         super.init(brand: brand, name: name, volume: volume, price: price, dateOfManufacture: dateOfManufacture)
     }
 
+    convenience required init() {
+        self.init(
+            brand: "코카콜라컴퍼니",
+            name: "코카콜라",
+            volume: 500,
+            price: 1700,
+            dateOfManufacture: Date.subtractingDaysFromNow(by: 20),
+            package: .plastic)
+    }
+
     override var group: BeverageCategory {
         return .softDrink
     }
