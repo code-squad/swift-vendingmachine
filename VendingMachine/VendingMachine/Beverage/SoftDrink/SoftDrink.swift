@@ -27,8 +27,8 @@ class SoftDrink: BeverageGroup {
 
     convenience required init() {
         self.init(
-            brand: "코카콜라컴퍼니",
-            name: "코카콜라",
+            brand: "노브랜드",
+            name: "탄산음료",
             volume: 500,
             price: 1700,
             dateOfManufacture: Date.subtractingDaysFromNow(by: 20),
@@ -37,6 +37,10 @@ class SoftDrink: BeverageGroup {
 
     override var group: BeverageCategory {
         return .softDrink
+    }
+
+    override class var title: String {
+        return "탄산음료"
     }
 
 }

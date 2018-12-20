@@ -31,4 +31,8 @@ class Cantata: Coffee {
                   ice: false)
     }
 
+    override class var title: String {
+        return "칸타타 더치블랙"
+    }
+
 }

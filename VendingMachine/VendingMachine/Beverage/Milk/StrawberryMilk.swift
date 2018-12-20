@@ -46,4 +46,8 @@ class StrawberryMilk: Milk {
                   dateOfManufacture: Date.subtractingDaysFromNow(by: 3))
     }
 
+    override class var title: String {
+        return "언니몰래먹는딸기우유"
+    }
+
 }

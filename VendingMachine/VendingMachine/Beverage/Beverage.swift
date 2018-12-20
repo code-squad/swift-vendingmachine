@@ -10,7 +10,7 @@ import Foundation
 
 class Beverage: NSObject {
     private let brand: String
-    let name: String
+    private let name: String
     private let volume: Int
     private let price: Int
     private let dateOfManufacture: Date
@@ -38,6 +38,10 @@ class Beverage: NSObject {
 
     override var className: String {
         return String(describing: type(of: self))
+    }
+
+    class var title: String {
+        return "물"
     }
 
     func isBuyable(for cash: Int) -> Bool {
