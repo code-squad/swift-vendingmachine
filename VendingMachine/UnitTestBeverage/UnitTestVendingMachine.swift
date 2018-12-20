@@ -72,6 +72,16 @@ class UnitTestVendingMachine: XCTestCase {
         VM.insert(money: 2000)
         XCTAssertEqual(VM.checkBalance(), "2000")
     }
+    
+    func testCheckInventory() {
+        XCTAssertEqual(VM.checkInventory(), ["MandarineMilk": 1,
+                                             "LactoseFreeMilk": 2,
+                                             "StarbucksDoubleShot": 2,
+                                             "TOPTheBlack": 1,
+                                             "CocaCola": 3,
+                                             "CocaColaZero": 1])
+    }
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
