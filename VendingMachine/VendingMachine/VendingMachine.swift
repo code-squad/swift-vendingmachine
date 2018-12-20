@@ -11,6 +11,7 @@ import Foundation
 struct VendingMachine {
     private var balance: Int = 0
     private var productLines: [String:ProductLine] = [:]
+    private(set) var historyOfPurchase: [Beverage] = []
     
     mutating func insert(money: Int) {
         self.balance += money
@@ -36,6 +37,9 @@ struct VendingMachine {
         let product = self.productLines[productName]?.bringOutProduct()
         if self.productLines[productName]?.productCount() == 0 {
             self.productLines[productName] = nil
+        }
+        if let product = product {
+            self.historyOfPurchase.append(product)
         }
         return product
     }

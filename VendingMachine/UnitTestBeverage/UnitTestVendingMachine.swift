@@ -122,6 +122,20 @@ class UnitTestVendingMachine: XCTestCase {
         XCTAssertEqual(VM.hotProducts().count, 4)
     }
     
+    func testHistoryOfPurchase2() {
+        _ = VM.buy(productName: "MandarineMilk")
+        _ = VM.buy(productName: "CocaCola")
+        XCTAssertEqual(VM.historyOfPurchase.count, 2)
+    }
+    
+    func testHistoryOfPurchase4() {
+        _ = VM.buy(productName: "MandarineMilk")
+        _ = VM.buy(productName: "CocaCola")
+        _ = VM.buy(productName: "StarbucksDoubleShot")
+        _ = VM.buy(productName: "TOPTheBlack")
+        XCTAssertEqual(VM.historyOfPurchase.count, 4)
+    }
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
