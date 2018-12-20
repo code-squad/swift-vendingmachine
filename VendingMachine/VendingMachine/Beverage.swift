@@ -34,4 +34,8 @@ class Beverage: CustomStringConvertible {
             return nil
         }
     }
+    
+    func readName() -> String {
+        return self.name
+    }
 }
