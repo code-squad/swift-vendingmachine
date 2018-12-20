@@ -33,17 +33,13 @@ struct ManagerMode: Executable {
 
                 let numberSelected = InputView.readInput()
                 guard let number = Int(numberSelected) else { throw MenuError.notInt }
-                let list = vendingMachine.getListOfAll()
-                guard number < list.count else { throw MenuError.outOfList }
                 let selected = number - 1
-                let packSelected = list[selected]
 
                 switch menu {
                 case .addBeverage:
-//                    guard vendingMachine.add(beverage: packSelected) else { throw VendingMachineError.notExistPack }
-                    print("\(packSelected) 추가됨")
+                    print("추가됨")
                 case .removeBeverage:
-                    guard let removed = vendingMachine.remove(beverage: packSelected) else { continue }
+                    guard let removed = vendingMachine.remove(beverage: selected) else { throw VendingMachineError.cannotRemove }
                     print("\(removed) 제거됨")
                 default:
                     continue
