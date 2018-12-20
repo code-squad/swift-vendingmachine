@@ -38,6 +38,7 @@
 		7DACE73721CB6CA600CF11BA /* ExtensionInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DACE73621CB6CA600CF11BA /* ExtensionInt.swift */; };
 		7DACE73821CB6CAD00CF11BA /* ExtensionInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DACE73621CB6CA600CF11BA /* ExtensionInt.swift */; };
 		7DACE73B21CB71D600CF11BA /* VariousTemperatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DACE73A21CB71D600CF11BA /* VariousTemperatures.swift */; };
+		7DAE630421CB73EF00F70F41 /* VariousTemperatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DACE73A21CB71D600CF11BA /* VariousTemperatures.swift */; };
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -291,6 +292,7 @@
 				7DACE72721C8DF5F00CF11BA /* TOPTheBlack.swift in Sources */,
 				7DACE72421C8DF5500CF11BA /* LactoseFreeMilk.swift in Sources */,
 				7DACE72521C8DF5800CF11BA /* Coffee.swift in Sources */,
+				7DAE630421CB73EF00F70F41 /* VariousTemperatures.swift in Sources */,
 				7DACE73221C8EE1300CF11BA /* UnitTestVendingMachine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
