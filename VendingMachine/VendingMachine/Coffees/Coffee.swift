@@ -8,9 +8,9 @@
 
 import Foundation
 
-class Coffee: Beverage {
+class Coffee: Beverage, VariousTemperatures {
     let hasMilk: Bool
-    let isHot: Bool
+    var isHot: Bool
     
     init(hasMilk: Bool, isHot: Bool, brand: String, size: Int, price: Int, name: String, openDate: Date, expiryDate: Int) {
         self.hasMilk = hasMilk
