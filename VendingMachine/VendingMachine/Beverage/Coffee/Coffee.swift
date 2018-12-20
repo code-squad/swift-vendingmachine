@@ -11,9 +11,18 @@ import Foundation
 class Coffee: BeverageGroup {
     private let ice: Bool
 
-    init(brand: String, name: String, volume: Int, price: Int, dateOfManufacture: Date, ice: Bool) {
+    init(brand: String,
+         name: String,
+         volume: Int,
+         price: Int,
+         dateOfManufacture: Date,
+         ice: Bool) {
         self.ice = ice
-        super.init(brand: brand, name: name, volume: volume, price: price, dateOfManufacture: dateOfManufacture)
+        super.init(brand: brand,
+                   name: name,
+                   volume: volume,
+                   price: price,
+                   dateOfManufacture: dateOfManufacture)
     }
 
     convenience required init() {

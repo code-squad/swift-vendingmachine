@@ -10,18 +10,40 @@ import Foundation
 
 class StrawberryMilk: Milk {
 
-    convenience init(brand: String, name: String, volume: Int, price: Int, dateOfManufacture: Date) {
-        let flavor = "딸기"
-        self.init(brand: brand, name: name, volume: volume, price: price, dateOfManufacture: dateOfManufacture, flavor: flavor)
+    convenience init(brand: String,
+                     name: String,
+                     volume: Int,
+                     price: Int,
+                     dateOfManufacture: Date) {
+        self.init(brand: brand,
+                  name: name,
+                  volume: volume,
+                  price: price,
+                  dateOfManufacture: dateOfManufacture,
+                  flavor: "딸기")
     }
 
-    convenience init(brand: String, name: String, volume: Int, price: Int, dateOfManufacture: Date, package: BeveragePackage) {
-        let flavor = "딸기"
-        self.init(brand: brand, name: name, volume: volume, price: price, dateOfManufacture: dateOfManufacture, flavor: flavor, package: package)
+    convenience init(brand: String,
+                     name: String,
+                     volume: Int,
+                     price: Int,
+                     dateOfManufacture: Date,
+                     package: BeveragePackage) {
+        self.init(brand: brand,
+                  name: name,
+                  volume: volume,
+                  price: price,
+                  dateOfManufacture: dateOfManufacture,
+                  flavor: "딸기",
+                  package: package)
     }
 
     convenience required init() {
-        self.init(brand: "서울우유", name: "언니몰래먹는딸기우유", volume: 200, price: 2000, dateOfManufacture: Date.subtractingDaysFromNow(by: 3))
+        self.init(brand: "서울우유",
+                  name: "언니몰래먹는딸기우유",
+                  volume: 200,
+                  price: 2000,
+                  dateOfManufacture: Date.subtractingDaysFromNow(by: 3))
     }
 
 }
