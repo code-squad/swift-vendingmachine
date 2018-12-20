@@ -10,6 +10,11 @@ import Foundation
 
 struct MenuController {
 
+    static func finish(keyword input: String) -> Bool {
+        let keywords = ["q", "quit"]
+        return keywords.contains(input)
+    }
+
     static func readConsumerMenu(from input: String) throws -> (item: ConsumerMenuItem, value: Int) {
         let menuSelected = input.split(separator: " ")
         guard menuSelected.count == 2 else { throw MenuError.invalidForm }
@@ -49,6 +54,7 @@ enum ExecutionMode: Int, CaseIterable {
 
 enum ManagerMenuItem: Int, CaseIterable {
     case addBeverage = 1, removeBeverage, removeExpiredBeverages
+    case readHistory
 
     var message: String {
         switch self {
@@ -58,6 +64,8 @@ enum ManagerMenuItem: Int, CaseIterable {
             return "재고삭제"
         case .removeExpiredBeverages:
             return "유통기한만료 재고삭제"
+        case .readHistory:
+            return "소비자 구매이력 보기"
         }
     }
 }

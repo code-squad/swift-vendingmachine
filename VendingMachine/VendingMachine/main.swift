@@ -22,11 +22,12 @@ func defaultVendingMachine() -> VendingMachine {
     return vendingMachine
 }
 
-func decideMode(of vendingMachine: VendingMachine) -> Executable {
+func decideMode(of vendingMachine: VendingMachine) -> Executable? {
     while(true) {
         do {
             OutputView.selectMode()
             let input = InputView.readInput()
+            if MenuController.finish(keyword: input) { return nil }
             let mode = try MenuController.readMode(from: input)
             switch mode {
             case .manager: return ManagerMode(vendingMachine: vendingMachine)
@@ -42,8 +43,10 @@ func decideMode(of vendingMachine: VendingMachine) -> Executable {
 
 func main() {
     let vendingMachine = defaultVendingMachine()
-    var vendingMachineMode = decideMode(of: vendingMachine)
-    vendingMachineMode.run()
+    while(true) {
+        guard var vendingMachineMode = decideMode(of: vendingMachine) else { return }
+        vendingMachineMode.run()
+    }
 }
 
 main()

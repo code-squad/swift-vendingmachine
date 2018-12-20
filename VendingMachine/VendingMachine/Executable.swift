@@ -20,16 +20,19 @@ struct ManagerMode: Executable {
     }
 
     mutating func run() {
+        OutputView.clear()
         while(true) {
             do {
                 OutputView.start(vendingMachine)
                 let input = InputView.readInput()
+                if MenuController.finish(keyword: input) { return }
                 let menu = try MenuController.readManagerMenu(from: input)
-                guard OutputView.proceed(menu: menu, of: vendingMachine) else { continue }
 
+                guard OutputView.proceed(menu: menu, of: vendingMachine) else { continue }
                 let numberSelected = InputView.readInput()
                 guard let number = Int(numberSelected) else { throw MenuError.notInt }
                 let selected = number - 1
+
                 try OutputView.operate(menu: menu, of: vendingMachine, with: selected)
             }  catch let error as MenuError {
                 OutputView.showMessage(of: error)
@@ -51,13 +54,15 @@ struct ConsumerMode: Executable {
     }
 
     mutating func run() {
+        OutputView.clear()
         while(true) {
             do {
                 if vendingMachine.isEmpty() { throw VendingMachineError.outOfStock }
                 OutputView.start(vendingMachine)
                 let input = InputView.readInput()
+                if MenuController.finish(keyword: input) { return }
                 let menu = try MenuController.readConsumerMenu(from: input)
-                
+
                 switch menu.item {
                 case .insertCoin:
                     let moneyInserted = menu.value

@@ -10,7 +10,7 @@ import Foundation
 
 struct OutputView {
     private static let escape = "\u{001B}["
-    private static let clear = {
+    static let clear = {
         print("\(escape)2J\(escape)0;0H")
     }
     private static let mode = ExecutionMode.allCases
@@ -21,15 +21,20 @@ struct OutputView {
         .map { "\($0.rawValue). \($0.message)" }.listed()
     
     static func selectMode() {
-        print("자판기를 시작합니다.")
+        clear()
+        print("자판기를 시작합니다.\n종료키워드: q 또는 quit\n")
         print(mode)
     }
 
     static func start(_ vendingMachine: PrintableForManager) {
-        print("----------전체음료목록----------")
+        print("\n----------전체음료목록----------")
         vendingMachine.showListOfAll(with: allListForm)
         print("----------------------------")
         print(managerMenu)
+    }
+
+    private static let historyForm = { (order: Int, purchase: String) in
+        print("\(order)) \(purchase)")
     }
 
     static func proceed(menu: ManagerMenuItem, of vendingMachine: Manager & PrintableForManager) -> Bool {
@@ -46,6 +51,15 @@ struct OutputView {
             clear()
             print("---------제거된 음료목록---------")
             print("\(expiredBeverages)\n")
+            return false
+        case .readHistory:
+            clear()
+            guard vendingMachine.hasHistory() else {
+                print("구매이력이 존재하지 않습니다.")
+                return false
+            }
+            print("---------소비자 구매이력---------")
+            vendingMachine.showHistory(with: historyForm)
             return false
         }
     }
@@ -81,7 +95,7 @@ struct OutputView {
 
     static func start(_ vendingMachine: PrintableForConsumer) {
         vendingMachine.showBalance(with: balanceForm)
-        print("----------전체음료목록----------")
+        print("\n----------전체음료목록----------")
         vendingMachine.showListOfAllMarked(with: allListForm)
         print("----------------------------")
         print(consumerMenu)
@@ -104,7 +118,7 @@ struct OutputView {
 
     static func showMessage(of error: MessagePrintable) {
         clear()
-        print(error.message)
+        print("\(error.message)\n")
     }
 
 }
