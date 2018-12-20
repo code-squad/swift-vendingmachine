@@ -11,9 +11,18 @@ import Foundation
 class SoftDrink: BeverageGroup {
     private let package: BeveragePackage
 
-    init(brand: String, name: String, volume: Int, price: Int, dateOfManufacture: Date, package: BeveragePackage) {
+    init(brand: String,
+         name: String,
+         volume: Int,
+         price: Int,
+         dateOfManufacture: Date,
+         package: BeveragePackage) {
         self.package = package
-        super.init(brand: brand, name: name, volume: volume, price: price, dateOfManufacture: dateOfManufacture)
+        super.init(brand: brand,
+                   name: name,
+                   volume: volume,
+                   price: price,
+                   dateOfManufacture: dateOfManufacture)
     }
 
     convenience required init() {
