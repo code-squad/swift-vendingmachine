@@ -45,7 +45,9 @@ struct VendingMachine {
     }
     
     func checkBalance() -> String {
-        return String(self.balance)
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        return formatter.string(from: self.balance as NSNumber) ?? ""
     }
     
     func checkInventory() -> [String:Int] {
