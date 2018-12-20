@@ -56,11 +56,11 @@ class UnitTestVendingMachine: XCTestCase {
     }
 
     func testBuyCocaCola() {
-        XCTAssertTrue(VM.buy(product: "CocaCola") is CocaCola)
+        XCTAssertTrue(VM.buy(productName: "CocaCola") is CocaCola)
     }
     
     func testBuyMandarineMilk() {
-        XCTAssertTrue(VM.buy(product: "MandarineMilk") is MandarineMilk)
+        XCTAssertTrue(VM.buy(productName: "MandarineMilk") is MandarineMilk)
     }
     
     func testPerformanceExample() {

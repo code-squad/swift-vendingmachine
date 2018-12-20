@@ -19,4 +19,8 @@ struct ProductLine {
         let product = self.products[0]
         return product.buyableProduct(money:money)
     }
+    
+    mutating func bringOutProduct() -> Beverage? {
+        return self.products.popLast()
+    }
 }
