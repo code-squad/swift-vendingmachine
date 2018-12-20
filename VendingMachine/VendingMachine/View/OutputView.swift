@@ -37,46 +37,40 @@ struct OutputView {
         print("\(order)) \(purchase)")
     }
 
-    static func proceed(menu: ManagerMenuItem, of vendingMachine: Manager & PrintableForManager) -> Bool {
+    static func askValue(of menu: ManagerMenuItem) {
         switch menu {
-        case .addBeverage:
-            print("\n추가할 음료 번호를 입력해주세요.")
-            return true
-        case .removeBeverage:
-            print("\n제거할 음료 번호를 입력해주세요.")
-            return true
-        case .removeExpiredBeverages:
-            let expiredBeverages = vendingMachine.removeExpiredBeverages()
-                .map { "\(type(of:$0).title)" }.listed()
-            clear()
-            print("---------제거된 음료목록---------")
-            print("\(expiredBeverages)\n")
-            return false
-        case .readHistory:
-            clear()
-            guard vendingMachine.hasHistory() else {
-                print("구매이력이 존재하지 않습니다.")
-                return false
-            }
-            print("---------소비자 구매이력---------")
-            vendingMachine.showHistory(with: historyForm)
-            return false
+        case .addBeverage: print("\n추가할 음료 번호를 입력해주세요.")
+        case .removeBeverage: print("\n제거할 음료 번호를 입력해주세요.")
+        default: return
         }
     }
 
-    static func operate(menu: ManagerMenuItem, of vendingMachine: Manager & PrintableForManager, with selected: Int) throws {
-        switch menu {
-        case .addBeverage:
-            guard vendingMachine.add(beverage: selected) else { throw VendingMachineError.notExistPack }
-            clear()
-            print("\(selected + 1)번 음료가 추가되었습니다.\n")
-        case .removeBeverage:
-            guard let removed = vendingMachine.remove(beverage: selected) else { throw VendingMachineError.cannotRemove }
-            clear()
-            print("\(type(of:removed).title)가 제거되었습니다.\n")
-        default:
+    static func showListRemoved(beverages: [Beverage]) {
+        let listRemoved = beverages
+            .map { "\(type(of:$0).title)" }.listed()
+        clear()
+        print("---------제거된 음료목록---------")
+        print("\(listRemoved)\n")
+    }
+
+    static func showHistory(of vendingMachine: PrintableForManager) {
+        clear()
+        guard vendingMachine.hasHistory() else {
+            print("구매이력이 존재하지 않습니다.")
             return
         }
+        print("---------소비자 구매이력---------")
+        vendingMachine.showHistory(with: historyForm)
+    }
+
+    static func showAddition(of beverage: Int) {
+        clear()
+        print("\(beverage + 1)번 음료가 추가되었습니다.\n")
+    }
+
+    static func showRemoval(of beverage: Beverage) {
+        clear()
+        print("\(type(of:beverage).title)가 제거되었습니다.\n")
     }
 
     private static let balanceForm = { (balance: Int) in
