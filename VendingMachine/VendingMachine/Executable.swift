@@ -25,32 +25,12 @@ struct ManagerMode: Executable {
                 OutputView.start(vendingMachine)
                 let input = InputView.readInput()
                 let menu = try MenuController.readManagerMenu(from: input)
-                
-                switch menu {
-                case .addBeverage:
-                    print("추가할 음료 번호를 입력해주세요.")
-                case .removeBeverage:
-                    print("제거할 음료 번호를 입력해주세요.")
-                case .removeExpiredBeverages:
-                    let expiredBeverages = vendingMachine.removeExpiredBeverages()
-                    print("\(expiredBeverages) 제거됨")
-                    continue
-                }
+                guard OutputView.proceed(menu: menu, of: vendingMachine) else { continue }
 
                 let numberSelected = InputView.readInput()
                 guard let number = Int(numberSelected) else { throw MenuError.notInt }
                 let selected = number - 1
-
-                switch menu {
-                case .addBeverage:
-                    guard vendingMachine.add(beverage: selected) else { throw VendingMachineError.notExistPack }
-                    print("추가됨")
-                case .removeBeverage:
-                    guard let removed = vendingMachine.remove(beverage: selected) else { throw VendingMachineError.cannotRemove }
-                    print("\(removed) 제거됨")
-                default:
-                    continue
-                }
+                try OutputView.operate(menu: menu, of: vendingMachine, with: selected)
             }  catch let error as MenuError {
                 OutputView.showMessage(of: error)
             }  catch let error as VendingMachineError {
