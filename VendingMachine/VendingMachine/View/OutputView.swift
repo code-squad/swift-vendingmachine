@@ -19,7 +19,7 @@ struct OutputView {
         .map { "\($0.rawValue). \($0.message)" }.listed()
     private static let consumerMenu = ConsumerMenuItem.allCases
         .map { "\($0.rawValue). \($0.message)" }.listed()
-    
+
     static func selectMode() {
         clear()
         print("자판기를 시작합니다.\n종료키워드: q 또는 quit\n")

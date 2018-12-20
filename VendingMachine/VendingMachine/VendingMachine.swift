@@ -15,6 +15,12 @@ protocol Consumer {
     mutating func buy(beverage: Pack) -> Beverage?
 }
 
+protocol PrintableForConsumer {
+    func showBalance(with: (Int) -> Void)
+    func showListOfAllMarked(with: (String, Int, Bool) -> Void)
+    func showListOfBuyable(with: (Bool, Int, String) -> Void)
+}
+
 protocol Manager {
     func add(beverage: Beverage)
     func add(beverage: Int) -> Bool
@@ -26,12 +32,6 @@ protocol PrintableForManager {
     func showListOfAll(with: (String, Int, Bool) -> Void)
     func hasHistory() -> Bool
     func showHistory(with: (Int, String) -> Void)
-}
-
-protocol PrintableForConsumer {
-    func showBalance(with: (Int) -> Void)
-    func showListOfAllMarked(with: (String, Int, Bool) -> Void)
-    func showListOfBuyable(with: (Bool, Int, String) -> Void)
 }
 
 struct VendingMachine {
@@ -82,6 +82,32 @@ extension VendingMachine: Consumer {
 
 }
 
+extension VendingMachine: PrintableForConsumer {
+    
+    func showBalance(with show: (Int) -> Void) {
+        show(balance)
+    }
+    
+    func showListOfBuyable(with show: (Bool, Int, String) -> Void) {
+        let listBuyable = getListBuyable()
+        for (index, packBuyable) in listBuyable.enumerated() {
+            let number = index + 1
+            let last = (number == listBuyable.count)
+            show(last, number, packBuyable.description)
+        }
+    }
+    
+    func showListOfAllMarked(with show: (String, Int, Bool) -> Void) {
+        let list = inventory.getListOfAll()
+        let listBuyable = getListBuyable()
+        for pack in list {
+            let buyable = listBuyable.contains(pack.key)
+            show(pack.key.description, pack.value, buyable)
+        }
+    }
+    
+}
+
 extension VendingMachine: Manager {
 
     func add(beverage: Beverage) {
@@ -129,32 +155,6 @@ extension VendingMachine: PrintableForManager {
             guard let pack = inventory.packOf(type: type) else { continue }
             guard let quantity = list[pack] else { continue }
             show("\(index). \(type.title)", quantity, true)
-        }
-    }
-
-}
-
-extension VendingMachine: PrintableForConsumer {
-
-    func showBalance(with show: (Int) -> Void) {
-        show(balance)
-    }
-
-    func showListOfBuyable(with show: (Bool, Int, String) -> Void) {
-        let listBuyable = getListBuyable()
-        for (index, packBuyable) in listBuyable.enumerated() {
-            let number = index + 1
-            let last = (number == listBuyable.count)
-            show(last, number, packBuyable.description)
-        }
-    }
-
-    func showListOfAllMarked(with show: (String, Int, Bool) -> Void) {
-        let list = inventory.getListOfAll()
-        let listBuyable = getListBuyable()
-        for pack in list {
-            let buyable = listBuyable.contains(pack.key)
-            show(pack.key.description, pack.value, buyable)
         }
     }
 
