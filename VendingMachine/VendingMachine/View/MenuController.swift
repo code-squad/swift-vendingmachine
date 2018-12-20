@@ -10,19 +10,53 @@ import Foundation
 
 struct MenuController {
 
-    static func readMenu(from input: String) throws -> (item: MenuItem, value: Int) {
+    static func readMenu(from input: String) throws -> (item: ConsumerMenuItem, value: Int) {
         let menuSelected = input.split(separator: " ")
         guard menuSelected.count == 2 else { throw MenuError.invalidForm }
         guard let firstMenu = Int(menuSelected[0]) else { throw MenuError.notInt }
-        guard let item = MenuItem(rawValue: firstMenu) else { throw MenuError.notSupported }
+        guard let item = ConsumerMenuItem(rawValue: firstMenu) else { throw MenuError.notSupported }
         guard let value = Int(menuSelected[1]) else { throw MenuError.notInt }
         guard value > 0 else { throw MenuError.notPositiveNumber }
         return (item, value)
     }
 
+    static func readMode(from input: String) throws -> ExecutionMode {
+        guard let numSelected = Int(input) else { throw MenuError.notInt }
+        guard let mode = ExecutionMode(rawValue: numSelected) else { throw MenuError.notSupported }
+        return mode
+    }
+
 }
 
-enum MenuItem: Int, CaseIterable {
+enum ExecutionMode: Int, CaseIterable {
+    case manager = 1, consumer
+
+    var name: String {
+        switch self {
+        case .manager:
+            return "관리자 모드"
+        case .consumer:
+            return "사용자 모드"
+        }
+    }
+}
+
+enum ManagerMenuItem: Int, CaseIterable {
+    case addBeverage = 1, removeBeverage, removeExpiredBeverages
+
+    var message: String {
+        switch self {
+        case .addBeverage:
+            return "재고추가"
+        case .removeBeverage:
+            return "특정 재고삭제"
+        case .removeExpiredBeverages:
+            return "유통기한만료 재고삭제"
+        }
+    }
+}
+
+enum ConsumerMenuItem: Int, CaseIterable {
     case insertCoin = 1, purchaseBeverage
     
     var message: String{
