@@ -49,6 +49,11 @@ class UnitTestVendingMachine: XCTestCase {
         VM.insert(money: 1200)
         XCTAssertEqual(VM.buyableProducts().count, 2)
     }
+    
+    func testBuyableProducts1400() {
+        VM.insert(money: 1400)
+        XCTAssertEqual(VM.buyableProducts().count, 5)
+    }
 
     func testPerformanceExample() {
         // This is an example of a performance test case.

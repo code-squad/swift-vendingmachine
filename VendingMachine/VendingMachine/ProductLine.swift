@@ -14,4 +14,9 @@ struct ProductLine {
     mutating func add(product:Beverage) {
         self.products.append(product)
     }
+    
+    func buyableProduct(money: Int) -> String? {
+        let product = self.products[0]
+        return product.buyableProduct(money:money)
+    }
 }

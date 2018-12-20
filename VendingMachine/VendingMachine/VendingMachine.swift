@@ -20,15 +20,15 @@ struct VendingMachine {
         if self.productLines["\(type(of:product))"] == nil {
             self.productLines["\(type(of:product))"] = ProductLine()
         }
-        guard var productLine = self.productLines["\(type(of:product))"] else {return}
-        productLine.add(product: product)
+        self.productLines["\(type(of:product))"]?.add(product: product)
     }
     
     func buyableProducts() -> [String] {
         var buyableProducts: [String] = []
-        for productLine in self.productLines.values {
-            
+        for (_, productLine) in self.productLines {
+            guard let buyableProduct = productLine.buyableProduct(money: self.balance) else {continue}
+            buyableProducts.append(buyableProduct)
         }
-        return [""]
+        return buyableProducts
     }
 }
