@@ -31,4 +31,8 @@ struct VendingMachine {
         }
         return buyableProducts
     }
+    
+    func buy(product: String) -> Beverage {
+        
+    }
 }
