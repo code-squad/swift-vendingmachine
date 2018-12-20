@@ -23,6 +23,16 @@ class History {
         purchases.append(beverage)
     }
 
+    func isEmpty() -> Bool {
+        return purchases.isEmpty
+    }
+
+    func showList(with show: (Int, String) -> Void) {
+        for (index, purchase) in purchases.enumerated() {
+            show(index + 1, type(of: purchase).title)
+        }
+    }
+
 }
 
 extension History: Equatable {

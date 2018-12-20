@@ -18,14 +18,14 @@ protocol Consumer {
 protocol Manager {
     func add(beverage: Beverage)
     func add(beverage: Int) -> Bool
-    func getListOfAll() -> [Pack]
     func remove(beverage: Int) -> Beverage?
     func removeExpiredBeverages() -> [Beverage]
 }
 
 protocol PrintableForManager {
     func showListOfAll(with: (String, Int, Bool) -> Void)
-    func showHistory(with: (String) -> Void)
+    func hasHistory() -> Bool
+    func showHistory(with: (Int, String) -> Void)
 }
 
 protocol PrintableForConsumer {
@@ -95,13 +95,6 @@ extension VendingMachine: Manager {
         return true
     }
 
-    func getListOfAll() -> [Pack] {
-    
-        var packs: [Pack] = []
-        inventory.getListOfAll().forEach { packs.append($0.key) }
-        return packs
-    }
-
     func remove(beverage number: Int) -> Beverage? {
         guard number < beverageTypes.count else { return nil }
         guard let pack = inventory.packOf(type: beverageTypes[number]) else { return nil }
@@ -117,9 +110,12 @@ extension VendingMachine: Manager {
 
 extension VendingMachine: PrintableForManager {
 
-    func showHistory(with show: (String) -> Void) {
-        let listSample = ["음료1", "음료2"]
-        listSample.forEach { show($0) }
+    func hasHistory() -> Bool {
+        return !history.isEmpty()
+    }
+
+    func showHistory(with show: (Int, String) -> Void) {
+        history.showList(with: show)
     }
 
     func showListOfAll(with show: (String, Int, Bool) -> Void) {
