@@ -35,4 +35,10 @@ struct ProductLine {
     func expiredProducts() -> [Beverage] {
         return self.products.filter() {$0.isExpiryDateOut() == true}
     }
+    
+    func hotProducts() -> [Beverage]? {
+        guard let product = products[0] as? VariousTemperatures else {return nil}
+        guard product.isHot else {return nil}
+        return self.products
+    }
 }
