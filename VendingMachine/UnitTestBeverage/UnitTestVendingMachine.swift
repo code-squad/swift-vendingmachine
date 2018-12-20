@@ -55,6 +55,7 @@ class UnitTestVendingMachine: XCTestCase {
         XCTAssertEqual(VM.buyableProducts().count, 5)
     }
 
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
