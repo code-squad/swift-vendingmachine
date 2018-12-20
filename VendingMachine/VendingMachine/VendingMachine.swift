@@ -68,12 +68,12 @@ struct VendingMachine {
         return expiredProducts
     }
     
-    func hotProducts() -> [Beverage] {
-        var hotProducts: [Beverage] = []
+    func hotProducts() -> [String] {
+        var hotProducts: [String] = []
         
         for (_, productLine) in self.productLines {
             guard let broughtProduct = productLine.hotProducts() else {continue}
-            hotProducts.append(contentsOf: broughtProduct)
+            hotProducts.append(broughtProduct)
         }
         
         return hotProducts

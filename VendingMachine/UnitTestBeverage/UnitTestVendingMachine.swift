@@ -112,14 +112,13 @@ class UnitTestVendingMachine: XCTestCase {
     }
     
     func testHotProducts() {
-        XCTAssertEqual(VM.hotProducts().count, 2)
+        XCTAssertEqual(VM.hotProducts().count, 1)
     }
     
-    func testHotAddedProducts() {
-        let starbucksDoubleShot = StarbucksDoubleShot(openDate: Date(before: 6))
-        VM.add(product: starbucksDoubleShot)
-        VM.add(product: starbucksDoubleShot)
-        XCTAssertEqual(VM.hotProducts().count, 4)
+    func testHotBoughtProducts() {
+        let _ = VM.buy(productName: "StarbucksDoubleShot")
+        let _ = VM.buy(productName: "StarbucksDoubleShot")
+        XCTAssertEqual(VM.hotProducts().count, 0)
     }
     
     func testHistoryOfPurchase2() {

@@ -36,9 +36,10 @@ struct ProductLine {
         return self.products.filter() {$0.isExpiryDateOut() == true}
     }
     
-    func hotProducts() -> [Beverage]? {
-        guard let product = products[0] as? VariousTemperatures else {return nil}
-        guard product.isHot else {return nil}
-        return self.products
+    func hotProducts() -> String? {
+        let product = products[0]
+        guard let variousTemperaturesBeverage = product as? VariousTemperatures else {return nil}
+        guard variousTemperaturesBeverage.isHot else {return nil}
+        return product.readName()
     }
 }
