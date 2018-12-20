@@ -12,9 +12,9 @@ class Coffee: Beverage {
     let hasMilk: Bool
     let isHot: Bool
     
-    init(hasMilk: Bool, isHot: Bool, brand: String, size: Int, price: Int, name: String, openDate: Date) {
+    init(hasMilk: Bool, isHot: Bool, brand: String, size: Int, price: Int, name: String, openDate: Date, expiryDate: Int) {
         self.hasMilk = hasMilk
         self.isHot = isHot
-        super.init(brand: brand, size: size, price: price, name: name, openDate: openDate)
+        super.init(brand: brand, size: size, price: price, name: name, openDate: openDate, expiryDate: expiryDate)
     }
 }

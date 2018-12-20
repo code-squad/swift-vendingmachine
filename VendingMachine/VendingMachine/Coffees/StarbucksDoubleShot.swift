@@ -16,6 +16,7 @@ class StarbucksDoubleShot: Coffee {
                    size: 200,
                    price: 1400,
                    name: "스타벅스 더블샷 에스프레소 & 크림",
-                   openDate: openDate)
+                   openDate: openDate,
+                   expiryDate: 41)
     }
 }

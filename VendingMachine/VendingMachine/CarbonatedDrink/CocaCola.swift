@@ -15,6 +15,7 @@ class CocaCola: CarbonatedDrink {
                    size: 185,
                    price: 1300,
                    name: "코카콜라",
-                   openDate: openDate)
+                   openDate: openDate,
+                   expiryDate: 381)
     }
 }

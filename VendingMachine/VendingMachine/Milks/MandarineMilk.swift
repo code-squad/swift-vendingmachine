@@ -15,6 +15,7 @@ class MandarineMilk: Milk {
                    size: 240,
                    price: 1200,
                    name: "귤맛 우유",
-                   openDate: openDate)
+                   openDate: openDate,
+                   expiryDate: 7)
     }
 }
