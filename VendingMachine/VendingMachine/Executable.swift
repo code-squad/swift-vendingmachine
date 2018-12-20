@@ -15,7 +15,6 @@ protocol Executable {
 extension ManagerMode: Executable {
 
     mutating func run() {
-        OutputView.clear()
         while(true) {
             do {
                 guard let menu = try readMenu() else { return }
@@ -44,7 +43,6 @@ extension ManagerMode: Executable {
 extension ConsumerMode: Executable {
 
     mutating func run() {
-        OutputView.clear()
         while(true) {
             do {
                 guard let menu = try readMenu() else { return }

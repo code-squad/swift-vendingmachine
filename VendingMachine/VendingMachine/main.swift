@@ -45,6 +45,7 @@ func main() {
     let vendingMachine = defaultVendingMachine()
     while(true) {
         guard var vendingMachineMode = decideMode(of: vendingMachine) else { return }
+        OutputView.clear()
         vendingMachineMode.run()
     }
 }
