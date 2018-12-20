@@ -9,9 +9,12 @@
 import Foundation
 
 func defaultVendingMachine() -> VendingMachine {
+    let strawberryMilkExpired = StrawberryMilk(daysBefore: 15)
+    let chocolateMilkExpired = ChocolateMilk(daysBefore: 20)
     let sampleBeverages = [ChocolateMilk(), ChocolateMilk(), StrawberryMilk(),
                            Sprite(), Sprite(), Sprite(), Pepsi(), Pepsi(), Pepsi(), Pepsi(),
-                           Cantata(), Cantata(), Cantata(), Georgia(), Georgia()]
+                           Cantata(), Cantata(), Cantata(), Georgia(), Georgia(),
+                           strawberryMilkExpired, chocolateMilkExpired]
     let vendingMachine = VendingMachine(
         beginningBalance: 2000,
         initialInventory: Inventory(list: [:]))
