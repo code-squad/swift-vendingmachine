@@ -15,7 +15,7 @@ class StarbucksDoubleShot: Coffee {
                    brand: "동서식품",
                    size: 200,
                    price: 1400,
-                   name: "스타벅스 더블샷 에스프레소 & 크림",
+                   name: "스타벅스더블샷에스프레소&크림",
                    openDate: openDate,
                    expiryDate: 41)
     }
