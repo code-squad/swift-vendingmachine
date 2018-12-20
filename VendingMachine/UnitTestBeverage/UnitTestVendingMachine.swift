@@ -111,6 +111,17 @@ class UnitTestVendingMachine: XCTestCase {
         XCTAssertTrue(VM.expiredProducts().count == 5)
     }
     
+    func testHotProducts() {
+        XCTAssertEqual(VM.hotProducts().count, 2)
+    }
+    
+    func testHotAddedProducts() {
+        let starbucksDoubleShot = StarbucksDoubleShot(openDate: Date(before: 6))
+        VM.add(product: starbucksDoubleShot)
+        VM.add(product: starbucksDoubleShot)
+        XCTAssertEqual(VM.hotProducts().count, 4)
+    }
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {

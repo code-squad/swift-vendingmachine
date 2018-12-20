@@ -63,4 +63,9 @@ struct VendingMachine {
         
         return expiredProducts
     }
+    
+    func hotProducts() -> [Beverage] {
+        
+        return [StarbucksDoubleShot(openDate: Date(before: 2)), StarbucksDoubleShot(openDate: Date(before: 3))]
+    }
 }
