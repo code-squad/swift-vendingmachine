@@ -10,7 +10,7 @@ import Foundation
 
 struct InputView {
     static func readInput(ment: String) -> String {
-        print(ment)
+        print(ment, terminator:"")
         return readLine() ?? ""
     }
 }

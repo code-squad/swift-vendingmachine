@@ -15,7 +15,7 @@ class TOPTheBlack: Coffee {
                    brand: "맥심",
                    size: 275,
                    price: 1800,
-                   name: "맥심 티오피 더 블랙",
+                   name: "맥심티오피더블랙",
                    openDate: openDate,
                    expiryDate: 143)
     }
