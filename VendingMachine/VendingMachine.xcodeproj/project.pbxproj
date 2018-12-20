@@ -35,6 +35,8 @@
 		7DACE73221C8EE1300CF11BA /* UnitTestVendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DACE73121C8EE1300CF11BA /* UnitTestVendingMachine.swift */; };
 		7DACE73421CA099100CF11BA /* ProductLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DACE73321CA099100CF11BA /* ProductLine.swift */; };
 		7DACE73521CA13CD00CF11BA /* ProductLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DACE73321CA099100CF11BA /* ProductLine.swift */; };
+		7DACE73721CB6CA600CF11BA /* ExtensionInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DACE73621CB6CA600CF11BA /* ExtensionInt.swift */; };
+		7DACE73821CB6CAD00CF11BA /* ExtensionInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DACE73621CB6CA600CF11BA /* ExtensionInt.swift */; };
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +70,7 @@
 		7DACE72E21C8EC2200CF11BA /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 		7DACE73121C8EE1300CF11BA /* UnitTestVendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestVendingMachine.swift; sourceTree = "<group>"; };
 		7DACE73321CA099100CF11BA /* ProductLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductLine.swift; sourceTree = "<group>"; };
+		7DACE73621CB6CA600CF11BA /* ExtensionInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionInt.swift; sourceTree = "<group>"; };
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				7DACE6F521C79BC100CF11BA /* ExtensionDate.swift */,
+				7DACE73621CB6CA600CF11BA /* ExtensionInt.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -266,6 +270,7 @@
 				7DACE73521CA13CD00CF11BA /* ProductLine.swift in Sources */,
 				7DACE73021C8EDF700CF11BA /* VendingMachine.swift in Sources */,
 				7DACE72A21C8DF6800CF11BA /* CocaColaZero.swift in Sources */,
+				7DACE73821CB6CAD00CF11BA /* ExtensionInt.swift in Sources */,
 				7DACE72121C8DF4000CF11BA /* Beverage.swift in Sources */,
 				7DACE72921C8DF6500CF11BA /* CocaCola.swift in Sources */,
 				7DACE72221C8DF4300CF11BA /* Milk.swift in Sources */,
@@ -291,6 +296,7 @@
 				7DACE6F821C79EC800CF11BA /* Milk.swift in Sources */,
 				7DACE71221C8D15600CF11BA /* CocaCola.swift in Sources */,
 				7DACE71421C8D42D00CF11BA /* CocaColaZero.swift in Sources */,
+				7DACE73721CB6CA600CF11BA /* ExtensionInt.swift in Sources */,
 				7DACE6FC21C79F4500CF11BA /* CarbonatedDrink.swift in Sources */,
 				7DACE6B821C769F800CF11BA /* Beverage.swift in Sources */,
 				7DACE71021C8D0AA00CF11BA /* TOPTheBlack.swift in Sources */,

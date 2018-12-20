@@ -55,8 +55,12 @@ struct VendingMachine {
     }
     
     func expiredProducts() -> [Beverage] {
-        let expiredProducts: [Beverage] = []
+        var expiredProducts: [Beverage] = []
         
-        return [MandarineMilk(openDate: Date(before: 43)),CocaCola(openDate: Date(before: 1209)),LactoseFreeMilk(openDate: Date(before: 62))]
+        for (_, productLine) in self.productLines {
+            expiredProducts.append(contentsOf: productLine.expiredProducts())
+        }
+        
+        return expiredProducts
     }
 }

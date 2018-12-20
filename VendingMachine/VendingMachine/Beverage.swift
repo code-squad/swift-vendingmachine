@@ -40,4 +40,8 @@ class Beverage: CustomStringConvertible {
     func readName() -> String {
         return self.name
     }
+    
+    func isExpiryDateOut() -> Bool {
+        return self.openDate + self.expiryDate.convertToDay() < Date()
+    }
 }
