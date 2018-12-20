@@ -53,4 +53,10 @@ struct VendingMachine {
         
         return inventoryStatus
     }
+    
+    func expiredProducts() -> [Beverage] {
+        let expiredProducts: [Beverage] = []
+        
+        return [MandarineMilk(openDate: Date(before: 43)),CocaCola(openDate: Date(before: 1209)),LactoseFreeMilk(openDate: Date(before: 62))]
+    }
 }
