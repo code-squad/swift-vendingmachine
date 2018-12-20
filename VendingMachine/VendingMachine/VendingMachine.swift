@@ -8,6 +8,24 @@
 
 import Foundation
 
+protocol Consumer {
+    mutating func insert(money: Int) -> Bool
+    func getListBuyable() -> [Pack]
+    mutating func buy(beverage: Pack) -> Beverage?
+}
+
+protocol Manager {
+    func add(beverage: Beverage)
+    func remove(beverage: Pack) -> Beverage?
+    func removeExpiredBeverages() -> [Beverage]
+}
+
+protocol VendingMachinePrintable {
+    func showBalance(with: (Int) -> Void)
+    func showListOfAll(with: (String, Int, Bool) -> Void)
+    func showListOfBuyable(with: (Bool, Int, String) -> Void)
+}
+
 struct VendingMachine {
     private var balance: Int
     private var inventory: Inventory
@@ -19,33 +37,8 @@ struct VendingMachine {
         self.history = History()
     }
 
-    mutating func insert(money: Int) -> Bool {
-        guard money > 0 else { return false }
-        balance += money
-        return true
-    }
-
-    func add(beverage: Beverage) {
-        inventory.add(beverage: beverage)
-    }
-
-    func getListBuyable() -> [Pack] {
-        return inventory.getListBuyable(with: balance)
-    }
-
     func getListOfHotBeverages() -> [Pack] {
         return inventory.getListOfHotBeverages()
-    }
-
-    func removeExpiredBeverages() -> [Beverage] {
-        return inventory.removeExpiredBeverages()
-    }
-
-    mutating func buy(beverage pack: Pack) -> Beverage? {
-        guard let beverage = inventory.remove(selected: pack) else { return nil }
-        balance = beverage.subtractPrice(from: balance)
-        history.update(purchase: beverage)
-        return beverage
     }
 
     func isEmpty() -> Bool {
@@ -58,10 +51,42 @@ struct VendingMachine {
 
 }
 
-protocol VendingMachinePrintable {
-    func showBalance(with: (Int) -> Void)
-    func showListOfAll(with: (String, Int, Bool) -> Void)
-    func showListOfBuyable(with: (Bool, Int, String) -> Void)
+extension VendingMachine: Consumer {
+
+    mutating func insert(money: Int) -> Bool {
+        guard money > 0 else { return false }
+        balance += money
+        return true
+    }
+
+    func getListBuyable() -> [Pack] {
+        return inventory.getListBuyable(with: balance)
+    }
+
+    mutating func buy(beverage pack: Pack) -> Beverage? {
+        guard let beverage = inventory.remove(selected: pack) else { return nil }
+        balance = beverage.subtractPrice(from: balance)
+        history.update(purchase: beverage)
+        return beverage
+    }
+
+}
+
+extension VendingMachine: Manager {
+
+    func add(beverage: Beverage) {
+        inventory.add(beverage: beverage)
+    }
+
+    func remove(beverage pack: Pack) -> Beverage? {
+        guard let beverage = inventory.remove(selected: pack) else { return nil }
+        return beverage
+    }
+
+    func removeExpiredBeverages() -> [Beverage] {
+        return inventory.removeExpiredBeverages()
+    }
+
 }
 
 extension VendingMachine: VendingMachinePrintable {
