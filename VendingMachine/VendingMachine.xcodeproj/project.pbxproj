@@ -168,6 +168,15 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
+		7DAE631421CC892700F70F41 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				7DAE630E21CC849B00F70F41 /* MentMaker.swift */,
+				7DAE630921CC806F00F70F41 /* ValidChecker.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		839DA9001F8D1F95009E05F3 = {
 			isa = PBXGroup;
 			children = (
@@ -190,12 +199,11 @@
 			isa = PBXGroup;
 			children = (
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
-				7DAE630E21CC849B00F70F41 /* MentMaker.swift */,
-				7DAE630921CC806F00F70F41 /* ValidChecker.swift */,
 				7DAE630721CB8DEC00F70F41 /* InputView.swift */,
 				7DACE72E21C8EC2200CF11BA /* VendingMachine.swift */,
 				7DACE73321CA099100CF11BA /* ProductLine.swift */,
 				7DACE6B721C769F800CF11BA /* Beverage.swift */,
+				7DAE631421CC892700F70F41 /* Helper */,
 				7DACE70321C7A4B900CF11BA /* Milks */,
 				7DACE70421C7A4D000CF11BA /* Coffees */,
 				7DACE70521C7A4EB00CF11BA /* CarbonatedDrink */,
