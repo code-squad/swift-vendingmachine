@@ -44,4 +44,8 @@ class Beverage: CustomStringConvertible {
     func isExpiryDateOut() -> Bool {
         return self.openDate + self.expiryDate.convertToDay() < Date()
     }
+    
+    func pay(pay: (Int) -> Int) -> Int {
+        return pay(self.price)
+    }
 }

@@ -40,8 +40,16 @@ struct VendingMachine: VendingMachineInfo {
         }
         if let product = product {
             self.historyOfPurchase.append(product)
+            self.balance = pay(product: product)
         }
         return product
+    }
+    
+    private func pay(product: Beverage) -> Int {
+        let pay: (Int) -> Int = { (price: Int) -> Int in
+            return self.balance - price
+        }
+        return product.pay(pay: pay)
     }
     
     func checkBalance() -> String {
