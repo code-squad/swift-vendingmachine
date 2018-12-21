@@ -9,7 +9,7 @@
 import Foundation
 
 struct ValidChecker {
-    func checkInputOfInsertMoney(string: String) -> Bool {
+    static func checkInputOfInsertMoney(string: String) -> Bool {
 //        string.range(of: "^[\\d\\.]+$", options: .regularExpression) != nil
         return true
     }
