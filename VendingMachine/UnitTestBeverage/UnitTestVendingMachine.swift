@@ -65,21 +65,21 @@ class UnitTestVendingMachine: XCTestCase {
     
     func testCheckBalance1100() {
         VM.insert(money: 1100)
-        XCTAssertEqual(VM.checkBalance(), "1100")
+        XCTAssertEqual(VM.checkBalance(), "1,100")
     }
     
     func testCheckBalance2000() {
         VM.insert(money: 2000)
-        XCTAssertEqual(VM.checkBalance(), "2000")
+        XCTAssertEqual(VM.checkBalance(), "2,000")
     }
     
     func testCheckInventory() {
-        XCTAssertEqual(VM.checkInventory(), ["귤맛 우유": 1,
-                                             "소화가 잘되는 우유": 2,
-                                             "스타벅스 더블샷 에스프레소 & 크림": 2,
-                                             "맥심 티오피 더 블랙": 1,
+        XCTAssertEqual(VM.checkInventory(), ["귤맛우유": 1,
+                                             "소화가잘되는우유": 2,
+                                             "스타벅스더블샷에스프레소&크림": 2,
+                                             "맥심티오피더블랙": 1,
                                              "코카콜라": 3,
-                                             "코카콜라 제로": 1])
+                                             "코카콜라제로": 1])
     }
     
     func testCheckAddedInventory() {
@@ -92,12 +92,12 @@ class UnitTestVendingMachine: XCTestCase {
         VM.add(product: starbucksDoubleShot)
         VM.add(product: starbucksDoubleShot)
         
-        XCTAssertEqual(VM.checkInventory(), ["귤맛 우유": 1,
-                                             "소화가 잘되는 우유": 2,
-                                             "스타벅스 더블샷 에스프레소 & 크림": 4,
-                                             "맥심 티오피 더 블랙": 1,
+        XCTAssertEqual(VM.checkInventory(), ["귤맛우유": 1,
+                                             "소화가잘되는우유": 2,
+                                             "스타벅스더블샷에스프레소&크림": 4,
+                                             "맥심티오피더블랙": 1,
                                              "코카콜라": 6,
-                                             "코카콜라 제로": 1])
+                                             "코카콜라제로": 1])
     }
     
     func testExpiredProducts() {
