@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct VendingMachine {
+struct VendingMachine: VendingMachineInfo {
     private var balance: Int = 0
     private var productLines: [String:ProductLine] = [:]
     private(set) var historyOfPurchase: [Beverage] = []
