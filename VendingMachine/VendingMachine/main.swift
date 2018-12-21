@@ -36,7 +36,7 @@ func decideMode(of vendingMachine: VendingMachine) -> Executable? {
         } catch let error as MenuError {
             OutputView.showMessage(of: error)
         } catch {
-            fatalError("UNEXPECTED ERROR")
+            OutputView.showUnexpected(error: error)
         }
     }
 }

@@ -33,7 +33,7 @@ extension ManagerMode: Executable {
             }  catch let error as VendingMachineError {
                 OutputView.showMessage(of: error)
             } catch {
-                fatalError("UNEXPECTED ERROR")
+                OutputView.showUnexpected(error: error)
             }
         }
     }
@@ -58,7 +58,7 @@ extension ConsumerMode: Executable {
                 OutputView.showMessage(of: error)
                 break
             } catch {
-                fatalError("UNEXPECTED ERROR")
+                OutputView.showUnexpected(error: error)
             }
         }
     }
