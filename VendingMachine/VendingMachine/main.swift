@@ -11,25 +11,8 @@ import Foundation
 func main() {
     var vendingMachine = initializeVendingMachine()
     while true {
-        let balanceMent = "현재 투입한 금액이 \(vendingMachine.checkBalance())원입니다. 다음과 같은 음료가 있습니다.\n"
-        
-        var productList = ""
-        let buyableList = vendingMachine.buyableProducts()
-        if buyableList.count > 0 {
-            for index in buyableList.startIndex..<buyableList.endIndex {
-                productList += "\(index + 1))\(buyableList[index])\n"
-            }
-        } else {
-            productList += "=>"
-            for (name, count) in vendingMachine.checkInventory() {
-                productList += " \(name)(\(count)개)"
-            }
-        }
-        
-        let selectMent = "\n1. 금액추가\n2. 음료구매\n> "
-        let ment = balanceMent + productList + selectMent
-        
-        let input = InputView.readInput(ment: ment)
+        let inputMent = MentMaker.makeInputMent(vendingMachineInfo: vendingMachine)
+        let input = InputView.readInput(ment: inputMent)
         let splitedInput = input.split(separator: " ").map(){Int($0) ?? 0}
         
         if splitedInput[0] == 1 {
@@ -40,7 +23,6 @@ func main() {
         }
         print("")
     }
-    
 }
 
 func initializeVendingMachine() -> VendingMachine {
