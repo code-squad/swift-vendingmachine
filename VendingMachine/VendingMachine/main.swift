@@ -13,7 +13,7 @@ func main() {
     while true {
         let inputMent = MentMaker.makeInputMent(vendingMachineInfo: vendingMachine)
         let input = InputView.readInput(ment: inputMent)
-        guard ValidChecker.checkInputOfInsertMoney(string: input) else {return}
+//        guard ValidChecker.checkInputOfInsertMoney(string: input) else {return}
         
         let splitedInput = input.split(separator: " ").map(){Int($0) ?? 0}
         
@@ -21,6 +21,9 @@ func main() {
             vendingMachine.insert(money: splitedInput[1])
         }
         if splitedInput[0] == 2 {
+            let productKeys = Array(vendingMachine.buyableProducts().keys)
+            let productKey = productKeys[splitedInput[1] - 1]
+            let boughtProduct = vendingMachine.buy(productName: productKey)
             
         }
         print("")
