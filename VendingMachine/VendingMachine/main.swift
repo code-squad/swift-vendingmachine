@@ -13,7 +13,7 @@ func main() {
     while true {
         let inputMent = MentMaker.makeInputMent(vendingMachineInfo: vendingMachine)
         let input = InputView.readInput(ment: inputMent)
-//        guard ValidChecker.checkInputOfInsertMoney(string: input) else {return}
+        guard ValidChecker.checkInput(string: input) else {return}
         
         let splitedInput = input.split(separator: " ").map(){Int($0) ?? 0}
         

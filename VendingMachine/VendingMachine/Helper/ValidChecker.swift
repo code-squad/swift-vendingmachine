@@ -9,7 +9,11 @@
 import Foundation
 
 struct ValidChecker {
-    static func checkInputOfInsertMoney(string: String) -> Bool {
+    static func checkInput(string: String) -> Bool {
+        return checkInputOfInsertMoney(string: string)
+    }
+    
+    static private func checkInputOfInsertMoney(string: String) -> Bool {
         return string.range(of: "^1 (\\d)+$", options: .regularExpression) != nil
     }
 }
