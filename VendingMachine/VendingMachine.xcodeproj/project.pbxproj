@@ -42,6 +42,7 @@
 		7DAE630821CB8DEC00F70F41 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAE630721CB8DEC00F70F41 /* InputView.swift */; };
 		7DAE630A21CC806F00F70F41 /* ValidChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAE630921CC806F00F70F41 /* ValidChecker.swift */; };
 		7DAE630B21CC806F00F70F41 /* ValidChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAE630921CC806F00F70F41 /* ValidChecker.swift */; };
+		7DAE630D21CC80F300F70F41 /* UnitTestValidChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAE630C21CC80F300F70F41 /* UnitTestValidChecker.swift */; };
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +80,7 @@
 		7DACE73A21CB71D600CF11BA /* VariousTemperatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariousTemperatures.swift; sourceTree = "<group>"; };
 		7DAE630721CB8DEC00F70F41 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		7DAE630921CC806F00F70F41 /* ValidChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidChecker.swift; sourceTree = "<group>"; };
+		7DAE630C21CC80F300F70F41 /* UnitTestValidChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UnitTestValidChecker.swift; path = UnitTestBeverage/UnitTestValidChecker.swift; sourceTree = SOURCE_ROOT; };
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -145,6 +147,7 @@
 			children = (
 				7DACE71B21C8DECE00CF11BA /* UnitTestBeverage.swift */,
 				7DACE73121C8EE1300CF11BA /* UnitTestVendingMachine.swift */,
+				7DAE630C21CC80F300F70F41 /* UnitTestValidChecker.swift */,
 				7DACE71D21C8DECE00CF11BA /* Info.plist */,
 			);
 			path = UnitTestBeverage;
@@ -287,6 +290,7 @@
 				7DACE72621C8DF5C00CF11BA /* StarbucksDoubleShot.swift in Sources */,
 				7DACE72B21C8DF6A00CF11BA /* ExtensionDate.swift in Sources */,
 				7DACE73521CA13CD00CF11BA /* ProductLine.swift in Sources */,
+				7DAE630D21CC80F300F70F41 /* UnitTestValidChecker.swift in Sources */,
 				7DACE73021C8EDF700CF11BA /* VendingMachine.swift in Sources */,
 				7DACE72A21C8DF6800CF11BA /* CocaColaZero.swift in Sources */,
 				7DAE630B21CC806F00F70F41 /* ValidChecker.swift in Sources */,
