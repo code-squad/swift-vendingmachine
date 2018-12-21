@@ -10,14 +10,36 @@ import Foundation
 
 func main() {
     var vendingMachine = initializeVendingMachine()
-    let balanceMent = "현재 투입한 금액이 \(vendingMachine.checkBalance())원입니다. 다음과 같은 음료가 있습니다.\n"
-    var inventoryCatalog = "=>"
-    for (name, count) in vendingMachine.checkInventory() {
-        inventoryCatalog += " \(name)(\(count)개)"
+    while true {
+        let balanceMent = "현재 투입한 금액이 \(vendingMachine.checkBalance())원입니다. 다음과 같은 음료가 있습니다.\n"
+        var productList = ""
+        let buyableList = vendingMachine.buyableProducts()
+        
+        if buyableList.count > 0 {
+            for index in buyableList.startIndex..<buyableList.endIndex {
+                productList += "\(index + 1))\(buyableList[index])\n"
+            }
+        } else {
+            productList += "=>"
+            for (name, count) in vendingMachine.checkInventory() {
+                productList += " \(name)(\(count)개)"
+            }
+        }
+        
+        let selectMent = "\n1. 금액추가\n2. 음료구매\n> "
+        let ment = balanceMent + productList + selectMent
+        
+        let input = InputView.readInput(ment: ment)
+        let splitedInput = input.split(separator: " ").map(){Int($0) ?? 0}
+        
+        if splitedInput[0] == 1 {
+            vendingMachine.insert(money: splitedInput[1])
+        }
+        if splitedInput[0] == 2 {
+            
+        }
+        print("")
     }
-    let selectMent = "\n1. 금액추가\n2. 음료구매\n> "
-    InputView.readInput(ment: balanceMent+inventoryCatalog+selectMent)
-    
     
 }
 

@@ -31,7 +31,7 @@ class Beverage: CustomStringConvertible {
     
     func buyableProduct(money: Int) -> String? {
         if self.price <= money {
-            return "\(type(of:self))"
+            return "\(self.name) \(self.price)원"
         } else {
             return nil
         }

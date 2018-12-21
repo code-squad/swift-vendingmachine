@@ -16,8 +16,10 @@ struct ProductLine {
     }
     
     func buyableProduct(money: Int) -> String? {
-        let product = self.products[0]
-        return product.buyableProduct(money:money)
+        if let product = self.products[0].buyableProduct(money: money) {
+            return product + "(\(self.products.count)개)"
+        }
+        return nil
     }
     
     mutating func bringOutProduct() -> Beverage? {
