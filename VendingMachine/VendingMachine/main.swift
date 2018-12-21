@@ -27,9 +27,8 @@ func main() {
             let postPurchaseMent = { (name: String, price: Int) -> String in
                 return "\(name)를 구매하셨습니다. \(price)를 차감합니다."
             }
-            print(boughtProduct.postPurchaseMent(makeMent: postPurchaseMent))
+            OutputView.show(result: boughtProduct.postPurchaseMent(makeMent: postPurchaseMent))
         }
-        print("")
     }
 }
 

@@ -9,7 +9,7 @@
 import Foundation
 
 struct OutputView {
-    func show(result: String) {
+    static func show(result: String) {
         print(result)
     }
 }
