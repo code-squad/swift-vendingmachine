@@ -15,7 +15,7 @@ protocol Executable {
 extension ManagerMode: Executable {
 
     mutating func run() {
-        while(true) {
+        while true {
             do {
                 guard let menu = try readMenu() else { return }
                 if complete(menu: menu) { continue }
@@ -28,9 +28,9 @@ extension ManagerMode: Executable {
                 default:
                     continue
                 }
-            }  catch let error as MenuError {
+            } catch let error as MenuError {
                 OutputView.showMessage(of: error)
-            }  catch let error as VendingMachineError {
+            } catch let error as VendingMachineError {
                 OutputView.showMessage(of: error)
             } catch {
                 OutputView.showUnexpected(error: error)
@@ -43,7 +43,7 @@ extension ManagerMode: Executable {
 extension ConsumerMode: Executable {
 
     mutating func run() {
-        while(true) {
+        while true {
             do {
                 guard let menu = try readMenu() else { return }
                 switch menu.item {

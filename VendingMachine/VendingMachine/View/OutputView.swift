@@ -134,7 +134,7 @@ protocol MessagePrintable {
     var message: String { get }
 }
 
-extension Array where Element == String{
+extension Array where Element == String {
 
     func listed() -> String {
         return self.joined(separator: "\n")

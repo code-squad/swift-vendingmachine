@@ -72,8 +72,8 @@ enum ManagerMenuItem: Int, CaseIterable {
 
 enum ConsumerMenuItem: Int, CaseIterable {
     case insertCoin = 1, purchaseBeverage
-    
-    var message: String{
+
+    var message: String {
         switch self {
         case .insertCoin:
             return "금액추가"
