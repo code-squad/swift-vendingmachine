@@ -40,6 +40,8 @@
 		7DACE73B21CB71D600CF11BA /* VariousTemperatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DACE73A21CB71D600CF11BA /* VariousTemperatures.swift */; };
 		7DAE630421CB73EF00F70F41 /* VariousTemperatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DACE73A21CB71D600CF11BA /* VariousTemperatures.swift */; };
 		7DAE630821CB8DEC00F70F41 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAE630721CB8DEC00F70F41 /* InputView.swift */; };
+		7DAE630A21CC806F00F70F41 /* ValidChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAE630921CC806F00F70F41 /* ValidChecker.swift */; };
+		7DAE630B21CC806F00F70F41 /* ValidChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAE630921CC806F00F70F41 /* ValidChecker.swift */; };
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +78,7 @@
 		7DACE73621CB6CA600CF11BA /* ExtensionInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionInt.swift; sourceTree = "<group>"; };
 		7DACE73A21CB71D600CF11BA /* VariousTemperatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariousTemperatures.swift; sourceTree = "<group>"; };
 		7DAE630721CB8DEC00F70F41 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		7DAE630921CC806F00F70F41 /* ValidChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidChecker.swift; sourceTree = "<group>"; };
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -177,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
+				7DAE630921CC806F00F70F41 /* ValidChecker.swift */,
 				7DAE630721CB8DEC00F70F41 /* InputView.swift */,
 				7DACE72E21C8EC2200CF11BA /* VendingMachine.swift */,
 				7DACE73321CA099100CF11BA /* ProductLine.swift */,
@@ -285,6 +289,7 @@
 				7DACE73521CA13CD00CF11BA /* ProductLine.swift in Sources */,
 				7DACE73021C8EDF700CF11BA /* VendingMachine.swift in Sources */,
 				7DACE72A21C8DF6800CF11BA /* CocaColaZero.swift in Sources */,
+				7DAE630B21CC806F00F70F41 /* ValidChecker.swift in Sources */,
 				7DACE73821CB6CAD00CF11BA /* ExtensionInt.swift in Sources */,
 				7DACE72121C8DF4000CF11BA /* Beverage.swift in Sources */,
 				7DACE72921C8DF6500CF11BA /* CocaCola.swift in Sources */,
@@ -309,6 +314,7 @@
 				7DACE72F21C8EC2200CF11BA /* VendingMachine.swift in Sources */,
 				7DACE6F621C79BC100CF11BA /* ExtensionDate.swift in Sources */,
 				7DACE70C21C8B8D400CF11BA /* LactoseFreeMilk.swift in Sources */,
+				7DAE630A21CC806F00F70F41 /* ValidChecker.swift in Sources */,
 				7DACE6F821C79EC800CF11BA /* Milk.swift in Sources */,
 				7DACE71221C8D15600CF11BA /* CocaCola.swift in Sources */,
 				7DACE71421C8D42D00CF11BA /* CocaColaZero.swift in Sources */,
