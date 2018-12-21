@@ -68,8 +68,4 @@ class Milk: BeverageGroup {
         return date < expirationDate
     }
 
-    override class var title: String {
-        return "우유"
-    }
-
 }

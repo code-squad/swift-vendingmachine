@@ -29,8 +29,4 @@ class Sprite: SoftDrink {
                   package: .can)
     }
 
-    override class var title: String {
-        return "스프라이트"
-    }
-
 }

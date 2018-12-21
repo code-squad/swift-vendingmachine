@@ -50,8 +50,4 @@ class StrawberryMilk: Milk {
         self.init(daysBefore: 4)
     }
 
-    override class var title: String {
-        return "언니몰래먹는딸기우유"
-    }
-
 }

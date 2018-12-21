@@ -39,8 +39,4 @@ class SoftDrink: BeverageGroup {
         return .softDrink
     }
 
-    override class var title: String {
-        return "탄산음료"
-    }
-
 }
