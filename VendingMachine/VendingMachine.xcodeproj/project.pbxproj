@@ -48,6 +48,8 @@
 		7DAE631221CC866E00F70F41 /* VendingMachineInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAE631121CC866E00F70F41 /* VendingMachineInfo.swift */; };
 		7DAE631321CC866E00F70F41 /* VendingMachineInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAE631121CC866E00F70F41 /* VendingMachineInfo.swift */; };
 		7DAE631521CC899600F70F41 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
+		7DAE631721CCCE7900F70F41 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAE631621CCCE7900F70F41 /* OutputView.swift */; };
+		7DAE631821CCCE7900F70F41 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAE631621CCCE7900F70F41 /* OutputView.swift */; };
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +90,7 @@
 		7DAE630C21CC80F300F70F41 /* UnitTestValidChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UnitTestValidChecker.swift; path = UnitTestBeverage/UnitTestValidChecker.swift; sourceTree = SOURCE_ROOT; };
 		7DAE630E21CC849B00F70F41 /* MentMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentMaker.swift; sourceTree = "<group>"; };
 		7DAE631121CC866E00F70F41 /* VendingMachineInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineInfo.swift; sourceTree = "<group>"; };
+		7DAE631621CCCE7900F70F41 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -204,6 +207,7 @@
 				7DACE72E21C8EC2200CF11BA /* VendingMachine.swift */,
 				7DACE73321CA099100CF11BA /* ProductLine.swift */,
 				7DACE6B721C769F800CF11BA /* Beverage.swift */,
+				7DAE631621CCCE7900F70F41 /* OutputView.swift */,
 				7DAE631421CC892700F70F41 /* Helper */,
 				7DACE70321C7A4B900CF11BA /* Milks */,
 				7DACE70421C7A4D000CF11BA /* Coffees */,
@@ -307,6 +311,7 @@
 				7DACE72621C8DF5C00CF11BA /* StarbucksDoubleShot.swift in Sources */,
 				7DACE72B21C8DF6A00CF11BA /* ExtensionDate.swift in Sources */,
 				7DAE631021CC849B00F70F41 /* MentMaker.swift in Sources */,
+				7DAE631821CCCE7900F70F41 /* OutputView.swift in Sources */,
 				7DACE73521CA13CD00CF11BA /* ProductLine.swift in Sources */,
 				7DAE630D21CC80F300F70F41 /* UnitTestValidChecker.swift in Sources */,
 				7DACE73021C8EDF700CF11BA /* VendingMachine.swift in Sources */,
@@ -335,6 +340,7 @@
 			files = (
 				7DACE70E21C8CB3300CF11BA /* StarbucksDoubleShot.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
+				7DAE631721CCCE7900F70F41 /* OutputView.swift in Sources */,
 				7DACE72F21C8EC2200CF11BA /* VendingMachine.swift in Sources */,
 				7DACE6F621C79BC100CF11BA /* ExtensionDate.swift in Sources */,
 				7DACE70C21C8B8D400CF11BA /* LactoseFreeMilk.swift in Sources */,
