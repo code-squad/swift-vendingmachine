@@ -23,7 +23,7 @@ func defaultVendingMachine() -> VendingMachine {
 }
 
 func decideMode(of vendingMachine: VendingMachine) -> Executable? {
-    while(true) {
+    while true {
         do {
             OutputView.selectMode()
             let input = InputView.readInput()
@@ -43,7 +43,7 @@ func decideMode(of vendingMachine: VendingMachine) -> Executable? {
 
 func main() {
     let vendingMachine = defaultVendingMachine()
-    while(true) {
+    while true {
         guard var vendingMachineMode = decideMode(of: vendingMachine) else { return }
         OutputView.clear()
         vendingMachineMode.run()

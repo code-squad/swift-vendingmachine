@@ -66,12 +66,12 @@ class UnitTestManagerMode: XCTestCase {
         let cantata = Cantata(), georgia = Georgia(), strawberryMilk = StrawberryMilk()
         let beverages = [pepsi, pepsiTwo, sprite, chocolateMilk, cantata, georgia, strawberryMilk]
         beverages.forEach { beverage in vendingMachine.add(beverage: beverage)}
-        
+
         let enoughMoney = 100000
         _ = vendingMachine.insert(money: enoughMoney)
-        
+
         var purhcases: [Beverage] = []
-        while(vendingMachine.isEmpty()) {
+        while vendingMachine.isEmpty() {
             guard let item = vendingMachine.getListBuyable().first else { continue }
             guard let beveragePurchased = vendingMachine.buy(beverage: item) else { continue }
             purhcases.append(beveragePurchased)

@@ -60,16 +60,16 @@ class Inventory {
         return expiredBeverages
     }
 
-    private func findID(of pack: Pack) -> ObjectIdentifier? {
-        for item in list {
-            if item.value == pack { return item.key }
+    private func findIdentifier(of pack: Pack) -> ObjectIdentifier? {
+        for item in list where item.value == pack {
+            return item.key
         }
         return nil
     }
 
     func remove(selected pack: Pack) -> Beverage? {
-        guard let id = findID(of: pack) else { return nil }
-        return list[id]?.removeOne()
+        guard let identifier = findIdentifier(of: pack) else { return nil }
+        return list[identifier]?.removeOne()
     }
 
     func isEmpty() -> Bool {

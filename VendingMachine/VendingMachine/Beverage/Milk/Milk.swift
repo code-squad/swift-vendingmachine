@@ -64,7 +64,7 @@ class Milk: BeverageGroup {
         return flavor != nil
     }
 
-    func validate(when date:Date) -> Bool {
+    func validate(when date: Date) -> Bool {
         return date < expirationDate
     }
 

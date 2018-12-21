@@ -83,11 +83,11 @@ extension VendingMachine: Consumer {
 }
 
 extension VendingMachine: PrintableForConsumer {
-    
+
     func showBalance(with show: (Int) -> Void) {
         show(balance)
     }
-    
+
     func showListOfBuyable(with show: (Bool, Int, String) -> Void) {
         let listBuyable = getListBuyable()
         for (index, packBuyable) in listBuyable.enumerated() {
@@ -96,7 +96,7 @@ extension VendingMachine: PrintableForConsumer {
             show(last, number, packBuyable.description)
         }
     }
-    
+
     func showListOfAllMarked(with show: (String, Int, Bool) -> Void) {
         let list = inventory.getListOfAll()
         let listBuyable = getListBuyable()
@@ -105,7 +105,7 @@ extension VendingMachine: PrintableForConsumer {
             show(pack.key.description, pack.value, buyable)
         }
     }
-    
+
 }
 
 extension VendingMachine: Manager {
