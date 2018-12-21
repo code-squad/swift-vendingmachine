@@ -23,8 +23,11 @@ func main() {
         if splitedInput[0] == 2 {
             let productKeys = Array(vendingMachine.buyableProducts().keys)
             let productKey = productKeys[splitedInput[1] - 1]
-            let boughtProduct = vendingMachine.buy(productName: productKey)
-            
+            guard let boughtProduct = vendingMachine.buy(productName: productKey) else {return}
+            let postPurchaseMent = { (name: String, price: Int) -> String in
+                return "\(name)를 구매하셨습니다. \(price)를 차감합니다."
+            }
+            print(boughtProduct.postPurchaseMent(makeMent: postPurchaseMent))
         }
         print("")
     }

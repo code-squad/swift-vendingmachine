@@ -48,4 +48,8 @@ class Beverage: CustomStringConvertible {
     func pay(pay: (Int) -> Int) -> Int {
         return pay(self.price)
     }
+    
+    func postPurchaseMent(makeMent: (String, Int) -> String) -> String {
+        return makeMent(self.name, self.price)
+    }
 }
