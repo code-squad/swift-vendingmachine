@@ -24,11 +24,11 @@ struct VendingMachine: VendingMachineInfo {
         self.productLines["\(type(of:product))"]?.add(product: product)
     }
     
-    func buyableProducts() -> [String] {
-        var buyableProducts: [String] = []
-        for (_, productLine) in self.productLines {
+    func buyableProducts() -> [String:String] {
+        var buyableProducts: [String:String] = [:]
+        for (key, productLine) in self.productLines {
             guard let buyableProduct = productLine.buyableProduct(money: self.balance) else {continue}
-            buyableProducts.append(buyableProduct)
+            buyableProducts[key] = buyableProduct
         }
         return buyableProducts
     }

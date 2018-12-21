@@ -13,7 +13,7 @@ struct MentMaker {
         let balanceMent = "현재 투입한 금액이 \(vendingMachineInfo.checkBalance())원입니다. 다음과 같은 음료가 있습니다.\n"
         
         var productList = ""
-        let buyableList = vendingMachineInfo.buyableProducts()
+        let buyableList = Array(vendingMachineInfo.buyableProducts().values)
 
         if buyableList.count > 0 {
             for index in buyableList.startIndex..<buyableList.endIndex {
