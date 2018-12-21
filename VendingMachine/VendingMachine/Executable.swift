@@ -66,7 +66,7 @@ extension ConsumerMode: Executable {
 }
 
 struct ManagerMode {
-    var vendingMachine: Manager & PrintableForManager
+    private var vendingMachine: Manager & PrintableForManager
 
     init(vendingMachine: Manager & PrintableForManager) {
         self.vendingMachine = vendingMachine
@@ -116,7 +116,7 @@ struct ManagerMode {
 }
 
 struct ConsumerMode {
-    var vendingMachine: Consumer & PrintableForConsumer
+    private var vendingMachine: Consumer & PrintableForConsumer
 
     init(vendingMachine: Consumer & PrintableForConsumer) {
         self.vendingMachine = vendingMachine
