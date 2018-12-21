@@ -116,9 +116,16 @@ struct OutputView {
         beverage.showPurchase(with: purchaseForm)
     }
 
+    /*
+     Show messages or descriptions of error ocurred
+     */
     static func showMessage(of error: MessagePrintable) {
         clear()
         print("\(error.message)\n")
+    }
+
+    static func showUnexpected(error: Error) {
+        print("Unexpected error: \(error).")
     }
 
 }
