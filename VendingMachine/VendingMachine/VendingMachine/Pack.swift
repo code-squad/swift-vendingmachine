@@ -10,13 +10,21 @@ import Foundation
 
 class Pack: NSObject {
     private var beverages: [Beverage]
+    private(set) var title: String
 
     init(beverages: [Beverage]) {
         self.beverages = beverages
+        if let one = beverages.first {
+            self.title = one.title
+            return
+        }
+        self.title = ""
     }
 
     func add(beverage: Beverage) {
         beverages.append(beverage)
+        guard title.isEmpty else { return }
+        title = beverage.title
     }
 
     func isBuyable(with money: Int) -> Bool {

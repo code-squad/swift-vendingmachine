@@ -40,8 +40,8 @@ class Beverage: NSObject {
         return String(describing: type(of: self))
     }
 
-    class var title: String {
-        return "물"
+    var title: String {
+        return name
     }
 
     func isBuyable(for cash: Int) -> Bool {

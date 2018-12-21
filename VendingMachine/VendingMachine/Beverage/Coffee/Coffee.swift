@@ -43,8 +43,4 @@ class Coffee: BeverageGroup {
         return !ice
     }
 
-    override class var title: String {
-        return "커피"
-    }
-
 }

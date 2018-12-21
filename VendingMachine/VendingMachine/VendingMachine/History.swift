@@ -29,7 +29,7 @@ class History {
 
     func showList(with show: (Int, String) -> Void) {
         for (index, purchase) in purchases.enumerated() {
-            show(index + 1, type(of: purchase).title)
+            show(index + 1, purchase.title)
         }
     }
 

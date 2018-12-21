@@ -50,7 +50,7 @@ struct OutputView {
 
     static func showListRemoved(beverages: [Beverage]) {
         let listRemoved = beverages
-            .map { "\(type(of:$0).title)" }.listed()
+            .map { "\($0.title)" }.listed()
         clear()
         print("---------제거된 음료목록---------")
         print("\(listRemoved)\n")
@@ -73,7 +73,7 @@ struct OutputView {
 
     static func showRemoval(of beverage: Beverage) {
         clear()
-        print("\(type(of:beverage).title)가 제거되었습니다.\n")
+        print("\(beverage.title)가 제거되었습니다.\n")
     }
 
     /*

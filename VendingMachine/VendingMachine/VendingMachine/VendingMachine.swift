@@ -148,13 +148,13 @@ extension VendingMachine: PrintableForManager {
         let list = inventory.getListOfAll()
         for (index, type) in beverageTypes.enumerated() {
             let index = index + 1
+            guard let pack = inventory.packOf(type: type) else { continue }
             if inventory.hasNoBeverage(of: type) {
-                show("\(index). \(type.title)", 0, false)
+                show("\(index). \(pack.title)", 0, false)
                 continue
             }
-            guard let pack = inventory.packOf(type: type) else { continue }
             guard let quantity = list[pack] else { continue }
-            show("\(index). \(type.title)", quantity, true)
+            show("\(index). \(pack.title)", quantity, true)
         }
     }
 

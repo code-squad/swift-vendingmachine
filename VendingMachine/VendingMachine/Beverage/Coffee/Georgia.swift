@@ -31,8 +31,4 @@ class Georgia: Coffee {
                   ice: true)
     }
 
-    override class var title: String {
-        return "조지아 카페라떼"
-    }
-
 }
