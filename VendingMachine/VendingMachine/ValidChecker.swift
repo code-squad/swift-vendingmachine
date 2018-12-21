@@ -10,8 +10,7 @@ import Foundation
 
 struct ValidChecker {
     static func checkInputOfInsertMoney(string: String) -> Bool {
-//        string.range(of: "^[\\d\\.]+$", options: .regularExpression) != nil
-        return true
+        return string.range(of: "^1 (\\d)+$", options: .regularExpression) != nil
     }
 }
 
