@@ -11,11 +11,15 @@ import Foundation
 struct BeverageInfo {
     private let name: String
     private let price: Int
-    private let BeverageCount: Int
+    private let beverageCount: Int
     
-    init(name: String, price: Int, BeverageCount: Int) {
+    init(name: String, price: Int, beverageCount: Int) {
         self.name = name
         self.price = price
-        self.BeverageCount = BeverageCount
+        self.beverageCount = beverageCount
+    }
+    
+    func info(read:(String, Int, Int) -> String) -> String {
+        return read(self.name, self.price, self.beverageCount)
     }
 }

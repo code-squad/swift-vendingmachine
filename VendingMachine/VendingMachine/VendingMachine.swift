@@ -30,7 +30,7 @@ struct VendingMachine: VendingMachineInfo {
             guard !products.isEmpty else {continue}
             guard products[0].isBuyable(money: self.balance) else {continue}
             let beverageInfo = { (name: String, price: Int) -> BeverageInfo in
-                return BeverageInfo.init(name: name, price: price, BeverageCount: products.count)
+                return BeverageInfo.init(name: name, price: price, beverageCount: products.count)
             }
             buyableProducts[key] = products[0].beverageInfo(makeInfo: beverageInfo)
         }

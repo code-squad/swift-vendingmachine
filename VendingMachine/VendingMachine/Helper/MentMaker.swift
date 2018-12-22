@@ -10,25 +10,25 @@ import Foundation
 
 struct MentMaker {
     static func makeInputMent(vendingMachineInfo: VendingMachineInfo) -> String {
-        let balanceMent = "현재 투입한 금액이 \(vendingMachineInfo.checkBalance())원입니다. 다음과 같은 음료가 있습니다.\n"
-        
-        var productList = ""
+        var ment = "현재 투입한 금액이 \(vendingMachineInfo.checkBalance())원입니다. 다음과 같은 음료가 있습니다.\n"
         let buyableList = Array(vendingMachineInfo.buyableProductList().values)
-
+        
         if buyableList.count > 0 {
             for index in buyableList.startIndex..<buyableList.endIndex {
-                productList += "\(index + 1))\(buyableList[index])\n"
+                let readInfo = { (name: String, price: Int, beverageCount: Int) -> String in
+                    return "\(index + 1))\(name) \(price)(\(beverageCount)개)\n"
+                }
+                ment += buyableList[index].info(read: readInfo)
             }
         } else {
-            productList += "=>"
+            ment += "=>"
             for (name, count) in vendingMachineInfo.checkInventory() {
-                productList += " \(name)(\(count)개)"
+                ment += " \(name)(\(count)개)"
             }
-            productList += "\n"
+            ment += "\n"
         }
         
-        let selectMent = "1. 금액추가\n2. 음료구매\n> "
-        let ment = balanceMent + productList + selectMent
+        ment += "1. 금액추가\n2. 음료구매\n> "
         return ment
     }
 }
