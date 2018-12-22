@@ -24,13 +24,13 @@ struct VendingMachine: VendingMachineInfo {
         self.products["\(type(of:product))"]?.append(product)
     }
     
-    func buyableProductList() -> [String:String] {
-        var buyableProducts: [String:String] = [:]
+    func buyableProductList() -> [String:BeverageInfo] {
+        var buyableProducts: [String:BeverageInfo] = [:]
         for (key, products) in self.products {
             guard !products.isEmpty else {continue}
             guard products[0].isBuyable(money: self.balance) else {continue}
-            let beverageInfo = { (name: String, price: String) -> String in
-                return "\(name) \(price)원(\(products.count)개)"
+            let beverageInfo = { (name: String, price: Int) -> BeverageInfo in
+                return BeverageInfo.init(name: name, price: price, BeverageCount: products.count)
             }
             buyableProducts[key] = products[0].beverageInfo(makeInfo: beverageInfo)
         }
