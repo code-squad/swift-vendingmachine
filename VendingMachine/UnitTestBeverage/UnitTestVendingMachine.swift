@@ -17,12 +17,12 @@ class UnitTestVendingMachine: XCTestCase {
         
         VM = VendingMachine()
         
-        let mandarineMilk = MandarineMilk(openDate: Date(before: 13))
-        let lactoseFreeMilk = LactoseFreeMilk(openDate: Date(before: 20))
-        let starbucksDoubleShot = StarbucksDoubleShot(openDate: Date(before: 6))
-        let topTheBlack = TOPTheBlack(openDate: Date(before: 7))
-        let cocaCola = CocaCola(openDate: Date(before: 4))
-        let cocaColaZero = CocaColaZero(openDate: Date(before: 9))
+        let mandarineMilk = MandarineMilk()
+        let lactoseFreeMilk = LactoseFreeMilk()
+        let starbucksDoubleShot = StarbucksDoubleShot()
+        let topTheBlack = TOPTheBlack()
+        let cocaCola = CocaCola()
+        let cocaColaZero = CocaColaZero()
         
         VM.add(product: mandarineMilk)
         VM.add(product: lactoseFreeMilk)
@@ -42,17 +42,17 @@ class UnitTestVendingMachine: XCTestCase {
 
     func testBuyableProducts1100() {
         VM.insert(money: 1100)
-        XCTAssertEqual(VM.buyableProducts().count, 1)
+        XCTAssertEqual(VM.buyableProductList().count, 1)
     }
     
     func testBuyableProducts1200() {
         VM.insert(money: 1200)
-        XCTAssertEqual(VM.buyableProducts().count, 2)
+        XCTAssertEqual(VM.buyableProductList().count, 2)
     }
     
     func testBuyableProducts1400() {
         VM.insert(money: 1400)
-        XCTAssertEqual(VM.buyableProducts().count, 5)
+        XCTAssertEqual(VM.buyableProductList().count, 5)
     }
 
     func testBuyCocaCola() {
@@ -83,8 +83,8 @@ class UnitTestVendingMachine: XCTestCase {
     }
     
     func testCheckAddedInventory() {
-        let cocaCola = CocaCola(openDate: Date(before: 4))
-        let starbucksDoubleShot = StarbucksDoubleShot(openDate: Date(before: 6))
+        let cocaCola = CocaCola()
+        let starbucksDoubleShot = StarbucksDoubleShot()
         
         VM.add(product: cocaCola)
         VM.add(product: cocaCola)
@@ -100,17 +100,6 @@ class UnitTestVendingMachine: XCTestCase {
                                              "코카콜라제로": 1])
     }
     
-    func testExpiredProducts() {
-        XCTAssertTrue(VM.expiredProducts().count == 3)
-    }
-    
-    func testExpiredAddedProducts() {
-        let mandarineMilk = MandarineMilk(openDate: Date(before: 13))
-        VM.add(product: mandarineMilk)
-        VM.add(product: mandarineMilk)
-        XCTAssertTrue(VM.expiredProducts().count == 5)
-    }
-    
     func testHotProducts() {
         XCTAssertEqual(VM.hotProducts().count, 1)
     }
@@ -119,20 +108,6 @@ class UnitTestVendingMachine: XCTestCase {
         let _ = VM.buy(productName: "StarbucksDoubleShot")
         let _ = VM.buy(productName: "StarbucksDoubleShot")
         XCTAssertEqual(VM.hotProducts().count, 0)
-    }
-    
-    func testHistoryOfPurchase2() {
-        _ = VM.buy(productName: "MandarineMilk")
-        _ = VM.buy(productName: "CocaCola")
-        XCTAssertEqual(VM.historyOfPurchase.count, 2)
-    }
-    
-    func testHistoryOfPurchase4() {
-        _ = VM.buy(productName: "MandarineMilk")
-        _ = VM.buy(productName: "CocaCola")
-        _ = VM.buy(productName: "StarbucksDoubleShot")
-        _ = VM.buy(productName: "TOPTheBlack")
-        XCTAssertEqual(VM.historyOfPurchase.count, 4)
     }
     
     func testPerformanceExample() {

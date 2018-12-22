@@ -11,9 +11,9 @@ import Foundation
 class CarbonatedDrink: Beverage {
     private let calorie: Int
     
-    init(calorie: Int, brand: String, size: Int, price: Int, name: String, openDate: Date, expiryDate: Int) {
+    init(calorie: Int, brand: String, size: Int, price: Int, name: String, expiryDate: Int) {
         self.calorie = calorie
-        super.init(brand: brand, size: size, price: price, name: name, openDate: openDate, expiryDate: expiryDate)
+        super.init(brand: brand, size: size, price: price, name: name, expiryDate: expiryDate)
     }
     
     func isLowCalorie() -> Bool {

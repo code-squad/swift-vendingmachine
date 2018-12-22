@@ -19,34 +19,34 @@ class UnitTestBeverage: XCTestCase {
     }
     
     func testMandarineMilk() {
-        let mandarineMilk = MandarineMilk(openDate: Date(before: 1))
+        let mandarineMilk = MandarineMilk()
         XCTAssertEqual(mandarineMilk.hasLactose(), true)
     }
     
     func testtLacotseFreeMilk() {
-        let lactoseFreeMilk = LactoseFreeMilk(openDate: Date(before: 2))
+        let lactoseFreeMilk = LactoseFreeMilk()
         XCTAssertEqual(lactoseFreeMilk.hasLactose(), false)
     }
 
     func testStarbucksDoubleShot() {
-        let starbucksDS = StarbucksDoubleShot(openDate: Date(before: 2))
+        let starbucksDS = StarbucksDoubleShot()
         XCTAssertEqual(starbucksDS.isHot, true)
         XCTAssertEqual(starbucksDS.hasMilk, true)
     }
     
     func testTOPTheBlack() {
-        let topTheBlack = TOPTheBlack(openDate: Date(before: 4))
+        let topTheBlack = TOPTheBlack()
         XCTAssertEqual(topTheBlack.hasMilk, false)
         XCTAssertEqual(topTheBlack.isHot, false)
     }
     
     func testCocaCola() {
-        let cocaCola = CocaCola(openDate: Date(before: 8))
+        let cocaCola = CocaCola()
         XCTAssertEqual(cocaCola.isLowCalorie(), false)
     }
     
     func testCocaColaZero() {
-        let cocaColaZero = CocaColaZero(openDate: Date(before: 10))
+        let cocaColaZero = CocaColaZero()
         XCTAssertEqual(cocaColaZero.isLowCalorie(), true)
     }
 

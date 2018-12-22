@@ -9,13 +9,12 @@
 import Foundation
 
 class CocaColaZero: CarbonatedDrink {
-    init(openDate: Date) {
+    init() {
         super.init(calorie: 0,
                    brand: "코카콜라",
                    size: 185,
                    price: 1400,
                    name: "코카콜라제로",
-                   openDate: openDate,
                    expiryDate: 290)
     }
 }
