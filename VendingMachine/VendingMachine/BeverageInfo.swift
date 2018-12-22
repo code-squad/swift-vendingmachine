@@ -12,4 +12,10 @@ struct BeverageInfo {
     private let name: String
     private let price: Int
     private let BeverageCount: Int
+    
+    init(name: String, price: Int, BeverageCount: Int) {
+        self.name = name
+        self.price = price
+        self.BeverageCount = BeverageCount
+    }
 }
