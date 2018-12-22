@@ -47,6 +47,8 @@
 		7DAE631721CCCE7900F70F41 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAE631621CCCE7900F70F41 /* OutputView.swift */; };
 		7DAE631821CCCE7900F70F41 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAE631621CCCE7900F70F41 /* OutputView.swift */; };
 		7DAE631921CE3BBA00F70F41 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAE630721CB8DEC00F70F41 /* InputView.swift */; };
+		7DAE631B21CE49BE00F70F41 /* BeverageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAE631A21CE49BE00F70F41 /* BeverageInfo.swift */; };
+		7DAE631C21CE49BE00F70F41 /* BeverageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAE631A21CE49BE00F70F41 /* BeverageInfo.swift */; };
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +88,7 @@
 		7DAE630E21CC849B00F70F41 /* MentMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentMaker.swift; sourceTree = "<group>"; };
 		7DAE631121CC866E00F70F41 /* VendingMachineInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineInfo.swift; sourceTree = "<group>"; };
 		7DAE631621CCCE7900F70F41 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
+		7DAE631A21CE49BE00F70F41 /* BeverageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageInfo.swift; sourceTree = "<group>"; };
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -201,6 +204,7 @@
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
 				7DACE72E21C8EC2200CF11BA /* VendingMachine.swift */,
 				7DACE6B721C769F800CF11BA /* Beverage.swift */,
+				7DAE631A21CE49BE00F70F41 /* BeverageInfo.swift */,
 				7DAE631421CC892700F70F41 /* Helper */,
 				7DACE70321C7A4B900CF11BA /* Milks */,
 				7DACE70421C7A4D000CF11BA /* Coffees */,
@@ -314,6 +318,7 @@
 				7DACE72221C8DF4300CF11BA /* Milk.swift in Sources */,
 				7DACE72821C8DF6200CF11BA /* CarbonatedDrink.swift in Sources */,
 				7DACE72321C8DF4500CF11BA /* MandarineMilk.swift in Sources */,
+				7DAE631C21CE49BE00F70F41 /* BeverageInfo.swift in Sources */,
 				7DACE71C21C8DECE00CF11BA /* UnitTestBeverage.swift in Sources */,
 				7DACE72721C8DF5F00CF11BA /* TOPTheBlack.swift in Sources */,
 				7DACE72421C8DF5500CF11BA /* LactoseFreeMilk.swift in Sources */,
@@ -340,6 +345,7 @@
 				7DACE6F821C79EC800CF11BA /* Milk.swift in Sources */,
 				7DACE71221C8D15600CF11BA /* CocaCola.swift in Sources */,
 				7DAE630F21CC849B00F70F41 /* MentMaker.swift in Sources */,
+				7DAE631B21CE49BE00F70F41 /* BeverageInfo.swift in Sources */,
 				7DACE71421C8D42D00CF11BA /* CocaColaZero.swift in Sources */,
 				7DAE630821CB8DEC00F70F41 /* InputView.swift in Sources */,
 				7DAE631221CC866E00F70F41 /* VendingMachineInfo.swift in Sources */,

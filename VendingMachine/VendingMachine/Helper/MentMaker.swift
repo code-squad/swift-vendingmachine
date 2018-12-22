@@ -24,9 +24,10 @@ struct MentMaker {
             for (name, count) in vendingMachineInfo.checkInventory() {
                 productList += " \(name)(\(count)개)"
             }
+            productList += "\n"
         }
         
-        let selectMent = "\n1. 금액추가\n2. 음료구매\n> "
+        let selectMent = "1. 금액추가\n2. 음료구매\n> "
         let ment = balanceMent + productList + selectMent
         return ment
     }
