@@ -15,9 +15,4 @@ extension Date {
         let dateString = dateFormatter.string(from: self)
         return dateString
     }
-    
-    init(before day:TimeInterval) {
-        let oneDay: TimeInterval = 86400
-        self.init(timeIntervalSinceNow: -oneDay * day)
-    }
 }

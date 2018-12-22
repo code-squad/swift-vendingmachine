@@ -9,13 +9,12 @@
 import Foundation
 
 class MandarineMilk: Milk {
-    init(openDate: Date) {
+    init() {
         super.init(lactose: 27,
                    brand: "빙그레",
                    size: 240,
                    price: 1200,
                    name: "귤맛우유",
-                   openDate: openDate,
                    expiryDate: 7)
     }
 }

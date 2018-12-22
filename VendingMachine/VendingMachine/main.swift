@@ -21,11 +21,11 @@ func main() {
             vendingMachine.insert(money: splitedInput[1])
         }
         if splitedInput[0] == 2 {
-            let productKeys = Array(vendingMachine.buyableProducts().keys)
+            let productKeys = Array(vendingMachine.buyableProductList().keys)
             let productKey = productKeys[splitedInput[1] - 1]
             guard let boughtProduct = vendingMachine.buy(productName: productKey) else {return}
             let postPurchaseMent = { (name: String, price: Int) -> String in
-                return "\(name)를 구매하셨습니다. \(price)를 차감합니다."
+                return "\(name)를 구매하셨습니다. \(price)를 차감합니다.\n"
             }
             OutputView.show(result: boughtProduct.postPurchaseMent(makeMent: postPurchaseMent))
         }
@@ -35,12 +35,12 @@ func main() {
 func initializeVendingMachine() -> VendingMachine {
     var VM = VendingMachine()
     
-    let mandarineMilk = MandarineMilk(openDate: Date(before: 13))
-    let lactoseFreeMilk = LactoseFreeMilk(openDate: Date(before: 20))
-    let starbucksDoubleShot = StarbucksDoubleShot(openDate: Date(before: 6))
-    let topTheBlack = TOPTheBlack(openDate: Date(before: 7))
-    let cocaCola = CocaCola(openDate: Date(before: 4))
-    let cocaColaZero = CocaColaZero(openDate: Date(before: 9))
+    let mandarineMilk = MandarineMilk()
+    let lactoseFreeMilk = LactoseFreeMilk()
+    let starbucksDoubleShot = StarbucksDoubleShot()
+    let topTheBlack = TOPTheBlack()
+    let cocaCola = CocaCola()
+    let cocaColaZero = CocaColaZero()
     
     VM.add(product: mandarineMilk)
     VM.add(product: lactoseFreeMilk)

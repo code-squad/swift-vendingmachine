@@ -9,14 +9,13 @@
 import Foundation
 
 class TOPTheBlack: Coffee {
-    init(openDate: Date) {
+    init() {
         super.init(hasMilk: false,
                    isHot: false,
                    brand: "맥심",
                    size: 275,
                    price: 1800,
                    name: "맥심티오피더블랙",
-                   openDate: openDate,
                    expiryDate: 143)
     }
 }

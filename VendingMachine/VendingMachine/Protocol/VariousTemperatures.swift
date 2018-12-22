@@ -9,5 +9,5 @@
 import Foundation
 
 protocol VariousTemperatures {
-    var isHot: Bool {get set}
+    var isHot: Bool {get}
 }

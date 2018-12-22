@@ -10,6 +10,6 @@ import Foundation
 
 protocol VendingMachineInfo {
     func checkBalance() -> String
-    func buyableProducts() -> [String:String]
+    func buyableProductList() -> [String:String]
     func checkInventory() -> [String:Int]
 }

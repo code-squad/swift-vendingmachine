@@ -17,32 +17,31 @@ class Beverage: CustomStringConvertible {
     private let size: Int
     private let price: Int
     private let name: String
-    private let openDate: Date
-    private let expiryDate: Int
+    private let openDate: Date = Date()
+    private let expiryDate: Date
     
-    init(brand:String, size:Int, price:Int, name:String, openDate:Date, expiryDate: Int) {
+    init(brand:String, size:Int, price:Int, name:String, expiryDate: Int) {
         self.brand = brand
         self.size = size
         self.price = price
         self.name = name
-        self.openDate = openDate
-        self.expiryDate = expiryDate
+        self.expiryDate = self.openDate + Double(expiryDate * 86400)
     }
     
-    func buyableProduct(money: Int) -> String? {
-        if self.price <= money {
-            return "\(self.name) \(self.price)원"
-        } else {
-            return nil
-        }
+    func isBuyable(money: Int) -> Bool {
+        return self.price <= money
     }
     
-    func readName() -> String {
-        return self.name
+    func beverageInfo(makeInfo: (String, String) -> String) -> String {
+        return makeInfo(self.name, String(self.price))
+    }
+    
+    func name(read: (String) -> String) -> String {
+        return read(self.name)
     }
     
     func isExpiryDateOut() -> Bool {
-        return self.openDate + self.expiryDate.convertToDay() < Date()
+        return self.expiryDate > Date()
     }
     
     func pay(pay: (Int) -> Int) -> Int {

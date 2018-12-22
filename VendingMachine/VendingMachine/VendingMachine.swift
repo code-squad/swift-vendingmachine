@@ -10,33 +10,37 @@ import Foundation
 
 struct VendingMachine: VendingMachineInfo {
     private var balance: Int = 0
-    private var productLines: [String:ProductLine] = [:]
-    private(set) var historyOfPurchase: [Beverage] = []
+    private var products: [String:[Beverage]] = [:]
+    private var historyOfPurchase: [Beverage] = []
     
     mutating func insert(money: Int) {
         self.balance += money
     }
     
     mutating func add(product: Beverage) {
-        if self.productLines["\(type(of:product))"] == nil {
-            self.productLines["\(type(of:product))"] = ProductLine()
+        if self.products["\(type(of:product))"] == nil {
+            self.products["\(type(of:product))"] = []
         }
-        self.productLines["\(type(of:product))"]?.add(product: product)
+        self.products["\(type(of:product))"]?.append(product)
     }
     
-    func buyableProducts() -> [String:String] {
+    func buyableProductList() -> [String:String] {
         var buyableProducts: [String:String] = [:]
-        for (key, productLine) in self.productLines {
-            guard let buyableProduct = productLine.buyableProduct(money: self.balance) else {continue}
-            buyableProducts[key] = buyableProduct
+        for (key, products) in self.products {
+            guard !products.isEmpty else {continue}
+            guard products[0].isBuyable(money: self.balance) else {continue}
+            let beverageInfo = { (name: String, price: String) -> String in
+                return "\(name) \(price)원(\(products.count)개)"
+            }
+            buyableProducts[key] = products[0].beverageInfo(makeInfo: beverageInfo)
         }
         return buyableProducts
     }
     
     mutating func buy(productName: String) -> Beverage? {
-        let product = self.productLines[productName]?.bringOutProduct()
-        if self.productLines[productName]?.productCount() == 0 {
-            self.productLines[productName] = nil
+        let product = self.products[productName]?.popLast()
+        if self.products[productName]?.count == 0 {
+            self.products[productName] = nil
         }
         if let product = product {
             self.historyOfPurchase.append(product)
@@ -61,8 +65,13 @@ struct VendingMachine: VendingMachineInfo {
     func checkInventory() -> [String:Int] {
         var inventoryStatus: [String:Int] = [:]
         
-        for (_, productLine) in self.productLines {
-            inventoryStatus[productLine.productName()] = productLine.productCount()
+        for (_, products) in self.products {
+            guard !products.isEmpty else {continue}
+            let name = { (name: String) -> String in
+                return name
+            }
+            let beverageName = products[0].name(read: name)
+            inventoryStatus[beverageName] = products.count
         }
         
         return inventoryStatus
@@ -71,8 +80,8 @@ struct VendingMachine: VendingMachineInfo {
     func expiredProducts() -> [Beverage] {
         var expiredProducts: [Beverage] = []
         
-        for (_, productLine) in self.productLines {
-            expiredProducts.append(contentsOf: productLine.expiredProducts())
+        for (_, products) in self.products {
+            expiredProducts.append(contentsOf: products.filter() {$0.isExpiryDateOut()})
         }
         
         return expiredProducts
@@ -81,11 +90,14 @@ struct VendingMachine: VendingMachineInfo {
     func hotProducts() -> [String] {
         var hotProducts: [String] = []
         
-        for (_, productLine) in self.productLines {
-            guard let broughtProduct = productLine.hotProducts() else {continue}
-            hotProducts.append(broughtProduct)
+        for (_, products) in self.products {
+            guard !products.isEmpty else {continue}
+            guard let variousTemperaturesBeverage = products[0] as? VariousTemperatures else {continue}
+            guard variousTemperaturesBeverage.isHot else {continue}
+            hotProducts.append(products[0].name() { (name: String) -> String in
+                return name
+            })
         }
-        
         return hotProducts
     }
 }
