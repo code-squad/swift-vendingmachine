@@ -24,10 +24,10 @@ func main() {
             let productKeys = Array(vendingMachine.buyableProductList().keys)
             let productKey = productKeys[splitedInput[1] - 1]
             guard let boughtProduct = vendingMachine.buy(productName: productKey) else {return}
-            let postPurchaseMent = { (name: String, price: Int) -> String in
+            let postPurchaseMent = { (name: String, price: String) -> String in
                 return "\(name)를 구매하셨습니다. \(price)를 차감합니다.\n"
             }
-            OutputView.show(result: boughtProduct.postPurchaseMent(makeMent: postPurchaseMent))
+            OutputView.show(result: boughtProduct.beverageInfo(makeInfo: postPurchaseMent))
         }
     }
 }
