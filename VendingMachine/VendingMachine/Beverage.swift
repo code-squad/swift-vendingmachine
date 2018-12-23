@@ -32,7 +32,7 @@ class Beverage: CustomStringConvertible {
         return self.price <= money
     }
     
-    func beverageInfo(makeInfo: (String, Int) -> BeverageInfo) -> BeverageInfo {
+    func beverageInfo<T>(makeInfo: (String, Int) -> T) -> T {
         return makeInfo(self.name, self.price)
     }
     

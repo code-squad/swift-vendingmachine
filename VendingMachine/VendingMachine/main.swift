@@ -15,20 +15,19 @@ func main() {
         let inputMent = MentMaker.makeInputMent(vendingMachineInfo: vendingMachine)
         let input = InputView.readInput(ment: inputMent)
         guard ValidChecker.checkInput(string: input, count: buyableList.count) else {return}
-        
         let splitedInput = input.split(separator: " ").map(){Int($0) ?? 0}
         
         if splitedInput[0] == 1 {
             vendingMachine.insert(money: splitedInput[1])
         }
         if splitedInput[0] == 2 {
-            let productKeys = Array(vendingMachine.buyableProductList().keys)
+            let productKeys = Array(buyableList.keys)
             let productKey = productKeys[splitedInput[1] - 1]
             guard let boughtProduct = vendingMachine.buy(productName: productKey) else {return}
-            let postPurchaseMent = { (name: String, price: String) -> String in
+            let postPurchaseMent = { (name: String, price: Int) -> String in
                 return "\(name)를 구매하셨습니다. \(price)를 차감합니다.\n"
             }
-//            OutputView.show(result: boughtProduct.beverageInfo(makeInfo: postPurchaseMent))
+            OutputView.show(result: boughtProduct.beverageInfo(makeInfo: postPurchaseMent))
         }
     }
 }
