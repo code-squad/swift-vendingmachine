@@ -27,6 +27,7 @@ func main() {
             let postPurchaseMent = MentMaker.makePostPurchaseMent(beverage: boughtProduct)
             OutputView.show(result: postPurchaseMent)
         }
+        print("")
     }
 }
 
