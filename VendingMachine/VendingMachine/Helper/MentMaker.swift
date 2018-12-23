@@ -21,14 +21,19 @@ struct MentMaker {
                 ment += buyableList[index].info(read: readInfo)
             }
         } else {
-            ment += "=>"
-            for (name, count) in vendingMachineInfo.checkInventory() {
-                ment += " \(name)(\(count)개)"
-            }
-            ment += "\n"
+            ment += makeNoMoneyList(list: vendingMachineInfo.checkInventory())
         }
         
         ment += "1. 금액추가\n2. 음료구매\n> "
+        return ment
+    }
+    
+    static private func makeNoMoneyList(list: [String:Int]) -> String {
+        var ment = "=>"
+        for (name, count) in list {
+            ment += " \(name)(\(count)개)"
+        }
+        ment += "\n"
         return ment
     }
     
