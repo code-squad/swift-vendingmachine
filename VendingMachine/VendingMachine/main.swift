@@ -11,9 +11,10 @@ import Foundation
 func main() {
     var vendingMachine = initializeVendingMachine()
     while true {
+        let buyableList = vendingMachine.buyableProductList()
         let inputMent = MentMaker.makeInputMent(vendingMachineInfo: vendingMachine)
         let input = InputView.readInput(ment: inputMent)
-        guard ValidChecker.checkInput(string: input) else {return}
+        guard ValidChecker.checkInput(string: input, count: buyableList.count) else {return}
         
         let splitedInput = input.split(separator: " ").map(){Int($0) ?? 0}
         
