@@ -46,7 +46,7 @@ struct MentMaker {
     
     static func makePostPurchaseMent(beverage: Beverage) -> String {
         let postPurchaseMent = { (name: String, price: Int) -> String in
-            return "\(name)를 구매하셨습니다. \(price)원을 차감합니다.\n"
+            return "\(name)를 구매하셨습니다. \(price)원을 차감합니다."
         }
         let ment = beverage.beverageInfo(makeInfo: postPurchaseMent)
         return ment

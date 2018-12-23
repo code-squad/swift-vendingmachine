@@ -110,6 +110,34 @@ class UnitTestVendingMachine: XCTestCase {
         XCTAssertEqual(VM.hotProducts().count, 0)
     }
     
+    func testCombineScenario() {
+        VM.insert(money: 10000)
+        let _ = VM.buy(productName: "CocaCola")
+        let _ = VM.buy(productName: "CocaCola")
+        let _ = VM.buy(productName: "CocaCola")
+        let _ = VM.buy(productName: "StarbucksDoubleShot")
+        let _ = VM.buy(productName: "StarbucksDoubleShot")
+        let _ = VM.buy(productName: "CocaCola")
+        
+        XCTAssertEqual(VM.checkBalance(), "3,300")
+        XCTAssertEqual(VM.buyableProductList().count, 4)
+        
+        VM.insert(money: 1700)
+        XCTAssertEqual(VM.checkBalance(), "5,000")
+        
+        VM.add(product: CocaCola())
+        VM.add(product: CocaCola())
+        VM.add(product: CocaCola())
+        VM.add(product: StarbucksDoubleShot())
+        XCTAssertEqual(VM.buyableProductList().count, VM.checkInventory().count)
+        
+        let _ = VM.buy(productName: "CocaCola")
+        let _ = VM.buy(productName: "CocaCola")
+        let _ = VM.buy(productName: "CocaCola")
+        XCTAssertEqual(VM.checkBalance(), "1,100")
+        XCTAssertEqual(VM.buyableProductList().count, 1)
+    }
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
