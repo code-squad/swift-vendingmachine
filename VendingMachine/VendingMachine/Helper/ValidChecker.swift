@@ -9,16 +9,16 @@
 import Foundation
 
 struct ValidChecker {
-    static func checkInput(string: String) -> Bool {
-        return checkInputOfInsertMoney(string: string) || checkInputOfPurchaseBeverage(string: string)
+    static func checkInput(string: String, count: Int) -> Bool {
+        return checkInputOfInsertMoney(string: string) || checkInputOfPurchaseBeverage(string: string, count: count)
     }
     
     static private func checkInputOfInsertMoney(string: String) -> Bool {
         return string.range(of: "^1 (\\d)+$", options: .regularExpression) != nil
     }
     
-    static private func checkInputOfPurchaseBeverage(string: String) -> Bool {
-        return string.range(of: "^2 (\\d)+$", options: .regularExpression) != nil
+    static private func checkInputOfPurchaseBeverage(string: String, count: Int) -> Bool {
+        return string.range(of: "^2 [1-\(count)]$", options: .regularExpression) != nil
     }
 }
 
