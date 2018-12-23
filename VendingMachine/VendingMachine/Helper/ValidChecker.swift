@@ -10,15 +10,14 @@ import Foundation
 
 struct ValidChecker {
     static func checkInput(string: String, count: Int) -> Bool {
-        return checkInputOfInsertMoney(string: string) || checkInputOfPurchaseBeverage(string: string, count: count)
+        let regexOfInsertMoney = "^1 (\\d)+$"
+        let regexOfPurchaseBeverage = "^2 [1-\(count)]$"
+        return checkInput(string: string, regex: regexOfInsertMoney)
+            || checkInput(string: string, regex: regexOfPurchaseBeverage)
     }
     
-    static private func checkInputOfInsertMoney(string: String) -> Bool {
-        return string.range(of: "^1 (\\d)+$", options: .regularExpression) != nil
-    }
-    
-    static private func checkInputOfPurchaseBeverage(string: String, count: Int) -> Bool {
-        return string.range(of: "^2 [1-\(count)]$", options: .regularExpression) != nil
+    static private func checkInput(string: String, regex: String) -> Bool {
+        return string.range(of: regex, options: .regularExpression) != nil
     }
 }
 
