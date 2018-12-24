@@ -15,14 +15,15 @@ func main() {
         let inputMent = MentMaker.makeInputMent(vendingMachineInfo: vendingMachine)
         let inputString = InputView.readInput(ment: inputMent)
         guard ValidChecker.checkInput(string: inputString, count: buyableList.count) else {return}
-        let input = Input(input: inputString)
+        let input = VendingMachineInput(input: inputString)
         
-        if input.mode == 1 {
-            vendingMachine.insert(money: input.value)
+        if input.isModeEqual(1) {
+            vendingMachine.insert(money: input.readMoney())
         }
-        if input.mode == 2 {
+        
+        if input.isModeEqual(2) {
             let productKeys = Array(buyableList.keys)
-            let productKey = productKeys[input.value - 1]
+            let productKey = input.readKey(keys: productKeys)
             guard let boughtProduct = vendingMachine.buy(productName: productKey) else {return}
             let postPurchaseMent = MentMaker.makePostPurchaseMent(beverage: boughtProduct)
             OutputView.show(result: postPurchaseMent)
