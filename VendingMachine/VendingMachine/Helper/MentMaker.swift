@@ -25,12 +25,12 @@ struct MentMaker {
     static private func makeBuyableList(list: [String:BeverageInfo]) -> String {
         let buyableList = Array(list.values)
         var ment = ""
+        let readInfo = { (name: String, price: Int, beverageCount: Int) -> String in
+            return "\(name) \(price)(\(beverageCount)개)\n"
+        }
         
         for index in buyableList.startIndex..<buyableList.endIndex {
-            let readInfo = { (name: String, price: Int, beverageCount: Int) -> String in
-                return "\(index + 1))\(name) \(price)(\(beverageCount)개)\n"
-            }
-            ment += buyableList[index].info(read: readInfo)
+            ment += ("\(index + 1))" + buyableList[index].info(read: readInfo))
         }
         return ment
     }
