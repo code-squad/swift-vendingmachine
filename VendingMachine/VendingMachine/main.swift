@@ -13,16 +13,16 @@ func main() {
     while true {
         let buyableList = vendingMachine.buyableProductList()
         let inputMent = MentMaker.makeInputMent(vendingMachineInfo: vendingMachine)
-        let input = InputView.readInput(ment: inputMent)
-        guard ValidChecker.checkInput(string: input, count: buyableList.count) else {return}
-        let splitedInput = input.split(separator: " ").map(){Int($0) ?? 0}
+        let inputString = InputView.readInput(ment: inputMent)
+        guard ValidChecker.checkInput(string: inputString, count: buyableList.count) else {return}
+        let input = Input(input: inputString)
         
-        if splitedInput[0] == 1 {
-            vendingMachine.insert(money: splitedInput[1])
+        if input.mode == 1 {
+            vendingMachine.insert(money: input.value)
         }
-        if splitedInput[0] == 2 {
+        if input.mode == 2 {
             let productKeys = Array(buyableList.keys)
-            let productKey = productKeys[splitedInput[1] - 1]
+            let productKey = productKeys[input.value - 1]
             guard let boughtProduct = vendingMachine.buy(productName: productKey) else {return}
             let postPurchaseMent = MentMaker.makePostPurchaseMent(beverage: boughtProduct)
             OutputView.show(result: postPurchaseMent)
