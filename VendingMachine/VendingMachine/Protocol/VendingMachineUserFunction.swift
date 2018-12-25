@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol VendingMachineUserFunction {
+protocol VendingMachineUserFunction: VendingMachineInfo {
     mutating func add(product: Beverage)
     func buyableProductList() -> [String:BeverageInfo]
     mutating func buy(productName: String) -> Beverage?
