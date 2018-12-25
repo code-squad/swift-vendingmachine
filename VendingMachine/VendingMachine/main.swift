@@ -11,10 +11,22 @@ import Foundation
 func main() {
     var vendingMachine = initializeVendingMachine()
     while true {
+        guard let returnedVendingMachine = userMode(vendingMachineOfUserMode: vendingMachine) else {return}
+        vendingMachine = returnedVendingMachine
+    }
+}
+
+private func userMode(vendingMachineOfUserMode: VendingMachineUserFunction) -> VendingMachine? {
+    var vendingMachine = vendingMachineOfUserMode
+    while true {
         let buyableList = vendingMachine.buyableProductList()
         let inputMent = MentMaker.makeInputMent(vendingMachineInfo: vendingMachine)
         let inputString = InputView.readInput(ment: inputMent)
-        guard ValidChecker.checkInput(string: inputString, count: buyableList.count) else {return}
+        if inputString == "3" {
+            guard let vendingMachine = vendingMachine as? VendingMachine else {return nil}
+            return vendingMachine
+        }
+        guard ValidChecker.checkInput(string: inputString, count: buyableList.count) else {return nil}
         let input = VendingMachineInput(input: inputString)
         
         if input.isModeEqual(1) {
@@ -24,7 +36,7 @@ func main() {
         if input.isModeEqual(2) {
             let productKeys = Array(buyableList.keys)
             let productKey = input.readKey(keys: productKeys)
-            guard let boughtProduct = vendingMachine.buy(productName: productKey) else {return}
+            guard let boughtProduct = vendingMachine.buy(productName: productKey) else {return nil}
             let postPurchaseMent = MentMaker.makePostPurchaseMent(beverage: boughtProduct)
             OutputView.show(result: postPurchaseMent)
         }
@@ -32,7 +44,7 @@ func main() {
     }
 }
 
-func initializeVendingMachine() -> VendingMachine {
+private func initializeVendingMachine() -> VendingMachine {
     var VM = VendingMachine()
     
     let mandarineMilk = MandarineMilk()
