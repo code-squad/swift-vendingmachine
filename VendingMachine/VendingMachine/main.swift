@@ -10,8 +10,9 @@ import Foundation
 
 func main() {
     var vendingMachine = initializeVendingMachine()
+    let startMent = MentMaker.makeStartMent()
     while true {
-        OutputView.show(result: MentMaker.makeStartMent())
+        let input = InputView.readInput(ment: startMent)
         guard let returnedVendingMachine = userMode(vendingMachineOfUserMode: vendingMachine) else {return}
         vendingMachine = returnedVendingMachine
     }
