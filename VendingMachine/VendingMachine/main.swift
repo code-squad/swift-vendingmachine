@@ -13,8 +13,10 @@ func main() {
     let startMent = MentMaker.makeStartMent()
     while true {
         let input = InputView.readInput(ment: startMent)
-        guard let returnedVendingMachine = userMode(vendingMachineOfUserMode: vendingMachine) else {return}
-        vendingMachine = returnedVendingMachine
+        if VendingMachineMode.userMode.rawValue == input {
+            guard let returnedVendingMachine = userMode(vendingMachineOfUserMode: vendingMachine) else {return}
+            vendingMachine = returnedVendingMachine
+        }
     }
 }
 
