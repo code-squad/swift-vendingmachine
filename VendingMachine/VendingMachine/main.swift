@@ -11,6 +11,7 @@ import Foundation
 func main() {
     var vendingMachine = initializeVendingMachine()
     while true {
+        OutputView.show(result: MentMaker.makeStartMent())
         guard let returnedVendingMachine = userMode(vendingMachineOfUserMode: vendingMachine) else {return}
         vendingMachine = returnedVendingMachine
     }

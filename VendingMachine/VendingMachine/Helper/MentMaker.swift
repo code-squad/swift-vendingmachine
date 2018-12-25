@@ -9,6 +9,10 @@
 import Foundation
 
 struct MentMaker {
+    static func makeStartMent() -> String {
+        return "자판기를 시작합니다.\n1. 관리자 모드\n2. 사용자 모드\n> "
+    }
+    
     static func makeInputMent(vendingMachineInfo: VendingMachineInfo) -> String {
         var ment = "현재 투입한 금액이 \(vendingMachineInfo.checkBalance())원입니다. 다음과 같은 음료가 있습니다.\n"
         
