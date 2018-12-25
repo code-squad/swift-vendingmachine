@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct VendingMachine: VendingMachineInfo {
+struct VendingMachine: VendingMachineInfo, VendingMachineManagerFunction {
     private var balance: Int = 0
     private var products: [String:[Beverage]] = [:]
     private var historyOfPurchase: [Beverage] = []
