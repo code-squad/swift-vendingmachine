@@ -13,7 +13,17 @@ struct MentMaker {
         return "자판기를 시작합니다.\n1. 관리자 모드\n2. 사용자 모드\n> "
     }
     
-    
+    static func makeManagerInputMent(addableList: [AddableBeverage]) -> String {
+        var ment = "====추가 가능 음료====\n"
+        
+        for index in addableList.startIndex..<addableList.endIndex {
+            ment += "\(index + 1)) \(addableList[index])"
+        }
+        
+        ment += "\n1. 음료 재고 추가\n2. 유통기한이 지난 음료 제거\n"
+        
+        return ment
+    }
     
     static func makeUserInputMent(vendingMachineInfo: VendingMachineInfo) -> String {
         var ment = "현재 투입한 금액이 \(vendingMachineInfo.checkBalance())원입니다. 다음과 같은 음료가 있습니다.\n"
