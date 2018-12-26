@@ -20,11 +20,18 @@ func main() {
     }
 }
 
+private func managerMode(vendingMachineOfManagerMode: VendingMachineManagerFunction) -> VendingMachine? {
+    var vendingMachine = vendingMachineOfManagerMode
+    while true {
+        
+    }
+}
+
 private func userMode(vendingMachineOfUserMode: VendingMachineUserFunction) -> VendingMachine? {
     var vendingMachine = vendingMachineOfUserMode
     while true {
         let buyableList = vendingMachine.buyableProductList()
-        let inputMent = MentMaker.makeInputMent(vendingMachineInfo: vendingMachine)
+        let inputMent = MentMaker.makeUserInputMent(vendingMachineInfo: vendingMachine)
         let inputString = InputView.readInput(ment: inputMent)
         if inputString == "3" {
             guard let vendingMachine = vendingMachine as? VendingMachine else {return nil}
