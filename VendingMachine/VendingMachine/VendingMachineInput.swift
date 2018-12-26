@@ -10,7 +10,7 @@ import Foundation
 
 struct VendingMachineInput {
     private let mode: Int
-    private let value: Int
+    private let value: Int?
     
     init(input: String) {
         let splitedInput = input.split(separator: " ").map(){Int($0) ?? 0}
@@ -22,11 +22,23 @@ struct VendingMachineInput {
         return int == self.mode
     }
     
-    func readMoney() -> Int {
+    func readMoney() -> Int? {
         return self.value
     }
     
-    func readKey(keys: [String]) -> String {
-        return keys[self.value - 1]
+    func readKey(keys: [String]) -> String? {
+        guard let value = self.value else {return nil}
+        if value >= 1 {
+            return keys[value - 1]
+        }
+        return nil
+    }
+    
+    func readBeverage(addableList: [AddableBeverage]) -> Beverage? {
+        guard let value = self.value else {return nil}
+        if value >= 1 {
+            return addableList[value - 1].product
+        }
+        return nil
     }
 }

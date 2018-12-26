@@ -34,6 +34,13 @@ private func managerMode(vendingMachineOfManagerMode: VendingMachineManagerFunct
             guard let vendingMachine = vendingMachine as? VendingMachine else {return nil}
             return vendingMachine
         }
+        guard ValidChecker.checkManagerInput(string: inputString, countOfBeverage: addableList.count) else {return nil}
+        let input = VendingMachineInput(input: inputString)
+        
+        if input.isModeEqual(1) {
+            guard let product = input.readBeverage(addableList: addableList) else {return nil}
+            vendingMachine.add(product: product)
+        }
     }
 }
 
@@ -51,12 +58,13 @@ private func userMode(vendingMachineOfUserMode: VendingMachineUserFunction) -> V
         let input = VendingMachineInput(input: inputString)
         
         if input.isModeEqual(1) {
-            vendingMachine.insert(money: input.readMoney())
+            guard let money = input.readMoney() else {return nil}
+            vendingMachine.insert(money: money)
         }
         
         if input.isModeEqual(2) {
             let productKeys = Array(buyableList.keys)
-            let productKey = input.readKey(keys: productKeys)
+            guard let productKey = input.readKey(keys: productKeys) else {return nil}
             guard let boughtProduct = vendingMachine.buy(productName: productKey) else {return nil}
             let postPurchaseMent = MentMaker.makePostPurchaseMent(beverage: boughtProduct)
             OutputView.show(result: postPurchaseMent)
