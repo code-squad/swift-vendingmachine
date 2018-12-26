@@ -9,7 +9,14 @@
 import Foundation
 
 struct ValidChecker {
-    static func checkInput(string: String, count: Int) -> Bool {
+    static func checkManagerInput(string: String, countOfBeverage: Int) -> Bool {
+        let regexOfAddBevergage = "^1 [1-\(countOfBeverage)]$"
+        let regexOfTwo = "^2$"
+        return checkInput(string: string, regex: regexOfAddBevergage)
+            || checkInput(string: string, regex: regexOfTwo)
+    }
+    
+    static func checkUserInput(string: String, count: Int) -> Bool {
         let regexOfInsertMoney = "^1 (\\d)+$"
         let regexOfPurchaseBeverage = "^2 [1-\(count)]$"
         return checkInput(string: string, regex: regexOfInsertMoney)
