@@ -23,7 +23,8 @@ func main() {
 private func managerMode(vendingMachineOfManagerMode: VendingMachineManagerFunction) -> VendingMachine? {
     var vendingMachine = vendingMachineOfManagerMode
     while true {
-        
+        let addableList = AddableBeverage.allCases
+        print(MentMaker.makeManagerInputMent(addableList: addableList))
     }
 }
 
