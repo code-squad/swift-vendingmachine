@@ -15,7 +15,7 @@ struct VendingMachineInput {
     init(input: String) {
         let splitedInput = input.split(separator: " ").map(){Int($0) ?? 0}
         self.mode = splitedInput[0]
-        self.value = splitedInput[1]
+        self.value = splitedInput.count >= 2 ? splitedInput[1] : nil
     }
     
     func isModeEqual(_ int: Int) -> Bool {

@@ -100,4 +100,12 @@ struct VendingMachine: VendingMachineManagerFunction, VendingMachineUserFunction
         }
         return hotProducts
     }
+    
+    mutating func removeExpiredProducts() {
+        var newProducts: [String:[Beverage]] = [:]
+        for (key, products) in products {
+            newProducts[key] = products.filter(){$0.isExpiryDateOut()}
+        }
+        self.products = newProducts
+    }
 }

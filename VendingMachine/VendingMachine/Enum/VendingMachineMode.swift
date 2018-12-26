@@ -11,4 +11,5 @@ import Foundation
 enum VendingMachineMode: String {
     case managerMode = "1"
     case userMode = "2"
+    case back = "3"
 }
