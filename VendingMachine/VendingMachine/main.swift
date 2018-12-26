@@ -38,7 +38,8 @@ private func managerMode(vendingMachineOfManagerMode: VendingMachineManagerFunct
         let input = VendingMachineInput(input: inputString)
         
         if input.isModeEqual(1) {
-            guard let product = input.readBeverage(addableList: addableList) else {return nil}
+            guard let addableProduct = input.readBeverage(addableList: addableList) else {return nil}
+            let product = BeverageFactory.produce(addableBeverage: addableProduct)
             vendingMachine.add(product: product)
         }
         

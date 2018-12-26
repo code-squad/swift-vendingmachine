@@ -8,6 +8,21 @@
 
 import Foundation
 
-protocol BeverageFactory {
-    func produce() -> Beverage
+struct BeverageFactory {
+    static func produce(addableBeverage: AddableBeverage) -> Beverage {
+        switch addableBeverage {
+        case .mandarineMilk:
+            return MandarineMilk()
+        case .lactoseFreeMilk:
+            return LactoseFreeMilk()
+        case .starbucksDoubleShot:
+            return StarbucksDoubleShot()
+        case .topTheBlack:
+            return TOPTheBlack()
+        case .cocaCola:
+            return CocaCola()
+        case .cocaColaZero:
+            return CocaColaZero()
+        }
+    }
 }
