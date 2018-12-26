@@ -9,8 +9,8 @@
 import Foundation
 
 enum VendingMachineMode: String {
-    case managerMode = "1"
-    case userMode = "2"
+    case manager = "1"
+    case user = "2"
     case back = "3"
     
     func isEqual(input: String) -> Bool {
