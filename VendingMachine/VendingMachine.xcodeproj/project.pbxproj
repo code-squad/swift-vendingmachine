@@ -61,6 +61,10 @@
 		7DE2CAB621D3359B004EC966 /* AddableBeverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CAB421D3359B004EC966 /* AddableBeverage.swift */; };
 		7DE2CAB921D3C316004EC966 /* BeverageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CAB821D3C316004EC966 /* BeverageFactory.swift */; };
 		7DE2CABA21D3C316004EC966 /* BeverageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CAB821D3C316004EC966 /* BeverageFactory.swift */; };
+		7DE2CACE21D3D88C004EC966 /* VendingMachineManagerMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CACD21D3D88C004EC966 /* VendingMachineManagerMode.swift */; };
+		7DE2CACF21D3D88C004EC966 /* VendingMachineManagerMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CACD21D3D88C004EC966 /* VendingMachineManagerMode.swift */; };
+		7DE2CAD121D3D955004EC966 /* VendingMachineUserMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CAD021D3D955004EC966 /* VendingMachineUserMode.swift */; };
+		7DE2CAD221D3D955004EC966 /* VendingMachineUserMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CAD021D3D955004EC966 /* VendingMachineUserMode.swift */; };
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -107,6 +111,8 @@
 		7DE2CAB121D22272004EC966 /* VendingMachineMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineMode.swift; sourceTree = "<group>"; };
 		7DE2CAB421D3359B004EC966 /* AddableBeverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddableBeverage.swift; sourceTree = "<group>"; };
 		7DE2CAB821D3C316004EC966 /* BeverageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageFactory.swift; sourceTree = "<group>"; };
+		7DE2CACD21D3D88C004EC966 /* VendingMachineManagerMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineManagerMode.swift; sourceTree = "<group>"; };
+		7DE2CAD021D3D955004EC966 /* VendingMachineUserMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineUserMode.swift; sourceTree = "<group>"; };
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -239,6 +245,8 @@
 				7DAE630721CB8DEC00F70F41 /* InputView.swift */,
 				7DAE631621CCCE7900F70F41 /* OutputView.swift */,
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
+				7DE2CAD021D3D955004EC966 /* VendingMachineUserMode.swift */,
+				7DE2CACD21D3D88C004EC966 /* VendingMachineManagerMode.swift */,
 				7DDC207321D07FA100C52E98 /* VendingMachineInput.swift */,
 				7DACE72E21C8EC2200CF11BA /* VendingMachine.swift */,
 				7DACE6B721C769F800CF11BA /* Beverage.swift */,
@@ -355,12 +363,14 @@
 				7DACE73021C8EDF700CF11BA /* VendingMachine.swift in Sources */,
 				7DDC207521D07FA100C52E98 /* VendingMachineInput.swift in Sources */,
 				7DACE72A21C8DF6800CF11BA /* CocaColaZero.swift in Sources */,
+				7DE2CAD221D3D955004EC966 /* VendingMachineUserMode.swift in Sources */,
 				7DAE630B21CC806F00F70F41 /* ValidChecker.swift in Sources */,
 				7DACE72121C8DF4000CF11BA /* Beverage.swift in Sources */,
 				7DACE72921C8DF6500CF11BA /* CocaCola.swift in Sources */,
 				7DACE72221C8DF4300CF11BA /* Milk.swift in Sources */,
 				7DACE72821C8DF6200CF11BA /* CarbonatedDrink.swift in Sources */,
 				7DACE72321C8DF4500CF11BA /* MandarineMilk.swift in Sources */,
+				7DE2CACF21D3D88C004EC966 /* VendingMachineManagerMode.swift in Sources */,
 				7DAE631C21CE49BE00F70F41 /* BeverageInfo.swift in Sources */,
 				7DE2CAAF21D21149004EC966 /* VendingMachineUserFunction.swift in Sources */,
 				7DACE71C21C8DECE00CF11BA /* UnitTestBeverage.swift in Sources */,
@@ -385,8 +395,10 @@
 				7DACE70E21C8CB3300CF11BA /* StarbucksDoubleShot.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
 				7DAE631721CCCE7900F70F41 /* OutputView.swift in Sources */,
+				7DE2CACE21D3D88C004EC966 /* VendingMachineManagerMode.swift in Sources */,
 				7DACE72F21C8EC2200CF11BA /* VendingMachine.swift in Sources */,
 				7DACE6F621C79BC100CF11BA /* ExtensionDate.swift in Sources */,
+				7DE2CAD121D3D955004EC966 /* VendingMachineUserMode.swift in Sources */,
 				7DACE70C21C8B8D400CF11BA /* LactoseFreeMilk.swift in Sources */,
 				7DE2CAB521D3359B004EC966 /* AddableBeverage.swift in Sources */,
 				7DAE630A21CC806F00F70F41 /* ValidChecker.swift in Sources */,
