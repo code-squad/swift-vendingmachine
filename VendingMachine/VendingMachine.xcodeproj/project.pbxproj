@@ -63,6 +63,8 @@
 		7DE2CABA21D3C316004EC966 /* BeverageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CAB821D3C316004EC966 /* BeverageFactory.swift */; };
 		7DE2CABC21D3C393004EC966 /* MandarineMilkFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CABB21D3C393004EC966 /* MandarineMilkFactory.swift */; };
 		7DE2CABD21D3C393004EC966 /* MandarineMilkFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CABB21D3C393004EC966 /* MandarineMilkFactory.swift */; };
+		7DE2CABF21D3C405004EC966 /* LactoseFreeMilkFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CABE21D3C405004EC966 /* LactoseFreeMilkFactory.swift */; };
+		7DE2CAC021D3C405004EC966 /* LactoseFreeMilkFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CABE21D3C405004EC966 /* LactoseFreeMilkFactory.swift */; };
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -110,6 +112,7 @@
 		7DE2CAB421D3359B004EC966 /* AddableBeverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddableBeverage.swift; sourceTree = "<group>"; };
 		7DE2CAB821D3C316004EC966 /* BeverageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageFactory.swift; sourceTree = "<group>"; };
 		7DE2CABB21D3C393004EC966 /* MandarineMilkFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MandarineMilkFactory.swift; sourceTree = "<group>"; };
+		7DE2CABE21D3C405004EC966 /* LactoseFreeMilkFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LactoseFreeMilkFactory.swift; sourceTree = "<group>"; };
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -215,6 +218,7 @@
 			children = (
 				7DE2CAB821D3C316004EC966 /* BeverageFactory.swift */,
 				7DE2CABB21D3C393004EC966 /* MandarineMilkFactory.swift */,
+				7DE2CABE21D3C405004EC966 /* LactoseFreeMilkFactory.swift */,
 			);
 			path = Factory;
 			sourceTree = "<group>";
@@ -356,6 +360,7 @@
 				7DAE631821CCCE7900F70F41 /* OutputView.swift in Sources */,
 				7DAE630D21CC80F300F70F41 /* UnitTestValidChecker.swift in Sources */,
 				7DE2CAAC21D2103F004EC966 /* VendingMachineManagerFunction.swift in Sources */,
+				7DE2CAC021D3C405004EC966 /* LactoseFreeMilkFactory.swift in Sources */,
 				7DACE73021C8EDF700CF11BA /* VendingMachine.swift in Sources */,
 				7DDC207521D07FA100C52E98 /* VendingMachineInput.swift in Sources */,
 				7DE2CABD21D3C393004EC966 /* MandarineMilkFactory.swift in Sources */,
@@ -411,6 +416,7 @@
 				7DACE6B821C769F800CF11BA /* Beverage.swift in Sources */,
 				7DACE71021C8D0AA00CF11BA /* TOPTheBlack.swift in Sources */,
 				7DACE70A21C8B88D00CF11BA /* MandarineMilk.swift in Sources */,
+				7DE2CABF21D3C405004EC966 /* LactoseFreeMilkFactory.swift in Sources */,
 				7DACE6FA21C79EE700CF11BA /* Coffee.swift in Sources */,
 				7DACE73B21CB71D600CF11BA /* VariousTemperatures.swift in Sources */,
 			);
