@@ -17,10 +17,10 @@ struct MentMaker {
         var ment = "====추가 가능 음료====\n"
         
         for index in addableList.startIndex..<addableList.endIndex {
-            ment += "\(index + 1)) \(addableList[index])"
+            ment += "\(index + 1)) \(addableList[index].product)\n"
         }
         
-        ment += "\n1. 음료 재고 추가\n2. 유통기한이 지난 음료 제거\n"
+        ment += "1. 음료 재고 추가\n2. 유통기한이 지난 음료 제거\n"
         
         return ment
     }

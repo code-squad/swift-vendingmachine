@@ -13,6 +13,10 @@ func main() {
     let startMent = MentMaker.makeStartMent()
     while true {
         let input = InputView.readInput(ment: startMent)
+        if VendingMachineMode.managerMode.rawValue == input {
+            guard let returnedVendingMachine = managerMode(vendingMachineOfManagerMode: vendingMachine) else {return}
+            vendingMachine = returnedVendingMachine
+        }
         if VendingMachineMode.userMode.rawValue == input {
             guard let returnedVendingMachine = userMode(vendingMachineOfUserMode: vendingMachine) else {return}
             vendingMachine = returnedVendingMachine
@@ -25,7 +29,9 @@ private func managerMode(vendingMachineOfManagerMode: VendingMachineManagerFunct
     while true {
         let addableList = AddableBeverage.allCases
         print(MentMaker.makeManagerInputMent(addableList: addableList))
+        break
     }
+    return nil
 }
 
 private func userMode(vendingMachineOfUserMode: VendingMachineUserFunction) -> VendingMachine? {
