@@ -59,6 +59,8 @@
 		7DE2CAB321D22272004EC966 /* VendingMachineMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CAB121D22272004EC966 /* VendingMachineMode.swift */; };
 		7DE2CAB521D3359B004EC966 /* AddableBeverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CAB421D3359B004EC966 /* AddableBeverage.swift */; };
 		7DE2CAB621D3359B004EC966 /* AddableBeverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CAB421D3359B004EC966 /* AddableBeverage.swift */; };
+		7DE2CAB921D3C316004EC966 /* BeverageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CAB821D3C316004EC966 /* BeverageFactory.swift */; };
+		7DE2CABA21D3C316004EC966 /* BeverageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CAB821D3C316004EC966 /* BeverageFactory.swift */; };
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -104,6 +106,7 @@
 		7DE2CAAD21D21149004EC966 /* VendingMachineUserFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineUserFunction.swift; sourceTree = "<group>"; };
 		7DE2CAB121D22272004EC966 /* VendingMachineMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineMode.swift; sourceTree = "<group>"; };
 		7DE2CAB421D3359B004EC966 /* AddableBeverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddableBeverage.swift; sourceTree = "<group>"; };
+		7DE2CAB821D3C316004EC966 /* BeverageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageFactory.swift; sourceTree = "<group>"; };
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -204,6 +207,14 @@
 			path = Enum;
 			sourceTree = "<group>";
 		};
+		7DE2CAB721D3C2FF004EC966 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				7DE2CAB821D3C316004EC966 /* BeverageFactory.swift */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
 		839DA9001F8D1F95009E05F3 = {
 			isa = PBXGroup;
 			children = (
@@ -232,6 +243,7 @@
 				7DACE72E21C8EC2200CF11BA /* VendingMachine.swift */,
 				7DACE6B721C769F800CF11BA /* Beverage.swift */,
 				7DAE631A21CE49BE00F70F41 /* BeverageInfo.swift */,
+				7DE2CAB721D3C2FF004EC966 /* Factory */,
 				7DAE631421CC892700F70F41 /* Helper */,
 				7DACE70321C7A4B900CF11BA /* Milks */,
 				7DACE70421C7A4D000CF11BA /* Coffees */,
@@ -334,6 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DACE72621C8DF5C00CF11BA /* StarbucksDoubleShot.swift in Sources */,
+				7DE2CABA21D3C316004EC966 /* BeverageFactory.swift in Sources */,
 				7DACE72B21C8DF6A00CF11BA /* ExtensionDate.swift in Sources */,
 				7DAE631021CC849B00F70F41 /* MentMaker.swift in Sources */,
 				7DAE631821CCCE7900F70F41 /* OutputView.swift in Sources */,
@@ -381,6 +394,7 @@
 				7DACE6F821C79EC800CF11BA /* Milk.swift in Sources */,
 				7DACE71221C8D15600CF11BA /* CocaCola.swift in Sources */,
 				7DAE630F21CC849B00F70F41 /* MentMaker.swift in Sources */,
+				7DE2CAB921D3C316004EC966 /* BeverageFactory.swift in Sources */,
 				7DAE631B21CE49BE00F70F41 /* BeverageInfo.swift in Sources */,
 				7DACE71421C8D42D00CF11BA /* CocaColaZero.swift in Sources */,
 				7DE2CAAB21D2103F004EC966 /* VendingMachineManagerFunction.swift in Sources */,
