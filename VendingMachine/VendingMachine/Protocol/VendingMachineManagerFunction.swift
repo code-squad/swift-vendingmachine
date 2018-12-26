@@ -12,4 +12,5 @@ protocol VendingMachineManagerFunction {
     func checkInventory() -> [String:Int]
     func expiredProducts() -> [Beverage]
     mutating func add(product: Beverage)
+    mutating func removeExpiredProducts()
 }

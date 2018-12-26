@@ -30,7 +30,7 @@ private func managerMode(vendingMachineOfManagerMode: VendingMachineManagerFunct
         let addableList = AddableBeverage.allCases
         let inputMent = MentMaker.makeManagerInputMent(addableList: addableList)
         let inputString = InputView.readInput(ment: inputMent)
-        if inputString == "3" {
+        if inputString == VendingMachineMode.back.rawValue {
             guard let vendingMachine = vendingMachine as? VendingMachine else {return nil}
             return vendingMachine
         }
@@ -41,6 +41,11 @@ private func managerMode(vendingMachineOfManagerMode: VendingMachineManagerFunct
             guard let product = input.readBeverage(addableList: addableList) else {return nil}
             vendingMachine.add(product: product)
         }
+        
+        if input.isModeEqual(2) {
+            vendingMachine.removeExpiredProducts()
+            OutputView.show(result: "유통기한이 지난 음료들을 제거하였습니다.\n")
+        }
     }
 }
 
@@ -50,7 +55,7 @@ private func userMode(vendingMachineOfUserMode: VendingMachineUserFunction) -> V
         let buyableList = vendingMachine.buyableProductList()
         let inputMent = MentMaker.makeUserInputMent(vendingMachineInfo: vendingMachine)
         let inputString = InputView.readInput(ment: inputMent)
-        if inputString == "3" {
+        if inputString == VendingMachineMode.back.rawValue {
             guard let vendingMachine = vendingMachine as? VendingMachine else {return nil}
             return vendingMachine
         }
