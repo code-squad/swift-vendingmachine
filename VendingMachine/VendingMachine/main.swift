@@ -28,10 +28,13 @@ private func managerMode(vendingMachineOfManagerMode: VendingMachineManagerFunct
     var vendingMachine = vendingMachineOfManagerMode
     while true {
         let addableList = AddableBeverage.allCases
-        print(MentMaker.makeManagerInputMent(addableList: addableList))
-        break
+        let inputMent = MentMaker.makeManagerInputMent(addableList: addableList)
+        let inputString = InputView.readInput(ment: inputMent)
+        if inputString == "3" {
+            guard let vendingMachine = vendingMachine as? VendingMachine else {return nil}
+            return vendingMachine
+        }
     }
-    return nil
 }
 
 private func userMode(vendingMachineOfUserMode: VendingMachineUserFunction) -> VendingMachine? {
@@ -44,7 +47,7 @@ private func userMode(vendingMachineOfUserMode: VendingMachineUserFunction) -> V
             guard let vendingMachine = vendingMachine as? VendingMachine else {return nil}
             return vendingMachine
         }
-        guard ValidChecker.checkInput(string: inputString, count: buyableList.count) else {return nil}
+        guard ValidChecker.checkUserInput(string: inputString, count: buyableList.count) else {return nil}
         let input = VendingMachineInput(input: inputString)
         
         if input.isModeEqual(1) {

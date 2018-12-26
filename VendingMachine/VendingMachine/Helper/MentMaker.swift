@@ -20,7 +20,7 @@ struct MentMaker {
             ment += "\(index + 1)) \(addableList[index].product)\n"
         }
         
-        ment += "1. 음료 재고 추가\n2. 유통기한이 지난 음료 제거\n"
+        ment += "1. 음료 재고 추가\n2. 유통기한이 지난 음료 제거\n3. 뒤로\n> "
         
         return ment
     }
@@ -34,7 +34,7 @@ struct MentMaker {
             ment += makeNoMoneyList(list: vendingMachineInfo.checkInventory())
         }
         
-        ment += "1. 금액추가\n2. 음료구매\n> "
+        ment += "1. 금액추가\n2. 음료구매\n3. 뒤로\n> "
         return ment
     }
     
