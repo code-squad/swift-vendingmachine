@@ -1,5 +1,5 @@
 //
-//  StarbucksDoubleShotFactory.swift
+//  TOPTheBlackFactory.swift
 //  VendingMachine
 //
 //  Created by 조재흥 on 18. 12. 26..
@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct StarbucksDoubleShotFactory: BeverageFactory {
+struct TOPTheBlackFactory: BeverageFactory {
     func produce() -> Beverage {
-        return StarbucksDoubleShot()
+        return TOPTheBlack()
     }
 }

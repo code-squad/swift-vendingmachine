@@ -67,6 +67,8 @@
 		7DE2CAC021D3C405004EC966 /* LactoseFreeMilkFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CABE21D3C405004EC966 /* LactoseFreeMilkFactory.swift */; };
 		7DE2CAC221D3C518004EC966 /* StarbucksDoubleShotFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CAC121D3C518004EC966 /* StarbucksDoubleShotFactory.swift */; };
 		7DE2CAC321D3C518004EC966 /* StarbucksDoubleShotFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CAC121D3C518004EC966 /* StarbucksDoubleShotFactory.swift */; };
+		7DE2CAC521D3C54C004EC966 /* TOPTheBlackFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CAC421D3C54C004EC966 /* TOPTheBlackFactory.swift */; };
+		7DE2CAC621D3C54C004EC966 /* TOPTheBlackFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2CAC421D3C54C004EC966 /* TOPTheBlackFactory.swift */; };
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -116,6 +118,7 @@
 		7DE2CABB21D3C393004EC966 /* MandarineMilkFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MandarineMilkFactory.swift; sourceTree = "<group>"; };
 		7DE2CABE21D3C405004EC966 /* LactoseFreeMilkFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LactoseFreeMilkFactory.swift; sourceTree = "<group>"; };
 		7DE2CAC121D3C518004EC966 /* StarbucksDoubleShotFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarbucksDoubleShotFactory.swift; sourceTree = "<group>"; };
+		7DE2CAC421D3C54C004EC966 /* TOPTheBlackFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOPTheBlackFactory.swift; sourceTree = "<group>"; };
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -223,6 +226,7 @@
 				7DE2CABB21D3C393004EC966 /* MandarineMilkFactory.swift */,
 				7DE2CABE21D3C405004EC966 /* LactoseFreeMilkFactory.swift */,
 				7DE2CAC121D3C518004EC966 /* StarbucksDoubleShotFactory.swift */,
+				7DE2CAC421D3C54C004EC966 /* TOPTheBlackFactory.swift */,
 			);
 			path = Factory;
 			sourceTree = "<group>";
@@ -378,6 +382,7 @@
 				7DAE631C21CE49BE00F70F41 /* BeverageInfo.swift in Sources */,
 				7DE2CAAF21D21149004EC966 /* VendingMachineUserFunction.swift in Sources */,
 				7DACE71C21C8DECE00CF11BA /* UnitTestBeverage.swift in Sources */,
+				7DE2CAC621D3C54C004EC966 /* TOPTheBlackFactory.swift in Sources */,
 				7DACE72721C8DF5F00CF11BA /* TOPTheBlack.swift in Sources */,
 				7DACE72421C8DF5500CF11BA /* LactoseFreeMilk.swift in Sources */,
 				7DAE631321CC866E00F70F41 /* VendingMachineInfo.swift in Sources */,
@@ -408,6 +413,7 @@
 				7DE2CAB521D3359B004EC966 /* AddableBeverage.swift in Sources */,
 				7DAE630A21CC806F00F70F41 /* ValidChecker.swift in Sources */,
 				7DE2CAAE21D21149004EC966 /* VendingMachineUserFunction.swift in Sources */,
+				7DE2CAC521D3C54C004EC966 /* TOPTheBlackFactory.swift in Sources */,
 				7DACE6F821C79EC800CF11BA /* Milk.swift in Sources */,
 				7DACE71221C8D15600CF11BA /* CocaCola.swift in Sources */,
 				7DAE630F21CC849B00F70F41 /* MentMaker.swift in Sources */,
