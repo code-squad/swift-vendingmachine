@@ -13,11 +13,11 @@ func main() {
     let startMent = MentMaker.makeStartMent()
     while true {
         let input = InputView.readInput(ment: startMent)
-        if VendingMachineMode.managerMode.rawValue == input {
+        if VendingMachineMode.managerMode.isEqual(input: input) {
             guard let returnedVendingMachine = managerMode(vendingMachineOfManagerMode: vendingMachine) else {return}
             vendingMachine = returnedVendingMachine
         }
-        if VendingMachineMode.userMode.rawValue == input {
+        if VendingMachineMode.userMode.isEqual(input: input) {
             guard let returnedVendingMachine = userMode(vendingMachineOfUserMode: vendingMachine) else {return}
             vendingMachine = returnedVendingMachine
         }
@@ -30,7 +30,7 @@ private func managerMode(vendingMachineOfManagerMode: VendingMachineManagerFunct
         let addableList = AddableBeverage.allCases
         let inputMent = MentMaker.makeManagerInputMent(addableList: addableList)
         let inputString = InputView.readInput(ment: inputMent)
-        if inputString == VendingMachineMode.back.rawValue {
+        if VendingMachineMode.back.isEqual(input: inputString) {
             guard let vendingMachine = vendingMachine as? VendingMachine else {return nil}
             return vendingMachine
         }
@@ -55,7 +55,7 @@ private func userMode(vendingMachineOfUserMode: VendingMachineUserFunction) -> V
         let buyableList = vendingMachine.buyableProductList()
         let inputMent = MentMaker.makeUserInputMent(vendingMachineInfo: vendingMachine)
         let inputString = InputView.readInput(ment: inputMent)
-        if inputString == VendingMachineMode.back.rawValue {
+        if VendingMachineMode.back.isEqual(input: inputString) {
             guard let vendingMachine = vendingMachine as? VendingMachine else {return nil}
             return vendingMachine
         }
