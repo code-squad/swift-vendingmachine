@@ -34,10 +34,10 @@ struct VendingMachineInput {
         return nil
     }
     
-    func readBeverage(addableList: [AddableBeverage]) -> Beverage? {
+    func readBeverage(addableList: [AddableBeverage]) -> AddableBeverage? {
         guard let value = self.value else {return nil}
         if value >= 1 {
-            return addableList[value - 1].product
+            return addableList[value - 1]
         }
         return nil
     }
