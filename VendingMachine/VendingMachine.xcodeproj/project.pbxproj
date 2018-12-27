@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
+		9D8BAD5821CCD5260041467D /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8BAD5721CCD5260041467D /* Beverage.swift */; };
+		9D8BAD5A21CCD9DF0041467D /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8BAD5921CCD9DF0041467D /* Milk.swift */; };
+		9D8BAD5C21CCDA060041467D /* CarbonatedDrink .swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8BAD5B21CCDA060041467D /* CarbonatedDrink .swift */; };
+		9D8BAD5E21CCDA100041467D /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8BAD5D21CCDA100041467D /* Coffee.swift */; };
+		9D8BAD6021D4B4B90041467D /* ChocoMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8BAD5F21D4B4B90041467D /* ChocoMilk.swift */; };
+		9D8BAD6221D4B4C80041467D /* Cider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8BAD6121D4B4C80041467D /* Cider.swift */; };
+		9D8BAD6421D4B4DB0041467D /* Cantata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8BAD6321D4B4DB0041467D /* Cantata.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +32,13 @@
 /* Begin PBXFileReference section */
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		9D8BAD5721CCD5260041467D /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
+		9D8BAD5921CCD9DF0041467D /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
+		9D8BAD5B21CCDA060041467D /* CarbonatedDrink .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CarbonatedDrink .swift"; sourceTree = "<group>"; };
+		9D8BAD5D21CCDA100041467D /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
+		9D8BAD5F21D4B4B90041467D /* ChocoMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocoMilk.swift; sourceTree = "<group>"; };
+		9D8BAD6121D4B4C80041467D /* Cider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cider.swift; sourceTree = "<group>"; };
+		9D8BAD6321D4B4DB0041467D /* Cantata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cantata.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +72,13 @@
 			isa = PBXGroup;
 			children = (
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
+				9D8BAD5721CCD5260041467D /* Beverage.swift */,
+				9D8BAD5921CCD9DF0041467D /* Milk.swift */,
+				9D8BAD5B21CCDA060041467D /* CarbonatedDrink .swift */,
+				9D8BAD5D21CCDA100041467D /* Coffee.swift */,
+				9D8BAD5F21D4B4B90041467D /* ChocoMilk.swift */,
+				9D8BAD6121D4B4C80041467D /* Cider.swift */,
+				9D8BAD6321D4B4DB0041467D /* Cantata.swift */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";
@@ -120,7 +141,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D8BAD5C21CCDA060041467D /* CarbonatedDrink .swift in Sources */,
+				9D8BAD5821CCD5260041467D /* Beverage.swift in Sources */,
+				9D8BAD5A21CCD9DF0041467D /* Milk.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
+				9D8BAD6421D4B4DB0041467D /* Cantata.swift in Sources */,
+				9D8BAD6021D4B4B90041467D /* ChocoMilk.swift in Sources */,
+				9D8BAD5E21CCDA100041467D /* Coffee.swift in Sources */,
+				9D8BAD6221D4B4C80041467D /* Cider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
