@@ -21,12 +21,12 @@ struct VendingMachineUserMode {
             }
             guard ValidChecker.checkUserInput(string: inputString, count: buyableList.count) else {return nil}
             let input = VendingMachineInput(input: inputString)
-            
+
             if input.isModeEqual(1) {
                 guard let money = input.readMoney() else {return nil}
                 vendingMachine.insert(money: money)
             }
-            
+
             if input.isModeEqual(2) {
                 let productKeys = Array(buyableList.keys)
                 guard let productKey = input.readKey(keys: productKeys) else {return nil}

@@ -12,7 +12,7 @@ enum VendingMachineMode: String {
     case manager = "1"
     case user = "2"
     case back = "3"
-    
+
     func isEqual(input: String) -> Bool {
         return input == self.rawValue
     }

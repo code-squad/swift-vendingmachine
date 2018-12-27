@@ -9,10 +9,9 @@
 import Foundation
 
 class Coffee: Beverage, VariousTemperatures {
-
     let hasMilk: Bool
-    let isHot: Bool 
-    
+    let isHot: Bool
+
     init(hasMilk: Bool, isHot: Bool, brand: String, size: Int, price: Int, name: String, expiryDate: Int) {
         self.hasMilk = hasMilk
         self.isHot = isHot

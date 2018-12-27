@@ -19,15 +19,16 @@ struct VendingMachineManagerMode {
                 guard let vendingMachine = vendingMachine as? VendingMachine else {return nil}
                 return vendingMachine
             }
-            guard ValidChecker.checkManagerInput(string: inputString, countOfBeverage: addableList.count) else {return nil}
+            guard ValidChecker.checkManagerInput(string: inputString, countOfBeverage: addableList.count)
+                else {return nil}
             let input = VendingMachineInput(input: inputString)
-            
+
             if input.isModeEqual(1) {
                 guard let addableProduct = input.readBeverage(addableList: addableList) else {return nil}
                 let product = BeverageFactory.produce(addableBeverage: addableProduct)
                 vendingMachine.add(product: product)
             }
-            
+
             if input.isModeEqual(2) {
                 vendingMachine.removeExpiredProducts()
                 OutputView.show(result: "유통기한이 지난 음료들을 제거하였습니다.\n")
