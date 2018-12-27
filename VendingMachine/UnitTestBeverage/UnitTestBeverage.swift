@@ -17,12 +17,12 @@ class UnitTestBeverage: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-    
+
     func testMandarineMilk() {
         let mandarineMilk = MandarineMilk()
         XCTAssertEqual(mandarineMilk.hasLactose(), true)
     }
-    
+
     func testtLacotseFreeMilk() {
         let lactoseFreeMilk = LactoseFreeMilk()
         XCTAssertEqual(lactoseFreeMilk.hasLactose(), false)
@@ -33,18 +33,18 @@ class UnitTestBeverage: XCTestCase {
         XCTAssertEqual(starbucksDS.isHot, true)
         XCTAssertEqual(starbucksDS.hasMilk, true)
     }
-    
+
     func testTOPTheBlack() {
         let topTheBlack = TOPTheBlack()
         XCTAssertEqual(topTheBlack.hasMilk, false)
         XCTAssertEqual(topTheBlack.isHot, false)
     }
-    
+
     func testCocaCola() {
         let cocaCola = CocaCola()
         XCTAssertEqual(cocaCola.isLowCalorie(), false)
     }
-    
+
     func testCocaColaZero() {
         let cocaColaZero = CocaColaZero()
         XCTAssertEqual(cocaColaZero.isLowCalorie(), true)

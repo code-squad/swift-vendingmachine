@@ -10,30 +10,30 @@ import XCTest
 
 class UnitTestVendingMachine: XCTestCase {
 
-    var VM: VendingMachine!
-    
+    var vendingMachine: VendingMachine!
+
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        
-        VM = VendingMachine()
-        
+
+        vendingMachine = VendingMachine()
+
         let mandarineMilk = MandarineMilk()
         let lactoseFreeMilk = LactoseFreeMilk()
         let starbucksDoubleShot = StarbucksDoubleShot()
         let topTheBlack = TOPTheBlack()
         let cocaCola = CocaCola()
         let cocaColaZero = CocaColaZero()
-        
-        VM.add(product: mandarineMilk)
-        VM.add(product: lactoseFreeMilk)
-        VM.add(product: lactoseFreeMilk)
-        VM.add(product: cocaCola)
-        VM.add(product: cocaCola)
-        VM.add(product: cocaCola)
-        VM.add(product: starbucksDoubleShot)
-        VM.add(product: starbucksDoubleShot)
-        VM.add(product: topTheBlack)
-        VM.add(product: cocaColaZero)
+
+        vendingMachine.add(product: mandarineMilk)
+        vendingMachine.add(product: lactoseFreeMilk)
+        vendingMachine.add(product: lactoseFreeMilk)
+        vendingMachine.add(product: cocaCola)
+        vendingMachine.add(product: cocaCola)
+        vendingMachine.add(product: cocaCola)
+        vendingMachine.add(product: starbucksDoubleShot)
+        vendingMachine.add(product: starbucksDoubleShot)
+        vendingMachine.add(product: topTheBlack)
+        vendingMachine.add(product: cocaColaZero)
     }
 
     override func tearDown() {
@@ -41,103 +41,103 @@ class UnitTestVendingMachine: XCTestCase {
     }
 
     func testBuyableProducts1100() {
-        VM.insert(money: 1100)
-        XCTAssertEqual(VM.buyableProductList().count, 1)
+        vendingMachine.insert(money: 1100)
+        XCTAssertEqual(vendingMachine.buyableProductList().count, 1)
     }
-    
+
     func testBuyableProducts1200() {
-        VM.insert(money: 1200)
-        XCTAssertEqual(VM.buyableProductList().count, 2)
+        vendingMachine.insert(money: 1200)
+        XCTAssertEqual(vendingMachine.buyableProductList().count, 2)
     }
-    
+
     func testBuyableProducts1400() {
-        VM.insert(money: 1400)
-        XCTAssertEqual(VM.buyableProductList().count, 5)
+        vendingMachine.insert(money: 1400)
+        XCTAssertEqual(vendingMachine.buyableProductList().count, 5)
     }
 
     func testBuyCocaCola() {
-        XCTAssertTrue(VM.buy(productName: "CocaCola") is CocaCola)
+        XCTAssertTrue(vendingMachine.buy(productName: "CocaCola") is CocaCola)
     }
-    
+
     func testBuyMandarineMilk() {
-        XCTAssertTrue(VM.buy(productName: "MandarineMilk") is MandarineMilk)
+        XCTAssertTrue(vendingMachine.buy(productName: "MandarineMilk") is MandarineMilk)
     }
-    
+
     func testCheckBalance1100() {
-        VM.insert(money: 1100)
-        XCTAssertEqual(VM.checkBalance(), "1,100")
+        vendingMachine.insert(money: 1100)
+        XCTAssertEqual(vendingMachine.checkBalance(), "1,100")
     }
-    
+
     func testCheckBalance2000() {
-        VM.insert(money: 2000)
-        XCTAssertEqual(VM.checkBalance(), "2,000")
+        vendingMachine.insert(money: 2000)
+        XCTAssertEqual(vendingMachine.checkBalance(), "2,000")
     }
-    
+
     func testCheckInventory() {
-        XCTAssertEqual(VM.checkInventory(), ["귤맛우유": 1,
+        XCTAssertEqual(vendingMachine.checkInventory(), ["귤맛우유": 1,
                                              "소화가잘되는우유": 2,
                                              "스타벅스더블샷에스프레소&크림": 2,
                                              "맥심티오피더블랙": 1,
                                              "코카콜라": 3,
                                              "코카콜라제로": 1])
     }
-    
+
     func testCheckAddedInventory() {
         let cocaCola = CocaCola()
         let starbucksDoubleShot = StarbucksDoubleShot()
-        
-        VM.add(product: cocaCola)
-        VM.add(product: cocaCola)
-        VM.add(product: cocaCola)
-        VM.add(product: starbucksDoubleShot)
-        VM.add(product: starbucksDoubleShot)
-        
-        XCTAssertEqual(VM.checkInventory(), ["귤맛우유": 1,
+
+        vendingMachine.add(product: cocaCola)
+        vendingMachine.add(product: cocaCola)
+        vendingMachine.add(product: cocaCola)
+        vendingMachine.add(product: starbucksDoubleShot)
+        vendingMachine.add(product: starbucksDoubleShot)
+
+        XCTAssertEqual(vendingMachine.checkInventory(), ["귤맛우유": 1,
                                              "소화가잘되는우유": 2,
                                              "스타벅스더블샷에스프레소&크림": 4,
                                              "맥심티오피더블랙": 1,
                                              "코카콜라": 6,
                                              "코카콜라제로": 1])
     }
-    
+
     func testHotProducts() {
-        XCTAssertEqual(VM.hotProducts().count, 1)
+        XCTAssertEqual(vendingMachine.hotProducts().count, 1)
     }
-    
+
     func testHotBoughtProducts() {
-        let _ = VM.buy(productName: "StarbucksDoubleShot")
-        let _ = VM.buy(productName: "StarbucksDoubleShot")
-        XCTAssertEqual(VM.hotProducts().count, 0)
+        _ = vendingMachine.buy(productName: "StarbucksDoubleShot")
+        _ = vendingMachine.buy(productName: "StarbucksDoubleShot")
+        XCTAssertEqual(vendingMachine.hotProducts().count, 0)
     }
-    
+
     func testCombineScenario() {
-        VM.insert(money: 10000)
-        let _ = VM.buy(productName: "CocaCola")
-        let _ = VM.buy(productName: "CocaCola")
-        let _ = VM.buy(productName: "CocaCola")
-        let _ = VM.buy(productName: "StarbucksDoubleShot")
-        let _ = VM.buy(productName: "StarbucksDoubleShot")
-        let _ = VM.buy(productName: "CocaCola")
-        
-        XCTAssertEqual(VM.checkBalance(), "3,300")
-        XCTAssertEqual(VM.buyableProductList().count, 4)
-        
-        VM.insert(money: 1700)
-        XCTAssertEqual(VM.checkBalance(), "5,000")
-        
-        VM.add(product: CocaCola())
-        VM.add(product: CocaCola())
-        VM.add(product: CocaCola())
-        VM.add(product: StarbucksDoubleShot())
-        XCTAssertEqual(VM.buyableProductList().count, VM.checkInventory().count)
-        
-        let _ = VM.buy(productName: "CocaCola")
-        let _ = VM.buy(productName: "CocaCola")
-        let _ = VM.buy(productName: "CocaCola")
-        XCTAssertEqual(VM.checkBalance(), "1,100")
-        XCTAssertEqual(VM.buyableProductList().count, 1)
+        vendingMachine.insert(money: 10000)
+        _ = vendingMachine.buy(productName: "CocaCola")
+        _ = vendingMachine.buy(productName: "CocaCola")
+        _ = vendingMachine.buy(productName: "CocaCola")
+        _ = vendingMachine.buy(productName: "StarbucksDoubleShot")
+        _ = vendingMachine.buy(productName: "StarbucksDoubleShot")
+        _ = vendingMachine.buy(productName: "CocaCola")
+
+        XCTAssertEqual(vendingMachine.checkBalance(), "3,300")
+        XCTAssertEqual(vendingMachine.buyableProductList().count, 4)
+
+        vendingMachine.insert(money: 1700)
+        XCTAssertEqual(vendingMachine.checkBalance(), "5,000")
+
+        vendingMachine.add(product: CocaCola())
+        vendingMachine.add(product: CocaCola())
+        vendingMachine.add(product: CocaCola())
+        vendingMachine.add(product: StarbucksDoubleShot())
+        XCTAssertEqual(vendingMachine.buyableProductList().count, vendingMachine.checkInventory().count)
+
+        _ = vendingMachine.buy(productName: "CocaCola")
+        _ = vendingMachine.buy(productName: "CocaCola")
+        _ = vendingMachine.buy(productName: "CocaCola")
+        XCTAssertEqual(vendingMachine.checkBalance(), "1,100")
+        XCTAssertEqual(vendingMachine.buyableProductList().count, 1)
     }
-    
+
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {

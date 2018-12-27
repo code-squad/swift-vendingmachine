@@ -12,14 +12,14 @@ struct BeverageInfo {
     private let name: String
     private let price: Int
     private let beverageCount: Int
-    
+
     init(name: String, price: Int, beverageCount: Int) {
         self.name = name
         self.price = price
         self.beverageCount = beverageCount
     }
-    
-    func info(read:(String, Int, Int) -> String) -> String {
+
+    func info(read: (String, Int, Int) -> String) -> String {
         return read(self.name, self.price, self.beverageCount)
     }
 }

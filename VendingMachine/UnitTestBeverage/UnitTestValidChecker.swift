@@ -21,7 +21,7 @@ class UnitTestValidChecker: XCTestCase {
     func testCheckInputOfInsertMoneyTrue() {
         XCTAssertTrue(ValidChecker.checkUserInput(string: "1 1000000", count: 5))
     }
-    
+
     func testCheckInputOfInsertMoneyFalse() {
         XCTAssertFalse(ValidChecker.checkUserInput(string: "11000000", count: 5))
     }

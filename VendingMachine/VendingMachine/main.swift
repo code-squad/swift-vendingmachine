@@ -24,28 +24,27 @@ func main() {
 }
 
 private func initializeVendingMachine() -> VendingMachine {
-    var VM = VendingMachine()
-    
+    var vendingMachine = VendingMachine()
+
     let mandarineMilk = MandarineMilk()
     let lactoseFreeMilk = LactoseFreeMilk()
     let starbucksDoubleShot = StarbucksDoubleShot()
     let topTheBlack = TOPTheBlack()
     let cocaCola = CocaCola()
     let cocaColaZero = CocaColaZero()
-    
-    VM.add(product: mandarineMilk)
-    VM.add(product: lactoseFreeMilk)
-    VM.add(product: lactoseFreeMilk)
-    VM.add(product: cocaCola)
-    VM.add(product: cocaCola)
-    VM.add(product: cocaCola)
-    VM.add(product: starbucksDoubleShot)
-    VM.add(product: starbucksDoubleShot)
-    VM.add(product: topTheBlack)
-    VM.add(product: cocaColaZero)
-    
-    return VM
+
+    vendingMachine.add(product: mandarineMilk)
+    vendingMachine.add(product: lactoseFreeMilk)
+    vendingMachine.add(product: lactoseFreeMilk)
+    vendingMachine.add(product: cocaCola)
+    vendingMachine.add(product: cocaCola)
+    vendingMachine.add(product: cocaCola)
+    vendingMachine.add(product: starbucksDoubleShot)
+    vendingMachine.add(product: starbucksDoubleShot)
+    vendingMachine.add(product: topTheBlack)
+    vendingMachine.add(product: cocaColaZero)
+
+    return vendingMachine
 }
 
 main()
-
