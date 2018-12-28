@@ -23,4 +23,8 @@ class Fanta: CarbonatedDrink {
     func whatIsFlavor() -> FantaFlavor {
          return fantaFlavor
     }
+    
+    override func convertSelfString() -> String {
+        return "Fanta"
+    }
 }
