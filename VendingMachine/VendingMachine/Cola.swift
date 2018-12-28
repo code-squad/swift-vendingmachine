@@ -16,4 +16,7 @@ class Cola: CarbonatedDrink {
         super.init(name: name, volume: volume, price: price, brand: brand, date: date, isZeroCalorie: isZeroCalorie)
     }
     
+    func howMuchSugarAmount() -> Double {
+        return sugarAmount
+    }
 }
