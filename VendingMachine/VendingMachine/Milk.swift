@@ -16,4 +16,8 @@ class Milk: Beverage {
         self.isHighFat = fat
         super.init(name: name, volume: volume, price: price, brand: brand, date: date)
     }
+    
+    func isHighFatMilk() -> Bool {
+        return isHighFat
+    }
 }
