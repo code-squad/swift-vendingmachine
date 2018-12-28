@@ -9,5 +9,11 @@
 import Foundation
 
 class Cola: CarbonatedDrink {
+    var sugarAmount: Double
+    
+    init(name: String, volume: Int, price: Int, brand: String, date: String, isZeroCalorie: Bool, sugarAmount: Double) {
+        self.sugarAmount = sugarAmount
+        super.init(name: name, volume: volume, price: price, brand: brand, date: date, isZeroCalorie: isZeroCalorie)
+    }
     
 }
