@@ -13,6 +13,13 @@
 		9D8BAD5C21CCDA060041467D /* CarbonatedDrink .swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8BAD5B21CCDA060041467D /* CarbonatedDrink .swift */; };
 		9D8BAD5E21CCDA100041467D /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8BAD5D21CCDA100041467D /* Coffee.swift */; };
 		9D8BAD6621D5E38C0041467D /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8BAD6521D5E38C0041467D /* DateFormat.swift */; };
+		9D8BAD7921D5FE290041467D /* UnitTestHierarchyDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8BAD7821D5FE290041467D /* UnitTestHierarchyDrink.swift */; };
+		9D8BAD7F21D5FE9F0041467D /* BananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8BAD7E21D5FE9F0041467D /* BananaMilk.swift */; };
+		9D8BAD8121D5FEB10041467D /* ChocoMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8BAD8021D5FEB10041467D /* ChocoMilk.swift */; };
+		9D8BAD8321D5FEC40041467D /* Cola.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8BAD8221D5FEC40041467D /* Cola.swift */; };
+		9D8BAD8521D5FECB0041467D /* Cider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8BAD8421D5FECB0041467D /* Cider.swift */; };
+		9D8BAD8721D5FED40041467D /* Cantata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8BAD8621D5FED40041467D /* Cantata.swift */; };
+		9D8BAD8921D5FEDB0041467D /* TOP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8BAD8821D5FEDB0041467D /* TOP.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,10 +42,26 @@
 		9D8BAD5B21CCDA060041467D /* CarbonatedDrink .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CarbonatedDrink .swift"; sourceTree = "<group>"; };
 		9D8BAD5D21CCDA100041467D /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		9D8BAD6521D5E38C0041467D /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
+		9D8BAD7621D5FE290041467D /* TestHierarchyDrink.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestHierarchyDrink.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D8BAD7821D5FE290041467D /* UnitTestHierarchyDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestHierarchyDrink.swift; sourceTree = "<group>"; };
+		9D8BAD7A21D5FE290041467D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9D8BAD7E21D5FE9F0041467D /* BananaMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaMilk.swift; sourceTree = "<group>"; };
+		9D8BAD8021D5FEB10041467D /* ChocoMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocoMilk.swift; sourceTree = "<group>"; };
+		9D8BAD8221D5FEC40041467D /* Cola.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cola.swift; sourceTree = "<group>"; };
+		9D8BAD8421D5FECB0041467D /* Cider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cider.swift; sourceTree = "<group>"; };
+		9D8BAD8621D5FED40041467D /* Cantata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cantata.swift; sourceTree = "<group>"; };
+		9D8BAD8821D5FEDB0041467D /* TOP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOP.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		839DA9061F8D1F95009E05F3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9D8BAD7321D5FE290041467D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -52,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				839DA90B1F8D1F95009E05F3 /* VendingMachine */,
+				9D8BAD7721D5FE290041467D /* TestHierarchyDrink */,
 				839DA90A1F8D1F95009E05F3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -60,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				839DA9091F8D1F95009E05F3 /* VendingMachine */,
+				9D8BAD7621D5FE290041467D /* TestHierarchyDrink.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -73,8 +98,23 @@
 				9D8BAD5921CCD9DF0041467D /* Milk.swift */,
 				9D8BAD5B21CCDA060041467D /* CarbonatedDrink .swift */,
 				9D8BAD5D21CCDA100041467D /* Coffee.swift */,
+				9D8BAD7E21D5FE9F0041467D /* BananaMilk.swift */,
+				9D8BAD8021D5FEB10041467D /* ChocoMilk.swift */,
+				9D8BAD8221D5FEC40041467D /* Cola.swift */,
+				9D8BAD8421D5FECB0041467D /* Cider.swift */,
+				9D8BAD8621D5FED40041467D /* Cantata.swift */,
+				9D8BAD8821D5FEDB0041467D /* TOP.swift */,
 			);
 			path = VendingMachine;
+			sourceTree = "<group>";
+		};
+		9D8BAD7721D5FE290041467D /* TestHierarchyDrink */ = {
+			isa = PBXGroup;
+			children = (
+				9D8BAD7821D5FE290041467D /* UnitTestHierarchyDrink.swift */,
+				9D8BAD7A21D5FE290041467D /* Info.plist */,
+			);
+			path = TestHierarchyDrink;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -97,18 +137,39 @@
 			productReference = 839DA9091F8D1F95009E05F3 /* VendingMachine */;
 			productType = "com.apple.product-type.tool";
 		};
+		9D8BAD7521D5FE290041467D /* TestHierarchyDrink */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9D8BAD7D21D5FE290041467D /* Build configuration list for PBXNativeTarget "TestHierarchyDrink" */;
+			buildPhases = (
+				9D8BAD7221D5FE290041467D /* Sources */,
+				9D8BAD7321D5FE290041467D /* Frameworks */,
+				9D8BAD7421D5FE290041467D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TestHierarchyDrink;
+			productName = TestHierarchyDrink;
+			productReference = 9D8BAD7621D5FE290041467D /* TestHierarchyDrink.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		839DA9011F8D1F95009E05F3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0900;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = JK;
 				TargetAttributes = {
 					839DA9081F8D1F95009E05F3 = {
 						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+					9D8BAD7521D5FE290041467D = {
+						CreatedOnToolsVersion = 10.1;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -126,21 +187,46 @@
 			projectRoot = "";
 			targets = (
 				839DA9081F8D1F95009E05F3 /* VendingMachine */,
+				9D8BAD7521D5FE290041467D /* TestHierarchyDrink */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9D8BAD7421D5FE290041467D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		839DA9051F8D1F95009E05F3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D8BAD8321D5FEC40041467D /* Cola.swift in Sources */,
+				9D8BAD7F21D5FE9F0041467D /* BananaMilk.swift in Sources */,
 				9D8BAD5C21CCDA060041467D /* CarbonatedDrink .swift in Sources */,
 				9D8BAD5821CCD5260041467D /* Beverage.swift in Sources */,
+				9D8BAD8121D5FEB10041467D /* ChocoMilk.swift in Sources */,
+				9D8BAD8521D5FECB0041467D /* Cider.swift in Sources */,
 				9D8BAD5A21CCD9DF0041467D /* Milk.swift in Sources */,
+				9D8BAD8921D5FEDB0041467D /* TOP.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
 				9D8BAD5E21CCDA100041467D /* Coffee.swift in Sources */,
 				9D8BAD6621D5E38C0041467D /* DateFormat.swift in Sources */,
+				9D8BAD8721D5FED40041467D /* Cantata.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9D8BAD7221D5FE290041467D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D8BAD7921D5FE290041467D /* UnitTestHierarchyDrink.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +357,43 @@
 			};
 			name = Release;
 		};
+		9D8BAD7B21D5FE290041467D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = TestHierarchyDrink/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "-01421036.TestHierarchyDrink";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		9D8BAD7C21D5FE290041467D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = TestHierarchyDrink/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "-01421036.TestHierarchyDrink";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -288,6 +411,15 @@
 			buildConfigurations = (
 				839DA9111F8D1F95009E05F3 /* Debug */,
 				839DA9121F8D1F95009E05F3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9D8BAD7D21D5FE290041467D /* Build configuration list for PBXNativeTarget "TestHierarchyDrink" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9D8BAD7B21D5FE290041467D /* Debug */,
+				9D8BAD7C21D5FE290041467D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
