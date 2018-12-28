@@ -11,12 +11,11 @@ import Foundation
 
 func main() {
     var drinks: [Beverage] = []
-//    drinks.append(Milk(name: "서울우유", volume: 200, price: 1000, brand: "낢마다초코우유", date: "20170610", milkKind: .choco))
-//    drinks.append(Milk(name: "서울우유", volume: 200, price: 1000, brand: "낢마다초코우유", date: "20171012", milkKind: .banana))
-//    drinks.append(CarbonatedDrink(name: "칠성사이다", volume: 350, price: 2000, brand: "다이어트사이다", date: "20171005", drinkKind: .cider))
-//    drinks.append(Coffee(name: "맥심", volume: 350, price: 3000, brand: "Cantata마끼아또", date: "20171010", coffeeKind: .cantata))
     
     drinks.append(ChocoMilk(name: "서울우유", volume: 200, price: 1000, brand: "날마다초코우유", date: "20170610", fat: true, cocoaAmount: 1.1))
+    drinks.append(BananaMilk(name: "서울우유", volume: 200, price: 1500, brand: "날마다바나나우유", date: "20170615", fat: true, bananaAmount: 1.3))
+    drinks.append(Cola(name: "펩시", volume: 300, price: 1000, brand: "다이어트콜라", date: "20191111", isZeroCalorie: false, sugarAmount: 0.7))
+    drinks.append(TOP(name: "맥심", volume: 350, price: 3500, brand: "TOP아메리카노", date: "20181226", caffeineAmount: 1.5, topKind: .sweetAmericano))
 
     for drink in drinks {
         print(drink)
