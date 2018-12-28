@@ -33,6 +33,7 @@
 		9D8BAD9821D629B50041467D /* Cantata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8BAD8621D5FED40041467D /* Cantata.swift */; };
 		9D8BAD9921D629B70041467D /* TOP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8BAD8821D5FEDB0041467D /* TOP.swift */; };
 		9D8BAD9B21D638CE0041467D /* UnitTestMilkInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8BAD9A21D638CE0041467D /* UnitTestMilkInterface.swift */; };
+		9D8BAD9D21D63D9D0041467D /* UnitTestCoffeeInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8BAD9C21D63D9D0041467D /* UnitTestCoffeeInterface.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -65,6 +66,7 @@
 		9D8BAD8621D5FED40041467D /* Cantata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cantata.swift; sourceTree = "<group>"; };
 		9D8BAD8821D5FEDB0041467D /* TOP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOP.swift; sourceTree = "<group>"; };
 		9D8BAD9A21D638CE0041467D /* UnitTestMilkInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestMilkInterface.swift; sourceTree = "<group>"; };
+		9D8BAD9C21D63D9D0041467D /* UnitTestCoffeeInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestCoffeeInterface.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 				9D8BAD7821D5FE290041467D /* UnitTestCarbonatedInterface.swift */,
 				9D8BAD7A21D5FE290041467D /* Info.plist */,
 				9D8BAD9A21D638CE0041467D /* UnitTestMilkInterface.swift */,
+				9D8BAD9C21D63D9D0041467D /* UnitTestCoffeeInterface.swift */,
 			);
 			path = TestHierarchyDrink;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				9D8BAD9521D629AD0041467D /* Cola.swift in Sources */,
 				9D8BAD9221D629A60041467D /* CarbonatedDrink .swift in Sources */,
 				9D8BAD9421D629AB0041467D /* BananaMilk.swift in Sources */,
+				9D8BAD9D21D63D9D0041467D /* UnitTestCoffeeInterface.swift in Sources */,
 				9D8BAD8E21D6299B0041467D /* main.swift in Sources */,
 				9D8BAD9B21D638CE0041467D /* UnitTestMilkInterface.swift in Sources */,
 				9D8BAD9721D629B30041467D /* Fanta.swift in Sources */,
