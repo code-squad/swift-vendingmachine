@@ -8,6 +8,13 @@
 
 import Foundation
 
-class ChocoMilk {
+class ChocoMilk: Milk {
+    var cocoaPowderAmount: Double
+    
+    init(name: String, volume: Int, price: Int, brand: String, date: String, fat: Bool, cocoaAmount: Double) {
+        self.cocoaPowderAmount = cocoaAmount
+        super.init(name: name, volume: volume, price: price, brand: brand, date: date, fat: fat)
+    }
+    
     
 }
