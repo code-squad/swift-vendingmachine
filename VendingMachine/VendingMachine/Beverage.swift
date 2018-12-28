@@ -22,15 +22,11 @@ class Beverage {
         self.price = price
         self.menufactureOfDate = DateFormat.convertDate(date)
     }
-    
-    func convertSelfString() -> String {
-        return "Beverage"
-    }
 }
 
 extension Beverage: CustomStringConvertible {
     var description: String {
         let datePrint = DateFormat.set().string(from: self.menufactureOfDate)
-        return "\(self.convertSelfString()) - \(name), \(volume)ml, \(price)원, \(brand), \(datePrint)"
+        return "\(type(of: self)) - \(name), \(volume)ml, \(price)원, \(brand), \(datePrint)"
     }
 }

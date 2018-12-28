@@ -25,8 +25,4 @@ class Cantata: Coffee {
     func whiatIsPackingMaterial() -> PackingMaterial {
         return packingMaterial
     }
-    
-    override func convertSelfString() -> String {
-        return "Cantata"
-    }
 }
