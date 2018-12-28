@@ -8,6 +8,17 @@
 
 import Foundation
 
+enum CarbonatedDrinkKind {
+    case cola
+    case cider
+    case fanta
+}
+
 class CarbonatedDrink: Beverage {
+    var kind: CarbonatedDrinkKind
     
+    init(name: String, volume: Int, price: Int, brand: String, date: String, drinkKind: CarbonatedDrinkKind) {
+        self.kind = drinkKind
+        super.init(name: name, volume: volume, price: price, brand: brand, date: date)
+    }
 }
