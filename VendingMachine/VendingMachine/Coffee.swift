@@ -15,4 +15,8 @@ class Coffee: Beverage {
         self.caffeineAmount = caffeineAmount
         super.init(name: name, volume: volume, price: price, brand: brand, date: date)
     }
+    
+    func howMuchCaffeineAmount() -> Double {
+        return caffeineAmount
+    }
 }

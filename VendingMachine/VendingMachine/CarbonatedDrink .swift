@@ -15,4 +15,8 @@ class CarbonatedDrink: Beverage {
         self.isZeroCalorie = isZeroCalorie
         super.init(name: name, volume: volume, price: price, brand: brand, date: date)
     }
+    
+    func isZeroCalorieDrink() -> Bool {
+        return isZeroCalorie
+    }
 }
