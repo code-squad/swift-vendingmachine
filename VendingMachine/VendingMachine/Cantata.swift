@@ -21,4 +21,8 @@ class Cantata: Coffee {
         self.packingMaterial = material
         super.init(name: name, volume: volume, price: price, brand: brand, date: date, caffeineAmount: caffeineAmount)
     }
+    
+    func whiatIsPackingMaterial() -> PackingMaterial {
+        return packingMaterial
+    }
 }

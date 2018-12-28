@@ -21,4 +21,8 @@ class TOP: Coffee {
         self.topKind = topKind
         super.init(name: name, volume: volume, price: price, brand: brand, date: date, caffeineAmount: caffeineAmount)
     }
+    
+    func whatIsKindOfTOP() -> TOPKind {
+        return topKind
+    }
 }
