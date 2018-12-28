@@ -19,4 +19,8 @@ class Fanta: CarbonatedDrink {
         self.fantaFlavor = fantaFlavor
         super.init(name: name, volume: volume, price: price, brand: brand, date: date, isZeroCalorie: isZeroCalorie)
     }
+    
+    func whatIsFlavor() -> FantaFlavor {
+         return fantaFlavor
+    }
 }
