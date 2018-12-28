@@ -20,20 +20,13 @@ class Beverage {
         self.brand = brand
         self.volume = volume
         self.price = price
-        
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "ko_kr")
-        formatter.dateFormat = "yyyyMMdd"
-        let time = formatter.date(from: date)
-        self.menufactureOfDate = time ?? Date()
+        self.menufactureOfDate = DateFormat.convertDate(date)
     }
 }
 
 extension Beverage: CustomStringConvertible {
     var description: String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyyMMdd"
-        let datePrint = formatter.string(from: self.menufactureOfDate)
+        let datePrint = DateFormat.set().string(from: self.menufactureOfDate)
         return "\(name), \(volume)ml, \(price)원, \(brand), \(datePrint)"
     }
 }
