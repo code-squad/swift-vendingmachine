@@ -15,4 +15,8 @@ class BananaMilk: Milk {
         self.bananaJuiceAmount = bananaAmount
         super.init(name: name, volume: volume, price: price, brand: brand, date: date, fat: fat)
     }
+    
+    func howMuchJuiceAmount() -> Double {
+        return bananaJuiceAmount
+    }
 }
