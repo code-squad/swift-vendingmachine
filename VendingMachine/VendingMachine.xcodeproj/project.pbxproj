@@ -17,7 +17,7 @@
 		9D8BAD7F21D5FE9F0041467D /* BananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8BAD7E21D5FE9F0041467D /* BananaMilk.swift */; };
 		9D8BAD8121D5FEB10041467D /* ChocoMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8BAD8021D5FEB10041467D /* ChocoMilk.swift */; };
 		9D8BAD8321D5FEC40041467D /* Cola.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8BAD8221D5FEC40041467D /* Cola.swift */; };
-		9D8BAD8521D5FECB0041467D /* Cider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8BAD8421D5FECB0041467D /* Cider.swift */; };
+		9D8BAD8521D5FECB0041467D /* Fanta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8BAD8421D5FECB0041467D /* Fanta.swift */; };
 		9D8BAD8721D5FED40041467D /* Cantata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8BAD8621D5FED40041467D /* Cantata.swift */; };
 		9D8BAD8921D5FEDB0041467D /* TOP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8BAD8821D5FEDB0041467D /* TOP.swift */; };
 /* End PBXBuildFile section */
@@ -48,7 +48,7 @@
 		9D8BAD7E21D5FE9F0041467D /* BananaMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaMilk.swift; sourceTree = "<group>"; };
 		9D8BAD8021D5FEB10041467D /* ChocoMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocoMilk.swift; sourceTree = "<group>"; };
 		9D8BAD8221D5FEC40041467D /* Cola.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cola.swift; sourceTree = "<group>"; };
-		9D8BAD8421D5FECB0041467D /* Cider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cider.swift; sourceTree = "<group>"; };
+		9D8BAD8421D5FECB0041467D /* Fanta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fanta.swift; sourceTree = "<group>"; };
 		9D8BAD8621D5FED40041467D /* Cantata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cantata.swift; sourceTree = "<group>"; };
 		9D8BAD8821D5FEDB0041467D /* TOP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOP.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,7 +101,7 @@
 				9D8BAD7E21D5FE9F0041467D /* BananaMilk.swift */,
 				9D8BAD8021D5FEB10041467D /* ChocoMilk.swift */,
 				9D8BAD8221D5FEC40041467D /* Cola.swift */,
-				9D8BAD8421D5FECB0041467D /* Cider.swift */,
+				9D8BAD8421D5FECB0041467D /* Fanta.swift */,
 				9D8BAD8621D5FED40041467D /* Cantata.swift */,
 				9D8BAD8821D5FEDB0041467D /* TOP.swift */,
 			);
@@ -212,7 +212,7 @@
 				9D8BAD5C21CCDA060041467D /* CarbonatedDrink .swift in Sources */,
 				9D8BAD5821CCD5260041467D /* Beverage.swift in Sources */,
 				9D8BAD8121D5FEB10041467D /* ChocoMilk.swift in Sources */,
-				9D8BAD8521D5FECB0041467D /* Cider.swift in Sources */,
+				9D8BAD8521D5FECB0041467D /* Fanta.swift in Sources */,
 				9D8BAD5A21CCD9DF0041467D /* Milk.swift in Sources */,
 				9D8BAD8921D5FEDB0041467D /* TOP.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
