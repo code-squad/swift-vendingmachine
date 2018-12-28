@@ -19,8 +19,4 @@ class BananaMilk: Milk {
     func howMuchJuiceAmount() -> Double {
         return bananaJuiceAmount
     }
-    
-    override func convertSelfString() -> String {
-        return "BananaMilk"
-    }
 }

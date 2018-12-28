@@ -25,8 +25,4 @@ class TOP: Coffee {
     func whatIsKindOfTOP() -> TOPKind {
         return topKind
     }
-    
-    override func convertSelfString() -> String {
-        return "TOP"
-    }
 }

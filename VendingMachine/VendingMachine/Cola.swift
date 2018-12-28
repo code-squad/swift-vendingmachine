@@ -19,8 +19,4 @@ class Cola: CarbonatedDrink {
     func howMuchSugarAmount() -> Double {
         return sugarAmount
     }
-    
-    override func convertSelfString() -> String {
-        return "Cola"
-    }
 }
