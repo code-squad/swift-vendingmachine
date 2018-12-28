@@ -8,6 +8,6 @@
 
 import Foundation
 
-class Cantata {
+class Cantata: Coffee {
     
 }

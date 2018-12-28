@@ -8,6 +8,6 @@
 
 import Foundation
 
-class Cider {
+class Cider: CarbonatedDrink {
     
 }
