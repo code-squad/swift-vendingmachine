@@ -9,9 +9,9 @@
 import Foundation
 
 class Coffee: Beverage {
-    var caffeineAmount: Int
+    var caffeineAmount: Double
     
-    init(name: String, volume: Int, price: Int, brand: String, date: String, caffeineAmount: Int) {
+    init(name: String, volume: Int, price: Int, brand: String, date: String, caffeineAmount: Double) {
         self.caffeineAmount = caffeineAmount
         super.init(name: name, volume: volume, price: price, brand: brand, date: date)
     }
