@@ -9,7 +9,6 @@
 import Foundation
 
 enum PackingMaterial {
-    case pack
     case cans
     case plastic
 }
@@ -22,7 +21,13 @@ class Cantata: Coffee {
         super.init(name: name, volume: volume, price: price, brand: brand, date: date, caffeineAmount: caffeineAmount)
     }
     
-    func whiatIsPackingMaterial() -> PackingMaterial {
-        return packingMaterial
+    func isCanPacking() -> Bool {
+        guard packingMaterial == .cans { return false }
+        return true
+    }
+    
+    func isPlasticPacking() -> Bool {
+        guard packingMaterial == .plastic { return false }
+        return true
     }
 }
