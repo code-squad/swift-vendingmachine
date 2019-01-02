@@ -9,7 +9,7 @@
 import Foundation
 
 class BananaMilk: Milk {
-    var bananaJuiceAmount: Double
+    private var bananaJuiceAmount: Double
     
     init(name: String, volume: Int, price: Int, brand: String, date: String, fat: Bool, bananaAmount: Double) {
         self.bananaJuiceAmount = bananaAmount

@@ -9,7 +9,7 @@
 import Foundation
 
 class ChocoMilk: Milk {
-    var cocoaPowderAmount: Double
+    private var cocoaPowderAmount: Double
     
     init(name: String, volume: Int, price: Int, brand: String, date: String, fat: Bool, cocoaAmount: Double) {
         self.cocoaPowderAmount = cocoaAmount
