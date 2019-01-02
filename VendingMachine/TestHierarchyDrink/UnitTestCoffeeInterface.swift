@@ -25,12 +25,12 @@ class UnitTestCoffeeInterface: XCTestCase {
     
     func testCantataInterface() {
         let cantata: Cantata = Cantata(name: "칸타타", volume: 300, price: 3500, brand: "Cantata아메리카노", date: "20181226", caffeineAmount: 1.3, material: .cans)
-        XCTAssertEqual(cantata.whiatIsPackingMaterial(), .cans)
+        XCTAssertEqual(cantata.isCanPacking(), true)
     }
     
     func testTOPInterface() {
         let top: TOP = TOP(name: "TOP", volume: 325, price: 3500, brand: "TOP블랙", date: "20181210", caffeineAmount: 1.3, topKind: .black)
-        XCTAssertEqual(top.whatIsKindOfTOP(), .black)
+        XCTAssertEqual(top.isAmericano(), false)
     }
 
 }
