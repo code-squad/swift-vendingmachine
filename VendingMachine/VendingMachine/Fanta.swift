@@ -20,7 +20,13 @@ class Fanta: CarbonatedDrink {
         super.init(name: name, volume: volume, price: price, brand: brand, date: date, isZeroCalorie: isZeroCalorie)
     }
     
-    func whatIsFlavor() -> FantaFlavor {
-         return fantaFlavor
+    func isIncludeGrape() -> Bool {
+        guard fantaFlavor == .grape { return false }
+        return true
+    }
+    
+    func isIncludeOrange() -> Bool {
+        guard fantaFlavor == .orange { return false }
+        return true
     }
 }

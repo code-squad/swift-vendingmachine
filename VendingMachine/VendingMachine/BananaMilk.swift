@@ -16,7 +16,7 @@ class BananaMilk: Milk {
         super.init(name: name, volume: volume, price: price, brand: brand, date: date, fat: fat)
     }
     
-    func howMuchJuiceAmount() -> Double {
-        return bananaJuiceAmount
+    func isHighJuiceAmount() -> Bool {
+        return bananaJuiceAmount > 1.0
     }
 }
