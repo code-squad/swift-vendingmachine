@@ -13,7 +13,7 @@ enum FantaFlavor {
 }
 
 class Fanta: CarbonatedDrink {
-    var fantaFlavor: FantaFlavor
+    private var fantaFlavor: FantaFlavor
     
     init(name: String, volume: Int, price: Int, brand: String, date: String, isZeroCalorie: Bool, fantaFlavor: FantaFlavor) {
         self.fantaFlavor = fantaFlavor

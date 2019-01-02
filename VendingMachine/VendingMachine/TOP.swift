@@ -15,7 +15,7 @@ enum TOPKind {
 }
 
 class TOP: Coffee {
-    var topKind: TOPKind
+    private var topKind: TOPKind
     
     init(name: String, volume: Int, price: Int, brand: String, date: String, caffeineAmount: Double, topKind: TOPKind) {
         self.topKind = topKind

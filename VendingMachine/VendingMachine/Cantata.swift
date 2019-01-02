@@ -15,7 +15,7 @@ enum PackingMaterial {
 }
 
 class Cantata: Coffee {
-    var packingMaterial: PackingMaterial
+    private var packingMaterial: PackingMaterial
     
     init(name: String, volume: Int, price: Int, brand: String, date: String, caffeineAmount: Double, material: PackingMaterial) {
         self.packingMaterial = material
