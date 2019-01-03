@@ -9,7 +9,7 @@
 import Foundation
 
 struct OutputView {
-    static func printMachineState(machine: PrintableMachingState) {
+    static func printState(of machine: PrintableMachingState) {
         machine.machineState { coin, drinkCount in
             print("현재 투입한 금액은 \(coin)입니다. 다음과 같은 음료가 있습니다.")
             print("1) 바나나우유 1000원 \(drinkCount.0)개")
