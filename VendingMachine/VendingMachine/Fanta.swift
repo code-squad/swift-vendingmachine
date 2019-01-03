@@ -21,12 +21,10 @@ class Fanta: CarbonatedDrink {
     }
     
     func isIncludeGrape() -> Bool {
-        guard fantaFlavor == .grape else { return false }
-        return true
+        return fantaFlavor == .grape
     }
     
     func isIncludeOrange() -> Bool {
-        guard fantaFlavor == .orange else { return false }
-        return true
+        return fantaFlavor == .orange
     }
 }
