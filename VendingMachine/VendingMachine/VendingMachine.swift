@@ -86,6 +86,15 @@ class VendingMachine : PrintableMachingState {
     func add(drink: Beverage) {
         drinks.append(drink)
     }
+    
+    func canPurchaseList() -> String {
+        var list: String = ""
+        if coin >= 1500 { list += "1) 바나나우유\n2) 초코우유\n" }
+        if coin >= 2000 { list += "3) 콜라\n4) 환타\n"}
+        if coin >= 3000 { list += "5) 칸타타\n"}
+        if coin >= 3500 { list += "6) TOP\n"}
+        return list
+    }
 }
 
 extension VendingMachine {
