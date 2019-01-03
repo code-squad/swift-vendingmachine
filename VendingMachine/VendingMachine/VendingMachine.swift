@@ -30,7 +30,7 @@ class VendingMachine : PrintableMachingState {
         switch menu {
         case .bananaMilk:
             for index in 0..<drinks.count {
-                if drinks[index] is BananaMilk {
+                if drinks[index] is BananaMilk && canBuy(drinks[index].price) {
                     coin -= drinks[index].price
                     drinks.remove(at: index)
                     break
@@ -38,7 +38,7 @@ class VendingMachine : PrintableMachingState {
             }
         case .chocoMilk:
             for index in 0..<drinks.count {
-                if drinks[index] is ChocoMilk {
+                if drinks[index] is ChocoMilk && canBuy(drinks[index].price) {
                     coin -= drinks[index].price
                     drinks.remove(at: index)
                     break
@@ -46,7 +46,7 @@ class VendingMachine : PrintableMachingState {
             }
         case .cola:
             for index in 0..<drinks.count {
-                if drinks[index] is Cola {
+                if drinks[index] is Cola && canBuy(drinks[index].price) {
                     coin -= drinks[index].price
                     drinks.remove(at: index)
                     break
@@ -54,7 +54,7 @@ class VendingMachine : PrintableMachingState {
             }
         case .fanta:
             for index in 0..<drinks.count {
-                if drinks[index] is Fanta {
+                if drinks[index] is Fanta && canBuy(drinks[index].price) {
                     coin -= drinks[index].price
                     drinks.remove(at: index)
                     break
@@ -62,7 +62,7 @@ class VendingMachine : PrintableMachingState {
             }
         case .cantata:
             for index in 0..<drinks.count {
-                if drinks[index] is Cantata {
+                if drinks[index] is Cantata && canBuy(drinks[index].price) {
                     coin -= drinks[index].price
                     drinks.remove(at: index)
                     break
@@ -70,13 +70,17 @@ class VendingMachine : PrintableMachingState {
             }
         case .top:
             for index in 0..<drinks.count {
-                if drinks[index] is TOP {
+                if drinks[index] is TOP && canBuy(drinks[index].price) {
                     coin -= drinks[index].price
                     drinks.remove(at: index)
                     break
                 }
             }
         }
+    }
+    
+    private func canBuy(_ price: Int) -> Bool {
+        return coin >= price
     }
 }
 
