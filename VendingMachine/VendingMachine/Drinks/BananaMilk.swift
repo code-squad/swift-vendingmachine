@@ -11,9 +11,9 @@ import Foundation
 class BananaMilk: Milk {
     private var bananaJuiceAmount: Double
     
-    init(name: String, volume: Int, price: Int, brand: String, date: String, fat: Bool, bananaAmount: Double) {
+    init(name: String, volume: Int, brand: String, date: String, fat: Bool, bananaAmount: Double) {
         self.bananaJuiceAmount = bananaAmount
-        super.init(name: name, volume: volume, price: price, brand: brand, date: date, fat: fat)
+        super.init(name: name, volume: volume, price: 1500, brand: brand, date: date, fat: fat)
     }
     
     func isHighJuiceAmount() -> Bool {

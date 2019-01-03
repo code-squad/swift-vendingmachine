@@ -10,12 +10,12 @@ import Foundation
 
 struct VendingPlay {
     static func play(with machine: VendingMachine) {
-        var input: [String]
         OutputView.printState(of: machine)
-        input = splitOrder(of: InputView.selectMenu())
+        let input = splitOrder(of: InputView.selectMenu())
+        excute(by: input, machine)
     }
     
-    private static func excute(of order: [String], machine: VendingMachine) {
+    private static func excute(by order: [String], _ machine: VendingMachine) {
         guard let menu = OrderMenu.init(rawValue: order[0]) else { return }
         guard let value = Int(order[1]) else { return }
         

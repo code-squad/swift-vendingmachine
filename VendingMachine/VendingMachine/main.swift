@@ -11,7 +11,7 @@ import Foundation
 
 func main() {
     let vendingMachine: VendingMachine = VendingMachine()
-    VendingPlay.play(with: vendingMachine)
+    while true { VendingPlay.play(with: vendingMachine) }
 }
 
 main()
