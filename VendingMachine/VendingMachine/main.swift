@@ -11,9 +11,8 @@ import Foundation
 
 func main() {
     let vendingMachine: VendingMachine = VendingMachine()
-    OutputView.printMachineState(machine: vendingMachine)
+    VendingPlay.play(with: vendingMachine)
 }
-
 
 main()
 

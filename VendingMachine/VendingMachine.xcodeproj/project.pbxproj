@@ -37,6 +37,9 @@
 		9DF214C421DE01A200DD27BD /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF214C321DE01A200DD27BD /* VendingMachine.swift */; };
 		9DF214C621DE02B000DD27BD /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF214C521DE02B000DD27BD /* InputView.swift */; };
 		9DF214C821DE0D9A00DD27BD /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF214C721DE0D9A00DD27BD /* OutputView.swift */; };
+		9DF214CC21DE18F300DD27BD /* VendingPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF214CB21DE18F300DD27BD /* VendingPlay.swift */; };
+		9DF214CE21DE22C800DD27BD /* OrderMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF214CD21DE22C800DD27BD /* OrderMenu.swift */; };
+		9DF214D121DE230500DD27BD /* DrinkMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF214D021DE230500DD27BD /* DrinkMenu.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -73,6 +76,9 @@
 		9DF214C321DE01A200DD27BD /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 		9DF214C521DE02B000DD27BD /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		9DF214C721DE0D9A00DD27BD /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
+		9DF214CB21DE18F300DD27BD /* VendingPlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingPlay.swift; sourceTree = "<group>"; };
+		9DF214CD21DE22C800DD27BD /* OrderMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderMenu.swift; sourceTree = "<group>"; };
+		9DF214D021DE230500DD27BD /* DrinkMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkMenu.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,20 +120,13 @@
 		839DA90B1F8D1F95009E05F3 /* VendingMachine */ = {
 			isa = PBXGroup;
 			children = (
+				9DF214D221DE25AE00DD27BD /* Drinks */,
+				9DF214CF21DE22CD00DD27BD /* Enum */,
 				9DF214C921DE12A900DD27BD /* InAndOut */,
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
+				9DF214CB21DE18F300DD27BD /* VendingPlay.swift */,
 				9DF214C321DE01A200DD27BD /* VendingMachine.swift */,
 				9D8BAD6521D5E38C0041467D /* DateFormat.swift */,
-				9D8BAD5721CCD5260041467D /* Beverage.swift */,
-				9D8BAD5921CCD9DF0041467D /* Milk.swift */,
-				9D8BAD5B21CCDA060041467D /* CarbonatedDrink .swift */,
-				9D8BAD5D21CCDA100041467D /* Coffee.swift */,
-				9D8BAD7E21D5FE9F0041467D /* BananaMilk.swift */,
-				9D8BAD8021D5FEB10041467D /* ChocoMilk.swift */,
-				9D8BAD8221D5FEC40041467D /* Cola.swift */,
-				9D8BAD8421D5FECB0041467D /* Fanta.swift */,
-				9D8BAD8621D5FED40041467D /* Cantata.swift */,
-				9D8BAD8821D5FEDB0041467D /* TOP.swift */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";
@@ -151,6 +150,32 @@
 				9DF214C721DE0D9A00DD27BD /* OutputView.swift */,
 			);
 			path = InAndOut;
+			sourceTree = "<group>";
+		};
+		9DF214CF21DE22CD00DD27BD /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				9DF214CD21DE22C800DD27BD /* OrderMenu.swift */,
+				9DF214D021DE230500DD27BD /* DrinkMenu.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		9DF214D221DE25AE00DD27BD /* Drinks */ = {
+			isa = PBXGroup;
+			children = (
+				9D8BAD5721CCD5260041467D /* Beverage.swift */,
+				9D8BAD5921CCD9DF0041467D /* Milk.swift */,
+				9D8BAD5B21CCDA060041467D /* CarbonatedDrink .swift */,
+				9D8BAD5D21CCDA100041467D /* Coffee.swift */,
+				9D8BAD7E21D5FE9F0041467D /* BananaMilk.swift */,
+				9D8BAD8021D5FEB10041467D /* ChocoMilk.swift */,
+				9D8BAD8421D5FECB0041467D /* Fanta.swift */,
+				9D8BAD8221D5FEC40041467D /* Cola.swift */,
+				9D8BAD8621D5FED40041467D /* Cantata.swift */,
+				9D8BAD8821D5FEDB0041467D /* TOP.swift */,
+			);
+			path = Drinks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,8 +281,11 @@
 				9D8BAD8921D5FEDB0041467D /* TOP.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
 				9D8BAD5E21CCDA100041467D /* Coffee.swift in Sources */,
+				9DF214CE21DE22C800DD27BD /* OrderMenu.swift in Sources */,
 				9D8BAD6621D5E38C0041467D /* DateFormat.swift in Sources */,
+				9DF214CC21DE18F300DD27BD /* VendingPlay.swift in Sources */,
 				9D8BAD8721D5FED40041467D /* Cantata.swift in Sources */,
+				9DF214D121DE230500DD27BD /* DrinkMenu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

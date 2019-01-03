@@ -9,13 +9,65 @@
 import Foundation
 
 class VendingMachine : PrintableMachingState {
-    private var insertCoin: Int = 0
+    private var coin: Int = 0
     private var drinks: [Beverage] = []
+    
+    func insert(coin: Int) {
+        self.coin += coin
+    }
+    
+    func sell(menu: Int) {
+        guard let menu = DrinkMenu(rawValue: menu) else { return }
+        switch menu {
+        case .bananaMilk:
+            for index in 0..<drinks.count {
+                if drinks[index] is BananaMilk {
+                    coin -= drinks[index].price
+                    drinks.remove(at: index)
+                }
+            }
+        case .chocoMilk:
+            for index in 0..<drinks.count {
+                if drinks[index] is ChocoMilk {
+                    coin -= drinks[index].price
+                    drinks.remove(at: index)
+                }
+            }
+        case .cola:
+            for index in 0..<drinks.count {
+                if drinks[index] is Cola {
+                    coin -= drinks[index].price
+                    drinks.remove(at: index)
+                }
+            }
+        case .fanta:
+            for index in 0..<drinks.count {
+                if drinks[index] is Fanta {
+                    coin -= drinks[index].price
+                    drinks.remove(at: index)
+                }
+            }
+        case .cantata:
+            for index in 0..<drinks.count {
+                if drinks[index] is Cantata {
+                    coin -= drinks[index].price
+                    drinks.remove(at: index)
+                }
+            }
+        case .top:
+            for index in 0..<drinks.count {
+                if drinks[index] is TOP {
+                    coin -= drinks[index].price
+                    drinks.remove(at: index)
+                }
+            }
+        }
+    }
 }
 
 extension VendingMachine {
     func machineState(form: (Int, (Int, Int, Int, Int, Int, Int)) -> Void) {
-        form(insertCoin, countDrinks())
+        form(coin, countDrinks())
     }
     
     private func countDrinks() -> (Int, Int, Int, Int, Int, Int) {
