@@ -23,17 +23,14 @@ class TOP: Coffee {
     }
     
     func isAmericano() -> Bool {
-        guard topKind == .sweetAmericano else { return false }
-        return true
+        return topKind == .sweetAmericano
     }
     
     func isLatte() -> Bool {
-        guard topKind == .latte else { return false }
-        return true
+        return topKind == .latte
     }
     
     func isBlack() -> Bool {
-        guard topKind == .black else { return false }
-        return true
+        return topKind == .black
     }
 }

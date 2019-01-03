@@ -22,12 +22,10 @@ class Cantata: Coffee {
     }
     
     func isCanPacking() -> Bool {
-        guard packingMaterial == .cans else { return false }
-        return true
+        return packingMaterial == .cans
     }
     
     func isPlasticPacking() -> Bool {
-        guard packingMaterial == .plastic else { return false }
-        return true
+        return packingMaterial == .plastic
     }
 }
