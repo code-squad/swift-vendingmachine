@@ -82,6 +82,10 @@ class VendingMachine : PrintableMachingState {
     private func canBuy(_ price: Int) -> Bool {
         return coin >= price
     }
+    
+    func add(drink: Beverage) {
+        drinks.append(drink)
+    }
 }
 
 extension VendingMachine {

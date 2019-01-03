@@ -11,7 +11,7 @@ import Foundation
 struct OutputView {
     static func printState(of machine: PrintableMachingState) {
         machine.machineState { coin, drinkCount in
-            print("현재 투입한 금액은 \(coin)입니다. 다음과 같은 음료가 있습니다.")
+            print("\n현재 투입한 금액은 \(coin)입니다. 다음과 같은 음료가 있습니다.")
             print("1) 바나나우유 1500원 \(drinkCount.0)개")
             print("2) 초코우유 1500원 \(drinkCount.1)개")
             print("3) 콜라 2000원 \(drinkCount.2)개")
