@@ -95,6 +95,14 @@ class VendingMachine : PrintableMachingState {
         if coin >= 3500 { list += "6) TOP\n"}
         return list
     }
+    
+    func getExpirationList() -> [Beverage] {
+        var past: [Beverage] = []
+        let todayDate: Date = Date()
+        
+        for drink in drinks { if drink.menufactureOfDate < todayDate { past.append(drink) } }
+        return past
+    }
 }
 
 extension VendingMachine {
