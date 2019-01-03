@@ -9,8 +9,17 @@
 import Foundation
 
 class VendingMachine : PrintableMachingState {
-    private var coin: Int = 0
+    private var coin: Int
     private var drinks: [Beverage] = []
+    
+    init() {
+        coin = 0
+        drinks.append(BananaMilk(name: "서울우유", volume: 200, brand: "빙그레바나나우유", date: "20190220", fat: true, bananaAmount: 1.1))
+        drinks.append(ChocoMilk(name: "부산우유", volume: 250, brand: "빙그레초코우유", date: "20190303", fat: true, cocoaAmount: 1.3))
+        drinks.append(ChocoMilk(name: "남양우유", volume: 230, brand: "빙그레초코우유", date: "20190303", fat: false, cocoaAmount: 1.2))
+        drinks.append(Cola(name: "펩시", volume: 350, brand: "다이어트콜라", date: "20190707", isZeroCalorie: false, sugarAmount: 0.9))
+        drinks.append(Fanta(name: "환타", volume: 350, brand: "다이어트환타", date: "20191009", isZeroCalorie: false, fantaFlavor: .grape))
+    }
     
     func insert(coin: Int) {
         self.coin += coin
@@ -24,6 +33,7 @@ class VendingMachine : PrintableMachingState {
                 if drinks[index] is BananaMilk {
                     coin -= drinks[index].price
                     drinks.remove(at: index)
+                    break
                 }
             }
         case .chocoMilk:
@@ -31,6 +41,7 @@ class VendingMachine : PrintableMachingState {
                 if drinks[index] is ChocoMilk {
                     coin -= drinks[index].price
                     drinks.remove(at: index)
+                    break
                 }
             }
         case .cola:
@@ -38,6 +49,7 @@ class VendingMachine : PrintableMachingState {
                 if drinks[index] is Cola {
                     coin -= drinks[index].price
                     drinks.remove(at: index)
+                    break
                 }
             }
         case .fanta:
@@ -45,6 +57,7 @@ class VendingMachine : PrintableMachingState {
                 if drinks[index] is Fanta {
                     coin -= drinks[index].price
                     drinks.remove(at: index)
+                    break
                 }
             }
         case .cantata:
@@ -52,6 +65,7 @@ class VendingMachine : PrintableMachingState {
                 if drinks[index] is Cantata {
                     coin -= drinks[index].price
                     drinks.remove(at: index)
+                    break
                 }
             }
         case .top:
@@ -59,6 +73,7 @@ class VendingMachine : PrintableMachingState {
                 if drinks[index] is TOP {
                     coin -= drinks[index].price
                     drinks.remove(at: index)
+                    break
                 }
             }
         }

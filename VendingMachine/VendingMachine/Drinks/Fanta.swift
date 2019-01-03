@@ -15,9 +15,9 @@ enum FantaFlavor {
 class Fanta: CarbonatedDrink {
     private var fantaFlavor: FantaFlavor
     
-    init(name: String, volume: Int, price: Int, brand: String, date: String, isZeroCalorie: Bool, fantaFlavor: FantaFlavor) {
+    init(name: String, volume: Int, brand: String, date: String, isZeroCalorie: Bool, fantaFlavor: FantaFlavor) {
         self.fantaFlavor = fantaFlavor
-        super.init(name: name, volume: volume, price: price, brand: brand, date: date, isZeroCalorie: isZeroCalorie)
+        super.init(name: name, volume: volume, price: 2000, brand: brand, date: date, isZeroCalorie: isZeroCalorie)
     }
     
     func isIncludeGrape() -> Bool {

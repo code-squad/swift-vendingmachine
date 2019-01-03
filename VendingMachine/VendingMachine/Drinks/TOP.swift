@@ -17,9 +17,9 @@ enum TOPKind {
 class TOP: Coffee {
     private var topKind: TOPKind
     
-    init(name: String, volume: Int, price: Int, brand: String, date: String, caffeineAmount: Double, topKind: TOPKind) {
+    init(name: String, volume: Int, brand: String, date: String, caffeineAmount: Double, topKind: TOPKind) {
         self.topKind = topKind
-        super.init(name: name, volume: volume, price: price, brand: brand, date: date, caffeineAmount: caffeineAmount)
+        super.init(name: name, volume: volume, price: 3500, brand: brand, date: date, caffeineAmount: caffeineAmount)
     }
     
     func isAmericano() -> Bool {
