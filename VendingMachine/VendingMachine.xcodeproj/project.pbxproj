@@ -114,10 +114,9 @@
 		839DA90B1F8D1F95009E05F3 /* VendingMachine */ = {
 			isa = PBXGroup;
 			children = (
+				9DF214C921DE12A900DD27BD /* InAndOut */,
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
 				9DF214C321DE01A200DD27BD /* VendingMachine.swift */,
-				9DF214C521DE02B000DD27BD /* InputView.swift */,
-				9DF214C721DE0D9A00DD27BD /* OutputView.swift */,
 				9D8BAD6521D5E38C0041467D /* DateFormat.swift */,
 				9D8BAD5721CCD5260041467D /* Beverage.swift */,
 				9D8BAD5921CCD9DF0041467D /* Milk.swift */,
@@ -144,6 +143,15 @@
 			path = TestHierarchyDrink;
 			sourceTree = "<group>";
 			usesTabs = 0;
+		};
+		9DF214C921DE12A900DD27BD /* InAndOut */ = {
+			isa = PBXGroup;
+			children = (
+				9DF214C521DE02B000DD27BD /* InputView.swift */,
+				9DF214C721DE0D9A00DD27BD /* OutputView.swift */,
+			);
+			path = InAndOut;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 

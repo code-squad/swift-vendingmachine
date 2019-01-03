@@ -9,12 +9,15 @@
 import Foundation
 
 struct InputView {
-    static func input() -> String {
+    private static func input() -> String {
         return readLine() ?? ""
     }
     
-    static func selectMenu() {
-        
+    static func selectMenu() -> String {
+        print("1.금액추가")
+        print("2.음료구매")
+        print("> ", terminator: "")
+        return input()
     }
 }
 

@@ -35,7 +35,6 @@ extension VendingMachine {
     }
 }
 
-
 protocol PrintableMachingState {
     func machineState(form: (Int, (Int, Int, Int, Int, Int, Int)) -> Void)
 }
