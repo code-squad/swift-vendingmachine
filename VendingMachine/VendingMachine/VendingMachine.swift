@@ -11,6 +11,7 @@ import Foundation
 class VendingMachine : PrintableMachingState {
     private var coin: Int
     private var drinks: [[Beverage]] = [[]]
+    private var purchaseHistory: [String] = []
     
     init() {
         coin = 0
@@ -49,6 +50,7 @@ class VendingMachine : PrintableMachingState {
     private func removeDrink(index: Int) -> State {
         guard !drinks[index].isEmpty else { return .notEnough }
         guard canBuy(drinks[index][0].price) else { return .fail }
+        purchaseHistory.append("\(index) 음료 구매")
         coin -= drinks[index][0].price
         drinks[index].remove(at: 0)
         return .success
@@ -58,12 +60,18 @@ class VendingMachine : PrintableMachingState {
         return coin >= price
     }
     
-    func canPurchaseList() -> String {
-        var list: String = ""
-        if coin >= 1500 { list += "1) 바나나우유\n2) 초코우유\n" }
-        if coin >= 2000 { list += "3) 콜라\n4) 환타\n"}
-        if coin >= 3000 { list += "5) 칸타타\n"}
-        if coin >= 3500 { list += "6) TOP\n"}
+    func canPurchaseList() -> [String] {
+        var list: [String] = []
+        if coin >= 1500 {
+            list.append("바나나우유")
+            list.append("초코우유")
+        }
+        if coin >= 2000 {
+            list.append("콜라")
+            list.append("환타")
+        }
+        if coin >= 3000 { list.append("칸타타") }
+        if coin >= 3500 { list.append("TOP") }
         return list
     }
     
@@ -89,6 +97,10 @@ class VendingMachine : PrintableMachingState {
         default: return
         }
     }
+    
+    func getPuchaseHistory() -> [String] {
+        return purchaseHistory
+    }
 }
 
 extension VendingMachine {
@@ -98,7 +110,6 @@ extension VendingMachine {
     
     private func countDrinkStocks() -> Dictionary<String, Int> {
         var drinkStock: [String:Int] = ["Banana":0, "Choco":0, "Cola":0, "Fanta":0, "Cantata":0, "Top":0]
-    
         drinkStock.updateValue(drinks[0].count, forKey: "Banana")
         drinkStock.updateValue(drinks[1].count, forKey: "Choco")
         drinkStock.updateValue(drinks[2].count, forKey: "Cola")
