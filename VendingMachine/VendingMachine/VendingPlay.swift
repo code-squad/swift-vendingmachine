@@ -21,8 +21,8 @@ struct VendingPlay {
         var state: State
         
         switch menu {
-        case .addCoin: state = machine.insert(coin: value)
-        case .buyDrink: state = machine.sell(menu: value)
+        case .insertCoin: state = machine.insert(coin: value)
+        case .pickDrink: state = machine.pick(menu: value)
         }
         if state != .success { OutputView.printOrder(of: state) }
     }
