@@ -75,7 +75,7 @@ class VendingMachine : PrintableMachingState {
         return list
     }
     
-    func getExpirationList() -> [Beverage] {
+    func searchExpirationList() -> [Beverage] {
         var past: [Beverage] = []
         let todayDate: Date = Date()
         for drinkKind in drinks {
