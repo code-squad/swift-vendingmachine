@@ -35,7 +35,7 @@ class VendingMachine : PrintableMachingState {
         return .success
     }
     
-    func sell(menu: Int) -> State {
+    func pick(menu: Int) -> State {
         if menu > 6 { return .notExist }
         return removeDrink(index: menu-1)
     }

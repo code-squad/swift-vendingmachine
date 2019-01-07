@@ -9,6 +9,6 @@
 import Foundation
 
 enum OrderMenu : String {
-    case addCoin = "1"
-    case buyDrink = "2"
+    case insertCoin = "1"
+    case pickDrink = "2"
 }
