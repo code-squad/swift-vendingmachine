@@ -10,81 +10,52 @@ import Foundation
 
 class VendingMachine : PrintableMachingState {
     private var coin: Int
-    private var drinks: [Beverage] = []
+    private var drinks: [[Beverage]] = [[]]
     
     init() {
         coin = 0
-        drinks.append(BananaMilk(name: "서울우유", volume: 200, brand: "빙그레바나나우유", date: "20190220", fat: true, bananaAmount: 1.1))
-        drinks.append(ChocoMilk(name: "부산우유", volume: 250, brand: "빙그레초코우유", date: "20190303", fat: true, cocoaAmount: 1.3))
-        drinks.append(ChocoMilk(name: "남양우유", volume: 230, brand: "빙그레초코우유", date: "20190303", fat: false, cocoaAmount: 1.2))
-        drinks.append(Cola(name: "펩시", volume: 350, brand: "다이어트콜라", date: "20190707", isZeroCalorie: false, sugarAmount: 0.9))
-        drinks.append(Fanta(name: "환타", volume: 350, brand: "다이어트환타", date: "20191009", isZeroCalorie: false, fantaFlavor: .grape))
+        drinks.append(Array<Beverage>())            // 바나나우유 재고
+        drinks.append(Array<Beverage>())            // 초코우유 재고
+        drinks.append(Array<Beverage>())            // 콜라 재고
+        drinks.append(Array<Beverage>())            // 환타 재고
+        drinks.append(Array<Beverage>())            // 칸타타 재고
+        drinks.append(Array<Beverage>())            // TOP 재고
+        
+        drinks[0].append(BananaMilk(name: "서울우유", volume: 200, brand: "빙그레바나나우유", date: "20190220", fat: true, bananaAmount: 1.1))
+        drinks[1].append(ChocoMilk(name: "부산우유", volume: 250, brand: "빙그레초코우유", date: "20190303", fat: true, cocoaAmount: 1.3))
+        drinks[1].append(ChocoMilk(name: "남양우유", volume: 230, brand: "빙그레초코우유", date: "20190303", fat: false, cocoaAmount: 1.2))
+        drinks[2].append(Cola(name: "펩시", volume: 350, brand: "다이어트콜라", date: "20190707", isZeroCalorie: false, sugarAmount: 0.9))
+        drinks[3].append(Fanta(name: "환타", volume: 350, brand: "다이어트환타", date: "20191009", isZeroCalorie: false, fantaFlavor: .grape))
     }
     
-    func insert(coin: Int) {
+    func insert(coin: Int) -> State {
+        if coin < 0 { return .negative }
         self.coin += coin
+        return .success
     }
     
-    func sell(menu: Int) {
-        guard let menu = DrinkMenu(rawValue: menu) else { return }
+    func sell(menu: Int) -> State {
+        guard let menu = DrinkMenu(rawValue: menu) else { return .notExist }
         switch menu {
-        case .bananaMilk:
-            for index in 0..<drinks.count {
-                if drinks[index] is BananaMilk && canBuy(drinks[index].price) {
-                    coin -= drinks[index].price
-                    drinks.remove(at: index)
-                    break
-                }
-            }
-        case .chocoMilk:
-            for index in 0..<drinks.count {
-                if drinks[index] is ChocoMilk && canBuy(drinks[index].price) {
-                    coin -= drinks[index].price
-                    drinks.remove(at: index)
-                    break
-                }
-            }
-        case .cola:
-            for index in 0..<drinks.count {
-                if drinks[index] is Cola && canBuy(drinks[index].price) {
-                    coin -= drinks[index].price
-                    drinks.remove(at: index)
-                    break
-                }
-            }
-        case .fanta:
-            for index in 0..<drinks.count {
-                if drinks[index] is Fanta && canBuy(drinks[index].price) {
-                    coin -= drinks[index].price
-                    drinks.remove(at: index)
-                    break
-                }
-            }
-        case .cantata:
-            for index in 0..<drinks.count {
-                if drinks[index] is Cantata && canBuy(drinks[index].price) {
-                    coin -= drinks[index].price
-                    drinks.remove(at: index)
-                    break
-                }
-            }
-        case .top:
-            for index in 0..<drinks.count {
-                if drinks[index] is TOP && canBuy(drinks[index].price) {
-                    coin -= drinks[index].price
-                    drinks.remove(at: index)
-                    break
-                }
-            }
+        case .bananaMilk: return removeDrink(index: 0)
+        case .chocoMilk: return removeDrink(index: 1)
+        case .cola: return removeDrink(index: 2)
+        case .fanta: return removeDrink(index: 3)
+        case .cantata: return removeDrink(index: 4)
+        case .top: return removeDrink(index: 5)
         }
+    }
+    
+    private func removeDrink(index: Int) -> State {
+        guard !drinks[index].isEmpty else { return .notEnough }
+        guard canBuy(drinks[index][0].price) else { return .fail }
+        coin -= drinks[index][0].price
+        drinks[index].remove(at: 0)
+        return .success
     }
     
     private func canBuy(_ price: Int) -> Bool {
         return coin >= price
-    }
-    
-    func add(drink: Beverage) {
-        drinks.append(drink)
     }
     
     func canPurchaseList() -> String {
@@ -99,34 +70,33 @@ class VendingMachine : PrintableMachingState {
     func getExpirationList() -> [Beverage] {
         var past: [Beverage] = []
         let todayDate: Date = Date()
-        
-        for drink in drinks { if drink.menufactureOfDate < todayDate { past.append(drink) } }
+        for drinkKind in drinks {
+            for drink in drinkKind {
+                if drink.menufactureOfDate < todayDate { past.append(drink) }
+            }
+        }
         return past
     }
 }
 
 extension VendingMachine {
-    func machineState(form: (Int, (Int, Int, Int, Int, Int, Int)) -> Void) {
-        form(coin, countDrinks())
+    func machineState(form: (Int, Dictionary<String, Int>) -> Void) {
+        form(coin, countDrinkStocks())
     }
     
-    private func countDrinks() -> (Int, Int, Int, Int, Int, Int) {
-        var count: (banana: Int, choco: Int, cola: Int, fanta: Int, cantata: Int, top: Int) = (0, 0, 0, 0, 0, 0)
-        for drink in drinks {
-            switch drink {
-            case is BananaMilk: count.banana += 1
-            case is ChocoMilk: count.choco += 1
-            case is Cola: count.cola += 1
-            case is Fanta: count.fanta += 1
-            case is Cantata: count.cantata += 1
-            case is TOP: count.top += 1
-            default: break
-            }
-        }
-        return count
+    private func countDrinkStocks() -> Dictionary<String, Int> {
+        var drinkStock: [String:Int] = ["Banana":0, "Choco":0, "Cola":0, "Fanta":0, "Cantata":0, "Top":0]
+    
+        drinkStock.updateValue(drinks[0].count, forKey: "Banana")
+        drinkStock.updateValue(drinks[1].count, forKey: "Choco")
+        drinkStock.updateValue(drinks[2].count, forKey: "Cola")
+        drinkStock.updateValue(drinks[3].count, forKey: "Fanta")
+        drinkStock.updateValue(drinks[4].count, forKey: "Cantata")
+        drinkStock.updateValue(drinks[5].count, forKey: "Top")
+        return drinkStock
     }
 }
 
 protocol PrintableMachingState {
-    func machineState(form: (Int, (Int, Int, Int, Int, Int, Int)) -> Void)
+    func machineState(form: (Int, Dictionary<String, Int>) -> Void)
 }

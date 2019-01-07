@@ -40,6 +40,7 @@
 		9DF214CC21DE18F300DD27BD /* VendingPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF214CB21DE18F300DD27BD /* VendingPlay.swift */; };
 		9DF214CE21DE22C800DD27BD /* OrderMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF214CD21DE22C800DD27BD /* OrderMenu.swift */; };
 		9DF214D121DE230500DD27BD /* DrinkMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF214D021DE230500DD27BD /* DrinkMenu.swift */; };
+		9DF214D421DF344400DD27BD /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF214D321DF344400DD27BD /* State.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -79,6 +80,7 @@
 		9DF214CB21DE18F300DD27BD /* VendingPlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingPlay.swift; sourceTree = "<group>"; };
 		9DF214CD21DE22C800DD27BD /* OrderMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderMenu.swift; sourceTree = "<group>"; };
 		9DF214D021DE230500DD27BD /* DrinkMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkMenu.swift; sourceTree = "<group>"; };
+		9DF214D321DF344400DD27BD /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 			children = (
 				9DF214CD21DE22C800DD27BD /* OrderMenu.swift */,
 				9DF214D021DE230500DD27BD /* DrinkMenu.swift */,
+				9DF214D321DF344400DD27BD /* State.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				9D8BAD8121D5FEB10041467D /* ChocoMilk.swift in Sources */,
 				9D8BAD8521D5FECB0041467D /* Fanta.swift in Sources */,
 				9D8BAD5A21CCD9DF0041467D /* Milk.swift in Sources */,
+				9DF214D421DF344400DD27BD /* State.swift in Sources */,
 				9D8BAD8921D5FEDB0041467D /* TOP.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
 				9D8BAD5E21CCDA100041467D /* Coffee.swift in Sources */,
