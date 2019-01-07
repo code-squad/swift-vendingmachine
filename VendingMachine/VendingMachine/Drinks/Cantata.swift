@@ -33,4 +33,8 @@ class Cantata: Coffee {
         if coin >= price { return "Cantata" }
         else { return nil }
     }
+    
+    override func searchDrinkNumber() -> Int {
+        return 5
+    }
 }

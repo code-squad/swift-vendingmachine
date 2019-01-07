@@ -24,4 +24,8 @@ class Cola: CarbonatedDrink {
         if coin >= price { return "Cola" }
         else { return nil }
     }
+    
+    override func searchDrinkNumber() -> Int {
+        return 4
+    }
 }
