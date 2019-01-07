@@ -47,6 +47,8 @@
 		9DF214DB21E30FD400DD27BD /* UnitTestVendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF214DA21E30FD400DD27BD /* UnitTestVendingMachine.swift */; };
 		9DF214DC21E3112500DD27BD /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF214C721DE0D9A00DD27BD /* OutputView.swift */; };
 		9DF214DD21E3112700DD27BD /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF214C521DE02B000DD27BD /* InputView.swift */; };
+		9DF214DF21E34BC000DD27BD /* PurchaseHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF214DE21E34BC000DD27BD /* PurchaseHistory.swift */; };
+		9DF214E121E34BEA00DD27BD /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF214E021E34BEA00DD27BD /* Coin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -87,6 +89,8 @@
 		9DF214CD21DE22C800DD27BD /* OrderMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderMenu.swift; sourceTree = "<group>"; };
 		9DF214D321DF344400DD27BD /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		9DF214DA21E30FD400DD27BD /* UnitTestVendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestVendingMachine.swift; sourceTree = "<group>"; };
+		9DF214DE21E34BC000DD27BD /* PurchaseHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseHistory.swift; sourceTree = "<group>"; };
+		9DF214E021E34BEA00DD27BD /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +139,8 @@
 				9DF214CB21DE18F300DD27BD /* VendingPlay.swift */,
 				9DF214C321DE01A200DD27BD /* VendingMachine.swift */,
 				9D8BAD6521D5E38C0041467D /* DateFormat.swift */,
+				9DF214DE21E34BC000DD27BD /* PurchaseHistory.swift */,
+				9DF214E021E34BEA00DD27BD /* Coin.swift */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";
@@ -283,6 +289,7 @@
 				9DF214C421DE01A200DD27BD /* VendingMachine.swift in Sources */,
 				9D8BAD5C21CCDA060041467D /* CarbonatedDrink .swift in Sources */,
 				9DF214C821DE0D9A00DD27BD /* OutputView.swift in Sources */,
+				9DF214DF21E34BC000DD27BD /* PurchaseHistory.swift in Sources */,
 				9D8BAD5821CCD5260041467D /* Beverage.swift in Sources */,
 				9D8BAD8121D5FEB10041467D /* ChocoMilk.swift in Sources */,
 				9D8BAD8521D5FECB0041467D /* Fanta.swift in Sources */,
@@ -294,6 +301,7 @@
 				9DF214CE21DE22C800DD27BD /* OrderMenu.swift in Sources */,
 				9D8BAD6621D5E38C0041467D /* DateFormat.swift in Sources */,
 				9DF214CC21DE18F300DD27BD /* VendingPlay.swift in Sources */,
+				9DF214E121E34BEA00DD27BD /* Coin.swift in Sources */,
 				9D8BAD8721D5FED40041467D /* Cantata.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
