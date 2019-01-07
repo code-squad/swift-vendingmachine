@@ -27,4 +27,9 @@ class Fanta: CarbonatedDrink {
     func isIncludeOrange() -> Bool {
         return fantaFlavor == .orange
     }
+    
+    override func canBuyThisCoin(coin: Int) -> String? {
+        if coin >= price { return "Fanta" }
+        else { return nil }
+    }
 }

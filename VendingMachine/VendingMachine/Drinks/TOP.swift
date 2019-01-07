@@ -33,4 +33,9 @@ class TOP: Coffee {
     func isBlack() -> Bool {
         return topKind == .black
     }
+    
+    override func canBuyThisCoin(coin: Int) -> String? {
+        if coin >= price { return "TOP" }
+        else { return nil }
+    }
 }

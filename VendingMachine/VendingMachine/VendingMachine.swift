@@ -8,7 +8,7 @@
 
 import Foundation
 
-class VendingMachine : PrintableMachingState {
+class VendingMachine : PrintableMachingState, ManagebleDrinks {
     private var coin: Int
     private var drinks: [[Beverage]] = [[]]
     private var purchaseHistory: [String] = []
@@ -51,6 +51,16 @@ class VendingMachine : PrintableMachingState {
     
     private func canBuy(_ price: Int) -> Bool {
         return coin >= price
+    }
+    
+    func canPurchaseList() -> [String] {
+        var purchaseList: [String] = []
+        for stock in drinks {
+            if !stock.isEmpty {
+                if let canBuyDrink = stock[0].canBuyThisCoin(coin: self.coin) { purchaseList.append(canBuyDrink) }
+            }
+        }
+        return purchaseList
     }
     
     func searchExpirationList() -> [Beverage] {
@@ -96,8 +106,16 @@ extension VendingMachine {
         drinkStock.updateValue(drinks[5].count, forKey: "Top")
         return drinkStock
     }
+    
+    func caaaa(coin: Int, aa: (Int, Int) -> String) -> String {
+        return aa(coin, drinks[0][0].price)
+    }
 }
 
 protocol PrintableMachingState {
     func machineState(form: (Int, Dictionary<String, Int>) -> Void)
+}
+
+protocol ManagebleDrinks {
+    func caaaa(coin: Int, aa: (Int ,Int) -> String) -> String
 }
