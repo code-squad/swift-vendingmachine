@@ -24,12 +24,12 @@ class UnitTestCarbonatedInterface: XCTestCase {
     }
     
     func testColaInterface() {
-        let cola: Cola = Cola(name: "펩시", volume: 200, price: 1000, brand: "다이어트콜라", date: "20181110", isZeroCalorie: true, sugarAmount: 2.0)
+        let cola: Cola = Cola(name: "펩시", volume: 200, brand: "다이어트콜라", date: "20181110", isZeroCalorie: true, sugarAmount: 2.0)
         XCTAssertEqual(cola.isHighSugarAmount(), true)
     }
     
     func testFantaInterface() {
-        let fanta: Fanta = Fanta(name: "환타", volume: 200, price: 1500, brand: "다이어트환타", date: "20181111", isZeroCalorie: false, fantaFlavor: .orange)
+        let fanta: Fanta = Fanta(name: "환타", volume: 200, brand: "다이어트환타", date: "20181111", isZeroCalorie: false, fantaFlavor: .orange)
         XCTAssertEqual(fanta.isIncludeGrape(), false)
     }
 }

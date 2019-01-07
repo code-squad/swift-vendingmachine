@@ -41,6 +41,14 @@
 		9DF214CE21DE22C800DD27BD /* OrderMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF214CD21DE22C800DD27BD /* OrderMenu.swift */; };
 		9DF214D121DE230500DD27BD /* DrinkMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF214D021DE230500DD27BD /* DrinkMenu.swift */; };
 		9DF214D421DF344400DD27BD /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF214D321DF344400DD27BD /* State.swift */; };
+		9DF214D521E30F9C00DD27BD /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF214C321DE01A200DD27BD /* VendingMachine.swift */; };
+		9DF214D621E30FA100DD27BD /* VendingPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF214CB21DE18F300DD27BD /* VendingPlay.swift */; };
+		9DF214D721E30FAE00DD27BD /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF214D321DF344400DD27BD /* State.swift */; };
+		9DF214D821E30FB100DD27BD /* DrinkMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF214D021DE230500DD27BD /* DrinkMenu.swift */; };
+		9DF214D921E30FB300DD27BD /* OrderMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF214CD21DE22C800DD27BD /* OrderMenu.swift */; };
+		9DF214DB21E30FD400DD27BD /* UnitTestVendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF214DA21E30FD400DD27BD /* UnitTestVendingMachine.swift */; };
+		9DF214DC21E3112500DD27BD /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF214C721DE0D9A00DD27BD /* OutputView.swift */; };
+		9DF214DD21E3112700DD27BD /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF214C521DE02B000DD27BD /* InputView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -81,6 +89,7 @@
 		9DF214CD21DE22C800DD27BD /* OrderMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderMenu.swift; sourceTree = "<group>"; };
 		9DF214D021DE230500DD27BD /* DrinkMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkMenu.swift; sourceTree = "<group>"; };
 		9DF214D321DF344400DD27BD /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		9DF214DA21E30FD400DD27BD /* UnitTestVendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestVendingMachine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +149,7 @@
 				9D8BAD7A21D5FE290041467D /* Info.plist */,
 				9D8BAD9A21D638CE0041467D /* UnitTestMilkInterface.swift */,
 				9D8BAD9C21D63D9D0041467D /* UnitTestCoffeeInterface.swift */,
+				9DF214DA21E30FD400DD27BD /* UnitTestVendingMachine.swift */,
 			);
 			path = TestHierarchyDrink;
 			sourceTree = "<group>";
@@ -300,18 +310,26 @@
 				9D8BAD9521D629AD0041467D /* Cola.swift in Sources */,
 				9D8BAD9221D629A60041467D /* CarbonatedDrink .swift in Sources */,
 				9D8BAD9421D629AB0041467D /* BananaMilk.swift in Sources */,
+				9DF214DD21E3112700DD27BD /* InputView.swift in Sources */,
+				9DF214DC21E3112500DD27BD /* OutputView.swift in Sources */,
 				9D8BAD9D21D63D9D0041467D /* UnitTestCoffeeInterface.swift in Sources */,
 				9D8BAD8E21D6299B0041467D /* main.swift in Sources */,
+				9DF214D721E30FAE00DD27BD /* State.swift in Sources */,
+				9DF214D821E30FB100DD27BD /* DrinkMenu.swift in Sources */,
 				9D8BAD9B21D638CE0041467D /* UnitTestMilkInterface.swift in Sources */,
 				9D8BAD9721D629B30041467D /* Fanta.swift in Sources */,
 				9D8BAD8B21D626DE0041467D /* UnitTestCarbonatedInterface.swift in Sources */,
 				9D8BAD9021D629A20041467D /* Beverage.swift in Sources */,
 				9D8BAD9921D629B70041467D /* TOP.swift in Sources */,
+				9DF214D621E30FA100DD27BD /* VendingPlay.swift in Sources */,
+				9DF214DB21E30FD400DD27BD /* UnitTestVendingMachine.swift in Sources */,
 				9D8BAD8F21D629A00041467D /* DateFormat.swift in Sources */,
 				9D8BAD9821D629B50041467D /* Cantata.swift in Sources */,
 				9D8BAD9621D629AF0041467D /* ChocoMilk.swift in Sources */,
 				9D8BAD9121D629A40041467D /* Milk.swift in Sources */,
 				9D8BAD9321D629A80041467D /* Coffee.swift in Sources */,
+				9DF214D521E30F9C00DD27BD /* VendingMachine.swift in Sources */,
+				9DF214D921E30FB300DD27BD /* OrderMenu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
