@@ -19,4 +19,9 @@ class Cola: CarbonatedDrink {
     func isHighSugarAmount() -> Bool {
         return sugarAmount > 1.0
     }
+    
+    override func canBuyThisCoin(coin: Int) -> String? {
+        if coin >= price { return "Cola" }
+        else { return nil }
+    }
 }

@@ -19,4 +19,9 @@ class BananaMilk: Milk {
     func isHighJuiceAmount() -> Bool {
         return bananaJuiceAmount > 1.0
     }
+    
+    override func canBuyThisCoin(coin: Int) -> String? {
+        if coin >= price { return "BananaMilk" }
+        else { return nil }
+    }
 }

@@ -22,6 +22,10 @@ class Beverage {
         self.price = price
         self.menufactureOfDate = DateFormat.convertDate(date)
     }
+    
+    func canBuyThisCoin(coin: Int) -> String? {
+        return nil
+    }
 }
 
 extension Beverage: CustomStringConvertible {

@@ -28,4 +28,9 @@ class Cantata: Coffee {
     func isPlasticPacking() -> Bool {
         return packingMaterial == .plastic
     }
+    
+    override func canBuyThisCoin(coin: Int) -> String? {
+        if coin >= price { return "Cantata" }
+        else { return nil }
+    }
 }
