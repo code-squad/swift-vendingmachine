@@ -19,17 +19,17 @@ class UnitTestCoffeeInterface: XCTestCase {
     }
     
     func testCoffeeInterface() {
-        let coffee: Coffee = Coffee(name: "맥심", volume: 350, price: 3000, brand: "TOP아메리카노", date: "20190310", caffeineAmount: 1.3)
+        let coffee: Coffee = Coffee(name: "맥심", volume: 350, price: 3500, brand: "TOP아메리카노", date: "20190310", caffeineAmount: 1.3)
         XCTAssertEqual(coffee.howMuchCaffeineAmount(), 1.3)
     }
     
     func testCantataInterface() {
-        let cantata: Cantata = Cantata(name: "칸타타", volume: 300, price: 3500, brand: "Cantata아메리카노", date: "20181226", caffeineAmount: 1.3, material: .cans)
+        let cantata: Cantata = Cantata(name: "칸타타", volume: 300, brand: "Cantata아메리카노", date: "20181226", caffeineAmount: 1.3, material: .cans)
         XCTAssertEqual(cantata.isCanPacking(), true)
     }
     
     func testTOPInterface() {
-        let top: TOP = TOP(name: "TOP", volume: 325, price: 3500, brand: "TOP블랙", date: "20181210", caffeineAmount: 1.3, topKind: .black)
+        let top: TOP = TOP(name: "TOP", volume: 325, brand: "TOP블랙", date: "20181210", caffeineAmount: 1.3, topKind: .black)
         XCTAssertEqual(top.isAmericano(), false)
     }
 
