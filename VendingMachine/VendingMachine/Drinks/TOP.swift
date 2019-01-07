@@ -34,12 +34,16 @@ class TOP: Coffee {
         return topKind == .black
     }
     
-    override func canBuyThisCoin(coin: Int) -> String? {
-        if coin >= price { return "TOP" }
+    override func canBuyThisCoin(coin: Coin) -> String? {
+        if coin.isEnoughToBuy(of: self.price) { return "TOP" }
         else { return nil }
     }
     
     override func searchDrinkNumber() -> Int {
         return 6
+    }
+    
+    override func convertToStringBeverage() -> String {
+        return "TOP"
     }
 }

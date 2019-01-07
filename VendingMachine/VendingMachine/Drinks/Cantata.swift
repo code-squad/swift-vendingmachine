@@ -29,12 +29,16 @@ class Cantata: Coffee {
         return packingMaterial == .plastic
     }
     
-    override func canBuyThisCoin(coin: Int) -> String? {
-        if coin >= price { return "Cantata" }
+    override func canBuyThisCoin(coin: Coin) -> String? {
+        if coin.isEnoughToBuy(of: self.price) { return "Cantata" }
         else { return nil }
     }
     
     override func searchDrinkNumber() -> Int {
         return 5
+    }
+    
+    override func convertToStringBeverage() -> String {
+        return "Cantata"
     }
 }

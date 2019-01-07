@@ -9,12 +9,11 @@
 import Foundation
 
 class VendingMachine : PrintableMachingState {
-    private var coin: Int
+    private var coin: Coin = Coin()
     private var drinks: [[Beverage]] = [[]]
-    private var purchaseHistory: [String] = []
+    private var purchaseHistory: PurchaseHistory = PurchaseHistory()
     
     init() {
-        coin = 0
         drinks.append(Array<Beverage>())            // 바나나우유 재고
         drinks.append(Array<Beverage>())            // 초코우유 재고
         drinks.append(Array<Beverage>())            // 콜라 재고
@@ -31,26 +30,26 @@ class VendingMachine : PrintableMachingState {
     
     func insert(coin: Int) -> State {
         if coin < 0 { return .negative }
-        self.coin += coin
+        self.coin.add(coin)
         return .success
     }
     
     func pick(menu: Int) -> State {
-        if menu > 6 { return .notExist }
+        if menu > drinks.count { return .notExist }
         return removeDrink(index: menu-1)
     }
     
     private func removeDrink(index: Int) -> State {
         guard !drinks[index].isEmpty else { return .notEnough }
         guard canBuy(drinks[index][0].price) else { return .fail }
-        purchaseHistory.append("\(index) 음료 구매")
-        coin -= drinks[index][0].price
+        purchaseHistory.addHistory(of: drinks[index][0])
+        coin.add(-drinks[index][0].price)
         drinks[index].remove(at: 0)
         return .success
     }
     
     private func canBuy(_ price: Int) -> Bool {
-        return coin >= price
+        return coin.isEnoughToBuy(of: price)
     }
     
     func canPurchaseList() -> [String] {
@@ -80,12 +79,12 @@ class VendingMachine : PrintableMachingState {
     }
     
     func getPuchaseHistory() -> [String] {
-        return purchaseHistory
+        return purchaseHistory.convertToStrngHistory()
     }
 }
 
 extension VendingMachine {
-    func machineState(form: (Int, Dictionary<String, Int>) -> Void) {
+    func machineState(form: (Coin, Dictionary<String, Int>) -> Void) {
         form(coin, countDrinkStocks())
     }
     
@@ -102,5 +101,5 @@ extension VendingMachine {
 }
 
 protocol PrintableMachingState {
-    func machineState(form: (Int, Dictionary<String, Int>) -> Void)
+    func machineState(form: (Coin, Dictionary<String, Int>) -> Void)
 }

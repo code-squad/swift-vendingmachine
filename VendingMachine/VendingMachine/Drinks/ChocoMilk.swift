@@ -20,12 +20,16 @@ class ChocoMilk: Milk {
         return cocoaPowderAmount > 1.0
     }
     
-    override func canBuyThisCoin(coin: Int) -> String? {
-        if coin >= price { return "ChocoMilk" }
+    override func canBuyThisCoin(coin: Coin) -> String? {
+        if coin.isEnoughToBuy(of: self.price) { return "ChocoMilk" }
         else { return nil }
     }
     
     override func searchDrinkNumber() -> Int {
         return 2
+    }
+    
+    override func convertToStringBeverage() -> String {
+        return "ChocoMilk"
     }
 }
