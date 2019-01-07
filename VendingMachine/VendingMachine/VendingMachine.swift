@@ -36,15 +36,8 @@ class VendingMachine : PrintableMachingState {
     }
     
     func sell(menu: Int) -> State {
-        guard let menu = DrinkMenu(rawValue: menu) else { return .notExist }
-        switch menu {
-        case .bananaMilk: return removeDrink(index: 0)
-        case .chocoMilk: return removeDrink(index: 1)
-        case .cola: return removeDrink(index: 2)
-        case .fanta: return removeDrink(index: 3)
-        case .cantata: return removeDrink(index: 4)
-        case .top: return removeDrink(index: 5)
-        }
+        if menu > 6 { return .notExist }
+        return removeDrink(index: menu-1)
     }
     
     private func removeDrink(index: Int) -> State {
@@ -58,21 +51,6 @@ class VendingMachine : PrintableMachingState {
     
     private func canBuy(_ price: Int) -> Bool {
         return coin >= price
-    }
-    
-    func canPurchaseList() -> [String] {
-        var list: [String] = []
-        if coin >= 1500 {
-            list.append("바나나우유")
-            list.append("초코우유")
-        }
-        if coin >= 2000 {
-            list.append("콜라")
-            list.append("환타")
-        }
-        if coin >= 3000 { list.append("칸타타") }
-        if coin >= 3500 { list.append("TOP") }
-        return list
     }
     
     func searchExpirationList() -> [Beverage] {

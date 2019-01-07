@@ -51,12 +51,6 @@ class UnitTestVendingMachine: XCTestCase {
         XCTAssertEqual(state, .notExist)
     }
     
-    func testCanPurchaseList() {
-        machine.insert(coin: 1500)
-        let purchaseList = machine.canPurchaseList()
-        XCTAssertEqual(purchaseList, ["바나나우유", "초코우유"])
-    }
-    
     func testSearchExpirationList() {
         let pastList = machine.searchExpirationList()
         XCTAssertEqual(pastList.count, 0)
