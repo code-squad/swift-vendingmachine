@@ -32,22 +32,22 @@ class UnitTestVendingMachine: XCTestCase {
     
     func testSellSuccess() {
         machine.insert(coin: 3000)
-        let state : State = machine.sell(menu: 2)
+        let state : State = machine.pick(menu: 2)
         XCTAssertEqual(state, .success)
     }
     
     func testSellFailByLakingOfMoney() {
-        let state : State = machine.sell(menu: 1)
+        let state : State = machine.pick(menu: 1)
         XCTAssertEqual(state, .fail)
     }
     
     func testSellFailByNotEnoughStock() {
-        let state : State = machine.sell(menu: 5)
+        let state : State = machine.pick(menu: 5)
         XCTAssertEqual(state, .notEnough)
     }
     
     func testSellFailByNotExistMenu() {
-        let state : State = machine.sell(menu: 9)
+        let state : State = machine.pick(menu: 9)
         XCTAssertEqual(state, .notExist)
     }
     
