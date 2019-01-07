@@ -75,15 +75,8 @@ class VendingMachine : PrintableMachingState, ManagebleDrinks {
     }
     
     func addStock(drink: Beverage) {
-        switch drink {
-        case is BananaMilk: drinks[0].append(drink)
-        case is ChocoMilk: drinks[1].append(drink)
-        case is Cola: drinks[2].append(drink)
-        case is Fanta: drinks[3].append(drink)
-        case is Cantata: drinks[4].append(drink)
-        case is TOP: drinks[5].append(drink)
-        default: return
-        }
+        let drinkNumber = drink.searchDrinkNumber()
+        drinks[drinkNumber].append(drink)
     }
     
     func getPuchaseHistory() -> [String] {

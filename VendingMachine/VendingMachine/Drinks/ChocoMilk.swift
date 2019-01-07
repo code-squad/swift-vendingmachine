@@ -24,4 +24,8 @@ class ChocoMilk: Milk {
         if coin >= price { return "ChocoMilk" }
         else { return nil }
     }
+    
+    override func searchDrinkNumber() -> Int {
+        return 2
+    }
 }

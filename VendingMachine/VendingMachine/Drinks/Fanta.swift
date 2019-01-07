@@ -32,4 +32,8 @@ class Fanta: CarbonatedDrink {
         if coin >= price { return "Fanta" }
         else { return nil }
     }
+    
+    override func searchDrinkNumber() -> Int {
+        return 3
+    }
 }

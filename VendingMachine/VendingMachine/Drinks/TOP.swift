@@ -38,4 +38,8 @@ class TOP: Coffee {
         if coin >= price { return "TOP" }
         else { return nil }
     }
+    
+    override func searchDrinkNumber() -> Int {
+        return 6
+    }
 }

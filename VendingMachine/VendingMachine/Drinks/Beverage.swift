@@ -26,6 +26,10 @@ class Beverage {
     func canBuyThisCoin(coin: Int) -> String? {
         return nil
     }
+    
+    func searchDrinkNumber() -> Int {
+        return 0
+    }
 }
 
 extension Beverage: CustomStringConvertible {
