@@ -21,7 +21,7 @@ class ChocoMilk: Milk {
     }
     
     override func getTypeWhatCanBuy(coin: Coin) -> String? {
-        if coin.isEnoughToBuy(of: self.price) { return "\(type(of: self))" }
+        if coin.isEnoughToBuy(of: self.price) { return convertToStringBeverage() }
         else { return nil }
     }
     
@@ -30,6 +30,6 @@ class ChocoMilk: Milk {
     }
     
     override func convertToStringBeverage() -> String {
-        return "ChocoMilk"
+        return "\(type(of: self))"
     }
 }
