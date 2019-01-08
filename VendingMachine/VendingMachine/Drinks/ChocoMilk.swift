@@ -16,6 +16,10 @@ class ChocoMilk: Milk {
         super.init(name: name, volume: volume, price: 1500, brand: brand, date: date, fat: fat)
     }
     
+    convenience init() {
+        self.init(name: "부산우유", volume: 250, brand: "빙그레초코우유", date: "20190303", fat: true, cocoaAmount: 1.3)
+    }
+    
     func isHighPowderAmount() -> Bool {
         return cocoaPowderAmount > 1.0
     }

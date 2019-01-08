@@ -21,6 +21,10 @@ class Cantata: Coffee {
         super.init(name: name, volume: volume, price: 3000, brand: brand, date: date, caffeineAmount: caffeineAmount)
     }
     
+    convenience init() {
+        self.init(name: "칸타타", volume: 400, brand: "달달한칸타타", date: "20170801", caffeineAmount: 1.3, material: .plastic)
+    }
+    
     func isCanPacking() -> Bool {
         return packingMaterial == .cans
     }

@@ -16,6 +16,10 @@ class Cola: CarbonatedDrink {
         super.init(name: name, volume: volume, price: 2000, brand: brand, date: date, isZeroCalorie: isZeroCalorie)
     }
     
+    convenience init() {
+        self.init(name: "콜라", volume: 350, brand: "다이어트콜라", date: "20190303", isZeroCalorie: false, sugarAmount: 0.9)
+    }
+    
     func isHighSugarAmount() -> Bool {
         return sugarAmount > 1.0
     }
