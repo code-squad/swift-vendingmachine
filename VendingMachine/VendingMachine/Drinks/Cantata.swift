@@ -29,15 +29,6 @@ class Cantata: Coffee {
         return packingMaterial == .plastic
     }
     
-//    override func getTypeWhatCanBuy(coin: Coin) -> String? {
-//        if coin.isEnoughToBuy(of: self.price) { return convertToStringBeverage() }
-//        else { return nil }
-//    }
-//    
-    override func searchDrinkNumber() -> Int {
-        return 5
-    }
-    
     override func convertToStringBeverage() -> String {
         return "\(type(of: self))"
     }

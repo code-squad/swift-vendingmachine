@@ -83,12 +83,7 @@ class DrinkStocks {
     
     func count() -> Dictionary<String, Int> {
         var stockCount: [String:Int] = [:]
-        stockCount["\(type(of: BananaMilk.self))"] = stocks["\(type(of: BananaMilk.self))"]?.count
-        stockCount["\(type(of: ChocoMilk.self))"] = stocks["\(type(of: ChocoMilk.self))"]?.count
-        stockCount["\(type(of: Cola.self))"] = stocks["\(type(of: Cola.self))"]?.count
-        stockCount["\(type(of: Fanta.self))"] = stocks["\(type(of: Fanta.self))"]?.count
-        stockCount["\(type(of: Cantata.self))"] = stocks["\(type(of: Cantata.self))"]?.count
-        stockCount["\(type(of: TOP.self))"] = stocks["\(type(of: TOP.self))"]?.count
+        for (key, value) in stocks { stockCount[key] = value.count }
         return stockCount
     }
     
