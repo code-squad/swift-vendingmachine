@@ -15,6 +15,10 @@ class Coin {
         self.coin += coin
     }
     
+    func minus(_ coin: Int) {
+        self.coin -= coin
+    }
+    
     func isEnoughToBuy(of price: Int) -> Bool {
         return coin >= price
     }
