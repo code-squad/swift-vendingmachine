@@ -91,4 +91,12 @@ class DrinkStocks {
         stockCount["\(type(of: TOP.self))"] = stocks["\(type(of: TOP.self))"]?.count
         return stockCount
     }
+    
+    func stockCount() -> Int {
+        return stocks.count
+    }
+    
+    func convertStringDrink(index: Int) -> String {
+        return "\(index)) \(selectBy(index)) \(getPrice(menu: index))원 \(stocks[selectBy(index)]!.count)개"
+    }
 }
