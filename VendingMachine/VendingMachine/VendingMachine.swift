@@ -20,12 +20,12 @@ class VendingMachine : PrintableMachingState {
     }
     
     func pick(menu: Int) -> State {
-        if drinksStocks.isExist(menu) { return .notExist }
+        if !drinksStocks.isExist(menu) { return .notExist }
         return removeDrink(index: menu)
     }
     
     private func removeDrink(index: Int) -> State {
-        guard drinksStocks.isEmptyStock(index) else { return .notEnough }
+        guard !drinksStocks.isEmptyStock(index) else { return .notEnough }
         let price = drinksStocks.getPrice(menu: index)
         guard canBuy(price) else { return .fail }
         purchaseHistory.addHistory(of: drinksStocks.pickOneDrink(menu: index))

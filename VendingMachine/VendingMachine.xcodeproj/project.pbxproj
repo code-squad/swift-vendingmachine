@@ -53,6 +53,7 @@
 		9DF214E321E35D6F00DD27BD /* PurchaseHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF214DE21E34BC000DD27BD /* PurchaseHistory.swift */; };
 		9DF214E521E35D9400DD27BD /* UnitTestCoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF214E421E35D9400DD27BD /* UnitTestCoin.swift */; };
 		9DF214E721E444BF00DD27BD /* DrinkStocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF214E621E444BF00DD27BD /* DrinkStocks.swift */; };
+		9DF214E821E4811400DD27BD /* DrinkStocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF214E621E444BF00DD27BD /* DrinkStocks.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -338,6 +339,7 @@
 				9DF214D621E30FA100DD27BD /* VendingPlay.swift in Sources */,
 				9DF214DB21E30FD400DD27BD /* UnitTestVendingMachine.swift in Sources */,
 				9D8BAD8F21D629A00041467D /* DateFormat.swift in Sources */,
+				9DF214E821E4811400DD27BD /* DrinkStocks.swift in Sources */,
 				9D8BAD9821D629B50041467D /* Cantata.swift in Sources */,
 				9D8BAD9621D629AF0041467D /* ChocoMilk.swift in Sources */,
 				9D8BAD9121D629A40041467D /* Milk.swift in Sources */,
