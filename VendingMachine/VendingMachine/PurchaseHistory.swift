@@ -16,8 +16,6 @@ class PurchaseHistory {
     }
     
     func convertToStrngHistory() -> [String] {
-        var stringHistory: [String] = []
-        for one in history { stringHistory.append(one.convertToStringBeverage()) }
-        return stringHistory
+        return history.map { $0.convertToStringBeverage() }
     }
 }
