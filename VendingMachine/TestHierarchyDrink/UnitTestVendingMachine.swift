@@ -41,11 +41,6 @@ class UnitTestVendingMachine: XCTestCase {
         XCTAssertEqual(state, .fail)
     }
     
-    func testSellFailByNotEnoughStock() {
-        let state : State = machine.pick(menu: 5)
-        XCTAssertEqual(state, .notEnough)
-    }
-    
     func testSellFailByNotExistMenu() {
         let state : State = machine.pick(menu: 9)
         XCTAssertEqual(state, .notExist)
@@ -53,6 +48,6 @@ class UnitTestVendingMachine: XCTestCase {
     
     func testSearchExpirationList() {
         let pastList = machine.searchExpirationList()
-        XCTAssertEqual(pastList.count, 0)
+        XCTAssertEqual(pastList.count, 2)
     }
 }
