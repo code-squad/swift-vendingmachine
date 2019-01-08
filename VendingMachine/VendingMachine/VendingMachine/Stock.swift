@@ -9,7 +9,7 @@
 
 import Foundation
 
-class DrinkStocks {
+class Stock {
     private var stocks: Dictionary<String, [Beverage]> = [:]
     
     // 재고칸 초기화
