@@ -10,22 +10,22 @@ import Foundation
 
 class VendingMachine : PrintableMachingState {
     private var coin: Coin = Coin()
-    private var drinksStocks: DrinkStocks = DrinkStocks()
+    private var stock: Stock = Stock()
     private var purchaseHistory: PurchaseHistory = PurchaseHistory()
     
     init() {
-        drinksStocks.add(BananaMilk())
-        drinksStocks.add(BananaMilk())
-        drinksStocks.add(ChocoMilk())
-        drinksStocks.add(ChocoMilk())
-        drinksStocks.add(Cola())
-        drinksStocks.add(Cola())
-        drinksStocks.add(Fanta())
-        drinksStocks.add(Fanta())
-        drinksStocks.add(Cantata())
-        drinksStocks.add(Cantata())
-        drinksStocks.add(TOP())
-        drinksStocks.add(TOP())
+        stock.add(BananaMilk())
+        stock.add(BananaMilk())
+        stock.add(ChocoMilk())
+        stock.add(ChocoMilk())
+        stock.add(Cola())
+        stock.add(Cola())
+        stock.add(Fanta())
+        stock.add(Fanta())
+        stock.add(Cantata())
+        stock.add(Cantata())
+        stock.add(TOP())
+        stock.add(TOP())
     }
     
     func insert(coin: Int) -> State {
@@ -35,15 +35,15 @@ class VendingMachine : PrintableMachingState {
     }
     
     func pick(menu: Int) -> State {
-        if !drinksStocks.isExist(menu) { return .notExist }
+        if !stock.isExist(menu) { return .notExist }
         return removeDrink(index: menu)
     }
     
     private func removeDrink(index: Int) -> State {
-        guard !drinksStocks.isEmptyStock(index) else { return .notEnough }
-        let price = drinksStocks.getPrice(menu: index)
+        guard !stock.isEmptyStock(index) else { return .notEnough }
+        let price = stock.getPrice(menu: index)
         guard canBuy(price) else { return .fail }
-        purchaseHistory.addHistory(of: drinksStocks.pickOneDrink(menu: index))
+        purchaseHistory.addHistory(of: stock.pickOneDrink(menu: index))
         coin.minus(price)
         return .success
     }
@@ -53,16 +53,16 @@ class VendingMachine : PrintableMachingState {
     }
     
     func getPurchaseListInsertedCoin() -> [String] {
-        return drinksStocks.getPurchaseList(with: coin)
+        return stock.getPurchaseList(with: coin)
     }
     
     func searchExpirationList() -> [Beverage] {
         let todayDate: Date = Date()
-        return drinksStocks.searchExpirationList(to: todayDate)
+        return stock.searchExpirationList(to: todayDate)
     }
     
     func addStock(drink: Beverage) {
-        drinksStocks.add(drink)
+        stock.add(drink)
     }
     
     func getPuchaseHistory() -> [String] {
@@ -71,11 +71,11 @@ class VendingMachine : PrintableMachingState {
 }
 
 extension VendingMachine {
-    func machineState(form: (Coin, DrinkStocks) -> Void) {
-        form(coin, drinksStocks)
+    func machineState(form: (Coin, Stock) -> Void) {
+        form(coin, stock)
     }
 }
 
 protocol PrintableMachingState {
-    func machineState(form: (Coin, DrinkStocks) -> Void)
+    func machineState(form: (Coin, Stock) -> Void)
 }
