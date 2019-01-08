@@ -43,7 +43,7 @@ class VendingMachine : PrintableMachingState {
         guard !drinks[index].isEmpty else { return .notEnough }
         guard canBuy(drinks[index][0].price) else { return .fail }
         purchaseHistory.addHistory(of: drinks[index][0])
-        coin.add(-drinks[index][0].price)
+        coin.minus(drinks[index][0].price)
         drinks[index].remove(at: 0)
         return .success
     }
