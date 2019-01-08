@@ -28,8 +28,8 @@ class Fanta: CarbonatedDrink {
         return fantaFlavor == .orange
     }
     
-    override func canBuyThisCoin(coin: Coin) -> String? {
-        if coin.isEnoughToBuy(of: self.price) { return "Fanta" }
+    override func getTypeWhatCanBuy(coin: Coin) -> String? {
+        if coin.isEnoughToBuy(of: self.price) { return "\(type(of: self))" }
         else { return nil }
     }
     

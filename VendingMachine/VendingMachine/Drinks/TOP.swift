@@ -34,8 +34,8 @@ class TOP: Coffee {
         return topKind == .black
     }
     
-    override func canBuyThisCoin(coin: Coin) -> String? {
-        if coin.isEnoughToBuy(of: self.price) { return "TOP" }
+    override func getTypeWhatCanBuy(coin: Coin) -> String? {
+        if coin.isEnoughToBuy(of: self.price) { return "\(type(of: self))" }
         else { return nil }
     }
     

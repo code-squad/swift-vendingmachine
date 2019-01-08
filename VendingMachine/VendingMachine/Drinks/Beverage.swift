@@ -23,7 +23,7 @@ class Beverage {
         self.menufactureOfDate = DateFormat.convertDate(date)
     }
     
-    func canBuyThisCoin(coin: Coin) -> String? {
+    func getTypeWhatCanBuy(coin: Coin) -> String? {
         return nil
     }
     
