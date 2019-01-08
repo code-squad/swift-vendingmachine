@@ -54,6 +54,7 @@
 		9DF214E521E35D9400DD27BD /* UnitTestCoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF214E421E35D9400DD27BD /* UnitTestCoin.swift */; };
 		9DF214E721E444BF00DD27BD /* DrinkStocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF214E621E444BF00DD27BD /* DrinkStocks.swift */; };
 		9DF214E821E4811400DD27BD /* DrinkStocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF214E621E444BF00DD27BD /* DrinkStocks.swift */; };
+		9DF214EB21E4934B00DD27BD /* DrinkCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF214EA21E4934B00DD27BD /* DrinkCategory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -98,6 +99,7 @@
 		9DF214E021E34BEA00DD27BD /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		9DF214E421E35D9400DD27BD /* UnitTestCoin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestCoin.swift; sourceTree = "<group>"; };
 		9DF214E621E444BF00DD27BD /* DrinkStocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkStocks.swift; sourceTree = "<group>"; };
+		9DF214EA21E4934B00DD27BD /* DrinkCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkCategory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,16 +141,13 @@
 		839DA90B1F8D1F95009E05F3 /* VendingMachine */ = {
 			isa = PBXGroup;
 			children = (
+				9DF214E921E48FCF00DD27BD /* VendingMachine */,
 				9DF214D221DE25AE00DD27BD /* Drinks */,
 				9DF214CF21DE22CD00DD27BD /* Enum */,
 				9DF214C921DE12A900DD27BD /* InAndOut */,
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
 				9DF214CB21DE18F300DD27BD /* VendingPlay.swift */,
-				9DF214C321DE01A200DD27BD /* VendingMachine.swift */,
 				9D8BAD6521D5E38C0041467D /* DateFormat.swift */,
-				9DF214DE21E34BC000DD27BD /* PurchaseHistory.swift */,
-				9DF214E021E34BEA00DD27BD /* Coin.swift */,
-				9DF214E621E444BF00DD27BD /* DrinkStocks.swift */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";
@@ -181,6 +180,7 @@
 			children = (
 				9DF214CD21DE22C800DD27BD /* OrderMenu.swift */,
 				9DF214D321DF344400DD27BD /* State.swift */,
+				9DF214EA21E4934B00DD27BD /* DrinkCategory.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -200,6 +200,17 @@
 				9D8BAD8821D5FEDB0041467D /* TOP.swift */,
 			);
 			path = Drinks;
+			sourceTree = "<group>";
+		};
+		9DF214E921E48FCF00DD27BD /* VendingMachine */ = {
+			isa = PBXGroup;
+			children = (
+				9DF214C321DE01A200DD27BD /* VendingMachine.swift */,
+				9DF214DE21E34BC000DD27BD /* PurchaseHistory.swift */,
+				9DF214E021E34BEA00DD27BD /* Coin.swift */,
+				9DF214E621E444BF00DD27BD /* DrinkStocks.swift */,
+			);
+			path = VendingMachine;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,6 +319,7 @@
 				9D8BAD8921D5FEDB0041467D /* TOP.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
 				9D8BAD5E21CCDA100041467D /* Coffee.swift in Sources */,
+				9DF214EB21E4934B00DD27BD /* DrinkCategory.swift in Sources */,
 				9DF214CE21DE22C800DD27BD /* OrderMenu.swift in Sources */,
 				9D8BAD6621D5E38C0041467D /* DateFormat.swift in Sources */,
 				9DF214CC21DE18F300DD27BD /* VendingPlay.swift in Sources */,

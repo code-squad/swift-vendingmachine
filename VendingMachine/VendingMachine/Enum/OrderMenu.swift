@@ -12,3 +12,6 @@ enum OrderMenu : String {
     case insertCoin = "1"
     case pickDrink = "2"
 }
+
+
+
