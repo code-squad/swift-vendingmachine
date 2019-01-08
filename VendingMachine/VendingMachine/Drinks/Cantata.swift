@@ -29,8 +29,8 @@ class Cantata: Coffee {
         return packingMaterial == .plastic
     }
     
-    override func canBuyThisCoin(coin: Coin) -> String? {
-        if coin.isEnoughToBuy(of: self.price) { return "Cantata" }
+    override func getTypeWhatCanBuy(coin: Coin) -> String? {
+        if coin.isEnoughToBuy(of: self.price) { return "\(type(of: self))" }
         else { return nil }
     }
     

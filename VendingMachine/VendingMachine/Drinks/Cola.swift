@@ -20,8 +20,8 @@ class Cola: CarbonatedDrink {
         return sugarAmount > 1.0
     }
     
-    override func canBuyThisCoin(coin: Coin) -> String? {
-        if coin.isEnoughToBuy(of: self.price) { return "Cola" }
+    override func getTypeWhatCanBuy(coin: Coin) -> String? {
+        if coin.isEnoughToBuy(of: self.price) { return "\(type(of: self))" }
         else { return nil }
     }
     

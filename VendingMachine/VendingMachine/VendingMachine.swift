@@ -56,7 +56,7 @@ class VendingMachine : PrintableMachingState {
         var purchaseList: [String] = []
         for stock in drinks {
             if !stock.isEmpty {
-                if let canBuyDrink = stock[0].canBuyThisCoin(coin: self.coin) { purchaseList.append(canBuyDrink) }
+                if let canBuyDrink = stock[0].getTypeWhatCanBuy(coin: self.coin) { purchaseList.append(canBuyDrink) }
             }
         }
         return purchaseList
