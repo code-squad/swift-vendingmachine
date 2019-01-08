@@ -57,7 +57,7 @@ class VendingMachine : PrintableMachingState {
 
 extension VendingMachine {
     func machineState(form: (Coin, Dictionary<String, Int>) -> Void) {
-        form(coin, drinksStocks.countStocksCount())
+        form(coin, drinksStocks.count())
     }
 }
 
