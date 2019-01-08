@@ -52,6 +52,7 @@
 		9DF214E221E35D6D00DD27BD /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF214E021E34BEA00DD27BD /* Coin.swift */; };
 		9DF214E321E35D6F00DD27BD /* PurchaseHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF214DE21E34BC000DD27BD /* PurchaseHistory.swift */; };
 		9DF214E521E35D9400DD27BD /* UnitTestCoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF214E421E35D9400DD27BD /* UnitTestCoin.swift */; };
+		9DF214E721E444BF00DD27BD /* DrinkStocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF214E621E444BF00DD27BD /* DrinkStocks.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -95,6 +96,7 @@
 		9DF214DE21E34BC000DD27BD /* PurchaseHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseHistory.swift; sourceTree = "<group>"; };
 		9DF214E021E34BEA00DD27BD /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		9DF214E421E35D9400DD27BD /* UnitTestCoin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestCoin.swift; sourceTree = "<group>"; };
+		9DF214E621E444BF00DD27BD /* DrinkStocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkStocks.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 				9D8BAD6521D5E38C0041467D /* DateFormat.swift */,
 				9DF214DE21E34BC000DD27BD /* PurchaseHistory.swift */,
 				9DF214E021E34BEA00DD27BD /* Coin.swift */,
+				9DF214E621E444BF00DD27BD /* DrinkStocks.swift */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DF214E721E444BF00DD27BD /* DrinkStocks.swift in Sources */,
 				9D8BAD8321D5FEC40041467D /* Cola.swift in Sources */,
 				9DF214C621DE02B000DD27BD /* InputView.swift in Sources */,
 				9D8BAD7F21D5FE9F0041467D /* BananaMilk.swift in Sources */,
