@@ -13,6 +13,21 @@ class VendingMachine : PrintableMachingState {
     private var drinksStocks: DrinkStocks = DrinkStocks()
     private var purchaseHistory: PurchaseHistory = PurchaseHistory()
     
+    init() {
+        drinksStocks.add(BananaMilk())
+        drinksStocks.add(BananaMilk())
+        drinksStocks.add(ChocoMilk())
+        drinksStocks.add(ChocoMilk())
+        drinksStocks.add(Cola())
+        drinksStocks.add(Cola())
+        drinksStocks.add(Fanta())
+        drinksStocks.add(Fanta())
+        drinksStocks.add(Cantata())
+        drinksStocks.add(Cantata())
+        drinksStocks.add(TOP())
+        drinksStocks.add(TOP())
+    }
+    
     func insert(coin: Int) -> State {
         if coin < 0 { return .negative }
         self.coin.add(coin)
