@@ -56,11 +56,16 @@ class VendingMachine : PrintableMachingState {
 }
 
 extension VendingMachine {
-    func machineState(form: (Coin, Dictionary<String, Int>) -> Void) {
-        form(coin, drinksStocks.count())
+//    func machineState(form: (Coin, Dictionary<String, Int>) -> Void) {
+//        form(coin, drinksStocks.count())
+//    }
+    
+    func machineState(form: (Coin, DrinkStocks) -> Void) {
+        form(coin, drinksStocks)
     }
 }
 
 protocol PrintableMachingState {
-    func machineState(form: (Coin, Dictionary<String, Int>) -> Void)
+//    func machineState(form: (Coin, Dictionary<String, Int>) -> Void)
+    func machineState(form: (Coin, DrinkStocks) -> Void)
 }
