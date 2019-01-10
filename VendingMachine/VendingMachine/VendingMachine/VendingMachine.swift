@@ -8,7 +8,20 @@
 
 import Foundation
 
-class VendingMachine : PrintableMachingState {
+protocol UserAvailableMode {
+    
+}
+
+protocol ManageableMode {
+    func addStock(drink: Beverage)
+    func removeDrink(_ menu: Int) -> Beverage
+}
+
+protocol PrintableMachingState {
+    func machineState(form: (Coin, Stock) -> Void)
+}
+
+class VendingMachine : PrintableMachingState, ManageableMode {
     private var coin: Coin = Coin()
     private var stock: Stock = Stock()
     private var purchaseHistory: PurchaseHistory = PurchaseHistory()
@@ -35,17 +48,18 @@ class VendingMachine : PrintableMachingState {
     }
     
     func pick(menu: Int) -> State {
-        if !stock.isExist(menu) { return .notExist }
-        return removeDrink(index: menu)
-    }
-    
-    private func removeDrink(index: Int) -> State {
-        guard !stock.isEmptyStock(index) else { return .notEnough }
-        let price = stock.getPrice(menu: index)
+        guard stock.isExist(menu) else { return .notExist }
+        guard !stock.isEmptyStock(menu) else { return .notEnough }
+        let price = stock.getPrice(menu: menu)
         guard canBuy(price) else { return .fail }
-        purchaseHistory.addHistory(of: stock.pickOneDrink(menu: index))
+        let drink = removeDrink(menu)
+        purchaseHistory.addHistory(of: drink)
         coin.minus(price)
         return .success
+    }
+    
+    func removeDrink(_ menu: Int) -> Beverage {
+        return stock.pickOneDrink(menu: menu)
     }
     
     private func canBuy(_ price: Int) -> Bool {
@@ -74,8 +88,4 @@ extension VendingMachine {
     func machineState(form: (Coin, Stock) -> Void) {
         form(coin, stock)
     }
-}
-
-protocol PrintableMachingState {
-    func machineState(form: (Coin, Stock) -> Void)
 }
