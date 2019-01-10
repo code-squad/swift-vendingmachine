@@ -85,17 +85,14 @@ extension VendingMachine: UserAvailableMode {
     func isAbleTopick(menu: Int) -> State {
         guard stock.isExist(menu) else { return .notExist }
         guard !stock.isEmptyStock(menu) else { return .notEnough }
-        let price = stock.getPrice(menu: menu)
-        guard canBuy(price) else { return .fail }
-        let drink = stock.pickOneDrink(menu: menu)
-        purchaseHistory.addHistory(of: drink)
-        coin.minus(price)
+        guard canBuy(stock.getPrice(menu: menu)) else { return .fail }
         return .success
     }
     
     func pick(menu: Int) -> Beverage {
         let picked = stock.pickOneDrink(menu: menu)
         purchaseHistory.addHistory(of: picked)
+        coin.minus(stock.getPrice(menu: menu))
         return picked
     }
     
