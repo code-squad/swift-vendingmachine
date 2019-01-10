@@ -11,7 +11,11 @@ import Foundation
 
 func main() {
     let vendingMachine: VendingMachine = VendingMachine()
-    while true { VendingPlay.play(with: vendingMachine) }
+    var mode: Mode
+    while true {
+        mode = VendingPlay.start()
+        VendingPlay.play(by: mode, with: vendingMachine)
+    }
 }
 
 main()

@@ -55,6 +55,7 @@
 		9DF214E721E444BF00DD27BD /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF214E621E444BF00DD27BD /* Stock.swift */; };
 		9DF214E821E4811400DD27BD /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF214E621E444BF00DD27BD /* Stock.swift */; };
 		9DF214EB21E4934B00DD27BD /* DrinkCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF214EA21E4934B00DD27BD /* DrinkCategory.swift */; };
+		9DF214ED21E6E8B400DD27BD /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF214EC21E6E8B400DD27BD /* Mode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -100,6 +101,7 @@
 		9DF214E421E35D9400DD27BD /* UnitTestCoin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestCoin.swift; sourceTree = "<group>"; };
 		9DF214E621E444BF00DD27BD /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 		9DF214EA21E4934B00DD27BD /* DrinkCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkCategory.swift; sourceTree = "<group>"; };
+		9DF214EC21E6E8B400DD27BD /* Mode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 				9DF214CD21DE22C800DD27BD /* OrderMenu.swift */,
 				9DF214D321DF344400DD27BD /* State.swift */,
 				9DF214EA21E4934B00DD27BD /* DrinkCategory.swift */,
+				9DF214EC21E6E8B400DD27BD /* Mode.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				9DF214C821DE0D9A00DD27BD /* OutputView.swift in Sources */,
 				9DF214DF21E34BC000DD27BD /* PurchaseHistory.swift in Sources */,
 				9D8BAD5821CCD5260041467D /* Beverage.swift in Sources */,
+				9DF214ED21E6E8B400DD27BD /* Mode.swift in Sources */,
 				9D8BAD8121D5FEB10041467D /* ChocoMilk.swift in Sources */,
 				9D8BAD8521D5FECB0041467D /* Fanta.swift in Sources */,
 				9D8BAD5A21CCD9DF0041467D /* Milk.swift in Sources */,

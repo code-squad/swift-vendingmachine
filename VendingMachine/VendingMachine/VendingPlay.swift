@@ -9,10 +9,18 @@
 import Foundation
 
 struct VendingPlay {
-    static func play(with machine: VendingMachine) {
+    static func start() -> Mode {
+        while true {
+            OutputView.printStart(message: "자판기를 시작합니다.")
+            let input = InputView.select(message: "1. 관리자 모드\n2. 사용자 모드\n> ")
+            if let mode = Mode(rawValue: input) { return mode }
+        }
+    }
+    
+    static func play(by mode: Mode, with machine: VendingMachine) {
         OutputView.printMachineState(of: machine)
-        let input = splitOrder(of: InputView.selectMenu())
-        excute(by: input, machine)
+        let input = InputView.select(message: "1. 금액추가\n2. 음료구매\n> ")
+        excute(by: splitOrder(of: input), machine)
     }
     
     private static func excute(by order: [String], _ machine: VendingMachine) {

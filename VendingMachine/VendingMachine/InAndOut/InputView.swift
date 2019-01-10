@@ -13,10 +13,8 @@ struct InputView {
         return readLine() ?? ""
     }
     
-    static func selectMenu() -> String {
-        print("1.금액추가")
-        print("2.음료구매")
-        print("> ", terminator: "")
+    static func select(message: String) -> String {
+        print(message, terminator: "")
         return input()
     }
 }
