@@ -18,9 +18,24 @@ struct VendingPlay {
     }
     
     static func play(by mode: Mode, with machine: VendingMachine) {
-        OutputView.printMachineState(of: machine)
-        let input = InputView.select(message: "1. 금액추가\n2. 음료구매\n> ")
-        excute(by: splitOrder(of: input), machine)
+        switch mode {
+        case .user: runUserMode(with: machine)
+        case .manager: runManagerMode(with: machine)
+        }
+    }
+    
+    static func runUserMode(with machine: VendingMachine) {
+        while true {
+            OutputView.printMachineState(of: machine)
+            let input = InputView.select(message: "1. 금액추가\n2. 음료구매\n> ")
+            excute(by: splitOrder(of: input), machine)
+        }
+    }
+    
+    static func runManagerMode(with machine: VendingMachine) {
+        while true {
+            
+        }
     }
     
     private static func excute(by order: [String], _ machine: VendingMachine) {
@@ -37,10 +52,13 @@ struct VendingPlay {
             return
         }
         switch menu {
-        case .insertCoin: machine.insert(coin: value)
-        case .pickDrink: machine.pick(menu: value)
+        case .insertCoin:
+            machine.insert(coin: value)
+            OutputView.printInsert(coin: value)
+        case .pickDrink:
+            let drink = machine.pick(menu: value)
+            OutputView.printPickMessage(menu: drink)
         }
-        
     }
     
     private static func splitOrder(of input: String) -> [String] {

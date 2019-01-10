@@ -24,4 +24,12 @@ struct OutputView {
     static func printStart(message: String) {
         print(message)
     }
+    
+    static func printInsert(coin: Int) {
+        print("\(coin)을 투입하셨습니다.\n")
+    }
+    
+    static func printPickMessage(menu: Beverage) {
+        print("\(type(of: menu))을 구매하셨습니다. \(menu.price)원을 차감합니다.\n")
+    }
 }
