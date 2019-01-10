@@ -29,10 +29,18 @@ struct VendingPlay {
         var state: State
         
         switch menu {
-        case .insertCoin: state = machine.insert(coin: value)
-        case .pickDrink: state = machine.pick(menu: value)
+        case .insertCoin: state = machine.IsAbleToinsert(coin: value)
+        case .pickDrink: state = machine.isAbleTopick(menu: value)
         }
-        if state != .success { OutputView.printOrder(of: state) }
+        guard state == .success else {
+            OutputView.printOrder(of: state)
+            return
+        }
+        switch menu {
+        case .insertCoin: machine.insert(coin: value)
+        case .pickDrink: machine.pick(menu: value)
+        }
+        
     }
     
     private static func splitOrder(of input: String) -> [String] {
