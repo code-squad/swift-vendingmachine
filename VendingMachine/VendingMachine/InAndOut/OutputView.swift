@@ -20,4 +20,8 @@ struct OutputView {
     static func printOrder(of state: State) {
         print(state.rawValue)
     }
+    
+    static func printStart(message: String) {
+        print(message)
+    }
 }
