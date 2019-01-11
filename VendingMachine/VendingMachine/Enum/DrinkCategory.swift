@@ -32,4 +32,15 @@ enum DrinkCategory: Int, CaseIterable {
         case .top: return 3500
         }
     }
+    
+    func createDrinkByMenu() -> Beverage {
+        switch self {
+        case .bananaMilk: return BananaMilk()
+        case .chocoMilk: return ChocoMilk()
+        case .cola: return Cola()
+        case .fanta: return Fanta()
+        case .cantata: return Cantata()
+        case .top: return TOP()
+        }
+    }
 }

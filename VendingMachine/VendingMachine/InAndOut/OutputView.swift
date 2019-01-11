@@ -9,16 +9,17 @@
 import Foundation
 
 struct OutputView {
-    static func printMachineState(of machine: PrintableMachingState) {
+    static func printUserModeState(of machine: PrintableMachingState) {
         machine.machineState { coin, stocks in
+            print("\n현재 투입한 금액은 \(coin.convertToString())원 입니다. 다음과 같은 음료가 있습니다.")
             for index in 1...stocks.stockCount() {
                 print(stocks.convertStringDrink(index: index))
             }
         }
     }
     
-    static func printOrder(of state: State) {
-        print(state.rawValue)
+    static func printOrder(of state: OrderState) {
+        print(state.convertString())
     }
     
     static func printStart(message: String) {
