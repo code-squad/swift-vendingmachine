@@ -24,7 +24,8 @@ protocol ManageableMode {
 }
 
 protocol PrintableMachingState {
-    func machineState(form: (Coin, Stock) -> Void)
+    func machineStateInUserMode(form: (Coin, Stock) -> Void)
+    func machineStateInManagerMode(form: (Stock) -> Void)
 }
 
 class VendingMachine {
@@ -62,8 +63,12 @@ class VendingMachine {
 }
 
 extension VendingMachine: PrintableMachingState {
-    func machineState(form: (Coin, Stock) -> Void) {
+    func machineStateInUserMode(form: (Coin, Stock) -> Void) {
         form(coin, stock)
+    }
+    
+    func machineStateInManagerMode(form: (Stock) -> Void) {
+        form(stock)
     }
 }
 
