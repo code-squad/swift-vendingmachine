@@ -53,4 +53,31 @@ class UnitTestVendingMachine: XCTestCase {
         userMode.insert(coin: 1500)
         XCTAssertEqual(userMode.getPurchaseListInsertedCoin().count, 2)
     }
+    
+    func testIsAbleToAddAtNotExist() {
+        let managerMode = machine as ManageableMode
+        XCTAssertEqual(managerMode.isAbleToAdd(menu: 7), .notExist)
+    }
+    
+    func testIsAbleToAddAtSuccess() {
+        let managerMode = machine as ManageableMode
+        XCTAssertEqual(managerMode.isAbleToAdd(menu: 6), .success)
+    }
+    
+    func testIsAbleToRemoveAtNotExist() {
+        let managerMode = machine as ManageableMode
+        XCTAssertEqual(managerMode.isAbleToRemove(menu: 7), .notExist)
+    }
+    
+    func testIsAbleToRemoveAtNotEnough() {
+        let managerMode = machine as ManageableMode
+        managerMode.removeDrink(6)
+        managerMode.removeDrink(6)
+        XCTAssertEqual(managerMode.isAbleToRemove(menu: 6), .notEnough)
+    }
+    
+    func testIsAbleToRemoveAtSuccess() {
+        let managerMode = machine as ManageableMode
+        XCTAssertEqual(managerMode.isAbleToRemove(menu: 6), .success)
+    }
 }
