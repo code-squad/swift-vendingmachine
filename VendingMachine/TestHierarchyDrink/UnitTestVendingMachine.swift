@@ -18,36 +18,39 @@ class UnitTestVendingMachine: XCTestCase {
 
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+        machine = nil
     }
     
-    func testInsertPositive() {
-        let state : State = machine.insert(coin: 1000)
-        XCTAssertEqual(state, .success)
+    func testIsAbleToInsertAtSuccess() {
+        let userMode = machine as UserAvailableMode
+         XCTAssertEqual(userMode.isAbleToinsert(coin: 1000), .success)
     }
     
-    func testInsertNegative() {
-        let state : State = machine.insert(coin: -100)
-        XCTAssertEqual(state, .negative)
+    func testIsAbleToInsertAtNagative() {
+        let userMode = machine as UserAvailableMode
+        XCTAssertEqual(userMode.isAbleToinsert(coin: -1000), .negative)
     }
     
-    func testSellSuccess() {
-        machine.insert(coin: 3000)
-        let state : State = machine.pick(menu: 2)
-        XCTAssertEqual(state, .success)
+    func testIsAbleToPickAtNotExist() {
+        let userMode = machine as UserAvailableMode
+        XCTAssertEqual(userMode.isAbleTopick(menu: 7), .notExist)
     }
     
-    func testSellFailByLakingOfMoney() {
-        let state : State = machine.pick(menu: 1)
-        XCTAssertEqual(state, .fail)
+    func testIsAbleToPickAtNotEnough() {
+        let userMode = machine as UserAvailableMode
+        userMode.pick(menu: 6)
+        userMode.pick(menu: 6)
+        XCTAssertEqual(userMode.isAbleTopick(menu: 6), .notEnough)
     }
     
-    func testSellFailByNotExistMenu() {
-        let state : State = machine.pick(menu: 9)
-        XCTAssertEqual(state, .notExist)
+    func testIsAbleToPickAtFail() {
+        let userMode = machine as UserAvailableMode
+        XCTAssertEqual(userMode.isAbleTopick(menu: 5), .fail)
     }
     
-    func testSearchExpirationList() {
-        let pastList = machine.searchExpirationList()
-        XCTAssertEqual(pastList.count, 2)
+    func testGetPurchaseList() {
+        let userMode = machine as UserAvailableMode
+        userMode.insert(coin: 1500)
+        XCTAssertEqual(userMode.getPurchaseListInsertedCoin().count, 2)
     }
 }
