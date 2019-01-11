@@ -24,7 +24,7 @@ struct VendingPlay {
         }
     }
     
-    static func runUserMode(with machine: VendingMachine) {
+    private static func runUserMode(with machine: VendingMachine) {
         while true {
             OutputView.printUserModeState(of: machine)
             let input = InputView.select(message: "1. 금액추가\n2. 음료구매\n> ")
@@ -32,35 +32,8 @@ struct VendingPlay {
         }
     }
     
-    static func runManagerMode(with machine: VendingMachine) {
-        while true {
-            OutputView.printManagerModeState(of: machine)
-            let input = InputView.select(message: "1. 재고추가\n2. 재고삭제\n> ")
-            excuteManagerOrder(by: splitOrder(of: input), machine)
-        }
-    }
-    
-    private static func excuteManagerOrder(by order: [String], _ machine: ManageableMode) {
-        guard let menu = ManagerMenu.init(rawValue: order[0]) else { return }
-        guard let value = Int(order[1]) else { return }
-        var state: OrderState
-        
-        switch menu {
-        case .add: state = machine.isAbleToAdd(menu: value)
-        case .remove: state = machine.isAbleToRemove(menu: value)
-        }
-        guard state == .success else {
-            OutputView.printOrder(of: state)
-            return
-        }
-        switch menu {
-        case .add: machine.addStock(menu: value)
-        case .remove: machine.removeDrink(value)
-        }
-    }
-    
-    
     private static func excuteUserOrder(by order: [String], _ machine: UserAvailableMode) {
+        guard order.count == 2 else { return }
         guard let menu = UserMenu.init(rawValue: order[0]) else { return }
         guard let value = Int(order[1]) else { return }
         var state: OrderState
@@ -80,6 +53,34 @@ struct VendingPlay {
         case .pickDrink:
             let drink = machine.pick(menu: value)
             OutputView.printPickMessage(menu: drink)
+        }
+    }
+    
+    private static func runManagerMode(with machine: VendingMachine) {
+        while true {
+            OutputView.printManagerModeState(of: machine)
+            let input = InputView.select(message: "1. 재고추가\n2. 재고삭제\n> ")
+            excuteManagerOrder(by: splitOrder(of: input), machine)
+        }
+    }
+    
+    private static func excuteManagerOrder(by order: [String], _ machine: ManageableMode) {
+        guard order.count == 2 else { return }
+        guard let menu = ManagerMenu.init(rawValue: order[0]) else { return }
+        guard let value = Int(order[1]) else { return }
+        var state: OrderState
+        
+        switch menu {
+        case .add: state = machine.isAbleToAdd(menu: value)
+        case .remove: state = machine.isAbleToRemove(menu: value)
+        }
+        guard state == .success else {
+            OutputView.printOrder(of: state)
+            return
+        }
+        switch menu {
+        case .add: machine.addStock(menu: value)
+        case .remove: machine.removeDrink(value)
         }
     }
     
