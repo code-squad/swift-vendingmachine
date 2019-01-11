@@ -27,7 +27,7 @@ struct OutputView {
         }
     }
     
-    static func printOrder(of state: OrderState) {
+    static func printOrder(of state: State) {
         print(state.convertString())
     }
     

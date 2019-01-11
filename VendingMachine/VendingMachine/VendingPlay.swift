@@ -36,7 +36,7 @@ struct VendingPlay {
         guard order.count == 2 else { return }
         guard let menu = UserMenu.init(rawValue: order[0]) else { return }
         guard let value = Int(order[1]) else { return }
-        var state: OrderState
+        var state: State
         
         switch menu {
         case .insertCoin: state = machine.isAbleToinsert(coin: value)
@@ -68,7 +68,7 @@ struct VendingPlay {
         guard order.count == 2 else { return }
         guard let menu = ManagerMenu.init(rawValue: order[0]) else { return }
         guard let value = Int(order[1]) else { return }
-        var state: OrderState
+        var state: State
         
         switch menu {
         case .add: state = machine.isAbleToAdd(menu: value)

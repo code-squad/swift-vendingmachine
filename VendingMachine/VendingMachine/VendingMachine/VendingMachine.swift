@@ -9,16 +9,16 @@
 import Foundation
 
 protocol UserAvailableMode {
-    func isAbleToinsert(coin: Int) -> OrderState
-    func isAbleTopick(menu: Int) -> OrderState
+    func isAbleToinsert(coin: Int) -> State
+    func isAbleTopick(menu: Int) -> State
     func pick(menu: Int) -> Beverage
     func insert(coin: Int)
     func getPurchaseListInsertedCoin() -> [String]
 }
 
 protocol ManageableMode {
-    func isAbleToAdd(menu: Int) -> OrderState
-    func isAbleToRemove(menu: Int) -> OrderState
+    func isAbleToAdd(menu: Int) -> State
+    func isAbleToRemove(menu: Int) -> State
     func addStock(menu: Int)
     func removeDrink(_ menu: Int) -> Beverage
 }
@@ -73,12 +73,12 @@ extension VendingMachine: PrintableMachingState {
 }
 
 extension VendingMachine: ManageableMode {
-    func isAbleToAdd(menu: Int) -> OrderState {
+    func isAbleToAdd(menu: Int) -> State {
         guard stock.isExist(menu) else { return .notExist }
         return .success
     }
     
-    func isAbleToRemove(menu: Int) -> OrderState {
+    func isAbleToRemove(menu: Int) -> State {
         guard stock.isExist(menu) else { return .notExist }
         guard !stock.isEmptyStock(menu) else { return .notEnough }
         return .success
@@ -95,13 +95,12 @@ extension VendingMachine: ManageableMode {
 }
 
 extension VendingMachine: UserAvailableMode {
-    func isAbleToinsert(coin: Int) -> OrderState {
+    func isAbleToinsert(coin: Int) -> State {
         if coin < 0 { return .negative }
-        self.coin.add(coin)
         return .success
     }
     
-    func isAbleTopick(menu: Int) -> OrderState {
+    func isAbleTopick(menu: Int) -> State {
         guard stock.isExist(menu) else { return .notExist }
         guard !stock.isEmptyStock(menu) else { return .notEnough }
         guard canBuy(stock.getPrice(menu: menu)) else { return .fail }

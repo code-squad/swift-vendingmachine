@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum OrderState : String {
+enum State: String {
     case success 
     case negative
     case notEnough

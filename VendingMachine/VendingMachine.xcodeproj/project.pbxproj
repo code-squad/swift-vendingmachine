@@ -55,6 +55,9 @@
 		9DF214EB21E4934B00DD27BD /* DrinkCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF214EA21E4934B00DD27BD /* DrinkCategory.swift */; };
 		9DF214ED21E6E8B400DD27BD /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF214EC21E6E8B400DD27BD /* Mode.swift */; };
 		9DF214F321E73BC300DD27BD /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF214F221E73BC300DD27BD /* Menu.swift */; };
+		9DF214F421E8413900DD27BD /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF214EC21E6E8B400DD27BD /* Mode.swift */; };
+		9DF214F521E8413F00DD27BD /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF214F221E73BC300DD27BD /* Menu.swift */; };
+		9DF214F621E8414300DD27BD /* DrinkCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF214EA21E4934B00DD27BD /* DrinkCategory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -341,6 +344,7 @@
 				9D8BAD9421D629AB0041467D /* BananaMilk.swift in Sources */,
 				9DF214DD21E3112700DD27BD /* InputView.swift in Sources */,
 				9DF214DC21E3112500DD27BD /* OutputView.swift in Sources */,
+				9DF214F521E8413F00DD27BD /* Menu.swift in Sources */,
 				9DF214E321E35D6F00DD27BD /* PurchaseHistory.swift in Sources */,
 				9D8BAD9D21D63D9D0041467D /* UnitTestCoffeeInterface.swift in Sources */,
 				9D8BAD8E21D6299B0041467D /* main.swift in Sources */,
@@ -349,10 +353,12 @@
 				9D8BAD9721D629B30041467D /* Fanta.swift in Sources */,
 				9D8BAD8B21D626DE0041467D /* UnitTestCarbonatedInterface.swift in Sources */,
 				9D8BAD9021D629A20041467D /* Beverage.swift in Sources */,
+				9DF214F421E8413900DD27BD /* Mode.swift in Sources */,
 				9D8BAD9921D629B70041467D /* TOP.swift in Sources */,
 				9DF214E221E35D6D00DD27BD /* Coin.swift in Sources */,
 				9DF214D621E30FA100DD27BD /* VendingPlay.swift in Sources */,
 				9DF214DB21E30FD400DD27BD /* UnitTestVendingMachine.swift in Sources */,
+				9DF214F621E8414300DD27BD /* DrinkCategory.swift in Sources */,
 				9D8BAD8F21D629A00041467D /* DateFormat.swift in Sources */,
 				9DF214E821E4811400DD27BD /* Stock.swift in Sources */,
 				9D8BAD9821D629B50041467D /* Cantata.swift in Sources */,
