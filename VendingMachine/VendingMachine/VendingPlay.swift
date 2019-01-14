@@ -39,8 +39,8 @@ struct VendingPlay {
         var state: State
         
         switch menu {
-        case .insertCoin: state = machine.isAbleToinsert(coin: value)
-        case .pickDrink: state = machine.isAbleTopick(menu: value)
+        case .insertCoin: state = machine.isAbleToInsert(coin: value)
+        case .pickDrink: state = machine.isAbleToPick(menu: value)
         }
         guard state == .success else {
             OutputView.printOrder(of: state)
