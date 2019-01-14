@@ -17,7 +17,12 @@ class Cola: CarbonatedDrink {
     }
     
     convenience init() {
-        self.init(name: "콜라", volume: 350, brand: "다이어트콜라", date: "20190303", isZeroCalorie: false, sugarAmount: 0.9)
+        self.init(name: "콜라",
+                  volume: 350,
+                  brand: "다이어트콜라",
+                  date: "20190303",
+                  isZeroCalorie: false,
+                  sugarAmount: 0.9)
     }
     
     func isHighSugarAmount() -> Bool {

@@ -36,7 +36,9 @@ struct VendingPlay {
         }
     }
     
-    private static func excuteUserOrder(by order: [String], _ machine: UserAvailableMode, _ printer: PrintableUserMode) {
+    private static func excuteUserOrder(by order: [String],
+                                        _ machine: UserAvailableMode,
+                                        _ printer: PrintableUserMode) {
         guard order.count == 2 else { return }
         guard let menu = UserMenu.init(rawValue: order[0]) else { return }
         guard let value = Int(order[1]) else { return }
@@ -89,6 +91,6 @@ struct VendingPlay {
     }
     
     private static func splitOrder(of input: String) -> [String] {
-        return input.split(separator: " ").map{ String.init($0) }
+        return input.split(separator: " ").map { String.init($0) }
     }
 }

@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 func main() {
     let vendingMachine: VendingMachine = VendingMachine()
     var mode: Mode
@@ -19,5 +18,3 @@ func main() {
 }
 
 main()
-
-

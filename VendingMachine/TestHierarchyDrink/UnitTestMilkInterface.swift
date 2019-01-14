@@ -19,17 +19,32 @@ class UnitTestMilkInterface: XCTestCase {
     }
 
     func testMilkInterface() {
-        let milk = Milk(name: "서울우유", volume: 350, price: 2000, brand: "빙그레바나나우유", date: "20170801", fat: true)
+        let milk = Milk(name: "서울우유",
+                        volume: 350,
+                        price: 2000,
+                        brand: "빙그레바나나우유",
+                        date: "20170801",
+                        fat: true)
         XCTAssertEqual(milk.isHighFatMilk(), true)
     }
     
     func testBananaMilkInterface() {
-        let bananaMilk = BananaMilk(name: "서울우유", volume: 350, brand: "빙그레바나나우유", date: "20170810", fat: true, bananaAmount: 1.1)
+        let bananaMilk = BananaMilk(name: "서울우유",
+                                    volume: 350,
+                                    brand: "빙그레바나나우유",
+                                    date: "20170810",
+                                    fat: true,
+                                    bananaAmount: 1.1)
         XCTAssertEqual(bananaMilk.isHighJuiceAmount(), true)
     }
     
     func testChocoMilkInterface() {
-        let chocoMilk = ChocoMilk(name: "서울우유", volume: 350, brand: "빙그레초코우유", date: "20170810", fat: true, cocoaAmount: 0.7)
+        let chocoMilk = ChocoMilk(name: "서울우유",
+                                  volume: 350,
+                                  brand: "빙그레초코우유",
+                                  date: "20170810",
+                                  fat: true,
+                                  cocoaAmount: 0.7)
         XCTAssertEqual(chocoMilk.isHighPowderAmount(), false)
     }
 

@@ -23,7 +23,12 @@ class TOP: Coffee {
     }
     
     convenience init() {
-        self.init(name: "TOP", volume: 450, brand: "TOP아메리카노", date: "20180505", caffeineAmount: 1.5, topKind: .sweetAmericano)
+        self.init(name: "TOP",
+                  volume: 450,
+                  brand: "TOP아메리카노",
+                  date: "20180505",
+                  caffeineAmount: 1.5,
+                  topKind: .sweetAmericano)
     }
     
     func isAmericano() -> Bool {

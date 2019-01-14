@@ -18,4 +18,3 @@ struct InputView {
         return input()
     }
 }
-

@@ -1,4 +1,3 @@
-
 //
 //  BeverageStocks.swift
 //  VendingMachine
@@ -10,8 +9,7 @@
 import Foundation
 
 class Stock {
-    private var stocks: Dictionary<String, [Beverage]> = [:]
-    
+    private var stocks: [String: [Beverage]] = [:]
     // 재고칸 초기화
     init() {
         for category in DrinkCategory.allCases {
@@ -56,13 +54,13 @@ class Stock {
     func searchExpirationList(to todayDate: Date) -> [Beverage] {
         var past: [Beverage] = []
         for (_, value) in stocks {
-            for drink in value { if drink.menufactureOfDate < todayDate { past.append(drink) } }
+            for drink in value where drink.menufactureOfDate < todayDate { past.append(drink) }
         }
         return past
     }
     
-    func count() -> Dictionary<String, Int> {
-        var stockCount: [String:Int] = [:]
+    func count() -> [String: Int] {
+        var stockCount: [String: Int] = [:]
         for (key, value) in stocks { stockCount[key] = value.count }
         return stockCount
     }

@@ -21,7 +21,12 @@ class Fanta: CarbonatedDrink {
     }
     
     convenience init() {
-        self.init(name: "환타", volume: 350, brand: "다이어트환타", date: "20191009", isZeroCalorie: false, fantaFlavor: .orange)
+        self.init(name: "환타",
+            volume: 350,
+            brand: "다이어트환타",
+            date: "20191009",
+            isZeroCalorie: false,
+            fantaFlavor: .orange)
     }
     
     func isIncludeGrape() -> Bool {

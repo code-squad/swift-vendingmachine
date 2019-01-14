@@ -8,12 +8,12 @@
 
 import Foundation
 
-enum UserMenu : String {
+enum UserMenu: String {
     case insertCoin = "1"
     case pickDrink = "2"
 }
 
-enum ManagerMenu : String {
+enum ManagerMenu: String {
     case add = "1"
     case remove = "2"
 }
