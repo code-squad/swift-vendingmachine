@@ -25,4 +25,3 @@ enum State: String {
         }
     }
 }
-

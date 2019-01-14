@@ -82,7 +82,7 @@ class UnitTestVendingMachine: XCTestCase {
         managerMode.removeDrink(6)
         managerMode.removeDrink(6)
         let alreadyEmpty: State = managerMode.isAbleToRemove(menu: 6)
-        XCTAssertEqual(alreadyEmpty , .notEnough)
+        XCTAssertEqual(alreadyEmpty, .notEnough)
     }
     
     func testIsAbleToRemoveAtSuccess() {
