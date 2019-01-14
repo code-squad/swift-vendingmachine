@@ -19,20 +19,24 @@ struct VendingPlay {
     
     static func run(by mode: Mode, with machine: VendingMachine) {
         switch mode {
-        case .user: runUserMode(with: machine)
-        case .manager: runManagerMode(with: machine)
+        case .user:
+            let outputView: PrintableUserMode = OutputView()
+            runUserMode(with: machine, printer: outputView)
+        case .manager:
+            let outputView: PrintableManagerMode = OutputView()
+            runManagerMode(with: machine, printer: outputView)
         }
     }
     
-    private static func runUserMode(with machine: VendingMachine) {
+    private static func runUserMode(with machine: VendingMachine, printer: PrintableUserMode) {
         while true {
-            OutputView.printUserModeState(of: machine)
+            printer.printUserModeState(of: machine)
             let input = InputView.select(message: "1. 금액추가\n2. 음료구매\n> ")
-            excuteUserOrder(by: splitOrder(of: input), machine)
+            excuteUserOrder(by: splitOrder(of: input), machine, printer)
         }
     }
     
-    private static func excuteUserOrder(by order: [String], _ machine: UserAvailableMode) {
+    private static func excuteUserOrder(by order: [String], _ machine: UserAvailableMode, _ printer: PrintableUserMode) {
         guard order.count == 2 else { return }
         guard let menu = UserMenu.init(rawValue: order[0]) else { return }
         guard let value = Int(order[1]) else { return }
@@ -49,16 +53,16 @@ struct VendingPlay {
         switch menu {
         case .insertCoin:
             machine.insert(coin: value)
-            OutputView.printInsert(coin: value)
+            printer.printInsert(coin: value)
         case .pickDrink:
             let drink = machine.pick(menu: value)
-            OutputView.printPickMessage(menu: drink)
+            printer.printPickMessage(menu: drink)
         }
     }
     
-    private static func runManagerMode(with machine: VendingMachine) {
+    private static func runManagerMode(with machine: VendingMachine, printer: PrintableManagerMode) {
         while true {
-            OutputView.printManagerModeState(of: machine)
+            printer.printManagerModeState(of: machine)
             let input = InputView.select(message: "1. 재고추가\n2. 재고삭제\n> ")
             excuteManagerOrder(by: splitOrder(of: input), machine)
         }
