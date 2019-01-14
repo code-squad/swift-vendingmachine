@@ -9,8 +9,8 @@
 import Foundation
 
 protocol UserAvailableMode {
-    func isAbleToinsert(coin: Int) -> State
-    func isAbleTopick(menu: Int) -> State
+    func isAbleToInsert(coin: Int) -> State
+    func isAbleToPick(menu: Int) -> State
     func pick(menu: Int) -> Beverage
     func insert(coin: Int)
     func getPurchaseListInsertedCoin() -> [String]
@@ -95,12 +95,12 @@ extension VendingMachine: ManageableMode {
 }
 
 extension VendingMachine: UserAvailableMode {
-    func isAbleToinsert(coin: Int) -> State {
+    func isAbleToInsert(coin: Int) -> State {
         if coin < 0 { return .negative }
         return .success
     }
     
-    func isAbleTopick(menu: Int) -> State {
+    func isAbleToPick(menu: Int) -> State {
         guard stock.isExist(menu) else { return .notExist }
         guard !stock.isEmptyStock(menu) else { return .notEnough }
         guard canBuy(stock.getPrice(menu: menu)) else { return .fail }

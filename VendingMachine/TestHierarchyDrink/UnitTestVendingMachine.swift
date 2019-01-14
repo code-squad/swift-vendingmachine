@@ -23,29 +23,34 @@ class UnitTestVendingMachine: XCTestCase {
     
     func testIsAbleToInsertAtSuccess() {
         let userMode = machine as UserAvailableMode
-         XCTAssertEqual(userMode.isAbleToinsert(coin: 1000), .success)
+        let successInsertCoin: State = userMode.isAbleToInsert(coin: 10000)
+        XCTAssertEqual(successInsertCoin, .success)
     }
     
     func testIsAbleToInsertAtNagative() {
         let userMode = machine as UserAvailableMode
-        XCTAssertEqual(userMode.isAbleToinsert(coin: -1000), .negative)
+        let nagativeInsertFail: State = userMode.isAbleToInsert(coin: -10000)
+        XCTAssertEqual(nagativeInsertFail, .negative)
     }
     
     func testIsAbleToPickAtNotExist() {
         let userMode = machine as UserAvailableMode
-        XCTAssertEqual(userMode.isAbleTopick(menu: 7), .notExist)
+        let notExistMenu: State = userMode.isAbleToPick(menu: 7)
+        XCTAssertEqual(notExistMenu, .notExist)
     }
     
     func testIsAbleToPickAtNotEnough() {
         let userMode = machine as UserAvailableMode
         userMode.pick(menu: 6)
         userMode.pick(menu: 6)
-        XCTAssertEqual(userMode.isAbleTopick(menu: 6), .notEnough)
+        let notEnoughStock: State = userMode.isAbleToPick(menu: 6)
+        XCTAssertEqual(notEnoughStock, .notEnough)
     }
     
     func testIsAbleToPickAtFail() {
         let userMode = machine as UserAvailableMode
-        XCTAssertEqual(userMode.isAbleTopick(menu: 5), .fail)
+        let notEnoughCoin: State = userMode.isAbleToPick(menu: 5)
+        XCTAssertEqual(notEnoughCoin, .fail)
     }
     
     func testGetPurchaseList() {
@@ -56,28 +61,33 @@ class UnitTestVendingMachine: XCTestCase {
     
     func testIsAbleToAddAtNotExist() {
         let managerMode = machine as ManageableMode
-        XCTAssertEqual(managerMode.isAbleToAdd(menu: 7), .notExist)
+        let notExistMenu: State = managerMode.isAbleToAdd(menu: 7)
+        XCTAssertEqual(notExistMenu, .notExist)
     }
     
     func testIsAbleToAddAtSuccess() {
         let managerMode = machine as ManageableMode
-        XCTAssertEqual(managerMode.isAbleToAdd(menu: 6), .success)
+        let successToAdd: State = managerMode.isAbleToAdd(menu: 6)
+        XCTAssertEqual(successToAdd, .success)
     }
     
     func testIsAbleToRemoveAtNotExist() {
         let managerMode = machine as ManageableMode
-        XCTAssertEqual(managerMode.isAbleToRemove(menu: 7), .notExist)
+        let notExistMenu: State = managerMode.isAbleToRemove(menu: 7)
+        XCTAssertEqual(notExistMenu, .notExist)
     }
     
     func testIsAbleToRemoveAtNotEnough() {
         let managerMode = machine as ManageableMode
         managerMode.removeDrink(6)
         managerMode.removeDrink(6)
-        XCTAssertEqual(managerMode.isAbleToRemove(menu: 6), .notEnough)
+        let alreadyEmpty: State = managerMode.isAbleToRemove(menu: 6)
+        XCTAssertEqual(alreadyEmpty , .notEnough)
     }
     
     func testIsAbleToRemoveAtSuccess() {
         let managerMode = machine as ManageableMode
-        XCTAssertEqual(managerMode.isAbleToRemove(menu: 6), .success)
+        let successToRemove: State = managerMode.isAbleToRemove(menu: 6)
+        XCTAssertEqual(successToRemove, .success)
     }
 }
