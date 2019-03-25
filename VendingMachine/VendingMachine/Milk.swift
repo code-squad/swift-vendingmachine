@@ -10,8 +10,6 @@ import Foundation
 
 class Milk: Beverage {
     
-    let chocolateMilk = Beverage.init(brand: "서울우유", volume: 250, price: 800, name: "초코우유", manufacturedDate: Date())
-    
     // 오늘 날짜로 초기화
     init() {
         super.init(brand: "서울우유", volume: 250, price: 800, name: "초코우유", manufacturedDate: Date())
