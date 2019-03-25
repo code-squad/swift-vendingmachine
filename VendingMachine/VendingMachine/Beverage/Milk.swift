@@ -10,14 +10,8 @@ import Foundation
 
 class Milk: Beverage {
     
-    // 오늘 날짜로 초기화
     init() {
         super.init(brand: "서울우유", volume: 250, price: 800, name: "초코우유", manufacturedDate: Date())
     }
-    
-    // 날짜가 있다면 그 날자로 초기화
-    init(day: Date) {
-        super.init(brand: "서울우유", volume: 250, price: 800, name: "초코우유", manufacturedDate: day)
-        
-    }
+
 }
