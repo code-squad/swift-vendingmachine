@@ -14,23 +14,26 @@ class Beverage: CustomStringConvertible {
     private let volume: Int
     private let price: Int
     private let name: String
-    private let manufacturedData: Date
+    private let manufacturedDate: Date
     
-    init(brand: String, volume: Int, price: Int, name: String, manufacturedData: Date) {
+    init(brand: String, volume: Int, price: Int, name: String, manufacturedDate: Date) {
         self.brand = brand
         self.volume = volume
         self.price = price
         self.name = name
-        self.manufacturedData = manufacturedData
+        self.manufacturedDate = manufacturedDate
     }
     
     var description: String {
-        //서울우유, 200ml, 1000원, 날마다딸기우유, 20171009
+        return "\(brand), \(volume)ml, \(price)원, \(name), \(changeDate(beforeDate: manufacturedDate))"
+    }
+    
+    //출력을 위해 날짜 변경 해주는 함수
+    func changeDate(beforeDate: Date) -> String {
         let dataForm = DateFormatter()
-        dataForm.dateFormat = "yyyMMdd"
-        let data = dataForm.string(from: manufacturedData)
-        
-        return "\(brand), \(volume)ml, \(price)원, \(name), \(data)"
+        dataForm.dateFormat = "yyyyMMdd"
+        let afterDate = dataForm.string(from: beforeDate)
+        return afterDate
     }
     
 }
