@@ -25,15 +25,13 @@ class Beverage: CustomStringConvertible {
     }
     
     var description: String {
-        return "\(brand), \(volume)ml, \(price)원, \(name), \(changeDate(beforeDate: manufacturedDate))"
+        return "\(brand), \(volume)ml, \(price)원, \(name), \(Date.changeDate(beforeDate: manufacturedDate))"
     }
     
-    //출력을 위해 날짜 변경 해주는 함수
-    func changeDate(beforeDate: Date) -> String {
-        let dataForm = DateFormatter()
-        dataForm.dateFormat = "yyyyMMdd"
-        let afterDate = dataForm.string(from: beforeDate)
-        return afterDate
-    }
     
+    //유통기한
+    func isEqualDate() -> Date {
+        return Date()
+    }
 }
+
