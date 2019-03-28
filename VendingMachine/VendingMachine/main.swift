@@ -8,10 +8,13 @@
 
 import Foundation
 
-let chocolateMilk = Milk.init()
-let cantataCoffee = Coffee.init()
-let CocaColaSoda = Soda.init()
+let bananaMilk = BananaMilk()
 
-print(chocolateMilk)
-print(cantataCoffee)
-print(CocaColaSoda)
+//let banaMilk = Milk.init(brand: "매일유업", volume: 350, price: 800, name: "바나나는 월래 하얗다", manufacturedDate: Date(), temperature: 4.0)
+let cocaCola = CocaCola()
+
+let starbucksCoffee = StarbucksCoffee()
+
+
+
+
