@@ -15,6 +15,11 @@ let cocaCola = CocaCola()
 
 let starbucksCoffee = StarbucksCoffee()
 
+let beverages: [Beverage] = [bananaMilk, cocaCola,starbucksCoffee]
 
+beverages.forEach {
+    beverage in
+    print("\(beverage.className) - \(beverage)")
+}
 
 
