@@ -33,7 +33,8 @@ class UnitTestCoffee: XCTestCase {
         let conyCoffee = CantataCoffee()
         XCTAssertFalse(conyCoffee.isEqualExpirationDate(endDate: 15))
     }
-    func test_Coffee_코니커피_유통기한_확인_유통기한안지났다_True() {
+    
+    func test_Coffee_코니커피_유통기한_확인_유통기한_안지났다_True() {
         let conyCoffee = StarbucksCoffee()
         XCTAssertTrue(conyCoffee.isEqualExpirationDate(endDate: 665))
     }
