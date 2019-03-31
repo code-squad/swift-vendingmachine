@@ -34,8 +34,9 @@ class Beverage: CustomStringConvertible {
     }
     
     //유통기한
-    func isEqualDate() -> Date {
-        return Date()
+    func isEqualExpirationDate(endDate: Int) -> Bool {
+        let expirationDate = Date.addDate(addDay: endDate, day: manufacturedDate)
+        return Date.isEqualDate(manufacturedDate: expirationDate)
     }
 }
 
