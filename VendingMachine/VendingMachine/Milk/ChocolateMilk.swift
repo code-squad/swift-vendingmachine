@@ -14,7 +14,7 @@ class ChocolateMilk: Milk {
     
     init() {
         self.milkFarmCode = .Seoul
-        super.init(brand: "서울우유", volume: 250, price: 1500, name: "초코우유", manufacturedDate: Date(), temperature: 0.0)
+        super.init(brand: "서울우유", volume: 250, price: 1500, name: "초코우유", manufacturedDate: Date.changeString(beforeDate: "20190401"), hot: false)
     }
     
     

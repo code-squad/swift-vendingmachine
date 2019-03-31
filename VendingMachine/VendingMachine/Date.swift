@@ -17,6 +17,16 @@ extension Date {
         return afterDate
     }
     
+    static func changeString(beforeDate: String) -> Date {
+        let dateString: String = beforeDate
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMdd"
+        
+        let date:Date = dateFormatter.date(from: dateString) ?? Date()
+        
+        return date
+    }
 }
+
 
 

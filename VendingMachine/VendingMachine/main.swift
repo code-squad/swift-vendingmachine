@@ -10,8 +10,7 @@ import Foundation
 
 let bananaMilk = BananaMilk()
 
-//let banaMilk = Milk.init(brand: "매일유업", volume: 350, price: 800, name: "바나나는 월래 하얗다", manufacturedDate: Date(), temperature: 4.0)
-let cocaCola = CocaCola()
+let cocaCola = Sprite()
 
 let starbucksCoffee = StarbucksCoffee()
 

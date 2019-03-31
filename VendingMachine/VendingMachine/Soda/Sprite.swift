@@ -10,12 +10,24 @@ import Foundation
 
 class Sprite: Soda {
     
-    private let coloring: String
+    private let coloring: String?
     
     init() {
-        self.coloring = "white"
-        super.init(brand: "코카콜라", volume: 355, price: 1500, name: "스프라이트", manufacturedDate: Date())
+        self.coloring = "transparency"
+        super.init(
+            brand: "코카콜라",
+            volume: 355,
+            price: 1500,
+            name: "스프라이트",
+            manufacturedDate: Date.changeString(beforeDate: "20180513"),
+            suger: true)
     }
     
+    func isColoring() -> String? {
+        guard let coloring = coloring else {
+            return nil
+        }
+        return coloring
+    }
     
 }
