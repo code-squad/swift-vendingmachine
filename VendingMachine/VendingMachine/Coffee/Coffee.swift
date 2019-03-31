@@ -23,9 +23,9 @@ class Coffee: Beverage {
     }
     
     // 카페인 함유량
-    func isCaffeine(caffeine: Int?) -> Int{
+    func isCaffeine() -> Int?{
         guard let caffeine = caffeine else {
-            return -9
+            return nil
         }
         return caffeine
     }
