@@ -38,6 +38,7 @@
 		F3538F59224CD2C6001DDA17 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3538F4F224CCAF8001DDA17 /* Date.swift */; };
 		F3C5DE04224DFA4600A753FC /* UnitTestSoda.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5DE03224DFA4600A753FC /* UnitTestSoda.swift */; };
 		F3C5DE2522507EBD00A753FC /* UnitTestCoffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5DE2422507EBD00A753FC /* UnitTestCoffee.swift */; };
+		F3C5DE272250846100A753FC /* UnitTestMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5DE262250846100A753FC /* UnitTestMilk.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -73,6 +74,7 @@
 		F3538F4F224CCAF8001DDA17 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		F3C5DE03224DFA4600A753FC /* UnitTestSoda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestSoda.swift; sourceTree = "<group>"; };
 		F3C5DE2422507EBD00A753FC /* UnitTestCoffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestCoffee.swift; sourceTree = "<group>"; };
+		F3C5DE262250846100A753FC /* UnitTestMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestMilk.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 				F3538F2E224A61D9001DDA17 /* VendingMachineUnitTest.swift */,
 				F3C5DE03224DFA4600A753FC /* UnitTestSoda.swift */,
 				F3C5DE2422507EBD00A753FC /* UnitTestCoffee.swift */,
+				F3C5DE262250846100A753FC /* UnitTestMilk.swift */,
 				F3538F30224A61D9001DDA17 /* Info.plist */,
 			);
 			path = VendingMachineUnitTest;
@@ -301,6 +304,7 @@
 				F3538F59224CD2C6001DDA17 /* Date.swift in Sources */,
 				F3538F34224A61F1001DDA17 /* Coffee.swift in Sources */,
 				F3C5DE2522507EBD00A753FC /* UnitTestCoffee.swift in Sources */,
+				F3C5DE272250846100A753FC /* UnitTestMilk.swift in Sources */,
 				F3538F35224A61F1001DDA17 /* Milk.swift in Sources */,
 				F3538F36224A61F1001DDA17 /* Soda.swift in Sources */,
 				F3538F37224A61F1001DDA17 /* Beverage.swift in Sources */,

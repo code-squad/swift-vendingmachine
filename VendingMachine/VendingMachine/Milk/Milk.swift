@@ -23,7 +23,8 @@ class Milk: Beverage {
     
     // 뜨거운 여부
     func isHot() -> Bool {
-        return !hot
+        if hot == true { return true }
+        return false
     }
 }
 
