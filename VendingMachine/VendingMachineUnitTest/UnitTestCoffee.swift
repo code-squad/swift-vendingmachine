@@ -19,10 +19,22 @@ class UnitTestCoffee: XCTestCase {
         XCTAssertNotNil(conyCoffee.isCaffeine())
     }
     
-    func test_Coffee_카페인있는향이좋은커피_카페인적지않으면_Nil_확인() {
+    func test_Coffee_카페인적지않으면_Nil_확인() {
         let conyCoffee = Coffee(brand: "코니커피공장", volume: 500, price: 5000, name: "커피가너무좋아", manufacturedDate: Date())
         XCTAssertNil(conyCoffee.isCaffeine())
     }
     
- 
+    func test_Coffee_스타벅스커피_재질확인() {
+        let conyCoffee = StarbucksCoffee()
+        XCTAssertTrue(conyCoffee.isPackage() == CoffeePackage.glass)
+    }
+    
+    func test_Coffee_코니커피_유통기한_확인_유통기한지나서_False() {
+        let conyCoffee = CantataCoffee()
+        XCTAssertFalse(conyCoffee.isEqualExpirationDate(endDate: 15))
+    }
+    func test_Coffee_코니커피_유통기한_확인_유통기한안지났다_True() {
+        let conyCoffee = StarbucksCoffee()
+        XCTAssertTrue(conyCoffee.isEqualExpirationDate(endDate: 665))
+    }
 }
