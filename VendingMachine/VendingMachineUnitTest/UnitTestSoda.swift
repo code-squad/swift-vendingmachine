@@ -33,6 +33,4 @@ class UnitTestSoda: XCTestCase {
         let conySoda = CocaCola()
         XCTAssertTrue(conySoda.isEqualExpirationDate(endDate: 365))
     }
-
-    
 }
