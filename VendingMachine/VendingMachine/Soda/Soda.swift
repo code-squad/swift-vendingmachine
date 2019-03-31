@@ -10,9 +10,9 @@ import Foundation
 
 class Soda: Beverage {
     
-    private let suger: Bool?
+    private let suger: Bool
     
-    init(brand: String, volume: Int, price: Int, name: String, manufacturedDate: Date, suger: Bool? = nil) {
+    init(brand: String, volume: Int, price: Int, name: String, manufacturedDate: Date, suger: Bool ) {
         self.suger = suger
         super.init(
             brand: brand,
@@ -24,7 +24,8 @@ class Soda: Beverage {
     
     // 무가당 여부
     func isSuger() -> Bool {
-        return suger != nil
+        if suger == true { return true }
+        return false
     }
     
 }
