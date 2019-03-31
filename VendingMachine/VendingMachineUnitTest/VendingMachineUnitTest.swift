@@ -9,8 +9,6 @@
 import XCTest
 
 class VendingMachineUnitTest: XCTestCase {
-
-    override func setUp() { }
     
     // Date로 String을 변경해서 나온 값과 동일한지 체크
     func test_Date_String_변경하는_함수_테스트_성공() {
