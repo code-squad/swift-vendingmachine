@@ -24,13 +24,15 @@ class UnitTestSoda: XCTestCase {
         XCTAssertNotNil(conySoda.isColoring())
     }
     
-    func test_Soda_코니스프라이트_색소_확인() {
+    func test_Soda_코니스프라이트_색소값_확인() {
         let conySoda = Sprite()
         XCTAssertTrue(conySoda.isColoring() == "transparency")
     }
-
     
+    func test_Soda_코니콜라_유통기한_확인() {
+        let conySoda = CocaCola()
+        XCTAssertTrue(conySoda.isEqualExpirationDate(endDate: 365))
+    }
 
-    
     
 }
