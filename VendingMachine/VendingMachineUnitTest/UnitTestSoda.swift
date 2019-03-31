@@ -11,7 +11,7 @@ import XCTest
 class UnitTestSoda: XCTestCase {
     
     func test_Soda_객체만들기_성공() {
-        XCTAssertNotNil(Soda(brand: "코니소다공장", volume: 500, price: 5000, name: "탄산이너무좋아", manufacturedDate: Date.changeString(beforeDate: "10000101"), suger: true))
+        XCTAssertNotNil(Soda(brand: "코니소다공장", volume: 500, price: 5000, name: "탄산이너무좋아", manufacturedDate: Date.changeString(beforeString: "10000101"), suger: true))
     }
     
     func test_Soda_맛있는소다음료_확인_당여부() {

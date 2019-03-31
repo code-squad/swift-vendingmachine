@@ -11,7 +11,7 @@ import XCTest
 class UnitTestMilk: XCTestCase {
     
     func test_Milk_객체만들기_성공() {
-        XCTAssertNotNil(Milk(brand: "코니우유공장", volume: 500, price: 5000, name: "우유가너무좋아", manufacturedDate: Date.changeString(beforeDate: "10000101")))
+        XCTAssertNotNil(Milk(brand: "코니우유공장", volume: 500, price: 5000, name: "우유가너무좋아", manufacturedDate: Date.changeString(beforeString: "10000101")))
     }
     
     func test_Milk_우유_핫_뜨거확인() {

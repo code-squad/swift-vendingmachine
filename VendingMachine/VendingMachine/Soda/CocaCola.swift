@@ -19,7 +19,7 @@ class CocaCola: Soda {
             volume: 355,
             price: 1500,
             name: "코카콜라",
-            manufacturedDate: Date.changeString(beforeDate: "20190213"),
+            manufacturedDate: Date.changeString(beforeString: "20190213"),
             suger: true)
     }
     
