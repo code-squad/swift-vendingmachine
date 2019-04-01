@@ -8,6 +8,10 @@
 
 import Foundation
 
-let Strawberry = Milk(brand: "빙그레", capacity: 240, price: 1000, productName: "딸기우유", dateOfManufacture: 20171009)
+let strawberry = Milk(brand: "빙그레", capacity: 240, price: 1000, productName: "딸기우유")
+let sprite = Soda(brand: "cocacola", capacity: 250, price: 500, productName: "스프라이트")
+let kanu = Coffee(brand: "맥심", capacity: 150, price: 1000, productName: "카누")
 
-print(Strawberry)
+print(strawberry)
+print(sprite)
+print(kanu)
