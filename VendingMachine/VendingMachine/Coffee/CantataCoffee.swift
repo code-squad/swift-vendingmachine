@@ -10,17 +10,18 @@ import Foundation
 
 class CantataCoffee: Coffee {
     
-    private let coffeePackage: CoffeePackage?
+    private let beanKind: CoffeeBean?
+    //beanKind
     
     init() {
-        self.coffeePackage = .can
+        self.beanKind = .AA
         super.init(brand: "롯데칠성음료", volume: 275, price: 2000, name: "칸타타 아메리카노", manufacturedDate: Date.changeString(beforeString: "20170111"), caffeine: 40)
     }
     
-    func makeByPackage() -> CoffeePackage? {
-        guard let coffeePackage = coffeePackage else {
+    func hasOneBean() -> CoffeeBean? {
+        guard let beanKind = beanKind else {
             return nil
         }
-        return coffeePackage
+        return beanKind
     }
 }

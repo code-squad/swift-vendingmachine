@@ -10,18 +10,18 @@ import Foundation
 
 class StarbucksCoffee: Coffee {
     
-    private let coffeePackage: CoffeePackage?
+    private let beanKind: CoffeeBean?
     
     init() {
-        self.coffeePackage = .glass
+        self.beanKind = .java
         super.init(brand: "동서식품", volume: 281, price: 3000, name: "스타벅스 모카", manufacturedDate:Date.changeString(beforeString: "20180915"), caffeine: 30)
     }
     
-    func makeByPackage() -> CoffeePackage? {
-        guard let coffeePackage = coffeePackage else {
+    func hasOneBean() -> CoffeeBean? {
+        guard let beanKind = beanKind else {
             return nil
         }
-        return coffeePackage
+        return beanKind
     }
     
 }
