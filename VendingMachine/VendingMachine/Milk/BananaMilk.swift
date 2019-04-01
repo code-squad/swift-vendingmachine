@@ -30,3 +30,10 @@ class BananaMilk: Milk {
     }
     
 }
+
+extension BananaMilk {
+    
+    func same(_ milkCode: MilkFarmCode) -> Bool {
+        return self.milkFarmCode == milkCode
+    }
+}

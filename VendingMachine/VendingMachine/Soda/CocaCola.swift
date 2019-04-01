@@ -36,3 +36,10 @@ class CocaCola: Soda {
     }
     
 }
+
+extension CocaCola {
+    
+    func same(_ number: Int) -> Bool {
+        return self.sodaConsistency == number
+    }
+}

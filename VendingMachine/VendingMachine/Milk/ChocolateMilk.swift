@@ -24,3 +24,10 @@ class ChocolateMilk: Milk {
         return milkFarmCode
     }
 }
+
+extension ChocolateMilk {
+    
+    func same(_ milkCode: MilkFarmCode) -> Bool {
+        return self.milkFarmCode == milkCode
+    }
+}

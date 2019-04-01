@@ -25,3 +25,9 @@ class StarbucksCoffee: Coffee {
     }
     
 }
+
+extension StarbucksCoffee {
+    func same(_ bean: CoffeeBean) -> Bool {
+        return self.beanKind == bean
+    }
+}
