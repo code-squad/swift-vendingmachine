@@ -26,7 +26,7 @@ class UnitTestCoffee: XCTestCase {
     
     func test_Coffee_스타벅스커피_재질확인() {
         let conyCoffee = StarbucksCoffee()
-        XCTAssertTrue(conyCoffee.isPackage() == CoffeePackage.glass)
+        XCTAssertTrue(conyCoffee.makeByPackage() == CoffeePackage.glass)
     }
     
     func test_Coffee_코니커피_유통기한_확인_유통기한지나서_False() {
