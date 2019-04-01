@@ -21,15 +21,6 @@ class Milk: Beverage {
             manufacturedDate: manufacturedDate)
     }
     
-    func hasRankingGrade() -> MilkGrade? {
-        guard let milkGrade = milkGrade else {
-            return nil
-        }
-        return milkGrade
-    }
-}
-
-extension Milk {
     func same(_ number: MilkGrade) -> Bool {
         return self.milkGrade == number
     }

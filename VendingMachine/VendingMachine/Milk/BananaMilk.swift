@@ -22,17 +22,6 @@ class BananaMilk: Milk {
         self.milkFarmCode = milkFarmCode
     }
     
-    func hasMilkFarmCode() -> MilkFarmCode? {
-        guard let milkFarmCode = milkFarmCode else {
-            return nil
-        }
-        return milkFarmCode
-    }
-    
-}
-
-extension BananaMilk {
-    
     func same(_ milkCode: MilkFarmCode) -> Bool {
         return self.milkFarmCode == milkCode
     }

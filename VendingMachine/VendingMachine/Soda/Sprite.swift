@@ -28,17 +28,6 @@ class Sprite: Soda {
         self.sodaConsistency = sodaConsistency
     }
     
-    func hasSodaConsistency() -> Int? {
-        guard let sodaConsistency = sodaConsistency else {
-            return nil
-        }
-        return sodaConsistency
-    }
-    
-}
-
-extension Sprite {
-    
     func same(_ number: Int) -> Bool {
         return self.sodaConsistency == number
     }

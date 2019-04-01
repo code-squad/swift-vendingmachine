@@ -21,19 +21,7 @@ class Coffee: Beverage {
             name: name,
             manufacturedDate: manufacturedDate)
     }
-    
-    // 카페인 함유량
-    func hasCaffeine() -> Int?{
-        guard let caffeine = caffeine else {
-            return nil
-        }
-        return caffeine
-    }
 
-}
-
-extension Coffee {
-    
     func same(_ number: Int) -> Bool {
         return self.caffeine == number
     }
