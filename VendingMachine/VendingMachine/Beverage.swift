@@ -15,13 +15,15 @@ class Beverage: CustomStringConvertible {
     private let capacity: Int
     private let price: Int
     private let productName: String
-    private let dateOfManufacture: Date = Date()
+    private let dateOfManufacture: Date
     
-    init(brand: String, capacity: Int, price: Int, productName: String) {
+    init(brand: String, capacity: Int, price: Int, productName: String, dateOfManufacture: Date = Date()) {
         self.brand = brand
         self.capacity = capacity
         self.price = price
         self.productName = productName
+        self.dateOfManufacture = dateOfManufacture
+        
     }
     
     // Date()의 결과를 원하는 형태로 출력되도록 포맷
@@ -35,17 +37,17 @@ class Beverage: CustomStringConvertible {
 }
 
 class Milk: Beverage {
-    override init(brand: String, capacity: Int, price: Int, productName: String) {
-        super.init(brand: brand, capacity: capacity, price: price, productName: productName)
+    override init(brand: String, capacity: Int, price: Int, productName: String, dateOfManufacture: Date = Date()) {
+        super.init(brand: brand, capacity: capacity, price: price, productName: productName, dateOfManufacture: dateOfManufacture)
     }
 }
 class Soda: Beverage {
-    override init(brand: String, capacity: Int, price: Int, productName: String) {
-        super.init(brand: brand, capacity: capacity, price: price, productName: productName)
+    override init(brand: String, capacity: Int, price: Int, productName: String, dateOfManufacture: Date = Date()) {
+        super.init(brand: brand, capacity: capacity, price: price, productName: productName, dateOfManufacture: dateOfManufacture)
     }
 }
 class Coffee: Beverage {
-    override init(brand: String, capacity: Int, price: Int, productName: String) {
-        super.init(brand: brand, capacity: capacity, price: price, productName: productName)
+    override init(brand: String, capacity: Int, price: Int, productName: String, dateOfManufacture: Date = Date()) {
+        super.init(brand: brand, capacity: capacity, price: price, productName: productName, dateOfManufacture: dateOfManufacture)
     }
 }
