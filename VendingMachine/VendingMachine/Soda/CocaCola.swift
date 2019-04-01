@@ -28,17 +28,6 @@ class CocaCola: Soda {
         self.sodaConsistency = sodaConsistency
     }
     
-    func hasSodaConsistency() -> Int? {
-        guard let sodaConsistency = sodaConsistency else {
-            return nil
-        }
-        return sodaConsistency
-    }
-    
-}
-
-extension CocaCola {
-    
     func same(_ number: Int) -> Bool {
         return self.sodaConsistency == number
     }

@@ -17,17 +17,8 @@ class ChocolateMilk: Milk {
         super.init(brand: "서울우유", volume: 250, price: 1500, name: "초코우유", manufacturedDate: Date.changeString(beforeString: "20190320"), hot: false)
     }
     
-    func hasMilkFarmCode() -> MilkFarmCode? {
-        guard let milkFarmCode = milkFarmCode else {
-            return nil
-        }
-        return milkFarmCode
-    }
-}
-
-extension ChocolateMilk {
-    
     func same(_ milkCode: MilkFarmCode) -> Bool {
         return self.milkFarmCode == milkCode
     }
+
 }
