@@ -10,14 +10,19 @@ import Foundation
 
 class BananaMilk: Milk {
     
-    private let milkFarmCode: MilkFarmCode?
+    private var milkFarmCode: MilkFarmCode?
     
     init() {
         self.milkFarmCode = .Jejudo
         super.init(brand: "상하목장", volume: 250, price: 1500, name: "바나나우유", manufacturedDate: Date.changeString(beforeString: "20190320"), hot: true)
     }
     
-    func isMilkFarmCode() -> MilkFarmCode? {
+    convenience init(milkFarmCode: MilkFarmCode) {
+        self.init()
+        self.milkFarmCode = milkFarmCode
+    }
+    
+    func hasMilkFarmCode() -> MilkFarmCode? {
         guard let milkFarmCode = milkFarmCode else {
             return nil
         }

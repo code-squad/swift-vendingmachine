@@ -8,9 +8,9 @@
 
 import Foundation
 
-enum CoffeePackage {
-    case paper
-    case plastic
-    case can
-    case glass
+enum CoffeeBean {
+    case java
+    case AA
+    case AB
+    case SHB
 }

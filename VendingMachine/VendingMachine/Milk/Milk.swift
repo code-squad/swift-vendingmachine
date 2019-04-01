@@ -9,10 +9,10 @@
 import Foundation
 
 class Milk: Beverage {
-    private let hot: Bool
+    private var milkGrade: MilkGrade?
     
-    init(brand: String, volume: Int, price: Int, name: String, manufacturedDate: Date, hot: Bool = true) {
-        self.hot = hot
+    init(brand: String, volume: Int, price: Int, name: String, manufacturedDate: Date, hot: Bool = true , milkGrade: MilkGrade? = nil) {
+        self.milkGrade = .A
         super.init(
             brand: brand,
             volume: volume,
@@ -21,10 +21,11 @@ class Milk: Beverage {
             manufacturedDate: manufacturedDate)
     }
     
-    // 뜨거운 여부
-    func isHot() -> Bool {
-        if hot == true { return true }
-        return false
+    func hasRankingGrade() -> MilkGrade? {
+        guard let milkGrade = milkGrade else {
+            return nil
+        }
+        return milkGrade
     }
 }
 

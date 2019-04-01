@@ -10,10 +10,10 @@ import Foundation
 
 class Sprite: Soda {
     
-    private let coloring: String?
+    private var sodaConsistency: Int?
     
     init() {
-        self.coloring = "transparency"
+        self.sodaConsistency = 70
         super.init(
             brand: "코카콜라",
             volume: 355,
@@ -23,11 +23,16 @@ class Sprite: Soda {
             suger: true)
     }
     
-    func isColoring() -> String? {
-        guard let coloring = coloring else {
+    convenience init(sodaConsistency: Int) {
+        self.init()
+        self.sodaConsistency = sodaConsistency
+    }
+    
+    func hasSodaConsistency() -> Int? {
+        guard let sodaConsistency = sodaConsistency else {
             return nil
         }
-        return coloring
+        return sodaConsistency
     }
     
 }
