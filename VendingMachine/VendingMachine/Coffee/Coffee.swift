@@ -30,5 +30,12 @@ class Coffee: Beverage {
         return caffeine
     }
 
+}
+
+extension Coffee {
+    
+    func same(_ number: Int) -> Bool {
+        return self.caffeine == number
+    }
     
 }

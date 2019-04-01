@@ -29,4 +29,8 @@ class Milk: Beverage {
     }
 }
 
-
+extension Milk {
+    func same(_ number: MilkGrade) -> Bool {
+        return self.milkGrade == number
+    }
+}

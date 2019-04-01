@@ -36,3 +36,10 @@ class Sprite: Soda {
     }
     
 }
+
+extension Sprite {
+    
+    func same(_ number: Int) -> Bool {
+        return self.sodaConsistency == number
+    }
+}

@@ -11,7 +11,6 @@ import Foundation
 class CantataCoffee: Coffee {
     
     private let beanKind: CoffeeBean?
-    //beanKind
     
     init() {
         self.beanKind = .AA
@@ -23,5 +22,12 @@ class CantataCoffee: Coffee {
             return nil
         }
         return beanKind
+    }
+}
+
+extension CantataCoffee {
+    
+    func same(_ bean: CoffeeBean) -> Bool {
+        return self.beanKind == bean
     }
 }

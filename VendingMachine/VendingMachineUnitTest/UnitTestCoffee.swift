@@ -11,29 +11,34 @@ import XCTest
 class UnitTestCoffee: XCTestCase {
     
     func test_Coffee_객체만들기_성공() {
-        XCTAssertNotNil(Coffee(brand: "코니소다공장", volume: 500, price: 5000, name: "탄산이너무좋아", manufacturedDate: Date.changeString(beforeString: "10000101")))
+        XCTAssertNotNil(Coffee(brand: "코니커피공장", volume: 500, price: 5000, name: "카페인이너무좋아", manufacturedDate: Date.changeString(beforeString: "10000101")))
+    }
+
+    func test_Coffee_카페인있는향이좋은커피_카페인이_10인지_확인_맞다() {
+        let conyCoffee = Coffee(brand: "코니커피공장", volume: 500, price: 5000, name: "카페인20좋아", manufacturedDate: Date(), caffeine: 10)
+        XCTAssertTrue(conyCoffee.same(10))
     }
     
-    func test_Coffee_카페인있는향이좋은커피_카페인확인() {
-        let conyCoffee = Coffee(brand: "코니커피공장", volume: 500, price: 5000, name: "커피가너무좋아", manufacturedDate: Date(), caffeine: 10)
-        XCTAssertNotNil(conyCoffee.isCaffeine())
+    func test_Coffee_카페인있는향이좋은커피_카페인이_20인지_확인_아니다() {
+        let conyCoffee = Coffee(brand: "코니커피공장", volume: 500, price: 5000, name: "카페인10좋아", manufacturedDate: Date(), caffeine: 10)
+        XCTAssertFalse(conyCoffee.same(20))
     }
-    
+
     func test_Coffee_카페인적지않으면_Nil_확인() {
-        let conyCoffee = Coffee(brand: "코니커피공장", volume: 500, price: 5000, name: "커피가너무좋아", manufacturedDate: Date())
-        XCTAssertNil(conyCoffee.isCaffeine())
+        let conyCoffee = Coffee(brand: "코니커피공장", volume: 500, price: 5000, name: "카페인이어디갔지?", manufacturedDate: Date())
+        XCTAssertNil(conyCoffee.hasCaffeine())
     }
-    
-    func test_Coffee_스타벅스커피_재질확인() {
+
+    func test_Coffee_스타벅스커피_원두콩_확인_성공() {
         let conyCoffee = StarbucksCoffee()
-        XCTAssertTrue(conyCoffee.makeByPackage() == CoffeeBean.glass)
+        XCTAssertTrue(conyCoffee.same(.java))
     }
-    
+
     func test_Coffee_코니커피_유통기한_확인_유통기한지나서_False() {
         let conyCoffee = CantataCoffee()
         XCTAssertFalse(conyCoffee.isEqualExpirationDate(endDate: 15))
     }
-    
+
     func test_Coffee_코니커피_유통기한_확인_유통기한_안지났다_True() {
         let conyCoffee = StarbucksCoffee()
         XCTAssertTrue(conyCoffee.isEqualExpirationDate(endDate: 665))
