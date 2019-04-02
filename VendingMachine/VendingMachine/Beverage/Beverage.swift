@@ -27,7 +27,7 @@ class Beverage: CustomStringConvertible {
     }
     
     var description: String {
-        return "\(brand), \(volume)ml, \(price)원, \(name), \(Date.changeDate(beforeDate: manufacturedDate)))"
+        return "\(brand), \(volume)ml, \(price)원, \(name), \(Date.changeDate(beforeDate: manufacturedDate))"
     }
     
     // 클래스 명을 출력하기 위한
