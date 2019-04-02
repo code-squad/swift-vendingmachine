@@ -9,3 +9,15 @@
 import Foundation
 
 //패키지
+class Packages {
+    private var beverage: [Beverage]
+    
+    init(beverages: [Beverage]) {
+        self.beverage = beverages
+    }
+    
+    func add(beverage: Beverage) {
+        self.beverage.append(beverage)
+    }
+    
+}
