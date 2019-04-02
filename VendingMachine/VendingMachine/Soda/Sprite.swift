@@ -19,7 +19,7 @@ class Sprite: Soda {
             volume: 355,
             price: 1500,
             name: "스프라이트",
-            manufacturedDate: Date.changeString(beforeString: "20180513"),
+            manufacturedDate: Date.changeString(beforeString: "20180513"), 
             suger: true)
     }
     

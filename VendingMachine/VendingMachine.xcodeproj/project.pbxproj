@@ -28,6 +28,7 @@
 		F33EEC92225327AD003C15A6 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33EEC91225327AD003C15A6 /* OutputView.swift */; };
 		F33EEC94225327DF003C15A6 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33EEC93225327DF003C15A6 /* Menu.swift */; };
 		F33EEC9622532B3D003C15A6 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33EEC9522532B3D003C15A6 /* History.swift */; };
+		F33EEC98225378F3003C15A6 /* EndDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33EEC97225378F3003C15A6 /* EndDate.swift */; };
 		F3538F2F224A61D9001DDA17 /* VendingMachineUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3538F2E224A61D9001DDA17 /* VendingMachineUnitTest.swift */; };
 		F3538F34224A61F1001DDA17 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3538F212248A676001DDA17 /* Coffee.swift */; };
 		F3538F35224A61F1001DDA17 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3538F1D22489556001DDA17 /* Milk.swift */; };
@@ -70,6 +71,7 @@
 		F33EEC91225327AD003C15A6 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		F33EEC93225327DF003C15A6 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		F33EEC9522532B3D003C15A6 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
+		F33EEC97225378F3003C15A6 /* EndDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndDate.swift; sourceTree = "<group>"; };
 		F3538F1B2248724E001DDA17 /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 		F3538F1D22489556001DDA17 /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 		F3538F212248A676001DDA17 /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				F3538F1B2248724E001DDA17 /* Beverage.swift */,
+				F33EEC97225378F3003C15A6 /* EndDate.swift */,
 			);
 			path = Beverage;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				F32242F0224DEA2D00ADBDBA /* CoffeeBean.swift in Sources */,
 				F33EEC892252F6DC003C15A6 /* VendingMachine.swift in Sources */,
 				F32242F1224DEA2D00ADBDBA /* CantataCoffee.swift in Sources */,
+				F33EEC98225378F3003C15A6 /* EndDate.swift in Sources */,
 				F32242F2224DEA2D00ADBDBA /* StarbucksCoffee.swift in Sources */,
 				F33EEC8B2252FDCF003C15A6 /* Inventory.swift in Sources */,
 				F33EEC9622532B3D003C15A6 /* History.swift in Sources */,
