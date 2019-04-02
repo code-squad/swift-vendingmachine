@@ -8,15 +8,16 @@
 
 import Foundation
 
-let bananaMilk = BananaMilk()
-
-let cocaCola = Sprite()
-
-let starbucksCoffee = StarbucksCoffee()
-
-let beverages: [Beverage] = [bananaMilk, cocaCola,starbucksCoffee]
-
-beverages.forEach {
-    beverage in
-    print("\(beverage.className) - \(beverage)")
-}
+//
+//let bananaMilk = BananaMilk()
+//
+//let cocaCola = Sprite()
+//
+//let starbucksCoffee = StarbucksCoffee()
+//
+//let beverages: [Beverage] = [bananaMilk, cocaCola,starbucksCoffee]
+//
+//beverages.forEach {
+//    beverage in
+//    print("\(beverage.className) - \(beverage)")
+//}
