@@ -21,6 +21,13 @@
 		F32242F7224DEA2D00ADBDBA /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3538F1B2248724E001DDA17 /* Beverage.swift */; };
 		F32242F8224DEA2D00ADBDBA /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 		F32242F9224DEA2D00ADBDBA /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3538F4F224CCAF8001DDA17 /* Date.swift */; };
+		F33EEC892252F6DC003C15A6 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33EEC882252F6DC003C15A6 /* VendingMachine.swift */; };
+		F33EEC8B2252FDCF003C15A6 /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33EEC8A2252FDCF003C15A6 /* Inventory.swift */; };
+		F33EEC8D2252FF27003C15A6 /* Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33EEC8C2252FF27003C15A6 /* Packages.swift */; };
+		F33EEC90225326BA003C15A6 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33EEC8F225326BA003C15A6 /* InputView.swift */; };
+		F33EEC92225327AD003C15A6 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33EEC91225327AD003C15A6 /* OutputView.swift */; };
+		F33EEC94225327DF003C15A6 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33EEC93225327DF003C15A6 /* Menu.swift */; };
+		F33EEC9622532B3D003C15A6 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33EEC9522532B3D003C15A6 /* History.swift */; };
 		F3538F2F224A61D9001DDA17 /* VendingMachineUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3538F2E224A61D9001DDA17 /* VendingMachineUnitTest.swift */; };
 		F3538F34224A61F1001DDA17 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3538F212248A676001DDA17 /* Coffee.swift */; };
 		F3538F35224A61F1001DDA17 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3538F1D22489556001DDA17 /* Milk.swift */; };
@@ -56,6 +63,13 @@
 /* Begin PBXFileReference section */
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		F33EEC882252F6DC003C15A6 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
+		F33EEC8A2252FDCF003C15A6 /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
+		F33EEC8C2252FF27003C15A6 /* Packages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Packages.swift; sourceTree = "<group>"; };
+		F33EEC8F225326BA003C15A6 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		F33EEC91225327AD003C15A6 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
+		F33EEC93225327DF003C15A6 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		F33EEC9522532B3D003C15A6 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		F3538F1B2248724E001DDA17 /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 		F3538F1D22489556001DDA17 /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 		F3538F212248A676001DDA17 /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
@@ -116,14 +130,29 @@
 		839DA90B1F8D1F95009E05F3 /* VendingMachine */ = {
 			isa = PBXGroup;
 			children = (
+				F33EEC8E225326A2003C15A6 /* View */,
 				F3538F3C224C6B6E001DDA17 /* Soda */,
 				F3538F3B224C6B63001DDA17 /* Coffee */,
 				F3538F3A224C6B50001DDA17 /* Milk */,
 				F3538F252248A6AA001DDA17 /* Beverage */,
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
 				F3538F4F224CCAF8001DDA17 /* Date.swift */,
+				F33EEC882252F6DC003C15A6 /* VendingMachine.swift */,
+				F33EEC8A2252FDCF003C15A6 /* Inventory.swift */,
+				F33EEC8C2252FF27003C15A6 /* Packages.swift */,
+				F33EEC9522532B3D003C15A6 /* History.swift */,
 			);
 			path = VendingMachine;
+			sourceTree = "<group>";
+		};
+		F33EEC8E225326A2003C15A6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F33EEC8F225326BA003C15A6 /* InputView.swift */,
+				F33EEC91225327AD003C15A6 /* OutputView.swift */,
+				F33EEC93225327DF003C15A6 /* Menu.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		F3538F252248A6AA001DDA17 /* Beverage */ = {
@@ -276,13 +305,20 @@
 				F32242EE224DEA2D00ADBDBA /* CocaCola.swift in Sources */,
 				F32242EF224DEA2D00ADBDBA /* Coffee.swift in Sources */,
 				F32242F0224DEA2D00ADBDBA /* CoffeeBean.swift in Sources */,
+				F33EEC892252F6DC003C15A6 /* VendingMachine.swift in Sources */,
 				F32242F1224DEA2D00ADBDBA /* CantataCoffee.swift in Sources */,
 				F32242F2224DEA2D00ADBDBA /* StarbucksCoffee.swift in Sources */,
+				F33EEC8B2252FDCF003C15A6 /* Inventory.swift in Sources */,
+				F33EEC9622532B3D003C15A6 /* History.swift in Sources */,
 				F32242F3224DEA2D00ADBDBA /* Milk.swift in Sources */,
 				F32242F4224DEA2D00ADBDBA /* BananaMilk.swift in Sources */,
+				F33EEC8D2252FF27003C15A6 /* Packages.swift in Sources */,
 				F32242F5224DEA2D00ADBDBA /* MilkFarmCode.swift in Sources */,
 				F32242F6224DEA2D00ADBDBA /* ChocolateMilk.swift in Sources */,
+				F33EEC94225327DF003C15A6 /* Menu.swift in Sources */,
 				F32242F7224DEA2D00ADBDBA /* Beverage.swift in Sources */,
+				F33EEC90225326BA003C15A6 /* InputView.swift in Sources */,
+				F33EEC92225327AD003C15A6 /* OutputView.swift in Sources */,
 				F32242F8224DEA2D00ADBDBA /* main.swift in Sources */,
 				F32242F9224DEA2D00ADBDBA /* Date.swift in Sources */,
 			);
