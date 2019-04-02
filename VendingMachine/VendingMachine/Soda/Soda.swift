@@ -12,14 +12,15 @@ class Soda: Beverage {
     
     private let suger: Bool
     
-    init(brand: String, volume: Int, price: Int, name: String, manufacturedDate: Date, suger: Bool ) {
+    init(brand: String, volume: Int, price: Int, name: String, manufacturedDate: Date,endDate: EndDate = EndDate.Soda ,suger: Bool ) {
         self.suger = suger
         super.init(
             brand: brand,
             volume: volume,
             price: price,
             name: name,
-            manufacturedDate: manufacturedDate)
+            manufacturedDate: manufacturedDate,
+            endDate: EndDate.Soda)
     }
     
     // 무가당 여부

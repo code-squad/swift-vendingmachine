@@ -15,17 +15,19 @@ class Beverage: CustomStringConvertible {
     private let price: Int
     private let name: String
     private let manufacturedDate: Date
+    private let endDate: EndDate
     
-    init(brand: String, volume: Int, price: Int, name: String, manufacturedDate: Date) {
+    init(brand: String, volume: Int, price: Int, name: String, manufacturedDate: Date , endDate: EndDate) {
         self.brand = brand
         self.volume = volume
         self.price = price
         self.name = name
         self.manufacturedDate = manufacturedDate
+        self.endDate = endDate
     }
     
     var description: String {
-        return "\(brand), \(volume)ml, \(price)원, \(name), \(Date.changeDate(beforeDate: manufacturedDate))"
+        return "\(brand), \(volume)ml, \(price)원, \(name), \(Date.changeDate(beforeDate: manufacturedDate)))"
     }
     
     // 클래스 명을 출력하기 위한
@@ -34,8 +36,8 @@ class Beverage: CustomStringConvertible {
     }
     
     //유통기한
-    func isEqualExpirationDate(endDate: Int) -> Bool {
-        let expirationDate = Date.addDate(addDay: endDate, day: manufacturedDate)
+    func isEqualExpirationDate() -> Bool {
+        let expirationDate = Date.addDate(addDay: endDate.rawValue, day: manufacturedDate)
         return Date.isEqualDate(manufacturedDate: expirationDate)
     }
 }
