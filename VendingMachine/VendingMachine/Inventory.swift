@@ -8,4 +8,7 @@
 
 import Foundation
 
-//물품
+struct Inventory {
+    
+
+}
