@@ -1,5 +1,5 @@
 //
-//  Milk.swift
+//  Soda.swift
 //  VendingMachine
 //
 //  Created by 김지나 on 04/04/2019.
@@ -8,15 +8,15 @@
 
 import Foundation
 
-class Milk: Beverage {
-    private let grade: String
+class Soda: Beverage {
+    private let calorie: Int
     
-    init(grade: String, brand: String, capacity: Int, price: Int, productName: String, dateOfManufacture: Date = Date()) {
-        self.grade = grade
+    init(calorie: Int, brand: String, capacity: Int, price: Int, productName: String, dateOfManufacture: Date = Date()) {
+        self.calorie = calorie
         super.init(brand: brand, capacity: capacity, price: price, productName: productName, dateOfManufacture: dateOfManufacture)
     }
     
-    func isGradeA() -> Bool {
-        return grade == "A"
+    func isHigh() -> Bool {
+        return calorie > 400
     }
 }

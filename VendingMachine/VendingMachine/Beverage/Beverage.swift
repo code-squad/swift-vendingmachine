@@ -36,39 +36,6 @@ class Beverage: CustomStringConvertible {
     }
 }
 
-class Milk: Beverage {
-    private let grade: String
-    
-    init(grade: String, brand: String, capacity: Int, price: Int, productName: String, dateOfManufacture: Date = Date()) {
-        self.grade = grade
-        super.init(brand: brand, capacity: capacity, price: price, productName: productName, dateOfManufacture: dateOfManufacture)
-    }
-    
-    func isGradeA() -> Bool {
-        return grade == "A"
-    }
-}
-class Soda: Beverage {
-    private let calorie: Int
-    
-    init(calorie: Int, brand: String, capacity: Int, price: Int, productName: String, dateOfManufacture: Date = Date()) {
-        self.calorie = calorie
-        super.init(brand: brand, capacity: capacity, price: price, productName: productName, dateOfManufacture: dateOfManufacture)
-    }
-    
-    func isHigh() -> Bool {
-        return calorie > 400
-    }
-}
-class Coffee: Beverage {
-    private let temperature: String
-    
-    init(temperature: String, brand: String, capacity: Int, price: Int, productName: String, dateOfManufacture: Date = Date()) {
-        self.temperature = temperature
-        super.init(brand: brand, capacity: capacity, price: price, productName: productName, dateOfManufacture: dateOfManufacture)
-    }
-    
-    func isHot() -> Bool {
-        return temperature == "Hot"
-    }
-}
+
+
+
