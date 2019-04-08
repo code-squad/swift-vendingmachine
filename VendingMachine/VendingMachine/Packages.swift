@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Packages: CustomStringConvertible {
+class Packages: NSObject {
     
     private var beverage: [Beverage]
     
@@ -22,7 +22,7 @@ class Packages: CustomStringConvertible {
     }
     
     // 갯수 파악
-    func count() -> Int {
+    var count: Int {
         return beverage.count
     }
     
@@ -33,7 +33,7 @@ class Packages: CustomStringConvertible {
     }
     
     // 하나씩 출력하기 위해
-    var description: String {
+    override var description: String {
         guard let goods = beverage.first else { return "" }
         return goods.description
     }

@@ -10,9 +10,11 @@ import Foundation
 
 struct VendingMachine {
     private var money: Int
+    private var list: Inventory
     
-    init(startMoney: Int = 0) {
+    init(startMoney: Int = 0 , list: Inventory) {
         self.money = startMoney
+        self.list = list
     }
     
     mutating func addMoney(money: Int) -> Bool {
@@ -20,6 +22,11 @@ struct VendingMachine {
         self.money += money
         return true
     }
+    
+    func add(beverage: Beverage) {
+        list.add(beverage: beverage)
+    }
+    
     
 }
 
