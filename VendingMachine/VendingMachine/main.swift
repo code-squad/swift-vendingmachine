@@ -7,43 +7,19 @@
 //
 
 import Foundation
-// packsages 테스트
-let sampleBeverages = [
-    ChocolateMilk(),Sprite(),CocaCola(),StarbucksCoffee(),BananaMilk()
-]
 
-
-let a = Packages.init(beverages: sampleBeverages)
-print(a.count())
-// 추가 되는거 확인 (상품)
-a.add(beverage: Sprite())
-print(a.count())
-
-// 날짜 지난거
-print(a.goBadBeverages())
-
-print("디스크립션")
-var d = a.count()
-while(d > 1){
-    print(a.description)
-    a.removeOneGoods()
-    d = a.count()
+func main() {
+    
+    let beverages = [Sprite(), Sprite(), Sprite(), CocaCola(), CocaCola(), CocaCola(), CocaCola(),ChocolateMilk(), ChocolateMilk(), BananaMilk(),CantataCoffee(), CantataCoffee(), CantataCoffee(), StarbucksCoffee(),StarbucksCoffee()]
+    
+    var vendingMachine = VendingMachine(startMoney: 500, list: Inventory(list: [:]))
+    
+    beverages.forEach {
+        beverage in vendingMachine.add(beverage: beverage)
+    }
+    
+    
 }
-
-
-//// 비어있는지 확인
-//print("안비었지?")
-//print(a.isEmpty())
-//let b = Packages(beverages: [])
-//print("비었지?")
-//print(b.isEmpty())
-//// 뜨거운건지 확인
-//print("뜨겁니?")
-//let c = Packages(beverages:[StarbucksCoffee()])
-//print(c.isHotBeverage())
-//print("안뜨겁니?")
-//let e = Packages(beverages:[CantataCoffee()])
-//print(e.isHotBeverage())
 
 
 /*
@@ -67,3 +43,12 @@ while(d > 1){
 
  */
 
+/*
+VendingMachine 구조체를 생성하여 자판기 기본 동작을 구현했습니다. 내부에서 크게 네 가지 동작으로 나누어 구현하였습니다.
+같은 종류의 Beverage 배열을 포함하는 Pack 배열을 통해 음료 재고를 관리하는 Inventory 클래스를 추가했습니다.
+balance: Int 프로퍼티로 금액 관련 동작을 구현했습니다.
+History 클래스로 음료 구매 이력을 저장했습니다.
+출력 관련 클로저를 전달받아 결과를 확인할 수 있도록 구현했습니다.
+위에서 구현한 자판기 기능이 제대로 동작하는지 단위테스트를 시행했습니다.
+*/
+main()

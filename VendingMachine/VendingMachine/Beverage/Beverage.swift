@@ -40,5 +40,6 @@ class Beverage: CustomStringConvertible {
         let expirationDate = Date.addDate(addDay: endDate.rawValue, day: manufacturedDate)
         return Date.isEqualDate(manufacturedDate: expirationDate)
     }
+    
+    
 }
-
