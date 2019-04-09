@@ -16,34 +16,33 @@ class Packages: NSObject {
         self.beverage = beverages
     }
     
-    // 추가
     func add(beverage: Beverage) {
         self.beverage.append(beverage)
     }
     
-    // 갯수 파악
     var count: Int {
         return beverage.count
     }
     
-    // 상품 하나 빼기
     func removeOneGoods() -> Beverage? {
         if beverage.isEmpty { return nil }
         return beverage.removeFirst()
     }
     
-    // 하나씩 출력하기 위해
     override var description: String {
         guard let goods = beverage.first else { return "" }
         return goods.description
     }
     
-    // 비어있는지 확인
     func isEmpty() -> Bool {
         return beverage.isEmpty
     }
     
-    //뜨거운 음료 찾아주는
+    func isBuyable(with money: Int) -> Bool {
+        guard let one = beverage.first else { return false }
+        return one.isBuy(cash: money)
+    }
+    
     func isHotBeverage() -> Bool {
         for anyThing in beverage {
             guard let coffee = anyThing as? Coffee else { continue }
@@ -52,7 +51,6 @@ class Packages: NSObject {
         return false
     }
     
-    //상한 제품
     func goBadBeverages() -> [Beverage] {
         var badBeverages: [Beverage] = []
         for beverage in beverage {
@@ -62,4 +60,9 @@ class Packages: NSObject {
         return badBeverages
     }
     
+    func removeOne() -> Beverage? {
+        if beverage.isEmpty { return nil }
+        return beverage.removeFirst()
+    }
+
 }
