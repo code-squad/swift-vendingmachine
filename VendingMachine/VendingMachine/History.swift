@@ -9,3 +9,27 @@
 import Foundation
 
 //이력, 내역
+class History {
+    private var purchases: [Beverage]
+    
+    init(purchases: [Beverage]) {
+        self.purchases = purchases
+    }
+    
+    convenience init() {
+        self.init(purchases: [])
+    }
+    
+    func update(purchase beverage: Beverage) {
+        purchases.append(beverage)
+    }
+    
+}
+
+extension History: Equatable {
+    
+    static func == (lhs: History, rhs: History) -> Bool {
+        return lhs == rhs
+    }
+    
+}
