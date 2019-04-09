@@ -8,6 +8,7 @@
 
 import Foundation
 //만료 기간 expiryPeriod
+
 enum EndDate: Int {
     case Soda = 365
     case Coffee = 60
