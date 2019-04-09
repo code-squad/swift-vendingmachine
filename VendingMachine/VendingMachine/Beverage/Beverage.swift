@@ -30,7 +30,6 @@ class Beverage: CustomStringConvertible {
         return "\(brand), \(volume)ml, \(price)원, \(name), \(Date.changeDate(beforeDate: manufacturedDate))"
     }
     
-    // 클래스 명을 출력하기 위한
     var className: String {
         return String(describing: type(of: self))
     }
@@ -41,5 +40,17 @@ class Beverage: CustomStringConvertible {
         return Date.isEqualDate(manufacturedDate: expirationDate)
     }
     
+    func isBuy(cash: Int) -> Bool {
+        return price <= cash
+    }
+    
+    func subtractPay(pay: Int) -> Int {
+        return pay - price
+    }
+    
+    func doPurchase(goods: (String, Int) -> Void) {
+        goods(name, price)
+    }
     
 }
+
