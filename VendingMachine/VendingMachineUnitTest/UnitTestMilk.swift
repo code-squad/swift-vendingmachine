@@ -26,11 +26,7 @@ class UnitTestMilk: XCTestCase {
 
     func test_Milk_코니우유_유통기한_확인_유통기한지나서_False() {
         let conyMilk = ChocolateMilk()
-        XCTAssertFalse(conyMilk.isEqualExpirationDate(endDate: 1))
+        XCTAssertFalse(conyMilk.isEqualExpirationDate())
     }
 
-    func test_Milk_코니커피_유통기한_확인_유통기한_안지났다_True() {
-        let conyCoffee = ChocolateMilk()
-        XCTAssertTrue(conyCoffee.isEqualExpirationDate(endDate: 965))
-    }
 }
