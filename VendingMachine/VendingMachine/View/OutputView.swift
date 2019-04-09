@@ -13,15 +13,15 @@ struct OutputView {
     private static let menu = MenuScript.allCases
         .map { "\($0.rawValue). \($0.menuScript)" }.joined(separator: "\n")
     
-    private static let moneyForm: (Int) -> Void = { (money: Int) in
+    private static let moneyForm = { (money: Int) in
         print("  💵 현재 잔액은 \(money.commaRepresentation)원")
     }
     
-    static let moneyRetrunForm: (Int) -> Void = { (money: Int) in
+    static let moneyRetrunForm = { (money: Int) in
         print("  💵 잔액은 \(money.commaRepresentation)원 딸깍딸깍~Bye 👋🏻 ")
     }
     
-    private static let purchaseForm: (String, Int) -> Void = { (name: String, price: Int) in
+    private static let purchaseForm = { (name: String, price: Int) in
         print(" ☛ \(name)를 구매하셨습니다. \(price.commaRepresentation)원을 차감합니다. ")
     }
     
@@ -30,7 +30,7 @@ struct OutputView {
         print(" \(mark)  \(name)(\(goods)개)")
     }
     
-    private static let availableListForm: (Bool, Int, String) -> Void = { (last: Bool, number: Int, name: String) in
+    private static let availableListForm = { (last: Bool, number: Int, name: String) in
         let mark = last ? "┗" : "┣"
         print(" \t \(mark) \(number). \(name)")
     }

@@ -8,6 +8,9 @@
 
 import Foundation
 
+typealias resultBool = (Bool, Int, String) -> Void
+typealias resultString = (String, Int, Bool) -> Void
+
 struct VendingMachine {
     private var money: Int
     private var list: Inventory
@@ -61,7 +64,7 @@ struct VendingMachine {
         show(money)
     }
     
-    func showListOfAll(list show: (String, Int, Bool) -> Void) {
+    func showListOfAll(list show: resultString) {
         let lists = list.getListOfAll()
         let listBuyable = buyAvailableList()
         for pack in lists {
@@ -70,7 +73,7 @@ struct VendingMachine {
         }
     }
     
-    func showListOfBuyable(list show: (Bool, Int, String) -> Void) {
+    func showListOfBuyable(list show: resultBool) {
         let listBuyable = buyAvailableList()
         for (index, packBuyable) in listBuyable.enumerated() {
             let number = index + 1
@@ -79,3 +82,5 @@ struct VendingMachine {
         }
     }
 }
+
+
