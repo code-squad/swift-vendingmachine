@@ -89,9 +89,20 @@ class VendingMachineUnitTest: XCTestCase {
         XCTAssertNil(vendingMachine.buyAvailableList().first)
     }
     
-
-
-    func test_vendingMachine_돈은1500원투입_먹고싶은건_비싸서_못사먹는다_테스트() {
+    func test_vendingMachine_돈은1500원투입_먹고싶은걸_사먹는다() {
+        let coca = CocaCola(), sprite = Sprite(),  cantata = CantataCoffee() , star = StarbucksCoffee() , chocolateM = ChocolateMilk()
+        let beverages = [coca, sprite, cantata, star, chocolateM]
+        beverages.forEach { beverage in vendingMachine.add(beverage: beverage)}
+        
+        _ = vendingMachine.addMoney(money: 1500)
+        
+        let list = vendingMachine.buyAvailableList()
+        let beverageBuy = vendingMachine.buyBeverage(package: list.randomElement()!)
+        let beveragesBuyable: [Beverage] = [coca, sprite,chocolateM]
+        XCTAssertTrue(beveragesBuyable.contains(beverageBuy!))
+    }
+    
+    func test_vendingMachine_돈은1500원투입_먹고싶은건_비싸서_못사먹는다() {
         let coca = CocaCola(), sprite = Sprite(),  cantata = CantataCoffee() , star = StarbucksCoffee() , chocolateM = ChocolateMilk()
         let beverages = [coca, sprite, cantata, star, chocolateM]
         beverages.forEach { beverage in vendingMachine.add(beverage: beverage)}
@@ -103,4 +114,8 @@ class VendingMachineUnitTest: XCTestCase {
         let beveragesNotBuyable: [Beverage] = [cantata, star]
         XCTAssertFalse(beveragesNotBuyable.contains(beverageBuy!))
     }
+    
+    
+    
+    
 }
