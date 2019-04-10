@@ -49,5 +49,58 @@ class VendingMachineUnitTest: XCTestCase {
         XCTAssertNotNil(starbucksCoffee)
     }
     
+    // -----------------------
+    // 자판기 작동 확인 테스트 코드
+    // -----------------------
     
+    private var vendingMachine: VendingMachine!
+    
+    override func setUp() {
+        let emptyList = Inventory(list: [:])
+        self.vendingMachine = VendingMachine(list: emptyList)
+    }
+    
+    func test_vendingMachine_비어있는_리스트일경우_체크() {
+        XCTAssertTrue(vendingMachine.isEmpty())
+    }
+
+    func test_vendingMachine_그럴일은_없지만_음수가_들어온다면_거짓() {
+        let counterfeitMoney = -500
+        XCTAssertFalse(vendingMachine.addMoney(money: counterfeitMoney))
+    }
+    
+    func test_vendingMachine_돈을_넣지않아서_이용할수_없다() {
+        let beverages = [CocaCola(), Sprite(), BananaMilk()]
+        beverages.forEach { beverage in vendingMachine.add(beverage: beverage)}
+        XCTAssertTrue(vendingMachine.buyAvailableList().isEmpty)
+    }
+    
+    func test_vendingMachine_콜라를_뽑아먹어보자_성공() {
+        let beverages = CocaCola()
+        vendingMachine.add(beverage: beverages)
+        _ = vendingMachine.addMoney(money: 1500)
+        XCTAssertNotNil(vendingMachine.buyAvailableList().first)
+    }
+    
+    func test_vendingMachine_콜라를_뽑아먹어보자_실패_돈이부족해서() {
+        let beverages = CocaCola()
+        vendingMachine.add(beverage: beverages)
+        _ = vendingMachine.addMoney(money: 1000)
+        XCTAssertNil(vendingMachine.buyAvailableList().first)
+    }
+    
+
+
+    func test_vendingMachine_돈은1500원투입_먹고싶은건_비싸서_못사먹는다_테스트() {
+        let coca = CocaCola(), sprite = Sprite(),  cantata = CantataCoffee() , star = StarbucksCoffee() , chocolateM = ChocolateMilk()
+        let beverages = [coca, sprite, cantata, star, chocolateM]
+        beverages.forEach { beverage in vendingMachine.add(beverage: beverage)}
+
+        _ = vendingMachine.addMoney(money: 1500)
+        
+        let list = vendingMachine.buyAvailableList()
+        let beverageBuy = vendingMachine.buyBeverage(package: list.randomElement()!)
+        let beveragesNotBuyable: [Beverage] = [cantata, star]
+        XCTAssertFalse(beveragesNotBuyable.contains(beverageBuy!))
+    }
 }

@@ -5,10 +5,11 @@
 //  Created by Elena on 25/03/2019.
 //  Copyright © 2019 JK. All rights reserved.
 //
-
 import Foundation
 
-class Beverage: CustomStringConvertible {
+typealias resultGoods = (String, Int) -> Void
+
+class Beverage: NSObject {
     
     private let brand: String
     private let volume: Int
@@ -26,11 +27,11 @@ class Beverage: CustomStringConvertible {
         self.endDate = endDate
     }
     
-    var description: String {
+    override var description: String {
         return "\(brand), \(volume)ml, \(price)원, \(name), \(Date.changeDate(beforeDate: manufacturedDate))"
     }
     
-    var className: String {
+    override var className: String {
         return String(describing: type(of: self))
     }
     
@@ -48,9 +49,10 @@ class Beverage: CustomStringConvertible {
         return pay - price
     }
     
-    func doPurchase(goods: (String, Int) -> Void) {
+    func doPurchase(goods: resultGoods) {
         goods(name, price)
     }
     
 }
+
 
