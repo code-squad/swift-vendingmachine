@@ -16,16 +16,15 @@ class Beverage: NSObject {
     private let price: Int
     private let name: String
     private let manufacturedDate: Date
-    private let endDate: EndDate
-//    static var expiryPeriod: Int = 0
+    private let expiryPeriod: Int
     
-    init(brand: String, volume: Int, price: Int, name: String, manufacturedDate: Date , endDate: EndDate) {
+    init(brand: String, volume: Int, price: Int, name: String, manufacturedDate: Date , expiryPeriod: Int) {
         self.brand = brand
         self.volume = volume
         self.price = price
         self.name = name
         self.manufacturedDate = manufacturedDate
-        self.endDate = endDate
+        self.expiryPeriod = expiryPeriod
     }
     
     override var description: String {
@@ -38,7 +37,7 @@ class Beverage: NSObject {
     
     //유통기한
     func isEqualExpirationDate() -> Bool {
-        let expirationDate = Date.addDate(addDay: Beverage.expiryPeriod(), day: manufacturedDate)
+        let expirationDate = Date.addDate(addDay: expiryPeriod, day: manufacturedDate)
         return Date.isEqualDate(manufacturedDate: expirationDate)
     }
     
@@ -54,9 +53,6 @@ class Beverage: NSObject {
         goods(name, price)
     }
     
-    class func expiryPeriod() -> Int {
-        return 0
-    }
     
 }
 

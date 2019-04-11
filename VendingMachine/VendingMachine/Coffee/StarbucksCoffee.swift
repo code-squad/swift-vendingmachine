@@ -14,14 +14,11 @@ class StarbucksCoffee: Coffee {
     
     init() {
         self.beanKind = .java
-        super.init(brand: "동서식품", volume: 281, price: 3000, name: "스타벅스 모카", manufacturedDate:Date.changeString(beforeString: "20180915"), caffeine: 30 , hot: true)
+        super.init(brand: "동서식품", volume: 281, price: 3000, name: "스타벅스 모카", manufacturedDate:Date.changeString(beforeString: "20180915"), caffeine: 30 , hot: true, expiryPeriod: 60)
     }
     
     func same(_ bean: CoffeeBean) -> Bool {
         return self.beanKind == bean
     }
-    
-    override class func expiryPeriod() -> Int {
-        return 60
-    }
+
 }

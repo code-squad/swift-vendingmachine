@@ -20,7 +20,8 @@ class Sprite: Soda {
             price: 1500,
             name: "스프라이트",
             manufacturedDate: Date.changeString(beforeString: "20180513"), 
-            suger: true)
+            suger: true,
+            expiryPeriod: 365)
     }
     
     convenience init(sodaConsistency: Int) {
@@ -32,8 +33,5 @@ class Sprite: Soda {
         return self.sodaConsistency == number
     }
     
-    override class func expiryPeriod() -> Int {
-        return 365
-    }
     
 }

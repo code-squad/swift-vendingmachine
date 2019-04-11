@@ -14,7 +14,7 @@ class BananaMilk: Milk {
     
     init() {
         self.milkFarmCode = .Jejudo
-        super.init(brand: "상하목장", volume: 250, price: 1500, name: "바나나우유", manufacturedDate: Date.changeString(beforeString: "20190320"), hot: true)
+        super.init(brand: "상하목장", volume: 250, price: 1500, name: "바나나우유", manufacturedDate: Date.changeString(beforeString: "20190320"), hot: true, expiryPeriod: 7)
     }
     
     convenience init(milkFarmCode: MilkFarmCode) {
@@ -26,7 +26,4 @@ class BananaMilk: Milk {
         return self.milkFarmCode == milkCode
     }
     
-    override class func expiryPeriod() -> Int {
-        return 7
-    }
 }

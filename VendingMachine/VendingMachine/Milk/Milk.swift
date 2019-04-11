@@ -11,7 +11,7 @@ import Foundation
 class Milk: Beverage {
     private var milkGrade: MilkGrade?
     
-    init(brand: String, volume: Int, price: Int, name: String, manufacturedDate: Date, hot: Bool = true , milkGrade: MilkGrade? = nil, endDate: EndDate = EndDate.Milk) {
+    init(brand: String, volume: Int, price: Int, name: String, manufacturedDate: Date, hot: Bool = true , milkGrade: MilkGrade? = nil, expiryPeriod: Int) {
         self.milkGrade = .A
         super.init(
             brand: brand,
@@ -19,7 +19,7 @@ class Milk: Beverage {
             price: price,
             name: name,
             manufacturedDate: manufacturedDate,
-            endDate: EndDate.Milk)
+            expiryPeriod: expiryPeriod)
     }
     
     func same(_ number: MilkGrade) -> Bool {
