@@ -32,4 +32,8 @@ class Sprite: Soda {
         return self.sodaConsistency == number
     }
     
+    override class func expiryPeriod() -> Int {
+        return 365
+    }
+    
 }
