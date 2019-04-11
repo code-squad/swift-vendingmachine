@@ -20,7 +20,7 @@ class History {
         self.init(purchases: [])
     }
     
-    func update(purchase beverage: Beverage) {
+    func add(purchase beverage: Beverage) {
         purchases.append(beverage)
     }
     
