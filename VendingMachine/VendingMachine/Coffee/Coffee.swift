@@ -13,7 +13,7 @@ class Coffee: Beverage {
     private let caffeine: Int?
     private let hot: Bool
     
-    init(brand: String, volume: Int, price: Int, name: String, manufacturedDate: Date, caffeine: Int? = nil, hot: Bool = false , endDate: EndDate = EndDate.Coffee) {
+    init(brand: String, volume: Int, price: Int, name: String, manufacturedDate: Date, caffeine: Int? = nil, hot: Bool = false, expiryPeriod: Int) {
         self.caffeine = caffeine
         self.hot = hot
         super.init(
@@ -22,7 +22,7 @@ class Coffee: Beverage {
             price: price,
             name: name,
             manufacturedDate: manufacturedDate,
-            endDate: EndDate.Coffee)
+            expiryPeriod: expiryPeriod)
     }
 
     func same(_ number: Int) -> Bool {
