@@ -20,5 +20,5 @@ class ChocolateMilk: Milk {
     func same(_ milkCode: MilkFarmCode) -> Bool {
         return self.milkFarmCode == milkCode
     }
-
+    
 }

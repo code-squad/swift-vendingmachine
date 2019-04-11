@@ -20,4 +20,5 @@ class StarbucksCoffee: Coffee {
     func same(_ bean: CoffeeBean) -> Bool {
         return self.beanKind == bean
     }
+    
 }
