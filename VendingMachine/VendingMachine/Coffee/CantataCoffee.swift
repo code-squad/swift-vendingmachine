@@ -21,4 +21,7 @@ class CantataCoffee: Coffee {
         return self.beanKind == bean
     }
     
+    override class func expiryPeriod() -> Int {
+        return 60
+    }
 }

@@ -26,4 +26,7 @@ class BananaMilk: Milk {
         return self.milkFarmCode == milkCode
     }
     
+    override class func expiryPeriod() -> Int {
+        return 7
+    }
 }

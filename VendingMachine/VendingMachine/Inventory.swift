@@ -51,7 +51,7 @@ class Inventory {
         return goBadGoods
     }
     
-    private func findOI(package: Packages) -> ObjectIdentifier? {
+    private func findObjectIdentifier(package: Packages) -> ObjectIdentifier? {
         for pack in list {
             if pack.value == package { return pack.key }
         }
@@ -59,7 +59,7 @@ class Inventory {
     }
     
     func remove(select goods: Packages) -> Beverage? {
-        guard let id = findOI(package: goods) else { return nil }
+        guard let id = findObjectIdentifier(package: goods) else { return nil }
         return list[id]?.removeOne()
     }
     

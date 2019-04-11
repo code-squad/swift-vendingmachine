@@ -31,14 +31,18 @@ func main() {
                     motion = false
                 case .addMoney:
                     let moneyInserted = menu.value
+                
                     guard vendingMachine.addMoney(money: moneyInserted) else { continue }
                     OutputView.showInsertion(money: moneyInserted)
                 case .buyBeverage:
                     let listBuyable = vendingMachine.buyAvailableList()
-                    let beverageSelect = menu.value - 1
-                    guard beverageSelect < listBuyable.count else { throw MenuError.noNumberGoods }
-                    let goodsSelect = listBuyable[beverageSelect]
-                    guard let beveragePurchas = vendingMachine.buyBeverage(package: goodsSelect) else { continue }
+                    
+                    let selectedBeverage = menu.value - 1
+                    guard selectedBeverage < listBuyable.count else { throw MenuError.noNumberGoods }
+                    
+                    let selectedGoods = listBuyable[selectedBeverage]
+                    guard let beveragePurchas = vendingMachine.buyBeverage(package: selectedGoods) else { continue }
+                    
                     OutputView.showPurchase(beverage: beveragePurchas)
                 
             }

@@ -28,5 +28,5 @@ class Soda: Beverage {
         if suger == true { return true }
         return false
     }
-    
+
 }
