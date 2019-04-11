@@ -47,7 +47,7 @@ struct VendingMachine {
     mutating func buyBeverage(package: Packages) -> Beverage? {
         guard let beverage = list.remove(select: package) else { return nil }
         money = beverage.subtractPay(pay: money)
-        history.update(purchase: beverage)
+        history.add(purchase: beverage)
         
         return beverage
     }
