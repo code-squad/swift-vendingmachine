@@ -9,7 +9,7 @@
 import Foundation
 
 typealias BuyableResultPrintClosure = (Bool, Int, String) -> Void
-typealias allListResultPrintClosure = (String, Int, Bool) -> Void
+typealias AllListResultPrintClosure = (String, Int, Bool) -> Void
 
 struct VendingMachine {
     private var money: Int
@@ -64,7 +64,7 @@ struct VendingMachine {
         show(money)
     }
     
-    func showListOfAll(list show: allListResultPrintClosure) {
+    func showListOfAll(list show: AllListResultPrintClosure) {
         let lists = list.getListOfAll()
         let listBuyable = buyAvailableList()
         for pack in lists {
