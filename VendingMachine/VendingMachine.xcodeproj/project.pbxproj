@@ -55,6 +55,7 @@
 		F3538F58224CD2C6001DDA17 /* ChocolateMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3538F43224CAABD001DDA17 /* ChocolateMilk.swift */; };
 		F3538F59224CD2C6001DDA17 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3538F4F224CCAF8001DDA17 /* Date.swift */; };
 		F3B5ADAA22641A8C003D94A2 /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B5ADA922641A8C003D94A2 /* Money.swift */; };
+		F3B5ADD82265AB9A003D94A2 /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B5ADA922641A8C003D94A2 /* Money.swift */; };
 		F3C5DE04224DFA4600A753FC /* UnitTestSoda.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5DE03224DFA4600A753FC /* UnitTestSoda.swift */; };
 		F3C5DE2522507EBD00A753FC /* UnitTestCoffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5DE2422507EBD00A753FC /* UnitTestCoffee.swift */; };
 		F3C5DE272250846100A753FC /* UnitTestMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5DE262250846100A753FC /* UnitTestMilk.swift */; };
@@ -349,6 +350,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3B5ADD82265AB9A003D94A2 /* Money.swift in Sources */,
 				F33EEC9B225B91C7003C15A6 /* InputView.swift in Sources */,
 				F33EEC9C225B91C7003C15A6 /* OutputView.swift in Sources */,
 				F33EEC9D225B91C7003C15A6 /* MenuScript.swift in Sources */,
