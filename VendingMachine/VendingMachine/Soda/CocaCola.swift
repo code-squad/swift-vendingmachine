@@ -21,7 +21,7 @@ class CocaCola: Soda {
             name: "코카콜라",
             manufacturedDate: Date.changeString(beforeString: "20190213"),
             suger: true,
-            expiryPeriod: 365)
+            expiryPeriod: 600)
     }
     
     convenience init(sodaConsistency: Int) {

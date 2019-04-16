@@ -10,8 +10,9 @@ import Foundation
 
 class Milk: Beverage {
     private var milkGrade: MilkGrade?
+    static let expiredays: Int = 7
     
-    init(brand: String, volume: Int, price: Int, name: String, manufacturedDate: Date, hot: Bool = true , milkGrade: MilkGrade? = nil, expiryPeriod: Int) {
+    init(brand: String, volume: Int, price: Int, name: String, manufacturedDate: Date, hot: Bool = true , milkGrade: MilkGrade? = nil, expiryPeriod: Int = Milk.expiredays) {
         self.milkGrade = .A
         super.init(
             brand: brand,
