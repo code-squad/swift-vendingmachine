@@ -41,18 +41,17 @@ class Beverage: NSObject {
         return Date.isEqualDate(manufacturedDate: expirationDate)
     }
     
-    func isBuy(cash: Int) -> Bool {
-        return price <= cash
+    func isBuy(money: Money) -> Bool {
+        return money.isBuy(money: price)
     }
     
-    func subtractPay(pay: Int) -> Int {
-        return pay - price
+    func subtract(pay: Money) {
+        pay.subtract(price: price)
     }
     
     func doPurchase(goods: resultGoods) {
         goods(name, price)
     }
-    
     
 }
 

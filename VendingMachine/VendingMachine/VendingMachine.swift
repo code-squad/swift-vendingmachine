@@ -12,20 +12,25 @@ typealias BuyableResultPrintClosure = (Bool, Int, String) -> Void
 typealias AllListResultPrintClosure = (String, Int, Bool) -> Void
 
 struct VendingMachine {
-    private var money: Int
+    private var money: Money
     private var list: Inventory
     private var history: History
     
     init(startMoney: Int = 0 , list: Inventory) {
-        self.money = startMoney
+        self.money = Money(money: startMoney)
         self.list = list
         self.history = History()
     }
    
-    mutating func addMoney(money: Int) -> Bool {
-        guard money > 0 else { return false }
-        self.money += money
-        return true
+    func isput(cash: Int) -> Bool {
+        if money.addMoney(put: cash) {
+            return true
+        }
+        return false
+    }
+    
+    func isAdd(cash: Int) -> Bool {
+        return money.addMoney(put: cash)
     }
     
     func add(beverage: Beverage) {
@@ -46,7 +51,7 @@ struct VendingMachine {
     
     mutating func buyBeverage(package: Packages) -> Beverage? {
         guard let beverage = list.remove(select: package) else { return nil }
-        money = beverage.subtractPay(pay: money)
+        beverage.subtract(pay: money)
         history.add(purchase: beverage)
         
         return beverage
@@ -61,7 +66,7 @@ struct VendingMachine {
     }
     
     func showList(show: (Int) -> Void) {
-        show(money)
+        show(money.showMoney())
     }
     
     func showListOfAll(list show: AllListResultPrintClosure) {
