@@ -67,6 +67,7 @@ class VendingMachineUnitTest: XCTestCase {
     func test_vendingMachine_그럴일은_없지만_음수가_들어온다면_거짓() {
         let counterfeitMoney = -500
         XCTAssertFalse(vendingMachine.addMoney(money: counterfeitMoney))
+        XCTAssertFalse(vendingMachine)
     }
     
     func test_vendingMachine_돈을_넣지않아서_이용할수_없다() {

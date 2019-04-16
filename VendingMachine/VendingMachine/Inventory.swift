@@ -35,7 +35,7 @@ class Inventory {
         return listOfAll
     }
     
-    func buyAvailableList(money: Int) -> [Packages] {
+    func buyAvailableList(money: Money) -> [Packages] {
         return list.values.filter { $0.isBuyable(with: money) }
     }
     
