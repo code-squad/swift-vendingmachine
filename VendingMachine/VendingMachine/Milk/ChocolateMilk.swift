@@ -14,7 +14,7 @@ class ChocolateMilk: Milk {
     
     init() {
         self.milkFarmCode = .Seoul
-        super.init(brand: "서울우유", volume: 250, price: 1500, name: "초코우유", manufacturedDate: Date.changeString(beforeString: "20190320"), hot: false, expiryPeriod: 7)
+        super.init(brand: "서울우유", volume: 250, price: 1500, name: "초코우유", manufacturedDate: Date.changeString(beforeString: "20190320"), hot: false, expiryPeriod: 3)
     }
     
     func same(_ milkCode: MilkFarmCode) -> Bool {

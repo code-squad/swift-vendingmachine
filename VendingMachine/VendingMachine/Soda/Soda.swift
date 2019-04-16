@@ -11,8 +11,9 @@ import Foundation
 class Soda: Beverage {
     
     private let suger: Bool
+    static let expiredays: Int = 365
     
-    init(brand: String, volume: Int, price: Int, name: String, manufacturedDate: Date,suger: Bool , expiryPeriod: Int) {
+    init(brand: String, volume: Int, price: Int, name: String, manufacturedDate: Date,suger: Bool , expiryPeriod: Int = Soda.expiredays) {
         self.suger = suger
         super.init(
             brand: brand,
@@ -20,7 +21,7 @@ class Soda: Beverage {
             price: price,
             name: name,
             manufacturedDate: manufacturedDate,
-            expiryPeriod: expiryPeriod)
+            expiryPeriod: expiryPeriod )
     }
     
     // 무가당 여부

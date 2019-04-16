@@ -12,8 +12,9 @@ class Coffee: Beverage {
     
     private let caffeine: Int?
     private let hot: Bool
+    static let expiredays: Int = 60
     
-    init(brand: String, volume: Int, price: Int, name: String, manufacturedDate: Date, caffeine: Int? = nil, hot: Bool = false, expiryPeriod: Int) {
+    init(brand: String, volume: Int, price: Int, name: String, manufacturedDate: Date, caffeine: Int? = nil, hot: Bool = false, expiryPeriod: Int = Coffee.expiredays) {
         self.caffeine = caffeine
         self.hot = hot
         super.init(
