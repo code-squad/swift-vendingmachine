@@ -13,10 +13,16 @@ class Soda: Beverage {
     
     init(calorie: Int, brand: String, capacity: Int, price: Int, productName: String, dateOfManufacture: Date = Date()) {
         self.calorie = calorie
-        super.init(brand: brand, capacity: capacity, price: price, productName: productName, dateOfManufacture: dateOfManufacture)
+        super.init(brand: brand, capacity: capacity, price: price, productName: productName, dateOfManufacture: dateOfManufacture, expirationDate: dateOfManufacture + 18144000)
     }
     
     func isHigh() -> Bool {
         return calorie > 400
+    }
+}
+
+class CocaCola: Soda {
+    override init(calorie: Int, brand: String, capacity: Int, price: Int, productName: String, dateOfManufacture: Date) {
+        super.init(calorie: calorie, brand: brand, capacity: capacity, price: price, productName: productName, dateOfManufacture: dateOfManufacture)
     }
 }
