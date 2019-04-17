@@ -12,19 +12,24 @@ import Foundation
 // 특정 타입을 String으로 표현
 class Beverage: CustomStringConvertible {
     private let brand: String
-    private let capacity: Int
+    private let volume: Int
     private let price: Int
     private let productName: String
     private let dateOfManufacture: Date
     private let expirationDate: Date
     
-    init(brand: String, capacity: Int, price: Int, productName: String, dateOfManufacture: Date = Date(), expirationDate: Date) {
+    init(brand: String, volume: Int, price: Int, productName: String, dateOfManufacture: Date = Date(), expirationDate: Date) {
         self.brand = brand
-        self.capacity = capacity
+        self.volume = volume
         self.price = price
         self.productName = productName
         self.dateOfManufacture = dateOfManufacture
         self.expirationDate = expirationDate
+    }
+    
+    // 클래스명 출력을 위한 변수
+    var className: String {
+        return String(describing: type(of: self))
     }
     
     // Date()의 결과를 원하는 형태로 출력되도록 포맷
@@ -33,14 +38,13 @@ class Beverage: CustomStringConvertible {
         dateFormat.dateFormat = "yyyyMMdd"
         let manufacDate = dateFormat.string(from: dateOfManufacture)
         
-        return "\(brand), \(capacity)ml, \(price)원, \(productName), \(manufacDate)"
+        return "\(className) - \(brand), \(volume)ml, \(price)원, \(productName), \(manufacDate)"
     }
     
-    
-    
-    
-    
-    
+    // 유통기간 확인(true = 유통기간 내)
+    static func validate(expireDate: Date) -> Bool {
+        return Date() < expireDate
+    }
 }
 
 
