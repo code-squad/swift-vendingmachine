@@ -13,10 +13,16 @@ class Milk: Beverage {
     
     init(grade: String, brand: String, capacity: Int, price: Int, productName: String, dateOfManufacture: Date = Date()) {
         self.grade = grade
-        super.init(brand: brand, capacity: capacity, price: price, productName: productName, dateOfManufacture: dateOfManufacture)
+        super.init(brand: brand, capacity: capacity, price: price, productName: productName, dateOfManufacture: dateOfManufacture, expirationDate: dateOfManufacture + 432000)
     }
     
     func isGradeA() -> Bool {
         return grade == "A"
+    }
+}
+
+class Strawberry: Milk {
+    override init(grade: String, brand: String, capacity: Int, price: Int, productName: String, dateOfManufacture: Date = Date()) {
+        super.init(grade: grade, brand: brand, capacity: capacity, price: price, productName: productName, dateOfManufacture: dateOfManufacture)
     }
 }

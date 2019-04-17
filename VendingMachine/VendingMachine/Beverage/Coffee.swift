@@ -13,10 +13,16 @@ class Coffee: Beverage {
     
     init(temperature: String, brand: String, capacity: Int, price: Int, productName: String, dateOfManufacture: Date = Date()) {
         self.temperature = temperature
-        super.init(brand: brand, capacity: capacity, price: price, productName: productName, dateOfManufacture: dateOfManufacture)
+        super.init(brand: brand, capacity: capacity, price: price, productName: productName, dateOfManufacture: dateOfManufacture, expirationDate: dateOfManufacture + 18144000)
     }
     
     func isHot() -> Bool {
         return temperature == "Hot"
+    }
+}
+
+class Kanu: Coffee {
+    override init(temperature: String, brand: String, capacity: Int, price: Int, productName: String, dateOfManufacture: Date = Date()) {
+        super.init(temperature: temperature, brand: brand, capacity: capacity, price: price, productName: productName, dateOfManufacture: dateOfManufacture)
     }
 }
