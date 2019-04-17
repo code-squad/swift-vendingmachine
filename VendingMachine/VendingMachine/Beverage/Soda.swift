@@ -11,9 +11,9 @@ import Foundation
 class Soda: Beverage {
     private let calorie: Int
     
-    init(calorie: Int, brand: String, capacity: Int, price: Int, productName: String, dateOfManufacture: Date = Date()) {
+    init(calorie: Int, brand: String, volume: Int, price: Int, productName: String, dateOfManufacture: Date = Date()) {
         self.calorie = calorie
-        super.init(brand: brand, capacity: capacity, price: price, productName: productName, dateOfManufacture: dateOfManufacture, expirationDate: dateOfManufacture + 18144000)
+        super.init(brand: brand, volume: volume, price: price, productName: productName, dateOfManufacture: dateOfManufacture, expirationDate: dateOfManufacture + 18144000)
     }
     
     func isHigh() -> Bool {
@@ -22,7 +22,7 @@ class Soda: Beverage {
 }
 
 class CocaCola: Soda {
-    override init(calorie: Int, brand: String, capacity: Int, price: Int, productName: String, dateOfManufacture: Date) {
-        super.init(calorie: calorie, brand: brand, capacity: capacity, price: price, productName: productName, dateOfManufacture: dateOfManufacture)
+    override init(calorie: Int, brand: String, volume: Int, price: Int, productName: String, dateOfManufacture: Date = Date()) {
+        super.init(calorie: calorie, brand: brand, volume: volume, price: price, productName: productName, dateOfManufacture: dateOfManufacture)
     }
 }
