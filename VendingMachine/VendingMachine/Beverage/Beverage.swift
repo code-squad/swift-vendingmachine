@@ -16,24 +16,31 @@ class Beverage: CustomStringConvertible {
     private let price: Int
     private let productName: String
     private let dateOfManufacture: Date
+    private let expirationDate: Date
     
-    init(brand: String, capacity: Int, price: Int, productName: String, dateOfManufacture: Date = Date()) {
+    init(brand: String, capacity: Int, price: Int, productName: String, dateOfManufacture: Date = Date(), expirationDate: Date) {
         self.brand = brand
         self.capacity = capacity
         self.price = price
         self.productName = productName
         self.dateOfManufacture = dateOfManufacture
-        
+        self.expirationDate = expirationDate
     }
     
     // Date()의 결과를 원하는 형태로 출력되도록 포맷
     var description: String {
         let dateFormat = DateFormatter()
         dateFormat.dateFormat = "yyyyMMdd"
-        let date = dateFormat.string(from: dateOfManufacture)
+        let manufacDate = dateFormat.string(from: dateOfManufacture)
         
-        return "\(brand), \(capacity)ml, \(price)원, \(productName), \(date)"
+        return "\(brand), \(capacity)ml, \(price)원, \(productName), \(manufacDate)"
     }
+    
+    
+    
+    
+    
+    
 }
 
 
