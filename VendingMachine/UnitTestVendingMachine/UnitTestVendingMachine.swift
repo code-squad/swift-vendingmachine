@@ -9,11 +9,6 @@
 import XCTest
 
 class UnitTestVendingMachine: XCTestCase {
-    /*
-     func isHot() -> Bool {
-     return temperature == "Hot"
-     }
- */
     func testValidate() {
         let date = Date()
         XCTAssertTrue(Beverage.validate(expireDate:date + 432000))
@@ -26,12 +21,12 @@ class UnitTestVendingMachine: XCTestCase {
     
     ///Milk
     func testMilkGradeA() {
-        let milk = Milk(grade: "A", brand: "빙그레", volume: 240, price: 1000, productName: "빙그레딸기우유")
+        let milk = Milk(grade: .A, brand: "빙그레", volume: 240, price: 1000, productName: "빙그레딸기우유")
         XCTAssertTrue(milk.isGradeA())
     }
     
     func testMilkGradeB() {
-        let milk = Milk(grade: "B", brand: "오뚜기", volume: 240, price: 1000, productName: "딸기우유")
+        let milk = Milk(grade: .B, brand: "오뚜기", volume: 240, price: 1000, productName: "딸기우유")
         XCTAssertFalse(milk.isGradeA())
     }
     
@@ -48,14 +43,12 @@ class UnitTestVendingMachine: XCTestCase {
     
     ///Coffee
     func testHotCoffee() {
-        let coffee = Coffee(temperature: "Hot", brand: "맥심", volume: 150, price: 1000, productName: "카누")
+        let coffee = Coffee(temperature: true, brand: "맥심", volume: 150, price: 1000, productName: "카누")
         XCTAssertTrue(coffee.isHot())
     }
     
     func testIceCoffee() {
-        let coffee = Coffee(temperature: "Ice", brand: "맥심", volume: 150, price: 1000, productName: "카누")
+        let coffee = Coffee(temperature: false, brand: "맥심", volume: 150, price: 1000, productName: "카누")
         XCTAssertFalse(coffee.isHot())
     }
-
-    
 }
