@@ -66,7 +66,7 @@ class VendingMachineUnitTest: XCTestCase {
 
     func test_vendingMachine_그럴일은_없지만_음수가_들어온다면_거짓() {
         let counterfeitMoney = -500
-        XCTAssertFalse(vendingMachine.isAdd(cash: counterfeitMoney))
+        XCTAssertFalse(vendingMachine.isPut(cash: counterfeitMoney))
     }
     
     func test_vendingMachine_돈을_넣지않아서_이용할수_없다() {
@@ -78,14 +78,14 @@ class VendingMachineUnitTest: XCTestCase {
     func test_vendingMachine_콜라를_뽑아먹어보자_성공() {
         let beverages = CocaCola()
         vendingMachine.add(beverage: beverages)
-        _ = vendingMachine.isAdd(cash: 1500)
+        _ = vendingMachine.isPut(cash: 1500)
         XCTAssertNotNil(vendingMachine.buyAvailableList().first)
     }
     
     func test_vendingMachine_콜라를_뽑아먹어보자_실패_돈이부족해서() {
         let beverages = CocaCola()
         vendingMachine.add(beverage: beverages)
-        _ = vendingMachine.isAdd(cash: 1000)
+        _ = vendingMachine.isPut(cash: 1000)
         XCTAssertNil(vendingMachine.buyAvailableList().first)
     }
     
@@ -94,7 +94,7 @@ class VendingMachineUnitTest: XCTestCase {
         let beverages = [coca, sprite, cantata, star, chocolateM]
         beverages.forEach { beverage in vendingMachine.add(beverage: beverage)}
         
-        _ = vendingMachine.isAdd(cash: 1500)
+        _ = vendingMachine.isPut(cash: 1500)
         
         let list = vendingMachine.buyAvailableList()
         let beverageBuy = vendingMachine.buyBeverage(package: list.randomElement()!)
@@ -107,7 +107,7 @@ class VendingMachineUnitTest: XCTestCase {
         let beverages = [coca, sprite, cantata, star, chocolateM]
         beverages.forEach { beverage in vendingMachine.add(beverage: beverage)}
 
-        _ = vendingMachine.isAdd(cash: 1500)
+        _ = vendingMachine.isPut(cash: 1500)
         
         let list = vendingMachine.buyAvailableList()
         let beverageBuy = vendingMachine.buyBeverage(package: list.randomElement()!)

@@ -32,7 +32,7 @@ func main() {
                 case .addMoney:
                     let moneyInserted = menu.value
                 
-                    guard vendingMachine.isAdd(cash: moneyInserted) else { continue }
+                    guard vendingMachine.isPut(cash: moneyInserted) else { continue }
                     OutputView.showInsertion(money: moneyInserted)
                 case .buyBeverage:
                     let listBuyable = vendingMachine.buyAvailableList()
