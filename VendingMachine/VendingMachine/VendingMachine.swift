@@ -11,10 +11,19 @@ import Foundation
 typealias BuyableResultPrintClosure = (Bool, Int, String) -> Void
 typealias AllListResultPrintClosure = (String, Int, Bool) -> Void
 
+protocol Customer {
+    func isEmpty() -> Bool
+    func isPut(cash: Int) -> Bool
+    func buyAvailableList() -> [Packages]
+    mutating func buyBeverage(package: Packages) -> Beverage?
+}
+
+
 struct VendingMachine {
     private var money: Money
     private var list: Inventory
     private var history: History
+
     
     init(startMoney: Int = 0 , list: Inventory) {
         self.money = Money(money: startMoney)
@@ -22,24 +31,17 @@ struct VendingMachine {
         self.history = History()
     }
    
-    func isput(cash: Int) -> Bool {
-        if money.addMoney(put: cash) {
-            return true
-        }
-        return false
-    }
-    
-    func isAdd(cash: Int) -> Bool {
-        return money.addMoney(put: cash)
-    }
+//    func isPut(cash: Int) -> Bool {
+//        return money.addMoney(put: cash)
+//    }
     
     func add(beverage: Beverage) {
         list.add(beverage: beverage)
     }
     
-    func buyAvailableList() -> [Packages] {
-        return list.buyAvailableList(money: money)
-    }
+//    func buyAvailableList() -> [Packages] {
+//        return list.buyAvailableList(money: money)
+//    }
     
     func buyAvailableHotBeverages() -> [Packages] {
         return list.buyAvailableHotBeverages()
@@ -49,17 +51,17 @@ struct VendingMachine {
         return list.removeGoBadBeverages()
     }
     
-    mutating func buyBeverage(package: Packages) -> Beverage? {
-        guard let beverage = list.remove(select: package) else { return nil }
-        beverage.subtract(pay: money)
-        history.add(purchase: beverage)
-        
-        return beverage
-    }
-    
-    func isEmpty() -> Bool {
-        return list.isEmpty()
-    }
+//    mutating func buyBeverage(package: Packages) -> Beverage? {
+//        guard let beverage = list.remove(select: package) else { return nil }
+//        beverage.subtract(pay: money)
+//        history.add(purchase: beverage)
+//
+//        return beverage
+//    }
+//
+//    func isEmpty() -> Bool {
+//        return list.isEmpty()
+//    }
     
     func hasEqualHistory(with theOther: History) -> Bool {
         return self.history == theOther
@@ -88,4 +90,26 @@ struct VendingMachine {
     }
 }
 
-
+extension VendingMachine: Customer {
+    
+    func isEmpty() -> Bool {
+        return list.isEmpty()
+    }
+    
+    func isPut(cash: Int) -> Bool {
+        return money.addMoney(put: cash)
+    }
+    
+    func buyAvailableList() -> [Packages] {
+        return list.buyAvailableList(money: money)
+    }
+    
+    mutating func buyBeverage(package: Packages) -> Beverage? {
+        guard let beverage = list.remove(select: package) else { return nil }
+        beverage.subtract(pay: money)
+        history.add(purchase: beverage)
+        
+        return beverage
+    }
+    
+}
