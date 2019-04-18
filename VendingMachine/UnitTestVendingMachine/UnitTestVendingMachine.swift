@@ -43,12 +43,12 @@ class UnitTestVendingMachine: XCTestCase {
     
     ///Coffee
     func testHotCoffee() {
-        let coffee = Coffee(ice: true, brand: "맥심", volume: 150, price: 1000, productName: "카누")
+        let coffee = Coffee(ice: false, brand: "맥심", volume: 150, price: 1000, productName: "카누")
         XCTAssertTrue(coffee.isHot())
     }
     
     func testIceCoffee() {
-        let coffee = Coffee(ice: false, brand: "맥심", volume: 150, price: 1000, productName: "카누")
+        let coffee = Coffee(ice: true, brand: "맥심", volume: 150, price: 1000, productName: "카누")
         XCTAssertFalse(coffee.isHot())
     }
 }
