@@ -17,7 +17,7 @@ class Coffee: Beverage {
     }
     
     func isHot() -> Bool {
-        return ice == true
+        return ice == false
     }
 }
 
