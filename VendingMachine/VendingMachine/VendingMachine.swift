@@ -22,67 +22,42 @@ struct VendingMachine {
         self.list = list
         self.history = History()
     }
-   
-//    func isPut(cash: Int) -> Bool {
-//        return money.addMoney(put: cash)
-//    }
-    
-    func add(beverage: Beverage) {
-        list.add(beverage: beverage)
-    }
-    
-//    func buyAvailableList() -> [Packages] {
-//        return list.buyAvailableList(money: money)
-//    }
     
     func buyAvailableHotBeverages() -> [Packages] {
         return list.buyAvailableHotBeverages()
+    }
+    
+    func hasEqualHistory(with theOther: History) -> Bool {
+        return self.history == theOther
+    }
+
+}
+
+// MARK: - Protocol Manager
+protocol Manager {
+    func add(beverage: Beverage)
+    func remove(beverage: Int) -> Beverage?
+    func removeGoBadBeverages() -> [Beverage]
+}
+
+// MARK: - Extension VendingMachine: Manger
+extension VendingMachine: Manager {
+    // 재고를 관리하기 위한 함수
+    func remove(beverage: Int) -> Beverage? {
+        return nil
+    }
+    
+    func add(beverage: Beverage) {
+        list.add(beverage: beverage)
     }
     
     func removeGoBadBeverages() -> [Beverage] {
         return list.removeGoBadBeverages()
     }
     
-//    mutating func buyBeverage(package: Packages) -> Beverage? {
-//        guard let beverage = list.remove(select: package) else { return nil }
-//        beverage.subtract(pay: money)
-//        history.add(purchase: beverage)
-//
-//        return beverage
-//    }
-//
-//    func isEmpty() -> Bool {
-//        return list.isEmpty()
-//    }
-    
-    func hasEqualHistory(with theOther: History) -> Bool {
-        return self.history == theOther
-    }
-    
-//    func showList(show: (Int) -> Void) {
-//        show(money.showMoney())
-//    }
-//
-//    func showListOfAll(list show: AllListResultPrintClosure) {
-//        let lists = list.getListOfAll()
-//        let listBuyable = buyAvailableList()
-//        for pack in lists {
-//            let buyable = listBuyable.contains(pack.key)
-//            show(pack.key.description, pack.value, buyable)
-//        }
-//    }
-//
-//    func showListOfBuyable(list show: BuyableResultPrintClosure) {
-//        let listBuyable = buyAvailableList()
-//        for (index, packBuyable) in listBuyable.enumerated() {
-//            let number = index + 1
-//            let last = (number == listBuyable.count)
-//            show(last, number, packBuyable.description)
-//        }
-//    }
-
 }
 
+// MARK: - Protocol Customer
 protocol Customer {
     func isEmpty() -> Bool
     func isPut(cash: Int) -> Bool
@@ -90,6 +65,7 @@ protocol Customer {
     mutating func buyBeverage(package: Packages) -> Beverage?
 }
 
+// MARK: - Extension VendingMachine: Customer
 extension VendingMachine: Customer {
     
     func isEmpty() -> Bool {
@@ -114,12 +90,14 @@ extension VendingMachine: Customer {
     
 }
 
+// MARK: - Protocol VendingMachineShow
 protocol VendingMachineShow {
     func showList(show: (Int) -> Void)
     func showListOfAll(list: AllListResultPrintClosure)
     func showListOfBuyable(list: BuyableResultPrintClosure)
 }
 
+// MARK: - Extension VendingMachine: VendingMachineShow
 extension VendingMachine: VendingMachineShow {
     
     func showList(show: (Int) -> Void) {
