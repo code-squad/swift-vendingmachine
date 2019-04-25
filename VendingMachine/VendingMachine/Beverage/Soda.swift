@@ -21,8 +21,21 @@ class Soda: Beverage {
     }
 }
 
-class CocaCola: Soda {
-    override init(calorie: Int, brand: String, volume: Int, price: Int, productName: String, dateOfManufacture: Date = Date()) {
-        super.init(calorie: calorie, brand: brand, volume: volume, price: price, productName: productName, dateOfManufacture: dateOfManufacture)
+
+class Cola: Soda {
+    enum company: String {
+        case pepsi = "pepsi"
+        case cocacola = "cocacola"
+    }
+    init(calorie: Int, brand: company, volume: Int, price: Int, productName: String, dateOfManufacture: Date) {
+        super.init(calorie: calorie, brand: brand.rawValue, volume: volume, price: price, productName: productName, dateOfManufacture: dateOfManufacture)
+    }
+    
+}
+class Sider: Soda {
+    private let carbonicAcidContent: Double
+    init(carbonicAcidContent: Double) {
+        self.carbonicAcidContent = carbonicAcidContent
+        super.init(calorie: 200, brand: "롯데", volume: 250, price: 1500, productName: "칠성사이다", dateOfManufacture: Date())
     }
 }

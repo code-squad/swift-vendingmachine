@@ -28,7 +28,18 @@ class Milk: Beverage {
 }
 
 class Strawberry: Milk {
-    override init(grade: MilkGrade, brand: String, volume: Int, price: Int, productName: String, dateOfManufacture: Date = Date()) {
+    private let strawberryContent: Double
+    
+    init(strawberryContent: Double, grade: MilkGrade, brand: String, volume: Int, price: Int, productName: String, dateOfManufacture: Date) {
+        self.strawberryContent = strawberryContent
+        super.init(grade: grade, brand: brand, volume: volume, price: price, productName: productName, dateOfManufacture: dateOfManufacture)
+    }
+}
+class Chocolate: Milk {
+    private let chocolateContent: Double
+    
+    init(chocolateContent: Double, grade: MilkGrade, brand: String, volume: Int, price: Int, productName: String, dateOfManufacture: Date) {
+        self.chocolateContent = chocolateContent
         super.init(grade: grade, brand: brand, volume: volume, price: price, productName: productName, dateOfManufacture: dateOfManufacture)
     }
 }
