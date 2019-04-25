@@ -57,6 +57,27 @@ func main() {
 
 //main()
 
+func selectMode(vendingMachine: VendingMachine) -> SelectMode? {
+    while true {
+        do {
+            OutputView.selectMode()
+            let inputData = InputView.readInput()
+            if Menu.moveHighStep(input: inputData) { return nil }
+            let userPick = try Menu.readUserMode(input: inputData)
+            switch userPick {
+            case .manager:
+                return nil
+            case .customer:
+                return nil
+            }
+        } catch let error as MenuError {
+            OutputView.showMessage(error: error)
+        } catch {
+            OutputView.showMessage(error: MenuError.notDefine)
+        }
+    }
+}
+
 func testMain() {
     var motion = true
     let beverages = [Sprite(), Sprite(), Sprite(), CocaCola(), CocaCola(), CocaCola(), CocaCola(),ChocolateMilk(), ChocolateMilk(), BananaMilk(),CantataCoffee(), CantataCoffee(), CantataCoffee(), StarbucksCoffee(),StarbucksCoffee()]
@@ -67,41 +88,12 @@ func testMain() {
         beverage in vendingMachine.add(beverage: beverage)
     }
     
-    while(motion == true) {
-        do {
-            try OutputView.start(vendingMachine)
-            let data = InputView.readInput()
-            let menu = try Menu.readMenu(input: data)
-            
-            switch menu.details {
-            case .returnChange:
-                OutputView.moneyReturn(vendingMachine)
-                motion = false
-            case .addMoney:
-                let moneyInserted = menu.value
-                
-                guard vendingMachine.isPut(cash: moneyInserted) else { continue }
-                OutputView.showInsertion(money: moneyInserted)
-            case .buyBeverage:
-                let listBuyable = vendingMachine.buyAvailableList()
-                
-                let selectedBeverage = menu.value - 1
-                guard selectedBeverage < listBuyable.count else { throw MenuError.noNumberGoods }
-                
-                let selectedGoods = listBuyable[selectedBeverage]
-                guard let beveragePurchas = vendingMachine.buyBeverage(package: selectedGoods) else { continue }
-                
-                OutputView.showPurchase(beverage: beveragePurchas)
-                
-            }
-        } catch let meg as MenuError {
-            OutputView.showMessage(error : meg)
-        } catch {
-            OutputView.showMessage(error: MenuError.notDefine)
-        }
+    while motion {
+        guard var userPick = selectMode(vendingMachine: vendingMachine) else { return }
+        
     }
+    
 
 }
-
 
 testMain()

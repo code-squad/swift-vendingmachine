@@ -12,6 +12,14 @@ struct OutputView {
     
     private static let menu = MenuScript.allCases
         .map { "\($0.rawValue). \($0.menuScript)" }.joined(separator: "\n")
+    private static let mode = UserMode.allCases.map{ "\($0.rawValue). \($0.mode)" }.joined(separator: "\n")
+    
+    static func selectMode() {
+        print("\n----- 종료는 q 입력 후 enterkey 입력해주세요 -----")
+        print(mode)
+        print("-------------------------------------------")
+    }
+    
     
     private static let moneyForm = { (money: Int) in
         print("  💵 현재 잔액은 \(money.commaRepresentation)원")
