@@ -8,10 +8,17 @@
 
 import Foundation
 
+// MARK: - Protocol SelectMode
+protocol SelectMode {
+    mutating func perform()
+}
+
+// MARK: - Protocol MessagePrintable
 protocol MessagePrintable {
     var message: String { get }
 }
 
+// MARK: - enum MenuScript
 enum MenuScript: Int, CaseIterable {
     case returnChange = 0, addMoney = 1, buyBeverage
     
@@ -27,6 +34,7 @@ enum MenuScript: Int, CaseIterable {
     }
 }
 
+// MARK: - enum MenuError
 enum MenuError: Error, MessagePrintable {
     
     case invalidForm
@@ -60,3 +68,16 @@ enum MenuError: Error, MessagePrintable {
     
 }
 
+// MARK: - enum UserMode
+enum UserMode: Int, CaseIterable {
+    case manager = 1, customer
+    
+    var mode: String {
+        switch self {
+        case .manager:
+            return "관리자 모드"
+        case .customer:
+            return "사용자 모드"
+        }
+    }
+}

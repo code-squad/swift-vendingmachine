@@ -8,7 +8,19 @@
 
 import Foundation
 
+// MARK: - Struct Menu
 struct Menu {
+    // 종료하는걸 만듬
+    static func moveHighStep(input: String) -> Bool {
+        return input.contains("q")
+    }
+    // 뭘 입력받았는지에 따라 에러를 다르게 표현
+    static func readUserMode(input: String) throws -> UserMode {
+        guard let number = Int(input) else { throw MenuError.notInt }
+        guard let mode = UserMode(rawValue: number) else { throw MenuError.notMenu }
+        return mode
+        
+    }
     
     static func readMenu(input: String) throws -> (details: MenuScript, value: Int) {
         let menuSelected = input.split(separator: " ")
