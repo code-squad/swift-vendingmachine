@@ -22,7 +22,12 @@ class Coffee: Beverage {
 }
 
 class Kanu: Coffee {
-    override init(ice: Bool, brand: String, volume: Int, price: Int, productName: String, dateOfManufacture: Date = Date()) {
-        super.init(ice: ice, brand: brand, volume: volume, price: price, productName: productName, dateOfManufacture: dateOfManufacture)
+    init() {
+        super.init(ice: true, brand: "맥심", volume: 150, price: 1000, productName: "카누")
+    }
+}
+class TOP: Coffee {
+    init() {
+        super.init(ice: false, brand: "맥심", volume: 100, price: 900, productName: "TOP")
     }
 }
