@@ -10,11 +10,11 @@ import Foundation
 
 // MARK: - Struct Menu
 struct Menu {
-    // 종료하는걸 만듬
+    
     static func moveHighStep(input: String) -> Bool {
         return input.contains("q")
     }
-    // 뭘 입력받았는지에 따라 에러를 다르게 표현
+    
     static func readUserMode(input: String) throws -> UserMode {
         guard let number = Int(input) else { throw MenuError.notInt }
         guard let mode = UserMode(rawValue: number) else { throw MenuError.notMenu }
@@ -22,14 +22,14 @@ struct Menu {
         
     }
     
-    static func readMenu(input: String) throws -> (details: MenuScript, value: Int) {
+    static func readMenu(input: String) throws -> (details: CustomerMenuScript, value: Int) {
         let menuSelected = input.split(separator: " ")
         
         guard let firstScript = Int(menuSelected[0]) else {
             throw MenuError.notInt
         }
         
-        guard let menu = MenuScript(rawValue: firstScript) else {
+        guard let menu = CustomerMenuScript(rawValue: firstScript) else {
             throw MenuError.notMenu
         }
 

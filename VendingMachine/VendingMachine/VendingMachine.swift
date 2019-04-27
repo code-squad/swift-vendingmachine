@@ -90,15 +90,22 @@ extension VendingMachine: Customer {
     
 }
 
-// MARK: - Protocol VendingMachineShow
-protocol VendingMachineShow {
+// MARK: - Protocol VendingMachineShowCustomer
+protocol VendingMachineShowCustomer {
     func showList(show: (Int) -> Void)
     func showListOfAll(list: AllListResultPrintClosure)
     func showListOfBuyable(list: BuyableResultPrintClosure)
 }
 
-// MARK: - Extension VendingMachine: VendingMachineShow
-extension VendingMachine: VendingMachineShow {
+// MARK: - Protocol VendingMachineShowManager
+protocol VendingMachineShowManager {
+    func showList(show: (Int) -> Void)
+    func showListOfAll(list: AllListResultPrintClosure)
+    func showListOfBuyable(list: BuyableResultPrintClosure)
+}
+
+// MARK: - Extension VendingMachine: VendingMachineShowManager
+extension VendingMachine: VendingMachineShowManager {
     
     func showList(show: (Int) -> Void) {
         show(money.showMoney())
