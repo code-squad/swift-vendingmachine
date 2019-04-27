@@ -59,6 +59,7 @@
 		F3C5DE04224DFA4600A753FC /* UnitTestSoda.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5DE03224DFA4600A753FC /* UnitTestSoda.swift */; };
 		F3C5DE2522507EBD00A753FC /* UnitTestCoffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5DE2422507EBD00A753FC /* UnitTestCoffee.swift */; };
 		F3C5DE272250846100A753FC /* UnitTestMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5DE262250846100A753FC /* UnitTestMilk.swift */; };
+		F3CDD0B122719A790064CBE2 /* performable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CDD0B022719A790064CBE2 /* performable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -105,6 +106,7 @@
 		F3C5DE03224DFA4600A753FC /* UnitTestSoda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestSoda.swift; sourceTree = "<group>"; };
 		F3C5DE2422507EBD00A753FC /* UnitTestCoffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestCoffee.swift; sourceTree = "<group>"; };
 		F3C5DE262250846100A753FC /* UnitTestMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestMilk.swift; sourceTree = "<group>"; };
+		F3CDD0B022719A790064CBE2 /* performable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = performable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 				F33EEC8F225326BA003C15A6 /* InputView.swift */,
 				F33EEC91225327AD003C15A6 /* OutputView.swift */,
 				F33EEC99225B6410003C15A6 /* MenuScript.swift */,
+				F3CDD0B022719A790064CBE2 /* performable.swift */,
 				F33EEC93225327DF003C15A6 /* Menu.swift */,
 			);
 			path = View;
@@ -331,6 +334,7 @@
 				F32242F2224DEA2D00ADBDBA /* StarbucksCoffee.swift in Sources */,
 				F33EEC8B2252FDCF003C15A6 /* Inventory.swift in Sources */,
 				F33EEC9622532B3D003C15A6 /* History.swift in Sources */,
+				F3CDD0B122719A790064CBE2 /* performable.swift in Sources */,
 				F32242F3224DEA2D00ADBDBA /* Milk.swift in Sources */,
 				F32242F4224DEA2D00ADBDBA /* BananaMilk.swift in Sources */,
 				F33EEC8D2252FF27003C15A6 /* Packages.swift in Sources */,

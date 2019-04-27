@@ -10,8 +10,10 @@ import Foundation
 
 struct OutputView {
     
-    private static let menu = MenuScript.allCases
-        .map { "\($0.rawValue). \($0.menuScript)" }.joined(separator: "\n")
+    private static let customer = CustomerMenuScript.allCases
+        .map { "\($0.rawValue). \($0.customerMessage)" }.joined(separator: "\n")
+    private static let manager = ManagerMenuScript.allCases
+        .map { "\($0.rawValue). \($0.managerMessage)" }.joined(separator: "\n")
     private static let mode = UserMode.allCases.map{ "\($0.rawValue). \($0.mode)" }.joined(separator: "\n")
     
     static func selectMode() {
@@ -55,7 +57,7 @@ struct OutputView {
         print("----------🥤전체 음료 목록🥤--------------")
         vendingMachine.showListOfAll(list: allListForm)
         print("---------------------------------------")
-        print(menu)
+        print(customer)
         vendingMachine.showListOfBuyable(list: availableListForm)
     }
     
