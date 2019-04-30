@@ -53,6 +53,10 @@ class Beverage: NSObject {
         goods(name, price)
     }
     
+    var title: String {
+        return name
+    }
+    
 }
 
 

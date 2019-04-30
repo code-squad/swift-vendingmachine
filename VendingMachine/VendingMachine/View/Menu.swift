@@ -22,7 +22,14 @@ struct Menu {
         
     }
     
-    static func readMenu(input: String) throws -> (details: CustomerMenuScript, value: Int) {
+    static func readManagerMenu(input: String) throws -> ManagerMenuScript {
+        guard let readData = Int(input) else { throw MenuError.noNumberGoods}
+        guard let script = ManagerMenuScript(rawValue: readData) else { throw MenuError.notMenu}
+        
+        return script
+    }
+    
+    static func readCustomerMenu(input: String) throws -> (details: CustomerMenuScript, value: Int) {
         let menuSelected = input.split(separator: " ")
         
         guard let firstScript = Int(menuSelected[0]) else {

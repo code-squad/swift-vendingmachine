@@ -17,9 +17,9 @@ struct OutputView {
     private static let mode = UserMode.allCases.map{ "\($0.rawValue). \($0.mode)" }.joined(separator: "\n")
     
     static func selectMode() {
-        print("\n----- 종료는 q 입력 후 enterkey 입력해주세요 -----")
+        print("------------👤---모드 선택---👥------------")
         print(mode)
-        print("-------------------------------------------")
+        print("\n----- 종료는 q 입력 후 enterkey 입력해주세요 -----")
     }
     
     
@@ -47,6 +47,27 @@ struct OutputView {
     
     static func moneyReturn(_ vendingMachine: VendingMachine) {
         vendingMachine.showList(show: moneyRetrunForm)
+    }
+    
+    static func start(_ vendingMachine: VendingMachineShowManager) {
+        print("---------- 🛠 전체 목록 🛠 --------------")
+        vendingMachine.showListOfAllManager(list: allListForm)
+        print("---------------------------------------")
+        print("\n----- 종료는 q 입력 후 enterkey 입력해주세요 -----")
+        print(manager)
+    }
+    
+    static func start(_ vendingMachine: VendingMachineShowCustomer) {
+//        if vendingMachine.isEmpty() {
+//            print("🚫⚠️❗️ 품절 ❗️⚠️🚫")
+//        }
+       // vendingMachine.showList(show: moneyForm)
+        print("----------🥤전체 음료 목록🥤--------------")
+       // vendingMachine.showListOfAll(list: allListForm)
+        print("---------------------------------------")
+        print("\n----- 종료는 q 입력 후 enterkey 입력해주세요 -----")
+        print(customer)
+       // vendingMachine.showListOfBuyable(list: availableListForm)
     }
     
     static func start(_ vendingMachine: VendingMachine) throws {
