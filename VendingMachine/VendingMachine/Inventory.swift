@@ -25,7 +25,6 @@ class Inventory {
         list[beverageType] = Packages(beverages: [beverage])
     }
     
-    
     func getListOfAll() -> [Packages: Int] {
         var listOfAll: [Packages: Int] = [:]
         for pack in list.values {
@@ -56,6 +55,17 @@ class Inventory {
             if pack.value == package { return pack.key }
         }
         return nil
+    }
+    
+    func find(type :Beverage.Type) -> Packages? {
+        let beverageType = ObjectIdentifier(type)
+        guard let package = list[beverageType] else { return nil }
+        return package
+    }
+    
+    func haveNot(beverage: Beverage.Type) -> Bool {
+        let beverageType = ObjectIdentifier(beverage)
+        return list.contains(where: { $0.key == beverageType && $0.value.isEmpty() })
     }
     
     func remove(select goods: Packages) -> Beverage? {

@@ -11,13 +11,16 @@ import Foundation
 class Packages: NSObject {
     
     private var beverage: [Beverage]
+    private(set) var title: String
     
     init(beverages: [Beverage]) {
         self.beverage = beverages
+        self.title = ""
     }
     
     func add(beverage: Beverage) {
         self.beverage.append(beverage)
+        title = beverage.title
     }
     
     var count: Int {

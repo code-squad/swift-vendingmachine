@@ -15,6 +15,8 @@ struct VendingMachine {
     private var money: Money
     private var list: Inventory
     private var history: History
+    private let beverageTypes = [ChocolateMilk.self, BananaMilk.self, Sprite.self, CocaCola.self, CantataCoffee.self, StarbucksCoffee.self]
+    
 
     
     init(startMoney: Int = 0 , list: Inventory) {
@@ -97,16 +99,8 @@ protocol VendingMachineShowCustomer {
     func showListOfBuyable(list: BuyableResultPrintClosure)
 }
 
-// MARK: - Protocol VendingMachineShowManager
-protocol VendingMachineShowManager {
-    func showList(show: (Int) -> Void)
-    func showListOfAll(list: AllListResultPrintClosure)
-    func showListOfBuyable(list: BuyableResultPrintClosure)
-}
-
-// MARK: - Extension VendingMachine: VendingMachineShowManager
-extension VendingMachine: VendingMachineShowManager {
-    
+// MARK: - Extension VendingMachine: VendingMachineShowCustomer
+extension VendingMachine: VendingMachineShowCustomer {
     func showList(show: (Int) -> Void) {
         show(money.showMoney())
     }
@@ -128,4 +122,31 @@ extension VendingMachine: VendingMachineShowManager {
             show(last, number, packBuyable.description)
         }
     }
+    
+}
+
+// MARK: - Protocol VendingMachineShowManager
+protocol VendingMachineShowManager {
+    func showListOfAllManager(list: AllListResultPrintClosure)
+}
+
+// MARK: - Extension VendingMachine: VendingMachineShowManager
+extension VendingMachine: VendingMachineShowManager {
+    
+    func showListOfAllManager(list show: AllListResultPrintClosure) {
+        let aFullList = list.getListOfAll()
+        
+        for (number, value) in beverageTypes.enumerated() {
+            let number = number + 1
+            guard let item = list.find(type: value) else { continue }
+            if list.haveNot(beverage: value) {
+                show("\(number). \(item.title)", 0, false)
+                continue
+            }
+            guard let count = aFullList[item] else { continue }
+            show("\(number). \(item.title)", count, true)
+        }
+        
+    }
+    
 }

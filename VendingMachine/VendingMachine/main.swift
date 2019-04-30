@@ -23,7 +23,7 @@ func main() {
         do {
             try OutputView.start(vendingMachine)
             let data = InputView.readInput()
-            let menu = try Menu.readMenu(input: data)
+            let menu = try Menu.readCustomerMenu(input: data)
             
             switch menu.details {
                 case .returnChange:
@@ -66,9 +66,9 @@ func selectMode(vendingMachine: VendingMachine) -> SelectMode? {
             let userPick = try Menu.readUserMode(input: inputData)
             switch userPick {
             case .manager:
-                return nil
+                return ManagerMode(vendingMachine: vendingMachine)
             case .customer:
-                return nil
+                return CustomerMode(vendingMachine: vendingMachine)
             }
         } catch let error as MenuError {
             OutputView.showMessage(error: error)
@@ -80,7 +80,7 @@ func selectMode(vendingMachine: VendingMachine) -> SelectMode? {
 
 func testMain() {
     var motion = true
-    let beverages = [Sprite(), Sprite(), Sprite(), CocaCola(), CocaCola(), CocaCola(), CocaCola(),ChocolateMilk(), ChocolateMilk(), BananaMilk(),CantataCoffee(), CantataCoffee(), CantataCoffee(), StarbucksCoffee(),StarbucksCoffee()]
+    let beverages = [Sprite(), Sprite(), Sprite(), CocaCola(), CocaCola(), CocaCola(), CocaCola(),ChocolateMilk(), ChocolateMilk(), BananaMilk(),BananaMilk(),CantataCoffee(), CantataCoffee(), CantataCoffee(), StarbucksCoffee(),StarbucksCoffee()]
     
     var vendingMachine = VendingMachine(startMoney: 0, list: Inventory(list: [:]))
     
@@ -90,10 +90,8 @@ func testMain() {
     
     while motion {
         guard var userPick = selectMode(vendingMachine: vendingMachine) else { return }
-        
+        userPick.perform()
     }
-    
-
 }
 
 testMain()
