@@ -9,16 +9,39 @@
 import Foundation
 
 class ChocolateMilk: Milk {
-    
-    private let milkFarmCode: MilkFarmCode?
-    
-    init() {
-        self.milkFarmCode = .Seoul
-        super.init(brand: "서울우유", volume: 250, price: 1500, name: "초코우유", manufacturedDate: Date.changeString(beforeString: "20190320"), hot: false, expiryPeriod: 3)
+   
+    convenience init(brand: String, volume: Int, price: Int, name: String, manufacturedDate: Date) {
+        self.init(brand: brand,
+                  volume: volume,
+                  price: price,
+                  name: name,
+                  manufacturedDate: manufacturedDate,
+                  hot: true)
     }
     
-    func same(_ milkCode: MilkFarmCode) -> Bool {
-        return self.milkFarmCode == milkCode
+    //    convenience init(brand: String, volume: Int, price: Int, name: String, manufacturedDate: Date ,hot: Bool) {
+    //        self.init(brand: brand,
+    //                  volume: volume,
+    //                  price: price,
+    //                  name: name,
+    //                  manufacturedDate: manufacturedDate,
+    //                  hot: true)
+    //    }
+    
+    convenience init(expiryPeriod: Int) {
+        self.init(brand: "서울우유",
+                  volume: 250,
+                  price: 1500,
+                  name: "초코우유",
+                  manufacturedDate: Date.changeString(beforeString: "20190320"),
+                  hot: false,
+                  milkGrade: .B,
+                  expiryPeriod: expiryPeriod
+        )
+    }
+    
+    convenience required init() {
+        self.init(expiryPeriod: 6)
     }
     
 }

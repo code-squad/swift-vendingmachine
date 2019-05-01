@@ -10,15 +10,28 @@ import Foundation
 
 class CantataCoffee: Coffee {
 
-    private let beanKind: CoffeeBean?
-
-    init() {
-        self.beanKind = .AA
-        super.init(brand: "롯데칠성음료", volume: 275, price: 2000, name: "칸타타 아메리카노", manufacturedDate: Date.changeString(beforeString: "20170111"), caffeine: 40)
+    convenience init(brand: String, volume: Int, price: Int, name: String, manufacturedDate: Date) {
+        self.init(brand: brand,
+                  volume: volume,
+                  price: price,
+                  name: name,
+                  manufacturedDate: manufacturedDate,
+                  hot: true)
     }
-
-    func same(_ bean: CoffeeBean) -> Bool {
-        return self.beanKind == bean
+    
+    convenience init(expiryPeriod: Int) {
+        self.init(brand: "롯데칠성음료",
+                  volume: 275,
+                  price: 2000,
+                  name: "칸타타 아메리카노",
+                  manufacturedDate: Date.changeString(beforeString: "20170111"),
+                  caffeine: 40,
+                  expiryPeriod: expiryPeriod
+        )
+    }
+    
+    convenience required init() {
+        self.init(expiryPeriod: 100)
     }
 
 }

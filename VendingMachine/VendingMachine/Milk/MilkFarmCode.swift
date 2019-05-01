@@ -8,12 +8,6 @@
 
 import Foundation
 
-enum MilkFarmCode {
-    case Seoul
-    case Jejudo
-    case Gangwondo
-}
-
 enum MilkGrade {
     case A
     case B

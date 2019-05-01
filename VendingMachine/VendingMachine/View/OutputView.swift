@@ -94,6 +94,24 @@ struct OutputView {
         print(error.message)
     }
     
+    static func question(value: ManagerMenuScript) {
+        switch value {
+            case .addBeverage:
+                print("🥤추가 번호를 입력해주세요.")
+            case .removeBeverage:
+                print("🥤제거 번호를 입력해주세요.")
+            default:
+                return
+        }
+    }
+    
+    static func showRemoveMsg(beverage: Beverage) {
+        print("\(beverage.title) 제거되었습니다.\n")
+    }
+    
+    static func showAddMsg(beverage: Int) {
+        print("\(beverage + 1)번 음료 추가되었습니다.\n")
+    }
 }
 
 

@@ -25,6 +25,18 @@ class Coffee: Beverage {
             manufacturedDate: manufacturedDate,
             expiryPeriod: expiryPeriod)
     }
+    
+    // Required Initializers
+    required convenience init() {
+        self.init(
+            brand:"",
+            volume: 0,
+            price: 0,
+            name: "",
+            manufacturedDate: Date(),
+            expiryPeriod: 0
+        )
+    }
 
     func same(_ number: Int) -> Bool {
         return self.caffeine == number

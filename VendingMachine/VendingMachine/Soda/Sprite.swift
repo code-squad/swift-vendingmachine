@@ -9,28 +9,19 @@
 import Foundation
 
 class Sprite: Soda {
-    
-    private var sodaConsistency: Int?
-    
-    init() {
-        self.sodaConsistency = 70
-        super.init(
-            brand: "코카콜라",
-            volume: 355,
-            price: 1500,
-            name: "스프라이트",
-            manufacturedDate: Date.changeString(beforeString: "20180513"), 
-            suger: true)
+
+    convenience init(suger: Bool) {
+        self.init(brand: "코카콜라",
+                  volume: 355,
+                  price: 1500,
+                  name: "스프라이트",
+                  manufacturedDate: Date.changeString(beforeString: "20180513"),
+                  suger: suger
+        )
     }
     
-    convenience init(sodaConsistency: Int) {
-        self.init()
-        self.sodaConsistency = sodaConsistency
+    convenience required init() {
+        self.init(suger: true)
     }
-    
-    func same(_ number: Int) -> Bool {
-        return self.sodaConsistency == number
-    }
-    
     
 }

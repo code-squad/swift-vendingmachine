@@ -94,3 +94,19 @@ enum UserMode: Int, CaseIterable {
 }
 
 
+enum VendingMachineError: Error, MessagePrintable {
+    case beSoldOut
+    case notAddition
+    case impossible
+    
+    var message: String {
+        switch self {
+        case .beSoldOut:
+            return "⚠️ 품절 ⚠️\n"
+        case .notAddition:
+            return "추가된 적이 없는 음료 입니다."
+        case .impossible:
+            return "재고가 없습니다."
+        }
+    }
+}
