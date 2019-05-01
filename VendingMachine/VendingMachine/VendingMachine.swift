@@ -38,6 +38,7 @@ struct VendingMachine {
 // MARK: - Protocol Manager
 protocol Manager {
     func add(beverage: Beverage)
+    func add(beverage: Int) -> Bool 
     func remove(beverage: Int) -> Beverage?
     func removeGoBadBeverages() -> [Beverage]
 }
@@ -57,6 +58,14 @@ extension VendingMachine: Manager {
         return list.removeGoBadBeverages()
     }
     
+    func add(beverage: Int) -> Bool {
+        guard beverage < beverageTypes.count else { return false }
+        let newGoods = beverageTypes[beverage].init()
+        list.add(beverage: newGoods)
+        return true
+    }
+    
+
 }
 
 // MARK: - Protocol Customer

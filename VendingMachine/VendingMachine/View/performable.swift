@@ -44,15 +44,19 @@ struct ManagerMode {
     private func select(menu: ManagerMenuScript) -> Bool {
         switch menu {
         case .addBeverage, .removeBeverage:
-            //OutputView.askValue(of: menu)
+            OutputView.question(value: menu)
             return false
- 
         case .removeGoBadBeverages:
             removeGobadBeverages()
-            
         }
         return true
     }
+    
+    private func addBeverage(number: Int) throws {
+        guard vendingMachine.add(beverage: number) else { throw VendingMachineError.notAddition }
+        OutputView.showAddMsg(beverage: number)
+    }
+    
     
 }
 
@@ -83,12 +87,15 @@ extension ManagerMode: SelectMode {
                 if select(menu: menu) { continue }
                 let value = try readValue()
                 
-//                switch menu {
-//                case .addBeverage:
-//                case .removeBeverage:
-//                default:
-//                    continue
-//                }
+                switch menu {
+                case .addBeverage:
+                    try addBeverage(number: value)
+                case .removeBeverage:
+                    break
+                    //try removeBeverage(beverage: value)
+                default:
+                    continue
+                }
 
             } catch let error as MenuError {
                 OutputView.showMessage(error: error)

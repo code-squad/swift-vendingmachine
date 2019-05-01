@@ -14,7 +14,7 @@ class Soda: Beverage {
     static let expiredays: Int = 365
     
     init(brand: String, volume: Int, price: Int, name: String, manufacturedDate: Date,suger: Bool , expiryPeriod: Int = Soda.expiredays) {
-        self.suger = suger
+        self.suger = true
         super.init(
             brand: brand,
             volume: volume,
@@ -22,6 +22,19 @@ class Soda: Beverage {
             name: name,
             manufacturedDate: manufacturedDate,
             expiryPeriod: expiryPeriod )
+    }
+    
+    // Required Initializers
+    required convenience init() {
+        self.init(
+            brand:"",
+            volume: 0,
+            price: 0,
+            name: "",
+            manufacturedDate: Date(),
+            suger: true,
+            expiryPeriod: 0
+        )
     }
     
     // 무가당 여부

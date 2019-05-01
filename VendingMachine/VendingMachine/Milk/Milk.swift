@@ -22,6 +22,26 @@ class Milk: Beverage {
             manufacturedDate: manufacturedDate,
             expiryPeriod: expiryPeriod)
     }
+//    
+//    convenience init(brand: String, volume: Int, price: Int, name: String, manufacturedDate: Date, hot: Bool = true , milkGrade: MilkGrade? = nil) {
+//        self.init(brand: brand,
+//                  volume: volume,
+//                  price: price,
+//                  name: name,
+//                  manufacturedDate: manufacturedDate)
+//    }
+    
+    // Required Initializers
+    required convenience init() {
+        self.init(
+            brand:"",
+            volume: 0,
+            price: 0,
+            name: "",
+            manufacturedDate: Date(),
+            expiryPeriod: 0
+        )
+    }
     
     func same(_ number: MilkGrade) -> Bool {
         return self.milkGrade == number

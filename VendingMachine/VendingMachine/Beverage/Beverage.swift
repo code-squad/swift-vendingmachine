@@ -27,8 +27,20 @@ class Beverage: NSObject {
         self.expiryPeriod = expiryPeriod
     }
     
+    // Required Initializers
+    override required convenience init() {
+        self.init(
+            brand:"",
+            volume: 0,
+            price: 0,
+            name: "",
+            manufacturedDate: Date(),
+            expiryPeriod: 0
+        )
+    }
+    
     override var description: String {
-        return "\(brand), \(volume)ml, \(price)원, \(name), \(Date.changeDate(beforeDate: manufacturedDate))"
+        return "\(name) \(price)원"
     }
     
     override var className: String {
@@ -57,6 +69,8 @@ class Beverage: NSObject {
         return name
     }
     
+    func showPurchase(with show: (String, Int) -> Void) {
+        show(name, price)
+    }
+    
 }
-
-

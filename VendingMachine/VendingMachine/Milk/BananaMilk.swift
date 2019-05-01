@@ -10,20 +10,37 @@ import Foundation
 
 class BananaMilk: Milk {
     
-    private var milkFarmCode: MilkFarmCode?
-    
-    init() {
-        self.milkFarmCode = .Jejudo
-        super.init(brand: "상하목장", volume: 250, price: 1500, name: "바나나우유", manufacturedDate: Date.changeString(beforeString: "20190320"), hot: true)
+    convenience init(brand: String, volume: Int, price: Int, name: String, manufacturedDate: Date) {
+        self.init(brand: brand,
+                  volume: volume,
+                  price: price,
+                  name: name,
+                  manufacturedDate: manufacturedDate,
+                  hot: true)
     }
     
-    convenience init(milkFarmCode: MilkFarmCode) {
-        self.init()
-        self.milkFarmCode = milkFarmCode
+//    convenience init(brand: String, volume: Int, price: Int, name: String, manufacturedDate: Date ,hot: Bool) {
+//        self.init(brand: brand,
+//                  volume: volume,
+//                  price: price,
+//                  name: name,
+//                  manufacturedDate: manufacturedDate,
+//                  hot: true)
+//    }
+    
+    convenience init(milkGrade: MilkGrade) {
+        self.init(brand: "상하목장",
+                  volume: 250,
+                  price: 1500,
+                  name: "바나나우유",
+                  manufacturedDate: Date.changeString(beforeString: "20190320"),
+                  hot: true,
+                  milkGrade: milkGrade
+                  )
     }
     
-    func same(_ milkCode: MilkFarmCode) -> Bool {
-        return self.milkFarmCode == milkCode
+    convenience required init() {
+        self.init(milkGrade: .A)
     }
     
 }
