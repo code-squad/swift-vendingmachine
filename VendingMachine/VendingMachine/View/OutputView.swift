@@ -105,6 +105,12 @@ struct OutputView {
         }
     }
     
+    static func showListRemoved(beverages: [Beverage]) {
+        let list = beverages.map { "\($0.title)"}.joined(separator: "\n")
+        print("---------제거 목록---------")
+        print("\(list)\n")
+    }
+    
     static func showRemoveMsg(beverage: Beverage) {
         print("\(beverage.title) 제거되었습니다.\n")
     }

@@ -27,10 +27,6 @@ class Packages: NSObject {
         return beverage.count
     }
     
-    func removeOneGoods() -> Beverage? {
-        if beverage.isEmpty { return nil }
-        return beverage.removeFirst()
-    }
     
     override var description: String {
         guard let goods = beverage.first else { return "" }
@@ -53,12 +49,13 @@ class Packages: NSObject {
         }
         return false
     }
-    
+
     func goBadBeverages() -> [Beverage] {
         var badBeverages: [Beverage] = []
-        for beverage in beverage {
-            if beverage.isEqualExpirationDate() { continue }
-            badBeverages.append(beverage)
+        for (_,goods) in beverage.enumerated() {
+            if goods.isEqualExpirationDate() { continue }
+            beverage.removeFirst()
+            badBeverages.append(goods)
         }
         return badBeverages
     }

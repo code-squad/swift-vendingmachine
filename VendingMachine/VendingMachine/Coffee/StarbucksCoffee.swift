@@ -24,7 +24,7 @@ class StarbucksCoffee: Coffee {
                   volume: 281,
                   price: 3000,
                   name: "스타벅스 모카",
-                  manufacturedDate: Date.changeString(beforeString: "20180915"),
+                  manufacturedDate: Date.changeString(beforeString: "20190915"),
                   caffeine: 30,
                   hot: true,
                   expiryPeriod: expiryPeriod
