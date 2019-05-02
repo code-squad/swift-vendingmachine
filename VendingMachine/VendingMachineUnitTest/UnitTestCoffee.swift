@@ -24,10 +24,6 @@ class UnitTestCoffee: XCTestCase {
         XCTAssertFalse(conyCoffee.same(20))
     }
 
-    func test_Coffee_스타벅스커피_원두콩_확인_성공() {
-        let conyCoffee = StarbucksCoffee()
-        XCTAssertTrue(conyCoffee.same(.java))
-    }
 
     func test_Coffee_코니커피_유통기한_확인_유통기한지나서_False() {
         let conyCoffee = CantataCoffee()
