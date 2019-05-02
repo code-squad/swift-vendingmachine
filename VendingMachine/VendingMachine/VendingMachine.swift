@@ -45,10 +45,6 @@ protocol Manager {
 
 // MARK: - Extension VendingMachine: Manger
 extension VendingMachine: Manager {
-    // 재고를 관리하기 위한 함수
-    func remove(beverage: Int) -> Beverage? {
-        return nil
-    }
     
     func add(beverage: Beverage) {
         list.add(beverage: beverage)
@@ -65,7 +61,12 @@ extension VendingMachine: Manager {
         return true
     }
     
-
+    func remove(beverage: Int) -> Beverage? {
+        guard beverage < beverageTypes.count else { return nil }
+        guard let goods = list.find(type: beverageTypes[beverage]) else { return nil }
+        guard let beverage = list.remove(beverage: goods) else { return nil }
+        return beverage
+    }
 }
 
 // MARK: - Protocol Customer
@@ -92,7 +93,7 @@ extension VendingMachine: Customer {
     }
     
     mutating func buyBeverage(package: Packages) -> Beverage? {
-        guard let beverage = list.remove(select: package) else { return nil }
+        guard let beverage = list.remove(beverage: package) else { return nil }
         beverage.subtract(pay: money)
         history.add(purchase: beverage)
         

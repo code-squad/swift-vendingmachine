@@ -24,7 +24,7 @@ class CantataCoffee: Coffee {
                   volume: 275,
                   price: 2000,
                   name: "칸타타 아메리카노",
-                  manufacturedDate: Date.changeString(beforeString: "20170111"),
+                  manufacturedDate: Date.changeString(beforeString: "20190111"),
                   caffeine: 40,
                   expiryPeriod: expiryPeriod
         )

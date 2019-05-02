@@ -68,8 +68,8 @@ class Inventory {
         return list.contains(where: { $0.key == beverageType && $0.value.isEmpty() })
     }
     
-    func remove(select goods: Packages) -> Beverage? {
-        guard let id = findObjectIdentifier(package: goods) else { return nil }
+    func remove(beverage: Packages) -> Beverage? {
+        guard let id = findObjectIdentifier(package: beverage) else { return nil }
         return list[id]?.removeOne()
     }
     

@@ -32,7 +32,7 @@ struct ManagerMode {
     
     private func removeGobadBeverages() {
         let goBadGoods = vendingMachine.removeGoBadBeverages()
-        //OutputView.showListRemoved(beverages: goBadGoods)
+        OutputView.showListRemoved(beverages: goBadGoods)
     }
     
     private func readValue() throws -> Int {
@@ -57,6 +57,10 @@ struct ManagerMode {
         OutputView.showAddMsg(beverage: number)
     }
     
+    private func removeBeverage(number: Int) throws {
+        guard let beverage = vendingMachine.remove(beverage: number) else { throw VendingMachineError.notAddition }
+        OutputView.showRemoveMsg(beverage: beverage)
+    }
     
 }
 
@@ -91,8 +95,7 @@ extension ManagerMode: SelectMode {
                 case .addBeverage:
                     try addBeverage(number: value)
                 case .removeBeverage:
-                    break
-                    //try removeBeverage(beverage: value)
+                    try removeBeverage(number: value)
                 default:
                     continue
                 }
