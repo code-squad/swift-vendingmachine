@@ -19,15 +19,6 @@ class ChocolateMilk: Milk {
                   hot: true)
     }
     
-    //    convenience init(brand: String, volume: Int, price: Int, name: String, manufacturedDate: Date ,hot: Bool) {
-    //        self.init(brand: brand,
-    //                  volume: volume,
-    //                  price: price,
-    //                  name: name,
-    //                  manufacturedDate: manufacturedDate,
-    //                  hot: true)
-    //    }
-    
     convenience init(expiryPeriod: Int) {
         self.init(brand: "서울우유",
                   volume: 250,

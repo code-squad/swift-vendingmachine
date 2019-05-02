@@ -22,14 +22,6 @@ class Milk: Beverage {
             manufacturedDate: manufacturedDate,
             expiryPeriod: expiryPeriod)
     }
-//    
-//    convenience init(brand: String, volume: Int, price: Int, name: String, manufacturedDate: Date, hot: Bool = true , milkGrade: MilkGrade? = nil) {
-//        self.init(brand: brand,
-//                  volume: volume,
-//                  price: price,
-//                  name: name,
-//                  manufacturedDate: manufacturedDate)
-//    }
     
     // Required Initializers
     required convenience init() {
