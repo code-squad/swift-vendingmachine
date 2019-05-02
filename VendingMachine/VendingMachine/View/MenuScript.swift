@@ -15,12 +15,10 @@ protocol MessagePrintable {
 
 // MARK: - enum CustomerMenuScript
 enum CustomerMenuScript: Int, CaseIterable {
-    case returnChange = 0, addMoney = 1, buyBeverage
+    case addMoney = 1, buyBeverage
     
     var customerMessage: String{
         switch self {
-            case .returnChange:
-                return "잔돈반환종료하기"
             case .addMoney:
                 return "금액추가"
             case .buyBeverage:

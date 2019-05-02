@@ -73,12 +73,33 @@ struct CustomerMode {
     }
 
     private func readMenu() throws -> (details: CustomerMenuScript, value: Int)? {
+        if vendingMachine.isEmpty() { throw
+            VendingMachineError.beSoldOut
+        }
         OutputView.start(vendingMachine)
         let input = InputView.readInput()
         if Menu.moveHighStep(input: input) { return nil }
         return try Menu.readCustomerMenu(input: input)
     }
-
+    
+    mutating private func insert(money: Int) -> Bool {
+        guard vendingMachine.isPut(cash: money) else {
+            return false
+        }
+        OutputView.showInsertion(money: money)
+        return true
+    }
+    
+    mutating private func purchase(beverage: Int) throws -> Bool {
+        let list = vendingMachine.buyAvailableList()
+        let number = beverage - 1
+        guard number < list.count else { throw MenuError.notMenu }
+        let package = list[number]
+        guard let beverage = vendingMachine.buyBeverage(package: package) else { return false }
+        OutputView.showPurchase(beverage: beverage)
+        return true
+    }
+    
 }
 
 // MARK: - extension ManagerMode: SelectMode
@@ -120,12 +141,16 @@ extension CustomerMode: SelectMode {
             do {
                 guard let menu = try readMenu() else { return }
                 
-//                switch menu.value {
-//                case .returnChange : break
-//                case .addMoney: break
-//                case .buyBeverage: break
-//                default: break
-//                }
+                switch menu.details {
+                case .addMoney:
+                    guard insert(money: menu.value) else {
+                        continue
+                    }
+                case .buyBeverage:
+                    guard try purchase(beverage: menu.value) else {
+                        continue
+                    }
+                }
                 
             } catch let error as MenuError {
                 OutputView.showMessage(error: error)

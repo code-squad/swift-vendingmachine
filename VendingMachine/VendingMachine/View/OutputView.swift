@@ -61,13 +61,13 @@ struct OutputView {
 //        if vendingMachine.isEmpty() {
 //            print("🚫⚠️❗️ 품절 ❗️⚠️🚫")
 //        }
-       // vendingMachine.showList(show: moneyForm)
+        vendingMachine.showList(show: moneyForm)
         print("----------🥤전체 음료 목록🥤--------------")
-       // vendingMachine.showListOfAll(list: allListForm)
+        vendingMachine.showListOfAll(list: allListForm)
         print("---------------------------------------")
         print("\n----- 종료는 q 입력 후 enterkey 입력해주세요 -----")
         print(customer)
-       // vendingMachine.showListOfBuyable(list: availableListForm)
+        vendingMachine.showListOfBuyable(list: availableListForm)
     }
     
     static func start(_ vendingMachine: VendingMachine) throws {
