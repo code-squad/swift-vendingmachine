@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F3056A79227AB630004EEAA0 /* performable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CDD0B022719A790064CBE2 /* performable.swift */; };
+		F3056A7B227AB761004EEAA0 /* UnitTestMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3056A7A227AB761004EEAA0 /* UnitTestMode.swift */; };
 		F32242EC224DEA2D00ADBDBA /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3538F262248A755001DDA17 /* Soda.swift */; };
 		F32242ED224DEA2D00ADBDBA /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3538F4D224CB70C001DDA17 /* Sprite.swift */; };
 		F32242EE224DEA2D00ADBDBA /* CocaCola.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3538F4B224CB17C001DDA17 /* CocaCola.swift */; };
@@ -76,6 +77,7 @@
 /* Begin PBXFileReference section */
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		F3056A7A227AB761004EEAA0 /* UnitTestMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestMode.swift; sourceTree = "<group>"; };
 		F33EEC882252F6DC003C15A6 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 		F33EEC8A2252FDCF003C15A6 /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
 		F33EEC8C2252FF27003C15A6 /* Packages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Packages.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 			children = (
 				F3538F2E224A61D9001DDA17 /* VendingMachineUnitTest.swift */,
 				F3C5DE03224DFA4600A753FC /* UnitTestSoda.swift */,
+				F3056A7A227AB761004EEAA0 /* UnitTestMode.swift */,
 				F3C5DE2422507EBD00A753FC /* UnitTestCoffee.swift */,
 				F3C5DE262250846100A753FC /* UnitTestMilk.swift */,
 				F3538F30224A61D9001DDA17 /* Info.plist */,
@@ -363,6 +366,7 @@
 				F3538F51224CD2C6001DDA17 /* Sprite.swift in Sources */,
 				F3538F52224CD2C6001DDA17 /* CocaCola.swift in Sources */,
 				F3538F53224CD2C6001DDA17 /* CoffeeBean.swift in Sources */,
+				F3056A7B227AB761004EEAA0 /* UnitTestMode.swift in Sources */,
 				F3538F54224CD2C6001DDA17 /* CantataCoffee.swift in Sources */,
 				F3C5DE04224DFA4600A753FC /* UnitTestSoda.swift in Sources */,
 				F3538F55224CD2C6001DDA17 /* StarbucksCoffee.swift in Sources */,
