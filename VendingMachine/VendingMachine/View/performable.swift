@@ -24,7 +24,7 @@ struct ManagerMode {
     }
     
     private func readMenu() throws -> ManagerMenuScript? {
-        OutputView.start(vendingMachine)
+        ManagerOutputView.start(vendingMachine)
         let input = InputView.readInput()
         if Menu.moveHighStep(input: input) { return nil }
         return try Menu.readManagerMenu(input: input)
@@ -32,7 +32,7 @@ struct ManagerMode {
     
     private func removeGobadBeverages() {
         let goBadGoods = vendingMachine.removeGoBadBeverages()
-        OutputView.showListRemoved(beverages: goBadGoods)
+        ManagerOutputView.showListRemoved(beverages: goBadGoods)
     }
     
     private func readValue() throws -> Int {
@@ -44,7 +44,7 @@ struct ManagerMode {
     private func select(menu: ManagerMenuScript) -> Bool {
         switch menu {
         case .addBeverage, .removeBeverage:
-            OutputView.question(value: menu)
+            ManagerOutputView.question(value: menu)
             return false
         case .removeGoBadBeverages:
             removeGobadBeverages()
@@ -54,12 +54,12 @@ struct ManagerMode {
     
     private func addBeverage(number: Int) throws {
         guard vendingMachine.add(beverage: number) else { throw VendingMachineError.notAddition }
-        OutputView.showAddMsg(beverage: number)
+        ManagerOutputView.showAddMsg(beverage: number)
     }
     
     private func removeBeverage(number: Int) throws {
         guard let beverage = vendingMachine.remove(beverage: number) else { throw VendingMachineError.notAddition }
-        OutputView.showRemoveMsg(beverage: beverage)
+        ManagerOutputView.showRemoveMsg(beverage: beverage)
     }
     
 }
@@ -76,7 +76,7 @@ struct CustomerMode {
         if vendingMachine.isEmpty() { throw
             VendingMachineError.beSoldOut
         }
-        OutputView.start(vendingMachine)
+        CustomerOutputView.start(vendingMachine)
         let input = InputView.readInput()
         if Menu.moveHighStep(input: input) { return nil }
         return try Menu.readCustomerMenu(input: input)
@@ -86,7 +86,7 @@ struct CustomerMode {
         guard vendingMachine.isPut(cash: money) else {
             return false
         }
-        OutputView.showInsertion(money: money)
+        CustomerOutputView.showInsertion(money: money)
         return true
     }
     
@@ -96,7 +96,7 @@ struct CustomerMode {
         guard number < list.count else { throw MenuError.notMenu }
         let package = list[number]
         guard let beverage = vendingMachine.buyBeverage(package: package) else { return false }
-        OutputView.showPurchase(beverage: beverage)
+        CustomerOutputView.showPurchase(beverage: beverage)
         return true
     }
     
