@@ -19,15 +19,6 @@ class BananaMilk: Milk {
                   hot: true)
     }
     
-//    convenience init(brand: String, volume: Int, price: Int, name: String, manufacturedDate: Date ,hot: Bool) {
-//        self.init(brand: brand,
-//                  volume: volume,
-//                  price: price,
-//                  name: name,
-//                  manufacturedDate: manufacturedDate,
-//                  hot: true)
-//    }
-    
     convenience init(milkGrade: MilkGrade) {
         self.init(brand: "상하목장",
                   volume: 250,

@@ -58,9 +58,7 @@ struct OutputView {
     }
     
     static func start(_ vendingMachine: VendingMachineShowCustomer) {
-//        if vendingMachine.isEmpty() {
-//            print("🚫⚠️❗️ 품절 ❗️⚠️🚫")
-//        }
+
         vendingMachine.showList(show: moneyForm)
         print("----------🥤전체 음료 목록🥤--------------")
         vendingMachine.showListOfAll(list: allListForm)

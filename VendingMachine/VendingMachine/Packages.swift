@@ -39,7 +39,7 @@ class Packages: NSObject {
     
     func isBuyable(with money: Money) -> Bool {
         guard let one = beverage.first else { return false }
-        return one.isBuy(money: money)
+        return one.canBuy(money: money)
     }
     
     func isHotBeverage() -> Bool {

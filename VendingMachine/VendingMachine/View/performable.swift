@@ -123,8 +123,6 @@ extension ManagerMode: SelectMode {
 
             } catch let error as MenuError {
                 OutputView.showMessage(error: error)
-            } catch let error as MenuError {
-                OutputView.showMessage(error: error)
             } catch {
                 OutputView.showMessage(error: MenuError.notDefine)
             }
@@ -154,9 +152,6 @@ extension CustomerMode: SelectMode {
                 
             } catch let error as MenuError {
                 OutputView.showMessage(error: error)
-            } catch let error as MenuError {
-                OutputView.showMessage(error: error)
-                break
             } catch {
                 OutputView.showMessage(error: MenuError.notDefine)
             }

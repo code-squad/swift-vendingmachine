@@ -38,9 +38,9 @@ class Beverage: NSObject {
             expiryPeriod: 0
         )
     }
-    
+
     override var description: String {
-        return "\(name) \(price)원"
+        return "\(name) \(price)"
     }
     
     override var className: String {
@@ -53,7 +53,7 @@ class Beverage: NSObject {
         return Date.isEqualDate(manufacturedDate: expirationDate)
     }
     
-    func isBuy(money: Money) -> Bool {
+    func canBuy(money: Money) -> Bool {
         return money.isBuy(money: price)
     }
     
