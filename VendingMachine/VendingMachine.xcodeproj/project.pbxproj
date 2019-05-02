@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F3056A79227AB630004EEAA0 /* performable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CDD0B022719A790064CBE2 /* performable.swift */; };
 		F32242EC224DEA2D00ADBDBA /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3538F262248A755001DDA17 /* Soda.swift */; };
 		F32242ED224DEA2D00ADBDBA /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3538F4D224CB70C001DDA17 /* Sprite.swift */; };
 		F32242EE224DEA2D00ADBDBA /* CocaCola.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3538F4B224CB17C001DDA17 /* CocaCola.swift */; };
@@ -349,6 +350,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3056A79227AB630004EEAA0 /* performable.swift in Sources */,
 				F3B5ADD82265AB9A003D94A2 /* Money.swift in Sources */,
 				F33EEC9B225B91C7003C15A6 /* InputView.swift in Sources */,
 				F33EEC9C225B91C7003C15A6 /* OutputView.swift in Sources */,
