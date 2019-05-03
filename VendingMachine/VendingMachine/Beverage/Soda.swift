@@ -13,7 +13,7 @@ class Soda: Beverage {
     
     init(calorie: Int, brand: String, volume: Int, price: Int, productName: String, dateOfManufacture: Date = Date()) {
         self.calorie = calorie
-        super.init(brand: brand, volume: volume, price: price, productName: productName, dateOfManufacture: dateOfManufacture, expirationDate: dateOfManufacture + 18144000)
+        super.init(brand: brand, volume: volume, price: price, productName: productName, dateOfManufacture: dateOfManufacture, expirationDate: Date(timeInterval: 18144000, since: dateOfManufacture))
     }
     
     func isHigh() -> Bool {
@@ -27,15 +27,15 @@ class Cola: Soda {
         case pepsi = "pepsi"
         case cocacola = "cocacola"
     }
-    init(calorie: Int, brand: company, volume: Int, price: Int, productName: String, dateOfManufacture: Date) {
-        super.init(calorie: calorie, brand: brand.rawValue, volume: volume, price: price, productName: productName, dateOfManufacture: dateOfManufacture)
+    init(calorie: Int, brand: company, volume: Int, price: Int, productName: String) {
+        super.init(calorie: calorie, brand: brand.rawValue, volume: volume, price: price, productName: productName)
     }
-    
 }
 class Sider: Soda {
     private let carbonicAcidContent: Double
-    init(carbonicAcidContent: Double) {
+    
+    init(carbonicAcidContent: Double, calorie: Int, brand: String, volume: Int, price: Int, productName: String) {
         self.carbonicAcidContent = carbonicAcidContent
-        super.init(calorie: 200, brand: "롯데", volume: 250, price: 1500, productName: "칠성사이다", dateOfManufacture: Date())
+        super.init(calorie: calorie, brand: brand, volume: volume, price: price, productName: productName)
     }
 }

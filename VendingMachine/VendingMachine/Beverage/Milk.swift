@@ -19,7 +19,7 @@ class Milk: Beverage {
     
     init(grade: MilkGrade, brand: String, volume: Int, price: Int, productName: String, dateOfManufacture: Date = Date()) {
         self.grade = grade
-        super.init(brand: brand, volume: volume, price: price, productName: productName, dateOfManufacture: dateOfManufacture, expirationDate: dateOfManufacture + 432000)
+        super.init(brand: brand, volume: volume, price: price, productName: productName, dateOfManufacture: dateOfManufacture, expirationDate: Date(timeInterval: 432000, since: dateOfManufacture))
     }
     
     func isGradeA() -> Bool {
@@ -30,16 +30,16 @@ class Milk: Beverage {
 class Strawberry: Milk {
     private let strawberryContent: Double
     
-    init(strawberryContent: Double, grade: MilkGrade, brand: String, volume: Int, price: Int, productName: String, dateOfManufacture: Date) {
+    init(strawberryContent: Double, grade: MilkGrade, brand: String, volume: Int, price: Int, productName: String) {
         self.strawberryContent = strawberryContent
-        super.init(grade: grade, brand: brand, volume: volume, price: price, productName: productName, dateOfManufacture: dateOfManufacture)
+        super.init(grade: grade, brand: brand, volume: volume, price: price, productName: productName)
     }
 }
 class Chocolate: Milk {
     private let chocolateContent: Double
     
-    init(chocolateContent: Double, grade: MilkGrade, brand: String, volume: Int, price: Int, productName: String, dateOfManufacture: Date) {
+    init(chocolateContent: Double, grade: MilkGrade, brand: String, volume: Int, price: Int, productName: String) {
         self.chocolateContent = chocolateContent
-        super.init(grade: grade, brand: brand, volume: volume, price: price, productName: productName, dateOfManufacture: dateOfManufacture)
+        super.init(grade: grade, brand: brand, volume: volume, price: price, productName: productName)
     }
 }
