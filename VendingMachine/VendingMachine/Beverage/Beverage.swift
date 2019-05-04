@@ -32,6 +32,16 @@ class Beverage: CustomStringConvertible {
         return String(describing: type(of: self))
     }
     
+    // 상품명
+    var beverageName: String {
+        return self.productName
+    }
+    
+    // 상품가격
+    var beveragePrice: Int {
+        return self.price
+    }
+
     // Date()의 결과를 원하는 형태로 출력되도록 포맷
     var description: String {
         let dateFormat = DateFormatter()
@@ -42,11 +52,9 @@ class Beverage: CustomStringConvertible {
     }
     
     // 유통기간 확인(true = 유통기간 내)
-    static func validate(expireDate: Date) -> Bool {
-        return Date() < expireDate
+    func validate() -> Bool {
+        return self.dateOfManufacture < self.expirationDate
     }
 }
-
-
 
 
