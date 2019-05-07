@@ -41,12 +41,12 @@ extension Date {
         return date
     }
 
-//    // 날짜에서 몇일뒤의 날짜를 반환해주는 함수
-//    static func addDate(addDay: Int, day: Date) -> Date {
-//        let addSecond = 86400 * addDay
-//        let afterDate = Date.init(timeInterval: TimeInterval(addSecond), since: day)
-//        return afterDate
-//    }
+    // 날짜에서 몇일뒤의 날짜를 반환해주는 함수
+    static func addDate(endDate: ExpirationPeriod, day: Date) -> Date {
+        let addSecond = endDate.endDateSecond()
+        let afterDate = Date.init(timeInterval: TimeInterval(addSecond), since: day)
+        return afterDate
+    }
 
     // 날짜 비교
     static func isEqualDate(manufacturedDate: Date) -> Bool {

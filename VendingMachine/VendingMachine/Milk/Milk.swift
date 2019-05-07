@@ -19,7 +19,7 @@ class Milk: Beverage {
          manufacturedDate: Date,
          hot: Bool = true ,
          milkGrade: MilkGrade? = nil,
-         expiryPeriod: Int = Milk.expiredays) {
+         expiryPeriod: ExpirationPeriod = ExpirationPeriod(endDay: Milk.expiredays)) {
         self.milkGrade = .AMilkGrade
         super.init(
             brand: brand,
@@ -38,7 +38,7 @@ class Milk: Beverage {
             price: 0,
             name: "",
             manufacturedDate: Date(),
-            expiryPeriod: 0
+            expiryPeriod: ExpirationPeriod(endDay: 0)
         )
     }
 
