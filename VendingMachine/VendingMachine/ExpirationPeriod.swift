@@ -9,16 +9,14 @@
 import Foundation
 
 struct ExpirationPeriod {
-    private let endDate: Int
+    private let endDay: Int
 
-    init(endDate: Int) {
-        self.endDate = endDate
+    init(endDay: Int) {
+        self.endDay = endDay
     }
 
-    // 날짜에서 몇일뒤의 날짜를 반환해주는 함수
-    func addDate(day: Date) -> Date {
-        let addSecond = 86400 * endDate
-        let afterDate = Date.init(timeInterval: TimeInterval(addSecond), since: day)
-        return afterDate
+    func endDateSecond() -> Int {
+        let addSecond = 86400 * endDay
+        return addSecond
     }
 }

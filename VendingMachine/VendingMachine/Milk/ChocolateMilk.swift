@@ -19,7 +19,7 @@ class ChocolateMilk: Milk {
                   hot: true)
     }
 
-    convenience init(expiryPeriod: Int) {
+    convenience init(expiryPeriod: ExpirationPeriod) {
         self.init(brand: "서울우유",
                   volume: 250,
                   price: 1500,
@@ -32,7 +32,7 @@ class ChocolateMilk: Milk {
     }
 
     convenience required init() {
-        self.init(expiryPeriod: 6)
+        self.init(expiryPeriod: ExpirationPeriod(endDay: 6))
     }
 
 }

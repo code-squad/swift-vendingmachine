@@ -19,7 +19,7 @@ class CantataCoffee: Coffee {
                   hot: true)
     }
 
-    convenience init(expiryPeriod: Int) {
+    convenience init(expiryPeriod: ExpirationPeriod) {
         self.init(brand: "롯데칠성음료",
                   volume: 275,
                   price: 2000,
@@ -31,7 +31,7 @@ class CantataCoffee: Coffee {
     }
 
     convenience required init() {
-        self.init(expiryPeriod: 100)
+        self.init(expiryPeriod: ExpirationPeriod(endDay: 100))
     }
 
 }

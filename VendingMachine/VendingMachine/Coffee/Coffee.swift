@@ -21,7 +21,7 @@ class Coffee: Beverage {
          manufacturedDate: Date,
          caffeine: Int? = nil,
          hot: Bool = false,
-         expiryPeriod: Int = Coffee.expiredays) {
+         expiryPeriod: ExpirationPeriod = ExpirationPeriod(endDay: Coffee.expiredays)) {
         self.caffeine = caffeine
         self.hot = hot
         super.init(
@@ -41,7 +41,7 @@ class Coffee: Beverage {
             price: 0,
             name: "",
             manufacturedDate: Date(),
-            expiryPeriod: 0
+            expiryPeriod: ExpirationPeriod(endDay: 0)
         )
     }
 

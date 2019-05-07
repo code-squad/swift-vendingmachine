@@ -10,7 +10,7 @@ import Foundation
 
 class CocaCola: Soda {
 
-    convenience init(expiryPeriod: Int) {
+    convenience init(expiryPeriod: ExpirationPeriod) {
         self.init(brand: "코카콜라",
                   volume: 355,
                   price: 1500,
@@ -22,7 +22,7 @@ class CocaCola: Soda {
     }
 
     convenience required init() {
-        self.init(expiryPeriod: 600)
+        self.init(expiryPeriod: ExpirationPeriod(endDay: 600))
     }
 
 }

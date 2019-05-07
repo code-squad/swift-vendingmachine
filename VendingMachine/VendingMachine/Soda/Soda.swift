@@ -19,7 +19,7 @@ class Soda: Beverage {
          name: String,
          manufacturedDate: Date,
          suger: Bool ,
-         expiryPeriod: Int = Soda.expiredays) {
+         expiryPeriod: ExpirationPeriod = ExpirationPeriod(endDay: Soda.expiredays)) {
         self.suger = true
         super.init(
             brand: brand,
@@ -39,7 +39,7 @@ class Soda: Beverage {
             name: "",
             manufacturedDate: Date(),
             suger: true,
-            expiryPeriod: 0
+            expiryPeriod: ExpirationPeriod(endDay: 0)
         )
     }
 
