@@ -13,7 +13,7 @@ func selectMode(vendingMachine: VendingMachine) -> SelectMode? {
         do {
             OutputView.selectMode()
             let inputData = InputView.readInput()
-            if Menu.moveHighStep(input: inputData){
+            if Menu.moveHighStep(input: inputData) {
                 return nil
             }
             let userPick = try Menu.readUserMode(input: inputData)
@@ -32,14 +32,16 @@ func selectMode(vendingMachine: VendingMachine) -> SelectMode? {
 }
 
 func main() {
-    let beverages = [Sprite(), Sprite(), Sprite(), CocaCola(), CocaCola(), CocaCola(), CocaCola(),ChocolateMilk(), ChocolateMilk(), BananaMilk(),BananaMilk(),CantataCoffee(), CantataCoffee(), CantataCoffee(), StarbucksCoffee(),StarbucksCoffee()]
-    
-    var vendingMachine = VendingMachine(startMoney: 0, list: Inventory(list: [:]))
-    
-    beverages.forEach {
-        beverage in vendingMachine.add(beverage: beverage)
-    }
-    
+    let beverages = [Sprite(), Sprite(), Sprite(), CocaCola(), CocaCola(), CocaCola(),
+                     CocaCola(), ChocolateMilk(), ChocolateMilk(),
+                     BananaMilk(), BananaMilk(),
+                     CantataCoffee(), CantataCoffee(), CantataCoffee(),
+                     StarbucksCoffee(), StarbucksCoffee()]
+
+    let vendingMachine = VendingMachine(startMoney: 0, list: Inventory(list: [:]))
+
+    beverages.forEach { beverage in vendingMachine.add(beverage: beverage) }
+
     while true {
         guard var userPick = selectMode(vendingMachine: vendingMachine) else { return }
         userPick.perform()

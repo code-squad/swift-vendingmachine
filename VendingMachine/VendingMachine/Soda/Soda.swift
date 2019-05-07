@@ -9,11 +9,17 @@
 import Foundation
 
 class Soda: Beverage {
-    
+
     private let suger: Bool
     static let expiredays: Int = 365
-    
-    init(brand: String, volume: Int, price: Int, name: String, manufacturedDate: Date,suger: Bool , expiryPeriod: Int = Soda.expiredays) {
+
+    init(brand: String,
+         volume: Int,
+         price: Int,
+         name: String,
+         manufacturedDate: Date,
+         suger: Bool ,
+         expiryPeriod: Int = Soda.expiredays) {
         self.suger = true
         super.init(
             brand: brand,
@@ -23,11 +29,11 @@ class Soda: Beverage {
             manufacturedDate: manufacturedDate,
             expiryPeriod: expiryPeriod )
     }
-    
+
     // Required Initializers
     required convenience init() {
         self.init(
-            brand:"",
+            brand: "",
             volume: 0,
             price: 0,
             name: "",
@@ -36,7 +42,7 @@ class Soda: Beverage {
             expiryPeriod: 0
         )
     }
-    
+
     // 무가당 여부
     func isSuger() -> Bool {
         if suger == true { return true }

@@ -9,12 +9,19 @@
 import Foundation
 
 class Coffee: Beverage {
-    
+
     private let caffeine: Int?
     private let hot: Bool
     static let expiredays: Int = 60
-    
-    init(brand: String, volume: Int, price: Int, name: String, manufacturedDate: Date, caffeine: Int? = nil, hot: Bool = false, expiryPeriod: Int = Coffee.expiredays) {
+
+    init(brand: String,
+         volume: Int,
+         price: Int,
+         name: String,
+         manufacturedDate: Date,
+         caffeine: Int? = nil,
+         hot: Bool = false,
+         expiryPeriod: Int = Coffee.expiredays) {
         self.caffeine = caffeine
         self.hot = hot
         super.init(
@@ -25,11 +32,11 @@ class Coffee: Beverage {
             manufacturedDate: manufacturedDate,
             expiryPeriod: expiryPeriod)
     }
-    
+
     // Required Initializers
     required convenience init() {
         self.init(
-            brand:"",
+            brand: "",
             volume: 0,
             price: 0,
             name: "",
@@ -41,10 +48,9 @@ class Coffee: Beverage {
     func same(_ number: Int) -> Bool {
         return self.caffeine == number
     }
-    
+
     func isHot() -> Bool {
         if hot == true { return hot }
         return false
     }
-    
 }
