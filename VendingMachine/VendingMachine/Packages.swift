@@ -51,7 +51,7 @@ class Packages: NSObject {
 
     func goBadBeverages() -> [Beverage] {
         var badBeverages: [Beverage] = []
-        for (_, goods) in beverage.enumerated() {
+        for goods in beverage {
             if goods.isEqualExpirationDate() { continue }
             beverage.removeFirst()
             badBeverages.append(goods)
