@@ -10,6 +10,7 @@
 		554B2CF7B2B81904D76A69D3 /* Pods_VendingMachineUnitTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B9CFAA1D65FF3D61EC67789 /* Pods_VendingMachineUnitTest.framework */; };
 		F3056A79227AB630004EEAA0 /* performable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CDD0B022719A790064CBE2 /* performable.swift */; };
 		F3056A7B227AB761004EEAA0 /* UnitTestMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3056A7A227AB761004EEAA0 /* UnitTestMode.swift */; };
+		F3056A93228162BC004EEAA0 /* ExpirationPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3056A92228162BC004EEAA0 /* ExpirationPeriod.swift */; };
 		F32242EC224DEA2D00ADBDBA /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3538F262248A755001DDA17 /* Soda.swift */; };
 		F32242ED224DEA2D00ADBDBA /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3538F4D224CB70C001DDA17 /* Sprite.swift */; };
 		F32242EE224DEA2D00ADBDBA /* CocaCola.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3538F4B224CB17C001DDA17 /* CocaCola.swift */; };
@@ -84,6 +85,7 @@
 		BBCF804786ACEC4676BE8E74 /* Pods-VendingMachine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VendingMachine.release.xcconfig"; path = "Target Support Files/Pods-VendingMachine/Pods-VendingMachine.release.xcconfig"; sourceTree = "<group>"; };
 		E353E2295014A691F7730355 /* Pods-VendingMachine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VendingMachine.debug.xcconfig"; path = "Target Support Files/Pods-VendingMachine/Pods-VendingMachine.debug.xcconfig"; sourceTree = "<group>"; };
 		F3056A7A227AB761004EEAA0 /* UnitTestMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestMode.swift; sourceTree = "<group>"; };
+		F3056A92228162BC004EEAA0 /* ExpirationPeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpirationPeriod.swift; sourceTree = "<group>"; };
 		F33EEC882252F6DC003C15A6 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 		F33EEC8A2252FDCF003C15A6 /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
 		F33EEC8C2252FF27003C15A6 /* Packages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Packages.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
 				F3538F4F224CCAF8001DDA17 /* Date.swift */,
 				F3B5ADA922641A8C003D94A2 /* Money.swift */,
+				F3056A92228162BC004EEAA0 /* ExpirationPeriod.swift */,
 				F33EEC882252F6DC003C15A6 /* VendingMachine.swift */,
 				F33EEC8A2252FDCF003C15A6 /* Inventory.swift */,
 				F33EEC8C2252FF27003C15A6 /* Packages.swift */,
@@ -432,6 +435,7 @@
 				F32242F4224DEA2D00ADBDBA /* BananaMilk.swift in Sources */,
 				F33EEC8D2252FF27003C15A6 /* Packages.swift in Sources */,
 				F32242F5224DEA2D00ADBDBA /* MilkFarmCode.swift in Sources */,
+				F3056A93228162BC004EEAA0 /* ExpirationPeriod.swift in Sources */,
 				F32242F6224DEA2D00ADBDBA /* ChocolateMilk.swift in Sources */,
 				F33EEC94225327DF003C15A6 /* Menu.swift in Sources */,
 				F32242F7224DEA2D00ADBDBA /* Beverage.swift in Sources */,
