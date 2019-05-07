@@ -19,9 +19,9 @@ class Sprite: Soda {
                   suger: suger
         )
     }
-    
+
     convenience required init() {
         self.init(suger: true)
     }
-    
+
 }

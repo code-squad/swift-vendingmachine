@@ -9,7 +9,7 @@
 import Foundation
 
 enum MilkGrade {
-    case A
-    case B
-    case C
+    case AMilkGrade
+    case BMilkGrade
+    case CMilkGrade
 }

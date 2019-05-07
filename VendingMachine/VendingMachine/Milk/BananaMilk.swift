@@ -9,7 +9,6 @@
 import Foundation
 
 class BananaMilk: Milk {
-    
     convenience init(brand: String, volume: Int, price: Int, name: String, manufacturedDate: Date) {
         self.init(brand: brand,
                   volume: volume,
@@ -18,7 +17,7 @@ class BananaMilk: Milk {
                   manufacturedDate: manufacturedDate,
                   hot: true)
     }
-    
+
     convenience init(milkGrade: MilkGrade) {
         self.init(brand: "상하목장",
                   volume: 250,
@@ -29,9 +28,9 @@ class BananaMilk: Milk {
                   milkGrade: milkGrade
                   )
     }
-    
+
     convenience required init() {
-        self.init(milkGrade: .A)
+        self.init(milkGrade: .AMilkGrade)
     }
-    
+
 }

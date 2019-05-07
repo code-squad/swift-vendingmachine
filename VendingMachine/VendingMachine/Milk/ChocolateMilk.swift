@@ -9,7 +9,7 @@
 import Foundation
 
 class ChocolateMilk: Milk {
-   
+
     convenience init(brand: String, volume: Int, price: Int, name: String, manufacturedDate: Date) {
         self.init(brand: brand,
                   volume: volume,
@@ -18,7 +18,7 @@ class ChocolateMilk: Milk {
                   manufacturedDate: manufacturedDate,
                   hot: true)
     }
-    
+
     convenience init(expiryPeriod: Int) {
         self.init(brand: "서울우유",
                   volume: 250,
@@ -26,13 +26,13 @@ class ChocolateMilk: Milk {
                   name: "초코우유",
                   manufacturedDate: Date.changeString(beforeString: "20190320"),
                   hot: false,
-                  milkGrade: .B,
+                  milkGrade: .BMilkGrade,
                   expiryPeriod: expiryPeriod
         )
     }
-    
+
     convenience required init() {
         self.init(expiryPeriod: 6)
     }
-    
+
 }

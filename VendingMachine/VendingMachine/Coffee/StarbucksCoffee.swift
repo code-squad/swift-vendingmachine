@@ -18,7 +18,7 @@ class StarbucksCoffee: Coffee {
                   manufacturedDate: manufacturedDate,
                   hot: true)
     }
-    
+
     convenience init(expiryPeriod: Int) {
         self.init(brand: "동서식품",
                   volume: 281,
@@ -30,7 +30,7 @@ class StarbucksCoffee: Coffee {
                   expiryPeriod: expiryPeriod
         )
     }
-    
+
     convenience required init() {
         self.init(expiryPeriod: 110)
     }

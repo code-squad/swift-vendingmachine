@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		554B2CF7B2B81904D76A69D3 /* Pods_VendingMachineUnitTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B9CFAA1D65FF3D61EC67789 /* Pods_VendingMachineUnitTest.framework */; };
 		F3056A79227AB630004EEAA0 /* performable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CDD0B022719A790064CBE2 /* performable.swift */; };
 		F3056A7B227AB761004EEAA0 /* UnitTestMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3056A7A227AB761004EEAA0 /* UnitTestMode.swift */; };
 		F32242EC224DEA2D00ADBDBA /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3538F262248A755001DDA17 /* Soda.swift */; };
 		F32242ED224DEA2D00ADBDBA /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3538F4D224CB70C001DDA17 /* Sprite.swift */; };
 		F32242EE224DEA2D00ADBDBA /* CocaCola.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3538F4B224CB17C001DDA17 /* CocaCola.swift */; };
 		F32242EF224DEA2D00ADBDBA /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3538F212248A676001DDA17 /* Coffee.swift */; };
-		F32242F0224DEA2D00ADBDBA /* CoffeeBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3538F45224CAD78001DDA17 /* CoffeeBean.swift */; };
 		F32242F1224DEA2D00ADBDBA /* CantataCoffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3538F47224CAE96001DDA17 /* CantataCoffee.swift */; };
 		F32242F2224DEA2D00ADBDBA /* StarbucksCoffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3538F49224CB08D001DDA17 /* StarbucksCoffee.swift */; };
 		F32242F3224DEA2D00ADBDBA /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3538F1D22489556001DDA17 /* Milk.swift */; };
@@ -47,7 +47,6 @@
 		F3538F38224A61F1001DDA17 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 		F3538F51224CD2C6001DDA17 /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3538F4D224CB70C001DDA17 /* Sprite.swift */; };
 		F3538F52224CD2C6001DDA17 /* CocaCola.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3538F4B224CB17C001DDA17 /* CocaCola.swift */; };
-		F3538F53224CD2C6001DDA17 /* CoffeeBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3538F45224CAD78001DDA17 /* CoffeeBean.swift */; };
 		F3538F54224CD2C6001DDA17 /* CantataCoffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3538F47224CAE96001DDA17 /* CantataCoffee.swift */; };
 		F3538F55224CD2C6001DDA17 /* StarbucksCoffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3538F49224CB08D001DDA17 /* StarbucksCoffee.swift */; };
 		F3538F56224CD2C6001DDA17 /* BananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3538F3F224C6D66001DDA17 /* BananaMilk.swift */; };
@@ -60,6 +59,7 @@
 		F3C5DE2522507EBD00A753FC /* UnitTestCoffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5DE2422507EBD00A753FC /* UnitTestCoffee.swift */; };
 		F3C5DE272250846100A753FC /* UnitTestMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5DE262250846100A753FC /* UnitTestMilk.swift */; };
 		F3CDD0B122719A790064CBE2 /* performable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CDD0B022719A790064CBE2 /* performable.swift */; };
+		FFD5CD8F19506B9E5F1377A0 /* Pods_VendingMachine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CBF440E0E37EC076D6D0C71 /* Pods_VendingMachine.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -75,8 +75,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0CBF440E0E37EC076D6D0C71 /* Pods_VendingMachine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VendingMachine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		279E493AB6D7438F432C5C75 /* Pods-VendingMachineUnitTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VendingMachineUnitTest.debug.xcconfig"; path = "Target Support Files/Pods-VendingMachineUnitTest/Pods-VendingMachineUnitTest.debug.xcconfig"; sourceTree = "<group>"; };
+		4B9CFAA1D65FF3D61EC67789 /* Pods_VendingMachineUnitTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VendingMachineUnitTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		82B493D81953A636F734A2BE /* Pods-VendingMachineUnitTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VendingMachineUnitTest.release.xcconfig"; path = "Target Support Files/Pods-VendingMachineUnitTest/Pods-VendingMachineUnitTest.release.xcconfig"; sourceTree = "<group>"; };
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		BBCF804786ACEC4676BE8E74 /* Pods-VendingMachine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VendingMachine.release.xcconfig"; path = "Target Support Files/Pods-VendingMachine/Pods-VendingMachine.release.xcconfig"; sourceTree = "<group>"; };
+		E353E2295014A691F7730355 /* Pods-VendingMachine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VendingMachine.debug.xcconfig"; path = "Target Support Files/Pods-VendingMachine/Pods-VendingMachine.debug.xcconfig"; sourceTree = "<group>"; };
 		F3056A7A227AB761004EEAA0 /* UnitTestMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestMode.swift; sourceTree = "<group>"; };
 		F33EEC882252F6DC003C15A6 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 		F33EEC8A2252FDCF003C15A6 /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
@@ -96,7 +102,6 @@
 		F3538F3F224C6D66001DDA17 /* BananaMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaMilk.swift; sourceTree = "<group>"; };
 		F3538F41224C9D95001DDA17 /* MilkFarmCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilkFarmCode.swift; sourceTree = "<group>"; };
 		F3538F43224CAABD001DDA17 /* ChocolateMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocolateMilk.swift; sourceTree = "<group>"; };
-		F3538F45224CAD78001DDA17 /* CoffeeBean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeBean.swift; sourceTree = "<group>"; };
 		F3538F47224CAE96001DDA17 /* CantataCoffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CantataCoffee.swift; sourceTree = "<group>"; };
 		F3538F49224CB08D001DDA17 /* StarbucksCoffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarbucksCoffee.swift; sourceTree = "<group>"; };
 		F3538F4B224CB17C001DDA17 /* CocaCola.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocaCola.swift; sourceTree = "<group>"; };
@@ -114,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFD5CD8F19506B9E5F1377A0 /* Pods_VendingMachine.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,18 +127,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				554B2CF7B2B81904D76A69D3 /* Pods_VendingMachineUnitTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		510568F8AC3634A732D21083 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E353E2295014A691F7730355 /* Pods-VendingMachine.debug.xcconfig */,
+				BBCF804786ACEC4676BE8E74 /* Pods-VendingMachine.release.xcconfig */,
+				279E493AB6D7438F432C5C75 /* Pods-VendingMachineUnitTest.debug.xcconfig */,
+				82B493D81953A636F734A2BE /* Pods-VendingMachineUnitTest.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		7FED7F5E1C88B4930EE99940 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0CBF440E0E37EC076D6D0C71 /* Pods_VendingMachine.framework */,
+				4B9CFAA1D65FF3D61EC67789 /* Pods_VendingMachineUnitTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		839DA9001F8D1F95009E05F3 = {
 			isa = PBXGroup;
 			children = (
 				839DA90B1F8D1F95009E05F3 /* VendingMachine */,
 				F3538F2D224A61D9001DDA17 /* VendingMachineUnitTest */,
 				839DA90A1F8D1F95009E05F3 /* Products */,
+				510568F8AC3634A732D21083 /* Pods */,
+				7FED7F5E1C88B4930EE99940 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -212,7 +241,6 @@
 			isa = PBXGroup;
 			children = (
 				F3538F212248A676001DDA17 /* Coffee.swift */,
-				F3538F45224CAD78001DDA17 /* CoffeeBean.swift */,
 				F3538F47224CAE96001DDA17 /* CantataCoffee.swift */,
 				F3538F49224CB08D001DDA17 /* StarbucksCoffee.swift */,
 			);
@@ -236,9 +264,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 839DA9101F8D1F95009E05F3 /* Build configuration list for PBXNativeTarget "VendingMachine" */;
 			buildPhases = (
+				7E11A7108BC1D1156B5D3969 /* [CP] Check Pods Manifest.lock */,
 				839DA9051F8D1F95009E05F3 /* Sources */,
 				839DA9061F8D1F95009E05F3 /* Frameworks */,
 				839DA9071F8D1F95009E05F3 /* CopyFiles */,
+				F3056A8F22814D87004EEAA0 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -253,6 +283,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F3538F33224A61D9001DDA17 /* Build configuration list for PBXNativeTarget "VendingMachineUnitTest" */;
 			buildPhases = (
+				277C7FB7FA17E7B48C0EAEB6 /* [CP] Check Pods Manifest.lock */,
 				F3538F28224A61D9001DDA17 /* Sources */,
 				F3538F29224A61D9001DDA17 /* Frameworks */,
 				F3538F2A224A61D9001DDA17 /* Resources */,
@@ -317,6 +348,70 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		277C7FB7FA17E7B48C0EAEB6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VendingMachineUnitTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7E11A7108BC1D1156B5D3969 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VendingMachine-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F3056A8F22814D87004EEAA0 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		839DA9051F8D1F95009E05F3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -326,7 +421,6 @@
 				F32242ED224DEA2D00ADBDBA /* Sprite.swift in Sources */,
 				F32242EE224DEA2D00ADBDBA /* CocaCola.swift in Sources */,
 				F32242EF224DEA2D00ADBDBA /* Coffee.swift in Sources */,
-				F32242F0224DEA2D00ADBDBA /* CoffeeBean.swift in Sources */,
 				F33EEC892252F6DC003C15A6 /* VendingMachine.swift in Sources */,
 				F3B5ADAA22641A8C003D94A2 /* Money.swift in Sources */,
 				F32242F1224DEA2D00ADBDBA /* CantataCoffee.swift in Sources */,
@@ -365,7 +459,6 @@
 				F33EECA3225B91C7003C15A6 /* History.swift in Sources */,
 				F3538F51224CD2C6001DDA17 /* Sprite.swift in Sources */,
 				F3538F52224CD2C6001DDA17 /* CocaCola.swift in Sources */,
-				F3538F53224CD2C6001DDA17 /* CoffeeBean.swift in Sources */,
 				F3056A7B227AB761004EEAA0 /* UnitTestMode.swift in Sources */,
 				F3538F54224CD2C6001DDA17 /* CantataCoffee.swift in Sources */,
 				F3C5DE04224DFA4600A753FC /* UnitTestSoda.swift in Sources */,
@@ -502,6 +595,7 @@
 		};
 		839DA9111F8D1F95009E05F3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E353E2295014A691F7730355 /* Pods-VendingMachine.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -513,6 +607,7 @@
 		};
 		839DA9121F8D1F95009E05F3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BBCF804786ACEC4676BE8E74 /* Pods-VendingMachine.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -524,6 +619,7 @@
 		};
 		F3538F31224A61D9001DDA17 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 279E493AB6D7438F432C5C75 /* Pods-VendingMachineUnitTest.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
@@ -544,6 +640,7 @@
 		};
 		F3538F32224A61D9001DDA17 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82B493D81953A636F734A2BE /* Pods-VendingMachineUnitTest.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
