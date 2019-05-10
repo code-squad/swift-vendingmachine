@@ -8,10 +8,15 @@
 
 import Foundation
 
-let strawberry = Strawberry(grade: .A, brand: "빙그레", volume: 240, price: 1000, productName: "딸기우유")
-let cola = CocaCola(calorie: 100, brand: "cocacola", volume: 250, price: 500, productName: "코카콜라")
-let kanu = Kanu(ice: true, brand: "맥심", volume: 150, price: 1000, productName: "카누")
+var vendingMachine = VendingMachine()
+while(true) {
+    OutputView.currentStatus(vendingMachine.balance()) // 현재 투입한 금액이 0원입니다. 다음과 같은 음료가 있습니다.
+    OutputView().beverageList(vendingMachine.drinks())
+    OutputView.menu() // 1. 금액추가 2. 음료구매
+    let input = InputView().selectMenu() // 메뉴를 선택하도록 입력 받는다.
+    
+    if input.first == "1" {
+        vendingMachine.insert(money: input)
+    }
+}
 
-print(strawberry)
-print(cola)
-print(kanu)
