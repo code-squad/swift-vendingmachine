@@ -27,9 +27,11 @@ struct OutputView {
     }
     
     // 현재 보유 중인 음료수 내역
-    func beverageList(_ beverage:[Beverage]) {
-        for drinks in 0 ..< beverage.count {
-            print("\(drinks + 1)) \(beverage[drinks].beverageName) / \(beverage[drinks].beveragePrice)원 / \(beverage.count)개")
+    func beverageList(_ beverage:VendingMachine) {
+        let drinks = beverage.currentBeverageStatus()
+        let sortedDrinks = drinks.keys.sorted(by: <)
+        for inner in sortedDrinks {
+            print("\(inner + 1)) \(drinks[inner]!.0) / \(drinks[inner]!.1)원 / \(drinks[inner]!.2)개")
         }
     }
 }
