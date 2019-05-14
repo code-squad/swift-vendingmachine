@@ -17,8 +17,8 @@ struct VendingMachine {
                 Kanu(kindOfKanu: "아이스블랜드", ice: true, brand: "맥심", volume: 180, price: 500, productName: "카누 아이스 블랜드"),
                 TOP(flavor: "라떼", ice: false, brand: "맥심", volume: 200, price: 1400, productName: "TOP카페라떼")]
     }
-    private var count: Int { return beverage.count }
     private var currentBalance: Int
+    private var currentBeverage = [Int:(String,Int,Int)]()
     
     init(currentBalance: Int = 0) {
         self.currentBalance = currentBalance
@@ -40,21 +40,20 @@ struct VendingMachine {
         return self.currentBalance
     }
 
-    //특정 상품 인스턴스를 넘겨서 재고를 추가하는 메소드
-    // 인스턴스가 생성될 때마다 재고가 쌓이도록 하는것
-    // 재고는 음료별 수량을 확인하는 것
-    // beverage 배열을 이용해서 [음료명:재고] 형식의 딕셔너리를 만들어줌
-    mutating func fill() {
-        for drinks in beverage {
-            let name = drinks.beverageName
-            //self.inventory[name] = count
+    // beverage 배열을 이용해서 [종류개수:(음료명,가격,재고)] 형식의 재고상태를 보여주는 딕셔너리를 만듦
+    mutating func inventory() {
+        for drinks in 0 ..< beverage.count {
+            self.currentBeverage.updateValue((beverage[drinks].beverageName,beverage[drinks].beveragePrice,10), forKey: drinks)
         }
     }
-   
-    // 현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
+    func currentBeverageStatus() -> [Int:(String,Int,Int)] {
+        return currentBeverage
+    }
+    
+    // 음료수를 구매하는 메소드
     
     
-     // 음료수를 구매하는 메소드
+    
     
     
 //     잔액을 확인하는 메소드
@@ -64,7 +63,6 @@ struct VendingMachine {
 //     시작이후 구매 상품 이력을 배열로 리턴하는 메소드
     
 }
-
 
 
 
