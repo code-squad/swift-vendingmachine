@@ -8,11 +8,6 @@
 
 import Foundation
 
-/// 에러메시지
-enum errorMessage: String {
-    case unselect = "원하는 번호를 선택해주세요"
-}
-
 /// 출력
 struct OutputView {
     static func currentStatus(_ money: Int) {
@@ -34,4 +29,15 @@ struct OutputView {
             print("\(inner + 1)) \(drinks[inner]!.0) / \(drinks[inner]!.1)원 / \(drinks[inner]!.2)개")
         }
     }
+    
+    // 음료 구매 후 출력문
+    func printPurchase(productName: String, price: Int) {
+        print("\(productName)를 구매하셨습니다. \(price)원을 차감합니다.")
+    }
+    
+    // 에러 출력
+    func printError(_ error: Error) {
+        print(error.message())
+    }
+  
 }
