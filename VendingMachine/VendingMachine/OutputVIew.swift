@@ -32,12 +32,13 @@ struct OutputView {
     
     // 음료 구매 후 출력문
     func printPurchase(productName: String, price: Int) {
-        print("\(productName)를 구매하셨습니다. \(price)원을 차감합니다.")
+        print("\(productName)를 구매하셨습니다. \(price)원을 차감합니다.\n")
     }
     
     // 에러 출력
     func printError(_ error: Error) {
-        print(error.message())
+        if error != .notError {
+            print(error.message())
+        }
     }
-  
 }
