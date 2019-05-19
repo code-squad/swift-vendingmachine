@@ -23,12 +23,11 @@ func main() {
         case "1": vendingMachine.insert(money: input)
         case "2":
             guard notEnoughBalance(of: vendingMachine, input) == .notError else { return OutputView().printError(notEnoughBalance(of: vendingMachine, input)) }
+            guard outOfStock(machine: vendingMachine, input) == .notError else { return OutputView().printError(outOfStock(machine: vendingMachine, input))  }
             vendingMachine.sell(beverage: input)
         default: break
     }
-    
 }
 while true {
     main()
-
 }
