@@ -68,24 +68,26 @@ struct VendingMachine {
             }
         }
     }
+    
     // 시작이후 구매 상품 이력을 배열로 리턴하는 메소드
-    mutating func purchaseList(from productNumber: Int) {
+    private mutating func purchaseList(from productNumber: Int) {
         self.purchase.append(currentBeverage[productNumber]!.0)
     }
 
     // 재고 마이너스
-    mutating func subtract(from inventory: Int) {
+    private mutating func subtract(from inventory: Int) {
         self.currentBeverage[inventory]!.2 -= 1
     }
+    
     // 잔액 마이너스
-    mutating func deduct(money: Int) {
+    private mutating func deduct(money: Int) {
         self.currentBalance = currentBalance - currentBeverage[money]!.1
     }
     
     
     /// 특정 음료 구분
     // 유통기한이 지난 재고만 리턴하는 메소드
-    func notValidDate() -> [String] {
+    private func notValidDate() -> [String] {
         var pastExpiration = [String]()
         for date in beverage{
             if date.validate() == false {
@@ -96,7 +98,7 @@ struct VendingMachine {
     }
 
     // 따뜻한 음료만 리턴하는 메소드
-    func hotBeverage() -> [String] {
+    private func hotBeverage() -> [String] {
         var hot = [String]()
         for drinks in beverage {
             guard let coffee = drinks as? Coffee else {return [""]}
@@ -107,8 +109,3 @@ struct VendingMachine {
         return hot
     }
 }
-
-
-
-
-
