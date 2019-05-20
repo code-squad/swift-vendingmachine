@@ -10,11 +10,11 @@ import Foundation
 
 /// 출력
 struct OutputView {
-    static func currentStatus(_ money: Int) {
+    func currentStatus(_ money: Int) {
         print("현재 투입한 금액이 \(money)원입니다. 다음과 같은 음료가 있습니다.")
     }
     
-    static func menu() {
+    func menu() {
         print("""
              1. 금액추가
              2. 음료구매
