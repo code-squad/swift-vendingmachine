@@ -9,7 +9,7 @@
 import Foundation
 
 enum Error: String {
-    case inCorrect = "❌ 메뉴를 확인해주세요"
+    case incorrect = "❌ 메뉴를 확인해주세요"
     case notEnoughBalance = "❌ 잔액이 부족합니다."
     case outOfStock = "❌ 재고가 부족합니다."
     case notError = ""
@@ -20,9 +20,9 @@ enum Error: String {
 }
 
 // 올바른 메뉴 선택 확인
-func inCorrect(_ input: String) -> Error {
+func incorrect(_ input: String) -> Error {
     let value = input.first
-    guard value == "1" || value == "2" else { return Error.inCorrect }
+    guard value == "1" || value == "2" else { return Error.incorrect }
     return .notError
 }
 
