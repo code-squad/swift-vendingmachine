@@ -34,12 +34,12 @@ class Beverage: CustomStringConvertible {
     
     // 상품명
     var beverageName: String {
-        return self.productName
+        return "\(productName)"
     }
     
     // 상품가격
     var beveragePrice: Int {
-        return self.price
+        return price
     }
 
     // Date()의 결과를 원하는 형태로 출력되도록 포맷
@@ -56,5 +56,3 @@ class Beverage: CustomStringConvertible {
         return self.dateOfManufacture < self.expirationDate
     }
 }
-
-
