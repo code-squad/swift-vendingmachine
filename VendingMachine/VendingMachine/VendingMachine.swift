@@ -31,9 +31,8 @@ struct VendingMachine {
     }
     
     // 자판기 금액을 변경해주는 메소드
-    mutating func insert(money: String) {
-        let won = Int(money.dropFirst(2))!
-        self.currentBalance = currentBalance + won
+    mutating func insert(money: Int) {
+        self.currentBalance = currentBalance + money
     }
     
     // 현재 잔액 리턴
