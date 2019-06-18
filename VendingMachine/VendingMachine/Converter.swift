@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Converter {
+struct DateConverter {
     static func stringToDate(string: String) -> Date {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyyMMdd"

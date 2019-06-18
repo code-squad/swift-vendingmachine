@@ -16,7 +16,7 @@ class Drink: CustomStringConvertible {
     private let productDate: Date
     
     var description: String {
-        return "\(brand), \(ml)ml, \(price)원, \(name), \(Converter.dateToString(date: productDate))"
+        return "\(brand), \(ml)ml, \(price)원, \(name), \(DateConverter.dateToString(date: productDate))"
     }
     
     init(brand: String, ml: Int, price: Int, name: String, productDate: String) {
@@ -24,6 +24,6 @@ class Drink: CustomStringConvertible {
         self.ml = ml
         self.price = price
         self.name = name
-        self.productDate = Converter.stringToDate(string: productDate)
+        self.productDate = DateConverter.stringToDate(string: productDate)
     }
 }
