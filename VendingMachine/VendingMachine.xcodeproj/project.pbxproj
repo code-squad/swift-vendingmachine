@@ -25,6 +25,7 @@
 		334C16CA22B8D54B000FD1E7 /* Fanta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334C16A822B8B5D6000FD1E7 /* Fanta.swift */; };
 		334C16CB22B8D54E000FD1E7 /* Sparkling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334C16BE22B8CE21000FD1E7 /* Sparkling.swift */; };
 		334C16CC22B8D599000FD1E7 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334C16AE22B8C658000FD1E7 /* Converter.swift */; };
+		334C16CD22B8D6CA000FD1E7 /* BananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334C16A622B8B5B8000FD1E7 /* BananaMilk.swift */; };
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -210,6 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				334C16B722B8CB37000FD1E7 /* UnitTestVendingmachine.swift in Sources */,
+				334C16CD22B8D6CA000FD1E7 /* BananaMilk.swift in Sources */,
 				334C16C822B8D4CD000FD1E7 /* StrawberryMilk.swift in Sources */,
 				334C16C522B8D313000FD1E7 /* TOP.swift in Sources */,
 				334C16C722B8D3C0000FD1E7 /* Drink.swift in Sources */,
