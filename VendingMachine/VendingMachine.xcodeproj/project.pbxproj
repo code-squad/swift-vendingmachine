@@ -11,6 +11,7 @@
 		334C16A922B8B5D6000FD1E7 /* Fanta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334C16A822B8B5D6000FD1E7 /* Fanta.swift */; };
 		334C16AB22B8B5F0000FD1E7 /* TOP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334C16AA22B8B5F0000FD1E7 /* TOP.swift */; };
 		334C16AD22B8B854000FD1E7 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334C16AC22B8B854000FD1E7 /* Drink.swift */; };
+		334C16AF22B8C658000FD1E7 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334C16AE22B8C658000FD1E7 /* Converter.swift */; };
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		334C16A822B8B5D6000FD1E7 /* Fanta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fanta.swift; sourceTree = "<group>"; };
 		334C16AA22B8B5F0000FD1E7 /* TOP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOP.swift; sourceTree = "<group>"; };
 		334C16AC22B8B854000FD1E7 /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
+		334C16AE22B8C658000FD1E7 /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -70,6 +72,7 @@
 				334C16A822B8B5D6000FD1E7 /* Fanta.swift */,
 				334C16AA22B8B5F0000FD1E7 /* TOP.swift */,
 				334C16AC22B8B854000FD1E7 /* Drink.swift */,
+				334C16AE22B8C658000FD1E7 /* Converter.swift */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";
@@ -136,6 +139,7 @@
 				334C16A922B8B5D6000FD1E7 /* Fanta.swift in Sources */,
 				334C16A722B8B5B8000FD1E7 /* BananaMilk.swift in Sources */,
 				334C16AD22B8B854000FD1E7 /* Drink.swift in Sources */,
+				334C16AF22B8C658000FD1E7 /* Converter.swift in Sources */,
 				334C16AB22B8B5F0000FD1E7 /* TOP.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
