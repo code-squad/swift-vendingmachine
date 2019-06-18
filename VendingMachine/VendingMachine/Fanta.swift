@@ -9,5 +9,7 @@
 import Foundation
 
 class Fanta: Drink {
-    
+    init(brand: String, ml: Int, price: Int, productDate: String) {
+        super.init(brand: brand, ml: ml, price: price, name: "오렌지 환타", productDate: productDate)
+    }
 }

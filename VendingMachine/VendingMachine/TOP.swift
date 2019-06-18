@@ -9,5 +9,7 @@
 import Foundation
 
 class TOP: Drink {
-    
+    init(brand: String, ml: Int, price: Int, productDate: String) {
+        super.init(brand: brand, ml: ml, price: price, name: "TOP아메리카노", productDate: productDate)
+    }
 }
