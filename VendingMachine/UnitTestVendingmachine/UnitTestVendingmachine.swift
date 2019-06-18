@@ -18,16 +18,22 @@ class UnitTestVendingmachine: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testCoffeeIsHot() {
+        let top = TOP(brand: "맥심", ml: 400, price: 3000, productDate: "20190606", hot: false)
+        
+        XCTAssertFalse(top.isHot())
+    }
+    
+    func testMilkIsFarmCode() {
+        let strawberryMilk = StrawberryMilk(brand: "빙그레", ml: 200, price: 1300, productDate: "20190405", farmCode: 3)
+        
+        XCTAssertFalse(strawberryMilk.isFarmCode(5))
+        XCTAssertTrue(strawberryMilk.isFarmCode(3))
     }
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testSparklingIsLawCalorie() {
+        let fanta = Fanta(brand: "롯데", ml: 350, price: 2000, productDate: "20190505")
+        
+        XCTAssertFalse(fanta.isLowCalorie())
     }
-
 }
