@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Fanta: Drink {
+class Fanta: Sparkling {
     init(brand: String, ml: Int, price: Int, productDate: String) {
-        super.init(brand: brand, ml: ml, price: price, name: "오렌지 환타", productDate: productDate)
+        super.init(brand: brand, ml: ml, price: price, name: "오렌지 환타", productDate: productDate, lawCalorie: false)
     }
 }
