@@ -9,5 +9,11 @@
 import Foundation
 
 class Milk: Drink {
+    let farmCode: Int
     
+    init(brand: String, ml: Int, price: Int, productDate: String, name: String, farmCode: Int) {
+        self.farmCode = farmCode
+        
+        super.init(brand: brand, ml: ml, price: price, name: name, productDate: productDate)
+    }
 }
