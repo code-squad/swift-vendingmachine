@@ -17,7 +17,7 @@ class Milk: Drink {
         super.init(brand: brand, ml: ml, price: price, name: name, productDate: productDate)
     }
     
-    func isFarmCode(_farmCode: Int) -> Bool {
-        return self.farmCode == farmCode
+    func isFarmCode(_ farmCodeCompared: Int) -> Bool {
+        return farmCode == farmCodeCompared
     }
 }
