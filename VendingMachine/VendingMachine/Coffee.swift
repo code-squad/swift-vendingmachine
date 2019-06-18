@@ -9,7 +9,7 @@
 import Foundation
 
 class Coffee: Drink {
-    var hot: Bool
+    private var hot: Bool
     
     init(brand: String, ml: Int, price: Int, name: String, productDate: String, hot: Bool) {
         self.hot = hot

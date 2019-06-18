@@ -9,7 +9,7 @@
 import Foundation
 
 class Sparkling: Drink {
-    let lawCalorie: Bool
+    private let lawCalorie: Bool
     
     init(brand: String, ml: Int, price: Int, name: String, productDate: String, lawCalorie: Bool) {
         self.lawCalorie = lawCalorie
