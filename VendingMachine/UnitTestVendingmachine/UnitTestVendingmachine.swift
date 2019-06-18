@@ -20,15 +20,20 @@ class UnitTestVendingmachine: XCTestCase {
 
     func testCoffeeIsHot() {
         let top = TOP(brand: "맥심", ml: 400, price: 3000, productDate: "20190606", hot: false)
+        let topHot = TOP(brand: "맥심", ml: 400, price: 3000, productDate: "20190608", hot: true)
         
         XCTAssertFalse(top.isHot())
+        XCTAssertTrue(topHot.isHot())
     }
     
     func testMilkIsFarmCode() {
         let strawberryMilk = StrawberryMilk(brand: "빙그레", ml: 200, price: 1300, productDate: "20190405", farmCode: 3)
+        let bananaMilk = BananaMilk(brand: "빙그레", ml: 200, price: 1300, productDate: "20190301", farmCode: 5)
         
         XCTAssertFalse(strawberryMilk.isFarmCode(5))
         XCTAssertTrue(strawberryMilk.isFarmCode(3))
+        XCTAssertFalse(bananaMilk.isFarmCode(3))
+        XCTAssertTrue(bananaMilk.isFarmCode(5))
     }
 
     func testSparklingIsLawCalorie() {
