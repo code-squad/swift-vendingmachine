@@ -8,8 +8,14 @@
 
 import Foundation
 
-class Coffee {
+class Coffee: Drink {
     var hot: Bool
+    
+    init(brand: String, ml: Int, price: Int, name: String, productDate: String, hot: Bool) {
+        self.hot = hot
+        
+        super.init(brand: brand, ml: ml, price: price, name: name, productDate: productDate)
+    }
     
     func isHot() -> Bool {
         return hot

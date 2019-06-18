@@ -8,8 +8,8 @@
 
 import Foundation
 
-class TOP: Drink {
-    init(brand: String, ml: Int, price: Int, productDate: String) {
-        super.init(brand: brand, ml: ml, price: price, name: "TOP아메리카노", productDate: productDate)
+class TOP: Coffee {
+    init(brand: String, ml: Int, price: Int, productDate: String, hot: Bool) {
+        super.init(brand: brand, ml: ml, price: price, name: "TOP아메리카노", productDate: productDate, hot: hot)
     }
 }
