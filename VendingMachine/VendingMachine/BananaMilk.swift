@@ -8,8 +8,12 @@
 
 import Foundation
 
-class BananaMilk: Drink {
-    init(brand: String, ml: Int, price: Int, productDate: String) {
+class BananaMilk: Milk {
+    let farmCode: Int
+    
+    init(brand: String, ml: Int, price: Int, productDate: String, farmCode: Int) {
+        self.farmCode = farmCode
+        
         super.init(brand: brand, ml: ml, price: price, name: "빙그레 바나나우유", productDate: productDate)
     }
 }
