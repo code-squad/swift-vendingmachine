@@ -9,9 +9,18 @@
 import XCTest
 
 class UnitTestVendingmachine: XCTestCase {
-
+    var top: TOP!
+    var topHot: TOP!
+    var strawberryMilk: StrawberryMilk!
+    var bananaMilk: BananaMilk!
+    var fanta: Fanta!
+    
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        top = TOP(brand: "맥심", ml: 400, price: 3000, productDate: "20190606", hot: false, expirationDate: "20190615")
+        topHot = TOP(brand: "맥심", ml: 400, price: 3000, productDate: "20190608", hot: true, expirationDate: "20190630")
+        strawberryMilk = StrawberryMilk(brand: "빙그레", ml: 200, price: 1300, productDate: "20190405", farmCode: 3, expirationDate: "20190505")
+        bananaMilk = BananaMilk(brand: "빙그레", ml: 200, price: 1300, productDate: "20190301", farmCode: 5, expirationDate: "20190405")
+        fanta = Fanta(brand: "롯데", ml: 350, price: 2000, productDate: "20190505", orangeIncense: 0.3, expirationDate: "20190924")
     }
 
     override func tearDown() {
@@ -19,17 +28,11 @@ class UnitTestVendingmachine: XCTestCase {
     }
 
     func testCoffeeIsHot() {
-        let top = TOP(brand: "맥심", ml: 400, price: 3000, productDate: "20190606", hot: false)
-        let topHot = TOP(brand: "맥심", ml: 400, price: 3000, productDate: "20190608", hot: true)
-        
         XCTAssertFalse(top.isHot())
         XCTAssertTrue(topHot.isHot())
     }
     
     func testMilkIsFarmCode() {
-        let strawberryMilk = StrawberryMilk(brand: "빙그레", ml: 200, price: 1300, productDate: "20190405", farmCode: 3)
-        let bananaMilk = BananaMilk(brand: "빙그레", ml: 200, price: 1300, productDate: "20190301", farmCode: 5)
-        
         XCTAssertFalse(strawberryMilk.isFarmCode(5))
         XCTAssertTrue(strawberryMilk.isFarmCode(3))
         XCTAssertFalse(bananaMilk.isFarmCode(3))
@@ -37,8 +40,34 @@ class UnitTestVendingmachine: XCTestCase {
     }
 
     func testSparklingIsLawCalorie() {
-        let fanta = Fanta(brand: "롯데", ml: 350, price: 2000, productDate: "20190505")
-        
         XCTAssertFalse(fanta.isLowCalorie())
+    }
+    
+    func testExpirationDateValidate() {
+        XCTAssertFalse(top.validate(with: "20190619"))
+        XCTAssertTrue(topHot.validate(with: "20190619"))
+        XCTAssertFalse(strawberryMilk.validate(with: "20190619"))
+        XCTAssertFalse(bananaMilk.validate(with: "20190619"))
+        XCTAssertTrue(fanta.validate(with: "20190619"))
+    }
+    
+    func testFantaIsOrangeIncense() {
+        XCTAssertTrue(fanta.isOrangeIncense(0.3))
+        XCTAssertFalse(fanta.isOrangeIncense(0.5))
+    }
+    
+    func testTOPIsAdvertisingModel () {
+        XCTAssertTrue(top.isAdvertisingModel("원빈"))
+        XCTAssertFalse(top.isAdvertisingModel("이나영"))
+    }
+    
+    func testBananaMilkIsLessthanbananaContainPercent () {
+        XCTAssertTrue(bananaMilk.isLessthanBananaContainPercent(0.5))
+        XCTAssertFalse(bananaMilk.isLessthanBananaContainPercent(0.2))
+    }
+    
+    func testStrawberryMilkIsLessthanbananaContainPercent () {
+        XCTAssertTrue(strawberryMilk.isLessthanStrawberryContainPercent(0.5))
+        XCTAssertFalse(strawberryMilk.isLessthanStrawberryContainPercent(0.4))
     }
 }
