@@ -10,11 +10,14 @@ import Foundation
 
 enum BuyError: Error {
     case NotenoughBalance
+    case NonStock
     
     var localizedDescription: String {
         switch self {
         case .NotenoughBalance:
             return "금액이 부족합니다."
+        case .NonStock:
+            return "해당 음료의 재고가 없습니다."
         }
     }
 }
