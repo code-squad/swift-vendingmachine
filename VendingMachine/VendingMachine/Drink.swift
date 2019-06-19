@@ -8,7 +8,11 @@
 
 import Foundation
 
-class Drink: CustomStringConvertible {
+class Drink: CustomStringConvertible, Hashable {
+    static func == (lhs: Drink, rhs: Drink) -> Bool {
+        return lhs.hashValue == rhs.hashValue
+    }
+    
     private let brand: String
     private let ml: Int
     private var price: Int
@@ -16,6 +20,9 @@ class Drink: CustomStringConvertible {
     private let productDate: Date
     private let barcode: Barcode
     private let expirationDate: Date
+    internal var hashValue: Int {
+        return name.hashValue
+    }
     
     var description: String {
         return "\(brand), \(ml)ml, \(price)원, \(name), \(DateConverter.dateToString(date: productDate))"
