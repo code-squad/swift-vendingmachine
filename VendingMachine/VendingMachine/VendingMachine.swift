@@ -9,8 +9,8 @@
 import Foundation
 
 struct VendingMachine {
-    private var balance: Int
-    private var stock: [Drink]
+    private var balance: Int = 0
+    private var stock = [Drink]()
     private var sellList = [Drink]()
     
     /// 자판기 금액을 원하는 금액만큼 올리는 메소드
@@ -19,8 +19,10 @@ struct VendingMachine {
     }
     
     /// 특정 상품 인스턴스를 넘겨서 재고를 추가하는 메소드
-    mutating func supply(_ product: Drink) {
-        stock.append(product)
+    mutating func supply(_ product: Drink, amount: Int) {
+        for _ in 1...amount {
+            stock.append(product)
+        }
     }
     
     /// 현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
