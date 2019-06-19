@@ -15,7 +15,29 @@ func main() {
     let top = TOP(brand: "맥심", ml: 400, price: 3000, productDate: "20190606", hot: false, expirationDate: "20190920")
     let hot6 = Hot6(brand: "롯데", ml: 240, price: 1000, productDate: "20190529", expirationDate: "20191029")
     let pepsiCoke = PepsiCoke(brand: "펩시", ml: 255, price: 1200, productDate: "20190610", expirationDate: "20191010")
+    var vendingMachine = VendingMachine()
     
+    vendingMachine.supply(bananaMilk, amount: 20)
+    vendingMachine.supply(strawberryMilk, amount: 20)
+    vendingMachine.supply(fanta, amount: 10)
+    vendingMachine.supply(top, amount: 20)
+    vendingMachine.supply(hot6, amount: 6)
+    vendingMachine.supply(pepsiCoke, amount: 30)
+    
+    do {
+        print(try vendingMachine.getStockList())
+    } catch let error as BuyError {
+        print(error)
+    }
+    catch {
+        print(error)
+    }
+    
+    
+    
+    
+    
+    print(vendingMachine.getBalance())
 }
 
 main()
