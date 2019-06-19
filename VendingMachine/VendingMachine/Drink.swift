@@ -14,16 +14,26 @@ class Drink: CustomStringConvertible {
     private var price: Int
     private let name: String
     private let productDate: Date
+    private let barcode: Barcode
+    private let expirationDate: Date
     
     var description: String {
         return "\(brand), \(ml)ml, \(price)원, \(name), \(DateConverter.dateToString(date: productDate))"
     }
     
-    init(brand: String, ml: Int, price: Int, name: String, productDate: String) {
+    init(brand: String, ml: Int, price: Int, name: String, productDate: String, barcode: Barcode, expirationDate: String) {
         self.brand = brand
         self.ml = ml
         self.price = price
         self.name = name
         self.productDate = DateConverter.stringToDate(string: productDate)
+        self.barcode = barcode
+        self.expirationDate = DateConverter.stringToDate(string: expirationDate)
+    }
+    
+    func validate(with date:String) -> Bool {
+        let date = DateConverter.stringToDate(string: date)
+        
+        return date < expirationDate
     }
 }
