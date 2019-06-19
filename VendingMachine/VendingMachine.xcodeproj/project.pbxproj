@@ -28,6 +28,7 @@
 		334C16CD22B8D6CA000FD1E7 /* BananaMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334C16A622B8B5B8000FD1E7 /* BananaMilk.swift */; };
 		334C16CF22B9D543000FD1E7 /* Barcode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334C16CE22B9D543000FD1E7 /* Barcode.swift */; };
 		334C16D022B9DC8C000FD1E7 /* Barcode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334C16CE22B9D543000FD1E7 /* Barcode.swift */; };
+		334C16D222B9FC81000FD1E7 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334C16D122B9FC81000FD1E7 /* VendingMachine.swift */; };
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +58,7 @@
 		334C16C022B8D033000FD1E7 /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		334C16C222B8D145000FD1E7 /* StrawberryMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrawberryMilk.swift; sourceTree = "<group>"; };
 		334C16CE22B9D543000FD1E7 /* Barcode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Barcode.swift; sourceTree = "<group>"; };
+		334C16D122B9FC81000FD1E7 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,6 +122,7 @@
 				334C16C022B8D033000FD1E7 /* Coffee.swift */,
 				334C16C222B8D145000FD1E7 /* StrawberryMilk.swift */,
 				334C16CE22B9D543000FD1E7 /* Barcode.swift */,
+				334C16D122B9FC81000FD1E7 /* VendingMachine.swift */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 				334C16AF22B8C658000FD1E7 /* Converter.swift in Sources */,
 				334C16AB22B8B5F0000FD1E7 /* TOP.swift in Sources */,
 				334C16CF22B9D543000FD1E7 /* Barcode.swift in Sources */,
+				334C16D222B9FC81000FD1E7 /* VendingMachine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
