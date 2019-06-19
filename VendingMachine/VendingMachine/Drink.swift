@@ -36,4 +36,8 @@ class Drink: CustomStringConvertible {
         
         return date < expirationDate
     }
+    
+    func isBuyable (money: Int) -> Bool {
+        return money > price
+    }
 }
