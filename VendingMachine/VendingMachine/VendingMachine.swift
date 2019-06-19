@@ -56,21 +56,25 @@ struct VendingMachine {
     }
     
     /// 전체 상품 재고를 (사전으로 표현하는) 종류별로 리턴하는 메소드
-    func getStockList () throws -> Dictionary<Drink, Int> {
+    func getStockList () -> Dictionary<Drink, Int> {
         var stockList = Dictionary<Drink, Int>()
         
         for drink in stock {
-            var sameDrinkCount = 0
-            try stock.drop(while: {(drinkRooped :Drink) throws -> Bool in
-                sameDrinkCount += 1
-                return drink == drinkRooped
-            })
-            
-            stockList[drink] = sameDrinkCount
+            let stockCount = getStockCount(drink, stockList)
+            stockList[drink] = stockCount
         }
         
         return stockList
     }
+    
+    func getStockCount (_ drink: Drink, _ stockList: Dictionary<Drink, Int>) -> Int {
+        if let stockCount = stockList[drink] {
+            return stockCount + 1
+        }
+        
+        return 1
+    }
+    
     
     /// 유통기한이 지난 재고만 리턴하는 메소드
     func getExpiredDrinkList () -> [Drink] {
