@@ -14,6 +14,9 @@ class UnitTestVendingmachine: XCTestCase {
     var strawberryMilk: StrawberryMilk!
     var bananaMilk: BananaMilk!
     var fanta: Fanta!
+    var hot6: Hot6!
+    var pepsiCoke: PepsiCoke!
+    var vendingMachine: VendingMachine!
     
     override func setUp() {
         top = TOP(brand: "맥심", ml: 400, price: 3000, productDate: "20190606", hot: false, expirationDate: "20190615")
@@ -21,6 +24,9 @@ class UnitTestVendingmachine: XCTestCase {
         strawberryMilk = StrawberryMilk(brand: "빙그레", ml: 200, price: 1300, productDate: "20190405", farmCode: 3, expirationDate: "20190505")
         bananaMilk = BananaMilk(brand: "빙그레", ml: 200, price: 1300, productDate: "20190301", farmCode: 5, expirationDate: "20190405")
         fanta = Fanta(brand: "롯데", ml: 350, price: 2000, productDate: "20190505", orangeIncense: 0.3, expirationDate: "20190924")
+        hot6 = Hot6(brand: "롯데", ml: 240, price: 1000, productDate: "20190529", expirationDate: "20191029")
+        pepsiCoke = PepsiCoke(brand: "펩시", ml: 255, price: 1200, productDate: "20190610", expirationDate: "20191010")
+        vendingMachine = VendingMachine()
     }
 
     override func tearDown() {
@@ -69,5 +75,13 @@ class UnitTestVendingmachine: XCTestCase {
     func testStrawberryMilkIsLessthanbananaContainPercent () {
         XCTAssertTrue(strawberryMilk.isLessthanStrawberryContainPercent(0.5))
         XCTAssertFalse(strawberryMilk.isLessthanStrawberryContainPercent(0.4))
+    }
+    
+    func testVendingMachineInsertCoint () {
+        XCTAssertEqual(vendingMachine.getBalance(), 0)
+        vendingMachine.insertCoint(500)
+        XCTAssertEqual(vendingMachine.getBalance(), 500)
+        vendingMachine.insertCoint(1000)
+        XCTAssertEqual(vendingMachine.getBalance(), 1500)
     }
 }
