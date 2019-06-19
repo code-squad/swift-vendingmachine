@@ -11,9 +11,9 @@ import Foundation
 class Sparkling: Drink {
     private let lawCalorie: Bool
     
-    init(brand: String, ml: Int, price: Int, name: String, productDate: String, lawCalorie: Bool) {
+    init(brand: String, ml: Int, price: Int, name: String, productDate: String, lawCalorie: Bool, barcode: Barcode, expirationDate: String) {
         self.lawCalorie = lawCalorie
-        super.init(brand: brand, ml: ml, price: price, name: name, productDate: productDate)
+        super.init(brand: brand, ml: ml, price: price, name: name, productDate: productDate, barcode: barcode, expirationDate: expirationDate)
     }
     
     func isLowCalorie() -> Bool {
