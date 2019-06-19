@@ -23,6 +23,13 @@ struct VendingMachine {
     }
     
     /// 현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
+    func getBuyableDrinkList () -> [Drink] {
+        let buyableDrinks = stock.filter({ (drink: Drink) -> Bool in
+            return drink.isBuyable(money: balance)
+        })
+        
+        return buyableDrinks
+    }
     
     /// 음료수를 구매하는 메소드
     
