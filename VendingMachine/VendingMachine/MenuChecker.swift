@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+struct MenuChecker {
+    static func checkMenu (_ input: String) throws -> Menu {
+        let menu = Menu(rawValue: Int(input) ?? 0) ?? Menu.exit
+        
+        return menu
+    }
+}

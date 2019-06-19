@@ -9,6 +9,7 @@
 import Foundation
 
 enum Menu: Int {
+    case exit = 0
     case insertCoin = 1
     case buyDrink = 2
 }
