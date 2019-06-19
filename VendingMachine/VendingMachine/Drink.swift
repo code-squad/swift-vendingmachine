@@ -25,7 +25,7 @@ class Drink: CustomStringConvertible, Hashable {
     }
     
     var description: String {
-        return "\(brand), \(ml)ml, \(price)원, \(name), \(DateConverter.dateToString(date: productDate))"
+        return name
     }
     
     init(brand: String, ml: Int, price: Int, name: String, productDate: String, barcode: Barcode, expirationDate: String) {
@@ -41,14 +41,18 @@ class Drink: CustomStringConvertible, Hashable {
     func validate(with date:String) -> Bool {
         let date = DateConverter.stringToDate(string: date)
         
-        return date < expirationDate
+        return date <= expirationDate
     }
     
     func validate() -> Bool {
-        return Date.init() < expirationDate
+        return Date.init() <= expirationDate
     }
     
     func isBuyable (money: Int) -> Bool {
-        return money > price
+        return money >= price
+    }
+    
+    func getPrice () -> Int {
+        return price
     }
 }
