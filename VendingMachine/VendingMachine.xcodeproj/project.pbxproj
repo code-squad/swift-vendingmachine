@@ -32,6 +32,10 @@
 		334C16D422BA0DF6000FD1E7 /* BuyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334C16D322BA0DF6000FD1E7 /* BuyError.swift */; };
 		334C16D622BA1CEA000FD1E7 /* PepsiCoke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334C16D522BA1CEA000FD1E7 /* PepsiCoke.swift */; };
 		334C16D822BA1D3B000FD1E7 /* Hot6.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334C16D722BA1D3B000FD1E7 /* Hot6.swift */; };
+		334C16D922BA23F5000FD1E7 /* Hot6.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334C16D722BA1D3B000FD1E7 /* Hot6.swift */; };
+		334C16DA22BA23F9000FD1E7 /* PepsiCoke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334C16D522BA1CEA000FD1E7 /* PepsiCoke.swift */; };
+		334C16DB22BA2413000FD1E7 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334C16D122B9FC81000FD1E7 /* VendingMachine.swift */; };
+		334C16DC22BA2465000FD1E7 /* BuyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334C16D322BA0DF6000FD1E7 /* BuyError.swift */; };
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -232,11 +236,15 @@
 				334C16C522B8D313000FD1E7 /* TOP.swift in Sources */,
 				334C16C722B8D3C0000FD1E7 /* Drink.swift in Sources */,
 				334C16CC22B8D599000FD1E7 /* Converter.swift in Sources */,
+				334C16D922BA23F5000FD1E7 /* Hot6.swift in Sources */,
+				334C16DC22BA2465000FD1E7 /* BuyError.swift in Sources */,
 				334C16C922B8D4CF000FD1E7 /* Milk.swift in Sources */,
 				334C16CB22B8D54E000FD1E7 /* Sparkling.swift in Sources */,
+				334C16DA22BA23F9000FD1E7 /* PepsiCoke.swift in Sources */,
 				334C16C622B8D3BC000FD1E7 /* Coffee.swift in Sources */,
 				334C16CA22B8D54B000FD1E7 /* Fanta.swift in Sources */,
 				334C16D022B9DC8C000FD1E7 /* Barcode.swift in Sources */,
+				334C16DB22BA2413000FD1E7 /* VendingMachine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
