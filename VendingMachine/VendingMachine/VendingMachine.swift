@@ -47,11 +47,35 @@ struct VendingMachine {
     }
     
     /// 잔액을 확인하는 메소드
-    
+    func getBalance () -> Int {
+        return balance
+    }
     
     /// 전체 상품 재고를 (사전으로 표현하는) 종류별로 리턴하는 메소드
+    func getStockList () throws -> Dictionary<Drink, Int> {
+        var stockList = Dictionary<Drink, Int>()
+        
+        for drink in stock {
+            var sameDrinkCount = 0
+            try stock.drop(while: {(drinkRooped :Drink) throws -> Bool in
+                sameDrinkCount += 1
+                return drink == drinkRooped
+            })
+            
+            stockList[drink] = sameDrinkCount
+        }
+        
+        return stockList
+    }
     
     /// 유통기한이 지난 재고만 리턴하는 메소드
+    func getExpiredDrinkList () -> [Drink] {
+        let ExpiredDrinks = stock.filter({ (drink: Drink) -> Bool in
+            return drink.validate()
+        })
+        
+        return ExpiredDrinks
+    }
     
     /// 따뜻한 음료만 리턴하는 메소드
     
