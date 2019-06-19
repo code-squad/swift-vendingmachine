@@ -9,7 +9,11 @@
 import Foundation
 
 class Fanta: Sparkling {
-    init(brand: String, ml: Int, price: Int, productDate: String) {
-        super.init(brand: brand, ml: ml, price: price, name: "오렌지 환타", productDate: productDate, lawCalorie: false)
+    let orangeIncense: Double
+    
+    init(brand: String, ml: Int, price: Int, productDate: String, orangeIncense: Double, expirationDate: String) {
+        self.orangeIncense = orangeIncense
+        
+        super.init(brand: brand, ml: ml, price: price, name: "오렌지 환타", productDate: productDate, lawCalorie: false, barcode: Barcode.upc(30, 33, 50, 150), expirationDate: expirationDate)
     }
 }

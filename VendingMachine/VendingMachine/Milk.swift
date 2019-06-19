@@ -11,10 +11,10 @@ import Foundation
 class Milk: Drink {
     private let farmCode: Int
     
-    init(brand: String, ml: Int, price: Int, productDate: String, name: String, farmCode: Int) {
+    init(brand: String, ml: Int, price: Int, productDate: String, name: String, farmCode: Int, barcode: Barcode, expirationDate: String) {
         self.farmCode = farmCode
         
-        super.init(brand: brand, ml: ml, price: price, name: name, productDate: productDate)
+        super.init(brand: brand, ml: ml, price: price, name: name, productDate: productDate, barcode: barcode, expirationDate: expirationDate)
     }
     
     func isFarmCode(_ farmCodeCompared: Int) -> Bool {
