@@ -11,6 +11,7 @@ import Foundation
 struct VendingMachine {
     private var balance: Int
     private var stock: [Drink]
+    private var sellList = [Drink]()
     
     /// 자판기 금액을 원하는 금액만큼 올리는 메소드
     mutating func insertCoint(_ coin: Int) {
@@ -43,6 +44,7 @@ struct VendingMachine {
             throw BuyError.NotenoughBalance
         }
         
+        sellList.append(drink)
         stock.remove(at: buyDrinkIndex)
     }
     
@@ -70,14 +72,25 @@ struct VendingMachine {
     
     /// 유통기한이 지난 재고만 리턴하는 메소드
     func getExpiredDrinkList () -> [Drink] {
-        let ExpiredDrinks = stock.filter({ (drink: Drink) -> Bool in
+        let expiredDrinks = stock.filter({ (drink: Drink) -> Bool in
             return drink.validate()
         })
         
-        return ExpiredDrinks
+        return expiredDrinks
     }
     
     /// 따뜻한 음료만 리턴하는 메소드
+    func getHotDrinkList () -> [Drink] {
+        let hotDrinks = stock.filter({ (drink: Drink) -> Bool in
+            let coffee = drink as! Coffee
+            return coffee.isHot()
+        })
+        
+        return hotDrinks
+    }
     
     /// 시작이후 구매 상품 이력을 배열로 리턴하는 메소드
+    func getSellList () -> [Drink] {
+        return sellList
+    }
 }
