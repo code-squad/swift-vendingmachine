@@ -56,9 +56,9 @@ class UnitTestVendingmachine: XCTestCase {
         XCTAssertFalse(fanta.isOrangeIncense(0.5))
     }
     
-    func testTOPIsAdvertisingModel () {
-        XCTAssertTrue(top.isAdvertisingModel("원빈"))
-        XCTAssertFalse(top.isAdvertisingModel("이나영"))
+    func testTOPIsTopLevelCoffeebeanContainPercent () {
+        XCTAssertTrue(top.isTopLevelCoffeebeanContainPercent(0.5))
+        XCTAssertFalse(top.isTopLevelCoffeebeanContainPercent(0.3))
     }
     
     func testBananaMilkIsLessthanbananaContainPercent () {
