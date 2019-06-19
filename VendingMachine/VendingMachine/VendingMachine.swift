@@ -8,6 +8,20 @@
 
 import Foundation
 
+extension Array where Element: Hashable {
+    func removingDuplicates() -> [Element] {
+        var addedDict = [Element: Bool]()
+        
+        return filter {
+            addedDict.updateValue(true, forKey: $0) == nil
+        }
+    }
+    
+    mutating func removeDuplicates() {
+        self = self.removingDuplicates()
+    }
+}
+
 struct VendingMachine {
     private var balance: Int = 0
     private var stock = [Drink]()
@@ -27,9 +41,10 @@ struct VendingMachine {
     
     /// 현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
     func getBuyableDrinkList () -> [Drink] {
-        let buyableDrinks = stock.filter({ (drink: Drink) -> Bool in
+        var buyableDrinks = stock.filter({ (drink: Drink) -> Bool in
             return drink.isBuyable(money: balance)
         })
+        buyableDrinks.removeDuplicates()
         
         return buyableDrinks
     }
@@ -43,11 +58,13 @@ struct VendingMachine {
         }
     
         guard stock[buyDrinkIndex].isBuyable(money: balance) else {
-            throw BuyError.NotenoughBalance
+            throw BuyError.NotEnoughBalance
         }
         
         sellList.append(drink)
         stock.remove(at: buyDrinkIndex)
+        
+        balance -= drink.getPrice()
     }
     
     /// 잔액을 확인하는 메소드
@@ -67,7 +84,7 @@ struct VendingMachine {
         return stockList
     }
     
-    func getStockCount (_ drink: Drink, _ stockList: Dictionary<Drink, Int>) -> Int {
+    private func getStockCount (_ drink: Drink, _ stockList: Dictionary<Drink, Int>) -> Int {
         if let stockCount = stockList[drink] {
             return stockCount + 1
         }
@@ -78,19 +95,23 @@ struct VendingMachine {
     
     /// 유통기한이 지난 재고만 리턴하는 메소드
     func getExpiredDrinkList () -> [Drink] {
-        let expiredDrinks = stock.filter({ (drink: Drink) -> Bool in
-            return drink.validate()
+        var expiredDrinks = stock.filter({ (drink: Drink) -> Bool in
+            return !drink.validate()
         })
+        
+        expiredDrinks.removeDuplicates()
         
         return expiredDrinks
     }
     
     /// 따뜻한 음료만 리턴하는 메소드
     func getHotDrinkList () -> [Drink] {
-        let hotDrinks = stock.filter({ (drink: Drink) -> Bool in
+        var hotDrinks = stock.filter({ (drink: Drink) -> Bool in
             let coffee = drink as! Coffee
             return coffee.isHot()
         })
+        
+        hotDrinks.removeDuplicates()
         
         return hotDrinks
     }
