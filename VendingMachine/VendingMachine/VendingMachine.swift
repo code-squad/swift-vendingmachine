@@ -32,8 +32,22 @@ struct VendingMachine {
     }
     
     /// 음료수를 구매하는 메소드
+    mutating func buy (_ drink: Drink) throws {
+        let drinkIndex = stock.firstIndex(of: drink)
+        
+        guard let buyDrinkIndex = drinkIndex else {
+            throw BuyError.NonStock
+        }
+    
+        guard stock[buyDrinkIndex].isBuyable(money: balance) else {
+            throw BuyError.NotenoughBalance
+        }
+        
+        stock.remove(at: buyDrinkIndex)
+    }
     
     /// 잔액을 확인하는 메소드
+    
     
     /// 전체 상품 재고를 (사전으로 표현하는) 종류별로 리턴하는 메소드
     
