@@ -17,14 +17,16 @@ struct InputView {
         
         return menu
     }
-    
-    func readInputToSubMenu (_ vendingMachine: VendingMachine, _ menu: Menu) throws -> String {
-        if menu == .buyDrink {
-            try OutputView.printBuyableDrinkList(vendingMachine)
-        }
+
+    static func readInputToCoin () -> Int {
+        let coin = readLine() ?? "0"
         
-        return readLine() ?? "0"
+        return Int(coin) ?? 0
     }
     
-    static func readInput
+    static func readInputToDrinkIndex () -> Int {
+        let index = readLine() ?? "0"
+        
+        return Int(index) ?? 0
+    }
 }
