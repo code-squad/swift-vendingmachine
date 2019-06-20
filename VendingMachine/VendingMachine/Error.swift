@@ -8,45 +8,37 @@
 
 import Foundation
 
-enum Error: String {
+enum InputError: String, Error {
     case incorrect = "❌ 메뉴를 확인해주세요"
     case notEnoughBalance = "❌ 잔액이 부족합니다."
     case outOfStock = "❌ 재고가 부족합니다."
-    case notError = ""
+    case unexpected = "❗️예상치 못한 에러가 발생했습니다."
     
     func message() -> String {
         return self.rawValue
     }
 }
 
-// 올바른 메뉴 선택 확인
-func incorrect(_ input: String) -> Error {
-    let value = input.first
-    guard value == "1" || value == "2" else { return Error.incorrect }
-    return .notError
+typealias userChoice = (menu: Inventory.Menu, value: Int)
+
+// 첫 입력 확인
+func incorrect(_ input: String) throws -> userChoice {
+    let UserInput = input.split(separator: " ").map { String($0) }
+    guard let menuNum = UserInput.first, let menu = Inventory.Menu(rawValue: menuNum) else { throw InputError.incorrect }
+    guard let inputNum = UserInput.last, let value = Int(inputNum) else { throw InputError.incorrect }
+    if Int(menuNum)! > 2 { throw InputError.incorrect }
+    return (menu, value)
 }
 
-// 현재의 잔액으로 선택한 음료의 구매 가능 여부 확인
-func notEnoughBalance(of machine: VendingMachine, _ input: String) -> Error {
+// 두 번째 입력 확인
+func checkAvailability(of machine: VendingMachine, _ select: Int) throws {
     let balance = machine.balance()
     let status = machine.currentBeverageStatus()
-    let selectBeverage = Int(input.dropFirst(2))! - 1
-    for drinks in status {
-        if drinks.key == selectBeverage {
-            guard balance >= status[drinks.key]!.1 else { return .notEnoughBalance }
-        }
-    }
-    return .notError
-}
-
-// 선택한 음료의 구매 가능한 재고의 존재 여부
-func outOfStock(machine: VendingMachine, _ input: String) -> Error {
-    let status = machine.currentBeverageStatus()
-    let selectBeverage = Int(input.dropFirst(2))! - 1
-    for drinks in status {
-        if drinks.key == selectBeverage {
-            guard status[drinks.key]!.2 != 0 else { return .outOfStock }
-        }
-    }
-    return .notError
+    
+    // 올바른 음료를 선택했는지 확인
+    if select >= status.count { throw InputError.incorrect }
+    // 현재의 잔액으로 선택한 음료의 구매 가능 여부 확인
+    if status[select].beveragaPrice > balance { throw InputError.notEnoughBalance }
+    // 선택한 음료의 구매 가능한 재고의 존재 여부
+    if status[select].beverageCount == 0 { throw InputError.outOfStock }
 }
