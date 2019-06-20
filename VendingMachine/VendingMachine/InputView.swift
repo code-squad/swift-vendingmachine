@@ -9,26 +9,20 @@
 import Foundation
 
 struct InputView {
-    private func printMenuInputGuidance (_ vendingMachine: VendingMachine) {
-        print("현재 투입한 금액이 \(vendingMachine.getBalance())원입니다. 다음과 같은 음료가 있습니다.")
-        print("=> ", terminator: "")
-        let drinks = vendingMachine.getStockList()
-        for (name, amount) in drinks {
-            print("\(name)(\(amount)) ", terminator: "")
-        }
-        
-        print("\n1. 금액추가")
-        print("2. 음료구매")
-        print("0. 종료")
-    }
-    
     func readInput (_ vendingMachine: VendingMachine) -> String {
         let menu: String
         
-        printMenuInputGuidance(vendingMachine)
-        print("> ", terminator: "")
+        OutputView.printMenuInputGuidance(vendingMachine)
         menu = readLine() ?? "0"
         
         return menu
+    }
+    
+    func readInputSubMenu (_ vendingMachine: VendingMachine, _ menu: Menu) throws -> String {
+        if menu == .buyDrink {
+            try OutputView.printBuyableDrinkList(vendingMachine)
+        }
+        
+        return readLine() ?? "0"
     }
 }
