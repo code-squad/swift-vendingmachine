@@ -48,8 +48,8 @@ class Drink: CustomStringConvertible, Hashable {
         return Date.init() <= expirationDate
     }
     
-    func isBuyable (money: Int) -> Bool {
-        return money >= price
+    func isBuyable (_ money: Money) -> Bool {
+        return money.getBalance() >= price
     }
     
     func getPrice () -> Int {
