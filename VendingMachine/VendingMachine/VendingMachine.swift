@@ -32,13 +32,6 @@ struct VendingMachine {
         balance.addBalance(coin)
     }
     
-    /// 특정 상품 인스턴스를 넘겨서 재고를 추가하는 메소드
-    mutating func supply(_ product: Drink, amount: Int) {
-        for _ in 1...amount {
-            stock.append(product)
-        }
-    }
-    
     /// 현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
     func getBuyableDrinkList () -> [Drink] {
         var buyableDrinks = stock.filter() { (drink: Drink) -> Bool in
@@ -90,30 +83,6 @@ struct VendingMachine {
         }
         
         return 1
-    }
-    
-    
-    /// 유통기한이 지난 재고만 리턴하는 메소드
-    func getExpiredDrinkList () -> [Drink] {
-        var expiredDrinks = stock.filter() { (drink: Drink) -> Bool in
-            return !drink.validate()
-        }
-        
-        expiredDrinks.removeDuplicates()
-        
-        return expiredDrinks
-    }
-    
-    /// 따뜻한 음료만 리턴하는 메소드
-    func getHotDrinkList () -> [Drink] {
-        var hotDrinks = stock.filter() { (drink: Drink) -> Bool in
-            let coffee = drink as! Coffee
-            return coffee.isHot()
-        }
-        
-        hotDrinks.removeDuplicates()
-        
-        return hotDrinks
     }
     
     /// 시작이후 구매 상품 이력을 배열로 리턴하는 메소드
