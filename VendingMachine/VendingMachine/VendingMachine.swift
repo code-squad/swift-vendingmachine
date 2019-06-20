@@ -28,7 +28,7 @@ struct VendingMachine {
     private var sellList = [Drink]()
     
     /// 자판기 금액을 원하는 금액만큼 올리는 메소드
-    mutating func insertCoint(_ coin: Int) {
+    mutating func insertCoin(_ coin: Int) {
         balance += coin
     }
     
@@ -119,5 +119,26 @@ struct VendingMachine {
     /// 시작이후 구매 상품 이력을 배열로 리턴하는 메소드
     func getSellList () -> [Drink] {
         return sellList
+    }
+    
+    /// 메뉴에 따라 실행하는 메소드
+    mutating func excuteMenu (_ menu: Menu) throws {
+        if menu == .insertCoin {
+            OutputView.printInsertCoinGuidance()
+            let coin = InputView.readInputToCoin()
+            insertCoin(coin)
+            return
+        }
+        
+        try OutputView.printBuyableDrinkList(self)
+        let index = InputView.readInputToDrinkIndex()
+        
+        let buyableDrinkList = getBuyableDrinkList()
+        
+        if index <= 0 || index > buyableDrinkList.count {
+            throw BuyError.NonHaveIndex
+        }
+        
+        try buy(buyableDrinkList[index-1])
     }
 }
