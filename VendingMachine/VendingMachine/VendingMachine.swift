@@ -64,12 +64,12 @@ struct VendingMachine {
         sellList.append(drink)
         stock.remove(at: buyDrinkIndex)
         
-        balance.minusBalance(drink.getPrice())
+        try balance.minusBalance(drink.getPrice())
     }
     
     /// 잔액을 확인하는 메소드
-    func getBalance () -> Int {
-        return balance.getBalance()
+    func getBalance () -> Money {
+        return balance
     }
     
     /// 전체 상품 재고를 (사전으로 표현하는) 종류별로 리턴하는 메소드
