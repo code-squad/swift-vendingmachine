@@ -120,25 +120,4 @@ struct VendingMachine {
     func getSellList () -> [Drink] {
         return sellList
     }
-    
-    /// 메뉴에 따라 실행하는 메소드
-    mutating func executeMenu (_ menu: Menu) throws {
-        if menu == .insertCoin {
-            OutputView.printInsertCoinGuidance()
-            let coin = InputView.readInputToCoin()
-            insertCoin(coin)
-            return
-        }
-        
-        try OutputView.printBuyableDrinkList(self)
-        let index = InputView.readInputToDrinkIndex()
-        
-        let buyableDrinkList = getBuyableDrinkList()
-        
-        if index <= 0 || index > buyableDrinkList.count {
-            throw BuyError.NonHaveIndex
-        }
-        
-        try buy(buyableDrinkList[index-1])
-    }
 }
