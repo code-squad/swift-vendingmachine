@@ -41,6 +41,7 @@
 		334C16E222BA48B8000FD1E7 /* MenuChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334C16E122BA48B8000FD1E7 /* MenuChecker.swift */; };
 		334C16E422BA4BF0000FD1E7 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334C16E322BA4BF0000FD1E7 /* OutputView.swift */; };
 		334C16E622BB5894000FD1E7 /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334C16E522BB5894000FD1E7 /* Money.swift */; };
+		334C16E822BB72F8000FD1E7 /* VendingMachineManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334C16E722BB72F8000FD1E7 /* VendingMachineManagement.swift */; };
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +80,7 @@
 		334C16E122BA48B8000FD1E7 /* MenuChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuChecker.swift; sourceTree = "<group>"; };
 		334C16E322BA4BF0000FD1E7 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		334C16E522BB5894000FD1E7 /* Money.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
+		334C16E722BB72F8000FD1E7 /* VendingMachineManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineManagement.swift; sourceTree = "<group>"; };
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -151,6 +153,7 @@
 				334C16E122BA48B8000FD1E7 /* MenuChecker.swift */,
 				334C16E322BA4BF0000FD1E7 /* OutputView.swift */,
 				334C16E522BB5894000FD1E7 /* Money.swift */,
+				334C16E722BB72F8000FD1E7 /* VendingMachineManagement.swift */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				334C16AB22B8B5F0000FD1E7 /* TOP.swift in Sources */,
 				334C16E022BA450A000FD1E7 /* Menu.swift in Sources */,
 				334C16CF22B9D543000FD1E7 /* Barcode.swift in Sources */,
+				334C16E822BB72F8000FD1E7 /* VendingMachineManagement.swift in Sources */,
 				334C16E422BA4BF0000FD1E7 /* OutputView.swift in Sources */,
 				334C16D222B9FC81000FD1E7 /* VendingMachine.swift in Sources */,
 				334C16D622BA1CEA000FD1E7 /* PepsiCoke.swift in Sources */,
