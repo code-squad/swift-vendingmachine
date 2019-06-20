@@ -11,23 +11,48 @@ import Foundation
 var vendingMachine = VendingMachine()
 vendingMachine.inventory()
 
-func main() {
-    OutputView().currentStatus(vendingMachine.balance()) // 현재 투입한 금액이 0원입니다. 다음과 같은 음료가 있습니다.
-    OutputView().beverageList(vendingMachine)
-    OutputView().menu() // 1. 금액추가 2. 음료구매
-    let input = InputView().selectMenu() // 메뉴를 선택하도록 입력 받는다.
+struct main {
+    static func operate() throws {
+        while true {
+            let userInput = try input()
+            try handleOrder(choice: userInput)
+        }
+    }
     
-    OutputView().printError(incorrect(input))
-
-    switch input.first {
-        case "1": vendingMachine.insert(money: input)
-        case "2":
-            guard notEnoughBalance(of: vendingMachine, input) == .notError else { return OutputView().printError(notEnoughBalance(of: vendingMachine, input)) }
-            guard outOfStock(machine: vendingMachine, input) == .notError else { return OutputView().printError(outOfStock(machine: vendingMachine, input))  }
-            vendingMachine.sell(beverage: input)
-        default: break
+    static func input() throws -> userChoice {
+        OutputView.currentStatus(vendingMachine.balance()) // 현재 투입한 금액이 0원입니다. 다음과 같은 음료가 있습니다.
+        OutputView().beverageList(vendingMachine)
+        OutputView.menu() // 1. 금액추가 2. 음료구매
+        let select = InputView().selectMenu() // 메뉴를 선택하도록 입력 받는다.
+        return try incorrect(select)
+    }
+    
+    static func handleOrder(choice: userChoice) throws {
+        let menu = choice.menu
+        let value = choice.value - 1
+        let product = vendingMachine.currentBeverageStatus()
+        
+        switch menu {
+            case .insertMoney :
+                vendingMachine.insert(money: value + 1)
+            case .buyBeverage :
+                try checkAvailability(of: vendingMachine, value)
+                vendingMachine.sell(beverageNumber: value)
+                OutputView.printPurchase(productName: product[value].beverageName, price: product[value].beveragaPrice)
+        }
     }
 }
-while true {
-    main()
+
+func work()  {
+    while true {
+        do {
+            try main.operate()
+        } catch let error as InputError{
+            OutputView().printError(error)
+        }
+        catch {
+            OutputView().printError(InputError.unexpected)
+        }
+    }
 }
+ work()
