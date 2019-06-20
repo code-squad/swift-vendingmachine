@@ -34,4 +34,8 @@ struct OutputView {
             print("\(index+1)) \(drink) \(drink.getPrice())원")
         }
     }
+    
+    static func printInsertCoinGuidance () {
+        print("넣을 금액을 입력해주세요.")
+    }
 }
