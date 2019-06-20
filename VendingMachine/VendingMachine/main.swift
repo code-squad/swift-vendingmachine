@@ -49,7 +49,8 @@ func main() {
             let buyableDrinkList = vendingMachine.getBuyableDrinkList()
             
             if index <= 0 || index > buyableDrinkList.count {
-                throw BuyError.NonHaveIndex
+                OutputView.printMent("해당 번호에 해당하는 음료는 없습니다. 번호를 확인해주세요.")
+                continue
             }
                 
             try vendingMachine.buy(buyableDrinkList[index-1])
