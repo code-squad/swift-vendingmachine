@@ -9,7 +9,7 @@
 import Foundation
 
 struct MenuChecker {
-    static func checkMenu (_ input: String) throws -> Menu {
+    static func checkMenu (_ input: String) -> Menu {
         let menu = Menu(rawValue: Int(input) ?? 0) ?? Menu.exit
         
         return menu
