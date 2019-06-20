@@ -36,7 +36,23 @@ func main() {
         }
         
         do {
-            try vendingMachine.executeMenu(menu)
+            if menu == .insertCoin {
+                OutputView.printInsertCoinGuidance()
+                let coin = InputView.readInputToCoin()
+                vendingMachine.insertCoin(coin)
+                continue
+            }
+            
+            try OutputView.printBuyableDrinkList(vendingMachine)
+            let index = InputView.readInputToDrinkIndex()
+            
+            let buyableDrinkList = vendingMachine.getBuyableDrinkList()
+            
+            if index <= 0 || index > buyableDrinkList.count {
+                throw BuyError.NonHaveIndex
+            }
+                
+            try vendingMachine.buy(buyableDrinkList[index-1])
         } catch let error as BuyError {
             print(error.localizedDescription)
             continue
