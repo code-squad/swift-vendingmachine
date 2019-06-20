@@ -36,7 +36,7 @@ func main() {
         }
         
         do {
-            try vendingMachine.excuteMenu(menu)
+            try vendingMachine.executeMenu(menu)
         } catch let error as BuyError {
             print(error.localizedDescription)
             continue
