@@ -38,4 +38,8 @@ struct OutputView {
     static func printInsertCoinGuidance () {
         print("넣을 금액을 입력해주세요.")
     }
+    
+    static func print(_ ment: String) {
+        print(ment)
+    }
 }
