@@ -29,10 +29,25 @@ func main() {
     
     while true {
         input = inputView.readInput(vendingMachine)
+        menu = MenuChecker.checkMenu(input)
         
+        if menu == .exit {
+            return
+        }
+        do {
+        input = try inputView.readInputSubMenu(vendingMachine, menu)
+        } catch let error as BuyError {
+            print(error.localizedDescription)
+            continue
+        }
+        catch {
+            print(error)
+            continue
+        }
+        if 
+        input
     }
     
-    vendingMachine.getBuyableDrinkList()
     
 }
 
