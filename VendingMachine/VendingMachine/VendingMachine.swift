@@ -41,9 +41,9 @@ struct VendingMachine {
     
     /// 현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
     func getBuyableDrinkList () -> [Drink] {
-        var buyableDrinks = stock.filter({ (drink: Drink) -> Bool in
+        var buyableDrinks = stock.filter() { (drink: Drink) -> Bool in
             return drink.isBuyable(money: balance)
-        })
+        }
         buyableDrinks.removeDuplicates()
         
         return buyableDrinks
@@ -95,9 +95,9 @@ struct VendingMachine {
     
     /// 유통기한이 지난 재고만 리턴하는 메소드
     func getExpiredDrinkList () -> [Drink] {
-        var expiredDrinks = stock.filter({ (drink: Drink) -> Bool in
+        var expiredDrinks = stock.filter() { (drink: Drink) -> Bool in
             return !drink.validate()
-        })
+        }
         
         expiredDrinks.removeDuplicates()
         
@@ -106,10 +106,10 @@ struct VendingMachine {
     
     /// 따뜻한 음료만 리턴하는 메소드
     func getHotDrinkList () -> [Drink] {
-        var hotDrinks = stock.filter({ (drink: Drink) -> Bool in
+        var hotDrinks = stock.filter() { (drink: Drink) -> Bool in
             let coffee = drink as! Coffee
             return coffee.isHot()
-        })
+        }
         
         hotDrinks.removeDuplicates()
         
