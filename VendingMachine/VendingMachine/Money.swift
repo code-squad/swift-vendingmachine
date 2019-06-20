@@ -8,22 +8,29 @@
 
 import Foundation
 
-struct Money {
+struct Money: CustomStringConvertible {
     private var balance: Int
     
     init() {
         balance = 0
     }
     
-    func getBalance () -> Int {
-        return balance
+    mutating func addBalance (_ money: Int) {
+        balance += money
     }
     
-    mutating func addBalance (_ coin: Int) {
-        balance += coin
+    mutating func minusBalance (_ money: Int) throws {
+        if balance < money {
+            throw BuyError.NotEnoughBalance
+        }
+        balance -= money
     }
     
-    mutating func minusBalance (_ coin: Int) {
-        balance -= coin
+    var description: String {
+        return String(balance)
+    }
+    
+    func isLargeThan (_ money: Int) -> Bool {
+        return money < balance
     }
 }
