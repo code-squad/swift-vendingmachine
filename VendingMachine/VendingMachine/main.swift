@@ -34,8 +34,9 @@ func main() {
         if menu == .exit {
             return
         }
+        
         do {
-        input = try inputView.readInputSubMenu(vendingMachine, menu)
+            try vendingMachine.excuteMenu(menu)
         } catch let error as BuyError {
             print(error.localizedDescription)
             continue
@@ -44,11 +45,7 @@ func main() {
             print(error)
             continue
         }
-        if 
-        input
     }
-    
-    
 }
 
 main()
