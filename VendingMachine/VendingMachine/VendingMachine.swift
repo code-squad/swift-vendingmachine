@@ -122,7 +122,7 @@ struct VendingMachine {
     }
     
     /// 메뉴에 따라 실행하는 메소드
-    mutating func excuteMenu (_ menu: Menu) throws {
+    mutating func executeMenu (_ menu: Menu) throws {
         if menu == .insertCoin {
             OutputView.printInsertCoinGuidance()
             let coin = InputView.readInputToCoin()
