@@ -23,13 +23,13 @@ extension Array where Element: Hashable {
 }
 
 struct VendingMachine {
-    private var balance: Int = 0
+    private var balance = Money()
     private var stock = [Drink]()
     private var sellList = [Drink]()
     
     /// 자판기 금액을 원하는 금액만큼 올리는 메소드
     mutating func insertCoin(_ coin: Int) {
-        balance += coin
+        balance.addBalance(coin)
     }
     
     /// 특정 상품 인스턴스를 넘겨서 재고를 추가하는 메소드
@@ -42,7 +42,7 @@ struct VendingMachine {
     /// 현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
     func getBuyableDrinkList () -> [Drink] {
         var buyableDrinks = stock.filter() { (drink: Drink) -> Bool in
-            return drink.isBuyable(money: balance)
+            return drink.isBuyable(balance)
         }
         buyableDrinks.removeDuplicates()
         
@@ -57,19 +57,19 @@ struct VendingMachine {
             throw BuyError.NonStock
         }
     
-        guard stock[buyDrinkIndex].isBuyable(money: balance) else {
+        guard stock[buyDrinkIndex].isBuyable(balance) else {
             throw BuyError.NotEnoughBalance
         }
         
         sellList.append(drink)
         stock.remove(at: buyDrinkIndex)
         
-        balance -= drink.getPrice()
+        balance.minusBalance(drink.getPrice())
     }
     
     /// 잔액을 확인하는 메소드
     func getBalance () -> Int {
-        return balance
+        return balance.getBalance()
     }
     
     /// 전체 상품 재고를 (사전으로 표현하는) 종류별로 리턴하는 메소드
