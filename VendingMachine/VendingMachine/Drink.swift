@@ -49,7 +49,7 @@ class Drink: CustomStringConvertible, Hashable {
     }
     
     func isBuyable (_ money: Money) -> Bool {
-        return money.getBalance() >= price
+        return money.isLargeThan(price)
     }
     
     func getPrice () -> Int {
