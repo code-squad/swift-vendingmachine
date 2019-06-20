@@ -58,7 +58,6 @@ func main() {
             continue
         }
         catch {
-            OutputView.print(error)
             continue
         }
     }
