@@ -54,11 +54,11 @@ func main() {
                 
             try vendingMachine.buy(buyableDrinkList[index-1])
         } catch let error as BuyError {
-            print(error.localizedDescription)
+            OutputView.print(error.localizedDescription)
             continue
         }
         catch {
-            print(error)
+            OutputView.print(error)
             continue
         }
     }
