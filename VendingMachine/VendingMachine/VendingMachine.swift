@@ -24,8 +24,12 @@ extension Array where Element: Hashable {
 
 struct VendingMachine {
     private var balance = Money()
-    private var stock = [Drink]()
+    private var stock: [Drink]
     private var sellList = [Drink]()
+    
+    init(stock: [Drink]) {
+        self.stock = stock
+    }
     
     /// 자판기 금액을 원하는 금액만큼 올리는 메소드
     mutating func insertCoin(_ coin: Int) {

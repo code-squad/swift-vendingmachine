@@ -11,6 +11,11 @@ import Foundation
 struct VendingMachineManagement {
     private var stock = [Drink]()
     
+    /// 자판기를 초기화하는 메소드
+    func initVendingMachine() -> VendingMachine {
+        return VendingMachine(stock: stock)
+    }
+    
     /// 특정 상품 인스턴스를 넘겨서 재고를 추가하는 메소드
     mutating func supply(_ product: Drink, amount: Int) {
         for _ in 1...amount {
