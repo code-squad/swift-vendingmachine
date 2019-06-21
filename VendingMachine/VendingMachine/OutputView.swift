@@ -39,6 +39,12 @@ struct OutputView {
         print("넣을 금액을 입력해주세요.")
     }
     
+    static func printVendingMachineStart () {
+        print("자판기를 시작합니다.")
+        print("1. 관리자 모드")
+        print("2. 사용자 모드")
+    }
+    
     static func printMent(_ ment: String) {
         print(ment)
     }
