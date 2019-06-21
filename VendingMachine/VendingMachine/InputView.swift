@@ -18,15 +18,9 @@ struct InputView {
         return menu
     }
 
-    static func readInputToCoin () -> Int {
-        let coin = readLine() ?? "0"
+    static func readInputToInt () -> Int {
+        let input = readLine() ?? "0"
         
-        return Int(coin) ?? 0
-    }
-    
-    static func readInputToDrinkIndex () -> Int {
-        let index = readLine() ?? "0"
-        
-        return Int(index) ?? 0
+        return Int(input) ?? 0
     }
 }
