@@ -9,10 +9,9 @@
 import Foundation
 
 struct InputView {
-    static func readInputToMenu (_ vendingMachine: VendingMachine) -> String {
+    static func readInputToMenu () -> String {
         let menu: String
         
-        OutputView.printMenuInputGuidance(vendingMachine)
         menu = readLine() ?? "0"
         
         return menu
