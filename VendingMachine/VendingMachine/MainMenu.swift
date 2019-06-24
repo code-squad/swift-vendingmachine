@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+enum MainMenu: Int {
+    case exit
+    case managementMode
+    case userMode
+}
