@@ -10,6 +10,24 @@ import Foundation
 
 struct VendingMachineManagement {
     private var stock = [Drink]()
+    let bananaMilk: BananaMilk
+    let strawberryMilk: StrawberryMilk
+    let fanta: Fanta
+    let top: TOP
+    let hot6: Hot6
+    let pepsiCoke: PepsiCoke
+    let drinks: [Drink]
+    
+    init() {
+        bananaMilk = BananaMilk(brand: "빙그레", ml: 200, price: 1300, productDate: "20190301", farmCode: 5, expirationDate: "20190930")
+        strawberryMilk = StrawberryMilk(brand: "빙그레", ml: 200, price: 1300, productDate: "20190405", farmCode: 3, expirationDate: "20190925")
+        fanta = Fanta(brand: "롯데", ml: 350, price: 2000, productDate: "20190505", orangeIncense: 0.7, expirationDate: "20190921")
+        top = TOP(brand: "맥심", ml: 400, price: 3000, productDate: "20190606", hot: false, expirationDate: "20190920")
+        hot6 = Hot6(brand: "롯데", ml: 240, price: 1000, productDate: "20190529", expirationDate: "20191029")
+        pepsiCoke = PepsiCoke(brand: "펩시", ml: 255, price: 1200, productDate: "20190610", expirationDate: "20191010")
+        drinks = [bananaMilk, strawberryMilk, fanta, top, hot6, pepsiCoke]
+        
+    }
     
     /// 자판기를 초기화하는 메소드
     func initVendingMachine() -> VendingMachine {
@@ -18,16 +36,14 @@ struct VendingMachineManagement {
     
     /// 특정 상품 인스턴스를 넘겨서 재고를 추가하는 메소드
     mutating func supply(_ index: Int, amount: Int) {
-        let bananaMilk = BananaMilk(brand: "빙그레", ml: 200, price: 1300, productDate: "20190301", farmCode: 5, expirationDate: "20190930")
-        let strawberryMilk = StrawberryMilk(brand: "빙그레", ml: 200, price: 1300, productDate: "20190405", farmCode: 3, expirationDate: "20190925")
-        let fanta = Fanta(brand: "롯데", ml: 350, price: 2000, productDate: "20190505", orangeIncense: 0.7, expirationDate: "20190921")
-        let top = TOP(brand: "맥심", ml: 400, price: 3000, productDate: "20190606", hot: false, expirationDate: "20190920")
-        let hot6 = Hot6(brand: "롯데", ml: 240, price: 1000, productDate: "20190529", expirationDate: "20191029")
-        let pepsiCoke = PepsiCoke(brand: "펩시", ml: 255, price: 1200, productDate: "20190610", expirationDate: "20191010")
-        
         for _ in 1...amount {
-            stock.append(product)
+            stock.append(drinks[index])
         }
+    }
+    
+    /// 사용 가능한 음료수 종류를 리턴하는 메소드
+    func getAbleDrinks () -> [Drink] {
+        return drinks
     }
     
     /// 전체 상품 재고를 (사전으로 표현하는) 종류별로 리턴하는 메소드
