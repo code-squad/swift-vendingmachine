@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct VendingMachineManagement {
+struct VendingMachineForManagement {
     private var stock = [Drink]()
     let bananaMilk: BananaMilk
     let strawberryMilk: StrawberryMilk
@@ -30,8 +30,8 @@ struct VendingMachineManagement {
     }
     
     /// 자판기를 초기화하는 메소드
-    func initVendingMachine() -> VendingMachine {
-        return VendingMachine(stock: stock)
+    func initVendingMachine() -> VendingMachineForUser {
+        return VendingMachineForUser(stock: stock)
     }
     
     /// 특정 상품 인스턴스를 넘겨서 재고를 추가하는 메소드
