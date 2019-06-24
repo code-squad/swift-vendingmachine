@@ -9,12 +9,22 @@
 import Foundation
 
 struct InputView {
-    static func readInputToMenu () -> Menu {
+    static func readInputToMainMenu () -> MainMenu {
         let input: String
-        let menu: Menu
+        let menu: MainMenu
         
         input = readLine() ?? "0"
-        menu = Menu(rawValue: Int(input) ?? 0) ?? Menu.exit
+        menu = MainMenu(rawValue: Int(input) ?? 0) ?? MainMenu.exit
+        
+        return menu
+    }
+    
+    static func readInputToUserMenu () -> UserMenu {
+        let input: String
+        let menu: UserMenu
+        
+        input = readLine() ?? "0"
+        menu = UserMenu(rawValue: Int(input) ?? 0) ?? UserMenu.exit
         
         return menu
     }
