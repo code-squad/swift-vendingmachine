@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+enum UserMenu: Int {
+    case exit
+    case inserCoin
+    case buy
+}
