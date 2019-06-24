@@ -9,16 +9,16 @@
 import Foundation
 
 func main() {
-    var vendingMachineMangement = VendingMachineManagement()
-    var vendingMachine: VendingMachine
-    var menu: Menu
+    var vendingMachineForMangement = VendingMachineForManagement()
+    var vendingMachineForUser: VendingMachineForUser
+    var mainMenu: MainMenu
     
     while true {
         OutputView.printVendingMachineStart()
-        menu = InputView.readInputToMenu()
+        mainMenu = InputView.readInputToMainMenu()
 
-        while menu == .menu1 {
-            let menuGuide = vendingMachineMangement.getMenu()
+        while mainMenu == .managementMode {
+            let menuGuide = vendingMachineForMangement.getMenu()
             OutputView.printMenuGuide(menuGuide)
             let managementMenu = InputView.readInputToManagementMenu()
             
@@ -27,66 +27,66 @@ func main() {
             }
             
             if managementMenu == .supply {
-                let ableDrinks = vendingMachineMangement.getAbleDrinks()
+                let ableDrinks = vendingMachineForMangement.getAbleDrinks()
                 OutputView.printDrinks(ableDrinks)
                 let drinkIndex = InputView.readInputToInt()
                 if drinkIndex <= 0 || drinkIndex > ableDrinks.count {
-                    print("없는 인덱스입니다.")
+                    print(Ment.nonIndex.rawValue)
                     continue
                 }
-                OutputView.printMent("추가할 숫자를 입력해주세요. (최대 100)")
+                OutputView.printMent(Ment.supplyAmountGuide.rawValue)
                 let drinkAmount = InputView.readInputToInt()
                 if drinkAmount <= 0 || drinkAmount > 100 {
-                    print("숫자를 잘못 입력하셨습니다.")
+                    print(Ment.unableNumber.rawValue)
                 }
-                vendingMachineMangement.supply(drinkIndex-1, amount: drinkAmount)
+                vendingMachineForMangement.supply(drinkIndex-1, amount: drinkAmount)
             }
             
             if managementMenu == .getStockList {
-                let stock = vendingMachineMangement.getStockList()
+                let stock = vendingMachineForMangement.getStockList()
                 OutputView.printStock(stock)
             }
             
             if managementMenu == .getExpiredDrinkList {
-                let expiredDrink = vendingMachineMangement.getExpiredDrinkList()
+                let expiredDrink = vendingMachineForMangement.getExpiredDrinkList()
                 OutputView.printDrinks(expiredDrink)
             }
             
             if managementMenu == .getHotDrinkList {
-                let hotDrink = vendingMachineMangement.getHotDrinkList()
+                let hotDrink = vendingMachineForMangement.getHotDrinkList()
                 OutputView.printDrinks(hotDrink)
             }
         }
         
-        vendingMachine = vendingMachineMangement.initVendingMachine()
+        vendingMachineForUser = vendingMachineForMangement.initVendingMachine()
         
-        while menu == .menu2 {
-            OutputView.printMenuInputGuidance(vendingMachine)
-            let userMenu = InputView.readInputToMenu()
+        while mainMenu == .userMode {
+            OutputView.printMenuInputGuidance(vendingMachineForUser)
+            let userMenu = InputView.readInputToUserMenu()
             
             if userMenu == .exit {
                 break
             }
             
             do {
-                if userMenu == .menu1 {
+                if userMenu == .inserCoin {
                     OutputView.printInsertCoinGuidance()
                     let coin = InputView.readInputToInt()
-                    vendingMachine.insertCoin(coin)
+                    vendingMachineForUser.insertCoin(coin)
                     continue
                 }
                 
-                try OutputView.printBuyableDrinkList(vendingMachine)
+                try OutputView.printBuyableDrinkList(vendingMachineForUser)
                 let index = InputView.readInputToInt()
                 
-                let buyableDrinkList = vendingMachine.getBuyableDrinkList()
+                let buyableDrinkList = vendingMachineForUser.getBuyableDrinkList()
                 
                 if index <= 0 || index > buyableDrinkList.count {
-                    OutputView.printMent("해당 번호에 해당하는 음료는 없습니다. 번호를 확인해주세요.")
+                    OutputView.printMent(Ment.unableDrinkIndex.rawValue)
                     continue
                 }
                 
-                try vendingMachine.buy(buyableDrinkList[index-1])
+                try vendingMachineForUser.buy(buyableDrinkList[index-1])
             } catch let error as BuyError {
                 OutputView.printMent(error.localizedDescription)
                 continue
