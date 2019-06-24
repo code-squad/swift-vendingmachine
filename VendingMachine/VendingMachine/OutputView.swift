@@ -9,7 +9,7 @@
 import Foundation
 
 struct OutputView {
-    static func printMenuInputGuidance (_ vendingMachine: VendingMachine) {
+    static func printMenuInputGuidance (_ vendingMachine: VendingMachineForUser) {
         print("현재 투입한 금액이 \(vendingMachine.getBalance())원입니다. 다음과 같은 음료가 있습니다.")
         print("=> ", terminator: "")
         let drinks = vendingMachine.getStockList()
@@ -17,14 +17,10 @@ struct OutputView {
             print("\(name)(\(amount)) ", terminator: "")
         }
         
-        print("\n1. 금액추가")
-        print("2. 음료구매")
-        print("0. 종료")
-        
-        print("> ", terminator: "")
+        print(Ment.menuInputGuidance.rawValue, terminator: "")
     }
     
-    static func printBuyableDrinkList (_ vendingMachine: VendingMachine) throws {
+    static func printBuyableDrinkList (_ vendingMachine: VendingMachineForUser) throws {
         let buyableDrinkList = vendingMachine.getBuyableDrinkList()
         if buyableDrinkList.count == 0 {
             throw BuyError.NotEnoughBalance
@@ -36,13 +32,11 @@ struct OutputView {
     }
     
     static func printInsertCoinGuidance () {
-        print("넣을 금액을 입력해주세요.")
+        print(Ment.insertCoinGuidance.rawValue)
     }
     
     static func printVendingMachineStart () {
-        print("자판기를 시작합니다.")
-        print("1. 관리자 모드")
-        print("2. 사용자 모드")
+        print(Ment.vendingMachineStart.rawValue)
     }
     
     static func printMent(_ ment: String) {
