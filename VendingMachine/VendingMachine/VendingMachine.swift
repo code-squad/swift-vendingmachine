@@ -22,7 +22,7 @@ extension Array where Element: Hashable {
     }
 }
 
-struct VendingMachine {
+struct VendingMachineForUser {
     private var balance = Money()
     private var stock: [Drink]
     private var sellList = [Drink]()
