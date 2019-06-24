@@ -24,4 +24,14 @@ struct InputView {
         
         return Int(input) ?? 0
     }
+    
+    static func readInputToManagementMenu () -> ManagementMenu {
+        let input: String
+        let menu: ManagementMenu
+        
+        input = readLine() ?? "0"
+        menu = ManagementMenu(rawValue: Int(input) ?? 0) ?? ManagementMenu.exit
+        
+        return menu
+    }
 }
