@@ -48,4 +48,22 @@ struct OutputView {
     static func printMent(_ ment: String) {
         print(ment)
     }
+    
+    static func printDrinks (_ drinks: [Drink]) {
+        for (index, drink) in drinks.enumerated() {
+            print("\(index+1) - \(drink)")
+        }
+    }
+    
+    static func printStock (_ stock: [Drink:Int]) {
+        for (drink, count) in stock {
+            print("\(drink) - \(count)개")
+        }
+    }
+    
+    static func printMenuGuide (_ menu: [Int:String]) {
+        for (index, guide) in menu {
+            print("\(index) : \(guide)")
+        }
+    }
 }
