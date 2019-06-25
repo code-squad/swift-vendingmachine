@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+protocol VendingMachineUseable {
+    mutating func insertCoin(_ coin: Int)
+    func getBuyableDrinkList () -> [Drink]
+    mutating func buy (_ drink: Drink) throws
+    func getBalance () -> Money
+    func getStockList () -> Dictionary<Drink, Int>
+    func getSellList () -> [Drink]
+}
