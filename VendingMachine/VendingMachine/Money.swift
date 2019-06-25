@@ -31,6 +31,6 @@ struct Money: CustomStringConvertible {
     }
     
     func isLargeThan (_ money: Int) -> Bool {
-        return money < balance
+        return money <= balance
     }
 }
