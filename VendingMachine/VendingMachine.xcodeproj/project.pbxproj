@@ -44,6 +44,7 @@
 		33FAF04D22C0E54B00588E95 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAF04C22C0E54B00588E95 /* MainMenu.swift */; };
 		33FAF04F22C0E5A800588E95 /* UserMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAF04E22C0E5A800588E95 /* UserMenu.swift */; };
 		33FAF05122C0E7C200588E95 /* Ment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAF05022C0E7C200588E95 /* Ment.swift */; };
+		33FAF05322C1C4F200588E95 /* VendingMachineUseable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAF05222C1C4F200588E95 /* VendingMachineUseable.swift */; };
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +86,7 @@
 		33FAF04C22C0E54B00588E95 /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
 		33FAF04E22C0E5A800588E95 /* UserMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMenu.swift; sourceTree = "<group>"; };
 		33FAF05022C0E7C200588E95 /* Ment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ment.swift; sourceTree = "<group>"; };
+		33FAF05222C1C4F200588E95 /* VendingMachineUseable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineUseable.swift; sourceTree = "<group>"; };
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -155,6 +157,7 @@
 				334C16DD22BA3515000FD1E7 /* InputView.swift */,
 				334C16E522BB5894000FD1E7 /* Money.swift */,
 				334C16E722BB72F8000FD1E7 /* VendingMachineManagement.swift */,
+				33FAF05222C1C4F200588E95 /* VendingMachineUseable.swift */,
 				33B543A222BD09420090FA41 /* ManagementMenu.swift */,
 				33FAF04C22C0E54B00588E95 /* MainMenu.swift */,
 				33FAF04E22C0E5A800588E95 /* UserMenu.swift */,
@@ -291,6 +294,7 @@
 				33FAF04D22C0E54B00588E95 /* MainMenu.swift in Sources */,
 				334C16BF22B8CE21000FD1E7 /* Sparkling.swift in Sources */,
 				334C16AF22B8C658000FD1E7 /* Converter.swift in Sources */,
+				33FAF05322C1C4F200588E95 /* VendingMachineUseable.swift in Sources */,
 				334C16AB22B8B5F0000FD1E7 /* TOP.swift in Sources */,
 				33B543A322BD09420090FA41 /* ManagementMenu.swift in Sources */,
 				334C16CF22B9D543000FD1E7 /* Barcode.swift in Sources */,

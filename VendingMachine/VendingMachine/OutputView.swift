@@ -9,7 +9,7 @@
 import Foundation
 
 struct OutputView {
-    static func printMenuInputGuidance (_ vendingMachine: VendingMachineForUser) {
+    static func printMenuInputGuidance (_ vendingMachine: VendingMachineUseable) {
         print("현재 투입한 금액이 \(vendingMachine.getBalance())원입니다. 다음과 같은 음료가 있습니다.")
         print("=> ", terminator: "")
         let drinks = vendingMachine.getStockList()
@@ -20,7 +20,7 @@ struct OutputView {
         print(Ment.menuInputGuidance.rawValue, terminator: "")
     }
     
-    static func printBuyableDrinkList (_ vendingMachine: VendingMachineForUser) throws {
+    static func printBuyableDrinkList (_ vendingMachine: VendingMachineUseable) throws {
         let buyableDrinkList = vendingMachine.getBuyableDrinkList()
         if buyableDrinkList.count == 0 {
             throw BuyError.NotEnoughBalance
