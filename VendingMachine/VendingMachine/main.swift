@@ -9,8 +9,9 @@
 import Foundation
 
 func main() {
-    var vendingMachineForMangement = VendingMachineForManagement()
-    var vendingMachineForUser: VendingMachineForUser
+    var vendingMachineForMangement: VendingMachineManagementable = VendingMachine()
+    var vendingMachineForUser: VendingMachineUseable
+
     var mainMenu: MainMenu
     
     while true {
@@ -58,7 +59,7 @@ func main() {
             }
         }
         
-        vendingMachineForUser = vendingMachineForMangement.initVendingMachine()
+        vendingMachineForUser = vendingMachineForMangement as! VendingMachineUseable
         
         while mainMenu == .userMode {
             OutputView.printMenuInputGuidance(vendingMachineForUser)
@@ -95,6 +96,7 @@ func main() {
                 continue
             }
         }
+        vendingMachineForMangement = vendingMachineForUser as! VendingMachineManagementable
     }
 }
 
