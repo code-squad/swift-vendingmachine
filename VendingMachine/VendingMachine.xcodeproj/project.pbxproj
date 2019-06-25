@@ -11,6 +11,7 @@
 		F2CE50CE22C1C4A70027E3B3 /* BeverageUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE50CD22C1C4A70027E3B3 /* BeverageUnitTest.swift */; };
 		F2CE50D422C1C4C20027E3B3 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE50D322C1C4C20027E3B3 /* Milk.swift */; };
 		F2CE50D622C1C9140027E3B3 /* CarbonatedDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE50D522C1C9140027E3B3 /* CarbonatedDrink.swift */; };
+		F2CE50D822C1CA180027E3B3 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE50D722C1CA180027E3B3 /* Coffee.swift */; };
 		F2EBA58522C0CC570058FE55 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EBA58422C0CC570058FE55 /* Beverage.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +35,7 @@
 		F2CE50CF22C1C4A70027E3B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2CE50D322C1C4C20027E3B3 /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 		F2CE50D522C1C9140027E3B3 /* CarbonatedDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonatedDrink.swift; sourceTree = "<group>"; };
+		F2CE50D722C1CA180027E3B3 /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		F2EBA58422C0CC570058FE55 /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,6 +82,7 @@
 				F2EBA58422C0CC570058FE55 /* Beverage.swift */,
 				F2CE50D322C1C4C20027E3B3 /* Milk.swift */,
 				F2CE50D522C1C9140027E3B3 /* CarbonatedDrink.swift */,
+				F2CE50D722C1CA180027E3B3 /* Coffee.swift */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 				F2CE50D422C1C4C20027E3B3 /* Milk.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
 				F2CE50D622C1C9140027E3B3 /* CarbonatedDrink.swift in Sources */,
+				F2CE50D822C1CA180027E3B3 /* Coffee.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
