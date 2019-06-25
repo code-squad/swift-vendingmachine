@@ -9,7 +9,7 @@
 import Foundation
 
 class Milk: Beverage {
-    var milkFactoryIdentifier: String
+    private(set) var milkFactoryIdentifier: String
     
     init(brand: String, packageSize: Int, price: Int, name: String, milkFactoryIdentifier: String, dateOfManufacture: Date) {
         self.milkFactoryIdentifier = milkFactoryIdentifier
@@ -18,9 +18,13 @@ class Milk: Beverage {
 }
 
 class StrawberryMilk: Milk {
-    <#code#>
+    init(milkFactoryIdentifier: String, dateOfManufacture: Date) {
+        super.init(brand: "매일유업", packageSize: 200, price: 500, name: "딸기 우유", milkFactoryIdentifier: milkFactoryIdentifier, dateOfManufacture: dateOfManufacture)
+    }
 }
 
 class ChocolateMilk: Milk {
-    <#code#>
+    init(milkFactoryIdentifier: String, dateOfManufacture: Date) {
+        super.init(brand: "남양", packageSize: 180, price: 600, name: "초코 우유", milkFactoryIdentifier: milkFactoryIdentifier, dateOfManufacture: dateOfManufacture)
+    }
 }
