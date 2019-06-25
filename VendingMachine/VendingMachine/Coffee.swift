@@ -17,10 +17,14 @@ class Coffee: Beverage {
     }
 }
 
-class Espresso: Coffee {
-    <#code#>
+class TOPCoffee: Coffee {
+    init(dateOfManufacture: Date) {
+        super.init(brand: "맥심", packageSize: 275, price: 1000, name: "TOP", isHot: false, dateOfManufacture: dateOfManufacture)
+    }
 }
 
-class Americano: Coffee {
-    <#code#>
+class CantataCoffee: Coffee {
+    init(dateOfManufacture: Date) {
+        super.init(brand: "롯데", packageSize: 500, price: 1500, name: "칸타타", isHot: true, dateOfManufacture: dateOfManufacture)
+    }
 }
