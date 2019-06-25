@@ -10,6 +10,9 @@ import Foundation
 
 class Milk: Beverage {
     private(set) var milkFactoryIdentifier: String
+    var expirationDate: Date {
+        return dateOfManufacture + 1
+    }
     
     init(brand: String, packageSize: Int, price: Int, name: String, milkFactoryIdentifier: String, dateOfManufacture: Date) {
         self.milkFactoryIdentifier = milkFactoryIdentifier
