@@ -16,3 +16,11 @@ class Coffee: Beverage {
         super.init(brand: brand, packageSize: packageSize, price: price, name: name, dateOfManufacture: dateOfManufacture)
     }
 }
+
+class Espresso: Coffee {
+    <#code#>
+}
+
+class Americano: Coffee {
+    <#code#>
+}

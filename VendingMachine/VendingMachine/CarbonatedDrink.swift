@@ -8,11 +8,19 @@
 
 import Foundation
 
-class CarbonatedDrink: Beverage {
+class SoftDrink: Beverage {
     var calorie: Int
     
     init(brand: String, packageSize: Int, price: Int, name: String, calorie: Int, dateOfManufacture: Date) {
         self.calorie = calorie
         super.init(brand: brand, packageSize: packageSize, price: price, name: name, dateOfManufacture: dateOfManufacture)
     }
+}
+
+class Cola: SoftDrink {
+    <#code#>
+}
+
+class LemonlimeDrink: SoftDrink {
+    <#code#>
 }
