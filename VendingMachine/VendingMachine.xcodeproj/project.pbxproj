@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
+		F2BF515322C2F7060085E167 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BF515222C2F7060085E167 /* Date.swift */; };
 		F2CE50CE22C1C4A70027E3B3 /* BeverageUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE50CD22C1C4A70027E3B3 /* BeverageUnitTest.swift */; };
 		F2CE50D422C1C4C20027E3B3 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE50D322C1C4C20027E3B3 /* Milk.swift */; };
 		F2CE50D622C1C9140027E3B3 /* SoftDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE50D522C1C9140027E3B3 /* SoftDrink.swift */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		F2BF515222C2F7060085E167 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		F2CE50CB22C1C4A70027E3B3 /* BeverageUnitTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeverageUnitTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2CE50CD22C1C4A70027E3B3 /* BeverageUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageUnitTest.swift; sourceTree = "<group>"; };
 		F2CE50CF22C1C4A70027E3B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 			children = (
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
 				F2EBA58422C0CC570058FE55 /* Beverage.swift */,
+				F2BF515222C2F7060085E167 /* Date.swift */,
 				F2CE50D322C1C4C20027E3B3 /* Milk.swift */,
 				F2CE50D522C1C9140027E3B3 /* SoftDrink.swift */,
 				F2CE50D722C1CA180027E3B3 /* Coffee.swift */,
@@ -187,6 +190,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2EBA58522C0CC570058FE55 /* Beverage.swift in Sources */,
+				F2BF515322C2F7060085E167 /* Date.swift in Sources */,
 				F2CE50D422C1C4C20027E3B3 /* Milk.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
 				F2CE50D622C1C9140027E3B3 /* SoftDrink.swift in Sources */,
