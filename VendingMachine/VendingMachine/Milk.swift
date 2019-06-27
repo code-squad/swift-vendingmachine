@@ -10,13 +10,10 @@ import Foundation
 
 class Milk: Beverage {
     private(set) var milkFactoryIdentifier: String
-    var expirationDate: Date {
-        return dateOfManufacture + 1
-    }
     
     init(brand: String, packageSize: Int, price: Int, name: String, milkFactoryIdentifier: String, dateOfManufacture: Date) {
         self.milkFactoryIdentifier = milkFactoryIdentifier
-        super.init(brand: brand, packageSize: packageSize, price: price, name: name, dateOfManufacture: dateOfManufacture)
+        super.init(brand: brand, packageSize: packageSize, price: price, name: name, dateOfManufacture: dateOfManufacture, expirationPeriod: Date.timeInterval(fromDays: 14))
     }
 }
 
