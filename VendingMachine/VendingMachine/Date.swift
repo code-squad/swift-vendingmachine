@@ -60,16 +60,22 @@ extension Date {
         return sec(fromHours: hours)
     }
     
-    static func stackedYearsFrom1970(year: Int) -> Int {
-        
+    static func stackedDaysSince1970(year: Int) -> Int {
+        var loopingYear = 1970
+        var stackedDays = 0
+        while loopingYear < year {
+            stackedDays += allDaysOf(year: loopingYear)
+            loopingYear += 1
+        }
+        return stackedDays
     }
     
-    static func isLeapYear(year: Int) -> Bool {
+    static func isLeapYear(_ year: Int) -> Bool {
         return year % 4 == 0
     }
     
-    static func days(year: Int) -> Int {
-        return year % 4 == 0 ? 366 : 365
+    static func allDaysOf(year: Int) -> Int {
+        return isLeapYear(year) ? 366 : 365
     }
     
     init?(year: Int, month: Month, day: Int) {
