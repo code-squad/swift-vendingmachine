@@ -10,24 +10,23 @@ import XCTest
 
 class BeverageUnitTest: XCTestCase {
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testExpirationDate() {
+        let top = TOPCoffee(dateOfManufacture: Date(year: 2019, month: .january, day: 21)!)
+        XCTAssert(top.isExpired(targetDate: Date(year: 2020, month: .december, day: 2)!))
+        XCTAssertFalse(top.isExpired(targetDate: Date(year: 2019, month: .february, day: 12)!))
     }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func testHotDrink() {
+        
+        let cantata = CantataCoffee(dateOfManufacture: Date())
+        XCTAssert(cantata.isHot)
+        
+        let top = TOPCoffee(dateOfManufacture: Date())
+        XCTAssertFalse(top.isHot)
     }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testLowCalorieSoftDrink() {
+        let cola = Cola(dateOfManufacture: Date())
+        XCTAssertFalse(cola.isLowCalorie)
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }
