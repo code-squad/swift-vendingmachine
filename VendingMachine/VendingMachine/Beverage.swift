@@ -30,6 +30,10 @@ class Beverage {
         return dateOfManufacture + expirationPeriod
     }
     
+    func isExpired(targetDate: Date) -> Bool {
+        return expirationDate < targetDate
+    }
+    
 }
 
 extension Beverage: CustomStringConvertible {
