@@ -23,10 +23,66 @@ extension Date {
         case october
         case november
         case december
+        
+        func stackedDays(year: Int) -> Int {
+            var loopCount = 1
+            var stackedDays = 0
+            while loopCount < self.rawValue {
+                stackedDays += Month(rawValue: loopCount)!.rawValue
+                loopCount += 1
+            }
+            return stackedDays
+        }
+        
+        func days(year: Int) -> Int {
+            switch self {
+            case .april, .june, .september, .november:
+                return sec(fromDays: 30)
+            case .february:
+                if year % 4 == 0 {
+                    return sec(fromDays: 29)
+                } else {
+                    return sec(fromDays: 28)
+                }
+            default:
+                return sec(fromDays: 31)
+            }
+        }
     }
     
-    init(y: Int, m: Month, d: Int) {
-        self = Date()
+    static func sec(fromMinutes minutes: Int) -> Int {
+        return minutes * 60
+    }
+    
+    static func sec(fromHours hours: Int) -> Int {
+        let minutes = hours * 60
+        return sec(fromMinutes: minutes)
+    }
+    
+    static func sec(fromDays days: Int) -> Int {
+        let hours = days * 24
+        return sec(fromHours: hours)
+    }
+    
+    static func stackedYearsFrom1970(year: Int) -> Int {
+        
+    }
+    
+    static func isLeapYear(year: Int) -> Bool {
+        return year % 4 == 0
+    }
+    
+    static func days(year: Int) -> Int {
+        return year % 4 == 0 ? 366 : 365
+    }
+    
+    init?(year: Int, month: Month, day: Int) {
+        
+        var secFromYears = 0
+        let secFromMonths = month.stackedDays(year: year)
+        let secFromDays = Date.sec(fromDays: day)
+        
+        
     }
     
 }
