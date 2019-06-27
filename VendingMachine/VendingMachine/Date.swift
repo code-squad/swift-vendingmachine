@@ -46,16 +46,16 @@ extension Date {
         }
     }
     
-    static func sec(fromMinutes minutes: Int) -> Int {
-        return minutes * 60
+    static func sec(fromMinutes minutes: Int) -> TimeInterval {
+        return TimeInterval(minutes) * 60
     }
     
-    static func sec(fromHours hours: Int) -> Int {
+    static func sec(fromHours hours: Int) -> TimeInterval {
         let minutes = hours * 60
         return sec(fromMinutes: minutes)
     }
     
-    static func sec(fromDays days: Int) -> Int {
+    static func sec(fromDays days: Int) -> TimeInterval {
         let hours = days * 24
         return sec(fromHours: hours)
     }
