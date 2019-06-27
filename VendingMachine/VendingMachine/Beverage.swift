@@ -38,6 +38,6 @@ class Beverage {
 
 extension Beverage: CustomStringConvertible {
     var description: String {
-        return "\(brand), \(packageSize)ml, \(price)원, \(name), \(dateOfManufacture)"
+        return "\(type(of: self)) - \(brand), \(packageSize)ml, \(price)원, \(name), \(dateOfManufacture)"
     }
 }
