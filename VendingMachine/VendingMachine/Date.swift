@@ -37,15 +37,11 @@ extension Date {
         func days(year: Int) -> Int {
             switch self {
             case .april, .june, .september, .november:
-                return sec(fromDays: 30)
+                return 30
             case .february:
-                if year % 4 == 0 {
-                    return sec(fromDays: 29)
-                } else {
-                    return sec(fromDays: 28)
-                }
+                return isLeapYear(year) ? 29 : 28
             default:
-                return sec(fromDays: 31)
+                return 31
             }
         }
     }
