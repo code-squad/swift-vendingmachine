@@ -79,12 +79,15 @@ extension Date {
     }
     
     init?(year: Int, month: Month, day: Int) {
+        guard day <= month.days(year: year) else {
+            return nil
+        }
+        let daysFromYear = Date.stackedDaysSince1970(year: year)
+        let daysFromMonth = month.stackedDays(year: year)
         
-        var secFromYears = 0
-        let secFromMonths = month.stackedDays(year: year)
-        let secFromDays = Date.sec(fromDays: day)
+        let allDays = daysFromYear + daysFromMonth + day
         
-        
+        self = Date(timeIntervalSince1970: Date.sec(fromDays: allDays))
     }
     
 }
