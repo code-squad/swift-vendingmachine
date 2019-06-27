@@ -15,13 +15,19 @@ class Beverage {
     private(set) var price: Int
     private(set) var name: String
     private(set) var dateOfManufacture: Date
+    private(set) var expirationPeriod: TimeInterval
     
-    init(brand: String, packageSize: Int, price: Int, name: String, dateOfManufacture: Date) {
+    init(brand: String, packageSize: Int, price: Int, name: String, dateOfManufacture: Date, expirationPeriod: TimeInterval) {
         self.brand = brand
         self.packageSize = packageSize
         self.price = price
         self.name = name
         self.dateOfManufacture = dateOfManufacture
+        self.expirationPeriod = expirationPeriod
+    }
+    
+    var expirationDate: Date {
+        return dateOfManufacture + expirationPeriod
     }
     
 }

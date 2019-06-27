@@ -13,7 +13,11 @@ class SoftDrink: Beverage {
     
     init(brand: String, packageSize: Int, price: Int, name: String, calorie: Int, dateOfManufacture: Date) {
         self.calorie = calorie
-        super.init(brand: brand, packageSize: packageSize, price: price, name: name, dateOfManufacture: dateOfManufacture)
+        super.init(brand: brand, packageSize: packageSize, price: price, name: name, dateOfManufacture: dateOfManufacture, expirationPeriod: Date.timeInterval(fromDays: 365))
+    }
+    
+    var isLowCalorie: Bool {
+        return calorie < 80
     }
 }
 

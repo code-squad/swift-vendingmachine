@@ -13,7 +13,7 @@ class Coffee: Beverage {
     
     init(brand: String, packageSize: Int, price: Int, name: String, isHot: Bool, dateOfManufacture: Date) {
         self.isHot = isHot
-        super.init(brand: brand, packageSize: packageSize, price: price, name: name, dateOfManufacture: dateOfManufacture)
+        super.init(brand: brand, packageSize: packageSize, price: price, name: name, dateOfManufacture: dateOfManufacture, expirationPeriod: Date.timeInterval(fromDays: 90))
     }
 }
 
