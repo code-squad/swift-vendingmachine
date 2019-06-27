@@ -46,18 +46,18 @@ extension Date {
         }
     }
     
-    static func sec(fromMinutes minutes: Int) -> TimeInterval {
+    static func timeInterval(fromMinutes minutes: Int) -> TimeInterval {
         return TimeInterval(minutes) * 60
     }
     
-    static func sec(fromHours hours: Int) -> TimeInterval {
+    static func timeInterval(fromHours hours: Int) -> TimeInterval {
         let minutes = hours * 60
-        return sec(fromMinutes: minutes)
+        return timeInterval(fromMinutes: minutes)
     }
     
-    static func sec(fromDays days: Int) -> TimeInterval {
+    static func timeInterval(fromDays days: Int) -> TimeInterval {
         let hours = days * 24
-        return sec(fromHours: hours)
+        return timeInterval(fromHours: hours)
     }
     
     static func stackedDaysSince1970(year: Int) -> Int {
@@ -87,9 +87,7 @@ extension Date {
         
         let allDays = daysFromYear + daysFromMonth + day - 1
         
-        self = Date(timeIntervalSince1970: Date.sec(fromDays: allDays))
+        self = Date(timeIntervalSince1970: Date.timeInterval(fromDays: allDays))
     }
     
 }
-
-
