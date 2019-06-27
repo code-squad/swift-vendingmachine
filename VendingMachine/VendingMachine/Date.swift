@@ -28,7 +28,7 @@ extension Date {
             var loopCount = 1
             var stackedDays = 0
             while loopCount < self.rawValue {
-                stackedDays += Month(rawValue: loopCount)!.rawValue
+                stackedDays += Month(rawValue: loopCount)!.days(year: year)
                 loopCount += 1
             }
             return stackedDays
@@ -85,7 +85,7 @@ extension Date {
         let daysFromYear = Date.stackedDaysSince1970(year: year)
         let daysFromMonth = month.stackedDays(year: year)
         
-        let allDays = daysFromYear + daysFromMonth + day
+        let allDays = daysFromYear + daysFromMonth + day - 1
         
         self = Date(timeIntervalSince1970: Date.sec(fromDays: allDays))
     }
