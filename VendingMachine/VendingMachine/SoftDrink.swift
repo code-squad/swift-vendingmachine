@@ -9,7 +9,7 @@
 import Foundation
 
 class SoftDrink: Beverage {
-    private(set) var calorie: Int
+    private var calorie: Int
     
     init(brand: String, packageSize: Int, price: Int, name: String, calorie: Int, dateOfManufacture: Date) {
         self.calorie = calorie
