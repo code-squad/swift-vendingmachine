@@ -9,10 +9,10 @@
 import Foundation
 
 let beverages = [
-    StrawberryMilk(milkFactoryIdentifier: "어느목장1", dateOfManufacture: Date(year: 2019, month: .june, day: 26)!),
-    Cola(dateOfManufacture: Date(year: 2019, month: .june, day: 15)!),
-    LemonlimeDrink(dateOfManufacture: Date(year: 2018, month: .february, day: 5)!),
-    TOPCoffee(dateOfManufacture: Date(year: 2019, month: .january, day: 21)!)
+    StrawberryMilk(milkFactoryIdentifier: "어느목장1", dateOfManufacture: Date("20190626")!),
+    Cola(dateOfManufacture: Date("20190615")!),
+    LemonlimeDrink(dateOfManufacture: Date("20180205")!),
+    TOPCoffee(dateOfManufacture: Date("20190121")!)
 ]
 
 for beverage in beverages {

@@ -11,9 +11,9 @@ import XCTest
 class BeverageUnitTest: XCTestCase {
 
     func testExpirationDate() {
-        let top = TOPCoffee(dateOfManufacture: Date(year: 2019, month: .january, day: 21)!)
-        XCTAssert(top.isExpired(targetDate: Date(year: 2020, month: .december, day: 2)!))
-        XCTAssertFalse(top.isExpired(targetDate: Date(year: 2019, month: .february, day: 12)!))
+        let top = TOPCoffee(dateOfManufacture: Date("20190121")!)
+        XCTAssert(top.isExpired(targetDate:  Date("20201202")!))
+        XCTAssertFalse(top.isExpired(targetDate: Date("20190212")!))
     }
     
     func testHotDrink() {
