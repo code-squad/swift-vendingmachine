@@ -10,6 +10,16 @@ import Foundation
 
 extension Date {
     
+    /// "yyyyMMdd" 형태의 문자열로부터 날짜를 생성합니다.
+    init?(_ string: String) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+        guard let date = formatter.date(from: string) else {
+            return nil
+        }
+        self = date
+    }
+    
     enum Month: Int {
         case january = 1
         case february
