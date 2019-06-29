@@ -10,12 +10,12 @@ import Foundation
 
 class Beverage {
     
-    private(set) var brand: String
-    private(set) var packageSize: Int
-    private(set) var price: Int
-    private(set) var name: String
-    private(set) var dateOfManufacture: Date
-    private(set) var expirationPeriod: TimeInterval
+    private var brand: String
+    private var packageSize: Int
+    private var price: Int
+    private var name: String
+    private var dateOfManufacture: Date
+    private var expirationPeriod: TimeInterval
     
     init(brand: String, packageSize: Int, price: Int, name: String, dateOfManufacture: Date, expirationPeriod: TimeInterval) {
         self.brand = brand
