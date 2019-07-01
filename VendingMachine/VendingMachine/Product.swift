@@ -16,15 +16,16 @@ class Product: CustomStringConvertible {
     private var date: Date
     
     var description: String {
-        return ("\(brand), \(capacity), \(price), \(name), \(date)")
+        return ("\(brand), \(capacity)ml, \(price)원, \(name), "+DateUtil.convertText(of: date))
     }
     
-    init(brand: String, capacity: Int, price: Int, name: String, date: Date) {
+    init(brand: String, capacity: Int, price: Int, name: String, stringDate: String) {
         self.brand = brand
         self.capacity = capacity
         self.price = price
         self.name = name
-        self.date = date
+        self.date = DateUtil.convertDate(of: stringDate)
     }
     
 }
+
