@@ -12,7 +12,7 @@ class Beverage {
     
     private var brand: String
     private var packageSize: Int
-    private var price: Int
+    private(set) var price: Int
     private var name: String
     private var dateOfManufacture: Date
     private var expirationPeriod: TimeInterval

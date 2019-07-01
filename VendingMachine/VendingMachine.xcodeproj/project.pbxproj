@@ -13,6 +13,7 @@
 		F202765F22C4C1A300BB3D92 /* SoftDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE50D522C1C9140027E3B3 /* SoftDrink.swift */; };
 		F202766022C4C1A300BB3D92 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE50D722C1CA180027E3B3 /* Coffee.swift */; };
 		F202766122C4C1C400BB3D92 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BF515222C2F7060085E167 /* Date.swift */; };
+		F234842B22C9DDEF00CEB903 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F234842A22C9DDEF00CEB903 /* VendingMachine.swift */; };
 		F2BF515322C2F7060085E167 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BF515222C2F7060085E167 /* Date.swift */; };
 		F2CE50CE22C1C4A70027E3B3 /* BeverageUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE50CD22C1C4A70027E3B3 /* BeverageUnitTest.swift */; };
 		F2CE50D422C1C4C20027E3B3 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE50D322C1C4C20027E3B3 /* Milk.swift */; };
@@ -36,6 +37,7 @@
 /* Begin PBXFileReference section */
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		F234842A22C9DDEF00CEB903 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 		F2BF515222C2F7060085E167 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		F2CE50CB22C1C4A70027E3B3 /* BeverageUnitTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeverageUnitTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2CE50CD22C1C4A70027E3B3 /* BeverageUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageUnitTest.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 			children = (
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
 				F2BF515222C2F7060085E167 /* Date.swift */,
+				F234842A22C9DDEF00CEB903 /* VendingMachine.swift */,
 				F2EBA58422C0CC570058FE55 /* Beverage.swift */,
 				F2CE50D322C1C4C20027E3B3 /* Milk.swift */,
 				F2CE50D522C1C9140027E3B3 /* SoftDrink.swift */,
@@ -200,6 +203,7 @@
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
 				F2CE50D622C1C9140027E3B3 /* SoftDrink.swift in Sources */,
 				F2CE50D822C1CA180027E3B3 /* Coffee.swift in Sources */,
+				F234842B22C9DDEF00CEB903 /* VendingMachine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
