@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		1562F29D22C9D2D40052AC35 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1562F29C22C9D2D40052AC35 /* Product.swift */; };
 		1562F29F22C9E5330052AC35 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1562F29E22C9E5330052AC35 /* DateUtil.swift */; };
+		1562F2A122C9F3660052AC35 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1562F2A022C9F3660052AC35 /* Milk.swift */; };
+		1562F2A322C9F3890052AC35 /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1562F2A222C9F3890052AC35 /* Soda.swift */; };
+		1562F2A522C9F3990052AC35 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1562F2A422C9F3990052AC35 /* Coffee.swift */; };
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +30,9 @@
 /* Begin PBXFileReference section */
 		1562F29C22C9D2D40052AC35 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		1562F29E22C9E5330052AC35 /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
+		1562F2A022C9F3660052AC35 /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
+		1562F2A222C9F3890052AC35 /* Soda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soda.swift; sourceTree = "<group>"; };
+		1562F2A422C9F3990052AC35 /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -64,6 +70,9 @@
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
 				1562F29C22C9D2D40052AC35 /* Product.swift */,
 				1562F29E22C9E5330052AC35 /* DateUtil.swift */,
+				1562F2A022C9F3660052AC35 /* Milk.swift */,
+				1562F2A222C9F3890052AC35 /* Soda.swift */,
+				1562F2A422C9F3990052AC35 /* Coffee.swift */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";
@@ -128,7 +137,10 @@
 			files = (
 				1562F29F22C9E5330052AC35 /* DateUtil.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
+				1562F2A122C9F3660052AC35 /* Milk.swift in Sources */,
 				1562F29D22C9D2D40052AC35 /* Product.swift in Sources */,
+				1562F2A322C9F3890052AC35 /* Soda.swift in Sources */,
+				1562F2A522C9F3990052AC35 /* Coffee.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

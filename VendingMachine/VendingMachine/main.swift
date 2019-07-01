@@ -9,8 +9,12 @@
 import Foundation
 
 func main() {
-    let milk = Product(brand: "서울우유", capacity: 200, price: 1000, name: "날마나딸기우유", stringDate: "20190630")
-    print(milk.description)
+    let strawberryMilk = Milk(capacity: 200, price: 1000, name: "날마다딸기우유", stringDate: "20190701")
+    let dietCoke = Soda(capacity: 350, price: 2000, name: "다이어트콜라", stringDate: "20190701")
+    let top = Coffee(capacity: 400, price: 3000, name: "TOP아메리카노", stringDate: "20190701")
+    print(strawberryMilk.description)
+    print(dietCoke.description)
+    print(top.description)
 }
 
 main()
