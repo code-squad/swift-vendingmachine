@@ -1,11 +1,3 @@
-//
-//  VendingMachine.swift
-//  VendingMachine
-//
-//  Created by 김성현 on 01/07/2019.
-//  Copyright © 2019 JK. All rights reserved.
-//
-
 import Foundation
 
 enum VendingMachineError: Error {
