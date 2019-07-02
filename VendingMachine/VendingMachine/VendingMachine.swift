@@ -16,8 +16,23 @@ enum VendingMachineError: Error {
 
 class VendingMachine {
     
-    private var inventory = [String: [Beverage]]()
-    private var coinsDeposited = 0
+    private(set) var inventory = [String: [Beverage]]()
+    private(set) var coinsDeposited = 0
+    private(set) var purchasedItems = [Beverage]()
+    
+    var availableItems: [String] {
+        var items = [String]()
+        
+        inventory.forEach { (name: String, beverages: [Beverage]) in
+            guard let beverage = beverages.first else {
+                return
+            }
+            if beverage.price <= coinsDeposited {
+                items.append(beverage.name)
+            }
+        }
+        return items
+    }
     
     func insertCoins(_ coins: Int) {
         coinsDeposited += coins
@@ -46,6 +61,10 @@ class VendingMachine {
         }
         
         coinsDeposited -= beverages[0].price
-        return inventory[name]!.removeFirst()
+        let item = inventory[name]!.removeFirst()
+        purchasedItems.append(item)
+        return item
     }
+    
+    
 }
