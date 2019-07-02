@@ -8,6 +8,16 @@
 
 import Foundation
 
-enum Units{
+enum Units: String, CustomStringConvertible{
+    case won
+    case millilter
     
+    var description: String {
+        switch self {
+        case .won:
+            return "원"
+        case .millilter:
+            return "ml"
+        }
+    }
 }

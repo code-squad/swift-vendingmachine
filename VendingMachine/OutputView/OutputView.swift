@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+class OutputView {
+    
+    static func printBeverage(_ drink: Drinkable){
+        let output = { (drink) in
+            print(drink)
+        }
+        drink.display(printFormat: output)
+    }
+}

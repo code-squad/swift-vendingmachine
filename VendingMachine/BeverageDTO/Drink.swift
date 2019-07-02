@@ -29,7 +29,7 @@ extension Drink: Drinkable {
         printFormat(self.description)
     }
     
-    var description: String {
+    fileprivate var description: String {
         var result = [String]()
         result.append(self.brand)
         result.append(String.init(format: "%d\(Units.millilter)", self.quantity))
