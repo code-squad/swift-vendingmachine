@@ -34,6 +34,19 @@ class VendingMachine {
         return items
     }
     
+    var expiredBeverages: [Beverage] {
+        var expired = [Beverage]()
+        inventory.forEach { (_, beverages: [Beverage]) in
+            beverages.forEach { (beverage) in
+                if beverage.isExpired(targetDate: Date()) {
+                    expired.append(beverage)
+                }
+            }
+        }
+        return expired
+    }
+    
+    
     func insertCoins(_ coins: Int) {
         coinsDeposited += coins
     }
