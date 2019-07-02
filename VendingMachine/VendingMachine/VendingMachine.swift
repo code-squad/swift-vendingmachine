@@ -79,5 +79,17 @@ class VendingMachine {
         return item
     }
     
+    var hotBeverages: [String] {
+        var hotBeverages = [String]()
+        inventory.forEach { (name: String, beverages: [Beverage]) in
+            guard let beverage = beverages.first else {
+                return
+            }
+            if beverage.isHot {
+                hotBeverages.append(name)
+            }
+        }
+        return hotBeverages
+    }
     
 }
