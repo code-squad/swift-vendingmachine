@@ -1,5 +1,5 @@
 //
-//  Fanta.swift
+//  CarbonatedDrinkDTO.swift
 //  VendingMachine
 //
 //  Created by hw on 02/07/2019.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-class Fanta : CarbonatedDrinkDTO{
+class CarbonatedDrinkDTO : Drink {
     
 }
