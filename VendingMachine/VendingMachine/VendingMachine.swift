@@ -59,6 +59,10 @@ class VendingMachine {
         }
     }
     
+    func addItems(_ items: [Beverage]) {
+        items.forEach { addItem($0) }
+    }
+    
     func vend(itemNamed name: String) throws -> Beverage {
         
         guard let beverages = inventory[name] else {
