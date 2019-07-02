@@ -1,5 +1,5 @@
 //
-//  BananaMilk.swift
+//  MilkDTO.swift
 //  VendingMachine
 //
 //  Created by hw on 02/07/2019.
@@ -8,6 +8,7 @@
 
 import Foundation
 
-class BananaMilk: MilkDTO{
-    
+///level 2
+class MilkDTO : Drink{
+   
 }
