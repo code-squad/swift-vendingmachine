@@ -13,11 +13,7 @@ class Coffee: Beverage {
     
     init(brand: String, packageSize: Int, price: Int, name: String, beverageTemperature: Int, dateOfManufacture: Date) {
         self.beverageTemperature = beverageTemperature
-        super.init(brand: brand, packageSize: packageSize, price: price, name: name, dateOfManufacture: dateOfManufacture, expirationPeriod: Date.timeInterval(fromDays: 90))
-    }
-    
-    var isHot: Bool {
-        return beverageTemperature > 50
+        super.init(brand: brand, packageSize: packageSize, price: price, name: name, dateOfManufacture: dateOfManufacture, expirationPeriod: Date.timeInterval(fromDays: 90), beverageTemperature: beverageTemperature)
     }
 }
 
