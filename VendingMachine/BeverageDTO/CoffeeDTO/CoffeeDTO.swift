@@ -1,5 +1,5 @@
 //
-//  TOP.swift
+//  CoffeeDTO.swift
 //  VendingMachine
 //
 //  Created by hw on 02/07/2019.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-class TOP: CoffeeDTO {
-    
+class CoffeeDTO : Drink {
+
 }

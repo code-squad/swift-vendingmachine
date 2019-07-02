@@ -8,7 +8,6 @@
 
 import Foundation
 
-
-class CantataDTO : CoffeeDTO{
+class Cantata : CoffeeDTO{
     
 }
