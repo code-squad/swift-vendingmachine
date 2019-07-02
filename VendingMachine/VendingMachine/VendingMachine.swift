@@ -16,8 +16,8 @@ enum VendingMachineError: Error {
 
 class VendingMachine {
     
-    var inventory = [String: [Beverage]]()
-    var coinsDeposited = 0
+    private var inventory = [String: [Beverage]]()
+    private var coinsDeposited = 0
     
     func insertCoins(_ coins: Int) {
         coinsDeposited += coins
@@ -31,9 +31,21 @@ class VendingMachine {
         }
     }
     
-    func vend(itemNamed name: String) throws {
+    func vend(itemNamed name: String) throws -> Beverage {
         
+        guard let beverages = inventory[name] else {
+            throw VendingMachineError.invalidSelection
+        }
         
+        guard beverages.count > 0 else {
+            throw VendingMachineError.outOfStock
+        }
         
+        guard beverages[0].price <= coinsDeposited else {
+            throw VendingMachineError.insufficientFunds(coinsNeeded: beverages[0].price - coinsDeposited)
+        }
+        
+        coinsDeposited -= beverages[0].price
+        return inventory[name]!.removeFirst()
     }
 }
