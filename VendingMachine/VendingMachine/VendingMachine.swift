@@ -8,8 +8,10 @@ enum VendingMachineError: Error {
 
 class VendingMachine {
     
+    typealias Coin = Int
+    
     private(set) var inventory = [String: [Beverage]]()
-    private(set) var coinsDeposited = 0
+    private(set) var coinsDeposited: Coin = 0
     private(set) var purchasedItems = [Beverage]()
     
     var availableItems: [String] {
@@ -39,7 +41,7 @@ class VendingMachine {
     }
     
     
-    func insertCoins(_ coins: Int) {
+    func insertCoins(_ coins: Coin) {
         coinsDeposited += coins
     }
     
