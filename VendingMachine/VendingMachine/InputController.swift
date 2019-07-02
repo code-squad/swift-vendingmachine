@@ -40,4 +40,15 @@ class InputController {
         machine.insertCoins(coins)
     }
     
+    func vend() {
+        
+    }
+    
+    func itemsWithPrice(inventory: [String: [Beverage]]) -> [String] {
+        var items = [String]()
+        inventory.forEach { (name, beverages) in
+            items.append("\(name) \(beverages.first)(\(beverages.count)개)")
+        }
+    }
+    
 }
