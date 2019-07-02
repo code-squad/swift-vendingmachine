@@ -23,6 +23,14 @@ class VendingMachine {
         coinsDeposited += coins
     }
     
+    func addItem(_ item: Beverage) {
+        if inventory[item.name] == nil {
+            inventory[item.name] = [item]
+        } else {
+            inventory[item.name]!.append(item)
+        }
+    }
+    
     func vend(itemNamed name: String) throws {
         
         
