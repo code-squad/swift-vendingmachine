@@ -6,9 +6,9 @@ enum VendingMachineError: Error {
     case insufficientFunds(coinsNeeded: Int)
 }
 
+typealias Coin = Int
+
 class VendingMachine {
-    
-    typealias Coin = Int
     
     private(set) var inventory = [String: [Beverage]]()
     private(set) var coinsDeposited: Coin = 0
