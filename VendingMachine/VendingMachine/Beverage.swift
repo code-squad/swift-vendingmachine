@@ -16,14 +16,16 @@ class Beverage {
     private(set) var name: String
     private var dateOfManufacture: Date
     private var expirationPeriod: TimeInterval
+    private var beverageTemperature: Int
     
-    init(brand: String, packageSize: Int, price: Int, name: String, dateOfManufacture: Date, expirationPeriod: TimeInterval) {
+    init(brand: String, packageSize: Int, price: Int, name: String, dateOfManufacture: Date, expirationPeriod: TimeInterval, beverageTemperature: Int) {
         self.brand = brand
         self.packageSize = packageSize
         self.price = price
         self.name = name
         self.dateOfManufacture = dateOfManufacture
         self.expirationPeriod = expirationPeriod
+        self.beverageTemperature = beverageTemperature
     }
     
     var expirationDate: Date {
@@ -34,6 +36,9 @@ class Beverage {
         return expirationDate < targetDate
     }
     
+    var isHot: Bool {
+        return beverageTemperature > 50
+    }
 }
 
 extension Beverage: CustomStringConvertible {
