@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Drink {
+class Drink: Drinkable{
     private let brand: String
     private let quantity: Int
     private let price: Int
@@ -22,14 +22,13 @@ class Drink {
         self.drinkName = name
         self.manufactureDate = Date.init()
     }
+    func display(printFormat: (Drinkable) -> Void) {
+        printFormat(self)
+    }
 }
 
-extension Drink: Drinkable {
-    func display(printFormat: (String) -> Void) {
-        printFormat(self.description)
-    }
-    
-    fileprivate var description: String {
+extension Drink: CustomStringConvertible {
+    var description: String {
         var result = [String]()
         result.append(self.brand)
         result.append(String.init(format: "%d\(Units.millilter)", self.quantity))
