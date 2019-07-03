@@ -1,13 +1,21 @@
 import Foundation
 
 func main() {
+    var controller = VendingMachineController()
     
-    var controller = InputController()
-    var outputView = OutputView()
-    var machine = VendingMachine()
+    var beverages = [
+        StrawberryMilk(milkFactoryIdentifier: "어느 목장1", dateOfManufacture: Date()),
+        Cola(dateOfManufacture: Date()),
+        LemonlimeDrink(dateOfManufacture: Date()),
+        TOPCoffee(dateOfManufacture: Date()),
+        CantataCoffee(dateOfManufacture: Date())
+    ]
     
-    outputView.showCoinsDeposited(machine.coinsDeposited)
-    outputView.show("다음과 같은 음료가 있습니다.")
-    outputView.showInventory(machine.inventory)
+    controller.machine.addItems(beverages)
     
+    while true {
+        controller.selectFunction()
+    }
 }
+
+main()
