@@ -10,19 +10,16 @@ typealias Coin = Int
 
 class VendingMachine {
     
-    private(set) var inventory = [String: [Beverage]]()
+    private(set) var inventory = [String: Item]()
     private(set) var coinsDeposited: Coin = 0
     private(set) var purchasedItems = [Beverage]()
     
     var availableItems: [String] {
         var items = [String]()
         
-        inventory.forEach { (name: String, beverages: [Beverage]) in
-            guard let beverage = beverages.first else {
-                return
-            }
-            if beverage.price <= coinsDeposited {
-                items.append(beverage.name)
+        inventory.forEach { (name: String, item: Item) in
+            if item.price <= coinsDeposited {
+                items.append(name)
             }
         }
         return items
