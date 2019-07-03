@@ -2,8 +2,15 @@ import Foundation
 
 class InputView: TextView {
     
+    struct Message {
+        static let notNumber = "숫자가 아님."
+        static let number = "숫자"
+        static let invalidSelection = "유효하지 않은 선택."
+        static let enterAgain = "다시 입력."
+    }
+    
     func ask(_ target: String) -> String {
-        show("\(target): ")
+        show("\(target): ", terminator: "")
         return readLine() ?? ""
     }
     
@@ -11,7 +18,7 @@ class InputView: TextView {
         while true {
             let input = ask(target)
             guard let number = Int(input) else {
-                show("숫자가 아님, 다시 입력.")
+                show("\(Message.notNumber) \(Message.enterAgain)")
                 continue
             }
             return number
@@ -29,10 +36,10 @@ class InputView: TextView {
         showOptions(showForm)
         
         while true {
-            let selection = askNumber("숫자")
+            let selection = askNumber(Message.number)
             
             guard (1...options.count).contains(selection) else {
-                show("제공되지 않는 선택지임.")
+                show("\(Message.invalidSelection) \(Message.enterAgain)")
                 continue
             }
             return options[selection - 1]

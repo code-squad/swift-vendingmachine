@@ -2,24 +2,46 @@ import Foundation
 
 class OutputView: TextView {
     
+    struct Message {
+        static func vended(_ itemName: String) -> String {
+            return "\(itemName)을(를) 구매했습니다."
+        }
+        
+        static func reduceCoins(_ coins: Coin) -> String {
+            return "\(coins)코인을 차감합니다."
+        }
+        
+        static func coinsDeposited(_ coins: Coin) -> String {
+            return "현재 \(coins)코인이 넣어져 있습니다."
+        }
+        
+        static func nameWithCount(name: String, count: Int) -> String {
+            return "\(name)(\(count)개)"
+        }
+        
+        static func error(_ error: Error) -> String {
+            return "오류: \(error)"
+        }
+    }
+    
     func showVendingResult(itemVended: Beverage) {
-        show("\(itemVended.name)을(를) 구매했습니다. \(itemVended.price)코인을 차감합니다.")
+        show("\(Message.vended(itemVended.name)) \(Message.reduceCoins(itemVended.price))")
     }
     
     func showCoinsDeposited(_ coins: Coin) {
-        show("현재 \(coins)코인이 넣어져 있습니다.")
+        show(Message.coinsDeposited(coins))
     }
     
     func showInventory(_ inventory: [String: Item]) {
         var inventoryInfo = [String]()
         inventory.forEach { (name, item) in
-            inventoryInfo.append("\(name)(\(item.count)개)")
+            inventoryInfo.append(Message.nameWithCount(name: name, count: item.count))
         }
         show(inventoryInfo.joined(separator: " "))
     }
     
     func showError(_ error: Error) {
-        show("\(error)")
+        show(Message.error(error))
     }
     
 }
