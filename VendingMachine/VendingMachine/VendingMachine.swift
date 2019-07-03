@@ -42,11 +42,11 @@ class VendingMachine {
         coinsDeposited += coins
     }
     
-    func addItem(_ item: Beverage) {
-        if inventory[item.name] == nil {
-            inventory[item.name] = [item]
+    func addItem(_ beverage: Beverage) {
+        if inventory[beverage.name] == nil {
+            inventory[beverage.name] = Item(price: beverage.price, beverage: beverage)
         } else {
-            inventory[item.name]!.append(item)
+            inventory[beverage.name]!.add(beverage)
         }
     }
     
