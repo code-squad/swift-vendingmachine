@@ -23,5 +23,7 @@ struct Item {
         return beverages.count
     }
     
-    
+    func removeFirst() -> Beverage {
+        return beverages.removeFirst()
+    }
 }
