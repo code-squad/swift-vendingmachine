@@ -10,10 +10,10 @@ class OutputView: TextView {
         show("현재 \(coins)코인이 넣어져 있습니다.")
     }
     
-    func showInventory(_ inventory: [String: [Beverage]]) {
+    func showInventory(_ inventory: [String: Item]) {
         var inventoryInfo = [String]()
-        inventory.forEach { (name, beverages) in
-            inventoryInfo.append("\(name)(\(beverages.count)개)")
+        inventory.forEach { (name, item) in
+            inventoryInfo.append("\(name)(\(item.count)개)")
         }
         show(inventoryInfo.joined(separator: " "))
     }
