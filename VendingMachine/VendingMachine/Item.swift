@@ -23,7 +23,7 @@ struct Item {
         return beverages.count
     }
     
-    func removeFirst() -> Beverage {
+    mutating func removeFirst() -> Beverage {
         return beverages.removeFirst()
     }
 }
