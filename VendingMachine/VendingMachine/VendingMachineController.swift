@@ -5,6 +5,8 @@ class VendingMachineController {
     var inputView = InputView()
     var outputView = OutputView()
     
+    var formatter = OutputFormatter()
+    
     var machine = VendingMachine()
     
     func insertCoins() {
@@ -14,6 +16,21 @@ class VendingMachineController {
     }
     
     func vend() {
+        outputView.showCoinsDeposited(machine.coinsDeposited)
+        inputView.show("다음과 같은 음료가 있습니다.")
+        
+        let options = machine.inventory.keys.map { $0 }
+        let showForm = formatter.itemsWithPrice(inventory: machine.inventory)
+        
+        let itemName = inputView.askForChoice(options: options, showingBy: showForm)
+        
+        do {
+            let itemVended = try machine.vend(itemNamed: itemName)
+            outputView.showVendingResult(itemVended: itemVended)
+        } catch {
+            outputView.showError(error)
+        }
+        
         
     }
 }
