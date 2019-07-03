@@ -23,4 +23,21 @@ class InputView: TextView {
             show("\(index + 1). \(option)")
         }
     }
+    
+    func askForChoice<Option>(options: [Option], showingBy showForm: (Option) -> String) -> Option {
+        
+        let outputOptions = options.map { showForm($0) }
+        
+        showOptions(outputOptions)
+        
+        while true {
+            let selection = askNumber("숫자")
+            
+            guard (1...options.count).contains(selection) else {
+                show("제공되지 않는 선택지임.")
+                continue
+            }
+            return options[selection - 1]
+        }
+    }
 }
