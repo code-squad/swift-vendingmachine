@@ -9,6 +9,6 @@
 import Foundation
 
 protocol Drinkable{
-    func display (printFormat : (_ info: String) -> Void)
+    func display (printFormat : (_ info: Drinkable) -> Void)
 }
 
