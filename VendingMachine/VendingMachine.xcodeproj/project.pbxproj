@@ -101,11 +101,11 @@
 				F2BF515222C2F7060085E167 /* Date.swift */,
 				F234842A22C9DDEF00CEB903 /* VendingMachine.swift */,
 				F2EBA58422C0CC570058FE55 /* Beverage.swift */,
+				F272B38922CC7562002823B3 /* Item.swift */,
 				F2CE50D322C1C4C20027E3B3 /* Milk.swift */,
 				F2CE50D522C1C9140027E3B3 /* SoftDrink.swift */,
 				F2CE50D722C1CA180027E3B3 /* Coffee.swift */,
 				F21975A722CB38A900252984 /* InputController.swift */,
-				F272B38922CC7562002823B3 /* Item.swift */,
 				F21975A922CB38B800252984 /* View */,
 			);
 			path = VendingMachine;
