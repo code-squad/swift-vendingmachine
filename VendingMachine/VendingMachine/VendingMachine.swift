@@ -27,8 +27,8 @@ class VendingMachine {
     
     var expiredBeverages: [Beverage] {
         var expired = [Beverage]()
-        inventory.forEach { (_, beverages: [Beverage]) in
-            beverages.forEach { (beverage) in
+        inventory.forEach { (_, item: Item) in
+            item.beverages.forEach { (beverage) in
                 if beverage.isExpired(targetDate: Date()) {
                     expired.append(beverage)
                 }
