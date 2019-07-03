@@ -4,7 +4,7 @@ struct Item {
     
     private(set) var price: Coin
     
-    private var beverages = [Beverage]()
+    private(set) var beverages = [Beverage]()
     
     init(price: Coin) {
         self.price = price
@@ -12,6 +12,10 @@ struct Item {
     
     mutating func add(_ beverage: Beverage) {
         beverages.append(beverage)
+    }
+    
+    var count: Int {
+        return beverages.count
     }
     
     
