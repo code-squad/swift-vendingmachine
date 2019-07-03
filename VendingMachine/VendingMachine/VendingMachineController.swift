@@ -9,6 +9,20 @@ class VendingMachineController {
     
     var machine = VendingMachine()
     
+    func selectFunction() {
+        outputView.showCoinsDeposited(machine.coinsDeposited)
+        outputView.showInventory(machine.inventory)
+        
+        let functions = [
+            "코인 추가": insertCoins,
+            "음료 구매": vend
+        ]
+        
+        let selectedFuntion = inputView.askForChoice(options: functions.values.map { $0 }, showingBy: functions.keys.map { $0 })
+        
+        selectedFuntion()
+    }
+    
     func insertCoins() {
         inputView.show("넣을 코인의 수량을 입력하세요.")
         let coins = inputView.askNumber("수량")
