@@ -10,6 +10,11 @@ struct Item {
         self.price = price
     }
     
+    init(price: Coin, beverage: Beverage) {
+        self.price = price
+        beverages = [beverage]
+    }
+    
     mutating func add(_ beverage: Beverage) {
         beverages.append(beverage)
     }
