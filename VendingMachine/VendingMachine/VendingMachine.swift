@@ -56,22 +56,22 @@ class VendingMachine {
     
     func vend(itemNamed name: String) throws -> Beverage {
         
-        guard let beverages = inventory[name] else {
+        guard let item = inventory[name] else {
             throw VendingMachineError.invalidSelection
         }
         
-        guard beverages.count > 0 else {
+        guard item.count > 0 else {
             throw VendingMachineError.outOfStock
         }
         
-        guard beverages[0].price <= coinsDeposited else {
-            throw VendingMachineError.insufficientFunds(coinsNeeded: beverages[0].price - coinsDeposited)
+        guard item.price <= coinsDeposited else {
+            throw VendingMachineError.insufficientFunds(coinsNeeded: item.price - coinsDeposited)
         }
         
-        coinsDeposited -= beverages[0].price
-        let item = inventory[name]!.removeFirst()
-        purchasedItems.append(item)
-        return item
+        coinsDeposited -= item.price
+        let itemVended = inventory[name]!.removeFirst()
+        purchasedItems.append(itemVended)
+        return itemVended
     }
     
     var hotBeverages: [String] {
