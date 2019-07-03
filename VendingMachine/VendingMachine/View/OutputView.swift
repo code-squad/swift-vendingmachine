@@ -18,4 +18,8 @@ class OutputView: TextView {
         show(inventoryInfo.joined(separator: " "))
     }
     
+    func showError(_ error: Error) {
+        show("\(error)")
+    }
+    
 }
