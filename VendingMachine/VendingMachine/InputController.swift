@@ -11,9 +11,11 @@ class InputController {
     
     var machine = VendingMachine()
     
-    func askForChoice(options: [String], question: String) -> Result<String, InputError> {
-        inputView.show(question)
-        inputView.showOptions(options)
+    func askForChoice<Option>(options: [Option], showingBy showForm: (Option) -> String) -> Result<Option, InputError> {
+        
+        let outputOptions = options.map { showForm($0) }
+        
+        inputView.showOptions(outputOptions)
         
         let selection = askNumber("숫자")
         
@@ -44,11 +46,12 @@ class InputController {
         
     }
     
-    func itemsWithPrice(inventory: [String: [Beverage]]) -> [String] {
+    func itemsWithPrice(inventory: [String: Item]) -> [String] {
         var items = [String]()
-        inventory.forEach { (name, beverages) in
-            items.append("\(name) \(beverages.first)(\(beverages.count)개)")
+        inventory.forEach { (name, item) in
+            items.append("\(name) \(item.price)코인 (\(item.count)개)")
         }
+        return items
     }
     
 }
