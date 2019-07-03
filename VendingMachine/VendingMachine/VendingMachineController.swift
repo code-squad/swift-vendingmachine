@@ -2,6 +2,14 @@ import Foundation
 
 class VendingMachineController {
     
+    struct Message {
+        static let insertCoins = "코인 추가"
+        static let vendItem = "음료 구매"
+        static let enterCoinsToDeposit = "넣을 코인의 수량을 입력하세요."
+        static let amount = "수량"
+        static let followingBeveragesAvaliable = "다음과 같은 음료가 있습니다."
+    }
+    
     var inputView = InputView()
     var outputView = OutputView()
     
@@ -14,24 +22,25 @@ class VendingMachineController {
         outputView.showInventory(machine.inventory)
         
         let functions = [
-            "코인 추가": insertCoins,
-            "음료 구매": vend
+            Message.insertCoins: insertCoins,
+            Message.vendItem: vend
         ]
         
         let selectedFuntion = inputView.askForChoice(options: functions.values.map { $0 }, showingBy: functions.keys.map { $0 })
-        
+        outputView.nextLine()
         selectedFuntion()
+        outputView.nextLine()
     }
     
     func insertCoins() {
-        inputView.show("넣을 코인의 수량을 입력하세요.")
-        let coins = inputView.askNumber("수량")
+        inputView.show(Message.enterCoinsToDeposit)
+        let coins = inputView.askNumber(Message.amount)
         machine.insertCoins(coins)
     }
     
     func vend() {
         outputView.showCoinsDeposited(machine.coinsDeposited)
-        inputView.show("다음과 같은 음료가 있습니다.")
+        inputView.show(Message.followingBeveragesAvaliable)
         
         let options = machine.inventory.keys.map { $0 }
         let showForm = formatter.itemsWithPrice(inventory: machine.inventory)
