@@ -24,11 +24,9 @@ class InputView: TextView {
         }
     }
     
-    func askForChoice<Option>(options: [Option], showingBy showForm: (Option) -> String) -> Option {
+    func askForChoice<Option>(options: [Option], showingBy showForm: [String]) -> Option {
         
-        let outputOptions = options.map { showForm($0) }
-        
-        showOptions(outputOptions)
+        showOptions(showForm)
         
         while true {
             let selection = askNumber("숫자")
