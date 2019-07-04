@@ -32,7 +32,7 @@ extension Drink: CustomStringConvertible {
         var result = [String]()
         result.append(self.brand)
         result.append(String.init(format: "%d\(Units.millilter)", self.quantity))
-        result.append(String.init(format: "%d\(Units.won)", self.price))
+        result.append(String.init(format: "%d\(Currency.won)", self.price))
         result.append(self.drinkName)
         result.append(CustomDateFormatter.convertDateToString(self.manufactureDate))
         return result.joined(separator: ", ")
