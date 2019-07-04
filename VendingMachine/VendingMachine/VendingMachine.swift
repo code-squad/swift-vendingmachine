@@ -7,7 +7,6 @@ enum VendingMachineError: Error {
 }
 
 typealias Coin = Int
-typealias Inventory = [String: Item]
 
 class VendingMachine {
     
@@ -17,18 +16,6 @@ class VendingMachine {
     
     func insertCoins(_ coins: Coin) {
         coinsDeposited += coins
-    }
-    
-    func addItem(_ beverage: Beverage) {
-        if inventory[beverage.name] == nil {
-            inventory[beverage.name] = Item(price: beverage.price, beverage: beverage)
-        } else {
-            inventory[beverage.name]!.add(beverage)
-        }
-    }
-    
-    func addItems(_ items: [Beverage]) {
-        items.forEach { addItem($0) }
     }
     
     func vend(itemNamed name: String) throws -> Beverage {
@@ -50,10 +37,6 @@ class VendingMachine {
         purchasedItems.append(itemVended)
         return itemVended
     }
-}
-
-/// inventory 관련 동작
-extension VendingMachine {
     
     var availableItems: [String] {
         return inventory.filter { (_, item) in
@@ -68,17 +51,12 @@ extension VendingMachine {
     var expiredBeverages: [Beverage] {
         return inventory.expiredBeverages
     }
-}
-
-extension Inventory {
-    var hotBeverages: [String] {
-        return self.filter { (_, item) in
-            item.isHot
-            }.keys.map { $0 }
+    
+    func addItem(_ beverage: Beverage) {
+        inventory.addItem(beverage)
     }
     
-    var expiredBeverages: [Beverage] {
-        let allBeverages = self.values.flatMap { $0.beverages }
-        return allBeverages.filter { $0.isExpired(targetDate: Date()) }
+    func addItems(_ beverages: [Beverage]) {
+        inventory.addItems(beverages)
     }
 }
