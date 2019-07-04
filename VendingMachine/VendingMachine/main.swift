@@ -2,16 +2,9 @@ import Foundation
 
 func main() {
     var controller = VendingMachineController()
+    var beverageMaker = BeverageMaker()
     
-    var beverages = [
-        StrawberryMilk(milkFactoryIdentifier: "어느 목장1", dateOfManufacture: Date()),
-        Cola(dateOfManufacture: Date()),
-        LemonlimeDrink(dateOfManufacture: Date()),
-        TOPCoffee(dateOfManufacture: Date()),
-        CantataCoffee(dateOfManufacture: Date())
-    ]
-    
-    controller.machine.addItems(beverages)
+    controller.machine.addItems(beverageMaker.makeBeverages(count: 20))
     
     while true {
         controller.selectFunction()

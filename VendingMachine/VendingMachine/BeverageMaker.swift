@@ -46,6 +46,10 @@ class BeverageMaker {
     }
     
     func makeBeverages(count: Int) -> [Beverage] {
-        return Array(repeating: makeBeverage(), count: count)
+        var beverages = [Beverage]()
+        for _ in 1...count {
+            beverages.append(makeBeverage())
+        }
+        return beverages
     }
 }
