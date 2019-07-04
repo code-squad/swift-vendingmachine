@@ -9,15 +9,15 @@
 import Foundation
 
 enum Units: String, CustomStringConvertible{
-    case won
     case millilter
+    case milligram
     
     var description: String {
         switch self {
-        case .won:
-            return "원"
         case .millilter:
             return "ml"
+        case .milligram:
+            return "mg"
         }
     }
 }
