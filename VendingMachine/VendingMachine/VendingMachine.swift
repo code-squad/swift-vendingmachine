@@ -7,10 +7,11 @@ enum VendingMachineError: Error {
 }
 
 typealias Coin = Int
+typealias Inventory = [String: Item]
 
 class VendingMachine {
     
-    private(set) var inventory = [String: Item]()
+    private(set) var inventory = Inventory()
     private(set) var coinsDeposited: Coin = 0
     private(set) var purchasedItems = [Beverage]()
     
@@ -61,13 +62,23 @@ extension VendingMachine {
     }
     
     var hotBeverages: [String] {
-        return inventory.filter { (_, item) in
+        return inventory.hotBeverages
+    }
+    
+    var expiredBeverages: [Beverage] {
+        return inventory.expiredBeverages
+    }
+}
+
+extension Inventory {
+    var hotBeverages: [String] {
+        return self.filter { (_, item) in
             item.isHot
             }.keys.map { $0 }
     }
     
     var expiredBeverages: [Beverage] {
-        let allBeverages = inventory.values.flatMap { $0.beverages }
+        let allBeverages = self.values.flatMap { $0.beverages }
         return allBeverages.filter { $0.isExpired(targetDate: Date()) }
     }
 }
