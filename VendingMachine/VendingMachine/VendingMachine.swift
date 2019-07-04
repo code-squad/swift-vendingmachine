@@ -14,30 +14,6 @@ class VendingMachine {
     private(set) var coinsDeposited: Coin = 0
     private(set) var purchasedItems = [Beverage]()
     
-    var availableItems: [String] {
-        var items = [String]()
-        
-        inventory.forEach { (name, item) in
-            if item.price <= coinsDeposited {
-                items.append(name)
-            }
-        }
-        return items
-    }
-    
-    var expiredBeverages: [Beverage] {
-        var expired = [Beverage]()
-        inventory.forEach { (_, item) in
-            item.beverages.forEach { (beverage) in
-                if beverage.isExpired(targetDate: Date()) {
-                    expired.append(beverage)
-                }
-            }
-        }
-        return expired
-    }
-    
-    
     func insertCoins(_ coins: Coin) {
         coinsDeposited += coins
     }
@@ -73,11 +49,25 @@ class VendingMachine {
         purchasedItems.append(itemVended)
         return itemVended
     }
+}
+
+/// inventory 관련 동작
+extension VendingMachine {
+    
+    var availableItems: [String] {
+        return inventory.filter { (_, item) in
+            item.price <= coinsDeposited
+            }.keys.map { $0 }
+    }
     
     var hotBeverages: [String] {
-        return inventory.map
-            { (_, item) -> [Beverage] in
-                return item.beverages.filter { $0.isHot }
-            }.joined().map { $0.name }
+        return inventory.filter { (_, item) in
+            item.isHot
+            }.keys.map { $0 }
+    }
+    
+    var expiredBeverages: [Beverage] {
+        let allBeverages = inventory.values.flatMap { $0.beverages }
+        return allBeverages.filter { $0.isExpired(targetDate: Date()) }
     }
 }
