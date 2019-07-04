@@ -1,10 +1,8 @@
 import Foundation
 
 class Coffee: Beverage {
-    private var beverageTemperature: Int
     
     init(brand: String, packageSize: Int, price: Int, name: String, beverageTemperature: Int, dateOfManufacture: Date) {
-        self.beverageTemperature = beverageTemperature
         super.init(brand: brand, packageSize: packageSize, price: price, name: name, dateOfManufacture: dateOfManufacture, expirationPeriod: Date.timeInterval(fromDays: 90), beverageTemperature: beverageTemperature)
     }
 }

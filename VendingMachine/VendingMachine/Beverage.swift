@@ -8,7 +8,7 @@ class Beverage {
     private(set) var name: String
     private var dateOfManufacture: Date
     private var expirationPeriod: TimeInterval
-    private var beverageTemperature: Int
+    private(set) var beverageTemperature: Int
     
     init(brand: String, packageSize: Int, price: Int, name: String, dateOfManufacture: Date, expirationPeriod: TimeInterval, beverageTemperature: Int) {
         self.brand = brand
