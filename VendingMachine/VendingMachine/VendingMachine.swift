@@ -17,7 +17,7 @@ class VendingMachine {
     var availableItems: [String] {
         var items = [String]()
         
-        inventory.forEach { (name: String, item: Item) in
+        inventory.forEach { (name, item) in
             if item.price <= coinsDeposited {
                 items.append(name)
             }
@@ -27,7 +27,7 @@ class VendingMachine {
     
     var expiredBeverages: [Beverage] {
         var expired = [Beverage]()
-        inventory.forEach { (_, item: Item) in
+        inventory.forEach { (_, item) in
             item.beverages.forEach { (beverage) in
                 if beverage.isExpired(targetDate: Date()) {
                     expired.append(beverage)
@@ -75,15 +75,9 @@ class VendingMachine {
     }
     
     var hotBeverages: [String] {
-        var hotBeverages = Set<String>()
-        inventory.forEach { (name: String, item: Item) in
-            item.beverages.forEach { (beverage: Beverage) in
-                if beverage.isHot {
-                    hotBeverages.insert(beverage.name)
-                }
-            }
-        }
-        return hotBeverages.map { $0 }
+        return inventory.map
+            { (_, item) -> [Beverage] in
+                return item.beverages.filter { $0.isHot }
+            }.joined().map { $0.name }
     }
-    
 }
