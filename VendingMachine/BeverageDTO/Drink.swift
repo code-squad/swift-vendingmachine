@@ -10,9 +10,9 @@ import Foundation
 
 class Drink: Drinkable{
     private let brand: String
-    private let quantity: Int
-    private let price: Int
-    private let drinkName: String
+    private var quantity: Int
+    private var price: Int
+    private var drinkName: String
     private let manufactureDate: Date
     
     init(brand: String, quantity: Int, price: Int, name: String, date: Date){
@@ -24,6 +24,11 @@ class Drink: Drinkable{
     }
     func display(printFormat: (Drinkable) -> Void) {
         printFormat(self)
+    }
+    var date : Date {
+        get {
+            return manufactureDate
+        }
     }
 }
 

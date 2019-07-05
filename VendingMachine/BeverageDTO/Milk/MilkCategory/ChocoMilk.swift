@@ -11,9 +11,9 @@ import Foundation
 /// 수입원료에 대한 원산지 표기 추가
 /// 카카오 함량 추가
 class ChocoMilk: Milk {
-    
     private let cacaoProportion: Double
     private let origin: String
+    
     init(brand: String, quantity: Int, price: Int, name: String, date: Date, kakaoPercent: Double = 0.1, origin: String = "가나" ) {
         self.cacaoProportion = kakaoPercent
         self.origin = origin
