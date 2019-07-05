@@ -13,6 +13,7 @@ import Foundation
 class BananaMilk: Milk {
     private var bananaProportion: Double
     private let origin: String
+    
     init(brand: String, quantity: Int, price: Int, name: String, date: Date, bananaPercent: Double = 0.1, origin: String = "필리핀" ) {
         self.bananaProportion = bananaPercent
         self.origin = origin

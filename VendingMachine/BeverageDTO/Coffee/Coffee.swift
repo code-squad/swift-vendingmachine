@@ -12,6 +12,7 @@ import Foundation
 class Coffee: Drink{
     private var coffeine: Double
     private let origin : CoffeeBean
+    
     init(brand: String, quantity: Int, price: Int, name: String, date: Date, coffeine: Double = 100.0, origin: CoffeeBean = CoffeeBean.arabica) {
         self.coffeine = coffeine
         self.origin = origin
