@@ -13,7 +13,7 @@ class Drink: Drinkable{
     private var quantity: Int
     private var price: Int
     private var drinkName: String
-    private (set) var validDate: Date
+    private let validDate: Date
     
     init(brand: String, quantity: Int, price: Int, name: String, date: Date = Date.init()){
         self.brand = brand
