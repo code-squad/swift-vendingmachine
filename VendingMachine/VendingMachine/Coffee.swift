@@ -9,7 +9,18 @@
 import Foundation
 
 class Coffee: Product {
-    init(capacity: Int, price: Int, name: String, stringDate: String) {
+    private var temperature: Double
+    
+    init(capacity: Int, price: Int, name: String, stringDate: String, temperature: Double) {
+        self.temperature = temperature
         super.init(brand: "맥심", capacity: capacity, price: price, name: name, stringDate: stringDate)
+    }
+    
+    func isHot() -> Bool {
+        if temperature > 60 {
+            return true
+        } else {
+            return false
+        }
     }
 }

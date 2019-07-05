@@ -27,5 +27,8 @@ class Product: CustomStringConvertible {
         self.date = DateUtil.convertDate(of: stringDate)
     }
     
+    func validate() -> Bool {
+        return date > Date()
+    }
 }
 

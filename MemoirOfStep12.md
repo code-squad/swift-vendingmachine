@@ -25,6 +25,12 @@
 
 ## 해당 Step을 진행하면서 배운 내용
 
-**클래스:** https://medium.com/@jgj455/오늘의-swift-상식-struct-class-60fa5fd2218d
+**클래스:** [오늘의 Swift 상식 (Struct, Class)](https://medium.com/@jgj455/오늘의-swift-상식-struct-class-60fa5fd2218d)
 
-**프로토콜:** https://medium.com/@jgj455/오늘의-swift-상식-protocol-f18c82571dad
+**프로토콜:** [오늘의 Swift 상식 (Protocol)](https://medium.com/@jgj455/오늘의-swift-상식-protocol-f18c82571dad)
+
+
+
+## 결과 화면
+
+![Step1_result](Assets/Step1_result.png)
