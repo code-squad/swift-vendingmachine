@@ -32,8 +32,5 @@ class EnergyDrink: Drink, Antihypnotical, SugaryContainable {
                 return sugar!
             }
         }
-        set {
-            self.sugar = newValue
-        }
     }
 }

@@ -9,6 +9,6 @@
 import Foundation
 
 protocol SugaryContainable {
-    var sugary: Int {get set}
+    var sugary: Int {get}
 }
 
