@@ -10,10 +10,10 @@ import Foundation
 
 
 class Cantata: Coffee{
-    private let model : String
+    private (set) var model : String
     
-    init(brand: String, quantity: Int, price: Int, name: String, date: Date, coffeine: Double = 100.0, origin: CoffeeBean = CoffeeBean.arabica, model: String = "1Bean") {
+    init(brand: String, quantity: Int, price: Int, name: String, date: Date, coffeine: Double = 100.0, bean: CoffeeBean = CoffeeBean.arabica, model: String = "1Bean") {
         self.model = model
-        super.init(brand: brand, quantity: quantity, price: price, name: name, date: date, coffeine: coffeine, origin: origin)
+        super.init(brand: brand, quantity: quantity, price: price, name: name, date: date, coffeine: coffeine, bean: bean)
     }
 }
