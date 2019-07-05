@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TOP: Coffee{
+class TOPCoffee: Coffee{
     private let coffeeType: CoffeeType
 
     init(brand: String, quantity: Int, price: Int, name: String, date: Date, coffeine: Double = 100.0, bean: CoffeeBean = CoffeeBean.arabica, type: CoffeeType = CoffeeType.americano) {

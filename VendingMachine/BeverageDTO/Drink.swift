@@ -44,6 +44,6 @@ extension Drink: CustomStringConvertible {
         result.append(String.init(format: "%d\(Currency.won)", self.price))
         result.append(self.drinkName)
         result.append(CustomDateFormatter.convertDateToString(self.validDate))
-        return result.joined(separator: ", ")
+        return "\(type(of: self)) - \(result.joined(separator: ", "))"
     }
 }

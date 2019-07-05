@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Georgia: Coffee{
+class GeorgiaCoffee: Coffee{
     private let model : String
     private let coffeeType: CoffeeType
 

@@ -80,24 +80,24 @@ class UnitTestVendingMachine: XCTestCase {
     
     func testCoffeeBean(){
         let inputDate = CustomDateFormatter.convertStringToDate(year: 2019, month: 07, day: 05)
-        let defaultTOP = TOP.init(brand: "동서", quantity: 350, price: 2500, name: "티오피 아메리카노", date: inputDate)
-        XCTAssert(defaultTOP.coffeeBeanInfo == .arabica, "\(defaultTOP.coffeeBeanInfo)")
-        XCTAssert(defaultTOP.coffeineDisplay == 100, "\(defaultTOP.coffeineDisplay)")
+        let defaultTOPCoffee = TOPCoffee.init(brand: "동서", quantity: 350, price: 2500, name: "티오피 아메리카노", date: inputDate)
+        XCTAssert(defaultTOPCoffee.coffeeBeanInfo == .arabica, "\(defaultTOPCoffee.coffeeBeanInfo)")
+        XCTAssert(defaultTOPCoffee.coffeineDisplay == 100, "\(defaultTOPCoffee.coffeineDisplay)")
         
-        let customTOP = TOP.init(brand: "맥심", quantity: 350, price: 2800, name: "티오피 라떼", date: inputDate, coffeine: 20, bean: .brazil, type: .latte)
+        let customTOPCoffee = TOPCoffee.init(brand: "맥심", quantity: 350, price: 2800, name: "티오피 라떼", date: inputDate, coffeine: 20, bean: .brazil, type: .latte)
         
-        XCTAssert(customTOP.coffeeBeanInfo == .brazil, "\(customTOP.coffeeBeanInfo)")
-        XCTAssert(customTOP.coffeineDisplay == 20, "\(customTOP.coffeineDisplay)")
+        XCTAssert(customTOPCoffee.coffeeBeanInfo == .brazil, "\(customTOPCoffee.coffeeBeanInfo)")
+        XCTAssert(customTOPCoffee.coffeineDisplay == 20, "\(customTOPCoffee.coffeineDisplay)")
     }
     
     func testCoffeeModel(){
         let inputDate = CustomDateFormatter.convertStringToDate(year: 2019, month: 07, day: 05)
-        let defaultCantata = Cantata.init(brand: "동서", quantity: 500, price: 3000, name: "칸타타 오리지널", date: inputDate)
-        XCTAssert(defaultCantata.model == "1Bean", "\(defaultCantata.model)")
+        let defaultCantataCoffee = CantataCoffee.init(brand: "동서", quantity: 500, price: 3000, name: "칸타타 오리지널", date: inputDate)
+        XCTAssert(defaultCantataCoffee.model == "1Bean", "\(defaultCantataCoffee.model)")
         
-        let customCantata = Cantata.init(brand: "동서", quantity: 500, price: 3000, name: "칸타타 라떼", date: inputDate, coffeine: 110, bean: .ethiopia, model: "흥푸")
-        XCTAssert(customCantata.model == "흥푸", "\(customCantata.model)")
-        XCTAssert(customCantata.coffeeBeanInfo == .ethiopia, "\(customCantata.coffeeBeanInfo)")
+        let customCantataCoffee = CantataCoffee.init(brand: "동서", quantity: 500, price: 3000, name: "칸타타 라떼", date: inputDate, coffeine: 110, bean: .ethiopia, model: "흥푸")
+        XCTAssert(customCantataCoffee.model == "흥푸", "\(customCantataCoffee.model)")
+        XCTAssert(customCantataCoffee.coffeeBeanInfo == .ethiopia, "\(customCantataCoffee.coffeeBeanInfo)")
     }
     
     private func generateBeverages() -> [Drinkable]{
@@ -110,12 +110,12 @@ class UnitTestVendingMachine: XCTestCase {
         inputDate = CustomDateFormatter.convertStringToDate(year: 2017, month: 10, day: 05)
         let zeroPepsi = Coke(brand: "펩시", quantity: 350, price: 2000, name: "다이어트콜라", date: inputDate,  sugar: 0)
         inputDate = CustomDateFormatter.convertStringToDate(year: 2017, month: 10, day: 10)
-        let topAmericano = TOP.init(brand: "맥심", quantity: 400, price: 3000, name: "TOP아메리카노", date: inputDate, coffeine: 120.0, bean: .arabica, type: .americano)
+        let TOPCoffeeAmericano = TOPCoffee.init(brand: "맥심", quantity: 400, price: 3000, name: "TOPCoffee아메리카노", date: inputDate, coffeine: 120.0, bean: .arabica, type: .americano)
         
         result.append(seoulStrawberry)
         result.append(seoulStrawberry2)
         result.append(zeroPepsi)
-        result.append(topAmericano)
+        result.append(TOPCoffeeAmericano)
         return result
     }
     

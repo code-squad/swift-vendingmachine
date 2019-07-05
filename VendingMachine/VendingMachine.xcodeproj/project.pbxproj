@@ -24,18 +24,18 @@
 		C5E942E222CDCA8900589506 /* Fanta.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942E122CDCA8900589506 /* Fanta.swift */; };
 		C5E942E422CDD2B100589506 /* Fruit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942E322CDD2B100589506 /* Fruit.swift */; };
 		C5E942E622CDD34500589506 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942E522CDD34500589506 /* Currency.swift */; };
-		C5E942E822CDD3A300589506 /* TOP.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942E722CDD3A300589506 /* TOP.swift */; };
-		C5E942EA22CDD3A800589506 /* Georgia.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942E922CDD3A800589506 /* Georgia.swift */; };
-		C5E942EC22CDD3B300589506 /* Cantata.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942EB22CDD3B300589506 /* Cantata.swift */; };
+		C5E942E822CDD3A300589506 /* TOPCoffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942E722CDD3A300589506 /* TOPCoffee.swift */; };
+		C5E942EA22CDD3A800589506 /* GeorgiaCoffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942E922CDD3A800589506 /* GeorgiaCoffee.swift */; };
+		C5E942EC22CDD3B300589506 /* CantataCoffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942EB22CDD3B300589506 /* CantataCoffee.swift */; };
 		C5E942EE22CDD65D00589506 /* CoffeeBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942ED22CDD65D00589506 /* CoffeeBean.swift */; };
 		C5E942F022CDD7BD00589506 /* CoffeeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942EF22CDD7BD00589506 /* CoffeeType.swift */; };
 		C5E942F822CEEC8900589506 /* UnitTestVendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942F722CEEC8900589506 /* UnitTestVendingMachine.swift */; };
 		C5E942FF22CEECF800589506 /* EnergyDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942FE22CEECF800589506 /* EnergyDrink.swift */; };
 		C5E9430322CEF0E700589506 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5250CFF22CB66FF00FB2534 /* Drink.swift */; };
 		C5E9430422CEF0E900589506 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942D522CD937000589506 /* Coffee.swift */; };
-		C5E9430522CEF0EB00589506 /* Cantata.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942EB22CDD3B300589506 /* Cantata.swift */; };
-		C5E9430622CEF0ED00589506 /* Georgia.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942E922CDD3A800589506 /* Georgia.swift */; };
-		C5E9430722CEF0EF00589506 /* TOP.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942E722CDD3A300589506 /* TOP.swift */; };
+		C5E9430522CEF0EB00589506 /* CantataCoffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942EB22CDD3B300589506 /* CantataCoffee.swift */; };
+		C5E9430622CEF0ED00589506 /* GeorgiaCoffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942E922CDD3A800589506 /* GeorgiaCoffee.swift */; };
+		C5E9430722CEF0EF00589506 /* TOPCoffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942E722CDD3A300589506 /* TOPCoffee.swift */; };
 		C5E9430822CEF0F200589506 /* CarbonatedDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942D322CD936600589506 /* CarbonatedDrink.swift */; };
 		C5E9430922CEF0F500589506 /* Coke.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942DD22CDCA7A00589506 /* Coke.swift */; };
 		C5E9430A22CEF0F600589506 /* Fanta.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942E122CDCA8900589506 /* Fanta.swift */; };
@@ -92,9 +92,9 @@
 		C5E942E122CDCA8900589506 /* Fanta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fanta.swift; sourceTree = "<group>"; };
 		C5E942E322CDD2B100589506 /* Fruit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fruit.swift; sourceTree = "<group>"; };
 		C5E942E522CDD34500589506 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
-		C5E942E722CDD3A300589506 /* TOP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOP.swift; sourceTree = "<group>"; };
-		C5E942E922CDD3A800589506 /* Georgia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Georgia.swift; sourceTree = "<group>"; };
-		C5E942EB22CDD3B300589506 /* Cantata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cantata.swift; sourceTree = "<group>"; };
+		C5E942E722CDD3A300589506 /* TOPCoffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOPCoffee.swift; sourceTree = "<group>"; };
+		C5E942E922CDD3A800589506 /* GeorgiaCoffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeorgiaCoffee.swift; sourceTree = "<group>"; };
+		C5E942EB22CDD3B300589506 /* CantataCoffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CantataCoffee.swift; sourceTree = "<group>"; };
 		C5E942ED22CDD65D00589506 /* CoffeeBean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeBean.swift; sourceTree = "<group>"; };
 		C5E942EF22CDD7BD00589506 /* CoffeeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeType.swift; sourceTree = "<group>"; };
 		C5E942F522CEEC8900589506 /* UnitTestVendingMachine.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTestVendingMachine.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -273,9 +273,9 @@
 		C5E9430222CEEDA100589506 /* CoffeeCategory */ = {
 			isa = PBXGroup;
 			children = (
-				C5E942E722CDD3A300589506 /* TOP.swift */,
-				C5E942E922CDD3A800589506 /* Georgia.swift */,
-				C5E942EB22CDD3B300589506 /* Cantata.swift */,
+				C5E942E722CDD3A300589506 /* TOPCoffee.swift */,
+				C5E942E922CDD3A800589506 /* GeorgiaCoffee.swift */,
+				C5E942EB22CDD3B300589506 /* CantataCoffee.swift */,
 			);
 			path = CoffeeCategory;
 			sourceTree = "<group>";
@@ -370,11 +370,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5E942EC22CDD3B300589506 /* Cantata.swift in Sources */,
+				C5E942EC22CDD3B300589506 /* CantataCoffee.swift in Sources */,
 				C5E942E422CDD2B100589506 /* Fruit.swift in Sources */,
 				C5E942DE22CDCA7A00589506 /* Coke.swift in Sources */,
 				C5250D0022CB66FF00FB2534 /* Drink.swift in Sources */,
-				C5E942EA22CDD3A800589506 /* Georgia.swift in Sources */,
+				C5E942EA22CDD3A800589506 /* GeorgiaCoffee.swift in Sources */,
 				C5E942D822CDC66400589506 /* StrawberryMilk.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
 				C5E942FF22CEECF800589506 /* EnergyDrink.swift in Sources */,
@@ -388,7 +388,7 @@
 				C5E942D622CD937000589506 /* Coffee.swift in Sources */,
 				C5E942CA22CB80AF00589506 /* Units.swift in Sources */,
 				C5E942F022CDD7BD00589506 /* CoffeeType.swift in Sources */,
-				C5E942E822CDD3A300589506 /* TOP.swift in Sources */,
+				C5E942E822CDD3A300589506 /* TOPCoffee.swift in Sources */,
 				C5E942E622CDD34500589506 /* Currency.swift in Sources */,
 				C5E9431B22CEF6E300589506 /* Antihypnotical.swift in Sources */,
 				C5E942A822CB6EDB00589506 /* CustomDateFormatter.swift in Sources */,
@@ -407,12 +407,12 @@
 				C5E9431022CEF10700589506 /* EnergyDrink.swift in Sources */,
 				C5E9431622CEF11B00589506 /* OutputView.swift in Sources */,
 				C5E9430C22CEF0FD00589506 /* Milk.swift in Sources */,
-				C5E9430522CEF0EB00589506 /* Cantata.swift in Sources */,
+				C5E9430522CEF0EB00589506 /* CantataCoffee.swift in Sources */,
 				C5E9431222CEF11000589506 /* CoffeeBean.swift in Sources */,
-				C5E9430722CEF0EF00589506 /* TOP.swift in Sources */,
+				C5E9430722CEF0EF00589506 /* TOPCoffee.swift in Sources */,
 				C5E9430322CEF0E700589506 /* Drink.swift in Sources */,
 				C5E9430D22CEF10000589506 /* BananaMilk.swift in Sources */,
-				C5E9430622CEF0ED00589506 /* Georgia.swift in Sources */,
+				C5E9430622CEF0ED00589506 /* GeorgiaCoffee.swift in Sources */,
 				C5E9430A22CEF0F600589506 /* Fanta.swift in Sources */,
 				C5E9431122CEF10D00589506 /* Units.swift in Sources */,
 				C5E9430822CEF0F200589506 /* CarbonatedDrink.swift in Sources */,
