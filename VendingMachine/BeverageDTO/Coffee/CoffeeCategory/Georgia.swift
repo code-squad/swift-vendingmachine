@@ -10,11 +10,11 @@ import Foundation
 
 class Georgia: Coffee{
     private let model : String
-    private let isLowSugar: Bool
-    
-    init(brand: String, quantity: Int, price: Int, name: String, date: Date, coffeine: Double = 100.0, origin: CoffeeBean = CoffeeBean.arabica, model: String = "Woosung", isLowSugar: Bool = false) {
+    private let coffeeType: CoffeeType
+
+    init(brand: String, quantity: Int, price: Int, name: String, date: Date, coffeine: Double = 100.0, bean: CoffeeBean = CoffeeBean.arabica, model: String = "정우성", coffeeType: CoffeeType = CoffeeType.americano) {
         self.model = model
-        self.isLowSugar = isLowSugar
-        super.init(brand: brand, quantity: quantity, price: price, name: name, date: date, coffeine: coffeine, origin: origin)
+        self.coffeeType = coffeeType
+        super.init(brand: brand, quantity: quantity, price: price, name: name, date: date, coffeine: coffeine, bean: bean)
     }
 }

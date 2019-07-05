@@ -9,13 +9,23 @@
 import Foundation
 
 /// 카페인 함량에 대한 프로퍼티 추가
-class Coffee: Drink{
+class Coffee: Drink, Antihypnotical{
     private var coffeine: Double
-    private let origin : CoffeeBean
+    private let bean : CoffeeBean
     
-    init(brand: String, quantity: Int, price: Int, name: String, date: Date, coffeine: Double = 100.0, origin: CoffeeBean = CoffeeBean.arabica) {
+    init(brand: String, quantity: Int, price: Int, name: String, date: Date, coffeine: Double = 100.0, bean: CoffeeBean = CoffeeBean.arabica) {
         self.coffeine = coffeine
-        self.origin = origin
+        self.bean = bean
         super.init(brand: brand, quantity: quantity, price: price, name: name, date: date)
+    }
+    var coffeeBeanInfo: CoffeeBean {
+        get{
+            return self.bean
+        }
+    }
+    var coffeineDisplay: Double {
+        get{
+            return self.coffeine
+        }
     }
 }
