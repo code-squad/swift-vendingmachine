@@ -9,11 +9,25 @@
 import Foundation
 
 /// 설탕기반, 무설탕 기반에 따른 프로퍼티 추가
-class CarbonatedDrink: Drink {
-    private var isSugarBase : Bool
+class CarbonatedDrink: Drink, SugaryContainable {
+    private var sugar: Int?
     
-    init(brand: String, quantity: Int, price: Int, name: String, date: Date, isSugar: Bool = true) {
-        self.isSugarBase = isSugar
+    init(brand: String, quantity: Int, price: Int, name: String, date: Date, sugar: Int? = nil) {
+        self.sugar = sugar
         super.init(brand: brand, quantity: quantity, price: price, name: name, date: date)
+    }
+    
+    var sugary: Int {
+        get {
+            switch sugar {
+            case .none:
+                return 0
+            case .some(_):
+                return sugar!
+            }
+        }
+        set {
+            self.sugar = newValue
+        }
     }
 }
