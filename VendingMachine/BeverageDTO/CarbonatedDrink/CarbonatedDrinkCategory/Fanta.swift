@@ -9,9 +9,10 @@
 import Foundation
 
 class Fanta: CarbonatedDrink {
-    private let fruitType: Fruit
-    init(brand: String, quantity: Int, price: Int, name: String, date: Date, isSugar: Bool = true, fruitType : Fruit = Fruit.purpleGrape) {
+    private (set) var fruitType: Fruit
+    
+    init(brand: String, quantity: Int, price: Int, name: String, date: Date, fruitType : Fruit = Fruit.purpleGrape, sugar: Int? = nil) {
         self.fruitType = fruitType
-        super.init(brand: brand, quantity: quantity, price: price, name: name, date: date, isSugar: isSugar)
+        super.init(brand: brand, quantity: quantity, price: price, name: name, date: date, sugar: sugar)
     }
 }

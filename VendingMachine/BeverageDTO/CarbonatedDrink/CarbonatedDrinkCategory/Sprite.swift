@@ -9,9 +9,10 @@
 import Foundation
 
 class Sprite: CarbonatedDrink {
-    private let coffeine: Double
-    init(brand: String, quantity: Int, price: Int, name: String, date: Date, isSugar: Bool = true, coffeine :Double = 100) {
-        self.coffeine = coffeine
-        super.init(brand: brand, quantity: quantity, price: price, name: name, date: date, isSugar: isSugar)
+    private (set) var lowSugary: Bool
+    
+    init(brand: String, quantity: Int, price: Int, name: String, date: Date, sugar: Int? = nil,  lowSugary: Bool = false) {
+        self.lowSugary = lowSugary
+        super.init(brand: brand, quantity: quantity, price: price, name: name, date: date, sugar: sugar)
     }
 }
