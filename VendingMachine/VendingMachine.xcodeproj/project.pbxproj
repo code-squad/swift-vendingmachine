@@ -51,6 +51,14 @@
 		C5E9431422CEF11000589506 /* Fruit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942E322CDD2B100589506 /* Fruit.swift */; };
 		C5E9431522CEF11000589506 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942E522CDD34500589506 /* Currency.swift */; };
 		C5E9431622CEF11B00589506 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942CC22CB846400589506 /* OutputView.swift */; };
+		C5E9431B22CEF6E300589506 /* Antihypnotical.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E9431A22CEF6E300589506 /* Antihypnotical.swift */; };
+		C5E9431C22CEF6E300589506 /* Antihypnotical.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E9431A22CEF6E300589506 /* Antihypnotical.swift */; };
+		C5E9431D22CEF9F000589506 /* Drinkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942A122CB6A6C00589506 /* Drinkable.swift */; };
+		C5E9431E22CEFA0700589506 /* CustomDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942A722CB6EDB00589506 /* CustomDateFormatter.swift */; };
+		C5E9432922CF220F00589506 /* SugaryContainable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E9432822CF220F00589506 /* SugaryContainable.swift */; };
+		C5E9432A22CF220F00589506 /* SugaryContainable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E9432822CF220F00589506 /* SugaryContainable.swift */; };
+		C5E9432C22CF246800589506 /* FarmCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E9432B22CF246800589506 /* FarmCode.swift */; };
+		C5E9432D22CF246800589506 /* FarmCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E9432B22CF246800589506 /* FarmCode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -93,6 +101,9 @@
 		C5E942F722CEEC8900589506 /* UnitTestVendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestVendingMachine.swift; sourceTree = "<group>"; };
 		C5E942F922CEEC8900589506 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5E942FE22CEECF800589506 /* EnergyDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyDrink.swift; sourceTree = "<group>"; };
+		C5E9431A22CEF6E300589506 /* Antihypnotical.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Antihypnotical.swift; sourceTree = "<group>"; };
+		C5E9432822CF220F00589506 /* SugaryContainable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugaryContainable.swift; sourceTree = "<group>"; };
+		C5E9432B22CF246800589506 /* FarmCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FarmCode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +167,8 @@
 			isa = PBXGroup;
 			children = (
 				C5E942A122CB6A6C00589506 /* Drinkable.swift */,
+				C5E9431A22CEF6E300589506 /* Antihypnotical.swift */,
+				C5E9432822CF220F00589506 /* SugaryContainable.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -180,6 +193,7 @@
 				C5E942EF22CDD7BD00589506 /* CoffeeType.swift */,
 				C5E942E322CDD2B100589506 /* Fruit.swift */,
 				C5E942E522CDD34500589506 /* Currency.swift */,
+				C5E9432B22CF246800589506 /* FarmCode.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -370,15 +384,18 @@
 				C5E942DC22CDC93C00589506 /* BananaMilk.swift in Sources */,
 				C5E942D422CD936600589506 /* CarbonatedDrink.swift in Sources */,
 				C5E942D222CD935700589506 /* Milk.swift in Sources */,
+				C5E9432C22CF246800589506 /* FarmCode.swift in Sources */,
 				C5E942D622CD937000589506 /* Coffee.swift in Sources */,
 				C5E942CA22CB80AF00589506 /* Units.swift in Sources */,
 				C5E942F022CDD7BD00589506 /* CoffeeType.swift in Sources */,
 				C5E942E822CDD3A300589506 /* TOP.swift in Sources */,
 				C5E942E622CDD34500589506 /* Currency.swift in Sources */,
+				C5E9431B22CEF6E300589506 /* Antihypnotical.swift in Sources */,
 				C5E942A822CB6EDB00589506 /* CustomDateFormatter.swift in Sources */,
 				C5E942E222CDCA8900589506 /* Fanta.swift in Sources */,
 				C5E942EE22CDD65D00589506 /* CoffeeBean.swift in Sources */,
 				C5E942CD22CB846400589506 /* OutputView.swift in Sources */,
+				C5E9432922CF220F00589506 /* SugaryContainable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,13 +417,18 @@
 				C5E9431122CEF10D00589506 /* Units.swift in Sources */,
 				C5E9430822CEF0F200589506 /* CarbonatedDrink.swift in Sources */,
 				C5E942F822CEEC8900589506 /* UnitTestVendingMachine.swift in Sources */,
+				C5E9432D22CF246800589506 /* FarmCode.swift in Sources */,
+				C5E9431D22CEF9F000589506 /* Drinkable.swift in Sources */,
 				C5E9430422CEF0E900589506 /* Coffee.swift in Sources */,
 				C5E9430F22CEF10500589506 /* ChocoMilk.swift in Sources */,
+				C5E9431E22CEFA0700589506 /* CustomDateFormatter.swift in Sources */,
 				C5E9431422CEF11000589506 /* Fruit.swift in Sources */,
+				C5E9431C22CEF6E300589506 /* Antihypnotical.swift in Sources */,
 				C5E9431522CEF11000589506 /* Currency.swift in Sources */,
 				C5E9431322CEF11000589506 /* CoffeeType.swift in Sources */,
 				C5E9430E22CEF10300589506 /* StrawberryMilk.swift in Sources */,
 				C5E9430922CEF0F500589506 /* Coke.swift in Sources */,
+				C5E9432A22CF220F00589506 /* SugaryContainable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -25,13 +25,13 @@ class Main {
         var result = [Drinkable]()
 
         var inputDate = CustomDateFormatter.convertStringToDate(year: 2017, month: 10, day: 09)
-        let seoulStrawberry = StrawberryMilk(brand: "서울우유", quantity: 200, price: 1000, name: "날마다딸기우유", date: inputDate)
+        let seoulStrawberry = StrawberryMilk(brand: "서울우유", quantity: 200, price: 1000, name: "날마다딸기우유", date: inputDate, farmCode: .kangwon)
         inputDate = CustomDateFormatter.convertStringToDate(year: 2017, month: 10, day: 12)
-        let seoulStrawberry2 = StrawberryMilk(brand: "서울우유", quantity: 200, price: 1000, name: "날마다딸기우유", date: inputDate)
+        let seoulStrawberry2 = StrawberryMilk(brand: "서울우유", quantity: 200, price: 1000, name: "날마다딸기우유", date: inputDate, farmCode: .imported)
         inputDate = CustomDateFormatter.convertStringToDate(year: 2017, month: 10, day: 05)
-        let zeroPepsi = Coke(brand: "펩시", quantity: 350, price: 2000, name: "다이어트콜라", date: inputDate, isSugar: false)
+        let zeroPepsi = Coke(brand: "펩시", quantity: 350, price: 2000, name: "다이어트콜라", date: inputDate, sugar: 0)
         inputDate = CustomDateFormatter.convertStringToDate(year: 2017, month: 10, day: 10)
-        let topAmericano = TOP.init(brand: "맥심", quantity: 400, price: 3000, name: "TOP아메리카노", date: inputDate, coffeine: 120.0, origin: .arabica, type: .americano)
+        let topAmericano = TOP.init(brand: "맥심", quantity: 400, price: 3000, name: "TOP아메리카노", date: inputDate, coffeine: 120.0, bean: .arabica, type: .americano)
 
         result.append(seoulStrawberry)
         result.append(seoulStrawberry2)
