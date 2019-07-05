@@ -44,9 +44,9 @@ class UnitTestVendingMachine: XCTestCase {
         let inputDate = CustomDateFormatter.convertStringToDate(year: 2017, month: 10, day: 05)
         let strawberry = StrawberryMilk.init(brand: "서울우유", quantity: 500, price: 1500, name: "딸기딸기", date: inputDate, isLowFat: false, fruitPercent: 0.5, farmCode: .kyunggy)
         XCTAssert(strawberry.origin == "국산", "result : \(strawberry.origin)")
-        XCTAssert(strawberry.hasFarmCode() == FarmCode.kyunggy, "result : \(strawberry.hasFarmCode())" )
+        XCTAssert(strawberry.displayFarmCode() == FarmCode.kyunggy, "result : \(strawberry.displayFarmCode())" )
         let strawberry2 = StrawberryMilk.init(brand: "연세우유", quantity: 500, price: 1500, name: "딸기딸기", date: inputDate, isLowFat: false, fruitPercent: 0.5)
-        XCTAssert(strawberry2.hasFarmCode() == FarmCode.none, "result : \(strawberry2.hasFarmCode())" )
+        XCTAssert(strawberry2.displayFarmCode() == FarmCode.none, "result : \(strawberry2.displayFarmCode())" )
     }
     
     func testFruitOrigin(){
@@ -56,7 +56,7 @@ class UnitTestVendingMachine: XCTestCase {
         
         let strawberryFromJapan = StrawberryMilk.init(brand: "건국우유", quantity: 500, price: 1500, name: "건국딸기", date: inputDate, origin : "일본")
         XCTAssertTrue(strawberryFromJapan.origin != "국산", "\(strawberryFromJapan.origin)")
-        XCTAssert(strawberryFromJapan.hasFarmCode() == .none, "\(strawberryFromJapan.farmCode)")
+        XCTAssert(strawberryFromJapan.displayFarmCode() == .none, "\(strawberryFromJapan.displayFarmCode())")
     }
     
     func testCheckBaseAntihypnoticalDrink(){

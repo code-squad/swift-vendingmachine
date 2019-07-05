@@ -10,8 +10,8 @@ import Foundation
 
 /// 저지방 유무에 대한 프로퍼티 추가
 class Milk: Drink {
-    private var isLowFat : Bool
-    private (set) var farmCode : FarmCode?
+    private let isLowFat : Bool
+    private let farmCode : FarmCode?
     
     init(brand: String, quantity: Int, price: Int, name: String, date: Date, isLowFat: Bool = false, farmCode: FarmCode? = nil) {
         self.isLowFat = isLowFat
@@ -19,7 +19,7 @@ class Milk: Drink {
         super.init(brand: brand, quantity: quantity, price: price, name: name, date: date)
     }
     
-    func hasFarmCode() -> FarmCode {
+    func displayFarmCode() -> FarmCode {
         guard let code = self.farmCode else{
             return FarmCode.none
         }
