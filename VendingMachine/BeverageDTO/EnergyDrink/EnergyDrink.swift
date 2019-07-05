@@ -8,13 +8,32 @@
 
 import Foundation
 
-class EnergyDrink: Drink {
+class EnergyDrink: Drink, Antihypnotical, SugaryContainable {    
     private let coffeine: Double
-    private let isSugarBase: Bool
+    private var sugar: Int?
     
-    init(brand: String, quantity: Int, price: Int, name: String, date: Date, isSugarBase: Bool = true, coffeine: Double = 100) {
-        self.isSugarBase = isSugarBase
+    init(brand: String, quantity: Int, price: Int, name: String, date: Date, sugar: Int?, coffeine: Double = 100) {
+        self.sugar = sugar
         self.coffeine = coffeine
         super.init(brand: brand, quantity: quantity, price: price, name: name, date: date)
+    }
+    
+    var coffeineDisplay: Double {
+        get {
+            return self.coffeine
+        }
+    }
+    var sugary: Int {
+        get {
+            switch sugar {
+            case .none:
+                return 0
+            case .some(_):
+                return sugar!
+            }
+        }
+        set {
+            self.sugar = newValue
+        }
     }
 }
