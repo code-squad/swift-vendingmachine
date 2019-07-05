@@ -9,7 +9,7 @@
 import Foundation
 
 
-class Cantata: Coffee{
+class CantataCoffee: Coffee{
     private (set) var model : String
     
     init(brand: String, quantity: Int, price: Int, name: String, date: Date, coffeine: Double = 100.0, bean: CoffeeBean = CoffeeBean.arabica, model: String = "1Bean") {
