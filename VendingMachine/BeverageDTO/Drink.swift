@@ -13,22 +13,26 @@ class Drink: Drinkable{
     private var quantity: Int
     private var price: Int
     private var drinkName: String
-    private let manufactureDate: Date
+    private (set) var validDate: Date
     
-    init(brand: String, quantity: Int, price: Int, name: String, date: Date){
+    init(brand: String, quantity: Int, price: Int, name: String, date: Date = Date.init()){
         self.brand = brand
         self.quantity = quantity
         self.price = price
         self.drinkName = name
-        self.manufactureDate = Date.init()
+        self.validDate = date
     }
     func display(printFormat: (Drinkable) -> Void) {
         printFormat(self)
     }
     var date : Date {
         get {
-            return manufactureDate
+            return validDate
         }
+    }
+    func validate(with date:Date) -> Bool {
+        let isValid = self.date > date ? true : false
+        return isValid
     }
 }
 
@@ -39,7 +43,7 @@ extension Drink: CustomStringConvertible {
         result.append(String.init(format: "%d\(Units.millilter)", self.quantity))
         result.append(String.init(format: "%d\(Currency.won)", self.price))
         result.append(self.drinkName)
-        result.append(CustomDateFormatter.convertDateToString(self.manufactureDate))
+        result.append(CustomDateFormatter.convertDateToString(self.validDate))
         return result.joined(separator: ", ")
     }
 }
