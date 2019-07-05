@@ -14,6 +14,19 @@ class UnitTestVendingMachine: XCTestCase {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
 
+    func testValidateDate(){
+        var inputDate = CustomDateFormatter.convertStringToDate(year: 2019, month: 07, day: 14)
+        print("valid date : \(inputDate)")
+        let bananaMilk = BananaMilk.init(brand: "매일유업", quantity: 350, price: 2000, name: "바나나에 빠진 우유", date: inputDate, isLowFat: true, bananaPercent: 0.1, farmCode: .imported)
+        let today = Date.init() // 2019-07-05
+        print("today : \(today)")
+        XCTAssert(bananaMilk.validate(with: today), "(유통기한 경과) - \(bananaMilk.validDate)")
+        
+        inputDate = CustomDateFormatter.convertStringToDate(year: 2019, month: 07, day: 04)
+        let bananaMilk2 = BananaMilk.init(brand: "매일유업", quantity: 350, price: 2000, name: "바나나에 빠진 우유", date: inputDate, isLowFat: true, bananaPercent: 0.1, farmCode: .imported)
+        XCTAssertFalse(bananaMilk2.validate(with: today), "(유통기한 존재) - \(bananaMilk2.validDate)")
+
+    }
     func testIsSugarDrink(){
         let inputDate = CustomDateFormatter.convertStringToDate(year: 2019, month: 07, day: 05)
         let coke = Coke.init(brand: "코카콜라", quantity: 500, price: 1500, name: "코카콜라", date: inputDate, coffeine: 0, sugar: 100)

@@ -10,5 +10,6 @@ import Foundation
 
 protocol Drinkable{
     func display (printFormat : (_ info: Drinkable) -> Void)
+    func validate(with date: Date) -> Bool
 }
 

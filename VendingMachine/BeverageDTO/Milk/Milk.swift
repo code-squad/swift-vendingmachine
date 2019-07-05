@@ -26,8 +26,4 @@ class Milk: Drink {
         return code
     }
     
-    func validate(with date:Date) -> Bool {
-        let isValid = self.date < date ? true : false
-        return isValid
-    }
 }
