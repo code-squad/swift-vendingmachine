@@ -26,8 +26,5 @@ class CarbonatedDrink: Drink, SugaryContainable {
                 return sugar!
             }
         }
-        set {
-            self.sugar = newValue
-        }
     }
 }
