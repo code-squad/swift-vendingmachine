@@ -12,11 +12,12 @@ import Foundation
 /// 바나나 함량 추가
 class BananaMilk: Milk {
     private var bananaProportion: Double
-    private let origin: String
+    private (set) var origin: String
     
-    init(brand: String, quantity: Int, price: Int, name: String, date: Date, bananaPercent: Double = 0.1, origin: String = "필리핀" ) {
+    init(brand: String, quantity: Int, price: Int, name: String, date: Date, isLowFat: Bool = false, bananaPercent: Double = 0.1, origin: String = "필리핀", farmCode: FarmCode? = nil) {
         self.bananaProportion = bananaPercent
         self.origin = origin
-        super.init(brand: brand, quantity: quantity, price: price, name: name, date: date)
+        
+        super.init(brand: brand, quantity: quantity, price: price, name: name, date: date, isLowFat: isLowFat, farmCode: farmCode)
     }
 }

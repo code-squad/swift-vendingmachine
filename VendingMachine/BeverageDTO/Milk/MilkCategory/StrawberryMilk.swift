@@ -11,9 +11,12 @@ import Foundation
 /// 딸기 함량 추가
 class StrawberryMilk: Milk {
     private var strawberryProportion: Double
+    private (set) var origin: String
     
-    init(brand: String, quantity: Int, price: Int, name: String, date: Date, fruitPercent: Double = 0.1 ) {
+    init(brand: String, quantity: Int, price: Int, name: String, date: Date, isLowFat: Bool = false,  fruitPercent: Double = 0.1, origin: String = "국산", farmCode: FarmCode? = nil ) {
         self.strawberryProportion = fruitPercent
-        super.init(brand: brand, quantity: quantity, price: price, name: name, date: date)
+        self.origin = origin
+        
+        super.init(brand: brand, quantity: quantity, price: price, name: name, date: date, isLowFat: isLowFat, farmCode: farmCode)
     }
 }
