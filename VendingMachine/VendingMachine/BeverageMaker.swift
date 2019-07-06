@@ -2,54 +2,57 @@ import Foundation
 
 class BeverageMaker {
     
-    private var randomDate: Date {
-        return [
-            Date("20190208")!,
-            Date("20190411")!,
-            Date("20190505")!,
-            Date("20190625")!,
-            ].randomElement()!
+    struct ExampleDate {
+        static let date1 = Date("20190208")!
+        static let date2 = Date("20190411")!
+        static let date3 = Date("20190505")!
+        static let date4 = Date("20190625")!
     }
     
-    func makeMilk() -> Milk {
-        if Bool.random() {
-            return StrawberryMilk(milkFactoryIdentifier: "목장1", dateOfManufacture: randomDate)
-        } else {
-            return ChocolateMilk(milkFactoryIdentifier: "목장2", dateOfManufacture: randomDate)
+    enum MilkOption {
+        case strawberry
+        case chocolate
+        
+        var initial: (String, Date) -> Milk {
+            switch self {
+            case .strawberry:
+                return StrawberryMilk.init
+            case .chocolate:
+                return ChocolateMilk.init
+            }
         }
     }
     
-    func makeSoftDrink() -> SoftDrink {
-        if Bool.random() {
-            return Cola(dateOfManufacture: randomDate)
-        } else {
-            return LemonlimeDrink(dateOfManufacture: randomDate)
+    enum SoftDrinkOption {
+        case cola
+        case lemonLimeDrink
+        
+        var initial: (Date) -> SoftDrink {
+            switch self {
+            case .cola:
+                return Cola.init
+            case .lemonLimeDrink:
+                return LemonlimeDrink.init
+            }
         }
     }
     
-    func makeCoffee() -> Coffee {
-        if Bool.random() {
-            return TOPCoffee(dateOfManufacture: randomDate)
-        } else {
-            return CantataCoffee(dateOfManufacture: randomDate)
+    enum CoffeeOption {
+        case topCoffee
+        case cantataCoffee
+        
+        var initial: (Date) -> Coffee {
+            switch self {
+            case .topCoffee:
+                return TOPCoffee.init
+            case .cantataCoffee:
+                return CantataCoffee.init
+            }
         }
     }
     
-    
-    func makeBeverage() -> Beverage {
-        let makers = [
-            makeMilk,
-            makeSoftDrink,
-            makeCoffee
-        ]
-        return makers.randomElement()!()
+    func makeMilk(option: MilkOption) -> Milk {
+        
     }
     
-    func makeBeverages(count: Int) -> [Beverage] {
-        var beverages = [Beverage]()
-        for _ in 1...count {
-            beverages.append(makeBeverage())
-        }
-        return beverages
-    }
 }
