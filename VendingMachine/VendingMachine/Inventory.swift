@@ -8,25 +8,28 @@
 
 import Foundation
 
-typealias Inventory = [String: Item]
+typealias Inventory = [String: Beverages]
 
 extension Inventory {
     var hotBeverages: [String] {
-        return self.filter { (_, item) in
-            item.isHot
+        return self.filter { (_, beverages) in
+            if let isHot = beverages.isHot {
+                return isHot
+            }
+            return false
             }.keys.map { $0 }
     }
     
     var expiredBeverages: [Beverage] {
-        let allBeverages = self.values.flatMap { $0.beverages }
+        let allBeverages = self.values.flatMap { $0 }
         return allBeverages.filter { $0.isExpired(targetDate: Date()) }
     }
     
     mutating func addItem(_ beverage: Beverage) {
         if self[beverage.name] == nil {
-            self[beverage.name] = Item(price: beverage.price, beverage: beverage)
+            self[beverage.name] = [beverage]
         } else {
-            self[beverage.name]!.add(beverage)
+            self[beverage.name]!.append(beverage)
         }
     }
     

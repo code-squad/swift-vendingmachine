@@ -32,10 +32,10 @@ class OutputView: TextView {
         show(Message.coinsDeposited(coins))
     }
     
-    func showInventory(_ inventory: [String: Item]) {
+    func showInventory(_ inventory: [String: Beverages]) {
         var inventoryInfo = [String]()
-        inventory.forEach { (name, item) in
-            inventoryInfo.append(Message.nameWithCount(name: name, count: item.count))
+        inventory.forEach { (name, beverages) in
+            inventoryInfo.append(Message.nameWithCount(name: name, count: beverages.count))
         }
         show(inventoryInfo.joined(separator: " "))
     }
