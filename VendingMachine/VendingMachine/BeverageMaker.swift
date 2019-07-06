@@ -63,4 +63,26 @@ class BeverageMaker {
         return option.initial(dateOfManufacture)
     }
     
+    var exampleBeverages: [Beverage] {
+        return [
+            makeMilk(option: .chocolate, dateOfManufacture: ExampleDate.date1),
+            makeMilk(option: .chocolate, dateOfManufacture: ExampleDate.date1),
+            makeMilk(option: .chocolate, dateOfManufacture: ExampleDate.date1),
+            makeMilk(option: .chocolate, dateOfManufacture: ExampleDate.date1),
+            
+            makeMilk(option: .strawberry, dateOfManufacture: ExampleDate.date2),
+            makeMilk(option: .strawberry, dateOfManufacture: ExampleDate.date2),
+            makeMilk(option: .strawberry, dateOfManufacture: ExampleDate.date2),
+            
+            makeSoftDrink(option: .cola, dateOfManufacture: ExampleDate.date3),
+            makeSoftDrink(option: .cola, dateOfManufacture: ExampleDate.date3),
+            
+            makeSoftDrink(option: .lemonLimeDrink, dateOfManufacture: ExampleDate.date4),
+            
+            makeCoffee(option: .cantataCoffee, dateOfManufacture: ExampleDate.date1),
+            makeCoffee(option: .cantataCoffee, dateOfManufacture: ExampleDate.date1),
+            
+            makeCoffee(option: .topCoffee, dateOfManufacture: ExampleDate.date2),
+        ]
+    }
 }

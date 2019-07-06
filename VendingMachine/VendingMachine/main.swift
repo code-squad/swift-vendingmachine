@@ -4,7 +4,7 @@ func main() {
     var controller = VendingMachineController()
     var beverageMaker = BeverageMaker()
     
-    controller.machine.addItems(beverageMaker.makeBeverages(count: 20))
+    controller.machine.addItems(beverageMaker.exampleBeverages)
     
     while true {
         controller.selectFunction()
