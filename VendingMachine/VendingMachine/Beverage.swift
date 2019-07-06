@@ -38,3 +38,23 @@ extension Beverage: CustomStringConvertible {
         return "\(type(of: self)) - \(brand), \(packageSize)ml, \(price)원, \(name), \(dateOfManufacture)"
     }
 }
+
+typealias Beverages = [Beverage]
+
+extension Beverages {
+    
+    var price: Coin? {
+        return self.first?.price
+    }
+    
+    var beverageTemperature: Int? {
+        return self.first?.beverageTemperature
+    }
+    
+    var isHot: Bool? {
+        guard let temperature = beverageTemperature else {
+            return nil
+        }
+        return temperature > 50
+    }
+}
