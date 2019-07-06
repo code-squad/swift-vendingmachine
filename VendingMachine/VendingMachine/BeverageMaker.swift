@@ -51,8 +51,16 @@ class BeverageMaker {
         }
     }
     
-    func makeMilk(option: MilkOption) -> Milk {
-        
+    func makeMilk(option: MilkOption, dateOfManufacture: Date) -> Milk {
+        return option.initial("목장1", dateOfManufacture)
+    }
+    
+    func makeSoftDrink(option: SoftDrinkOption, dateOfManufacture: Date) -> SoftDrink {
+        return option.initial(dateOfManufacture)
+    }
+    
+    func makeCoffee(option: CoffeeOption, dateOfManufacture: Date) -> Coffee {
+        return option.initial(dateOfManufacture)
     }
     
 }
