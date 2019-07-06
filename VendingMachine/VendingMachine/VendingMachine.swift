@@ -28,11 +28,11 @@ class VendingMachine {
             throw VendingMachineError.outOfStock
         }
         
-        guard item.price <= coinsDeposited else {
-            throw VendingMachineError.insufficientFunds(coinsNeeded: item.price - coinsDeposited)
+        guard item.price! <= coinsDeposited else {
+            throw VendingMachineError.insufficientFunds(coinsNeeded: item.price! - coinsDeposited)
         }
         
-        coinsDeposited -= item.price
+        coinsDeposited -= item.price!
         let itemVended = inventory[name]!.removeFirst()
         purchasedItems.append(itemVended)
         return itemVended
@@ -40,7 +40,7 @@ class VendingMachine {
     
     var availableItems: [String] {
         return inventory.filter { (_, item) in
-            item.price <= coinsDeposited
+            item.price! <= coinsDeposited
             }.keys.map { $0 }
     }
     
