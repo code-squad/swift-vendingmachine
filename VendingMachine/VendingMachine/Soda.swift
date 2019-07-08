@@ -13,7 +13,7 @@ class Soda: Product {
     
     init(capacity: Int, price: Int, name: String, stringDate: String, calorie: Int) {
         self.calorie = calorie
-        super.init(brand: "팹시", capacity: capacity, price: price, name: name, stringDate: stringDate)
+        super.init(brand: "코카", capacity: capacity, price: price, name: name, stringDate: stringDate)
     }
     
     func isLowCalorie() -> Bool {
