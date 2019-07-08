@@ -11,5 +11,7 @@ import Foundation
 protocol Drinkable{
     func display (printFormat : (_ info: Drinkable) -> Void)
     func validate(with date: Date) -> Bool
+    func isLowCalories() -> Bool
+    func isHot() -> Bool 
 }
 
