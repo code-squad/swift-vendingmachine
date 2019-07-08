@@ -9,12 +9,12 @@
 import Foundation
 
 func main() {
-    let strawberryMilk = StrawberryMilk()
+    let strawberryMilk = StrawberryMilk(stringData: "20190630")
     let chocolateMilk = ChocolateMilk()
-    let coke = Coke()
-    let sprite = Sprite()
-    let topCoffee = TOPCoffee()
-    let cantataCoffee = CantataCoffee()
+    let coke = Coke(calorie: 200)
+    let sprite = Sprite(calorie: 90)
+    let topCoffee = TOPCoffee(temperature: 70.0)
+    let cantataCoffee = CantataCoffee(temperature: 30.0)
     print(strawberryMilk)
     print(chocolateMilk)
     print(coke)

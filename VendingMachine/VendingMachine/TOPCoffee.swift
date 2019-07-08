@@ -11,7 +11,7 @@ import Foundation
 class TOPCoffee: Coffee {
     static let arbicaBeansContent: Bool = true
     
-    init(){
-        super.init(capacity: 1000, price: 4000, name: "T.O.P", stringDate: "20191122", temperature: 70)
+    init(temperature: Double){
+        super.init(capacity: 1000, price: 4000, name: "T.O.P", stringDate: "20191122", temperature: temperature)
     }
 }

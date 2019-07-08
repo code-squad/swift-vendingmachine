@@ -11,7 +11,7 @@ import Foundation
 class Coke: Soda {
     static let sugarFree: Bool = false
     
-    init(){
-        super.init(capacity: 500, price: 1700, name: "콜라", stringDate: "20200326", calorie: 200)
+    init(calorie: Int){
+        super.init(capacity: 500, price: 1700, name: "콜라", stringDate: "20200326", calorie: calorie)
     }
 }
