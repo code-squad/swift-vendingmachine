@@ -9,9 +9,10 @@
 import Foundation
 
 class Coke: Soda {
-    static let sugarFree: Bool = false
+    private var sugarFree: Bool
     
-    init(calorie: Int){
+    init(calorie: Int, sugarFree: Bool){
+        self.sugarFree = sugarFree
         super.init(capacity: 500, price: 1700, name: "콜라", stringDate: "20200326", calorie: calorie)
     }
 }

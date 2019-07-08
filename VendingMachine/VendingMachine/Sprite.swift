@@ -9,9 +9,10 @@
 import Foundation
 
 class Sprite: Soda {
-    static let lemonContent: Double = 5.0
+    private var lemonContent: Double
     
-    init(calorie: Int){
+    init(calorie: Int, lemonContent: Double){
+        self.lemonContent = lemonContent
         super.init(capacity: 250, price: 1200, name: "스프라이트", stringDate: "20200826", calorie: calorie)
     }
 }
