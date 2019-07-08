@@ -12,10 +12,10 @@ class EnergyDrink: Drink, Antihypnotical, SugaryContainable {
     private let coffeine: Double
     private var sugar: Int?
     
-    init(brand: String, quantity: Int, price: Int, name: String, date: Date, sugar: Int?, coffeine: Double = 100) {
+    init(brand: String, quantity: Int, price: Int, name: String, date: Date, sugar: Int?, coffeine: Double = 100, calorySet: CaloryElements, temperature: Double) {
         self.sugar = sugar
         self.coffeine = coffeine
-        super.init(brand: brand, quantity: quantity, price: price, name: name, date: date)
+        super.init(brand: brand, quantity: quantity, price: price, name: name, date: date, caloryElements: calorySet, temp: temperature)
     }
     
     var coffeineDisplay: Double {
