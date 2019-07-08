@@ -9,7 +9,7 @@
 import Foundation
 
 func main() {
-    let strawberryMilk = StrawberryMilk(stringData: "20190630")
+    let strawberryMilk = StrawberryMilk(stringDate: "20190630")
     let chocolateMilk = ChocolateMilk()
     let coke = Coke(calorie: 200)
     let sprite = Sprite(calorie: 90)
