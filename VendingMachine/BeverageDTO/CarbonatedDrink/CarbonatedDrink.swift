@@ -12,11 +12,11 @@ import Foundation
 class CarbonatedDrink: Drink, SugaryContainable {
     private var sugar: Int?
     
-    init(brand: String, quantity: Int, price: Int, name: String, date: Date, sugar: Int? = nil) {
+    init(brand: String, quantity: Int, price: Int, name: String, date: Date, sugar: Int? = nil, calorySet: CaloryElements, temp: Double ) {
         self.sugar = sugar
-        super.init(brand: brand, quantity: quantity, price: price, name: name, date: date)
+        super.init(brand: brand, quantity: quantity, price: price, name: name, date: date, caloryElements: calorySet, temp: temp)
     }
-    
+
     var sugary: Int {
         get {
             switch sugar {

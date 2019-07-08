@@ -11,9 +11,9 @@ import Foundation
 class Coke: CarbonatedDrink, Antihypnotical {
     private let coffeine: Double
     
-    init(brand: String, quantity: Int, price: Int, name: String, date: Date, coffeine :Double = 100, sugar :Int? ) {
+    init(brand: String, quantity: Int, price: Int, name: String, date: Date, coffeine :Double = 100, sugar :Int?, calorySet: CaloryElements, temperature: Double ) {
         self.coffeine = coffeine
-        super.init(brand: brand, quantity: quantity, price: price, name: name, date: date, sugar: sugar)
+        super.init(brand: brand, quantity: quantity, price: price, name: name, date: date, sugar: sugar, calorySet: calorySet, temp:    temperature)
     }
     
     var coffeineDisplay: Double {
