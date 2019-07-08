@@ -24,12 +24,16 @@
 		15078AF822D3049300F6302A /* CantataCoffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15078AEE22CF689A00F6302A /* CantataCoffee.swift */; };
 		15078AF922D3068B00F6302A /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1562F29C22C9D2D40052AC35 /* Product.swift */; };
 		15078AFA22D3069E00F6302A /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1562F29E22C9E5330052AC35 /* DateUtil.swift */; };
+		15078AFE22D3658C00F6302A /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15078AFD22D3658C00F6302A /* VendingMachine.swift */; };
+		15078B0122D36A7F00F6302A /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15078B0022D36A7F00F6302A /* InputView.swift */; };
+		15078B0322D36A8C00F6302A /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15078B0222D36A8C00F6302A /* OutputView.swift */; };
+		15078B0522D36C1F00F6302A /* VendingMachineTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15078B0422D36C1F00F6302A /* VendingMachineTest.swift */; };
 		1562F29D22C9D2D40052AC35 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1562F29C22C9D2D40052AC35 /* Product.swift */; };
 		1562F29F22C9E5330052AC35 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1562F29E22C9E5330052AC35 /* DateUtil.swift */; };
 		1562F2A122C9F3660052AC35 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1562F2A022C9F3660052AC35 /* Milk.swift */; };
 		1562F2A322C9F3890052AC35 /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1562F2A222C9F3890052AC35 /* Soda.swift */; };
 		1562F2A522C9F3990052AC35 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1562F2A422C9F3990052AC35 /* Coffee.swift */; };
-		1562F2AE22C9FB440052AC35 /* VendingMachineTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1562F2AD22C9FB440052AC35 /* VendingMachineTest.swift */; };
+		1562F2AE22C9FB440052AC35 /* ProductClassesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1562F2AD22C9FB440052AC35 /* ProductClassesTest.swift */; };
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,13 +56,17 @@
 		15078AEA22CF685B00F6302A /* Sprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sprite.swift; sourceTree = "<group>"; };
 		15078AEC22CF686500F6302A /* TOPCoffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOPCoffee.swift; sourceTree = "<group>"; };
 		15078AEE22CF689A00F6302A /* CantataCoffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CantataCoffee.swift; sourceTree = "<group>"; };
+		15078AFD22D3658C00F6302A /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
+		15078B0022D36A7F00F6302A /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		15078B0222D36A8C00F6302A /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
+		15078B0422D36C1F00F6302A /* VendingMachineTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineTest.swift; sourceTree = "<group>"; };
 		1562F29C22C9D2D40052AC35 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		1562F29E22C9E5330052AC35 /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
 		1562F2A022C9F3660052AC35 /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 		1562F2A222C9F3890052AC35 /* Soda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soda.swift; sourceTree = "<group>"; };
 		1562F2A422C9F3990052AC35 /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		1562F2AB22C9FB440052AC35 /* VendingMachineTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1562F2AD22C9FB440052AC35 /* VendingMachineTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineTest.swift; sourceTree = "<group>"; };
+		1562F2AD22C9FB440052AC35 /* ProductClassesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductClassesTest.swift; sourceTree = "<group>"; };
 		1562F2AF22C9FB440052AC35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -82,10 +90,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15078AFC22D3652000F6302A /* main */ = {
+			isa = PBXGroup;
+			children = (
+				839DA90C1F8D1F95009E05F3 /* main.swift */,
+			);
+			path = main;
+			sourceTree = "<group>";
+		};
+		15078AFF22D36A6900F6302A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				15078B0022D36A7F00F6302A /* InputView.swift */,
+				15078B0222D36A8C00F6302A /* OutputView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		1562F2AC22C9FB440052AC35 /* VendingMachineTest */ = {
 			isa = PBXGroup;
 			children = (
-				1562F2AD22C9FB440052AC35 /* VendingMachineTest.swift */,
+				1562F2AD22C9FB440052AC35 /* ProductClassesTest.swift */,
+				15078B0422D36C1F00F6302A /* VendingMachineTest.swift */,
 				1562F2AF22C9FB440052AC35 /* Info.plist */,
 			);
 			path = VendingMachineTest;
@@ -94,6 +120,8 @@
 		839DA9001F8D1F95009E05F3 = {
 			isa = PBXGroup;
 			children = (
+				15078AFF22D36A6900F6302A /* View */,
+				15078AFC22D3652000F6302A /* main */,
 				839DA90B1F8D1F95009E05F3 /* VendingMachine */,
 				1562F2AC22C9FB440052AC35 /* VendingMachineTest */,
 				839DA90A1F8D1F95009E05F3 /* Products */,
@@ -112,7 +140,6 @@
 		839DA90B1F8D1F95009E05F3 /* VendingMachine */ = {
 			isa = PBXGroup;
 			children = (
-				839DA90C1F8D1F95009E05F3 /* main.swift */,
 				1562F29C22C9D2D40052AC35 /* Product.swift */,
 				1562F29E22C9E5330052AC35 /* DateUtil.swift */,
 				1562F2A022C9F3660052AC35 /* Milk.swift */,
@@ -124,6 +151,7 @@
 				15078AEA22CF685B00F6302A /* Sprite.swift */,
 				15078AEC22CF686500F6302A /* TOPCoffee.swift */,
 				15078AEE22CF689A00F6302A /* CantataCoffee.swift */,
+				15078AFD22D3658C00F6302A /* VendingMachine.swift */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";
@@ -223,8 +251,9 @@
 				15078AF022D3042000F6302A /* Milk.swift in Sources */,
 				15078AF522D3048B00F6302A /* Coke.swift in Sources */,
 				15078AF422D3048800F6302A /* ChocolateMilk.swift in Sources */,
+				15078B0522D36C1F00F6302A /* VendingMachineTest.swift in Sources */,
 				15078AF922D3068B00F6302A /* Product.swift in Sources */,
-				1562F2AE22C9FB440052AC35 /* VendingMachineTest.swift in Sources */,
+				1562F2AE22C9FB440052AC35 /* ProductClassesTest.swift in Sources */,
 				15078AF822D3049300F6302A /* CantataCoffee.swift in Sources */,
 				15078AF622D3048D00F6302A /* Sprite.swift in Sources */,
 				15078AFA22D3069E00F6302A /* DateUtil.swift in Sources */,
@@ -238,8 +267,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				15078AEB22CF685B00F6302A /* Sprite.swift in Sources */,
+				15078B0122D36A7F00F6302A /* InputView.swift in Sources */,
 				15078AE922CF684D00F6302A /* Coke.swift in Sources */,
+				15078AFE22D3658C00F6302A /* VendingMachine.swift in Sources */,
 				15078AE522CF682000F6302A /* StrawberryMilk.swift in Sources */,
+				15078B0322D36A8C00F6302A /* OutputView.swift in Sources */,
 				1562F29F22C9E5330052AC35 /* DateUtil.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
 				1562F2A122C9F3660052AC35 /* Milk.swift in Sources */,
