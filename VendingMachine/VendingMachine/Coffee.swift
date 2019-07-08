@@ -17,7 +17,7 @@ class Coffee: Product {
     }
     
     func isHot() -> Bool {
-        if temperature > 60 {
+        if temperature > 60.0 {
             return true
         } else {
             return false
