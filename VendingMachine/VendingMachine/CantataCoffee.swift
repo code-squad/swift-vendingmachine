@@ -9,9 +9,10 @@
 import Foundation
 
 class CantataCoffee: Coffee {
-    static let DripStatus: Bool = true
+    private var DripStatus: Bool
     
-    init(temperature: Double){
+    init(temperature: Double, DripStatus: Bool){
+        self.DripStatus = DripStatus
         super.init(capacity: 280, price: 2400, name: "칸타타", stringDate: "20191225", temperature: temperature)
     }
 }

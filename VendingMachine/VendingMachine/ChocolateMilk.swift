@@ -9,9 +9,10 @@
 import Foundation
 
 class ChocolateMilk: Milk {
-    static let fattyContent: Double = 1.4
+    private var fattyContent: Double
     
-    init(){
+    init(fattyContent: Double){
+        self.fattyContent = fattyContent
         super.init(capacity: 260, price: 1800, name: "날마다초코우유", stringDate: "20190720", milkFarmCode: 63826)
     }
 }
