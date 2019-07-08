@@ -9,7 +9,7 @@
 import Foundation
 
 protocol Fruitable {
-    var fruitOriginInfo: String {get}
+    func displayFruitProportion() -> Double 
 }
 
 
