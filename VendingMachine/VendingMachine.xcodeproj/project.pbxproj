@@ -61,6 +61,29 @@
 		C5E9432D22CF246800589506 /* FarmCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E9432B22CF246800589506 /* FarmCode.swift */; };
 		C5F2EE5122D2DD5F006137E8 /* Fruitable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE5022D2DD5F006137E8 /* Fruitable.swift */; };
 		C5F2EE5222D2EFDE006137E8 /* Fruitable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE5022D2DD5F006137E8 /* Fruitable.swift */; };
+		C5F2EE5522D3061E006137E8 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE5422D3061E006137E8 /* VendingMachine.swift */; };
+		C5F2EE5622D30622006137E8 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE5422D3061E006137E8 /* VendingMachine.swift */; };
+		C5F2EE5822D30993006137E8 /* StateTransitionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE5722D30993006137E8 /* StateTransitionable.swift */; };
+		C5F2EE5A22D30A3E006137E8 /* SoldState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE5922D30A3E006137E8 /* SoldState.swift */; };
+		C5F2EE5C22D30B25006137E8 /* InitialState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE5B22D30B25006137E8 /* InitialState.swift */; };
+		C5F2EE5D22D30BD7006137E8 /* StateTransitionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE5722D30993006137E8 /* StateTransitionable.swift */; };
+		C5F2EE5E22D30BD9006137E8 /* InitialState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE5B22D30B25006137E8 /* InitialState.swift */; };
+		C5F2EE5F22D30BDB006137E8 /* SoldState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE5922D30A3E006137E8 /* SoldState.swift */; };
+		C5F2EE6122D312A2006137E8 /* ProductSoldable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE6022D312A2006137E8 /* ProductSoldable.swift */; };
+		C5F2EE6222D312A9006137E8 /* ProductSoldable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE6022D312A2006137E8 /* ProductSoldable.swift */; };
+		C5F2EE6422D31C9C006137E8 /* SoldOutState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE6322D31C9C006137E8 /* SoldOutState.swift */; };
+		C5F2EE6922D31F86006137E8 /* ReadyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE6822D31F86006137E8 /* ReadyState.swift */; };
+		C5F2EE6A22D31F86006137E8 /* ReadyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE6822D31F86006137E8 /* ReadyState.swift */; };
+		C5F2EE6C22D31FB0006137E8 /* NotEnoughMoneyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE6B22D31FB0006137E8 /* NotEnoughMoneyState.swift */; };
+		C5F2EE6D22D31FB0006137E8 /* NotEnoughMoneyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE6B22D31FB0006137E8 /* NotEnoughMoneyState.swift */; };
+		C5F2EE6F22D31FC7006137E8 /* ChargeMoneyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE6E22D31FC7006137E8 /* ChargeMoneyState.swift */; };
+		C5F2EE7022D31FC7006137E8 /* ChargeMoneyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE6E22D31FC7006137E8 /* ChargeMoneyState.swift */; };
+		C5F2EE7522D332BD006137E8 /* HotSix.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE7422D332BD006137E8 /* HotSix.swift */; };
+		C5F2EE7622D332BD006137E8 /* HotSix.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE7422D332BD006137E8 /* HotSix.swift */; };
+		C5F2EE7B22D34AC9006137E8 /* DrinkItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE7A22D34AC9006137E8 /* DrinkItemList.swift */; };
+		C5F2EE7C22D34AC9006137E8 /* DrinkItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE7A22D34AC9006137E8 /* DrinkItemList.swift */; };
+		C5F2EE7E22D46606006137E8 /* BeverageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE7D22D46606006137E8 /* BeverageInfo.swift */; };
+		C5F2EE7F22D46606006137E8 /* BeverageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE7D22D46606006137E8 /* BeverageInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -107,6 +130,18 @@
 		C5E9432822CF220F00589506 /* SugaryContainable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugaryContainable.swift; sourceTree = "<group>"; };
 		C5E9432B22CF246800589506 /* FarmCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FarmCode.swift; sourceTree = "<group>"; };
 		C5F2EE5022D2DD5F006137E8 /* Fruitable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fruitable.swift; sourceTree = "<group>"; };
+		C5F2EE5422D3061E006137E8 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
+		C5F2EE5722D30993006137E8 /* StateTransitionable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateTransitionable.swift; sourceTree = "<group>"; };
+		C5F2EE5922D30A3E006137E8 /* SoldState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoldState.swift; sourceTree = "<group>"; };
+		C5F2EE5B22D30B25006137E8 /* InitialState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialState.swift; sourceTree = "<group>"; };
+		C5F2EE6022D312A2006137E8 /* ProductSoldable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSoldable.swift; sourceTree = "<group>"; };
+		C5F2EE6322D31C9C006137E8 /* SoldOutState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoldOutState.swift; sourceTree = "<group>"; };
+		C5F2EE6822D31F86006137E8 /* ReadyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadyState.swift; sourceTree = "<group>"; };
+		C5F2EE6B22D31FB0006137E8 /* NotEnoughMoneyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotEnoughMoneyState.swift; sourceTree = "<group>"; };
+		C5F2EE6E22D31FC7006137E8 /* ChargeMoneyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargeMoneyState.swift; sourceTree = "<group>"; };
+		C5F2EE7422D332BD006137E8 /* HotSix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotSix.swift; sourceTree = "<group>"; };
+		C5F2EE7A22D34AC9006137E8 /* DrinkItemList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinkItemList.swift; sourceTree = "<group>"; };
+		C5F2EE7D22D46606006137E8 /* BeverageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,11 +165,13 @@
 		839DA9001F8D1F95009E05F3 = {
 			isa = PBXGroup;
 			children = (
+				C5F2EE7222D32B39006137E8 /* VendinMachineState */,
+				C5F2EE7122D32B24006137E8 /* VendingMachineProtocol */,
 				C5F2EE5322D2F157006137E8 /* VendingMachineDTO */,
 				C5E942CB22CB845D00589506 /* OutputView */,
 				C5E942C822CB804B00589506 /* Enum */,
 				C5E942B222CB7D8A00589506 /* BeverageDTO */,
-				C5E942A022CB6A0700589506 /* Protocol */,
+				C5E942A022CB6A0700589506 /* BeverageProtocol */,
 				C5250CFE22CB66E100FB2534 /* Utils */,
 				839DA90B1F8D1F95009E05F3 /* VendingMachine */,
 				C5E942F622CEEC8900589506 /* UnitTestVendingMachine */,
@@ -167,15 +204,15 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		C5E942A022CB6A0700589506 /* Protocol */ = {
+		C5E942A022CB6A0700589506 /* BeverageProtocol */ = {
 			isa = PBXGroup;
 			children = (
+				C5E9431A22CEF6E300589506 /* Antihypnotical.swift */,
 				C5E942A122CB6A6C00589506 /* Drinkable.swift */,
 				C5F2EE5022D2DD5F006137E8 /* Fruitable.swift */,
-				C5E9431A22CEF6E300589506 /* Antihypnotical.swift */,
 				C5E9432822CF220F00589506 /* SugaryContainable.swift */,
 			);
-			path = Protocol;
+			path = BeverageProtocol;
 			sourceTree = "<group>";
 		};
 		C5E942B222CB7D8A00589506 /* BeverageDTO */ = {
@@ -250,6 +287,7 @@
 		C5E942FD22CEECE100589506 /* EnergyDrink */ = {
 			isa = PBXGroup;
 			children = (
+				C5F2EE7322D332AC006137E8 /* EnergyDrinkCategory */,
 				C5E942FE22CEECF800589506 /* EnergyDrink.swift */,
 			);
 			path = EnergyDrink;
@@ -288,8 +326,41 @@
 		C5F2EE5322D2F157006137E8 /* VendingMachineDTO */ = {
 			isa = PBXGroup;
 			children = (
+				C5F2EE7A22D34AC9006137E8 /* DrinkItemList.swift */,
+				C5F2EE5422D3061E006137E8 /* VendingMachine.swift */,
+				C5F2EE7D22D46606006137E8 /* BeverageInfo.swift */,
 			);
 			path = VendingMachineDTO;
+			sourceTree = "<group>";
+		};
+		C5F2EE7122D32B24006137E8 /* VendingMachineProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				C5F2EE6022D312A2006137E8 /* ProductSoldable.swift */,
+			);
+			path = VendingMachineProtocol;
+			sourceTree = "<group>";
+		};
+		C5F2EE7222D32B39006137E8 /* VendinMachineState */ = {
+			isa = PBXGroup;
+			children = (
+				C5F2EE5722D30993006137E8 /* StateTransitionable.swift */,
+				C5F2EE5B22D30B25006137E8 /* InitialState.swift */,
+				C5F2EE6822D31F86006137E8 /* ReadyState.swift */,
+				C5F2EE6E22D31FC7006137E8 /* ChargeMoneyState.swift */,
+				C5F2EE5922D30A3E006137E8 /* SoldState.swift */,
+				C5F2EE6322D31C9C006137E8 /* SoldOutState.swift */,
+				C5F2EE6B22D31FB0006137E8 /* NotEnoughMoneyState.swift */,
+			);
+			path = VendinMachineState;
+			sourceTree = "<group>";
+		};
+		C5F2EE7322D332AC006137E8 /* EnergyDrinkCategory */ = {
+			isa = PBXGroup;
+			children = (
+				C5F2EE7422D332BD006137E8 /* HotSix.swift */,
+			);
+			path = EnergyDrinkCategory;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -384,31 +455,43 @@
 			files = (
 				C5E942EC22CDD3B300589506 /* CantataCoffee.swift in Sources */,
 				C5E942E422CDD2B100589506 /* Fruit.swift in Sources */,
+				C5F2EE7522D332BD006137E8 /* HotSix.swift in Sources */,
 				C5E942DE22CDCA7A00589506 /* Coke.swift in Sources */,
+				C5F2EE7B22D34AC9006137E8 /* DrinkItemList.swift in Sources */,
 				C5250D0022CB66FF00FB2534 /* Drink.swift in Sources */,
+				C5F2EE7E22D46606006137E8 /* BeverageInfo.swift in Sources */,
+				C5F2EE6F22D31FC7006137E8 /* ChargeMoneyState.swift in Sources */,
 				C5E942EA22CDD3A800589506 /* GeorgiaCoffee.swift in Sources */,
 				C5E942D822CDC66400589506 /* StrawberryMilk.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
 				C5E942FF22CEECF800589506 /* EnergyDrink.swift in Sources */,
+				C5F2EE6C22D31FB0006137E8 /* NotEnoughMoneyState.swift in Sources */,
 				C5E942E022CDCA8400589506 /* Sprite.swift in Sources */,
 				C5E942A222CB6A6C00589506 /* Drinkable.swift in Sources */,
 				C5E942DA22CDC86500589506 /* ChocoMilk.swift in Sources */,
+				C5F2EE5C22D30B25006137E8 /* InitialState.swift in Sources */,
 				C5E942DC22CDC93C00589506 /* BananaMilk.swift in Sources */,
+				C5F2EE6422D31C9C006137E8 /* SoldOutState.swift in Sources */,
 				C5E942D422CD936600589506 /* CarbonatedDrink.swift in Sources */,
 				C5E942D222CD935700589506 /* Milk.swift in Sources */,
 				C5E9432C22CF246800589506 /* FarmCode.swift in Sources */,
 				C5E942D622CD937000589506 /* Coffee.swift in Sources */,
 				C5E942CA22CB80AF00589506 /* Units.swift in Sources */,
+				C5F2EE6922D31F86006137E8 /* ReadyState.swift in Sources */,
 				C5E942F022CDD7BD00589506 /* CoffeeType.swift in Sources */,
 				C5E942E822CDD3A300589506 /* TOPCoffee.swift in Sources */,
 				C5F2EE5122D2DD5F006137E8 /* Fruitable.swift in Sources */,
 				C5E942E622CDD34500589506 /* Currency.swift in Sources */,
+				C5F2EE5A22D30A3E006137E8 /* SoldState.swift in Sources */,
+				C5F2EE6122D312A2006137E8 /* ProductSoldable.swift in Sources */,
 				C5E9431B22CEF6E300589506 /* Antihypnotical.swift in Sources */,
 				C5E942A822CB6EDB00589506 /* CustomDateFormatter.swift in Sources */,
+				C5F2EE5822D30993006137E8 /* StateTransitionable.swift in Sources */,
 				C5E942E222CDCA8900589506 /* Fanta.swift in Sources */,
 				C5E942EE22CDD65D00589506 /* CoffeeBean.swift in Sources */,
 				C5E942CD22CB846400589506 /* OutputView.swift in Sources */,
 				C5E9432922CF220F00589506 /* SugaryContainable.swift in Sources */,
+				C5F2EE5522D3061E006137E8 /* VendingMachine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,8 +499,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5F2EE7622D332BD006137E8 /* HotSix.swift in Sources */,
 				C5E9430B22CEF0F900589506 /* Sprite.swift in Sources */,
 				C5E9431022CEF10700589506 /* EnergyDrink.swift in Sources */,
+				C5F2EE7C22D34AC9006137E8 /* DrinkItemList.swift in Sources */,
 				C5E9431622CEF11B00589506 /* OutputView.swift in Sources */,
 				C5E9430C22CEF0FD00589506 /* Milk.swift in Sources */,
 				C5E9430522CEF0EB00589506 /* CantataCoffee.swift in Sources */,
@@ -426,23 +511,32 @@
 				C5E9430322CEF0E700589506 /* Drink.swift in Sources */,
 				C5E9430D22CEF10000589506 /* BananaMilk.swift in Sources */,
 				C5E9430622CEF0ED00589506 /* GeorgiaCoffee.swift in Sources */,
+				C5F2EE7F22D46606006137E8 /* BeverageInfo.swift in Sources */,
 				C5E9430A22CEF0F600589506 /* Fanta.swift in Sources */,
 				C5E9431122CEF10D00589506 /* Units.swift in Sources */,
+				C5F2EE5E22D30BD9006137E8 /* InitialState.swift in Sources */,
 				C5E9430822CEF0F200589506 /* CarbonatedDrink.swift in Sources */,
 				C5E942F822CEEC8900589506 /* UnitTestVendingMachine.swift in Sources */,
 				C5E9432D22CF246800589506 /* FarmCode.swift in Sources */,
 				C5E9431D22CEF9F000589506 /* Drinkable.swift in Sources */,
 				C5E9430422CEF0E900589506 /* Coffee.swift in Sources */,
+				C5F2EE5F22D30BDB006137E8 /* SoldState.swift in Sources */,
+				C5F2EE6A22D31F86006137E8 /* ReadyState.swift in Sources */,
 				C5E9430F22CEF10500589506 /* ChocoMilk.swift in Sources */,
 				C5E9431E22CEFA0700589506 /* CustomDateFormatter.swift in Sources */,
 				C5F2EE5222D2EFDE006137E8 /* Fruitable.swift in Sources */,
 				C5E9431422CEF11000589506 /* Fruit.swift in Sources */,
+				C5F2EE6222D312A9006137E8 /* ProductSoldable.swift in Sources */,
 				C5E9431C22CEF6E300589506 /* Antihypnotical.swift in Sources */,
 				C5E9431522CEF11000589506 /* Currency.swift in Sources */,
+				C5F2EE5D22D30BD7006137E8 /* StateTransitionable.swift in Sources */,
 				C5E9431322CEF11000589506 /* CoffeeType.swift in Sources */,
+				C5F2EE6D22D31FB0006137E8 /* NotEnoughMoneyState.swift in Sources */,
 				C5E9430E22CEF10300589506 /* StrawberryMilk.swift in Sources */,
+				C5F2EE7022D31FC7006137E8 /* ChargeMoneyState.swift in Sources */,
 				C5E9430922CEF0F500589506 /* Coke.swift in Sources */,
 				C5E9432A22CF220F00589506 /* SugaryContainable.swift in Sources */,
+				C5F2EE5622D30622006137E8 /* VendingMachine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
