@@ -10,10 +10,12 @@ import Foundation
 
 struct VendingMachine {
     private var money: Int = 0
+    private var items = [String:Int]()
+    
     
     /// 자판기 금액을 원하는 금액만큼 올리는 메소드
-    func pay() {
-        
+    mutating func pay(of addedMoney: Int) {
+        money += addedMoney
     }
     
     /// 특정 상품 인스턴스를 넘겨서 재고를 추가하는 메소드
@@ -32,8 +34,8 @@ struct VendingMachine {
     }
     
     /// 잔액을 확인하는 메소드
-    func checkBalance() {
-    
+    mutating func checkBalance() -> Int {
+        return money
     }
     
     /// 전체 상품 재고를 (사전으로 표현하는) 종류별로 리턴하는 메소드
