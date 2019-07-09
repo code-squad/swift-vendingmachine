@@ -13,6 +13,6 @@ class ChocolateMilk: Milk {
     
     init(fattyContent: Double){
         self.fattyContent = fattyContent
-        super.init(capacity: 260, price: 1800, name: "날마다초코우유", stringDate: "20190720", milkFarmCode: 63826)
+        super.init(capacity: 260, price: 1800, name: "초코우유", stringDate: "20190720", milkFarmCode: 63826)
     }
 }

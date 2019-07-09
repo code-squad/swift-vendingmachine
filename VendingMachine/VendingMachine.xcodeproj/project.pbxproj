@@ -28,6 +28,7 @@
 		15078B0122D36A7F00F6302A /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15078B0022D36A7F00F6302A /* InputView.swift */; };
 		15078B0322D36A8C00F6302A /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15078B0222D36A8C00F6302A /* OutputView.swift */; };
 		15078B0522D36C1F00F6302A /* VendingMachineTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15078B0422D36C1F00F6302A /* VendingMachineTest.swift */; };
+		15078B0622D45F8300F6302A /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15078AFD22D3658C00F6302A /* VendingMachine.swift */; };
 		1562F29D22C9D2D40052AC35 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1562F29C22C9D2D40052AC35 /* Product.swift */; };
 		1562F29F22C9E5330052AC35 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1562F29E22C9E5330052AC35 /* DateUtil.swift */; };
 		1562F2A122C9F3660052AC35 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1562F2A022C9F3660052AC35 /* Milk.swift */; };
@@ -259,6 +260,7 @@
 				15078AFA22D3069E00F6302A /* DateUtil.swift in Sources */,
 				15078AF222D3043100F6302A /* Coffee.swift in Sources */,
 				15078AF722D3049000F6302A /* TOPCoffee.swift in Sources */,
+				15078B0622D45F8300F6302A /* VendingMachine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

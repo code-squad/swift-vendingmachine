@@ -9,6 +9,7 @@
 import Foundation
 
 struct VendingMachine {
+    private var money: Int = 0
     
     /// 자판기 금액을 원하는 금액만큼 올리는 메소드
     func pay() {
