@@ -30,12 +30,19 @@ class VendingMachineTest: XCTestCase {
         vendingMachine.stockUp(of: strawberryMilk)
         let items = vendingMachine.isFullStock()
         
-        XCTAssertTrue(items == [strawberryMilk])
+        XCTAssertTrue(items == ["딸기우유":1])
     }
     
     /// 현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
     func testDisplayItems() {
-        let items = vendingMachine.displayItems(of: 3000)
+        vendingMachine.stockUp(of: strawberryMilk)
+        vendingMachine.stockUp(of: chocolateMilk)
+        vendingMachine.stockUp(of: coke)
+        vendingMachine.stockUp(of: sprite)
+        vendingMachine.stockUp(of: topCoffee)
+        vendingMachine.stockUp(of: cantataCoffee)
+        vendingMachine.pay(of: 3000)
+        let items = vendingMachine.displayItems()
         
         XCTAssertTrue(items == [strawberryMilk, chocolateMilk, coke, sprite, cantataCoffee])
         
@@ -43,6 +50,13 @@ class VendingMachineTest: XCTestCase {
     
     /// 음료수를 구매하는 메소드
     func testPurchase() {
+        vendingMachine.pay(of: 10000)
+        vendingMachine.stockUp(of: strawberryMilk)
+        vendingMachine.stockUp(of: chocolateMilk)
+        vendingMachine.stockUp(of: coke)
+        vendingMachine.stockUp(of: sprite)
+        vendingMachine.stockUp(of: topCoffee)
+        vendingMachine.stockUp(of: cantataCoffee)
         vendingMachine.purchase(of: strawberryMilk)
         let balance = vendingMachine.checkBalance()
         
@@ -51,7 +65,7 @@ class VendingMachineTest: XCTestCase {
     
     /// 잔액을 확인하는 메소드
     func testCheckBalance() {
-        let testVendingMachine = VendingMachine()
+        var testVendingMachine = VendingMachine()
         let balance = testVendingMachine.checkBalance()
         
         XCTAssertTrue(balance == 0)
@@ -59,30 +73,50 @@ class VendingMachineTest: XCTestCase {
     
     /// 전체 상품 재고를 (사전으로 표현하는) 종류별로 리턴하는 메소드
     func testIsFullStock(){
+        vendingMachine.stockUp(of: strawberryMilk)
         let items = vendingMachine.isFullStock()
         
-        XCTAssertTrue(items == [])
+        XCTAssertTrue(items == ["딸기우유":1])
     }
     
     /// 유통기한이 지난 재고만 리턴하는 메소드
     func testIsItemsPastExpirationDate() {
+        vendingMachine.stockUp(of: strawberryMilk)
+        vendingMachine.stockUp(of: chocolateMilk)
+        vendingMachine.stockUp(of: coke)
+        vendingMachine.stockUp(of: sprite)
+        vendingMachine.stockUp(of: topCoffee)
+        vendingMachine.stockUp(of: cantataCoffee)
         let items = vendingMachine.isItemsPastExpirationDate()
         
-        XCTAssertTrue(items == [])
+        XCTAssertTrue(items == [strawberryMilk])
     }
     
     /// 따뜻한 음료만 리턴하는 메소드
     func testIsHotBeverage() {
+        vendingMachine.stockUp(of: strawberryMilk)
+        vendingMachine.stockUp(of: chocolateMilk)
+        vendingMachine.stockUp(of: coke)
+        vendingMachine.stockUp(of: sprite)
+        vendingMachine.stockUp(of: topCoffee)
+        vendingMachine.stockUp(of: cantataCoffee)
         let items = vendingMachine.isHotBeverage()
         
-        XCTAssertTrue(items == [])
+        XCTAssertTrue(items == [topCoffee])
     }
     
     /// 시작이후 구매 상품 이력을 배열로 리턴하는 메소드
     func testIsPurchaseDetails() {
+        vendingMachine.stockUp(of: strawberryMilk)
+        vendingMachine.stockUp(of: chocolateMilk)
+        vendingMachine.stockUp(of: coke)
+        vendingMachine.stockUp(of: sprite)
+        vendingMachine.stockUp(of: topCoffee)
+        vendingMachine.stockUp(of: cantataCoffee)
+        vendingMachine.purchase(of: strawberryMilk)
         let items = vendingMachine.isPurchaseDetails()
         
-        XCTAssertTrue(items = [])
+        XCTAssertTrue(items == [strawberryMilk])
     }
 
 }

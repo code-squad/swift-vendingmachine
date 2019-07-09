@@ -24,6 +24,7 @@ extension Array where Element == Product {
 struct VendingMachine {
     private var money: Int = 0
     private var items = [Product]()
+    private var purchaseDetails = [Product]()
     
     /// Product 타입의 배열을 중복제거 하고 싶을 때 사용하는 함수
     func set(of items: [Product]) -> [Product] {
@@ -71,6 +72,7 @@ struct VendingMachine {
         while true {
             if items[index] == item {
                 items.remove(at: index)
+                purchaseDetails.append(item)
                 break
             }
             index += 1
@@ -92,17 +94,31 @@ struct VendingMachine {
     }
     
     /// 유통기한이 지난 재고만 리턴하는 메소드
-    func isItemsPastExpirationDate() {
-        
+    func isItemsPastExpirationDate() -> [Product]{
+        var pastedDateitems = [Product]()
+        let itemsSet = set(of: items)
+        for item in itemsSet {
+            if !item.validate() {
+                pastedDateitems.append(item)
+            }
+        }
+        return pastedDateitems
     }
     
     /// 따뜻한 음료만 리턴하는 메소드
-    func isHotBeverage() {
-        
+    func isHotBeverage() -> [Product]{
+        var hotDrinkitems = [Product]()
+        let itemsSet = set(of: items)
+        for item in itemsSet {
+            if let coffee: Coffee = item as? Coffee, coffee.isHot() {
+                hotDrinkitems.append(item)
+            }
+        }
+        return hotDrinkitems
     }
     
     /// 시작이후 구매 상품 이력을 배열로 리턴하는 메소드
-    func isPurchaseDetails() {
-        
+    func isPurchaseDetails() -> [Product] {
+        return purchaseDetails
     }
 }
