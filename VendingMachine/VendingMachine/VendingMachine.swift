@@ -13,11 +13,6 @@ class VendingMachine {
     private(set) var inventory = Inventory()
     private(set) var coinsDeposited: Coin = 0
     private(set) var purchasedItems = [Beverage]()
-    private var administratorMode: Bool
-    
-    init(administratorMode: Bool = false) {
-        self.administratorMode = administratorMode
-    }
     
     func insertCoins(_ coins: Coin) {
         coinsDeposited += coins
