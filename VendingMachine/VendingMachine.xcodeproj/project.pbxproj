@@ -84,6 +84,8 @@
 		C5F2EE7C22D34AC9006137E8 /* DrinkItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE7A22D34AC9006137E8 /* DrinkItemList.swift */; };
 		C5F2EE7E22D46606006137E8 /* BeverageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE7D22D46606006137E8 /* BeverageInfo.swift */; };
 		C5F2EE7F22D46606006137E8 /* BeverageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE7D22D46606006137E8 /* BeverageInfo.swift */; };
+		C5F2EE8422D47BEB006137E8 /* VendingMachineError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE8322D47BEB006137E8 /* VendingMachineError.swift */; };
+		C5F2EE8522D47BEB006137E8 /* VendingMachineError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE8322D47BEB006137E8 /* VendingMachineError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -142,6 +144,7 @@
 		C5F2EE7422D332BD006137E8 /* HotSix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotSix.swift; sourceTree = "<group>"; };
 		C5F2EE7A22D34AC9006137E8 /* DrinkItemList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinkItemList.swift; sourceTree = "<group>"; };
 		C5F2EE7D22D46606006137E8 /* BeverageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageInfo.swift; sourceTree = "<group>"; };
+		C5F2EE8322D47BEB006137E8 /* VendingMachineError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +239,7 @@
 				C5E942E322CDD2B100589506 /* Fruit.swift */,
 				C5E942E522CDD34500589506 /* Currency.swift */,
 				C5E9432B22CF246800589506 /* FarmCode.swift */,
+				C5F2EE8322D47BEB006137E8 /* VendingMachineError.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -491,6 +495,7 @@
 				C5E942EE22CDD65D00589506 /* CoffeeBean.swift in Sources */,
 				C5E942CD22CB846400589506 /* OutputView.swift in Sources */,
 				C5E9432922CF220F00589506 /* SugaryContainable.swift in Sources */,
+				C5F2EE8422D47BEB006137E8 /* VendingMachineError.swift in Sources */,
 				C5F2EE5522D3061E006137E8 /* VendingMachine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -508,6 +513,7 @@
 				C5E9430522CEF0EB00589506 /* CantataCoffee.swift in Sources */,
 				C5E9431222CEF11000589506 /* CoffeeBean.swift in Sources */,
 				C5E9430722CEF0EF00589506 /* TOPCoffee.swift in Sources */,
+				C5F2EE8522D47BEB006137E8 /* VendingMachineError.swift in Sources */,
 				C5E9430322CEF0E700589506 /* Drink.swift in Sources */,
 				C5E9430D22CEF10000589506 /* BananaMilk.swift in Sources */,
 				C5E9430622CEF0ED00589506 /* GeorgiaCoffee.swift in Sources */,
