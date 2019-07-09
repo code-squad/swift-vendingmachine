@@ -16,7 +16,7 @@ class VendingMachineTest: XCTestCase {
     let topCoffee = TOPCoffee(temperature: 70.0, arbicaBeansContent: true)
     let cantataCoffee = CantataCoffee(temperature: 30.0, DripStatus: true)
     
-    let vendingMachine = VendingMachine()
+    var vendingMachine = VendingMachine()
     /// 자판기 금액을 원하는 금액만큼 올리는 메소드
     func testPay() {
         vendingMachine.pay(of: 10000)
