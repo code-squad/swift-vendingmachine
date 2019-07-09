@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Product: CustomStringConvertible {
+class Product: Equatable, CustomStringConvertible  {
     private var brand: String
     private var capacity: Int
     private var price: Int
@@ -29,6 +29,14 @@ class Product: CustomStringConvertible {
     
     func validate() -> Bool {
         return date > Date()
+    }
+    
+    func getPrice() -> Int {
+        return price
+    }
+    
+    static func ==(lhs: Product, rhs: Product) -> Bool {
+    return lhs.name == rhs.name && lhs.price == rhs.price
     }
 }
 
