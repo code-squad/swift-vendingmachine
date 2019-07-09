@@ -27,6 +27,10 @@ class Product: Equatable, CustomStringConvertible  {
         self.date = DateUtil.convertDate(of: stringDate)
     }
     
+    func getName() -> String {
+        return name
+    }
+    
     func validate() -> Bool {
         return date > Date()
     }

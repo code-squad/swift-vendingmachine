@@ -8,6 +8,19 @@
 
 import Foundation
 
+extension Array where Element == Product {
+    /// 파라미터로 받은 원소가 해당 배열에 몇개 있는지 카운트하는 함수
+    func countElement(of element: Product) -> Int{
+        var score:Int = 0
+        for part in self {
+            if part == element {
+                score += 1
+            }
+        }
+        return score
+    }
+}
+
 struct VendingMachine {
     private var money: Int = 0
     private var items = [Product]()
@@ -21,6 +34,11 @@ struct VendingMachine {
             }
         }
         return itemsSet
+    }
+    
+    /// 해당 아이템 가격보다 가진 돈이 많은지 확인하는 메소드
+    func distinctBuyable(of item: Product) -> Bool {
+        return item.getPrice() < money
     }
     
     /// 자판기 금액을 원하는 금액만큼 올리는 메소드
@@ -38,8 +56,7 @@ struct VendingMachine {
         var buyableItems = [Product]()
         let itemsSet = set(of: items)
         for item in itemsSet {
-            let price = item.getPrice()
-            if price < money {
+            if distinctBuyable(of: item) {
                 buyableItems.append(item)
             }
         }
@@ -47,8 +64,17 @@ struct VendingMachine {
     }
     
     /// 음료수를 구매하는 메소드
-    func purchase() {
-        
+    mutating func purchase(of item: Product) {
+        let price = item.getPrice()
+        money -= price
+        var index = 0
+        while true {
+            if items[index] == item {
+                items.remove(at: index)
+                break
+            }
+            index += 1
+        }
     }
     
     /// 잔액을 확인하는 메소드
@@ -57,8 +83,12 @@ struct VendingMachine {
     }
     
     /// 전체 상품 재고를 (사전으로 표현하는) 종류별로 리턴하는 메소드
-    func isFullStock(){
-    
+    func isFullStock() -> [String:Int] {
+        var dictionaryTypeItems = [String:Int]()
+        for item in set(of: items) {
+            dictionaryTypeItems[item.getName()] = items.countElement(of: item)
+        }
+        return dictionaryTypeItems
     }
     
     /// 유통기한이 지난 재고만 리턴하는 메소드
