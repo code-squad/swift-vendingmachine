@@ -30,7 +30,7 @@ class VendingMachineTest: XCTestCase {
         vendingMachine.stockUp(of: strawberryMilk)
         let items = vendingMachine.isFullStock()
         
-        XCTAssertTrue(items == [])
+        XCTAssertTrue(items == [strawberryMilk])
     }
     
     /// 현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
