@@ -4,6 +4,8 @@ enum VendingMachineError: Error {
     case invalidSelection
     case outOfStock
     case insufficientFunds(coinsNeeded: Int)
+    
+    case noPermission
 }
 
 typealias Coin = Int
@@ -13,6 +15,11 @@ class VendingMachine {
     private(set) var inventory = Inventory()
     private(set) var coinsDeposited: Coin = 0
     private(set) var purchasedItems = [Beverage]()
+    private var administratorMode = false
+    
+    init(administratorMode: Bool) {
+        self.administratorMode = administratorMode
+    }
     
     func insertCoins(_ coins: Coin) {
         coinsDeposited += coins
@@ -52,11 +59,14 @@ class VendingMachine {
         return inventory.expiredBeverages
     }
     
-    func addItem(_ beverage: Beverage) {
+    func addItem(_ beverage: Beverage) throws {
+        guard administratorMode else {
+            throw VendingMachineError.noPermission
+        }
         inventory.addItem(beverage)
     }
     
-    func addItems(_ beverages: [Beverage]) {
-        inventory.addItems(beverages)
+    func addItems(_ beverages: [Beverage]) throws {
+        try beverages.forEach { try addItem($0) }
     }
 }
