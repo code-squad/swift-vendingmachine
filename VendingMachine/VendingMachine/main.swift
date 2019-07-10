@@ -8,9 +8,10 @@ func main() {
     try! controller.machine.addItems(beverageMaker.exampleBeverages)
     controller.machine.toggleAdministratorMode()
     
+    controller.askToSwitchMode()
     
     while true {
-        controller.selectFunction()
+        controller.selectFunctionUserMode()
     }
 }
 

@@ -5,6 +5,10 @@ class VendingMachineController {
     struct Message {
         static let insertCoins = "코인 추가"
         static let vendItem = "음료 구매"
+        
+        static let addItem = "음료 추가"
+        static let removeItem = "음료 제거"
+        
         static let enterCoinsToDeposit = "넣을 코인의 수량을 입력하세요."
         static let amount = "수량"
         static let followingBeveragesAvaliable = "다음과 같은 음료가 있습니다."
@@ -21,7 +25,7 @@ class VendingMachineController {
         static func askToChangeMode(currentMode: Bool) -> String {
             return "\(Message.modes[!currentMode]!)로 변경하시겠습니까? 현재 모드: \(Message.modes[currentMode]!)"
         }
-        static let enterY = "동의하면 Y 입력"
+        static let enterY = "동의하면 y 입력"
         
         static let enterItemNameToRemove = "지울 제품 이름 입력"
         static let itemName = "음료 이름"
@@ -50,14 +54,14 @@ class VendingMachineController {
     
     func askToSwitchMode() {
         inputView.show(Message.askToChangeMode(currentMode: machine.administratorMode))
-        guard inputView.ask(Message.enterY) == "Y" else {
+        guard inputView.ask(Message.enterY) == "y" else {
             return
         }
         let mode = machine.toggleAdministratorMode()
         outputView.show(Message.modeChanged(isAdministrator: mode))
     }
     
-    func selectFunction() {
+    func selectFunctionUserMode() {
         outputView.showCoinsDeposited(machine.coinsDeposited)
         outputView.showInventory(machine.inventory)
         
@@ -69,6 +73,20 @@ class VendingMachineController {
         let selectedFuntion = inputView.askForChoice(options: functions.map { $0.value }, showingBy: functions.map { $0.key })
         outputView.nextLine()
         selectedFuntion()
+        outputView.nextLine()
+    }
+    
+    func selectFunctionAdministratorMode() {
+        outputView.showInventory(machine.inventory)
+        
+        let functions = [
+            Message.addItem: addItem,
+            Message.removeItem: removeItem
+        ]
+        
+        let function = inputView.askForChoice(options: functions.map { $0.value }, showingBy: functions.map { $0.key })
+        outputView.nextLine()
+        function()
         outputView.nextLine()
     }
     
@@ -95,7 +113,10 @@ class VendingMachineController {
         }
         outputView.showVendingResult(itemVended: itemVended)
     }
-    
+}
+
+/// 관리자 모드 메소드
+extension VendingMachineController {
     func removeItem() {
         inputView.show(Message.enterItemNameToRemove)
         let name = inputView.ask(Message.itemName)
@@ -110,9 +131,19 @@ class VendingMachineController {
     }
     
     func addItem() {
-        
+        let beverage = makeBeverage()
+        do {
+            try machine.addItem(beverage)
+        } catch {
+            outputView.showError(error)
+            return
+        }
     }
-    
+}
+
+
+/// 음료 생성 관련 메소드
+extension VendingMachineController {
     func makeBeverage() -> Beverage {
         
         let functions = [
