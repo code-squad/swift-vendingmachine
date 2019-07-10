@@ -30,6 +30,14 @@ class VendingMachineController {
         static let selectInOptions = "옵션에서 선택하기"
         
         static let selectCreateOption = "음료 생성 방법을 선택하세요."
+        
+        static func enter(target: String) -> String {
+            return "\(target)을(를) 입력하세요."
+        }
+        
+        static func choose(target: String) -> String {
+            return "\(target)을(를) 선택하세요."
+        }
     }
     
     var inputView = InputView()
@@ -120,25 +128,26 @@ class VendingMachineController {
     
     
     func makeBeverageManual() -> Beverage {
-        inputView.show("이름을 입력하세요.")
+        inputView.show(Message.enter(target: "이름"))
         let name = inputView.ask("이름")
         
-        inputView.show("가격을 입력하세요.")
+        inputView.show(Message.enter(target: "가격"))
         let price = inputView.askNumber("가격")
         
-        inputView.show("용량을 입력하세요.")
+        inputView.show(Message.enter(target: "용량"))
         let packageSize = inputView.askNumber("용량")
         
-        inputView.show("브랜드를 입력하세요.")
+        inputView.show(Message.enter(target: "브랜드"))
         let brand = inputView.ask("브랜드")
         
-        inputView.show("유효기간 일수를 입력하세요.")
+        inputView.show(Message.enter(target: "유효기간 일 수"))
         let expirationPeriod = inputView.askDays("유효기간")
         
-        inputView.show("음료의 온도를 입력하세요.")
+        inputView.show(Message.enter(target: "음료의 온도"))
         let beverageTemperature = inputView.askNumber("온도")
         
-        inputView.show("생산 날짜를 입력하세요.(yyyyMMdd)")
+        inputView.show(Message.enter(target: "생산 날짜"))
+        inputView.show("(입력 형태: yyyyMMdd)")
         let dateOfManufacture = inputView.askDate("생산 날짜")
         
         return Beverage(brand: brand, packageSize: packageSize, price: price, name: name, dateOfManufacture: dateOfManufacture, expirationPeriod: expirationPeriod, beverageTemperature: beverageTemperature)
@@ -146,13 +155,35 @@ class VendingMachineController {
     
     func makeBeverageInOptions() -> Beverage {
         let beverageOptions = [
-            "우유": ,
-            "탄산 음료": ,
-            "커피":
+            "우유": makeMilk,
+            "탄산 음료": makeSoftDrink,
+            "커피": makeCoffee
         ]
+        
+        let make = inputView.askForChoice(options: beverageOptions.map { $0.value }, showingBy: beverageOptions.map { $0.key })
+        inputView.show(Message.enter(target: "생산 날짜"))
+        let dateOfManufacture = inputView.askDate("생산 날짜")
+        return make(dateOfManufacture)
     }
     
-    func makeMilk() -> Milk {
-        <#function body#>
+    func makeMilk(dateOfManufacture: Date) -> Milk {
+        inputView.show(Message.choose(target: "우유의 종류"))
+        let option = inputView.askForChoice(options: [BeverageMaker.MilkOption.chocolate, .strawberry], showingBy: ["초코 우유", "딸기 우유"])
+        
+        inputView.show(Message.enter(target: "우유 목장"))
+        let milkFactory = inputView.ask("목장")
+        return maker.makeMilk(option: option, dateOfManufacture: dateOfManufacture, milkFactory: milkFactory)
+    }
+    
+    func makeSoftDrink(dateOfManufacture: Date) -> SoftDrink {
+        inputView.show(Message.choose(target: "탄산 음료의 종류"))
+        let option = inputView.askForChoice(options: [BeverageMaker.SoftDrinkOption.cola, .lemonLimeDrink], showingBy: ["콜라", "사이다"])
+        return maker.makeSoftDrink(option: option, dateOfManufacture: dateOfManufacture)
+    }
+    
+    func makeCoffee(dateOfManufacture: Date) -> Coffee {
+        inputView.show(Message.choose(target: "커피의 종류"))
+        let option = inputView.askForChoice(options: [BeverageMaker.CoffeeOption.cantataCoffee, .topCoffee], showingBy: ["칸타타", "TOP"])
+        return maker.makeCoffee(option: option, dateOfManufacture: dateOfManufacture)
     }
 }
