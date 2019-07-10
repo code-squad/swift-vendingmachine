@@ -74,4 +74,20 @@ class VendingMachine {
     func addItems(_ beverages: [Beverage]) throws {
         try beverages.forEach { try addItem($0) }
     }
+    
+    func remove(itemNamed name: String) throws {
+        guard administratorMode else {
+            throw VendingMachineError.noPermission
+        }
+        
+        guard let item = inventory[name] else {
+            throw VendingMachineError.invalidSelection
+        }
+        
+        guard item.count > 0 else {
+            throw VendingMachineError.outOfStock
+        }
+        
+        inventory[name]!.removeFirst()
+    }
 }
