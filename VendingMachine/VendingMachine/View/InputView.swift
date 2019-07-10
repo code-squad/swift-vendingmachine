@@ -37,6 +37,11 @@ class InputView: TextView {
         }
     }
     
+    func askDays(_ target: String) -> TimeInterval {
+        let days = askNumber(target)
+        return Date.timeInterval(fromDays: days)
+    }
+    
     func showOptions(_ options: [String]) {
         for (index, option) in options.enumerated() {
             show("\(index + 1). \(option)")
