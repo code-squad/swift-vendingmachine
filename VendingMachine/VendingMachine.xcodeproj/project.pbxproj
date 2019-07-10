@@ -106,10 +106,7 @@
 				F234842A22C9DDEF00CEB903 /* VendingMachine.swift */,
 				F2462F9B22CE32160012DF1C /* Inventory.swift */,
 				F2462F9922CE25280012DF1C /* BeverageMaker.swift */,
-				F2EBA58422C0CC570058FE55 /* Beverage.swift */,
-				F2CE50D322C1C4C20027E3B3 /* Milk.swift */,
-				F2CE50D522C1C9140027E3B3 /* SoftDrink.swift */,
-				F2CE50D722C1CA180027E3B3 /* Coffee.swift */,
+				F222FD7422D5A17600B66738 /* Beverage */,
 				F21975A722CB38A900252984 /* OutputFormatter.swift */,
 				F2ACE2B622CC89430075D0BB /* VendingMachineController.swift */,
 				F21975A922CB38B800252984 /* View */,
@@ -125,6 +122,17 @@
 				F21975A322CB291400252984 /* OutputView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		F222FD7422D5A17600B66738 /* Beverage */ = {
+			isa = PBXGroup;
+			children = (
+				F2EBA58422C0CC570058FE55 /* Beverage.swift */,
+				F2CE50D322C1C4C20027E3B3 /* Milk.swift */,
+				F2CE50D522C1C9140027E3B3 /* SoftDrink.swift */,
+				F2CE50D722C1CA180027E3B3 /* Coffee.swift */,
+			);
+			path = Beverage;
 			sourceTree = "<group>";
 		};
 		F2CE50CC22C1C4A70027E3B3 /* BeverageUnitTest */ = {
