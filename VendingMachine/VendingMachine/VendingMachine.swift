@@ -75,7 +75,7 @@ class VendingMachine {
         try beverages.forEach { try addItem($0) }
     }
     
-    func remove(itemNamed name: String) throws {
+    func remove(itemNamed name: String) throws -> Beverage {
         guard administratorMode else {
             throw VendingMachineError.noPermission
         }
@@ -88,6 +88,6 @@ class VendingMachine {
             throw VendingMachineError.outOfStock
         }
         
-        inventory[name]!.removeFirst()
+        return inventory[name]!.removeFirst()
     }
 }

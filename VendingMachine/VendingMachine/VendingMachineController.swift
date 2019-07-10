@@ -69,14 +69,30 @@ class VendingMachineController {
         let showForm = formatter.itemsWithPrice(inventory: machine.inventory)
         
         let itemName = inputView.askForChoice(options: options, showingBy: showForm)
-        
+        let itemVended: Beverage
         do {
-            let itemVended = try machine.vend(itemNamed: itemName)
-            outputView.showVendingResult(itemVended: itemVended)
+            itemVended = try machine.vend(itemNamed: itemName)
         } catch {
             outputView.showError(error)
+            return
         }
-        
+        outputView.showVendingResult(itemVended: itemVended)
+    }
+    
+    func removeItem() {
+        inputView.show("지울 제품 입력")
+        let name = inputView.ask("음료이름")
+        let removedItem: Beverage
+        do {
+            removedItem = try machine.remove(itemNamed: name)
+        } catch {
+            outputView.showError(error)
+            return
+        }
+        outputView.showRemovingResult(removedItem: removedItem)
+    }
+    
+    func addItem() {
         
     }
 }
