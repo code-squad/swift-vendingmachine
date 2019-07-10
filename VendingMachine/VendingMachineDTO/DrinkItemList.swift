@@ -30,9 +30,11 @@ class DrinkItemList : CustomStringConvertible{
         self.drinkStockList = drinkList
         self.drinkStockInfo = stockInfo
     }
-    
+    var initialDescription: String {
+        return "\(self.drinkStockInfo.name) \(self.drinkStockList.count)"
+    }
     var description: String {
-        return "\(drinkStockInfo.name) \(drinkStockInfo.price) \(Currency.won)\(self.drinkStockList.count)"
+        return "\(self.drinkStockInfo.name) \(self.drinkStockInfo.price) \(Currency.won)\(self.drinkStockList.count)"
     }
     
     var drinkName: String {
