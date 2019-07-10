@@ -23,8 +23,8 @@ struct WorkFlow {
         
         switch menuAnswer {
         case 1: vendingMachine.pay(of: additionalAnswer)
-        case 2: result = vendingMachine.purchase(of: itemsSet[additionalAnswer-1])
-        default : result = "\(vendingMachine.isPurchaseDetails())"
+        case 2: result = vendingMachine.purchase(of: itemsSet[additionalAnswer-1])+"\n"
+        default : result = "\(vendingMachine.isPurchaseDetails())\n"
         }
         return (vendingMachine: vendingMachine, output: result)
     }

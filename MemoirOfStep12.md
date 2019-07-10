@@ -139,3 +139,28 @@
 
 **수정한 내용:** private var로 선언하도록 수정
 
+
+
+# Step3 - 자판기 기본 동작 (10.7.19)
+
+## 추가되거나 삭제된 구조
+
+### 추가된 구조
+
+- **InputView (Struct):** 안내문구를 출력하고 문구가 적합한지 판단하는 구조체
+- **OutputView (Struct):** 결과를 받아 출력하는 구조체
+- **VendingMachine (Struct):** 자판기의 기능을 구현한 구조체
+- **WorkFlow (Struct):** 입력받은 문구를 받아 자판기를 동작시키는 구조체
+- **VendingMachineTest (Unit Test Case Class):** 자판기의 메소드들을 테스트하는 테스트 케이스
+
+
+
+## 해당 Step을 진행하면서 배운 내용
+
+VendingMachine 구조체를 생성 후 메소드를 구현하기 전 Test Code를 먼저 작성하여 TDD 방식으로 코딩하였다. 메소드를 구현하기 전 Test Code에서 메소드의 역할과 반환타입을 정하는것이 상당히 어려웠고, 코딩을 하면서 수정도 많이 거쳤다. 하지만 이를 정해놓고 코딩을 하니 객체 별로 의존성이 많이 감소한것 같고, 좀 더 알아보기 쉽고 고치기 쉬운 코드가 된 것 같았다. 앞으로도 이 방식으로 코딩을 하도록 노력해야겠다.
+
+
+
+## 결과 화면
+
+![Step3_result](Assets/Step3_result.png)
