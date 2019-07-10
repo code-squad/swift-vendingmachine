@@ -7,6 +7,7 @@ class InputView: TextView {
         static let number = "숫자"
         static let invalidSelection = "유효하지 않은 선택."
         static let enterAgain = "다시 입력."
+        static let invalidDate = "유효하지 않은 날짜"
     }
     
     func ask(_ target: String) -> String {
@@ -22,6 +23,17 @@ class InputView: TextView {
                 continue
             }
             return number
+        }
+    }
+    
+    func askDate(_ target: String) -> Date {
+        while true {
+            let input = ask(target)
+            guard let date = Date(input) else {
+                show(Message.invalidDate)
+                continue
+            }
+            return date
         }
     }
     
