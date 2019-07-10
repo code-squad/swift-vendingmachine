@@ -9,46 +9,30 @@
 import Foundation
 
 struct InputView {
-    func readInput(money: Int) -> [String] {
-        let vendingMachine = VendingMachine()
-        var purifiedAnswer: [String] = []
-        while true {
-            print("현재 투입한 금액이 \(money)원 입니다. 다음과 같은 음료가 있습니다.")
-            var index = 1
-            for (key, value) in vendingMachine.isFullStock() {
-                print("\(index)) "+key.getName()+" \(key.getPrice()) (\(value)개)")
-                index += 1
-            }
-            print("""
-            1. 금액 추가
-            2. 음료 구매
-            3. 뜨거운 음료 구매
-            4. 관리자 모드
-            5. 구매 내역
-            """)
-            let answer = readLine()
-            purifiedAnswer = classifyAnswer(of: answer)
-            if distinctAnswer(of: purifiedAnswer[0], menuNumber: 5) == true {
-                break
-            }
-        }
-        return purifiedAnswer
-    }
+    var vendingMachine = VendingMachine()
     
-    /// 관리자 모드의 선택화면
-    func adminMode() -> [String] {
+    /// 안내문구를 출력하고 값을 입력받는 메소드
+    func readInput(money: Int) -> [String] {
         var purifiedAnswer: [String] = []
         while true {
-            print("관리자 모드입니다. 아래 항목을 선택해주세요")
+            print("현재 투입한 금액이 \(money)원 입니다. 다음과 같은 음료가 있습니다.(0을 입력하면 종료)")
+            let items = vendingMachine.getItems()
+            let itemsSet = vendingMachine.set(of: items)
+            for index in 0..<itemsSet.count {
+                print("\(index+1)) "+itemsSet[index].getName()+" \(itemsSet[index].getPrice()) (\(items.countElement(of: itemsSet[index]))개)")
+            }
             print("""
-                1. 재고 추가
-                2. 유통기한 지난 재고 확인
-                3. 이전 화면
-                """)
+                1. 금액 추가
+                2. 음료 구매
+                3. 구매 내역
+                >>
+                """, terminator: "")
             let answer = readLine()
             purifiedAnswer = classifyAnswer(of: answer)
-            if distinctAnswer(of: purifiedAnswer[0], menuNumber: 3) == true {
+            if ((distinctAnswer(of: purifiedAnswer[0], menuNumber: 2) == true) && (purifiedAnswer.count == 2)) || ((purifiedAnswer[0] == "3" || purifiedAnswer[0] == "0") && (purifiedAnswer.count == 1)) {
                 break
+            } else {
+                print("범위 내의 숫자를 입력핻주세요")
             }
         }
         return purifiedAnswer
@@ -63,8 +47,7 @@ struct InputView {
     
     /// 첫번째 답이 옳은 답인지 판단하는 메소드
     func distinctAnswer(of answer: String, menuNumber: Int) -> Bool {
-        let correctAnswer: Int = Int(answer) ?? 0
-        print("범위 내의 숫자를 입력핻주세요")
-        return correctAnswer > 0 && correctAnswer <= menuNumber
+        let correctAnswer: Int = Int(answer) ?? -1
+        return correctAnswer >= 0 && correctAnswer <= menuNumber
     }
 }

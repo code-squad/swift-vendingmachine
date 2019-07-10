@@ -57,7 +57,7 @@ class VendingMachineTest: XCTestCase {
         vendingMachine.stockUp(of: sprite, count: 3)
         vendingMachine.stockUp(of: topCoffee, count: 3)
         vendingMachine.stockUp(of: cantataCoffee, count: 3)
-        vendingMachine.purchase(of: strawberryMilk)
+        _ = vendingMachine.purchase(of: strawberryMilk)
         let balance = vendingMachine.checkBalance()
         
         XCTAssertTrue(balance == 7400)
@@ -113,10 +113,11 @@ class VendingMachineTest: XCTestCase {
         vendingMachine.stockUp(of: sprite, count: 3)
         vendingMachine.stockUp(of: topCoffee, count: 3)
         vendingMachine.stockUp(of: cantataCoffee, count: 3)
-        vendingMachine.purchase(of: strawberryMilk)
+        vendingMachine.pay(of: 10000)
+        _ = vendingMachine.purchase(of: strawberryMilk)
         let items = vendingMachine.isPurchaseDetails()
         
-        XCTAssertTrue(items == [strawberryMilk])
+        XCTAssertTrue(items == ["딸기우유"])
     }
 
 }
