@@ -8,7 +8,7 @@
 
 import XCTest
 
-class UnitTestVendingMachine: XCTestCase {
+class UnitTestDrinkObject: XCTestCase {
 
     override func setUp() {
 
