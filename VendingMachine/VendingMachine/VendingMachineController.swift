@@ -61,6 +61,14 @@ class VendingMachineController {
         outputView.show(Message.modeChanged(isAdministrator: mode))
     }
     
+    func selectFunction() {
+        if machine.administratorMode {
+            selectFunctionAdministratorMode()
+        } else {
+            selectFunctionUserMode()
+        }
+    }
+    
     func selectFunctionUserMode() {
         outputView.showCoinsDeposited(machine.coinsDeposited)
         outputView.showInventory(machine.inventory)

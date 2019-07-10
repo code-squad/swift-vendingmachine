@@ -11,7 +11,7 @@ func main() {
     controller.askToSwitchMode()
     
     while true {
-        controller.selectFunctionUserMode()
+        controller.selectFunction()
     }
 }
 
