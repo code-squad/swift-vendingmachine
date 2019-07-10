@@ -20,6 +20,7 @@ class InitialState: StateTransitionable {
     }
     
     func implementStateInstruction() {
-        
+        OutputView.printInitialDrinkMenuList(vendingMachine)
+        moveToNextState()
     }
 }

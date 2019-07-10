@@ -24,7 +24,7 @@ class VendingMachine: ProductSoldable {
     lazy var soldoutState: StateTransitionable = self.initializeSoldoutState()
     lazy var notEnoughMoneyState: StateTransitionable = self.initializeNotEnoughMoneyState()
 
-    init(drinkStockTable : [Int : DrinkItemList]){
+    init(drinkStockTable : [Int : DrinkItemList] = [Int : DrinkItemList]()){
         self.drinkStockTable = drinkStockTable
         balance = 0
         shoppingHistory = [Drink]()
@@ -131,18 +131,13 @@ class VendingMachine: ProductSoldable {
         return soldProduct
     }
     
-    func showCurrentBalanceInfo() {
-        print("현재 투입한 금액이 \(balance)원입니다.", separator: "")
-        print("다음과 같은 음료가 있습니다.")
-        displayDrinkStockInfo()
+    func showCurrentBalanceInfo(printFormat: (_ balance: Int) -> Void ){
+        printFormat(self.balance)
     }
-    
-    func displayDrinkStockInfo(){
+    ///initialState
+    func displayDrinkMenuList(printFormat: ([(key: Int, value: DrinkItemList)]) -> Void ) {
         let sortedMenutable = self.drinkStockTable.sorted{$0.key < $1.key }
-        sortedMenutable.forEach{
-            (element) in
-            print(element.value.description)
-        }
+        printFormat(sortedMenutable)
     }
     
     /// lazy properties initializer
