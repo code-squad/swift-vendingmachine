@@ -8,6 +8,15 @@ class VendingMachineController {
         static let enterCoinsToDeposit = "넣을 코인의 수량을 입력하세요."
         static let amount = "수량"
         static let followingBeveragesAvaliable = "다음과 같은 음료가 있습니다."
+        
+        static let modes = [
+            false: "사용자 모드",
+            true: "관리자 모드"
+        ]
+        
+        static func modeChanged(isAdministrator administrator: Bool) -> String {
+            return "\(Message.modes[administrator]!)로 변경했습니다."
+        }
     }
     
     var inputView = InputView()
@@ -16,6 +25,11 @@ class VendingMachineController {
     var formatter = OutputFormatter()
     
     var machine = VendingMachine()
+    
+    func toggleAdministratorMode() {
+        let mode = machine.toggleAdministratorMode()
+        outputView.show(Message.modeChanged(isAdministrator: mode))
+    }
     
     func selectFunction() {
         outputView.showCoinsDeposited(machine.coinsDeposited)
