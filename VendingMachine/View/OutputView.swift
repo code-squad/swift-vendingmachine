@@ -9,5 +9,8 @@
 import Foundation
 
 struct OutputView {
-    
+    /// 결과를 출력하는 메소드
+    static func printResult(of result: String) {
+        print(result)
+    }
 }
