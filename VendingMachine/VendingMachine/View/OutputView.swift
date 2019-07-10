@@ -7,6 +7,10 @@ class OutputView: TextView {
             return "\(itemName)을(를) 구매했습니다."
         }
         
+        static func removed(_ itemName: String) -> String {
+            return "\(itemName)을(를) 제거했습니다."
+        }
+        
         static func reduceCoins(_ coins: Coin) -> String {
             return "\(coins)코인을 차감합니다."
         }
@@ -26,6 +30,10 @@ class OutputView: TextView {
     
     func showVendingResult(itemVended: Beverage) {
         show("\(Message.vended(itemVended.name)) \(Message.reduceCoins(itemVended.price))")
+    }
+    
+    func showRemovingResult(removedItem: Beverage) {
+        show(Message.removed(removedItem.name))
     }
     
     func showCoinsDeposited(_ coins: Coin) {
