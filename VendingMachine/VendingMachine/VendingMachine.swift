@@ -48,8 +48,10 @@ struct VendingMachine {
     }
     
     /// 특정 상품 인스턴스를 넘겨서 재고를 추가하는 메소드
-    mutating func stockUp(of item: Product) {
-        items.append(item)
+    mutating func stockUp(of item: Product, count: Int) {
+        for _ in 0..<count {
+            items.append(item)
+        }
     }
     
     /// 현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
@@ -85,10 +87,10 @@ struct VendingMachine {
     }
     
     /// 전체 상품 재고를 (사전으로 표현하는) 종류별로 리턴하는 메소드
-    func isFullStock() -> [String:Int] {
-        var dictionaryTypeItems = [String:Int]()
+    func isFullStock() -> [Product:Int] {
+        var dictionaryTypeItems = [Product:Int]()
         for item in set(of: items) {
-            dictionaryTypeItems[item.getName()] = items.countElement(of: item)
+            dictionaryTypeItems[item] = items.countElement(of: item)
         }
         return dictionaryTypeItems
     }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Product: Equatable, CustomStringConvertible  {
+class Product: Equatable, Hashable, CustomStringConvertible  {
     private var brand: String
     private var capacity: Int
     private var price: Int
@@ -17,6 +17,11 @@ class Product: Equatable, CustomStringConvertible  {
     
     var description: String {
         return ("\(name), \(price)원")
+    }
+    
+    func hash(into: inout Hasher){
+        into.combine(name)
+        into.combine(price)
     }
     
     init(brand: String, capacity: Int, price: Int, name: String, stringDate: String) {
