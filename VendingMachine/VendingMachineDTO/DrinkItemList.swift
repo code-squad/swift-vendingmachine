@@ -10,19 +10,11 @@ import Foundation
 
 class DrinkItemList : CustomStringConvertible{
     private (set) var drinkStockInfo: BeverageInfo
-    private (set) var notForSaleList: [Drink] = [Drink]()
+    private var notForSaleList: [Drink] = [Drink]()
     private (set) var drinkStockList: [Drink] {
         didSet {
             self.drinkStockList.sort{ (first: Drink, second: Drink ) in
                 first.date < second.date
-            }
-            for (index, element) in self.drinkStockList.enumerated() {
-                if !element.validate(with: Date.init()){
-                    let notForSale = self.drinkStockList.remove(at: index)
-                    notForSaleList.append(notForSale)
-                }else {
-                    break
-                }
             }
         }
     }
@@ -63,6 +55,18 @@ class DrinkItemList : CustomStringConvertible{
         return self.drinkStockList.filter { (drink) -> Bool in
             return drink.isHot()
         }
+    }
+    
+    func makeNotForSaleList() -> [Drink]{
+        for (index, element) in self.drinkStockList.enumerated() {
+            if !element.validate(with: Date.init()){
+                let notForSale = self.drinkStockList.remove(at: index)
+                notForSaleList.append(notForSale)
+            }else {
+                break
+            }
+        }
+        return self.notForSaleList
     }
     
     func addItem(_ drink: Drink) throws {
