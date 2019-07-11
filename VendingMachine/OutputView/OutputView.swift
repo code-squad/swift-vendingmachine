@@ -29,15 +29,17 @@ class OutputView {
     static func printInitialDrinkMenuList(_ vendingmachine: VendingMachine){
         let printDrinkMenuListFormat = {
             (sortedMenutable: [(key: Int, value: DrinkItemList)]) in
+            print("=>", terminator: " ")
                 sortedMenutable.forEach{ (key: Int, value: DrinkItemList) in
-                    print( "\(value.drinkName)(\(value.drinkStockList.count)개)", separator: " ")
+                    print( "\(value.drinkName)(\(value.drinkStockList.count)개)", terminator: " ")
             }
+            print()
         }
         vendingmachine.displayDrinkMenuList(printFormat: printDrinkMenuListFormat)
     }
     static func showCurrentBalanceInfo(_ vendingmachine: VendingMachine) {
         let printBalanceFormat = { (balance: Int) in
-            print("현재 투입한 금액이 \(balance)원입니다.", separator: "")
+            print("현재 투입한 금액이 \(balance)원입니다.", terminator: " ")
             print("다음과 같은 음료가 있습니다.")
         }
         vendingmachine.showCurrentBalanceInfo(printFormat: printBalanceFormat)
