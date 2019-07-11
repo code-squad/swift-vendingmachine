@@ -21,7 +21,7 @@ struct InputView {
         while true {
             print("현재 투입한 금액이 \(money)원 입니다. 다음과 같은 음료가 있습니다.(0을 입력하면 종료)")
             let items = vendingMachine.getItems()
-            let itemsSet = vendingMachine.set(of: items)
+            let itemsSet = items.set()
             for index in 0..<itemsSet.count {
                 print("\(index+1)) "+itemsSet[index].getName()+" \(itemsSet[index].getPrice()) (\(items.countElement(of: itemsSet[index]))개)")
             }

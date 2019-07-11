@@ -14,23 +14,23 @@ extension Array where Element == Product {
         let countArray = self.filter{ (value: Product) -> Bool in return value == element }
         return countArray.count
     }
-}
-
-struct VendingMachine {
-    private var money: Int = 0
-    private var items = [Product]()
-    private var purchaseDetails = [String]()
     
     /// Product 타입의 배열을 중복제거 하고 싶을 때 사용하는 함수
-    func set(of items: [Product]) -> [Product] {
+    func set() -> [Product] {
         var itemsSet = [Product]()
-        for item in items {
+        for item in self {
             if !itemsSet.contains(item) {
                 itemsSet.append(item)
             }
         }
         return itemsSet
     }
+}
+
+struct VendingMachine {
+    private var money: Int = 0
+    private var items = [Product]()
+    private var purchaseDetails = [String]()
     
     /// 해당 아이템 가격보다 가진 돈이 많은지 확인하는 메소드
     func distinctBuyable(of item: Product) -> Bool {
@@ -52,7 +52,7 @@ struct VendingMachine {
     /// 현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
     func displayItems() -> [Product] {
         var buyableItems = [Product]()
-        let itemsSet = set(of: items)
+        let itemsSet = items.set()
         for item in itemsSet {
             if distinctBuyable(of: item) {
                 buyableItems.append(item)
@@ -86,7 +86,7 @@ struct VendingMachine {
     /// 전체 상품 재고를 (사전으로 표현하는) 종류별로 리턴하는 메소드
     func isFullStock() -> [Product:Int] {
         var dictionaryTypeItems = [Product:Int]()
-        for item in set(of: items) {
+        for item in items.set() {
             dictionaryTypeItems[item] = items.countElement(of: item)
         }
         return dictionaryTypeItems
@@ -101,7 +101,7 @@ struct VendingMachine {
     /// 따뜻한 음료만 리턴하는 메소드
     func isHotBeverage() -> [Product]{
         var hotDrinkitems = [Product]()
-        let itemsSet = set(of: items)
+        let itemsSet = items.set()
         for item in itemsSet {
             if let coffee: Coffee = item as? Coffee, coffee.isHot() {
                 hotDrinkitems.append(item)

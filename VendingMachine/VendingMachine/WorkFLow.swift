@@ -16,7 +16,7 @@ struct WorkFlow {
         if answers.count > 1 {
             additionalAnswer = Int(answers[1]) ?? 0
         }
-        let itemsSet = vendingMachine.set(of: vendingMachine.getItems())
+        let itemsSet = vendingMachine.getItems().set()
         var result: String = ""
         
         switch menuAnswer {
