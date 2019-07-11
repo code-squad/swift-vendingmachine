@@ -13,18 +13,21 @@ class VendingMachineController {
         static let amount = "수량"
         static let followingBeveragesAvaliable = "다음과 같은 음료가 있습니다."
         
-        static let modes = [
-            false: "사용자 모드",
-            true: "관리자 모드"
+        static let modes: [VendingMachine.Mode: String] = [
+            .user: "사용자 모드",
+            .administrator: "관리자 모드"
         ]
         
-        static func modeChanged(isAdministrator administrator: Bool) -> String {
-            return "\(Message.modes[administrator]!)로 변경했습니다."
+        static func modeChanged(to mode: VendingMachine.Mode) -> String {
+            return "\(Message.modes[mode]!)로 변경했습니다."
         }
         
-        static func askToChangeMode(currentMode: Bool) -> String {
-            return "\(Message.modes[!currentMode]!)로 변경하시겠습니까? 현재 모드: \(Message.modes[currentMode]!)"
+        static func currentMode(_ mode: VendingMachine.Mode) -> String {
+            return "현재 모드: \(Message.modes[mode]!)"
         }
+        static let askChangeToAdministrator = "관리자 모드로 변경하시겠습니까?"
+        
+        
         static let enterY = "동의하면 y 입력"
         
         static let enterItemNameToRemove = "지울 제품 이름 입력"
@@ -53,16 +56,18 @@ class VendingMachineController {
     private var maker = BeverageMaker()
     
     func askToSwitchMode() {
-        inputView.show(Message.askToChangeMode(currentMode: machine.administratorMode))
+        
+        inputView.show(Message.currentMode(machine.mode))
+        inputView.show(Message.askChangeToAdministrator)
         guard inputView.ask(Message.enterY) == "y" else {
             return
         }
-        let mode = machine.toggleAdministratorMode()
-        outputView.show(Message.modeChanged(isAdministrator: mode))
+        machine.switchMode(to: .administrator)
+        outputView.show(Message.currentMode(machine.mode))
     }
     
     func selectFunction() {
-        if machine.administratorMode {
+        if machine.isAdministrator {
             selectFunctionAdministratorMode()
         } else {
             selectFunctionUserMode()
@@ -123,12 +128,12 @@ class VendingMachineController {
     }
     
     func addExampleBeverages() {
-        if machine.administratorMode {
+        if machine.isAdministrator {
             try! machine.addItems(maker.exampleBeverages)
         } else {
-            machine.toggleAdministratorMode()
+            machine.switchMode(to: .administrator)
             try! machine.addItems(maker.exampleBeverages)
-            machine.toggleAdministratorMode()
+            machine.switchMode(to: .user)
         }
     }
 }
