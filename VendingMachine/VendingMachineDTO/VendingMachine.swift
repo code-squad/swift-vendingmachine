@@ -50,7 +50,7 @@ class VendingMachine: ProductSoldable {
         var totalNotForSaleList = [Drink]()
         for offsetElementpair in self.drinkStockTable.enumerated() {
             let drinkStockList = offsetElementpair.element.value
-            let stockNotForSaleList = drinkStockList.notForSaleList
+            let stockNotForSaleList = drinkStockList.makeNotForSaleList()
             totalNotForSaleList += stockNotForSaleList
         }
         return totalNotForSaleList
@@ -132,6 +132,7 @@ class VendingMachine: ProductSoldable {
             let price = productList.drinkStockInfo.price
             minusProductPriceFromBalance(price)
             drinkStockTable.updateValue(productList, forKey: productId)
+            shoppingHistory.append(soldProduct)
             return soldProduct
         }
         throw VendingMachineError.notEnoughMoneyError
