@@ -14,12 +14,9 @@ class InputView {
             throw VendingMachineError.invalidMenuSelectNumberError
         }
         let numberArray : [Int] = try instruction.components(separatedBy: " ").map({ (value) in
-            guard let number = Int(value) else{
-                throw VendingMachineError.inputTypeCastingError
-            }
-            return number
+            return try Validation.convertStringToNumber(value)
         })
-        if !Validation.isAppropriate(numberArray) {
+        if !Validation.isValidInputPair(numberArray) {
             throw VendingMachineError.invalidInputNumbers
         }
         return (numberArray[0], numberArray[1])

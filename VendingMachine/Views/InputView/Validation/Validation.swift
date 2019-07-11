@@ -9,7 +9,13 @@
 import Foundation
 
 class Validation{
-    static func isAppropriate(_ nums: [Int])->Bool {
+    static func isValidInputPair(_ nums: [Int]) -> Bool {
         return nums.count == 2 ? true : false
+    }
+    static func convertStringToNumber(_ num: String) throws -> Int {
+        guard let number = Int(num) else{
+            throw VendingMachineError.inputTypeCastingError
+        }
+        return number
     }
 }
