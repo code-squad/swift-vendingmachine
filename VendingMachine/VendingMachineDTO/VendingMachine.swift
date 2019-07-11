@@ -32,9 +32,6 @@ class VendingMachine: ProductSoldable {
 
     ///자판기 금액을 원하는 금액만큼 올리는 메소드
     func chargeBalance(_ money: Int){
-        if money <= 0 {
-            print("판매 금액은 양수여야 합니다." )
-        }
         self.balance += money
     }
 
