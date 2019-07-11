@@ -38,8 +38,8 @@ class Product: Equatable, Hashable, CustomStringConvertible  {
     }
     
     /// 유통기한이 지났는지 확인하는 메소드
-    func validate() -> Bool {
-        return date > Date()
+    func expireDate() -> Bool {
+        return date < Date()
     }
     
     /// 가격을 불러오는 메소드
