@@ -122,13 +122,26 @@ class VendingMachine: ProductSoldable {
     }
     
     ///음료수를 구매(판매)하는 메소드
-    func sellProduct(productId: Int) -> Drink? {
+    func sellProduct(productId: Int) throws -> Drink {
         guard let productList = drinkStockTable[productId] else {
-            return nil
+            throw VendingMachineError.notFoundDrinkIdError
         }
-        let soldProduct = productList.removeFirstElement()
-        drinkStockTable.updateValue(productList, forKey: productId)
-        return soldProduct
+        if productList.isAvailable(self.balance) {  /// 판매 가능하면 업데이트
+            if productList.isEmpty{
+                throw VendingMachineError.outOfStockError
+            }
+            let soldProduct = productList.removeFirstElement()
+            let price = productList.drinkStockInfo.price
+            minusProductPriceFromBalance(price)
+            drinkStockTable.updateValue(productList, forKey: productId)
+            return soldProduct
+        }
+        throw VendingMachineError.notEnoughMoneyError
+    }
+
+    
+    func minusProductPriceFromBalance(_ money: Int) {
+        self.balance -= money
     }
     
     func showCurrentBalanceInfo(printFormat: (_ balance: Int) -> Void ){

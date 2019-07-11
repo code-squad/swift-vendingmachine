@@ -44,4 +44,16 @@ class OutputView {
         }
         vendingmachine.showCurrentBalanceInfo(printFormat: printBalanceFormat)
     }
+    static func selectMenuInfo(){
+        print("\(StateType.chargeMoney.description)")
+        print("\(StateType.sell.description)")
+    }
+    static func printErrorMessage(_ error: VendingMachineError){
+        print("================")
+        print(error.description)
+        print("================")
+    }
+    static func printSellingMessage(_ drink : Drink){
+        print("\(drink.drinkName)을 구매하셨습니다. \(drink.price)원을 차감합니다")
+    }
 }
