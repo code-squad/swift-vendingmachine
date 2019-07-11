@@ -64,7 +64,7 @@ struct VendingMachine {
     /// 음료수를 구매하는 메소드
     mutating func purchase(of item: Product) -> String {
         let price = item.getPrice()
-        if distinctBuyable(of: item) {
+        guard !distinctBuyable(of: item) else {
             money -= price
             var index = 0
             while true {
@@ -76,10 +76,8 @@ struct VendingMachine {
                 index += 1
             }
             return "\(item)를 구매하였습니다. \(price)원이 차감됩니다."
-        } else {
-            return "돈을 더 넣어주세요"
         }
-        
+        return "돈을 더 넣어주세요"
     }
     
     /// 잔액을 확인하는 메소드
