@@ -64,18 +64,18 @@ struct VendingMachine {
     /// 음료수를 구매하는 메소드
     mutating func purchase(of item: Product) -> String {
         let price = item.getPrice()
-        guard !distinctBuyable(of: item) else {
-            money -= price
-            for index in 0..<items.count {
-                if items[index] == item {
-                    items.remove(at: index)
-                    purchaseDetails.append(item.getName())
-                    break
-                }
-            }
-            return "\(item)를 구매하였습니다. \(price)원이 차감됩니다."
+        guard distinctBuyable(of: item) else {
+            return "돈을 더 넣어주세요"
         }
-        return "돈을 더 넣어주세요"
+        money -= price
+        for index in 0..<items.count {
+            if items[index] == item {
+                items.remove(at: index)
+                purchaseDetails.append(item.getName())
+                break
+            }
+        }
+        return "\(item)를 구매하였습니다. \(price)원이 차감됩니다."
     }
     
     /// 잔액을 확인하는 메소드
