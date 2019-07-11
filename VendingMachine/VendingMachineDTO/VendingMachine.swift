@@ -9,7 +9,7 @@
 import Foundation
 class VendingMachine: ProductSoldable {
     private var balance : Int
-    
+    private (set) var fromState : StateType
     private var shoppingHistory: [Drink]
     /// 메뉴번호별 음료수 리스트 1~6
     private (set) var drinkStockTable: [Int : DrinkItemList]
@@ -17,18 +17,16 @@ class VendingMachine: ProductSoldable {
     private (set) lazy var drinkNameMenuTable : [String : Int] = self.buildMenuTable(self.drinkStockTable)
     
     var vendingMachineState : StateTransitionable?
-    lazy var initialState : StateTransitionable = self.initializeInitialState()
-    lazy var readyState : StateTransitionable = self.initializeReadyState()
-    lazy var chargeMoneyState: StateTransitionable = self.initializeChargeMoneyState()
-    lazy var soldState: StateTransitionable = self.initializeSoldState()
-    lazy var soldoutState: StateTransitionable = self.initializeSoldoutState()
-    lazy var notEnoughMoneyState: StateTransitionable = self.initializeNotEnoughMoneyState()
+    private (set) lazy var initialState : StateTransitionable = self.initializeInitialState()
+    private (set) lazy var readyState : StateTransitionable = self.initializeReadyState()
+    private (set) lazy var chargeMoneyState: StateTransitionable = self.initializeChargeMoneyState()
+    private (set) lazy var sellingState: StateTransitionable = self.initializeSellingState()
 
     init(drinkStockTable : [Int : DrinkItemList] = [Int : DrinkItemList]()){
         self.drinkStockTable = drinkStockTable
         balance = 0
         shoppingHistory = [Drink]()
-        
+        fromState = StateType.initialize
         vendingMachineState = InitialState.init(machine: self)
     }
 
@@ -116,9 +114,11 @@ class VendingMachine: ProductSoldable {
     func informCurrentBalance() -> Int {
         return self.balance
     }
+    
     ///자판기의 현재상태 전이 메서드
-    func changeState(_ nextState: StateTransitionable){
+    func changeState(_ nextState: StateTransitionable, from : StateType){
         self.vendingMachineState = nextState
+        self.fromState = from
     }
     
     ///음료수를 구매(판매)하는 메소드
@@ -141,14 +141,8 @@ class VendingMachine: ProductSoldable {
     }
     
     /// lazy properties initializer
-    func initializeNotEnoughMoneyState() -> StateTransitionable {
-        return NotEnoughMoneyState(machine: self)
-    }
-    func initializeSoldoutState() -> StateTransitionable {
-        return SoldoutState(machine: self)
-    }
-    func initializeSoldState() -> StateTransitionable{
-        return SoldState(machine: self)
+    func initializeSellingState() -> StateTransitionable{
+        return SellingState(machine: self)
     }
     func initializeReadyState() -> StateTransitionable {
         return ReadyState(machine: self)
