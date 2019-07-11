@@ -29,7 +29,6 @@
 		C5E942EC22CDD3B300589506 /* CantataCoffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942EB22CDD3B300589506 /* CantataCoffee.swift */; };
 		C5E942EE22CDD65D00589506 /* CoffeeBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942ED22CDD65D00589506 /* CoffeeBean.swift */; };
 		C5E942F022CDD7BD00589506 /* CoffeeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942EF22CDD7BD00589506 /* CoffeeType.swift */; };
-		C5E942F822CEEC8900589506 /* UnitTestDrinkObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942F722CEEC8900589506 /* UnitTestDrinkObject.swift */; };
 		C5E942FF22CEECF800589506 /* EnergyDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942FE22CEECF800589506 /* EnergyDrink.swift */; };
 		C5E9430322CEF0E700589506 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5250CFF22CB66FF00FB2534 /* Drink.swift */; };
 		C5E9430422CEF0E900589506 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942D522CD937000589506 /* Coffee.swift */; };
@@ -86,7 +85,6 @@
 		C5F2EE8A22D48499006137E8 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE8922D48499006137E8 /* InputView.swift */; };
 		C5F2EE8B22D48499006137E8 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE8922D48499006137E8 /* InputView.swift */; };
 		C5F2EE8D22D5A814006137E8 /* UnitTestVendingMachineLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE8C22D5A814006137E8 /* UnitTestVendingMachineLogic.swift */; };
-		C5F2EE8E22D5A9A9006137E8 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 		C5F2EE9222D5CCDB006137E8 /* StateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE9122D5CCDB006137E8 /* StateType.swift */; };
 		C5F2EE9322D5CCDB006137E8 /* StateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE9122D5CCDB006137E8 /* StateType.swift */; };
 		C5F2EE9622D71CA0006137E8 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE9522D71CA0006137E8 /* Validation.swift */; };
@@ -554,7 +552,6 @@
 				C5E9430C22CEF0FD00589506 /* Milk.swift in Sources */,
 				C5E9430522CEF0EB00589506 /* CantataCoffee.swift in Sources */,
 				C5E9431222CEF11000589506 /* CoffeeBean.swift in Sources */,
-				C5F2EE8E22D5A9A9006137E8 /* main.swift in Sources */,
 				C5E9430722CEF0EF00589506 /* TOPCoffee.swift in Sources */,
 				C5F2EE8522D47BEB006137E8 /* VendingMachineError.swift in Sources */,
 				C5E9430322CEF0E700589506 /* Drink.swift in Sources */,
@@ -566,7 +563,6 @@
 				C5E9431122CEF10D00589506 /* Units.swift in Sources */,
 				C5F2EE5E22D30BD9006137E8 /* InitialState.swift in Sources */,
 				C5E9430822CEF0F200589506 /* CarbonatedDrink.swift in Sources */,
-				C5E942F822CEEC8900589506 /* UnitTestDrinkObject.swift in Sources */,
 				C5E9432D22CF246800589506 /* FarmCode.swift in Sources */,
 				C5E9431D22CEF9F000589506 /* Drinkable.swift in Sources */,
 				C5E9430422CEF0E900589506 /* Coffee.swift in Sources */,

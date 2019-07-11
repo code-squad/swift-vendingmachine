@@ -44,6 +44,7 @@ class VendingMachine: ProductSoldable {
     func showShoppingHistory() -> [Drink] {
         return self.shoppingHistory
     }
+    
     ///유통기한이 지난 재고만 리턴하는 메소드
     func showValidateOverDrink() -> [Drink]{
         var totalNotForSaleList = [Drink]()
@@ -136,8 +137,7 @@ class VendingMachine: ProductSoldable {
         throw VendingMachineError.notEnoughMoneyError
     }
 
-    
-    func minusProductPriceFromBalance(_ money: Int) {
+    private func minusProductPriceFromBalance(_ money: Int) {
         self.balance -= money
     }
     
@@ -166,8 +166,8 @@ class VendingMachine: ProductSoldable {
     ///lazy property initialize
     private func buildMenuTable(_ drinkStockTable: [Int: DrinkItemList]) -> [String: Int]{
         var menuTempTable = [String: Int]()
-        for (key, element) in drinkStockTable.enumerated(){
-            menuTempTable.updateValue(key, forKey: "\(element.value.drinkName))")
+        for element in drinkStockTable{
+            menuTempTable.updateValue(element.key, forKey: "\(element.value.drinkName)")
         }
         return menuTempTable
     }
