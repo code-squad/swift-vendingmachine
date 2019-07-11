@@ -20,11 +20,9 @@ class SellingState: StateTransitionable{
         self.vendingMachine = machine
     }
     
-   
     func moveToNextState(nextTo: StateTransitionable) {
         self.vendingMachine.changeState(nextTo, from: .sell)
     }
-    
 
     func selectDrinkNumber(_ number: Int) -> Result<Drink, VendingMachineError>{
         do {
@@ -44,24 +42,27 @@ class SellingState: StateTransitionable{
             }
             let drink = try result.get()
             OutputView.printSellingMessage(drink)
-            
         } catch let error as VendingMachineError{
-            OutputView.printErrorMessage(error)
-            switch error {
-            case .notEnoughMoneyError:
-                self.vendingMachine.changeState(self.vendingMachine.readyState, from: .sell)
-            case .outOfStockError:
-                self.vendingMachine.changeState(self.vendingMachine.readyState, from: .sell)
-            case .notFoundDrinkIdError:
-                self.vendingMachine.changeState(self.vendingMachine.readyState, from: .sell)
-            default :
-                self.vendingMachine.changeState(self.vendingMachine.readyState, from: .sell)
-            }
+            handleSellingStateError(error)
         } catch {
-            
+            OutputView.printErrorMessage(.unknownError)
+            self.vendingMachine.changeState(self.vendingMachine.readyState, from: .sell)
         }
         moveToNextState(nextTo: self.vendingMachine.readyState)
     }
-
+    
+    private func handleSellingStateError(_ error : VendingMachineError){
+        OutputView.printErrorMessage(error)
+        switch error {
+        case .notEnoughMoneyError:
+            self.vendingMachine.changeState(self.vendingMachine.readyState, from: .sell)
+        case .outOfStockError:
+            self.vendingMachine.changeState(self.vendingMachine.readyState, from: .sell)
+        case .notFoundDrinkIdError:
+            self.vendingMachine.changeState(self.vendingMachine.readyState, from: .sell)
+        default :
+            self.vendingMachine.changeState(self.vendingMachine.readyState, from: .sell)
+        }
+    }
     
 }

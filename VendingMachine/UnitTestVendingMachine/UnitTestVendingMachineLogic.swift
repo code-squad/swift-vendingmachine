@@ -20,27 +20,43 @@ class UnitTestVendingMachineLogic: XCTestCase {
     }
     
     func testNotForSaleItemList(){
-        guard let vendingMachine = vendingMachine else {
+        guard let vendingMachine = self.vendingMachine else {
             return
         }
         ///add valid drink
+        addValidDrink()
+        
+        var notForSaleItemList = vendingMachine.showValidateOverDrink()
+        XCTAssert(notForSaleItemList.count == 0, "\(notForSaleItemList.count)")
+        ///Add invalid drink
+        addInvalidDrink()
+        
+        notForSaleItemList = vendingMachine.showValidateOverDrink()
+        XCTAssert(notForSaleItemList.count == 1, "\(notForSaleItemList.count)")
+    }
+    
+    private func addValidDrink(){
+        guard let vendingMachine = self.vendingMachine else {
+            return
+        }
         let validDay = CustomDateFormatter.convertStringToDate(year: 2019, month: 8, day: 20)
-        let invalidDay = CustomDateFormatter.convertStringToDate(year: 2019, month: 7, day: 10)  // today is 2018/7/11
         var drink = Fanta.init(brand: "코카콜라", quantity: 1000, price: 2000, name: "환타포도맛", date: validDay, fruitType: .purpleGrape, sugar: 1000, calorySet: sugarCaloryElements, temperature: 5)
         do {
             try vendingMachine.addDrinkStock(drink)
         }catch{
         }
-        var notForSaleItemList = vendingMachine.showValidateOverDrink()
-        XCTAssert(notForSaleItemList.count == 0, "\(notForSaleItemList.count)")
-        ///Add invalid drink
-        drink = Fanta.init(brand: "코카콜라", quantity: 1000, price: 2000, name: "환타포도맛", date: invalidDay, fruitType: .purpleGrape, sugar: 1000, calorySet: sugarCaloryElements, temperature: 5)
+    }
+    
+    private func addInvalidDrink(){
+        guard let vendingMachine = self.vendingMachine else {
+            return
+        }
+        let invalidDay = CustomDateFormatter.convertStringToDate(year: 2019, month: 7, day: 10)  // today is 2018/7/11
+        var drink = Fanta.init(brand: "코카콜라", quantity: 1000, price: 2000, name: "환타포도맛", date: invalidDay, fruitType: .purpleGrape, sugar: 1000, calorySet: sugarCaloryElements, temperature: 5)
         do {
             try vendingMachine.addDrinkStock(drink)
         }catch{
         }
-        notForSaleItemList = vendingMachine.showValidateOverDrink()
-        XCTAssert(notForSaleItemList.count == 1, "\(notForSaleItemList.count)")
     }
     
     func testDrinkStockDictionary(){
@@ -49,19 +65,27 @@ class UnitTestVendingMachineLogic: XCTestCase {
         }
         do{
             let drinkStockDictionary = vendingMachine.drinkStockTable
-            XCTAssert(drinkStockDictionary.count == 5, "\(drinkStockDictionary)")
-            XCTAssert(drinkStockDictionary is [Int : DrinkItemList])
-            for pair in drinkStockDictionary.enumerated(){
-                XCTAssert(pair.element.value.drinkStockInfo.name == pair.element.value.drinkName, "\(pair.element.value.drinkStockInfo.name) , \(pair.element.value.drinkName)")
-                XCTAssert(pair.element.value.drinkStockInfo.price == pair.element.value.drinkStockList[0].price, "\(pair.element.value.drinkStockInfo.price) , \(pair.element.value.drinkStockList[0].price)")
+//            XCTAssert(drinkStockDictionary.count == 5, "\(drinkStockDictionary)")
+//            XCTAssert(drinkStockDictionary is [Int : DrinkItemList])
+            subtestOfDrinkDictionaryInfo(drinkStockDictionary)
+            subtestOfSameGroupInEachDictionaryValue(drinkStockDictionary)
+        }
+    }
+    
+    private func subtestOfSameGroupInEachDictionaryValue(_ drinkStockDictionary: [Int : DrinkItemList]){
+        for pair in drinkStockDictionary.enumerated(){
+            let stockList = pair.element.value.drinkStockList
+            for index in 0..<stockList.endIndex-1{
+                XCTAssert( stockList[index].drinkName == stockList[index+1].drinkName)
+                XCTAssert( type(of:stockList[index]) == type(of:stockList[index+1]))
             }
-            for pair in drinkStockDictionary.enumerated(){
-                let stockList = pair.element.value.drinkStockList
-                for index in 0..<stockList.endIndex-1{
-                    XCTAssert( stockList[index].drinkName == stockList[index+1].drinkName)
-                    XCTAssert( type(of:stockList[index]) == type(of:stockList[index+1]))
-                }
-            }
+        }
+    }
+    
+    private func subtestOfDrinkDictionaryInfo(_ drinkStockDictionary: [Int : DrinkItemList]){
+        for pair in drinkStockDictionary.enumerated(){
+            XCTAssert(pair.element.value.drinkStockInfo.name == pair.element.value.drinkName, "\(pair.element.value.drinkStockInfo.name) , \(pair.element.value.drinkName)")
+            XCTAssert(pair.element.value.drinkStockInfo.price == pair.element.value.drinkStockList[0].price, "\(pair.element.value.drinkStockInfo.price) , \(pair.element.value.drinkStockList[0].price)")
         }
     }
     
@@ -150,15 +174,18 @@ class UnitTestVendingMachineLogic: XCTestCase {
     
     func testPileSpecificDrinkStcok(){
         /// before
+        beforeDrinkAdd()
+        /// add stock
+        addExistingDrink()
+        /// after stock
+        afterDrinkAdd()
+    }
+    
+    private func beforeDrinkAdd(){
         let beforeAdd = vendingMachine?.drinkStockTable.count
         XCTAssert(beforeAdd == 5, "\(String(describing: beforeAdd))")
-        guard let menuTableBefore = vendingMachine?.drinkNameMenuTable else{
-            return
-        }
-        guard let stockTableBefore = vendingMachine?.drinkStockTable else {
-            return
-        }
-        /// add stock
+    }
+    private func addExistingDrink(){
         let validDate = CustomDateFormatter.convertStringToDate(year: 2019, month: 8, day: 20)
         let firstDrink = StrawberryMilk.init(brand: "매일우유", quantity: 500, price: 1000, name: "매일딸기우유", date: validDate, isLowFat: false, fruitPercent: 3.0, fruitOrigin: "국산", milkFarmCode: .kyunggy, calorySet: defaultCaloryElements, temperature: 4)
         do {
@@ -166,8 +193,8 @@ class UnitTestVendingMachineLogic: XCTestCase {
         }catch{
             
         }
-        
-        /// after stock
+    }
+    private func afterDrinkAdd(){
         let result = (vendingMachine?.drinkStockTable[1]?.drinkStockList.count)!
         let afterAdd = vendingMachine?.drinkStockTable.count
         guard let menuTable = vendingMachine?.drinkNameMenuTable else{
@@ -182,26 +209,14 @@ class UnitTestVendingMachineLogic: XCTestCase {
     
     func testPileNewTypeDrinkStcok(){
         /// before
-        let beforeAdd = vendingMachine?.drinkStockTable.count
-        XCTAssert(beforeAdd == 5, "\(String(describing: beforeAdd))")
-        guard let menuTableBefore = vendingMachine?.drinkNameMenuTable else{
-            return
-        }
-        guard let stockTableBefore = vendingMachine?.drinkStockTable else {
-            return
-        }
-        
+        beforeDrinkAdd()
         /// add new type stock
-        let defaultCaloryElements = CaloryElements(carbon: 10, protein: 0, fat: 10)
-        let validDate = CustomDateFormatter.convertStringToDate(year: 2019, month: 8, day: 20)
-        let firstDrink = StrawberryMilk.init(brand: "코드스쿼드", quantity: 500, price: 1700, name: "JK딸기우유", date: validDate, isLowFat: false, fruitPercent: 3.0, fruitOrigin: "국산", milkFarmCode: .kyunggy, calorySet: defaultCaloryElements, temperature: 4)
-        do {
-            try vendingMachine?.addDrinkStock(firstDrink)
-        }catch{
-            
-        }
-        
+        addNewTypeDrink()
         /// After stock
+        afterNewTypeDrinkAdd()
+    }
+    
+    private func afterNewTypeDrinkAdd(){
         let result = (vendingMachine?.drinkStockTable[1]?.drinkStockList.count)!
         let newDrinkListCount = (vendingMachine?.drinkStockTable[6]?.drinkStockList.count)!
         let afterAdd = vendingMachine?.drinkStockTable.count
@@ -211,15 +226,21 @@ class UnitTestVendingMachineLogic: XCTestCase {
         guard let stockTable = vendingMachine?.drinkStockTable else {
             return
         }
-        print("======================")
-        print("menuTableAfterNewType : \(menuTable)")
-        print("stockTableAfterNewType : \(stockTable)")
-        
         XCTAssert(afterAdd == 6, "\(String(describing: afterAdd))")
         XCTAssert(result == 2, "\(result)" )
         XCTAssert(newDrinkListCount == 1, "\(newDrinkListCount)")
+        XCTAssert(menuTable.count == 6, "\(menuTable.count)")
     }
     
+    private func addNewTypeDrink(){
+        let defaultCaloryElements = CaloryElements(carbon: 10, protein: 0, fat: 10)
+        let validDate = CustomDateFormatter.convertStringToDate(year: 2019, month: 8, day: 20)
+        let firstDrink = StrawberryMilk.init(brand: "코드스쿼드", quantity: 500, price: 1700, name: "JK딸기우유", date: validDate, isLowFat: false, fruitPercent: 3.0, fruitOrigin: "국산", milkFarmCode: .kyunggy, calorySet: defaultCaloryElements, temperature: 4)
+        do {
+            try vendingMachine?.addDrinkStock(firstDrink)
+        }catch{
+        }
+    }
     
     private func createDrinkItemList(drink: Drink, count: Int ) -> DrinkItemList{
         var drinkList = [Drink]()
@@ -232,7 +253,6 @@ class UnitTestVendingMachineLogic: XCTestCase {
     }
     
     private func makeDrinkListByType() -> [Drink]{
-        
         let validDate = CustomDateFormatter.convertStringToDate(year: 2019, month: 8, day: 20)
         var drinkList = [Drink]()
         let firstDrink = StrawberryMilk.init(brand: "매일우유", quantity: 500, price: 1000, name: "매일딸기우유", date: validDate, isLowFat: false, fruitPercent: 3.0, fruitOrigin: "국산", milkFarmCode: .kyunggy, calorySet: defaultCaloryElements, temperature: 4)
