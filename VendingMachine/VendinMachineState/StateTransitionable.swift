@@ -9,6 +9,6 @@
 import Foundation
 
 protocol StateTransitionable {
-    func moveToNextState()
+    func moveToNextState(nextTo: StateTransitionable)
     func implementStateInstruction()
 }

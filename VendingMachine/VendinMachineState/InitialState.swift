@@ -15,12 +15,13 @@ class InitialState: StateTransitionable {
         self.vendingMachine = machine
     }
     
-    func moveToNextState() {
-        vendingMachine.changeState(vendingMachine.readyState)
+    func moveToNextState(nextTo: StateTransitionable) {
+        vendingMachine.changeState(self.vendingMachine.readyState, from: StateType.initialize)
     }
     
     func implementStateInstruction() {
+        OutputView.showCurrentBalanceInfo(self.vendingMachine)
         OutputView.printInitialDrinkMenuList(vendingMachine)
-        moveToNextState()
+        moveToNextState(nextTo: vendingMachine.readyState)
     }
 }
