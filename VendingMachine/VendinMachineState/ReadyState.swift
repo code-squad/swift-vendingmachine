@@ -40,7 +40,7 @@ class ReadyState: StateTransitionable{
     
     private func shiftChargeMoneyStateWithMoney(_ money: Int){
         moveToNextState(nextTo: self.vendingMachine.chargeMoneyState)
-        guard let nextState = self.vendingMachine.chargeMoneyState as? ChargeMoneyState else {
+        guard let nextState = self.vendingMachine.chargeMoneyState as? ChargingMoneyState else {
             return
         }
         nextState.receiveMoneyInput(money)
@@ -56,10 +56,12 @@ class ReadyState: StateTransitionable{
     
     private func readInstruction() -> (instruction: Int, quantity: Int)?{
         do {
-            let instructionPair = try? InputView.readInstruction()
+            let instructionPair = try InputView.readInstruction()
             return instructionPair
         }catch(let errorType as VendingMachineError) {
             OutputView.printErrorMessage(errorType)
+        }catch {
+            OutputView.printErrorMessage(.unknownError)
         }
         return nil
     }
