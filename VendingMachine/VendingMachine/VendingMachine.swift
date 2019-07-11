@@ -94,7 +94,7 @@ struct VendingMachine {
     
     /// 유통기한이 지난 재고만 리턴하는 메소드
     func isItemsPastExpirationDate() -> [Product]{
-        let pastedDateitems = items.filter{ $0.validate() == false }
+        let pastedDateitems = items.filter{ $0.expireDate() == true }
         return pastedDateitems
     }
     
