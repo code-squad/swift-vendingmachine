@@ -25,14 +25,44 @@ class UnitTestVendingMachineLogic: XCTestCase {
         }
         ///add valid drink
         addValidDrink()
-        
         var notForSaleItemList = vendingMachine.showValidateOverDrink()
         XCTAssert(notForSaleItemList.count == 0, "\(notForSaleItemList.count)")
+        
+        ///Add invalid drink
+        addInvalidDrink()
+        notForSaleItemList = vendingMachine.showValidateOverDrink()
+        XCTAssert(notForSaleItemList.count == 1, "\(notForSaleItemList.count)")
+    }
+    
+    func testBuyNotForSaleItem(){
+        guard let vendingMachine = self.vendingMachine else {
+            return
+        }
+        ///add valid drink
+        addValidDrink()
+        var notForSaleItemList = vendingMachine.showValidateOverDrink()
+        XCTAssert(notForSaleItemList.count == 0, "\(notForSaleItemList.count)")
+        
         ///Add invalid drink
         addInvalidDrink()
         
-        notForSaleItemList = vendingMachine.showValidateOverDrink()
-        XCTAssert(notForSaleItemList.count == 1, "\(notForSaleItemList.count)")
+        //buy drink only validate 
+        buyOnlyValidDrink()
+    }
+    
+    private func buyOnlyValidDrink(){
+        guard let vendingMachine = self.vendingMachine else {
+            return
+        }
+        do {
+            var drink = try vendingMachine.sellProduct(productId: 6)
+            XCTAssert(drink.validate(with: Date.init()) == true)
+            vendingMachine.chargeBalance(10000)
+            drink = try vendingMachine.sellProduct(productId: 6)
+        }catch let error as VendingMachineError {
+            XCTAssert( error == .outOfStockError, "\(error)")
+        }catch{
+        }
     }
     
     private func addValidDrink(){
