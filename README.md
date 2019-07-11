@@ -169,3 +169,51 @@ VendingMachine 구조체를 생성 후 메소드를 구현하기 전 Test Code�
 
 ## 피드백에 대한 개선내용
 
+1.
+
+**피드백 받은 사항:** Product의 유통기한을 확인하는 validate() 메소드가 날짜가 남은 경우 true를 반환
+
+**피드백 내용:** 메소드의 이름과 반환값이 유통기한이 만료된것에 의미를 두는것이 좋을 것 같다.
+
+**수정한 내용:** 메소드 이름을 expireDate()로 변경하고 유통기한이 만료된 경우 true를 반환하도록 함
+
+
+
+2.
+
+**피드백 받은 사항:** Array를 extension하는 구문 내부에서 입력 받은 원소가 해당 배열에 몇개 있는지 카운트 하는 메소드와 VendingMachine에 유통기한이 지난 재고만 return하는 메소드를 if문으로 구현
+
+**피드백 내용:** filter를 사용하여 Line을 줄이는 편이 좋겠다.
+
+**수정한 내용:** 두 메소드 모드 filter를 사용하도록 로직 수정
+
+
+
+3.
+
+**피드백 받은 사항:** [Product]의 원소를 중복제거 해주는 메소드가 VendingMachine 안에 구현되어 있었다.
+
+**피드백 내용:** [Product]를 관리(추가 or 삭제 or 변경)하는 코드가 있으면 [Product]를 객체로 추상화하는편이 좋겠다, extension Array와 응집도가 높은것 같다.
+
+**수정한 내용:** [Product]를 추상화하는 것도 좋지만 Array에 2개의 메소드만 더 추가되면 좋을 것 같다 판단하여 Array를 extension한 구문 내에 구현
+
+
+
+4.
+
+**피드백 받은 사항:** VendingMachine에 purchase() 메소드의 내부 로직이 while 무한루프 break와 if문으로 구현되어 있었다.
+
+**피드백 내용:** 적절치 못한 if문의 사용으로 들여쓰기가 깊어지고, 코드가 길어졌다. guard else문을 사용해서 early exit하면 좋을 것 같다. 또한 무한 루프는 지양해야 한다.
+
+**수정한 내용:** guard else문을 사용하여 들여쓰기와 코드를 줄이고, while문을 for문으로 변경
+
+
+
+5.
+
+**피드백 받은 사항:** main()에서 VendingMachine 인스턴스를 만들지만 WorkFlow에도 인스턴스를 만들어 넣는 부분이 있었고, 메소드에서 VendingMachine을 다시 return하도록 구현하였다.
+
+**피드백 내용:** WorkFlow와 main() 둘다 인스턴스를 만들면 안되고, WorkFlow의 역할은 흐름제어인데 VendingMachine을 반환해야하는지 그리고 Vendingmachine을 계속 복사하고 새로만들어야 하는 구조를 꼭 써야하는지
+
+**수정한 내용:** WorkFlow 구조체의 selectMenu를 static함수로 바꾸고 VendingMachine을 inout으로 받아 내부에서 값을 수정하도록 변경 및 WorkFLow에 인스턴스 생성하는 코드 삭제
+
