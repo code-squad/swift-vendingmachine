@@ -19,11 +19,7 @@ class ReadyState: StateTransitionable{
     }
     
     func implementStateInstruction() {
-        if self.vendingMachine.fromState != StateType.initialize {
-            OutputView.showCurrentBalanceInfo(self.vendingMachine)
-            OutputView.printDrinkMenuListWithNumber(self.vendingMachine)
-        }
-        OutputView.selectMenuInfo()
+        displayVendingMachineInfo()
         guard let pair = readInstruction() else {
             return
         }
@@ -36,6 +32,13 @@ class ReadyState: StateTransitionable{
         default:
             return
         }
+    }
+    private func displayVendingMachineInfo(){
+        if self.vendingMachine.fromState != StateType.initialize {
+            OutputView.showCurrentBalanceInfo(self.vendingMachine)
+            OutputView.printDrinkMenuListWithNumber(self.vendingMachine)
+        }
+        OutputView.selectMenuInfo()
     }
     
     private func shiftChargeMoneyStateWithMoney(_ money: Int){
