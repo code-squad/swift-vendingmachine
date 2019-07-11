@@ -134,7 +134,7 @@ class VendingMachineController {
 }
 
 /// 관리자 모드 메소드
-extension VendingMachineController {
+extension VendingMachineController: Administrator {
     func removeItem() {
         inputView.show(Message.enterItemNameToRemove)
         let name = inputView.ask(Message.itemName)
@@ -161,7 +161,7 @@ extension VendingMachineController {
 
 
 /// 음료 생성 관련 메소드
-extension VendingMachineController {
+extension VendingMachineController: BeverageMakable {
     func makeBeverage() -> Beverage {
         
         let functions = [

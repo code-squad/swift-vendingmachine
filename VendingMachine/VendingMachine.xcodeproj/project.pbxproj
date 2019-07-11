@@ -13,6 +13,7 @@
 		F202765F22C4C1A300BB3D92 /* SoftDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE50D522C1C9140027E3B3 /* SoftDrink.swift */; };
 		F202766022C4C1A300BB3D92 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE50D722C1CA180027E3B3 /* Coffee.swift */; };
 		F202766122C4C1C400BB3D92 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BF515222C2F7060085E167 /* Date.swift */; };
+		F208614C22D70D3600635B9E /* Administrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F208614B22D70D3600635B9E /* Administrator.swift */; };
 		F21975A222CB289500252984 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21975A122CB289500252984 /* InputView.swift */; };
 		F21975A522CB291500252984 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21975A322CB291400252984 /* OutputView.swift */; };
 		F21975A622CB291500252984 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21975A422CB291500252984 /* TextView.swift */; };
@@ -44,6 +45,7 @@
 /* Begin PBXFileReference section */
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		F208614B22D70D3600635B9E /* Administrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Administrator.swift; sourceTree = "<group>"; };
 		F21975A122CB289500252984 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		F21975A322CB291400252984 /* OutputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		F21975A422CB291500252984 /* TextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				F222FD7422D5A17600B66738 /* Beverage */,
 				F21975A722CB38A900252984 /* OutputFormatter.swift */,
 				F2ACE2B622CC89430075D0BB /* VendingMachineController.swift */,
+				F208614B22D70D3600635B9E /* Administrator.swift */,
 				F21975A922CB38B800252984 /* View */,
 			);
 			path = VendingMachine;
@@ -243,6 +246,7 @@
 				F2CE50D622C1C9140027E3B3 /* SoftDrink.swift in Sources */,
 				F21975A222CB289500252984 /* InputView.swift in Sources */,
 				F2CE50D822C1CA180027E3B3 /* Coffee.swift in Sources */,
+				F208614C22D70D3600635B9E /* Administrator.swift in Sources */,
 				F234842B22C9DDEF00CEB903 /* VendingMachine.swift in Sources */,
 				F21975A522CB291500252984 /* OutputView.swift in Sources */,
 				F2462F9C22CE32160012DF1C /* Inventory.swift in Sources */,
