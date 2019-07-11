@@ -31,10 +31,9 @@ func main() {
         if input == ["0"] {
             break
         }
-        var workFlow = WorkFlow(vendingMachine: vendingMachine)
-        let result = workFlow.selectMenu(of: input)
-        OutputView.printResult(of: result.output)
-        vendingMachine = result.vendingMachine
+
+        let result = WorkFlow.selectMenu(vendingMachine: &vendingMachine, of: input)
+        OutputView.printResult(of: result)
     }
 }
 

@@ -9,7 +9,11 @@
 import Foundation
 
 struct InputView {
-    var vendingMachine = VendingMachine()
+    private var vendingMachine: VendingMachine
+    
+    init(vendingMachine: VendingMachine) {
+        self.vendingMachine = vendingMachine
+    }
     
     /// 안내문구를 출력하고 값을 입력받는 메소드
     func readInput(money: Int) -> [String] {
