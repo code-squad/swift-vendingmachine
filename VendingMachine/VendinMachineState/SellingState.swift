@@ -20,19 +20,48 @@ class SellingState: StateTransitionable{
         self.vendingMachine = machine
     }
     
-    func moveToNextState() {
-        
+   
+    func moveToNextState(nextTo: StateTransitionable) {
+        self.vendingMachine.changeState(nextTo, from: .sell)
     }
     
-    func insertMoney(money: Int) {
-        vendingMachine.chargeBalance(money)
-    }
-    
-    func selectDrinkNumber(number: Int, quantity: Int = 1) {
-        vendingMachine.sellProduct(productId: number)
+
+    func selectDrinkNumber(_ number: Int) -> Result<Drink, VendingMachineError>{
+        do {
+            let soldDrink = try self.vendingMachine.sellProduct(productId: number)
+            return .success(soldDrink)
+        }catch(let error as VendingMachineError){
+            return .failure(error)
+        }catch {
+            return .failure(.unknownError)
+        }
     }
     
     func implementStateInstruction() {
-        
+        do {
+            guard let result = try? selectDrinkNumber(selectNumber) else {
+                return
+            }
+            let drink = try result.get()
+            OutputView.printSellingMessage(drink)
+            
+        } catch let error as VendingMachineError{
+            OutputView.printErrorMessage(error)
+            switch error {
+            case .notEnoughMoneyError:
+                self.vendingMachine.changeState(self.vendingMachine.readyState, from: .sell)
+            case .outOfStockError:
+                self.vendingMachine.changeState(self.vendingMachine.readyState, from: .sell)
+            case .notFoundDrinkIdError:
+                self.vendingMachine.changeState(self.vendingMachine.readyState, from: .sell)
+            default :
+                self.vendingMachine.changeState(self.vendingMachine.readyState, from: .sell)
+            }
+        } catch {
+            
+        }
+        moveToNextState(nextTo: self.vendingMachine.readyState)
     }
+
+    
 }

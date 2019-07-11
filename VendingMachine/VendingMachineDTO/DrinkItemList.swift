@@ -26,13 +26,19 @@ class DrinkItemList : CustomStringConvertible{
             }
         }
     }
+    var isEmpty : Bool {
+        return self.drinkStockList.isEmpty
+    }
+    
     init(drinkList: [Drink], stockInfo : BeverageInfo) {
         self.drinkStockList = drinkList
         self.drinkStockInfo = stockInfo
     }
+    
     var initialDescription: String {
         return "\(self.drinkStockInfo.name) \(self.drinkStockList.count)"
     }
+    
     var description: String {
         return "\(self.drinkStockInfo.name) \(self.drinkStockInfo.price)\(Currency.won) (\(self.drinkStockList.count))"
     }
@@ -45,22 +51,24 @@ class DrinkItemList : CustomStringConvertible{
         let element = self.drinkStockList.removeFirst()
         return element
     }
+    
     func isAvailable(_ money: Int) -> Bool {
         if self.drinkStockInfo.isPurchasable(money) {
             return true
         }
         return false
     }
+    
     func getHotDrinkList() -> [Drink]{
         return self.drinkStockList.filter { (drink) -> Bool in
             return drink.isHot()
         }
     }
+    
     func addItem(_ drink: Drink) throws {
         if !self.drinkStockInfo.isSameDrinkGroup(drink) {
             throw VendingMachineError.addDrinkToUnknownMenuNumberError
         }
         drinkStockList.append(drink)
     }
-
 }

@@ -10,5 +10,5 @@ import Foundation
 
 protocol ProductSoldable {
     func displayDrinkMenuList(printFormat: ([(key: Int, value: DrinkItemList)]) -> Void )
-    func sellProduct(productId: Int) -> Drink?
+    func sellProduct(productId: Int) throws -> Drink
 }
