@@ -9,10 +9,8 @@
 import Foundation
 
 struct WorkFlow {
-    var vendingMachine = VendingMachine()
-    
     /// 입력받은 값에 따라 자판기의 기능을 실행하는 메소드
-    mutating func selectMenu(of answers: [String]) -> (vendingMachine: VendingMachine, output: String) {
+    static func selectMenu( vendingMachine: inout VendingMachine, of answers: [String]) -> String {
         let menuAnswer: Int = Int(answers[0]) ?? 0
         var additionalAnswer: Int = 0
         if answers.count > 1 {
@@ -26,6 +24,6 @@ struct WorkFlow {
         case 2: result = vendingMachine.purchase(of: itemsSet[additionalAnswer-1])+"\n"
         default : result = "\(vendingMachine.isPurchaseDetails())\n"
         }
-        return (vendingMachine: vendingMachine, output: result)
+        return result
     }
 }

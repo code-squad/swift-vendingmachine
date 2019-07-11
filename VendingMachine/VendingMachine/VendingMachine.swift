@@ -66,14 +66,12 @@ struct VendingMachine {
         let price = item.getPrice()
         guard !distinctBuyable(of: item) else {
             money -= price
-            var index = 0
-            while true {
+            for index in 0..<items.count {
                 if items[index] == item {
                     items.remove(at: index)
                     purchaseDetails.append(item.getName())
                     break
                 }
-                index += 1
             }
             return "\(item)를 구매하였습니다. \(price)원이 차감됩니다."
         }
