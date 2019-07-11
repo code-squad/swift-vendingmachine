@@ -9,17 +9,12 @@
 import Foundation
 
 struct InputView {
-    private var vendingMachine: VendingMachine
-    
-    init(vendingMachine: VendingMachine) {
-        self.vendingMachine = vendingMachine
-    }
-    
+
     /// 안내문구를 출력하고 값을 입력받는 메소드
-    func readInput(money: Int) -> [String] {
+    func readInput(of vendingMachine: inout VendingMachine) -> [String] {
         var purifiedAnswer: [String] = []
         while true {
-            print("현재 투입한 금액이 \(money)원 입니다. 다음과 같은 음료가 있습니다.(0을 입력하면 종료)")
+            print("현재 투입한 금액이 \(vendingMachine.checkBalance())원 입니다. 다음과 같은 음료가 있습니다.(0을 입력하면 종료)")
             let items = vendingMachine.getItems()
             let itemsSet = items.set()
             for index in 0..<itemsSet.count {
