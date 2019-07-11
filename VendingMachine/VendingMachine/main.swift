@@ -22,7 +22,6 @@ class Main {
     
     static private func createDrinkItemList(drink: Drink, count: Int ) -> DrinkItemList{
         var drinkList = [Drink]()
-
         let drinkInfo = BeverageInfo.init(drink: drink)
         for _ in 0..<count{
             drinkList.append(drink)
@@ -50,16 +49,18 @@ class Main {
         drinkList.append(fifthDrink)
         return drinkList
     }
+    
     static private func initializeVendingMachine() -> VendingMachine{
         var drinkTable = [Int: DrinkItemList]()
         var drinkList = makeDrinkListByType()
         for index in 0..<drinkList.count {
-            var itemList = createDrinkItemList(drink: drinkList[index], count: Int.random(in: 1...5))
+            let itemList = createDrinkItemList(drink: drinkList[index], count: Int.random(in: 1...5))
             drinkTable.updateValue(itemList, forKey: index+1)
         }
         let machine = VendingMachine(drinkStockTable: drinkTable)
         return machine
     }
+    
     static func start(){
         let result = Main.generateBeverages()
         result.forEach { (Drinkable) in
