@@ -33,6 +33,7 @@ class ReadyState: StateTransitionable{
             return
         }
     }
+    
     private func displayVendingMachineInfo(){
         if self.vendingMachine.fromState != StateType.initialize {
             OutputView.showCurrentBalanceInfo(self.vendingMachine)

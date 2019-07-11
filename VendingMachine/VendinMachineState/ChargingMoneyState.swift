@@ -24,9 +24,9 @@ class ChargingMoneyState: StateTransitionable{
         do {
             try insertMoney(self.chargableMoney)
         } catch let error as VendingMachineError{
-            print(error.description)
+            OutputView.printErrorMessage(error)
         } catch {
-            print(VendingMachineError.unknownError)
+            OutputView.printErrorMessage(.unknownError)
         }
         resetCurrentMoney()
         moveToNextState(nextTo: self.vendingMachine.readyState)
