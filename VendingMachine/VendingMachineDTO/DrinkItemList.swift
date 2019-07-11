@@ -40,6 +40,7 @@ class DrinkItemList : CustomStringConvertible{
     }
     
     func removeFirstElement() -> Drink{
+        makeNotForSaleList()
         let element = self.drinkStockList.removeFirst()
         return element
     }
@@ -61,7 +62,7 @@ class DrinkItemList : CustomStringConvertible{
         for (index, element) in self.drinkStockList.enumerated() {
             if !element.validate(with: Date.init()){
                 let notForSale = self.drinkStockList.remove(at: index)
-                notForSaleList.append(notForSale)
+                self.notForSaleList.append(notForSale)
             }else {
                 break
             }
