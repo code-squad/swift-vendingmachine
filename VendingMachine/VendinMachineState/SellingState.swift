@@ -8,10 +8,14 @@
 
 import Foundation
 
-class SoldState: StateTransitionable{
-    
+class SellingState: StateTransitionable{
+    private var selectNumber : Int = 0
     var vendingMachine: VendingMachine
-
+    
+    func receiveDrinkNumberInput(_ number: Int){
+        self.selectNumber = number
+    }
+    
     init(machine: VendingMachine){
         self.vendingMachine = machine
     }
