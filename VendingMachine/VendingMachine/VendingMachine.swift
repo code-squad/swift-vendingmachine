@@ -11,13 +11,8 @@ import Foundation
 extension Array where Element == Product {
     /// 파라미터로 받은 원소가 해당 배열에 몇개 있는지 카운트하는 함수
     func countElement(of element: Product) -> Int{
-        var score:Int = 0
-        for part in self {
-            if part == element {
-                score += 1
-            }
-        }
-        return score
+        let countArray = self.filter{ (value: Product) -> Bool in return value == element }
+        return countArray.count
     }
 }
 
@@ -103,13 +98,7 @@ struct VendingMachine {
     
     /// 유통기한이 지난 재고만 리턴하는 메소드
     func isItemsPastExpirationDate() -> [Product]{
-        var pastedDateitems = [Product]()
-        let itemsSet = set(of: items)
-        for item in itemsSet {
-            if !item.validate() {
-                pastedDateitems.append(item)
-            }
-        }
+        let pastedDateitems = items.filter{ $0.validate() == false }
         return pastedDateitems
     }
     
