@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ChargeMoneyState: StateTransitionable{
+class ChargingMoneyState: StateTransitionable{
     private var chargableMoney : Int = 0
     var vendingMachine : VendingMachine
     

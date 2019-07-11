@@ -158,7 +158,7 @@ class VendingMachine: ProductSoldable {
         return ReadyState(machine: self)
     }
     func initializeChargeMoneyState() -> StateTransitionable {
-        return ChargeMoneyState(machine: self)
+        return ChargingMoneyState(machine: self)
     }
     func initializeInitialState() -> StateTransitionable {
         return InitialState(machine: self)

@@ -73,8 +73,8 @@
 		C5F2EE6222D312A9006137E8 /* ProductSoldable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE6022D312A2006137E8 /* ProductSoldable.swift */; };
 		C5F2EE6922D31F86006137E8 /* ReadyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE6822D31F86006137E8 /* ReadyState.swift */; };
 		C5F2EE6A22D31F86006137E8 /* ReadyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE6822D31F86006137E8 /* ReadyState.swift */; };
-		C5F2EE6F22D31FC7006137E8 /* ChargeMoneyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE6E22D31FC7006137E8 /* ChargeMoneyState.swift */; };
-		C5F2EE7022D31FC7006137E8 /* ChargeMoneyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE6E22D31FC7006137E8 /* ChargeMoneyState.swift */; };
+		C5F2EE6F22D31FC7006137E8 /* ChargingMoneyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE6E22D31FC7006137E8 /* ChargingMoneyState.swift */; };
+		C5F2EE7022D31FC7006137E8 /* ChargingMoneyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE6E22D31FC7006137E8 /* ChargingMoneyState.swift */; };
 		C5F2EE7522D332BD006137E8 /* HotSix.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE7422D332BD006137E8 /* HotSix.swift */; };
 		C5F2EE7622D332BD006137E8 /* HotSix.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE7422D332BD006137E8 /* HotSix.swift */; };
 		C5F2EE7B22D34AC9006137E8 /* DrinkItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE7A22D34AC9006137E8 /* DrinkItemList.swift */; };
@@ -89,6 +89,8 @@
 		C5F2EE8E22D5A9A9006137E8 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 		C5F2EE9222D5CCDB006137E8 /* StateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE9122D5CCDB006137E8 /* StateType.swift */; };
 		C5F2EE9322D5CCDB006137E8 /* StateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE9122D5CCDB006137E8 /* StateType.swift */; };
+		C5F2EE9622D71CA0006137E8 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE9522D71CA0006137E8 /* Validation.swift */; };
+		C5F2EE9722D71CA0006137E8 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2EE9522D71CA0006137E8 /* Validation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -141,7 +143,7 @@
 		C5F2EE5B22D30B25006137E8 /* InitialState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialState.swift; sourceTree = "<group>"; };
 		C5F2EE6022D312A2006137E8 /* ProductSoldable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSoldable.swift; sourceTree = "<group>"; };
 		C5F2EE6822D31F86006137E8 /* ReadyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadyState.swift; sourceTree = "<group>"; };
-		C5F2EE6E22D31FC7006137E8 /* ChargeMoneyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargeMoneyState.swift; sourceTree = "<group>"; };
+		C5F2EE6E22D31FC7006137E8 /* ChargingMoneyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingMoneyState.swift; sourceTree = "<group>"; };
 		C5F2EE7422D332BD006137E8 /* HotSix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotSix.swift; sourceTree = "<group>"; };
 		C5F2EE7A22D34AC9006137E8 /* DrinkItemList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinkItemList.swift; sourceTree = "<group>"; };
 		C5F2EE7D22D46606006137E8 /* BeverageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageInfo.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 		C5F2EE8922D48499006137E8 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		C5F2EE8C22D5A814006137E8 /* UnitTestVendingMachineLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestVendingMachineLogic.swift; sourceTree = "<group>"; };
 		C5F2EE9122D5CCDB006137E8 /* StateType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateType.swift; sourceTree = "<group>"; };
+		C5F2EE9522D71CA0006137E8 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,9 +175,8 @@
 		839DA9001F8D1F95009E05F3 = {
 			isa = PBXGroup;
 			children = (
-				C5F2EE8822D4848B006137E8 /* InputView */,
-				C5E942CB22CB845D00589506 /* OutputView */,
-				C5F2EE9022D5C49F006137E8 /* Error */,
+				C5F2EE9422D71B74006137E8 /* Views */,
+				C5F2EE9022D5C49F006137E8 /* Errors */,
 				C5F2EE7222D32B39006137E8 /* VendinMachineState */,
 				C5F2EE7122D32B24006137E8 /* VendingMachineProtocol */,
 				C5F2EE5322D2F157006137E8 /* VendingMachineDTO */,
@@ -358,7 +360,7 @@
 				C5F2EE5722D30993006137E8 /* StateTransitionable.swift */,
 				C5F2EE5B22D30B25006137E8 /* InitialState.swift */,
 				C5F2EE6822D31F86006137E8 /* ReadyState.swift */,
-				C5F2EE6E22D31FC7006137E8 /* ChargeMoneyState.swift */,
+				C5F2EE6E22D31FC7006137E8 /* ChargingMoneyState.swift */,
 				C5F2EE5922D30A3E006137E8 /* SellingState.swift */,
 			);
 			path = VendinMachineState;
@@ -384,16 +386,26 @@
 		C5F2EE8F22D5C47C006137E8 /* Validation */ = {
 			isa = PBXGroup;
 			children = (
+				C5F2EE9522D71CA0006137E8 /* Validation.swift */,
 			);
 			path = Validation;
 			sourceTree = "<group>";
 		};
-		C5F2EE9022D5C49F006137E8 /* Error */ = {
+		C5F2EE9022D5C49F006137E8 /* Errors */ = {
 			isa = PBXGroup;
 			children = (
 				C5F2EE8322D47BEB006137E8 /* VendingMachineError.swift */,
 			);
-			path = Error;
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		C5F2EE9422D71B74006137E8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C5E942CB22CB845D00589506 /* OutputView */,
+				C5F2EE8822D4848B006137E8 /* InputView */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -493,7 +505,7 @@
 				C5F2EE7B22D34AC9006137E8 /* DrinkItemList.swift in Sources */,
 				C5250D0022CB66FF00FB2534 /* Drink.swift in Sources */,
 				C5F2EE7E22D46606006137E8 /* BeverageInfo.swift in Sources */,
-				C5F2EE6F22D31FC7006137E8 /* ChargeMoneyState.swift in Sources */,
+				C5F2EE6F22D31FC7006137E8 /* ChargingMoneyState.swift in Sources */,
 				C5E942EA22CDD3A800589506 /* GeorgiaCoffee.swift in Sources */,
 				C5E942D822CDC66400589506 /* StrawberryMilk.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
@@ -510,6 +522,7 @@
 				C5E942CA22CB80AF00589506 /* Units.swift in Sources */,
 				C5F2EE6922D31F86006137E8 /* ReadyState.swift in Sources */,
 				C5E942F022CDD7BD00589506 /* CoffeeType.swift in Sources */,
+				C5F2EE9622D71CA0006137E8 /* Validation.swift in Sources */,
 				C5E942E822CDD3A300589506 /* TOPCoffee.swift in Sources */,
 				C5F2EE5122D2DD5F006137E8 /* Fruitable.swift in Sources */,
 				C5E942E622CDD34500589506 /* Currency.swift in Sources */,
@@ -545,6 +558,7 @@
 				C5E9430722CEF0EF00589506 /* TOPCoffee.swift in Sources */,
 				C5F2EE8522D47BEB006137E8 /* VendingMachineError.swift in Sources */,
 				C5E9430322CEF0E700589506 /* Drink.swift in Sources */,
+				C5F2EE9722D71CA0006137E8 /* Validation.swift in Sources */,
 				C5E9430D22CEF10000589506 /* BananaMilk.swift in Sources */,
 				C5E9430622CEF0ED00589506 /* GeorgiaCoffee.swift in Sources */,
 				C5F2EE7F22D46606006137E8 /* BeverageInfo.swift in Sources */,
@@ -570,7 +584,7 @@
 				C5F2EE5D22D30BD7006137E8 /* StateTransitionable.swift in Sources */,
 				C5E9431322CEF11000589506 /* CoffeeType.swift in Sources */,
 				C5E9430E22CEF10300589506 /* StrawberryMilk.swift in Sources */,
-				C5F2EE7022D31FC7006137E8 /* ChargeMoneyState.swift in Sources */,
+				C5F2EE7022D31FC7006137E8 /* ChargingMoneyState.swift in Sources */,
 				C5E9430922CEF0F500589506 /* Coke.swift in Sources */,
 				C5F2EE8B22D48499006137E8 /* InputView.swift in Sources */,
 				C5E9432A22CF220F00589506 /* SugaryContainable.swift in Sources */,

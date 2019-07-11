@@ -19,6 +19,9 @@ class InputView {
             }
             return number
         })
+        if !Validation.isAppropriate(numberArray) {
+            throw VendingMachineError.invalidInputNumbers
+        }
         return (numberArray[0], numberArray[1])
     }
 }
