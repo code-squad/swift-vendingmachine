@@ -44,13 +44,13 @@ class VendingMachineController {
         }
     }
     
-    var inputView = InputView()
-    var outputView = OutputView()
+    private var inputView = InputView()
+    private var outputView = OutputView()
     
-    var formatter = OutputFormatter()
+    private var formatter = OutputFormatter()
     
-    var machine = VendingMachine()
-    var maker = BeverageMaker()
+    private var machine = VendingMachine()
+    private var maker = BeverageMaker()
     
     func askToSwitchMode() {
         inputView.show(Message.askToChangeMode(currentMode: machine.administratorMode))
@@ -120,6 +120,16 @@ class VendingMachineController {
             return
         }
         outputView.showVendingResult(itemVended: itemVended)
+    }
+    
+    func addExampleBeverages() {
+        if machine.administratorMode {
+            try! machine.addItems(maker.exampleBeverages)
+        } else {
+            machine.toggleAdministratorMode()
+            try! machine.addItems(maker.exampleBeverages)
+            machine.toggleAdministratorMode()
+        }
     }
 }
 
