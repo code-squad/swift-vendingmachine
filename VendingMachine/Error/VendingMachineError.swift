@@ -40,7 +40,7 @@ enum VendingMachineError: Error, CustomStringConvertible{
         case .unknownError:
             return "\(ErrorType.systemError) \n알 수 없는 에러!!"
         case .invalidChargeMoney:
-            return "\(ErrorType.userError) \n판매 금액은 양수여야 합니다."
+            return "\(ErrorType.userError) \n충전 금액은 양수여야 합니다."
         }
     }
 }
