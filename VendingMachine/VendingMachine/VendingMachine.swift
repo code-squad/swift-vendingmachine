@@ -12,18 +12,26 @@ typealias Coin = Int
 
 class VendingMachine {
     
+    enum Mode {
+        case administrator
+        case user
+    }
+    
     private(set) var inventory = Inventory()
     private(set) var coinsDeposited: Coin = 0
     private(set) var purchasedItems = [Beverage]()
-    private(set) var administratorMode: Bool
+    private(set) var mode: Mode
     
-    init(administratorMode: Bool = false) {
-        self.administratorMode = administratorMode
+    init(mode: Mode = .user) {
+        self.mode = mode
     }
     
-    func toggleAdministratorMode() -> Bool {
-        administratorMode.toggle()
-        return administratorMode
+    func switchMode(to mode: Mode) {
+        self.mode = mode
+    }
+    
+    var isAdministrator: Bool {
+        return mode == .administrator
     }
     
     func insertCoins(_ coins: Coin) {
@@ -65,7 +73,7 @@ class VendingMachine {
     }
     
     func addItem(_ beverage: Beverage) throws {
-        guard administratorMode else {
+        guard isAdministrator else {
             throw VendingMachineError.noPermission
         }
         inventory.addItem(beverage)
@@ -76,7 +84,7 @@ class VendingMachine {
     }
     
     func remove(itemNamed name: String) throws -> Beverage {
-        guard administratorMode else {
+        guard isAdministrator else {
             throw VendingMachineError.noPermission
         }
         
