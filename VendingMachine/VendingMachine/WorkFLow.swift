@@ -10,7 +10,7 @@ import Foundation
 
 struct WorkFlow {
     /// 입력받은 값에 따라 자판기의 기능을 실행하는 메소드
-    static func selectMenu( vendingMachine: inout VendingMachine, of answers: [String]) -> String {
+    static func selectMenu( vendingMachine: VendingMachine, of answers: [String]) -> String {
         let menuAnswer: Int = Int(answers[0]) ?? 0
         var additionalAnswer: Int = 0
         if answers.count > 1 {
