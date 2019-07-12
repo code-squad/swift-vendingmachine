@@ -27,7 +27,7 @@ extension Array where Element == Product {
     }
 }
 
-struct VendingMachine {
+class VendingMachine {
     private var money: Int = 0
     private var items = [Product]()
     private var purchaseDetails = [String]()
@@ -38,12 +38,12 @@ struct VendingMachine {
     }
     
     /// 자판기 금액을 원하는 금액만큼 올리는 메소드
-    mutating func pay(of addedMoney: Int) {
+    func pay(of addedMoney: Int) {
         money += addedMoney
     }
     
     /// 특정 상품 인스턴스를 넘겨서 재고를 추가하는 메소드
-    mutating func stockUp(of item: Product, count: Int) {
+    func stockUp(of item: Product, count: Int) {
         for _ in 0..<count {
             items.append(item)
         }
@@ -62,7 +62,7 @@ struct VendingMachine {
     }
     
     /// 음료수를 구매하는 메소드
-    mutating func purchase(of item: Product) -> String {
+    func purchase(of item: Product) -> String {
         let price = item.getPrice()
         guard distinctBuyable(of: item) else {
             return "돈을 더 넣어주세요"
@@ -79,7 +79,7 @@ struct VendingMachine {
     }
     
     /// 잔액을 확인하는 메소드
-    mutating func checkBalance() -> Int {
+    func checkBalance() -> Int {
         return money
     }
     

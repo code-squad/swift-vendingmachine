@@ -9,7 +9,7 @@
 import Foundation
 
 func main() {
-    var vendingMachine = VendingMachine()
+    let vendingMachine = VendingMachine()
     
     let strawberryMilk = StrawberryMilk(stringDate: "20190630", strawberryContent: 20)
     let chocolateMilk = ChocolateMilk(fattyContent: 1.4)
@@ -32,7 +32,7 @@ func main() {
             break
         }
 
-        let result = WorkFlow.selectMenu(vendingMachine: &vendingMachine, of: input)
+        let result = WorkFlow.selectMenu(vendingMachine: vendingMachine, of: input)
         OutputView.printResult(of: result)
     }
 }
