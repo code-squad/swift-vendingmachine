@@ -15,8 +15,8 @@ class ProductClassesTest: XCTestCase {
         let pastedExpirationDate = StrawberryMilk(stringDate: "20190630", strawberryContent: 20)
         let notPastedExpirationDate = StrawberryMilk(stringDate: "22000706", strawberryContent: 20)
         
-        XCTAssertTrue(notPastedExpirationDate.validate())
-        XCTAssertFalse(pastedExpirationDate.validate())
+        XCTAssertTrue(pastedExpirationDate.expireDate())
+        XCTAssertFalse(notPastedExpirationDate.expireDate())
     }
     
     /// 저칼로리인지 테스트 (100칼로리 이하면 저칼로리)
