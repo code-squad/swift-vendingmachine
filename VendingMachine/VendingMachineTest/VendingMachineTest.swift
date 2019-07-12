@@ -33,7 +33,7 @@ class VendingMachineTest: XCTestCase {
         XCTAssertTrue(items == [strawberryMilk:3])
     }
     
-    /// 특정 상품 인스턴스와 개수를 넘겨서 재고를 재거하는 메소드
+    /// 특정 상품 인스턴스와 개수를 넘겨서 재고를 제거하는 메소드
     func testTakeOutStock() {
         vendingMachine.stockUp(of: strawberryMilk, count: 3)
         vendingMachine.takeOutStock(of: strawberryMilk, count: 2)
