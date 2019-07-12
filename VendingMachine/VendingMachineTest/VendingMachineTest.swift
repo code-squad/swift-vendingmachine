@@ -33,6 +33,19 @@ class VendingMachineTest: XCTestCase {
         XCTAssertTrue(items == [strawberryMilk:3])
     }
     
+    /// 특정 상품 인스턴스와 개수를 넘겨서 재고를 재거하는 메소드
+    func testTakeOutStock() {
+        vendingMachine.stockUp(of: strawberryMilk, count: 3)
+        vendingMachine.takeOutStock(of: strawberryMilk, count: 2)
+        let items = vendingMachine.isFullStock()
+        
+        XCTAssertTrue(items == [strawberryMilk:1])
+        
+        vendingMachine.takeOutStock(of: strawberryMilk, count: 2)
+        
+        XCTAssertTrue(vendingMachine.getItems() == [])
+    }
+    
     /// 현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
     func testDisplayItems() {
         vendingMachine.stockUp(of: strawberryMilk, count: 3)
@@ -65,7 +78,7 @@ class VendingMachineTest: XCTestCase {
     
     /// 잔액을 확인하는 메소드
     func testCheckBalance() {
-        var testVendingMachine = VendingMachine()
+        let testVendingMachine = VendingMachine()
         let balance = testVendingMachine.checkBalance()
         
         XCTAssertTrue(balance == 0)
@@ -89,7 +102,7 @@ class VendingMachineTest: XCTestCase {
         vendingMachine.stockUp(of: cantataCoffee, count: 3)
         let items = vendingMachine.isItemsPastExpirationDate()
         
-        XCTAssertTrue(items == [strawberryMilk])
+        XCTAssertTrue(items == [strawberryMilk, strawberryMilk, strawberryMilk])
     }
     
     /// 따뜻한 음료만 리턴하는 메소드
