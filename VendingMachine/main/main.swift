@@ -26,8 +26,8 @@ func main() {
     vendingMachine.stockUp(of: cantataCoffee, count: 3)
     
     while true {
-        let inputView = InputView()
-        let input = inputView.readInput(items: vendingMachine.getItems(), money: vendingMachine.checkBalance())
+        let userInputView = UserInputView()
+        let input = userInputView.readInput(items: vendingMachine.getItems(), money: vendingMachine.checkBalance())
         if input == ["0"] {
             break
         }
