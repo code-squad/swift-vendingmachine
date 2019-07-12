@@ -55,7 +55,7 @@ class InputView: TextView {
         while true {
             let selection = askNumber(Message.number)
             
-            guard (1...options.count).contains(selection) else {
+            guard (0..<options.count).contains(selection - 1) else {
                 show("\(Message.invalidSelection) \(Message.enterAgain)")
                 continue
             }
