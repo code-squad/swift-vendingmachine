@@ -37,6 +37,7 @@
 		1562F2A522C9F3990052AC35 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1562F2A422C9F3990052AC35 /* Coffee.swift */; };
 		1562F2AE22C9FB440052AC35 /* ProductClassesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1562F2AD22C9FB440052AC35 /* ProductClassesTest.swift */; };
 		15B8A5C022D8610B00629C77 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B8A5BF22D8610B00629C77 /* InputView.swift */; };
+		15B8A5C222D8633400629C77 /* AdminInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B8A5C122D8633400629C77 /* AdminInputView.swift */; };
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +74,7 @@
 		1562F2AD22C9FB440052AC35 /* ProductClassesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductClassesTest.swift; sourceTree = "<group>"; };
 		1562F2AF22C9FB440052AC35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15B8A5BF22D8610B00629C77 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		15B8A5C122D8633400629C77 /* AdminInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminInputView.swift; sourceTree = "<group>"; };
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,6 +110,7 @@
 			children = (
 				15B8A5BF22D8610B00629C77 /* InputView.swift */,
 				15078B0022D36A7F00F6302A /* UserInputView.swift */,
+				15B8A5C122D8633400629C77 /* AdminInputView.swift */,
 				15078B0222D36A8C00F6302A /* OutputView.swift */,
 			);
 			path = View;
@@ -277,6 +280,7 @@
 				15078AEB22CF685B00F6302A /* Sprite.swift in Sources */,
 				15078B0122D36A7F00F6302A /* UserInputView.swift in Sources */,
 				15078AE922CF684D00F6302A /* Coke.swift in Sources */,
+				15B8A5C222D8633400629C77 /* AdminInputView.swift in Sources */,
 				15078AFE22D3658C00F6302A /* VendingMachine.swift in Sources */,
 				15078B0A22D510C800F6302A /* WorkFlow.swift in Sources */,
 				15078AE522CF682000F6302A /* StrawberryMilk.swift in Sources */,

@@ -14,7 +14,7 @@ struct InputView {
         var answer: String = ""
         while true {
             print("""
-                자판기를 시작합니다.
+                자판기를 시작합니다. (0을 입력하면 종료)
                 1. 관리자 모드
                 2. 사용자 모드
                 >>

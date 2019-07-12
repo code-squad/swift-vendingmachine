@@ -49,7 +49,7 @@ class VendingMachine {
         }
     }
     
-    /// 특정 상품 인스턴스를 넘겨서 재고를 재거하는 메소드 만약 재거하려는 숫자가 남은 재고 숫자보다 많으면 바로 재고를 0으로 만듬
+    /// 특정 상품 인스턴스를 넘겨서 재고를 제거하는 메소드 만약 제거하려는 숫자가 남은 재고 숫자보다 많으면 바로 재고를 0으로 만듬
     func takeOutStock(of item: Product, count: Int) {
         let itemCount = items.countElement(of: item)
         if count > itemCount {
