@@ -87,8 +87,8 @@ class VendingMachineController {
     }
     
     func selectFunctionUserMode() {
-        outputView.showCoinsDeposited(machine.coinsDeposited)
-        outputView.showInventory(machine.inventory)
+        showCoinsDeposited()
+        showInventory()
         
         let functions = [
             Message.Option.insertCoins: insertCoins,
@@ -102,7 +102,7 @@ class VendingMachineController {
     }
     
     func selectFunctionAdministratorMode() {
-        outputView.showInventory(machine.inventory)
+        showInventory()
         
         let functions = [
             Message.Option.Administrator.addItem: addItem,
@@ -115,6 +115,14 @@ class VendingMachineController {
         outputView.nextLine()
     }
     
+    func showCoinsDeposited() {
+         outputView.showCoinsDeposited(machine.coinsDeposited)
+    }
+    
+    func showInventory() {
+        outputView.showInventory(machine.inventory)
+    }
+    
     func insertCoins() {
         inputView.show(Message.Question.enterCoinsToDeposit)
         let coins = inputView.askNumber(Message.Question.amount)
@@ -122,7 +130,7 @@ class VendingMachineController {
     }
     
     func vend() {
-        outputView.showCoinsDeposited(machine.coinsDeposited)
+        showCoinsDeposited()
         inputView.show(Message.Description.followingBeveragesAvaliable)
         
         let options = machine.inventory.map { $0.key }
