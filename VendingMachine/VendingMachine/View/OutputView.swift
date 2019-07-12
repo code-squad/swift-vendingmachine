@@ -3,12 +3,15 @@ import Foundation
 class OutputView: TextView {
     
     struct Message {
-        static func vended(_ itemName: String) -> String {
-            return "\(itemName)을(를) 구매했습니다."
+        
+        struct Administrator {
+            static func removed(_ itemName: String) -> String {
+                return "\(itemName)을(를) 제거했습니다."
+            }
         }
         
-        static func removed(_ itemName: String) -> String {
-            return "\(itemName)을(를) 제거했습니다."
+        static func vended(_ itemName: String) -> String {
+            return "\(itemName)을(를) 구매했습니다."
         }
         
         static func reduceCoins(_ coins: Coin) -> String {
@@ -32,10 +35,6 @@ class OutputView: TextView {
         show("\(Message.vended(itemVended.name)) \(Message.reduceCoins(itemVended.price))")
     }
     
-    func showRemovingResult(removedItem: Beverage) {
-        show(Message.removed(removedItem.name))
-    }
-    
     func showCoinsDeposited(_ coins: Coin) {
         show(Message.coinsDeposited(coins))
     }
@@ -52,4 +51,14 @@ class OutputView: TextView {
         show(Message.error(error))
     }
     
+}
+
+protocol AdministratorView {
+    func showRemovingResult(removedItem: Beverage)
+}
+
+extension OutputView: AdministratorView {
+    func showRemovingResult(removedItem: Beverage) {
+        show(Message.Administrator.removed(removedItem.name))
+    }
 }
