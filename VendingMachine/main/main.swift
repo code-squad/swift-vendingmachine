@@ -18,6 +18,8 @@ func main() {
     let topCoffee = TOPCoffee(temperature: 70.0, arbicaBeansContent: true)
     let cantataCoffee = CantataCoffee(temperature: 30.0, DripStatus: true)
     
+    var endPoint = 0
+    
     vendingMachine.stockUp(of: strawberryMilk, count: 3)
     vendingMachine.stockUp(of: chocolateMilk, count: 3)
     vendingMachine.stockUp(of: coke, count: 3)
@@ -25,24 +27,31 @@ func main() {
     vendingMachine.stockUp(of: topCoffee, count: 3)
     vendingMachine.stockUp(of: cantataCoffee, count: 3)
     
-    let inputView = InputView.readInput()
-    while true {
-        let adminInputView = AdminInputView()
-        let userInputView = UserInputView()
-        var input: [String] = []
-        
-        switch inputView {
-        case .Admin: input = adminInputView.input(items: vendingMachine.getItems(), menuMent: inputView)
-        default: input = userInputView.input(items: vendingMachine.getItems(), money: vendingMachine.checkBalance(), menuMent: inputView)
+    while endPoint == 0 {
+        let inputView = InputView.readInput()
+        while true {
+            let adminInputView = AdminInputView()
+            let userInputView = UserInputView()
+            var input: [String] = []
+            
+            switch inputView {
+            case .Admin: input = adminInputView.input(items: vendingMachine.getItems(), menuMent: inputView)
+            case .User: input = userInputView.input(items: vendingMachine.getItems(), money: vendingMachine.checkBalance(), menuMent: inputView)
+            default: input = ["0"]
+            }
+            
+            if input == ["4"] {
+                break
+            }
+            else if input == ["0"] {
+                endPoint = 1
+                break
+            }
+            
+            var workFlow = WorkFlow(mode: inputView)
+            let result = workFlow.selectMenu(vendingMachine: vendingMachine, of: input)
+            OutputView.printResult(of: result)
         }
-        
-        if input == ["0"] {
-            break
-        }
-        
-        var workFlow = WorkFlow(mode: inputView)
-        let result = workFlow.selectMenu(vendingMachine: vendingMachine, of: input)
-        OutputView.printResult(of: result)
     }
 }
 

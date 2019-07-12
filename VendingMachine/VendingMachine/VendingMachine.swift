@@ -111,8 +111,8 @@ class VendingMachine {
     }
     
     /// 유통기한이 지난 재고만 리턴하는 메소드
-    func isItemsPastExpirationDate() -> [Product]{
-        let pastedDateitems = items.filter{ $0.expireDate() == true }
+    func isItemsPastExpirationDate() -> [String]{
+        let pastedDateitems = items.filter{ $0.expireDate() == true }.map{ $0.getName() }
         return pastedDateitems
     }
     

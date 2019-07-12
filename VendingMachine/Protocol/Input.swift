@@ -26,7 +26,7 @@ extension Input {
             print(menuMent.rawValue, terminator: "")
             let answer = readLine()
             purifiedAnswer = classifyAnswer(of: answer)
-            if ((distinctAnswer(of: purifiedAnswer[0], menuNumber: 2) == true) && (purifiedAnswer.count == 2)) || ((purifiedAnswer[0] == "3" || purifiedAnswer[0] == "0") && (purifiedAnswer.count == 1)) {
+            if ((distinctAnswer(of: purifiedAnswer[0], menuNumber: 2) == true) && (purifiedAnswer.count == 2)) || ((purifiedAnswer[0] == "3" || purifiedAnswer[0] == "0" ||  purifiedAnswer[0] == "4") && (purifiedAnswer.count == 1)) {
                 break
             } else {
                 print("범위 내의 숫자를 입력해주세요")

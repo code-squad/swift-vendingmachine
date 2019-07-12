@@ -102,7 +102,7 @@ class VendingMachineTest: XCTestCase {
         vendingMachine.stockUp(of: cantataCoffee, count: 3)
         let items = vendingMachine.isItemsPastExpirationDate()
         
-        XCTAssertTrue(items == [strawberryMilk, strawberryMilk, strawberryMilk])
+        XCTAssertTrue(items == ["딸기우유", "딸기우유", "딸기우유"])
     }
     
     /// 따뜻한 음료만 리턴하는 메소드
