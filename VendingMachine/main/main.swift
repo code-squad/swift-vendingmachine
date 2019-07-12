@@ -27,7 +27,7 @@ func main() {
     
     while true {
         let inputView = InputView()
-        let input = inputView.readInput(of: &vendingMachine)
+        let input = inputView.readInput(items: vendingMachine.getItems(), money: vendingMachine.checkBalance())
         if input == ["0"] {
             break
         }
