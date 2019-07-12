@@ -25,7 +25,7 @@
 		15078AF922D3068B00F6302A /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1562F29C22C9D2D40052AC35 /* Product.swift */; };
 		15078AFA22D3069E00F6302A /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1562F29E22C9E5330052AC35 /* DateUtil.swift */; };
 		15078AFE22D3658C00F6302A /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15078AFD22D3658C00F6302A /* VendingMachine.swift */; };
-		15078B0122D36A7F00F6302A /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15078B0022D36A7F00F6302A /* InputView.swift */; };
+		15078B0122D36A7F00F6302A /* UserInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15078B0022D36A7F00F6302A /* UserInputView.swift */; };
 		15078B0322D36A8C00F6302A /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15078B0222D36A8C00F6302A /* OutputView.swift */; };
 		15078B0522D36C1F00F6302A /* VendingMachineTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15078B0422D36C1F00F6302A /* VendingMachineTest.swift */; };
 		15078B0622D45F8300F6302A /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15078AFD22D3658C00F6302A /* VendingMachine.swift */; };
@@ -36,6 +36,7 @@
 		1562F2A322C9F3890052AC35 /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1562F2A222C9F3890052AC35 /* Soda.swift */; };
 		1562F2A522C9F3990052AC35 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1562F2A422C9F3990052AC35 /* Coffee.swift */; };
 		1562F2AE22C9FB440052AC35 /* ProductClassesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1562F2AD22C9FB440052AC35 /* ProductClassesTest.swift */; };
+		15B8A5C022D8610B00629C77 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B8A5BF22D8610B00629C77 /* InputView.swift */; };
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,7 +60,7 @@
 		15078AEC22CF686500F6302A /* TOPCoffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOPCoffee.swift; sourceTree = "<group>"; };
 		15078AEE22CF689A00F6302A /* CantataCoffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CantataCoffee.swift; sourceTree = "<group>"; };
 		15078AFD22D3658C00F6302A /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
-		15078B0022D36A7F00F6302A /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		15078B0022D36A7F00F6302A /* UserInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInputView.swift; sourceTree = "<group>"; };
 		15078B0222D36A8C00F6302A /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		15078B0422D36C1F00F6302A /* VendingMachineTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineTest.swift; sourceTree = "<group>"; };
 		15078B0922D510C800F6302A /* WorkFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkFlow.swift; sourceTree = "<group>"; };
@@ -71,6 +72,7 @@
 		1562F2AB22C9FB440052AC35 /* VendingMachineTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1562F2AD22C9FB440052AC35 /* ProductClassesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductClassesTest.swift; sourceTree = "<group>"; };
 		1562F2AF22C9FB440052AC35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		15B8A5BF22D8610B00629C77 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,7 +106,8 @@
 		15078AFF22D36A6900F6302A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				15078B0022D36A7F00F6302A /* InputView.swift */,
+				15B8A5BF22D8610B00629C77 /* InputView.swift */,
+				15078B0022D36A7F00F6302A /* UserInputView.swift */,
 				15078B0222D36A8C00F6302A /* OutputView.swift */,
 			);
 			path = View;
@@ -272,13 +275,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				15078AEB22CF685B00F6302A /* Sprite.swift in Sources */,
-				15078B0122D36A7F00F6302A /* InputView.swift in Sources */,
+				15078B0122D36A7F00F6302A /* UserInputView.swift in Sources */,
 				15078AE922CF684D00F6302A /* Coke.swift in Sources */,
 				15078AFE22D3658C00F6302A /* VendingMachine.swift in Sources */,
 				15078B0A22D510C800F6302A /* WorkFlow.swift in Sources */,
 				15078AE522CF682000F6302A /* StrawberryMilk.swift in Sources */,
 				15078B0322D36A8C00F6302A /* OutputView.swift in Sources */,
 				1562F29F22C9E5330052AC35 /* DateUtil.swift in Sources */,
+				15B8A5C022D8610B00629C77 /* InputView.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
 				1562F2A122C9F3660052AC35 /* Milk.swift in Sources */,
 				15078AEF22CF689A00F6302A /* CantataCoffee.swift in Sources */,
