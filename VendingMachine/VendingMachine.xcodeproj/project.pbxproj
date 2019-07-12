@@ -38,6 +38,8 @@
 		1562F2AE22C9FB440052AC35 /* ProductClassesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1562F2AD22C9FB440052AC35 /* ProductClassesTest.swift */; };
 		15B8A5C022D8610B00629C77 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B8A5BF22D8610B00629C77 /* InputView.swift */; };
 		15B8A5C222D8633400629C77 /* AdminInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B8A5C122D8633400629C77 /* AdminInputView.swift */; };
+		15B8A5C422D865D200629C77 /* Input.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B8A5C322D865D200629C77 /* Input.swift */; };
+		15B8A5C822D86A0400629C77 /* MenuMent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B8A5C722D86A0400629C77 /* MenuMent.swift */; };
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +77,8 @@
 		1562F2AF22C9FB440052AC35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15B8A5BF22D8610B00629C77 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		15B8A5C122D8633400629C77 /* AdminInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminInputView.swift; sourceTree = "<group>"; };
+		15B8A5C322D865D200629C77 /* Input.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Input.swift; sourceTree = "<group>"; };
+		15B8A5C722D86A0400629C77 /* MenuMent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuMent.swift; sourceTree = "<group>"; };
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,9 +130,27 @@
 			path = VendingMachineTest;
 			sourceTree = "<group>";
 		};
+		15B8A5C522D865D900629C77 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				15B8A5C322D865D200629C77 /* Input.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		15B8A5C622D869EB00629C77 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				15B8A5C722D86A0400629C77 /* MenuMent.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
 		839DA9001F8D1F95009E05F3 = {
 			isa = PBXGroup;
 			children = (
+				15B8A5C622D869EB00629C77 /* Enum */,
+				15B8A5C522D865D900629C77 /* Protocol */,
 				15078AFF22D36A6900F6302A /* View */,
 				15078AFC22D3652000F6302A /* main */,
 				839DA90B1F8D1F95009E05F3 /* VendingMachine */,
@@ -279,11 +301,13 @@
 			files = (
 				15078AEB22CF685B00F6302A /* Sprite.swift in Sources */,
 				15078B0122D36A7F00F6302A /* UserInputView.swift in Sources */,
+				15B8A5C822D86A0400629C77 /* MenuMent.swift in Sources */,
 				15078AE922CF684D00F6302A /* Coke.swift in Sources */,
 				15B8A5C222D8633400629C77 /* AdminInputView.swift in Sources */,
 				15078AFE22D3658C00F6302A /* VendingMachine.swift in Sources */,
 				15078B0A22D510C800F6302A /* WorkFlow.swift in Sources */,
 				15078AE522CF682000F6302A /* StrawberryMilk.swift in Sources */,
+				15B8A5C422D865D200629C77 /* Input.swift in Sources */,
 				15078B0322D36A8C00F6302A /* OutputView.swift in Sources */,
 				1562F29F22C9E5330052AC35 /* DateUtil.swift in Sources */,
 				15B8A5C022D8610B00629C77 /* InputView.swift in Sources */,

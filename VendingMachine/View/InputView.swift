@@ -10,8 +10,9 @@ import Foundation
 
 struct InputView {
     /// 안내문구를 출력하고 값을 입력받는 메소드
-    func readInput() -> String {
+    static func readInput() -> MenuMent {
         var answer: String = ""
+        var menu = MenuMent(of: "User")
         while true {
             print("""
                 자판기를 시작합니다. (0을 입력하면 종료)
@@ -20,12 +21,15 @@ struct InputView {
                 >>
                 """, terminator: "")
             answer = readLine() ?? ""
-            if (answer == "1" || answer == "2") {
+            if answer == "1" {
+                menu = MenuMent(of: "admin")
+                break
+            } else if answer == "2" {
                 break
             } else {
                 print("범위 내의 숫자를 입력해주세요")
             }
         }
-        return answer
+        return menu
     }
 }
