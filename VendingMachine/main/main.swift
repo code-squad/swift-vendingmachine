@@ -25,9 +25,16 @@ func main() {
     vendingMachine.stockUp(of: topCoffee, count: 3)
     vendingMachine.stockUp(of: cantataCoffee, count: 3)
     
+    let inputView = InputView.readInput()
     while true {
+        let adminInputView = AdminInputView()
         let userInputView = UserInputView()
-        let input = userInputView.readInput(items: vendingMachine.getItems(), money: vendingMachine.checkBalance())
+        var input: [String] = []
+        switch inputView {
+        case .Admin: input = adminInputView.input(items: vendingMachine.getItems(), menuMent: inputView)
+        default: input = userInputView.input(items: vendingMachine.getItems(), money: vendingMachine.checkBalance(), menuMent: inputView)
+        }
+        
         if input == ["0"] {
             break
         }
