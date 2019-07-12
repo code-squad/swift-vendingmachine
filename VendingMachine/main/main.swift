@@ -30,6 +30,7 @@ func main() {
         let adminInputView = AdminInputView()
         let userInputView = UserInputView()
         var input: [String] = []
+        
         switch inputView {
         case .Admin: input = adminInputView.input(items: vendingMachine.getItems(), menuMent: inputView)
         default: input = userInputView.input(items: vendingMachine.getItems(), money: vendingMachine.checkBalance(), menuMent: inputView)
@@ -38,8 +39,9 @@ func main() {
         if input == ["0"] {
             break
         }
-
-        let result = WorkFlow.selectMenu(vendingMachine: vendingMachine, of: input)
+        
+        var workFlow = WorkFlow(mode: inputView)
+        let result = workFlow.selectMenu(vendingMachine: vendingMachine, of: input)
         OutputView.printResult(of: result)
     }
 }
