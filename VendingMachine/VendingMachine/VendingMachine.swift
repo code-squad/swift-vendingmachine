@@ -55,14 +55,12 @@ class VendingMachine {
         if count > itemCount {
             return takeOutStock(of: item, count: itemCount)
         }
-        var number = count
-        for index in 0..<items.count {
-            if items[index] == item {
-                items.remove(at: index)
-                number -= 1
-            }
-            if number == 0 {
-                break
+        for _ in 0..<count {
+            for index in 0..<items.count {
+                if items[index] == item {
+                    items.remove(at: index)
+                    break
+                }
             }
         }
     }

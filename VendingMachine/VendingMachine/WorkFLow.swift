@@ -34,8 +34,12 @@ struct WorkFlow {
         var result = ""
         
         switch answer.first {
-        case 1: vendingMachine.stockUp(of: itemsSet[answer.second-1], count: 1)
-        case 2: vendingMachine.takeOutStock(of: itemsSet[answer.second-1], count: 1)
+        case 1: print("추가할 재고의 갯수입력:",terminator:"")
+            let count = Int(readLine() ?? "") ?? 0
+            vendingMachine.stockUp(of: itemsSet[answer.second-1], count: count)
+        case 2: print("제거할 재고의 갯수입력:",terminator:"")
+        let count = Int(readLine() ?? "") ?? 0
+            vendingMachine.takeOutStock(of: itemsSet[answer.second-1], count: count)
         default : result = "\(vendingMachine.isItemsPastExpirationDate())\n"
         }
         return result
