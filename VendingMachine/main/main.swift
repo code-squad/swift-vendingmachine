@@ -26,17 +26,18 @@ func main() {
     vendingMachine.stockUp(of: sprite, count: 3)
     vendingMachine.stockUp(of: topCoffee, count: 3)
     vendingMachine.stockUp(of: cantataCoffee, count: 3)
+
     
     while endPoint == 0 {
-        let inputView = InputView.readInput()
+        let mode = InputView.readInput()
         while true {
             let adminInputView = AdminInputView()
             let userInputView = UserInputView()
             var input: [String] = []
             
-            switch inputView {
-            case .Admin: input = adminInputView.input(items: vendingMachine.getItems(), menuMent: inputView)
-            case .User: input = userInputView.input(items: vendingMachine.getItems(), money: vendingMachine.checkBalance(), menuMent: inputView)
+            switch mode {
+            case .Admin: input = adminInputView.input(items: vendingMachine.getItems(), menuMent: mode)
+            case .User: input = userInputView.input(items: vendingMachine.getItems(), money: vendingMachine.checkBalance(), menuMent: mode)
             default: input = ["0"]
             }
             
@@ -48,7 +49,7 @@ func main() {
                 break
             }
             
-            var workFlow = WorkFlow(mode: inputView)
+            var workFlow = WorkFlow(mode: mode)
             let result = workFlow.selectMenu(vendingMachine: vendingMachine, of: input)
             OutputView.printResult(of: result)
         }
