@@ -211,3 +211,36 @@ VendingMachine 구조체를 생성 후 메소드를 구현하기 전 Test Code�
 | **피드백 내용**      | InputView가 직접 자판기 객체를 참조할 필요는 없으며, 처리해서 전달하여 의존성이 없도록 구현해야 한다. |
 | **수정한 내용**      | main에서 인자를 처리해서 넘기도록 수정                       |
 
+
+
+# Step4 - 자판기 기본 동작 (13.7.19)
+
+## 추가되거나 삭제된 구조
+
+### 추가된 구조
+
+- **InputView (Struct):** Input 문구를 출력하고, 관리자모드와 사용자모드를 선택하는 구조체 
+- **Input (Protocol):** UserInput과 AdminInput을 추상화한 프로토콜
+- **AdminInputView (Struct):** 결과를 받아 출력하는 구조체
+- **MenuMent (Enum):** 관리자 모드와 사용자 모드일때의 Input Message를 모아놓은 열거형
+
+
+
+### 변경된 구조
+
+- **VendingMachine (Struct):** 재고를 제거하는 메소드 추가
+- **WorkFlow (Struct):** adminMode일때의 workflow 추가
+- **UserInput (Struct):** 12-3까지의 InputVuew를 User 모드에서 사용하는 UserInputView로 변경
+
+
+
+## 해당 Step을 진행하면서 배운 내용
+
+이번에도 Test Code를 먼저 작성하여 TDD 방식으로 코딩하였다. 한번을 해봐서 그런지 Step12-3을 진행할때보다 어떤결과가 나와야하는지 정하는것이 쉬웠고, 테스트 코드를 많이 수정하지도 않았다. 앞으로도 계속 이 방법을 쓰먄 더욱 좋은 코드가 나올 것 같다.
+
+
+
+## 결과화면
+
+![Step4_result](Assets/Step4_result.png)
+
