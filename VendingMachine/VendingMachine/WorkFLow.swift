@@ -34,10 +34,10 @@ struct WorkFlow {
         var result = ""
         
         switch answer.first {
-        case 1: print("추가할 재고의 갯수입력:",terminator:"")
+        case 1: print(StockMent(input:"add").rawValue,terminator:"")
             let count = Int(readLine() ?? "") ?? 0
             vendingMachine.stockUp(of: itemsSet[answer.second-1], count: count)
-        case 2: print("제거할 재고의 갯수입력:",terminator:"")
+        case 2: print(StockMent(input:"delete").rawValue,terminator:"")
         let count = Int(readLine() ?? "") ?? 0
             vendingMachine.takeOutStock(of: itemsSet[answer.second-1], count: count)
         default : let patedItems = vendingMachine.isItemsPastExpirationDate()

@@ -1,0 +1,23 @@
+//
+//  Manager.swift
+//  VendingMachine
+//
+//  Created by jang gukjin on 14/07/2019.
+//  Copyright © 2019 JK. All rights reserved.
+//
+
+import Foundation
+
+enum Manager {
+    case quit
+    case back
+    case proceed
+    
+    init(input: [String]){
+        switch input{
+        case ["0"]: self = .quit
+        case ["4"]: self = .back
+        default: self = .proceed
+        }
+    }
+}
