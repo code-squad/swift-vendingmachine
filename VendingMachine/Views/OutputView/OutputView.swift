@@ -53,7 +53,7 @@ class OutputView {
         print(error.description)
         print("================")
     }
-    static func printSellingMessage(_ drink : Drink){
-        print("\(drink.drinkName)을 구매하셨습니다. \(drink.price)원을 차감합니다")
+    static func printSellingMessage(name : String, price: String){
+        print("\(name)을 구매하셨습니다. \(price)원을 차감합니다")
     }
 }
