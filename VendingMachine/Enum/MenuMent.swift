@@ -24,12 +24,14 @@ enum MenuMent: String {
                 >>
                 """
     case Quit = "종료"
+    case Error = "범위 안에 있는 숫자를 입력해주세요"
     
     init(of mode: String) {
         switch mode {
         case "admin","Admin": self = .Admin
         case "user", "User": self = .User
-        default: self = .Quit
+        case "quit","Quit": self = .Quit
+        default: self = .Error
         }
     }
 }
