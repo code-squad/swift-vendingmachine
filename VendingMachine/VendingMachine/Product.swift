@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Product: Equatable, Hashable, CustomStringConvertible  {
+class Product: Equatable, Hashable, Comparable, CustomStringConvertible  {
     private var brand: String
     private var capacity: Int
     private var price: Int
@@ -50,6 +50,11 @@ class Product: Equatable, Hashable, CustomStringConvertible  {
     /// Product 타입을 가지는 인스턴스가 같은지 확인하는 연산자
     static func ==(lhs: Product, rhs: Product) -> Bool {
     return lhs.name == rhs.name && lhs.price == rhs.price
+    }
+    
+    /// Product 타입을 가지는 인스턴스의 크기를 비교하는 연산자
+    static func <(lhs: Product, rhs: Product) -> Bool {
+        return lhs.getName() < rhs.getName()
     }
 }
 

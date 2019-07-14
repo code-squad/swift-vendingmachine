@@ -9,13 +9,13 @@
 import Foundation
 
 extension Array where Element == Product {
-    /// 파라미터로 받은 원소가 해당 배열에 몇개 있는지 카운트하는 함수
+    /// 파라미터로 받은 원소가 해당 배열에 몇개 있는지 카운트하는 메소드
     func countElement(of element: Product) -> Int{
         let countArray = self.filter{ (value: Product) -> Bool in return value == element }
         return countArray.count
     }
     
-    /// Product 타입의 배열을 중복제거 하고 싶을 때 사용하는 함수
+    /// Product 타입의 배열을 중복제거 하고 싶을 때 사용하는 메소드
     func set() -> [Product] {
         var itemsSet = [Product]()
         for item in self {
@@ -47,22 +47,26 @@ class VendingMachine {
         for _ in 0..<count {
             items.append(item)
         }
+        items.sort()
     }
     
     /// 특정 상품 인스턴스를 넘겨서 재고를 제거하는 메소드 만약 제거하려는 숫자가 남은 재고 숫자보다 많으면 바로 재고를 0으로 만듬
     func takeOutStock(of item: Product, count: Int) {
         let itemCount = items.countElement(of: item)
-        if count > itemCount {
-            return takeOutStock(of: item, count: itemCount)
-        }
-        for _ in 0..<count {
-            for index in 0..<items.count {
-                if items[index] == item {
-                    items.remove(at: index)
-                    break
-                }
+        let totalCount: Int = {
+            if count > itemCount {
+                return 0
             }
+            else {
+                return itemCount - count
+            }
+        }()
+        var subtractedItems = items.filter{ (value: Product) in return value != item }
+        for _ in 0..<totalCount {
+            subtractedItems.append(item)
         }
+        items = subtractedItems
+        items.sort()
     }
     
     /// 현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
