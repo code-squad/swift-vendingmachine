@@ -10,6 +10,8 @@ import Foundation
 
 class ReadyState: StateTransitionable{
     var vendingMachine : VendingMachine
+    private var instruction: Int!
+    private var quantity: Int!
     init(machine: VendingMachine){
         vendingMachine = machine
     }
@@ -18,28 +20,29 @@ class ReadyState: StateTransitionable{
         vendingMachine.changeState(nextTo, from: .ready)
     }
     
-    func implementStateInstruction() {
-        displayVendingMachineInfo()
-        guard let pair = readInstruction() else {
-            return
-        }
-        let stateType = StateType.init(value: pair.instruction)
-        switch stateType {
-        case .chargeMoney:
-           shiftChargeMoneyStateWithMoney(pair.quantity)
-        case .sell:
-            shiftSellingStateWithDrinkNumber(pair.quantity)
-        default:
-            return
-        }
+    func recieveInstruction(instruction: Int, quantity: Int) {
+        self.instruction = instruction
+        self.quantity = quantity
     }
     
-    private func displayVendingMachineInfo(){
-        if self.vendingMachine.fromState != StateType.initialize {
-            OutputView.showCurrentBalanceInfo(self.vendingMachine)
-            OutputView.printDrinkMenuListWithNumber(self.vendingMachine)
+    func implementStateInstruction() -> InstructionResult{
+        var printableMessage: String = displayVendingMachineInfo()
+        let stateType = StateType.init(value: self.instruction)
+        switch stateType {
+        case .chargeMoney:
+            shiftChargeMoneyStateWithMoney(self.quantity)
+        case .sell:
+            shiftSellingStateWithDrinkNumber(self.quantity)
+        default:
+            break
         }
-        OutputView.selectMenuInfo()
+        return InstructionResult(printableMessage, nil)
+    }
+    
+    private func displayVendingMachineInfo() -> String{
+        let message = "\(StateType.chargeMoney.description)\n\(StateType.sell.description)"
+        return message
+        
     }
     
     private func shiftChargeMoneyStateWithMoney(_ money: Int){
@@ -56,17 +59,5 @@ class ReadyState: StateTransitionable{
             return
         }
         nextState.receiveDrinkNumberInput(number)
-    }
-    
-    private func readInstruction() -> (instruction: Int, quantity: Int)?{
-        do {
-            let instructionPair = try InputView.readInstruction()
-            return instructionPair
-        }catch(let errorType as VendingMachineError) {
-            OutputView.printErrorMessage(errorType)
-        }catch {
-            OutputView.printErrorMessage(.unknownError)
-        }
-        return nil
     }
 }

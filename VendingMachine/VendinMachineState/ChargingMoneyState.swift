@@ -20,16 +20,17 @@ class ChargingMoneyState: StateTransitionable{
         vendingMachine.changeState(nextTo, from: .ready)
     }
     
-    func implementStateInstruction() {
+    func implementStateInstruction() -> InstructionResult  {
         do {
             try insertMoney(self.chargableMoney)
+            resetCurrentMoney()
+            moveToNextState(nextTo: self.vendingMachine.readyState)
+            return InstructionResult("\(self.chargableMoney)", nil)
         } catch let error as VendingMachineError{
-            OutputView.printErrorMessage(error)
+            return InstructionResult(nil, error)
         } catch {
-            OutputView.printErrorMessage(.unknownError)
+            return InstructionResult(nil, VendingMachineError.unknownError)
         }
-        resetCurrentMoney()
-        moveToNextState(nextTo: self.vendingMachine.readyState)
     }
     
     func receiveMoneyInput(_ money: Int){

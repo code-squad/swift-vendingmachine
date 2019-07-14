@@ -9,6 +9,8 @@
 import Foundation
 
 class SellingState: StateTransitionable{
+
+    
     private var selectNumber : Int = 0
     var vendingMachine: VendingMachine
     
@@ -35,24 +37,24 @@ class SellingState: StateTransitionable{
         }
     }
     
-    func implementStateInstruction() {
+    func implementStateInstruction() -> InstructionResult {
         do {
             guard let result = try? selectDrinkNumber(selectNumber) else {
-                return
             }
             let drink = try result.get()
-            OutputView.printSellingMessage(drink)
+            moveToNextState(nextTo: self.vendingMachine.readyState)
+            return InstructionResult("\(drink.drinkName), \(drink.price)", nil)
         } catch let error as VendingMachineError{
             handleSellingStateError(error)
+            return InstructionResult(nil, error)
         } catch {
-            OutputView.printErrorMessage(.unknownError)
             self.vendingMachine.changeState(self.vendingMachine.readyState, from: .sell)
+            return InstructionResult(nil, VendingMachineError.unknownError)
         }
-        moveToNextState(nextTo: self.vendingMachine.readyState)
     }
     
     private func handleSellingStateError(_ error : VendingMachineError){
-        OutputView.printErrorMessage(error)
+        
         switch error {
         case .notEnoughMoneyError:
             self.vendingMachine.changeState(self.vendingMachine.readyState, from: .sell)

@@ -8,7 +8,9 @@
 
 import Foundation
 
+typealias InstructionResult = (success: String?, failure: VendingMachineError?)
+
 protocol StateTransitionable {
     func moveToNextState(nextTo: StateTransitionable)
-    func implementStateInstruction()
+    func implementStateInstruction() -> InstructionResult
 }
