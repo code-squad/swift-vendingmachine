@@ -30,7 +30,12 @@ func main() {
     
     while endPoint == 0 {
         let mode = InputView.readInput()
-        while true {
+        if mode == .Quit {
+            endPoint = 1
+        } else if mode == .Error {
+            print(mode.rawValue)
+        }
+        while mode == .Admin || mode == .User {
             let adminInputView = AdminInputView()
             let userInputView = UserInputView()
             var input: [String] = []
@@ -41,19 +46,21 @@ func main() {
             default: input = ["0"]
             }
             
-            let manager = Manager(input: input)
+            let manager = Manager(input: input[0])
             
             if manager == .back {
                 break
-            }
-            else if manager == .quit {
+            } else if manager == .quit {
                 endPoint = 1
                 break
+            } else if manager == .proceed {
+                var workFlow = WorkFlow(mode: mode)
+                let result = workFlow.selectMenu(vendingMachine: vendingMachine, of: input)
+                OutputView.printResult(of: result)
+            } else {
+                print("범위 안에 있는 숫자를 입력해주세요")
+                continue
             }
-            
-            var workFlow = WorkFlow(mode: mode)
-            let result = workFlow.selectMenu(vendingMachine: vendingMachine, of: input)
-            OutputView.printResult(of: result)
         }
     }
 }
