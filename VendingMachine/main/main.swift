@@ -41,10 +41,12 @@ func main() {
             default: input = ["0"]
             }
             
-            if input == ["4"] {
+            let manager = Manager(input: input)
+            
+            if manager == .back {
                 break
             }
-            else if input == ["0"] {
+            else if manager == .quit {
                 endPoint = 1
                 break
             }
