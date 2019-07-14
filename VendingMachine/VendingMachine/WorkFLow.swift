@@ -40,7 +40,12 @@ struct WorkFlow {
         case 2: print("제거할 재고의 갯수입력:",terminator:"")
         let count = Int(readLine() ?? "") ?? 0
             vendingMachine.takeOutStock(of: itemsSet[answer.second-1], count: count)
-        default : result = "\(vendingMachine.isItemsPastExpirationDate())\n"
+        default : let patedItems = vendingMachine.isItemsPastExpirationDate()
+            var itemNames = [String]()
+            for item in patedItems {
+                itemNames.append(item.getName())
+            }
+            result = "\(itemNames)"
         }
         return result
     }
