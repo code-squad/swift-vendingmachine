@@ -13,6 +13,7 @@ class UserMode{
     init(machine: VendingMachine){
         self.vendingMachine = machine
     }
+    
     func play(){
         while true {
             if vendingMachine.vendingMachineState! is InitialState {
@@ -36,6 +37,7 @@ class UserMode{
             printSellingStateMessage(vendingMachine, message: printMessage)
         }
     }
+    
     private func handleReadyState(_ vendingMachine: VendingMachine) -> Bool{
         var pair: (instruction: Int, quantity: Int)!
         do {
@@ -52,6 +54,7 @@ class UserMode{
             return false
         }
     }
+    
     private func handleError(_ error: VendingMachineError?){
         guard let errorMessage = error else {
             OutputView.printErrorMessage(VendingMachineError.unknownError)
