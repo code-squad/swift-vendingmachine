@@ -17,12 +17,20 @@ class VendingMachine: ProductSoldable {
     private (set) lazy var drinkNameMenuTable : [String : Int] = self.buildMenuTable(self.drinkStockTable)
     
     var vendingMachineState : StateTransitionable?
+    private (set) lazy var modeSelectState: StateTransitionable = self.initializeModeSelectState()
+
     private (set) lazy var initialState : StateTransitionable = self.initializeInitialState()
     private (set) lazy var readyState : StateTransitionable = self.initializeReadyState()
     private (set) lazy var chargeMoneyState: StateTransitionable = self.initializeChargeMoneyState()
     private (set) lazy var sellingState: StateTransitionable = self.initializeSellingState()
-    private (set) lazy var modeSelectState: StateTransitionable = self.initializeModeSelectState()
     
+    private (set) lazy var adminInitialState : StateTransitionable = self.initializeAdminInitialState()
+    private (set) lazy var adminReadyState : StateTransitionable =  self.initializeAdminReadyState()
+    private (set) lazy var addStockState : StateTransitionable = self.initializeAddStockState()
+    private (set) lazy var removeStockState : StateTransitionable = self.initializeRemoveStockState()
+
+
+
     init(drinkStockTable : [Int : DrinkItemList] = [Int : DrinkItemList]()){
         self.drinkStockTable = drinkStockTable
         balance = 0
@@ -168,6 +176,19 @@ class VendingMachine: ProductSoldable {
     func initializeModeSelectState() -> StateTransitionable{
         return ModeSelectState(machine: self)
     }
+    func initializeAdminInitialState() -> StateTransitionable {
+        return AdminInitialState.init(machine: self)
+    }
+    func initializeAdminReadyState() -> StateTransitionable {
+        return AdminReadyState.init(machine: self)
+    }
+    func initializeAddStockState() -> StateTransitionable {
+        return AddStockState.init(machine: self)
+    }
+    func initializeRemoveStockState() -> StateTransitionable {
+        return RemoveStockState.init(machine: self)
+    }
+    
     ///lazy property initialize
     private func buildMenuTable(_ drinkStockTable: [Int: DrinkItemList]) -> [String: Int]{
         var menuTempTable = [String: Int]()
