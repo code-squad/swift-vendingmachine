@@ -81,12 +81,12 @@ class VendingMachine: ProductSoldable {
     ///특정 상품 인스턴스를 넘겨서 재고를 추가하는 메소드
     ///만약 해당 상품인스턴스가 기존 재고에 없다면 넘버링을 새로하여 메뉴테이블과 재고테이블에 추가한다.
     func addDrinkStock(_ drink: Drink) throws {
-        if let menuNumber = self.drinkNameMenuTable[drink.drinkName] {
+        if let menuNumber = self.drinkNameMenuTable[drink.name] {
             let drinkList = self.drinkStockTable[menuNumber]!
             try drinkList.addItem(drink)
         }else{
             let newMenuNumber = self.drinkNameMenuTable.count+1
-            updateMenuTable(nextIndex: newMenuNumber, name: drink.drinkName)
+            updateMenuTable(nextIndex: newMenuNumber, name: drink.name)
             updateDrinkStockTable(nextIndex: newMenuNumber, drinkElement: drink)
         }
     }

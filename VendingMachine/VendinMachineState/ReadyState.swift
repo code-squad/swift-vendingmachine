@@ -26,7 +26,7 @@ class ReadyState: StateTransitionable{
     }
     
     func implementStateInstruction() -> InstructionResult{
-        var printableMessage: String = displayVendingMachineInfo()
+        let printableMessage: String = displayVendingMachineInfo()
         let stateType = StateType.init(value: self.instruction)
         switch stateType {
         case .chargeMoney:
