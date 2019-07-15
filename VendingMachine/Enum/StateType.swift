@@ -9,6 +9,7 @@
 import Foundation
 
 enum StateType: Int {
+    case modeSelect = 8
     case initialize = 9
     case ready = 0
     case chargeMoney = 1
@@ -23,6 +24,8 @@ enum StateType: Int {
             self = .chargeMoney
         case 2:
             self = .sell
+        case 8:
+            self = .modeSelect
         default:
             self = .ready
         }
