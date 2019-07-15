@@ -49,6 +49,12 @@ class OutputView {
         print("\(StateType.chargeMoney.description)")
         print("\(StateType.sell.description)")
     }
+    
+    static func selectModeInfo(){
+        print("자판기를 시작합니다.")
+        print("\(ModeType.adminMode.description)")
+        print("\(ModeType.userMode.description)")
+    }
     static func printErrorMessage(_ error: VendingMachineError){
         print("================")
         print(error.description)

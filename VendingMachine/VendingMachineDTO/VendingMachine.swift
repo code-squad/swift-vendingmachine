@@ -21,13 +21,14 @@ class VendingMachine: ProductSoldable {
     private (set) lazy var readyState : StateTransitionable = self.initializeReadyState()
     private (set) lazy var chargeMoneyState: StateTransitionable = self.initializeChargeMoneyState()
     private (set) lazy var sellingState: StateTransitionable = self.initializeSellingState()
-
+    private (set) lazy var modeSelectState: StateTransitionable = self.initializeModeSelectState()
+    
     init(drinkStockTable : [Int : DrinkItemList] = [Int : DrinkItemList]()){
         self.drinkStockTable = drinkStockTable
         balance = 0
         shoppingHistory = [Drink]()
-        fromState = StateType.initialize
-        vendingMachineState = InitialState.init(machine: self)
+        fromState = StateType.modeSelect
+        vendingMachineState = ModeSelectState.init(machine: self)//InitialState.init(machine: self)
     }
 
     ///자판기 금액을 원하는 금액만큼 올리는 메소드
@@ -163,6 +164,9 @@ class VendingMachine: ProductSoldable {
     }
     func initializeInitialState() -> StateTransitionable {
         return InitialState(machine: self)
+    }
+    func initializeModeSelectState() -> StateTransitionable{
+        return ModeSelectState(machine: self)
     }
     ///lazy property initialize
     private func buildMenuTable(_ drinkStockTable: [Int: DrinkItemList]) -> [String: Int]{

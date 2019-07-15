@@ -14,67 +14,37 @@ import Foundation
 class Main {
     static func machineStart(){
         let vendingMachine = MockVendingMachineCreator.initializeVendingMachine()
+        ///mode select
         while true {
-            if vendingMachine.vendingMachineState! is InitialState {
-                printInitialStateMessage(vendingMachine)
+            if handleModeState(vendingMachine) {
                 vendingMachine.vendingMachineState!.implementStateInstruction()
-                continue
+                break
             }
-            if vendingMachine.vendingMachineState! is ReadyState {
-                handleReadyState(vendingMachine)
-                vendingMachine.vendingMachineState!.implementStateInstruction()
-                continue
-            }
-            /// common
-            let resultPair = vendingMachine.vendingMachineState!.implementStateInstruction()
-            guard let printMessage = resultPair.success  else {
-                handleError(resultPair.failure)
-                continue
-            }
-            /// if selling
-            printSellingStateMessage(vendingMachine, message: printMessage)
         }
+        /// userMode
+        let userMode = UserMode.init(machine: vendingMachine)
+        userMode.play()
     }
     
-    private static func handleReadyState(_ vendingMachine: VendingMachine) {
+    private static func handleModeState(_ vendingMachine: VendingMachine) -> Bool {
         do {
-            printReadyStateMessage(vendingMachine)
-            let pair = try InputView.readInstruction()
-            let currentState = vendingMachine.vendingMachineState! as! ReadyState
-            currentState.recieveInstruction(instruction: pair.instruction, quantity: pair.quantity)
+            printModeSelectMessage(vendingMachine)
+            let number = try InputView.readModeSelection()
+            let currentState = vendingMachine.vendingMachineState! as! ModeSelectState
+            currentState.recieveInstruction(number)
+            return true
         }catch(let errorType as VendingMachineError) {
             OutputView.printErrorMessage(errorType)
+            return false
         }catch {
             OutputView.printErrorMessage(.unknownError)
+            return false
         }
     }
-    
-    private static func handleError(_ error: VendingMachineError?){
-        guard let errorMessage = error else {
-            OutputView.printErrorMessage(VendingMachineError.unknownError)
-            return
-        }
-        OutputView.printErrorMessage(errorMessage)
+    private static func printModeSelectMessage(_ vendingMachie: VendingMachine){
+        OutputView.selectModeInfo()
     }
-    
-    private static func printSellingStateMessage(_ vendingMachine: VendingMachine, message: String){
-        if vendingMachine.vendingMachineState! is SellingState {
-            let sellingInfo = message.components(separatedBy: ",")
-            OutputView.printSellingMessage(name: sellingInfo[0], price: sellingInfo[1])
-        }
-    }
-    
-    private static func printInitialStateMessage(_ vendingMachine: VendingMachine){
-        OutputView.showCurrentBalanceInfo(vendingMachine)
-        OutputView.printInitialDrinkMenuList(vendingMachine)
-    }
-    
-    private static func printReadyStateMessage(_ vendingMachine: VendingMachine){
-        OutputView.showCurrentBalanceInfo(vendingMachine)
-        OutputView.printDrinkMenuListWithNumber(vendingMachine)
-        OutputView.selectMenuInfo()
-    }
-    
+   
     static func start(){
         let result = MockDrinkCreator.generateBeverages()
         result.forEach { (Drinkable) in

@@ -21,4 +21,12 @@ class InputView {
         }
         return (numberArray[0], numberArray[1])
     }
+    
+    static func readModeSelection() throws -> Int{
+        guard let modeSelection = readLine() else{
+            throw VendingMachineError.invalidMenuSelectNumberError
+        }
+        let number = try Validation.convertStringToNumber(modeSelection)
+        return number
+    }
 }
