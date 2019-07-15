@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 		C5250D0022CB66FF00FB2534 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5250CFF22CB66FF00FB2534 /* Drink.swift */; };
+		C597B2F022DC171A0027B579 /* MockVendingMachineCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C597B2EF22DC171A0027B579 /* MockVendingMachineCreator.swift */; };
+		C597B2F222DC17720027B579 /* MockDrinkCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C597B2F122DC17720027B579 /* MockDrinkCreator.swift */; };
 		C5E942A222CB6A6C00589506 /* Drinkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942A122CB6A6C00589506 /* Drinkable.swift */; };
 		C5E942A822CB6EDB00589506 /* CustomDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942A722CB6EDB00589506 /* CustomDateFormatter.swift */; };
 		C5E942CA22CB80AF00589506 /* Units.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942C922CB80AF00589506 /* Units.swift */; };
@@ -107,6 +109,8 @@
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		C5250CFF22CB66FF00FB2534 /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
+		C597B2EF22DC171A0027B579 /* MockVendingMachineCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockVendingMachineCreator.swift; sourceTree = "<group>"; };
+		C597B2F122DC17720027B579 /* MockDrinkCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDrinkCreator.swift; sourceTree = "<group>"; };
 		C5E942A122CB6A6C00589506 /* Drinkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drinkable.swift; sourceTree = "<group>"; };
 		C5E942A722CB6EDB00589506 /* CustomDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDateFormatter.swift; sourceTree = "<group>"; };
 		C5E942C922CB80AF00589506 /* Units.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Units.swift; sourceTree = "<group>"; };
@@ -201,6 +205,8 @@
 			isa = PBXGroup;
 			children = (
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
+				C597B2EF22DC171A0027B579 /* MockVendingMachineCreator.swift */,
+				C597B2F122DC17720027B579 /* MockDrinkCreator.swift */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";
@@ -503,6 +509,7 @@
 				C5F2EE7B22D34AC9006137E8 /* DrinkItemList.swift in Sources */,
 				C5250D0022CB66FF00FB2534 /* Drink.swift in Sources */,
 				C5F2EE7E22D46606006137E8 /* BeverageInfo.swift in Sources */,
+				C597B2F022DC171A0027B579 /* MockVendingMachineCreator.swift in Sources */,
 				C5F2EE6F22D31FC7006137E8 /* ChargingMoneyState.swift in Sources */,
 				C5E942EA22CDD3A800589506 /* GeorgiaCoffee.swift in Sources */,
 				C5E942D822CDC66400589506 /* StrawberryMilk.swift in Sources */,
@@ -522,6 +529,7 @@
 				C5E942F022CDD7BD00589506 /* CoffeeType.swift in Sources */,
 				C5F2EE9622D71CA0006137E8 /* Validation.swift in Sources */,
 				C5E942E822CDD3A300589506 /* TOPCoffee.swift in Sources */,
+				C597B2F222DC17720027B579 /* MockDrinkCreator.swift in Sources */,
 				C5F2EE5122D2DD5F006137E8 /* Fruitable.swift in Sources */,
 				C5E942E622CDD34500589506 /* Currency.swift in Sources */,
 				C5F2EE5A22D30A3E006137E8 /* SellingState.swift in Sources */,
