@@ -9,24 +9,40 @@
 import Foundation
 
 class BeverageInfo {
-
-    private (set) var name: String
-    private (set) var price: Int
+    private var nameInfo: String!
+    private var priceInfo: Int!
+    
+    var name: String {
+        guard let name = self.nameInfo else{
+            return ""
+        }
+        return name
+    }
+    var price: Int{
+        guard let price = self.priceInfo else{
+            return 0
+        }
+        return price
+    }
     
     init(drink: Drink){
-        self.name = drink.drinkName
-        self.price = drink.price
+        drink.displayDrinkNamePriceInfo { (name, price) in
+            self.nameInfo = name
+            self.priceInfo = price
+        }
     }
     
     func isSameDrinkGroup(_ drink: Drink ) -> Bool {
         var result = false
-        result = self.name == drink.drinkName ? true : false
-        result = self.price == drink.price ? true : false
+        drink.displayDrinkNamePriceInfo { (name, price)  in
+            result = self.nameInfo == name ? true : false
+            result = self.priceInfo == price ? true : false
+        }
         return result
     }
     
     func isPurchasable(_ money: Int ) -> Bool {
-        if money >= price {
+        if money >= priceInfo {
             return true
         }
         return false

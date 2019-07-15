@@ -14,18 +14,25 @@ class Drink{
   
     private let brand: String
     private var quantity: Int
-    private (set) var price: Int
-    private (set) var drinkName: String
+    private var price: Int
+    private (set) var name: String
     private let validDate: Date
     private (set) var temperature: Double
     
     private let caloryElements : CaloryElements
 
-    
     var caloriesInfo : Int {
         get {
             return caloryElements.fat*9 + caloryElements.carbon*4 + caloryElements.protein*4
         }
+    }
+    
+    func displaySoldProductInfo(drinkInfo: (String, Int ) -> InstructionResult) -> InstructionResult{
+        return drinkInfo(self.name, self.price)
+    }
+    
+    func displayDrinkNamePriceInfo(drinkInfo: (String, Int) -> Void){
+        drinkInfo(self.name, self.price)
     }
     
     convenience init (brand: String, quantity: Int, price: Int, name: String, date: Date = Date.init(), temperature: Double = 4.0){
@@ -37,7 +44,7 @@ class Drink{
         self.brand = brand
         self.quantity = quantity
         self.price = price
-        self.drinkName = name
+        self.name = name
         self.validDate = date
         self.caloryElements = caloryElements
         self.temperature = temperature
@@ -77,7 +84,7 @@ extension Drink: CustomStringConvertible {
         result.append(self.brand)
         result.append(String.init(format: "%d\(Units.millilter)", self.quantity))
         result.append(String.init(format: "%d\(Currency.won)", self.price))
-        result.append(self.drinkName)
+        result.append(self.name)
         result.append(CustomDateFormatter.convertDateToString(self.validDate))
         return "\(type(of: self)) - \(result.joined(separator: ", "))"
     }

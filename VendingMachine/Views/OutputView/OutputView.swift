@@ -26,6 +26,7 @@ class OutputView {
         }
         vendingmachine.displayDrinkMenuList(printFormat: drinkStockInfoFormat)
     }
+    
     static func printInitialDrinkMenuList(_ vendingmachine: VendingMachine){
         let printDrinkMenuListFormat = {
             (sortedMenutable: [(key: Int, value: DrinkItemList)]) in

@@ -23,15 +23,21 @@ class UnitTestVendingMachineLogic: XCTestCase {
         guard let vendingMachine = self.vendingMachine else {
             return
         }
+        ///Add invalid drink
+        addInvalidDrink()
+        notForSaleItemList = vendingMachine.showValidateOverDrink()
+        XCTAssert(notForSaleItemList.count == 1, "\(notForSaleItemList.count)")
+    }
+    
+    func testSaleItemList(){
+        guard let vendingMachine = self.vendingMachine else {
+            return
+        }
         ///add valid drink
         addValidDrink()
         var notForSaleItemList = vendingMachine.showValidateOverDrink()
         XCTAssert(notForSaleItemList.count == 0, "\(notForSaleItemList.count)")
         
-        ///Add invalid drink
-        addInvalidDrink()
-        notForSaleItemList = vendingMachine.showValidateOverDrink()
-        XCTAssert(notForSaleItemList.count == 1, "\(notForSaleItemList.count)")
     }
     
     func testBuyNotForSaleItem(){

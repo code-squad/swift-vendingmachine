@@ -23,6 +23,7 @@ enum VendingMachineError: Error, CustomStringConvertible{
     case unknownError
     case invalidChargeMoney
     case invalidInputNumbers
+    case invalidBeverageInfo
     var description: String {
         switch self {
         case .addDrinkToUnknownMenuNumberError:
@@ -41,6 +42,8 @@ enum VendingMachineError: Error, CustomStringConvertible{
             return "\(ErrorType.systemError) \n알 수 없는 에러!!"
         case .invalidChargeMoney:
             return "\(ErrorType.userError) \n충전 금액은 양수여야 합니다."
+        case .invalidBeverageInfo:
+            return "\(ErrorType.systemError) \n선택한 음료수 가격 정보가 불명확합니다."
         }
     }
 }
