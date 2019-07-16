@@ -17,7 +17,7 @@ class ModeSelectState: StateTransitionable{
     }
     
     func moveToNextState(nextTo: StateTransitionable) {
-        vendingMachine.changeState(self.vendingMachine.initialState, from: StateType.modeSelect)
+        vendingMachine.changeState(nextTo, from: StateType.modeSelect)
     }
     func recieveInstruction(_ instruction: Int) {
         self.instruction = instruction
@@ -41,7 +41,7 @@ class ModeSelectState: StateTransitionable{
     }
     
     private func shiftAdminModeState(){
-        moveToNextState(nextTo: self.vendingMachine.sellingState)
+        moveToNextState(nextTo: self.vendingMachine.adminInitialState)
     }
     
     private func displayVendingMachineModeInfo() -> String{
