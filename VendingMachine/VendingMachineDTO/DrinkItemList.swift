@@ -70,10 +70,12 @@ class DrinkItemList : CustomStringConvertible{
         return self.notForSaleList
     }
     
-    func addItem(_ drink: Drink) throws {
+    func addItem(_ drink: Drink, quantity: Int) throws {
         if !self.drinkStockInfo.isSameDrinkGroup(drink) {
             throw VendingMachineError.addDrinkToUnknownMenuNumberError
         }
-        drinkStockList.append(drink)
+        for _ in 0..<quantity {
+            drinkStockList.append(drink)
+        }
     }
 }

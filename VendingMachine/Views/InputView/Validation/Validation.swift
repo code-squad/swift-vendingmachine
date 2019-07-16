@@ -11,7 +11,10 @@ import Foundation
 class Validation{
     
     static func isValidInputPair(_ nums: [Int]) -> Bool {
-        return nums.count == 2 ? true : false
+        var result = nums.count == 2 ? true : false
+        result = isValidNumber(nums[0]) ? true : false
+        result = isValidNumber(nums[1]) ? true : false
+        return result
     }
     static func isValidNumber(_ num: Int) -> Bool {
         return num > 0 ? true : false

@@ -57,8 +57,6 @@ enum StateType: Int {
             return "1. 재고 보충"
         case .removeStock:
             return "2. 재고 비우기"
-        case .cleanEarning:
-            return "3. 수익 회수"
         case .modeSelect:
             return "8. 모드 선택지로"
         default:

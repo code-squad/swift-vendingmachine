@@ -11,12 +11,11 @@ import Foundation
 public typealias CaloryElements = (carbon: Int, protein: Int, fat: Int )
 
 class Drink{
-  
     private let brand: String
     private var quantity: Int
     private var price: Int
     private (set) var name: String
-    private let validDate: Date
+    private var validDate: Date
     private (set) var temperature: Double
     
     private let caloryElements : CaloryElements
@@ -27,12 +26,17 @@ class Drink{
         }
     }
     
-    func displaySoldProductInfo(drinkInfo: (String, Int ) -> InstructionResult) -> InstructionResult{
+    func displaySoldProductInfo(drinkInfo: (String, Int) -> InstructionResult) -> InstructionResult{
         return drinkInfo(self.name, self.price)
     }
     
-    func displayDrinkNamePriceInfo(drinkInfo: (String, Int) -> Void){
-        drinkInfo(self.name, self.price)
+    func displayDrinkInfo(drinkInfo: (String, String, Int, Int) -> Void){
+        drinkInfo(self.brand, self.name, self.price, self.quantity)
+    }
+    
+    /// 현재 저장된 것보다 3개월 가산하여 더미재고 추가
+    func updateDateInfo(days: Int ){
+        self.validDate = CustomDateFormatter.daysAfter(after: days)
     }
     
     convenience init (

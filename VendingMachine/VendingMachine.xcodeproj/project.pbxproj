@@ -27,6 +27,8 @@
 		C597B30D22DC51930027B579 /* RemoveStockState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C597B30B22DC51930027B579 /* RemoveStockState.swift */; };
 		C597B31322DD77160027B579 /* StockManipulatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C597B31222DD77160027B579 /* StockManipulatable.swift */; };
 		C597B31422DD77160027B579 /* StockManipulatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C597B31222DD77160027B579 /* StockManipulatable.swift */; };
+		C5AC5F8122DDC8C2005EADC8 /* AdminStateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AC5F8022DDC8C2005EADC8 /* AdminStateType.swift */; };
+		C5AC5F8222DDC8C2005EADC8 /* AdminStateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AC5F8022DDC8C2005EADC8 /* AdminStateType.swift */; };
 		C5E942A222CB6A6C00589506 /* Drinkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942A122CB6A6C00589506 /* Drinkable.swift */; };
 		C5E942A822CB6EDB00589506 /* CustomDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942A722CB6EDB00589506 /* CustomDateFormatter.swift */; };
 		C5E942CA22CB80AF00589506 /* Units.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942C922CB80AF00589506 /* Units.swift */; };
@@ -136,6 +138,7 @@
 		C597B30822DC51890027B579 /* AddStockState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStockState.swift; sourceTree = "<group>"; };
 		C597B30B22DC51930027B579 /* RemoveStockState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveStockState.swift; sourceTree = "<group>"; };
 		C597B31222DD77160027B579 /* StockManipulatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockManipulatable.swift; sourceTree = "<group>"; };
+		C5AC5F8022DDC8C2005EADC8 /* AdminStateType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminStateType.swift; sourceTree = "<group>"; };
 		C5E942A122CB6A6C00589506 /* Drinkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drinkable.swift; sourceTree = "<group>"; };
 		C5E942A722CB6EDB00589506 /* CustomDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDateFormatter.swift; sourceTree = "<group>"; };
 		C5E942C922CB80AF00589506 /* Units.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Units.swift; sourceTree = "<group>"; };
@@ -295,6 +298,7 @@
 			isa = PBXGroup;
 			children = (
 				C5F2EE9122D5CCDB006137E8 /* StateType.swift */,
+				C5AC5F8022DDC8C2005EADC8 /* AdminStateType.swift */,
 				C597B2F722DC45C20027B579 /* ModeType.swift */,
 				C5E942C922CB80AF00589506 /* Units.swift */,
 				C5E942ED22CDD65D00589506 /* CoffeeBean.swift */,
@@ -562,6 +566,7 @@
 				C5F2EE7E22D46606006137E8 /* BeverageInfo.swift in Sources */,
 				C597B2F022DC171A0027B579 /* MockVendingMachineCreator.swift in Sources */,
 				C5F2EE6F22D31FC7006137E8 /* ChargingMoneyState.swift in Sources */,
+				C5AC5F8122DDC8C2005EADC8 /* AdminStateType.swift in Sources */,
 				C5E942EA22CDD3A800589506 /* GeorgiaCoffee.swift in Sources */,
 				C5E942D822CDC66400589506 /* StrawberryMilk.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
@@ -612,6 +617,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5F2EE7622D332BD006137E8 /* HotSix.swift in Sources */,
+				C5AC5F8222DDC8C2005EADC8 /* AdminStateType.swift in Sources */,
 				C5E9430B22CEF0F900589506 /* Sprite.swift in Sources */,
 				C597B30A22DC51890027B579 /* AddStockState.swift in Sources */,
 				C5E9431022CEF10700589506 /* EnergyDrink.swift in Sources */,

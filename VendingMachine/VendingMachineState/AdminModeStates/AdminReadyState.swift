@@ -19,12 +19,12 @@ class AdminReadyState: StateTransitionable{
     }
     
     func moveToNextState(nextTo: StateTransitionable) {
-        vendingMachine.changeState(nextTo, from: .ready)
+        vendingMachine.changeState(nextTo, from: .adminReady)
     }
     
     func implementStateInstruction() -> InstructionResult{
         let printableMessage: String = displayVendingMachineInfo()
-        let stateType = StateType.init(value: self.instruction)
+        let stateType = AdminStateType.init(value: self.instruction)
         switch stateType {
         case .addStock:
             shiftAddStockStateWithDrinkNumber(number: self.number, quantity: self.quantity)

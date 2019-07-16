@@ -24,4 +24,10 @@ class CustomDateFormatter {
         let dDay = dateFormatter.date(from: "\(year)-\(month)-\(day)")
         return dDay!
     }
+    
+    static func daysAfter(after: Int) -> Date{
+        var daysAfter = Date.init()
+        daysAfter = daysAfter + TimeInterval(after*24*60*60)
+        return daysAfter
+    }
 }
