@@ -17,6 +17,7 @@ enum VendingMachineError: Error, CustomStringConvertible{
     case addDrinkToUnknownMenuNumberError
     case notFoundDrinkIdError
     case invalidMenuSelectNumberError
+    case invalidAdminMenuSelectNumberError
     case inputTypeCastingError
     case notEnoughMoneyError
     case outOfStockError
@@ -24,6 +25,7 @@ enum VendingMachineError: Error, CustomStringConvertible{
     case invalidChargeMoney
     case invalidInputNumbers
     case invalidBeverageInfo
+    case invalidRangeNumberError
     var description: String {
         switch self {
         case .addDrinkToUnknownMenuNumberError:
@@ -32,6 +34,10 @@ enum VendingMachineError: Error, CustomStringConvertible{
             return "\(ErrorType.userError) \n음료수 메뉴선택이 잘못되었습니다."
         case .invalidMenuSelectNumberError:
             return "\(ErrorType.userError) \n금액추가 또는 음료구매 선택은 각각 1,2 로 해주십시오"
+        case .invalidAdminMenuSelectNumberError:
+            return "\(ErrorType.userError) \n재고보충 또는 재고 비우기 선택은 각각 1,2 로 해주십시오"
+        case .invalidRangeNumberError:
+            return "\(ErrorType.userError) \n입력값을 유효한 양의 정수로 해주세요"
         case .inputTypeCastingError, .invalidInputNumbers:
             return "\(ErrorType.userError) \n양의 숫자쌍(ex: 1 10000)으로 입력해주세요"
         case .notEnoughMoneyError:

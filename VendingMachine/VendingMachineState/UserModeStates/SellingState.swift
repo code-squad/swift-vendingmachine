@@ -42,7 +42,7 @@ class SellingState: StateTransitionable{
             }
             let drink = try result.get()
             moveToNextState(nextTo: self.vendingMachine.readyState)
-            let drinkInfoFormat = { (name: String, price: Int) -> (String?, VendingMachineError?)in
+            let drinkInfoFormat = { (name: String, price: Int) -> (String?, VendingMachineError?) in
                 return InstructionResult("\(name), \(price)", nil)
             }
             return drink.displaySoldProductInfo(drinkInfo: drinkInfoFormat)

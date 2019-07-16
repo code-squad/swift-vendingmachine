@@ -13,6 +13,9 @@ class Validation{
     static func isValidInputPair(_ nums: [Int]) -> Bool {
         return nums.count == 2 ? true : false
     }
+    static func isValidNumber(_ num: Int) -> Bool {
+        return num > 0 ? true : false
+    }
     static func convertStringToNumber(_ num: String) throws -> Int {
         guard let number = Int(num) else{
             throw VendingMachineError.inputTypeCastingError
