@@ -9,7 +9,7 @@
 import Foundation
 
 class UserMode{
-    var vendingMachine : VendingMachine
+    private var vendingMachine : VendingMachine
     init(machine: VendingMachine){
         self.vendingMachine = machine
     }
@@ -26,6 +26,9 @@ class UserMode{
                     vendingMachine.vendingMachineState!.implementStateInstruction()
                 }
                 continue
+            }
+            if vendingMachine.vendingMachineState! is ModeSelectState{
+                return
             }
             /// common
             let resultPair = vendingMachine.vendingMachineState!.implementStateInstruction()
@@ -44,7 +47,7 @@ class UserMode{
             printReadyStateMessage(vendingMachine)
             pair = try InputView.readInstruction()
             let currentState = vendingMachine.vendingMachineState! as! ReadyState
-            currentState.recieveInstruction(instruction: pair.instruction, quantity: pair.quantity)
+            currentState.receiveInstruction(instruction: pair.instruction, quantity: pair.quantity)
             return true
         }catch(let errorType as VendingMachineError) {
             OutputView.printErrorMessage(errorType)

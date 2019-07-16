@@ -15,32 +15,45 @@ class Main {
     static func machineStart(){
         let vendingMachine = MockVendingMachineCreator.initializeVendingMachine()
         ///mode select
+        var modeType: ModeType?
         while true {
-            if handleModeState(vendingMachine) {
+            guard let modeSelectResult = handleModeState(vendingMachine) else {
+                continue
+            }
+            if modeSelectResult != .invalidMode {
                 vendingMachine.vendingMachineState!.implementStateInstruction()
-                break
+                modeType = modeSelectResult
+            }
+            guard let mode = modeType else {
+                return
+            }
+            if mode == .userMode {
+                let userMode = UserMode.init(machine: vendingMachine)
+                userMode.play()
+            }
+            if mode == .adminMode{
+                let adminMode = AdminMode.init(machine: vendingMachine)
+                adminMode.play()
             }
         }
-        /// userMode
-        let userMode = UserMode.init(machine: vendingMachine)
-        userMode.play()
     }
     
-    private static func handleModeState(_ vendingMachine: VendingMachine) -> Bool {
+    private static func handleModeState(_ vendingMachine: VendingMachine) -> ModeType? {
         do {
             printModeSelectMessage(vendingMachine)
             let number = try InputView.readModeSelection()
             let currentState = vendingMachine.vendingMachineState! as! ModeSelectState
             currentState.recieveInstruction(number)
-            return true
+            return ModeType.init(value: number)
         }catch(let errorType as VendingMachineError) {
             OutputView.printErrorMessage(errorType)
-            return false
+            return nil
         }catch {
             OutputView.printErrorMessage(.unknownError)
-            return false
+            return nil
         }
     }
+    
     private static func printModeSelectMessage(_ vendingMachie: VendingMachine){
         OutputView.selectModeInfo()
     }
