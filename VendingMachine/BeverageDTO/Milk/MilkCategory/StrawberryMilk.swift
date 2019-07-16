@@ -13,7 +13,19 @@ class StrawberryMilk: Milk {
     private let proportion: Double
     private (set) var fruitOrigin: String
     
-    init(brand: String, quantity: Int, price: Int, name: String, date: Date, isLowFat: Bool = false,  fruitPercent: Double = 0.1, fruitOrigin: String = "국산", milkFarmCode: FarmCode? = nil, calorySet: CaloryElements, temperature: Double ) {
+    init(
+            brand: String,
+            quantity: Int,
+            price: Int,
+            name: String,
+            date: Date,
+            isLowFat: Bool = false,
+            fruitPercent: Double = 0.1,
+            fruitOrigin: String = "국산",
+            milkFarmCode: FarmCode? = nil,
+            calorySet: CaloryElements,
+            temperature: Double
+        ){
         self.proportion = fruitPercent
         self.fruitOrigin = fruitOrigin
         super.init(brand: brand, quantity: quantity, price: price, name: name, date: date, isLowFat: isLowFat, milkFarmCode: milkFarmCode, calorySet: calorySet, temp: temperature)

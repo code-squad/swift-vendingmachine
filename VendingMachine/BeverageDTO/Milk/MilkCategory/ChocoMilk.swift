@@ -14,7 +14,19 @@ class ChocoMilk: Milk{
     private let proportion: Double
     private (set) var fruitOrigin: String
 
-    init(brand: String, quantity: Int, price: Int, name: String, date: Date, isLowFat: Bool = false, kakaoPercent: Double = 0.1, fruitOrigin: String = "가나", milkFarmCode: FarmCode? = nil, calorySet: CaloryElements, temperature: Double) {
+    init(
+            brand: String,
+            quantity: Int,
+            price: Int,
+            name: String,
+            date: Date,
+            isLowFat: Bool = false,
+            kakaoPercent: Double = 0.1,
+            fruitOrigin: String = "가나",
+            milkFarmCode: FarmCode? = nil,
+            calorySet: CaloryElements,
+            temperature: Double
+        ){
         self.proportion = kakaoPercent
         self.fruitOrigin = fruitOrigin
         

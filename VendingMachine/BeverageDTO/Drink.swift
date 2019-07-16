@@ -35,12 +35,27 @@ class Drink{
         drinkInfo(self.name, self.price)
     }
     
-    convenience init (brand: String, quantity: Int, price: Int, name: String, date: Date = Date.init(), temperature: Double = 4.0){
+    convenience init (
+                        brand: String,
+                        quantity: Int,
+                        price: Int,
+                        name: String,
+                        date: Date = Date.init(),
+                        temperature: Double = 4.0
+                    ){
         let calorySet = CaloryElements(carbon: 0, protein: 0, fat: 0 )
         self.init(brand: brand, quantity: quantity, price: price, name: name, date: date, caloryElements: calorySet, temp: temperature)
     }
     
-    init(brand: String, quantity: Int, price: Int, name: String, date: Date = Date.init(), caloryElements: CaloryElements, temp temperature: Double){
+    init(
+            brand: String,
+            quantity: Int,
+            price: Int,
+            name: String,
+            date: Date = Date.init(),
+            caloryElements: CaloryElements,
+            temp temperature: Double
+        ){
         self.brand = brand
         self.quantity = quantity
         self.price = price
