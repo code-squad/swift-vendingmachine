@@ -89,17 +89,31 @@ class VendingMachine: ProductSoldable {
         return buyableDrinkList
     }
     
+    func selectProduct(productId: Int) throws -> Drink{
+        guard let productList = drinkStockTable[productId] else{
+            throw VendingMachineError.notFoundDrinkIdError
+        }
+        if productList.drinkStockList.isEmpty {
+            return productList.drinkStockInfo.dummyDrink
+        }
+        return productList.drinkStockList[0]
+    }
     ///특정 상품 인스턴스를 넘겨서 재고를 추가하는 메소드
     ///만약 해당 상품인스턴스가 기존 재고에 없다면 넘버링을 새로하여 메뉴테이블과 재고테이블에 추가한다.
-    func addDrinkStock(_ drink: Drink) throws {
+    func addDrinkStock(_ drink: Drink, quantity: Int) throws {
         if let menuNumber = self.drinkNameMenuTable[drink.name] {
-            let drinkList = self.drinkStockTable[menuNumber]!
-            try drinkList.addItem(drink)
+            try addStockDefault(drink: drink, number: menuNumber, quantity: quantity)
         }else{
             let newMenuNumber = self.drinkNameMenuTable.count+1
             updateMenuTable(nextIndex: newMenuNumber, name: drink.name)
             updateDrinkStockTable(nextIndex: newMenuNumber, drinkElement: drink)
+            try addStockDefault(drink: drink, number: newMenuNumber, quantity: quantity)
         }
+    }
+    
+    private func addStockDefault(drink: Drink, number : Int, quantity: Int) throws {
+        let drinkList = self.drinkStockTable[number]!
+        try drinkList.addItem(drink, quantity: quantity)
     }
     
     private func updateDrinkStockTable (nextIndex newMenuNumber: Int, drinkElement : Drink){
