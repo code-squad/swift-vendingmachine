@@ -11,7 +11,18 @@ import Foundation
 class TOPCoffee: Coffee{
     private let coffeeType: CoffeeType
 
-    init(brand: String, quantity: Int, price: Int, name: String, date: Date, coffeine: Double = 100.0, bean: CoffeeBean = CoffeeBean.arabica, type: CoffeeType = CoffeeType.americano, calorySet: CaloryElements, temperature: Double ) {
+    init(
+            brand: String,
+            quantity: Int,
+            price: Int,
+            name: String,
+            date: Date,
+            coffeine: Double = 100.0,
+            bean: CoffeeBean = CoffeeBean.arabica,
+            type: CoffeeType = CoffeeType.americano,
+            calorySet: CaloryElements,
+            temperature: Double
+        ){
         self.coffeeType = type
         super.init(brand: brand, quantity: quantity, price: price, name: name, date: date, coffeine: coffeine, bean: bean, calorySet: calorySet, temp: temperature)
     }

@@ -19,9 +19,11 @@ class ModeSelectState: StateTransitionable{
     func moveToNextState(nextTo: StateTransitionable) {
         vendingMachine.changeState(nextTo, from: StateType.modeSelect)
     }
+    
     func recieveInstruction(_ instruction: Int) {
         self.instruction = instruction
     }
+    
     func implementStateInstruction() -> InstructionResult {
         let message = displayVendingMachineModeInfo()
         let modeType = ModeType.init(value: self.instruction)

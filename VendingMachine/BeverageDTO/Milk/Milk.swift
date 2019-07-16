@@ -13,7 +13,17 @@ class Milk: Drink {
     private let isLowFat : Bool
     private let milkFarmCode : FarmCode?
     
-    init(brand: String, quantity: Int, price: Int, name: String, date: Date, isLowFat: Bool = false, milkFarmCode: FarmCode? = nil, calorySet: CaloryElements, temp: Double) {
+    init(
+            brand: String,
+            quantity: Int,
+            price: Int,
+            name: String,
+            date: Date,
+            isLowFat: Bool = false,
+            milkFarmCode: FarmCode? = nil,
+            calorySet: CaloryElements,
+            temp: Double
+        ){
         self.isLowFat = isLowFat
         self.milkFarmCode = milkFarmCode
         super.init(brand: brand, quantity: quantity, price: price, name: name, date: date, caloryElements: calorySet, temp: temp)

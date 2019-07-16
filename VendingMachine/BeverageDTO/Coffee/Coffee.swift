@@ -13,7 +13,17 @@ class Coffee: Drink, Antihypnotical{
     private var coffeine: Double
     private let bean : CoffeeBean
     
-    init(brand: String, quantity: Int, price: Int, name: String, date: Date, coffeine: Double = 100.0, bean: CoffeeBean = CoffeeBean.arabica, calorySet: CaloryElements, temp : Double) {
+    init(
+            brand: String,
+            quantity: Int,
+            price: Int,
+            name: String,
+            date: Date,
+            coffeine: Double = 100.0,
+            bean: CoffeeBean = CoffeeBean.arabica,
+            calorySet: CaloryElements,
+            temp : Double
+        ){
         self.coffeine = coffeine
         self.bean = bean
         super.init(brand: brand, quantity: quantity, price: price, name: name, date: date, caloryElements: calorySet, temp: temp)

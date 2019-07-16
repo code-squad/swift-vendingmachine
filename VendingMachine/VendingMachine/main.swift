@@ -7,9 +7,6 @@
 //
 
 import Foundation
-// 서울우유, 200ml, 1000원, 날마다딸기우유, 20171012
-// 팹시, 350ml, 2000원, 다이어트콜라, 20171005
-// 맥심, 400ml, 3000원, TOP아메리카노, 20171010
 
 class Main {
     static func machineStart(){
