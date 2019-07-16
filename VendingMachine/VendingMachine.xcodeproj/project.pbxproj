@@ -25,6 +25,8 @@
 		C597B30A22DC51890027B579 /* AddStockState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C597B30822DC51890027B579 /* AddStockState.swift */; };
 		C597B30C22DC51930027B579 /* RemoveStockState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C597B30B22DC51930027B579 /* RemoveStockState.swift */; };
 		C597B30D22DC51930027B579 /* RemoveStockState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C597B30B22DC51930027B579 /* RemoveStockState.swift */; };
+		C597B31322DD77160027B579 /* StockManipulatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C597B31222DD77160027B579 /* StockManipulatable.swift */; };
+		C597B31422DD77160027B579 /* StockManipulatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C597B31222DD77160027B579 /* StockManipulatable.swift */; };
 		C5E942A222CB6A6C00589506 /* Drinkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942A122CB6A6C00589506 /* Drinkable.swift */; };
 		C5E942A822CB6EDB00589506 /* CustomDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942A722CB6EDB00589506 /* CustomDateFormatter.swift */; };
 		C5E942CA22CB80AF00589506 /* Units.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942C922CB80AF00589506 /* Units.swift */; };
@@ -133,6 +135,7 @@
 		C597B30522DC517C0027B579 /* AdminReadyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminReadyState.swift; sourceTree = "<group>"; };
 		C597B30822DC51890027B579 /* AddStockState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStockState.swift; sourceTree = "<group>"; };
 		C597B30B22DC51930027B579 /* RemoveStockState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveStockState.swift; sourceTree = "<group>"; };
+		C597B31222DD77160027B579 /* StockManipulatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockManipulatable.swift; sourceTree = "<group>"; };
 		C5E942A122CB6A6C00589506 /* Drinkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drinkable.swift; sourceTree = "<group>"; };
 		C5E942A722CB6EDB00589506 /* CustomDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDateFormatter.swift; sourceTree = "<group>"; };
 		C5E942C922CB80AF00589506 /* Units.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Units.swift; sourceTree = "<group>"; };
@@ -201,7 +204,7 @@
 			children = (
 				C5F2EE9422D71B74006137E8 /* Views */,
 				C5F2EE9022D5C49F006137E8 /* Errors */,
-				C5F2EE7222D32B39006137E8 /* VendinMachineState */,
+				C5F2EE7222D32B39006137E8 /* VendingMachineState */,
 				C5F2EE7122D32B24006137E8 /* VendingMachineProtocol */,
 				C5F2EE5322D2F157006137E8 /* VendingMachineDTO */,
 				839DA90B1F8D1F95009E05F3 /* VendingMachine */,
@@ -405,15 +408,16 @@
 			path = VendingMachineProtocol;
 			sourceTree = "<group>";
 		};
-		C5F2EE7222D32B39006137E8 /* VendinMachineState */ = {
+		C5F2EE7222D32B39006137E8 /* VendingMachineState */ = {
 			isa = PBXGroup;
 			children = (
 				C5F2EE5722D30993006137E8 /* StateTransitionable.swift */,
 				C597B2F322DC3DE10027B579 /* ModeSelectState.swift */,
+				C597B31222DD77160027B579 /* StockManipulatable.swift */,
 				C597B30122DC4EE80027B579 /* AdminModeStates */,
 				C597B2FF22DC4ED10027B579 /* UserModeStates */,
 			);
-			path = VendinMachineState;
+			path = VendingMachineState;
 			sourceTree = "<group>";
 		};
 		C5F2EE7322D332AC006137E8 /* EnergyDrinkCategory */ = {
@@ -566,6 +570,7 @@
 				C5E942A222CB6A6C00589506 /* Drinkable.swift in Sources */,
 				C5E942DA22CDC86500589506 /* ChocoMilk.swift in Sources */,
 				C5F2EE5C22D30B25006137E8 /* InitialState.swift in Sources */,
+				C597B31322DD77160027B579 /* StockManipulatable.swift in Sources */,
 				C5E942DC22CDC93C00589506 /* BananaMilk.swift in Sources */,
 				C5E942D422CD936600589506 /* CarbonatedDrink.swift in Sources */,
 				C5E942D222CD935700589506 /* Milk.swift in Sources */,
@@ -644,6 +649,7 @@
 				C5F2EE9322D5CCDB006137E8 /* StateType.swift in Sources */,
 				C5E9431522CEF11000589506 /* Currency.swift in Sources */,
 				C5F2EE5D22D30BD7006137E8 /* StateTransitionable.swift in Sources */,
+				C597B31422DD77160027B579 /* StockManipulatable.swift in Sources */,
 				C5E9431322CEF11000589506 /* CoffeeType.swift in Sources */,
 				C597B2FB22DC4BE80027B579 /* UserMode.swift in Sources */,
 				C5E9430E22CEF10300589506 /* StrawberryMilk.swift in Sources */,

@@ -41,15 +41,30 @@ class OutputView {
     static func showCurrentBalanceInfo(_ vendingmachine: VendingMachine) {
         let printBalanceFormat = { (balance: Int) in
             print("현재 투입한 금액이 \(balance)원입니다.", terminator: " ")
-            print("다음과 같은 음료가 있습니다.")
+            print("다음과 같은 음료가 있습니다.\n")
         }
         vendingmachine.showCurrentBalanceInfo(printFormat: printBalanceFormat)
     }
+    
+    static func showCurrentEarningInfo(_ vendingmachie: VendingMachine){
+        let printEarningFormat = { (earning: Int) in
+            print("현재 자판기 수익은 \(earning)원 입니다.", terminator: " ")
+            print("재고 상태는 다음과 같습니다.\n")
+        }
+        vendingmachie.showCurrentEarningInfo(printFormat: printEarningFormat)
+    }
+    
     static func selectMenuInfo(){
         print("\(StateType.chargeMoney.description)")
         print("\(StateType.sell.description)")
+        print("\(StateType.modeSelect.description)")
     }
     
+    static func selectAdminMenuInfo(){
+        print("\(StateType.addStock.description)")
+        print("\(StateType.removeStock.description)")
+        print("\(StateType.modeSelect.description)")
+    }
     static func selectModeInfo(){
         print("자판기를 시작합니다.")
         print("\(ModeType.adminMode.description)")
@@ -62,5 +77,8 @@ class OutputView {
     }
     static func printSellingMessage(name : String, price: String){
         print("\(name)을 구매하셨습니다. \(price)원을 차감합니다")
+    }
+    static func printDrinkNumberQuantity(){
+        print("음료수 번호와 수량을 입력하세요 (ex: 1 15)")
     }
 }

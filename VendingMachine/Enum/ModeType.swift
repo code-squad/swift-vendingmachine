@@ -11,6 +11,7 @@ import Foundation
 enum ModeType {
     case userMode
     case adminMode
+    case invalidMode
     init(value: Int){
         switch value{
         case 1:
@@ -18,15 +19,17 @@ enum ModeType {
         case 2:
             self = .userMode
         default:
-            self = .userMode
+            self = .invalidMode
         }
     }
     var description:String{
         switch self {
         case .adminMode:
-        return "1. 관리자모드"
+            return "1. 관리자모드"
         case .userMode:
-        return "2. 사용자모드"
+            return "2. 사용자모드"
+        default:
+            return ""
         }
     }
 }

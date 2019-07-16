@@ -20,7 +20,7 @@ class ReadyState: StateTransitionable{
         vendingMachine.changeState(nextTo, from: .ready)
     }
     
-    func recieveInstruction(instruction: Int, quantity: Int) {
+    func receiveInstruction(instruction: Int, quantity: Int) {
         self.instruction = instruction
         self.quantity = quantity
     }
@@ -33,6 +33,8 @@ class ReadyState: StateTransitionable{
             shiftChargeMoneyStateWithMoney(self.quantity)
         case .sell:
             shiftSellingStateWithDrinkNumber(self.quantity)
+        case .modeSelect:
+            shiftModeSelectState()
         default:
             break
         }
@@ -42,7 +44,10 @@ class ReadyState: StateTransitionable{
     private func displayVendingMachineInfo() -> String{
         let message = "\(StateType.chargeMoney.description)\n\(StateType.sell.description)"
         return message
-        
+    }
+    
+    private func shiftModeSelectState(){
+        moveToNextState(nextTo: self.vendingMachine.modeSelectState)
     }
     
     private func shiftChargeMoneyStateWithMoney(_ money: Int){

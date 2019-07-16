@@ -13,7 +13,7 @@ class MockDrinkCreator{
     /// generate sample Beverages
     static func generateBeverages() -> [Drinkable]{
         var result = [Drinkable]()
-        var calorySet = CaloryElements(carbon: 0, protein: 0, fat: 0)
+        let calorySet = CaloryElements(carbon: 0, protein: 0, fat: 0)
         var inputDate = CustomDateFormatter.convertStringToDate(year: 2017, month: 10, day: 09)
         let seoulStrawberry = StrawberryMilk(brand: "서울우유", quantity: 200, price: 1000, name: "날마다딸기우유", date: inputDate, milkFarmCode: .kangwon, calorySet: calorySet, temperature: 4)
         inputDate = CustomDateFormatter.convertStringToDate(year: 2017, month: 10, day: 12)

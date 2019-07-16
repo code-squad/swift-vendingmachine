@@ -1,5 +1,5 @@
 //
-//  AdminInitialState.swift
+//  RemoveStockState.swift
 //  VendingMachine
 //
 //  Created by hw on 15/07/2019.
@@ -8,16 +8,27 @@
 
 import Foundation
 
-class AdminInitialState: StateTransitionable{
+class RemoveStockState: StateTransitionable, StockManipulatable{
+    private var quantity: Int!
+    private var number: Int!
     var vendingMachine: VendingMachine
+    
     init(machine: VendingMachine){
         self.vendingMachine = machine
     }
+    
     func moveToNextState(nextTo: StateTransitionable) {
-        
+        vendingMachine.changeState(nextTo, from: .ready)
     }
     
     func implementStateInstruction() -> InstructionResult {
+        
         return InstructionResult("", nil)
     }
+    
+    func receiveDrinkNumberQuantity(num: Int, quantity: Int) {
+        self.number = num
+        self.quantity = quantity
+    }
 }
+

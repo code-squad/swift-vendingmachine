@@ -9,6 +9,7 @@
 import Foundation
 class VendingMachine: ProductSoldable {
     private var balance : Int
+    private var earning: Int = 0
     private (set) var fromState : StateType
     private var shoppingHistory: [Drink]
     /// 메뉴번호별 음료수 리스트 1~6
@@ -17,13 +18,14 @@ class VendingMachine: ProductSoldable {
     private (set) lazy var drinkNameMenuTable : [String : Int] = self.buildMenuTable(self.drinkStockTable)
     
     var vendingMachineState : StateTransitionable?
+    
     private (set) lazy var modeSelectState: StateTransitionable = self.initializeModeSelectState()
-
+    /// user mode state
     private (set) lazy var initialState : StateTransitionable = self.initializeInitialState()
     private (set) lazy var readyState : StateTransitionable = self.initializeReadyState()
     private (set) lazy var chargeMoneyState: StateTransitionable = self.initializeChargeMoneyState()
     private (set) lazy var sellingState: StateTransitionable = self.initializeSellingState()
-    
+    /// admin mode state
     private (set) lazy var adminInitialState : StateTransitionable = self.initializeAdminInitialState()
     private (set) lazy var adminReadyState : StateTransitionable =  self.initializeAdminReadyState()
     private (set) lazy var addStockState : StateTransitionable = self.initializeAddStockState()
@@ -133,26 +135,33 @@ class VendingMachine: ProductSoldable {
         guard let productList = drinkStockTable[productId] else {
             throw VendingMachineError.notFoundDrinkIdError
         }
-        if productList.isAvailable(self.balance) {  /// 판매 가능하면 업데이트
+        if productList.isAvailable(self.balance){  /// 판매 가능하면 업데이트
             if productList.isEmpty{
                 throw VendingMachineError.outOfStockError
             }
             let soldProduct = productList.removeFirstElement()
             let price = productList.drinkStockInfo.price
             minusProductPriceFromBalance(price)
+            updateEarning(price)
             drinkStockTable.updateValue(productList, forKey: productId)
             shoppingHistory.append(soldProduct)
             return soldProduct
         }
         throw VendingMachineError.notEnoughMoneyError
     }
-
+    private func updateEarning(_ money: Int){
+        self.earning += money
+    }
     private func minusProductPriceFromBalance(_ money: Int) {
         self.balance -= money
     }
     
-    func showCurrentBalanceInfo(printFormat: (_ balance: Int) -> Void ){
+    func showCurrentBalanceInfo(printFormat: (_ balance: Int) -> Void){
         printFormat(self.balance)
+    }
+    
+    func showCurrentEarningInfo(printFormat: (_ earning: Int) -> Void){
+        printFormat(self.earning)
     }
     ///initialState
     func displayDrinkMenuList(printFormat: ([(key: Int, value: DrinkItemList)]) -> Void ) {
