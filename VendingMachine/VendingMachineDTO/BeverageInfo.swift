@@ -15,39 +15,39 @@ class BeverageInfo {
     private (set) var brandInfo: String!
     
     var name: String {
-        guard let name = self.nameInfo else{
+        guard let name = nameInfo else{
             return ""
         }
         return name
     }
     
     var price: Int{
-        guard let price = self.priceInfo else{
+        guard let price = priceInfo else{
             return 0
         }
         return price
     }
     
     var dummyDrink : Drink {
-        return Drink.init(brand: brandInfo, quantity: quantityInfo, price: self.priceInfo, name: self.nameInfo)
+        return Drink.init(brand: brandInfo, quantity: quantityInfo, price: priceInfo, name: nameInfo)
     }
     
     init(drink: Drink){
         drink.displayDrinkInfo { (brand, name, price, quantity) in
-            self.nameInfo = name
-            self.priceInfo = price
-            self.quantityInfo = quantity
-            self.brandInfo = brand
+            nameInfo = name
+            priceInfo = price
+            quantityInfo = quantity
+            brandInfo = brand
         }
     }
     
     func isSameDrinkGroup(_ drink: Drink ) -> Bool {
         var result = false
         drink.displayDrinkInfo { (brand, name, price, quantity)  in
-            result = self.nameInfo == name ? true : false
-            result = self.priceInfo == price ? true : false
-            result = self.brandInfo == brand ? true : false
-            result = self.quantityInfo == quantity ? true: false
+            result = nameInfo == name ? true : false
+            result = priceInfo == price ? true : false
+            result = brandInfo == brand ? true : false
+            result = quantityInfo == quantity ? true: false
         }
         return result
     }

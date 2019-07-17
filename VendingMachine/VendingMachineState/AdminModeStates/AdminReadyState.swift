@@ -15,7 +15,7 @@ class AdminReadyState: StateTransitionable{
     
     var vendingMachine: VendingMachine
     init(machine: VendingMachine){
-        self.vendingMachine = machine
+        vendingMachine = machine
     }
     
     func moveToNextState(nextTo: StateTransitionable) {
@@ -24,12 +24,12 @@ class AdminReadyState: StateTransitionable{
     
     func implementStateInstruction() -> InstructionResult{
         let printableMessage: String = displayVendingMachineInfo()
-        let stateType = AdminStateType.init(value: self.instruction)
+        let stateType = AdminStateType.init(value: instruction)
         switch stateType {
         case .addStock:
-            shiftAddStockStateWithDrinkNumber(number: self.number, quantity: self.quantity)
+            shiftAddStockStateWithDrinkNumber(number: number, quantity: quantity)
         case .removeStock:
-            shiftRemoveStockStateWithDrinkNumber(number: self.number, quantity: self.quantity)
+            shiftRemoveStockStateWithDrinkNumber(number: number, quantity: quantity)
         case .modeSelect:
             shiftModeSelectState()
         default:
@@ -57,16 +57,16 @@ class AdminReadyState: StateTransitionable{
     }
     
     private func shiftRemoveStockStateWithDrinkNumber(number: Int, quantity: Int){
-        moveToNextState(nextTo: self.vendingMachine.removeStockState)
-        guard let nextState = self.vendingMachine.removeStockState as? RemoveStockState else {
+        moveToNextState(nextTo: vendingMachine.removeStockState)
+        guard let nextState = vendingMachine.removeStockState as? RemoveStockState else {
             return
         }
         nextState.receiveDrinkNumberQuantity(num: number, quantity: quantity)
     }
     
     private func shiftAddStockStateWithDrinkNumber(number: Int, quantity: Int){
-        moveToNextState(nextTo: self.vendingMachine.addStockState)
-        guard let nextState = self.vendingMachine.addStockState as? AddStockState else {
+        moveToNextState(nextTo: vendingMachine.addStockState)
+        guard let nextState = vendingMachine.addStockState as? AddStockState else {
             return
         }
         nextState.receiveDrinkNumberQuantity(num: number, quantity: quantity)

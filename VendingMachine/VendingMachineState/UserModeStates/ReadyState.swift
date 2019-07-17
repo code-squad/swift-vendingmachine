@@ -27,12 +27,12 @@ class ReadyState: StateTransitionable{
     
     func implementStateInstruction() -> InstructionResult{
         let printableMessage: String = displayVendingMachineInfo()
-        let stateType = StateType.init(value: self.instruction)
+        let stateType = StateType.init(value: instruction)
         switch stateType {
         case .chargeMoney:
-            shiftChargeMoneyStateWithMoney(self.quantity)
+            shiftChargeMoneyStateWithMoney(quantity)
         case .sell:
-            shiftSellingStateWithDrinkNumber(self.quantity)
+            shiftSellingStateWithDrinkNumber(quantity)
         case .modeSelect:
             shiftModeSelectState()
         default:
@@ -47,20 +47,20 @@ class ReadyState: StateTransitionable{
     }
     
     private func shiftModeSelectState(){
-        moveToNextState(nextTo: self.vendingMachine.modeSelectState)
+        moveToNextState(nextTo: vendingMachine.modeSelectState)
     }
     
     private func shiftChargeMoneyStateWithMoney(_ money: Int){
-        moveToNextState(nextTo: self.vendingMachine.chargeMoneyState)
-        guard let nextState = self.vendingMachine.chargeMoneyState as? ChargingMoneyState else {
+        moveToNextState(nextTo: vendingMachine.chargeMoneyState)
+        guard let nextState = vendingMachine.chargeMoneyState as? ChargingMoneyState else {
             return
         }
         nextState.receiveMoneyInput(money)
     }
     
     private func shiftSellingStateWithDrinkNumber(_ number: Int){
-        moveToNextState(nextTo: self.vendingMachine.sellingState)
-        guard let nextState = self.vendingMachine.sellingState as? SellingState else {
+        moveToNextState(nextTo: vendingMachine.sellingState)
+        guard let nextState = vendingMachine.sellingState as? SellingState else {
             return
         }
         nextState.receiveDrinkNumberInput(number)

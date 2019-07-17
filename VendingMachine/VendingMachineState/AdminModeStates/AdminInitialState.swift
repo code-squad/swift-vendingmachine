@@ -11,15 +11,15 @@ import Foundation
 class AdminInitialState: StateTransitionable{
     var vendingMachine: VendingMachine
     init(machine: VendingMachine){
-        self.vendingMachine = machine
+        vendingMachine = machine
     }
     
     func moveToNextState(nextTo: StateTransitionable) {
-        self.vendingMachine.changeState(nextTo, from: StateType.adminInitialize)
+        vendingMachine.changeState(nextTo, from: StateType.adminInitialize)
     }
     
     func implementStateInstruction() -> InstructionResult {
-        moveToNextState(nextTo: self.vendingMachine.adminReadyState)
+        moveToNextState(nextTo: vendingMachine.adminReadyState)
         return InstructionResult(nil, nil)
     }
 }

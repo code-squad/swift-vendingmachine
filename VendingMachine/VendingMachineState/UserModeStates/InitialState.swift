@@ -12,11 +12,11 @@ class InitialState: StateTransitionable {
     var vendingMachine: VendingMachine
     
     init(machine: VendingMachine){
-        self.vendingMachine = machine
+        vendingMachine = machine
     }
     
     func moveToNextState(nextTo: StateTransitionable) {
-        vendingMachine.changeState(self.vendingMachine.readyState, from: StateType.initialize)
+        vendingMachine.changeState(vendingMachine.readyState, from: StateType.initialize)
     }
     
     func implementStateInstruction() -> InstructionResult {

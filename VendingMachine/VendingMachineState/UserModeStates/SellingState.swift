@@ -14,20 +14,20 @@ class SellingState: StateTransitionable{
     var vendingMachine: VendingMachine
     
     func receiveDrinkNumberInput(_ number: Int){
-        self.selectNumber = number
+        selectNumber = number
     }
     
     init(machine: VendingMachine){
-        self.vendingMachine = machine
+        vendingMachine = machine
     }
     
     func moveToNextState(nextTo: StateTransitionable) {
-        self.vendingMachine.changeState(nextTo, from: .sell)
+        vendingMachine.changeState(nextTo, from: .sell)
     }
 
     func selectDrinkNumber(_ number: Int) -> Result<Drink, VendingMachineError>{
         do {
-            let soldDrink = try self.vendingMachine.sellProduct(productId: number)
+            let soldDrink = try vendingMachine.sellProduct(productId: number)
             return .success(soldDrink)
         }catch(let error as VendingMachineError){
             return .failure(error)
@@ -41,7 +41,7 @@ class SellingState: StateTransitionable{
             guard let result = try? selectDrinkNumber(selectNumber) else {
             }
             let drink = try result.get()
-            moveToNextState(nextTo: self.vendingMachine.readyState)
+            moveToNextState(nextTo: vendingMachine.readyState)
             let drinkInfoFormat = { (name: String, price: Int) -> (String?, VendingMachineError?) in
                 return InstructionResult("\(name), \(price)", nil)
             }
@@ -50,7 +50,7 @@ class SellingState: StateTransitionable{
             handleSellingStateError(error)
             return InstructionResult(nil, error)
         } catch {
-            self.vendingMachine.changeState(self.vendingMachine.readyState, from: .sell)
+            vendingMachine.changeState(vendingMachine.readyState, from: .sell)
             return InstructionResult(nil, VendingMachineError.unknownError)
         }
     }
@@ -59,13 +59,13 @@ class SellingState: StateTransitionable{
         
         switch error {
         case .notEnoughMoneyError:
-            self.vendingMachine.changeState(self.vendingMachine.readyState, from: .sell)
+            vendingMachine.changeState(vendingMachine.readyState, from: .sell)
         case .outOfStockError:
-            self.vendingMachine.changeState(self.vendingMachine.readyState, from: .sell)
+            vendingMachine.changeState(vendingMachine.readyState, from: .sell)
         case .notFoundDrinkIdError:
-            self.vendingMachine.changeState(self.vendingMachine.readyState, from: .sell)
+            vendingMachine.changeState(vendingMachine.readyState, from: .sell)
         default :
-            self.vendingMachine.changeState(self.vendingMachine.readyState, from: .sell)
+            vendingMachine.changeState(vendingMachine.readyState, from: .sell)
         }
     }
     
