@@ -95,12 +95,15 @@ class DrinkItemList : CustomStringConvertible{
     }
     
     func makeNotForSaleList() -> [Drink]{
-        for (index, element) in self.drinkStockList.enumerated() {
-            if !element.validate(with: Date.init()){
-                let notForSale = self.drinkStockList.remove(at: index)
-                self.notForSaleList.append(notForSale)
+        self.drinkStockList.sort{ (first: Drink, second: Drink ) in
+            first.date < second.date
+        }
+        self.drinkStockList = self.drinkStockList.filter { (element) -> Bool in
+            if element.validate(with: Date.init()){
+                return true
             }else {
-                break
+                self.notForSaleList.append(element)
+                return false
             }
         }
         return self.notForSaleList

@@ -29,6 +29,10 @@
 		C597B31422DD77160027B579 /* StockManipulatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C597B31222DD77160027B579 /* StockManipulatable.swift */; };
 		C5AC5F8122DDC8C2005EADC8 /* AdminStateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AC5F8022DDC8C2005EADC8 /* AdminStateType.swift */; };
 		C5AC5F8222DDC8C2005EADC8 /* AdminStateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AC5F8022DDC8C2005EADC8 /* AdminStateType.swift */; };
+		C5AC5F8322DEED10005EADC8 /* ModeSelectState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C597B2F322DC3DE10027B579 /* ModeSelectState.swift */; };
+		C5AC5F8422DEED48005EADC8 /* ModeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C597B2F722DC45C20027B579 /* ModeType.swift */; };
+		C5AC5F8522DEED4C005EADC8 /* MockDrinkCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C597B2F122DC17720027B579 /* MockDrinkCreator.swift */; };
+		C5AC5F8622DEED4F005EADC8 /* MockVendingMachineCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C597B2EF22DC171A0027B579 /* MockVendingMachineCreator.swift */; };
 		C5E942A222CB6A6C00589506 /* Drinkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942A122CB6A6C00589506 /* Drinkable.swift */; };
 		C5E942A822CB6EDB00589506 /* CustomDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942A722CB6EDB00589506 /* CustomDateFormatter.swift */; };
 		C5E942CA22CB80AF00589506 /* Units.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942C922CB80AF00589506 /* Units.swift */; };
@@ -619,6 +623,7 @@
 				C5F2EE7622D332BD006137E8 /* HotSix.swift in Sources */,
 				C5AC5F8222DDC8C2005EADC8 /* AdminStateType.swift in Sources */,
 				C5E9430B22CEF0F900589506 /* Sprite.swift in Sources */,
+				C5AC5F8522DEED4C005EADC8 /* MockDrinkCreator.swift in Sources */,
 				C597B30A22DC51890027B579 /* AddStockState.swift in Sources */,
 				C5E9431022CEF10700589506 /* EnergyDrink.swift in Sources */,
 				C5F2EE7C22D34AC9006137E8 /* DrinkItemList.swift in Sources */,
@@ -641,6 +646,7 @@
 				C5F2EE5E22D30BD9006137E8 /* InitialState.swift in Sources */,
 				C5E9430822CEF0F200589506 /* CarbonatedDrink.swift in Sources */,
 				C5E9432D22CF246800589506 /* FarmCode.swift in Sources */,
+				C5AC5F8422DEED48005EADC8 /* ModeType.swift in Sources */,
 				C5E9431D22CEF9F000589506 /* Drinkable.swift in Sources */,
 				C5E9430422CEF0E900589506 /* Coffee.swift in Sources */,
 				C5F2EE5F22D30BDB006137E8 /* SellingState.swift in Sources */,
@@ -648,10 +654,12 @@
 				C5E9430F22CEF10500589506 /* ChocoMilk.swift in Sources */,
 				C5F2EE8D22D5A814006137E8 /* UnitTestVendingMachineLogic.swift in Sources */,
 				C5E9431E22CEFA0700589506 /* CustomDateFormatter.swift in Sources */,
+				C5AC5F8622DEED4F005EADC8 /* MockVendingMachineCreator.swift in Sources */,
 				C5F2EE5222D2EFDE006137E8 /* Fruitable.swift in Sources */,
 				C5E9431422CEF11000589506 /* Fruit.swift in Sources */,
 				C5F2EE6222D312A9006137E8 /* ProductSoldable.swift in Sources */,
 				C5E9431C22CEF6E300589506 /* Antihypnotical.swift in Sources */,
+				C5AC5F8322DEED10005EADC8 /* ModeSelectState.swift in Sources */,
 				C5F2EE9322D5CCDB006137E8 /* StateType.swift in Sources */,
 				C5E9431522CEF11000589506 /* Currency.swift in Sources */,
 				C5F2EE5D22D30BD7006137E8 /* StateTransitionable.swift in Sources */,
