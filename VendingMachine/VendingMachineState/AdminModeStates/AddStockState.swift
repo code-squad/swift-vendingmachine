@@ -27,14 +27,16 @@ class AddStockState: StateTransitionable, StockManipulatable{
             drink.updateDateInfo(days: 90)
             try self.vendingMachine.addDrinkStock(drink, quantity: self.quantity)
             moveToNextState(nextTo: vendingMachine.adminReadyState)
-        let addStockResult = AuxiliaryStockStateModifying.displayModifiedInfo(drink, quantity: self.quantity!)
+            guard let quantity = self.quantity else {
+                return InstructionResult(nil, .invalidDrinkQuantity)
+            }
+            let addStockResult = AuxiliaryStockStateModifying.displayModifiedInfo(drink, quantity: quantity)
             return addStockResult
         }catch let error as VendingMachineError{
             return InstructionResult(nil, error)
         }catch{
             return InstructionResult(nil, .unknownError)
         }
-        return InstructionResult("", nil)
     }
     
     func receiveDrinkNumberQuantity(num: Int, quantity: Int) {

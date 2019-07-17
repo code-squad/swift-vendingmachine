@@ -27,7 +27,10 @@ class RemoveStockState: StateTransitionable, StockManipulatable{
             let removeStock = try self.vendingMachine.removeDrinkStock(number: number, quantity: self.quantity)
             self.quantity = removeStock.actualRemoved
             moveToNextState(nextTo: vendingMachine.adminReadyState)
-            let removeStockResult = AuxiliaryStockStateModifying.displayModifiedInfo(drink, quantity: self.quantity!)
+            guard let quantity = self.quantity else {
+                return InstructionResult(nil, .invalidDrinkQuantity)
+            }
+            let removeStockResult = AuxiliaryStockStateModifying.displayModifiedInfo(drink, quantity: quantity)
             return removeStockResult
         }catch let error as VendingMachineError{
             return InstructionResult(nil, error)
