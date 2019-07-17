@@ -123,3 +123,10 @@ Instrcution에 따라 vendingmachine의 상태는
 
 2) 재고 삭제 : 각각의 테스트 상황에 따른 단위테스트 추가
 
+
+
+
+
+### 결과화면
+
+![이미지](./vendingmachine_console_result.gif)
