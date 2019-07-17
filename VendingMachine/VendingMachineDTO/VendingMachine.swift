@@ -94,7 +94,7 @@ class VendingMachine: ProductSoldable {
             throw VendingMachineError.notFoundDrinkIdError
         }
         if productList.drinkStockList.isEmpty {
-            return productList.drinkStockInfo.dummyDrink
+            return productList.drinkItemInfo
         }
         return productList.drinkStockList[0]
     }
@@ -111,11 +111,24 @@ class VendingMachine: ProductSoldable {
         }
     }
     
+    func removeDrinkStock(number: Int, quantity: Int) throws -> (Drink, actualRemoved: Int){
+        if let itemList = self.drinkStockTable[number]{
+            let removeItemInfo = itemList.removeElement(quantity: quantity)
+            return removeItemInfo
+        }else{
+            throw VendingMachineError.notFoundDrinkIdError
+        }
+    }
+    
+   
+    
     private func addStockDefault(drink: Drink, number : Int, quantity: Int) throws {
         let drinkList = self.drinkStockTable[number]!
         try drinkList.addItem(drink, quantity: quantity)
     }
     
+   
+
     private func updateDrinkStockTable (nextIndex newMenuNumber: Int, drinkElement : Drink){
         let drinkItemListInfoSet = makeNewDrinkItemInfo(drinkElement)
         let newDrinkItemList = DrinkItemList(drinkList: drinkItemListInfoSet.drinkList, stockInfo: drinkItemListInfoSet.info)

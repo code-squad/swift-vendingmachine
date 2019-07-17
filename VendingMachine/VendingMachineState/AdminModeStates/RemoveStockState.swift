@@ -24,15 +24,24 @@ class RemoveStockState: StateTransitionable, StockManipulatable{
     func implementStateInstruction() -> InstructionResult {
         do {
             let drink = try self.vendingMachine.selectProduct(productId: self.number)
-            drink.updateDateInfo(days: 90)
-            try self.vendingMachine.addDrinkStock(drink, quantity: self.quantity)
+            let removeStock = try self.vendingMachine.removeDrinkStock(number: number, quantity: self.quantity)
+            self.quantity = removeStock.actualRemoved
             moveToNextState(nextTo: vendingMachine.adminReadyState)
+            let removeStockResult = displayModifiedInfo(drink)
+            return removeStockResult
         }catch let error as VendingMachineError{
             return InstructionResult(nil, error)
         }catch{
             return InstructionResult(nil, .unknownError)
         }
-        return InstructionResult("", nil)
+    }
+  
+    private func displayModifiedInfo(_ drink: Drink) -> InstructionResult{
+        let drinkItemInfoFormat = { (name: String) -> (String?, VendingMachineError?) in
+            return InstructionResult("\(name), \(self.quantity!)", nil)
+        }
+        let removeStockResult = drink.displayModifiedStock(format: drinkItemInfoFormat)
+        return removeStockResult
     }
     
     func receiveDrinkNumberQuantity(num: Int, quantity: Int) {
