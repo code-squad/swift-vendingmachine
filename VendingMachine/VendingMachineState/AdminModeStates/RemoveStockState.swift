@@ -12,7 +12,7 @@ class RemoveStockState: StateTransitionable, StockManipulatable{
     private var quantity: Int!
     private var number: Int!
     var vendingMachine: VendingMachine
-    
+
     init(machine: VendingMachine){
         self.vendingMachine = machine
     }
@@ -27,7 +27,7 @@ class RemoveStockState: StateTransitionable, StockManipulatable{
             let removeStock = try self.vendingMachine.removeDrinkStock(number: number, quantity: self.quantity)
             self.quantity = removeStock.actualRemoved
             moveToNextState(nextTo: vendingMachine.adminReadyState)
-            let removeStockResult = displayModifiedInfo(drink)
+            let removeStockResult = AuxiliaryStockStateModifying.displayModifiedInfo(drink, quantity: self.quantity!)
             return removeStockResult
         }catch let error as VendingMachineError{
             return InstructionResult(nil, error)
@@ -36,13 +36,13 @@ class RemoveStockState: StateTransitionable, StockManipulatable{
         }
     }
   
-    private func displayModifiedInfo(_ drink: Drink) -> InstructionResult{
-        let drinkItemInfoFormat = { (name: String) -> (String?, VendingMachineError?) in
-            return InstructionResult("\(name), \(self.quantity!)", nil)
-        }
-        let removeStockResult = drink.displayModifiedStock(format: drinkItemInfoFormat)
-        return removeStockResult
-    }
+//    private func displayModifiedInfo(_ drink: Drink) -> InstructionResult{
+//        let drinkItemInfoFormat = { (name: String) -> (String?, VendingMachineError?) in
+//            return InstructionResult("\(name), \(self.quantity!)", nil)
+//        }
+//        let removeStockResult = drink.displayModifiedStock(format: drinkItemInfoFormat)
+//        return removeStockResult
+//    }
     
     func receiveDrinkNumberQuantity(num: Int, quantity: Int) {
         self.number = num

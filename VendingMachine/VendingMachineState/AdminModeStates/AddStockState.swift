@@ -12,7 +12,7 @@ class AddStockState: StateTransitionable, StockManipulatable{
     private var quantity: Int!
     private var number: Int!
     var vendingMachine: VendingMachine
-    
+
     init(machine: VendingMachine){
         self.vendingMachine = machine
     }
@@ -27,11 +27,7 @@ class AddStockState: StateTransitionable, StockManipulatable{
             drink.updateDateInfo(days: 90)
             try self.vendingMachine.addDrinkStock(drink, quantity: self.quantity)
             moveToNextState(nextTo: vendingMachine.adminReadyState)
-            
-            let drinkItemInfoFormat = { (name: String) -> (String?, VendingMachineError?) in
-                return InstructionResult("\(name), \(self.quantity!)", nil)
-            }
-            let addStockResult = drink.displayModifiedStock(format: drinkItemInfoFormat)
+        let addStockResult = AuxiliaryStockStateModifying.displayModifiedInfo(drink, quantity: self.quantity!)
             return addStockResult
         }catch let error as VendingMachineError{
             return InstructionResult(nil, error)

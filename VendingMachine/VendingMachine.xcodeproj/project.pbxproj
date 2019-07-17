@@ -33,6 +33,8 @@
 		C5AC5F8422DEED48005EADC8 /* ModeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C597B2F722DC45C20027B579 /* ModeType.swift */; };
 		C5AC5F8522DEED4C005EADC8 /* MockDrinkCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C597B2F122DC17720027B579 /* MockDrinkCreator.swift */; };
 		C5AC5F8622DEED4F005EADC8 /* MockVendingMachineCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C597B2EF22DC171A0027B579 /* MockVendingMachineCreator.swift */; };
+		C5AC5F8822DF03D1005EADC8 /* AuxiliaryStockStateModifying.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AC5F8722DF03D1005EADC8 /* AuxiliaryStockStateModifying.swift */; };
+		C5AC5F8922DF03D1005EADC8 /* AuxiliaryStockStateModifying.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AC5F8722DF03D1005EADC8 /* AuxiliaryStockStateModifying.swift */; };
 		C5E942A222CB6A6C00589506 /* Drinkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942A122CB6A6C00589506 /* Drinkable.swift */; };
 		C5E942A822CB6EDB00589506 /* CustomDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942A722CB6EDB00589506 /* CustomDateFormatter.swift */; };
 		C5E942CA22CB80AF00589506 /* Units.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E942C922CB80AF00589506 /* Units.swift */; };
@@ -143,6 +145,7 @@
 		C597B30B22DC51930027B579 /* RemoveStockState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveStockState.swift; sourceTree = "<group>"; };
 		C597B31222DD77160027B579 /* StockManipulatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockManipulatable.swift; sourceTree = "<group>"; };
 		C5AC5F8022DDC8C2005EADC8 /* AdminStateType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminStateType.swift; sourceTree = "<group>"; };
+		C5AC5F8722DF03D1005EADC8 /* AuxiliaryStockStateModifying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuxiliaryStockStateModifying.swift; sourceTree = "<group>"; };
 		C5E942A122CB6A6C00589506 /* Drinkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drinkable.swift; sourceTree = "<group>"; };
 		C5E942A722CB6EDB00589506 /* CustomDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDateFormatter.swift; sourceTree = "<group>"; };
 		C5E942C922CB80AF00589506 /* Units.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Units.swift; sourceTree = "<group>"; };
@@ -249,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				C5E942A722CB6EDB00589506 /* CustomDateFormatter.swift */,
+				C5AC5F8722DF03D1005EADC8 /* AuxiliaryStockStateModifying.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -613,6 +617,7 @@
 				C597B2FA22DC4BE80027B579 /* UserMode.swift in Sources */,
 				C5F2EE8422D47BEB006137E8 /* VendingMachineError.swift in Sources */,
 				C5F2EE5522D3061E006137E8 /* VendingMachine.swift in Sources */,
+				C5AC5F8822DF03D1005EADC8 /* AuxiliaryStockStateModifying.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -673,6 +678,7 @@
 				C5E9432A22CF220F00589506 /* SugaryContainable.swift in Sources */,
 				C597B30D22DC51930027B579 /* RemoveStockState.swift in Sources */,
 				C5F2EE5622D30622006137E8 /* VendingMachine.swift in Sources */,
+				C5AC5F8922DF03D1005EADC8 /* AuxiliaryStockStateModifying.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
