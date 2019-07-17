@@ -81,4 +81,12 @@ class OutputView {
     static func printDrinkNumberQuantity(){
         print("음료수 번호와 수량을 입력하세요 (ex: 1 15)")
     }
+    
+    static func printAddStockMessage(name: String, count: String){
+        print("\(name)를\(count)개 충전하였습니다.")
+    }
+    
+    static func printRemoveStockMessage(name: String, count: String){
+        print("\(name)를\(count)개 비웠습니다.")
+    }
 }
