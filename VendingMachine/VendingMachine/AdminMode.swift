@@ -33,12 +33,17 @@ class AdminMode{
             }
             /// common
             let resultPair = vendingMachine.vendingMachineState!.implementStateInstruction()
-            guard let printMessage = resultPair.success  else {
+            guard let printMessage = resultPair.success else {
                 handleError(resultPair.failure)
                 continue
             }
-            /// if addStock
-            printAddStockStateMessage(vendingMachine, message: printMessage)
+            
+            if vendingMachine.fromState == .addStock {
+                printAddStockStateMessage(vendingMachine, message: printMessage)
+            }
+            if vendingMachine.fromState == .removeStock{
+                printRemoveStockStateMessage(vendingMachine, message: printMessage)
+            }
         }
     }
     
@@ -89,13 +94,12 @@ class AdminMode{
     }
     
     private func printAddStockStateMessage(_ vendingMachine: VendingMachine, message: String){
-        if vendingMachine.vendingMachineState! is SellingState {
-            let sellingInfo = message.components(separatedBy: ",")
-            OutputView.printSellingMessage(name: sellingInfo[0], price: sellingInfo[1])
-        }
+        let addStockInfo = message.components(separatedBy: ",")
+        OutputView.printAddStockMessage(name: addStockInfo[0], count: addStockInfo[1])
     }
     
     private func printRemoveStockStateMessage(_ vendingMAchine: VendingMachine, message: String){
-        
+        let removeStockInfo = message.components(separatedBy: ",")
+        OutputView.printRemoveStockMessage(name: removeStockInfo[0], count: removeStockInfo[1])
     }
 }
