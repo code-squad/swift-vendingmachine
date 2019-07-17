@@ -14,7 +14,7 @@ class AddStockState: StateTransitionable, StockManipulatable{
     var vendingMachine: VendingMachine
 
     init(machine: VendingMachine){
-        self.vendingMachine = machine
+        vendingMachine = machine
     }
     
     func moveToNextState(nextTo: StateTransitionable) {
@@ -23,11 +23,11 @@ class AddStockState: StateTransitionable, StockManipulatable{
     
     func implementStateInstruction() -> InstructionResult {
         do {
-            let drink = try self.vendingMachine.selectProduct(productId: self.number)
+            let drink = try vendingMachine.selectProduct(productId: number)
             drink.updateDateInfo(days: 90)
-            try self.vendingMachine.addDrinkStock(drink, quantity: self.quantity)
+            try vendingMachine.addDrinkStock(drink, quantity: quantity)
             moveToNextState(nextTo: vendingMachine.adminReadyState)
-            guard let quantity = self.quantity else {
+            guard let quantity = quantity else {
                 return InstructionResult(nil, .invalidDrinkQuantity)
             }
             let addStockResult = AuxiliaryStockStateModifying.displayModifiedInfo(drink, quantity: quantity)
