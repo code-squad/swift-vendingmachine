@@ -34,6 +34,10 @@ class Drink{
         drinkInfo(self.brand, self.name, self.price, self.quantity)
     }
     
+    func displayModifiedStock(format: (String) -> InstructionResult) -> InstructionResult{
+        return format(self.name)
+    }
+    
     /// 현재 저장된 것보다 3개월 가산하여 더미재고 추가
     func updateDateInfo(days: Int ){
         self.validDate = CustomDateFormatter.daysAfter(after: days)
