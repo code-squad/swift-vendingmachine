@@ -11,6 +11,7 @@ import Foundation
 class DrinkItemList : CustomStringConvertible{
     private (set) var drinkStockInfo: BeverageInfo
     private var notForSaleList: [Drink] = [Drink]()
+    private (set) var drinkItemInfo: Drink!
     private (set) var drinkStockList: [Drink] {
         didSet {
             self.drinkStockList.sort{ (first: Drink, second: Drink ) in
@@ -25,6 +26,7 @@ class DrinkItemList : CustomStringConvertible{
     init(drinkList: [Drink], stockInfo : BeverageInfo) {
         self.drinkStockList = drinkList
         self.drinkStockInfo = stockInfo
+        self.drinkItemInfo = drinkList[0]
     }
     
     var initialDescription: String {
@@ -43,6 +45,40 @@ class DrinkItemList : CustomStringConvertible{
         makeNotForSaleList()
         let element = self.drinkStockList.removeFirst()
         return element
+    }
+    
+    func removeElement(quantity: Int) -> (Drink, actualRemoved: Int){
+        var removedItem: Drink!
+        var actualRemoved = 0
+        if self.drinkStockList.isEmpty {
+            removedItem = removeZeroStock()
+        }else if quantity >= self.drinkStockList.count {
+            actualRemoved = self.drinkStockList.count
+            removedItem = removeAllElement()
+            return (removedItem, actualRemoved)
+        }else{
+            actualRemoved = quantity
+            removedItem = removeElementDefault(quantity)
+        }
+        return (removedItem, actualRemoved)
+    }
+    
+    private func removeZeroStock() -> Drink {
+        return self.drinkItemInfo
+    }
+    
+    private func removeAllElement() -> Drink {
+        let removeItem = self.drinkStockList.removeFirst()
+        self.drinkStockList.removeAll()
+        return removeItem
+    }
+    
+    private func removeElementDefault(_ quantity: Int ) -> Drink {
+        var removeItem: Drink!
+        for _ in 0..<quantity{
+            removeItem = self.drinkStockList.removeFirst()
+        }
+        return removeItem
     }
     
     func isAvailable(_ money: Int) -> Bool {
@@ -76,6 +112,10 @@ class DrinkItemList : CustomStringConvertible{
         }
         for _ in 0..<quantity {
             drinkStockList.append(drink)
+        }
+        guard let drinkItemInfo = self.drinkItemInfo else{
+            self.drinkItemInfo = drink
+            return
         }
     }
 }
