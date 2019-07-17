@@ -16,7 +16,6 @@ enum StateType: Int {
     case sell = 2
     case addStock = 3
     case removeStock = 4
-    case cleanEarning = 5
     case adminInitialize = 11
     case adminReady = 10
     
@@ -34,8 +33,6 @@ enum StateType: Int {
             self = .addStock
         case 4:
             self = .removeStock
-        case 5:
-            self = .cleanEarning
         case 8:
             self = .modeSelect
         case 11:

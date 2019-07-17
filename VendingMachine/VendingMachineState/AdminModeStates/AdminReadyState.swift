@@ -52,7 +52,7 @@ class AdminReadyState: StateTransitionable{
     }
     
     private func displayVendingMachineInfo() -> String{
-        let message = "\(StateType.addStock.description)\n\(StateType.cleanEarning.description)\n\(StateType.modeSelect.description)"
+        let message = "\(StateType.addStock.description)\n\(StateType.modeSelect.description)"
         return message
     }
     
