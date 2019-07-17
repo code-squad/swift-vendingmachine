@@ -87,6 +87,6 @@ class OutputView {
     }
     
     static func printRemoveStockMessage(name: String, count: String){
-        print("\(name)를\(count)개 비웠습니다.")
+        print("\(name)를\(count)개를 현재 재고에서 비웠습니다.")
     }
 }

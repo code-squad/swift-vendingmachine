@@ -11,7 +11,6 @@ import Foundation
 enum AdminStateType: Int {
     case addStock = 1
     case removeStock = 2
-    case cleanEarning = 3
     case modeSelect = 8
     case adminReady = 0
     
@@ -23,8 +22,6 @@ enum AdminStateType: Int {
             self = .addStock
         case 2:
             self = .removeStock
-        case 3:
-            self = .cleanEarning
         case 8:
             self = .modeSelect
         default:
@@ -38,8 +35,6 @@ enum AdminStateType: Int {
             return "1. 재고 보충"
         case .removeStock:
             return "2. 재고 비우기"
-        case .cleanEarning:
-            return "3. 수익 회수"
         case .modeSelect:
             return "8. 모드 선택지로"
         default:

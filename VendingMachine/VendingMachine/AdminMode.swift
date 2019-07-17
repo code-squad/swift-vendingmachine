@@ -61,8 +61,10 @@ class AdminMode{
             instruction = try InputView.readAdminInstruction()
             let currentState = vendingMachine.vendingMachineState! as! AdminReadyState
             currentState.receiveInstruction(instruction: instruction)
-            let pair = try readDrinkNumberQuantity()
-            currentState.receiveDrinkStcokInstruction(number: pair.instruction, quantity: pair.quantity)
+            if StateType.init(value: instruction) != .modeSelect {
+                let pair = try readDrinkNumberQuantity()
+                currentState.receiveDrinkStcokInstruction(number: pair.instruction, quantity: pair.quantity)
+            }
             return true
         }catch(let errorType as VendingMachineError) {
             OutputView.printErrorMessage(errorType)
