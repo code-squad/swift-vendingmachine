@@ -107,7 +107,7 @@ class VendingMachine: ProductSoldable {
             let newMenuNumber = self.drinkNameMenuTable.count+1
             updateMenuTable(nextIndex: newMenuNumber, name: drink.name)
             updateDrinkStockTable(nextIndex: newMenuNumber, drinkElement: drink)
-            try addStockDefault(drink: drink, number: newMenuNumber, quantity: quantity)
+            try addStockDefault(drink: drink, number: newMenuNumber, quantity: quantity-1)
         }
     }
     
@@ -115,9 +115,8 @@ class VendingMachine: ProductSoldable {
         if let itemList = self.drinkStockTable[number]{
             let removeItemInfo = itemList.removeElement(quantity: quantity)
             return removeItemInfo
-        }else{
-            throw VendingMachineError.notFoundDrinkIdError
         }
+        throw VendingMachineError.notFoundDrinkIdError
     }
     
    
@@ -163,6 +162,7 @@ class VendingMachine: ProductSoldable {
             throw VendingMachineError.notFoundDrinkIdError
         }
         if productList.isAvailable(self.balance){  /// 판매 가능하면 업데이트
+            productList.makeNotForSaleList()
             if productList.isEmpty{
                 throw VendingMachineError.outOfStockError
             }
