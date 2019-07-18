@@ -12,7 +12,7 @@ class RemoveStockState: StateTransitionable, StockManipulatable{
     private var quantity: Int!
     private var number: Int!
     var vendingMachine: VendingMachine
-
+    
     init(machine: VendingMachine){
         vendingMachine = machine
     }
@@ -26,7 +26,7 @@ class RemoveStockState: StateTransitionable, StockManipulatable{
             let drink = try vendingMachine.selectProduct(productId: number)
             let removeStock = try vendingMachine.removeDrinkStock(number: number, quantity: quantity)
             quantity = removeStock.actualRemoved
-            moveToNextState(nextTo: vendingMachine.adminReadyState)
+            moveToNextState(nextTo: vendingMachine.possibleStateSet.selectState(type: .adminReady))
             guard let quantity = quantity else {
                 return InstructionResult(nil, .invalidDrinkQuantity)
             }

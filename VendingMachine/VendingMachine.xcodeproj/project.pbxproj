@@ -275,6 +275,23 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		C5575ECB22E08B3C003FD540 /* StateProtocols */ = {
+			isa = PBXGroup;
+			children = (
+				C597B31222DD77160027B579 /* StockManipulatable.swift */,
+				C5F2EE5722D30993006137E8 /* StateTransitionable.swift */,
+			);
+			path = StateProtocols;
+			sourceTree = "<group>";
+		};
+		C5575ECC22E08B46003FD540 /* ModeSelectState */ = {
+			isa = PBXGroup;
+			children = (
+				C597B2F322DC3DE10027B579 /* ModeSelectState.swift */,
+			);
+			path = ModeSelectState;
+			sourceTree = "<group>";
+		};
 		C597B2FF22DC4ED10027B579 /* UserModeStates */ = {
 			isa = PBXGroup;
 			children = (
@@ -446,9 +463,8 @@
 		C5F2EE7222D32B39006137E8 /* VendingMachineState */ = {
 			isa = PBXGroup;
 			children = (
-				C5F2EE5722D30993006137E8 /* StateTransitionable.swift */,
-				C597B2F322DC3DE10027B579 /* ModeSelectState.swift */,
-				C597B31222DD77160027B579 /* StockManipulatable.swift */,
+				C5575ECB22E08B3C003FD540 /* StateProtocols */,
+				C5575ECC22E08B46003FD540 /* ModeSelectState */,
 				C597B30122DC4EE80027B579 /* AdminModeStates */,
 				C597B2FF22DC4ED10027B579 /* UserModeStates */,
 			);

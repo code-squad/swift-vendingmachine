@@ -39,11 +39,11 @@ class ModeSelectState: StateTransitionable{
     }
     
     private func shiftUserModeState(){
-        moveToNextState(nextTo: self.vendingMachine.initialState)
+        moveToNextState(nextTo: self.vendingMachine.possibleStateSet.initialState)
     }
     
     private func shiftAdminModeState(){
-        moveToNextState(nextTo: self.vendingMachine.adminInitialState)
+        moveToNextState(nextTo: self.vendingMachine.possibleStateSet.adminInitialState)
     }
     
     private func displayVendingMachineModeInfo() -> String{
