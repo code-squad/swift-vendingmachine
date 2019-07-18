@@ -45,7 +45,7 @@ class MockVendingMachineCreator {
         var drinkList = makeDrinkListByType()
         for index in 0..<drinkList.count {
             let itemList = createDrinkItemList(drink: drinkList[index], count: Int.random(in: 1...5))
-            drinkTable.updateDrinkItemList(itemList, forKey: index+1)
+            drinkTable.updateStockTable(itemList, forKey: index+1)
         }
         let machine = VendingMachine(drinkStockTable: drinkTable)
         return machine

@@ -15,7 +15,7 @@ class DrinkStockTable {
         stockTable = table
     }
     
-    func updateDrinkItemList(_ list: DrinkItemList, forKey index: Int){
+    func updateStockTable(_ list: DrinkItemList, forKey index: Int){
         stockTable.updateValue(list, forKey: index)
     }
     
@@ -74,5 +74,18 @@ class DrinkStockTable {
     private func addStockDefault(drink: Drink, number : Int, quantity: Int) throws {
         let drinkList = stockTable[number]!
         try drinkList.addItem(drink, quantity: quantity)
+    }
+    
+    func updateDrinkStockTable (nextIndex newMenuNumber: Int, drinkElement : Drink){
+        let drinkItemListInfoSet = makeNewDrinkItemInfo(drinkElement)
+        let newDrinkItemList = DrinkItemList(drinkList: drinkItemListInfoSet.drinkList, stockInfo: drinkItemListInfoSet.info)
+        updateStockTable(newDrinkItemList, forKey: newMenuNumber)
+    }
+    
+    private func makeNewDrinkItemInfo(_ drink: Drink) -> (drinkList: [Drink], info: BeverageInfo){
+        let newBeverageInfo = BeverageInfo.init(drink: drink)
+        var stockList = [Drink]()
+        stockList.append(drink)
+        return (stockList, newBeverageInfo)
     }
 }
