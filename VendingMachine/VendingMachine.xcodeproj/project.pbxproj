@@ -15,6 +15,10 @@
 		C5575EB922E05657003FD540 /* CommonOutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5575EB722E05657003FD540 /* CommonOutputView.swift */; };
 		C5575EBB22E05725003FD540 /* AdminInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5575EBA22E05725003FD540 /* AdminInputView.swift */; };
 		C5575EBC22E05725003FD540 /* AdminInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5575EBA22E05725003FD540 /* AdminInputView.swift */; };
+		C5575EBE22E05EF6003FD540 /* DrinkStockTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5575EBD22E05EF6003FD540 /* DrinkStockTable.swift */; };
+		C5575EBF22E05EF6003FD540 /* DrinkStockTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5575EBD22E05EF6003FD540 /* DrinkStockTable.swift */; };
+		C5575EC422E0778C003FD540 /* PossibleStateSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5575EC322E0778C003FD540 /* PossibleStateSet.swift */; };
+		C5575EC522E0778C003FD540 /* PossibleStateSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5575EC322E0778C003FD540 /* PossibleStateSet.swift */; };
 		C597B2F022DC171A0027B579 /* MockVendingMachineCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C597B2EF22DC171A0027B579 /* MockVendingMachineCreator.swift */; };
 		C597B2F222DC17720027B579 /* MockDrinkCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C597B2F122DC17720027B579 /* MockDrinkCreator.swift */; };
 		C597B2F422DC3DE10027B579 /* ModeSelectState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C597B2F322DC3DE10027B579 /* ModeSelectState.swift */; };
@@ -142,6 +146,8 @@
 		C5575EB422E051D0003FD540 /* AdminOutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminOutputView.swift; sourceTree = "<group>"; };
 		C5575EB722E05657003FD540 /* CommonOutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonOutputView.swift; sourceTree = "<group>"; };
 		C5575EBA22E05725003FD540 /* AdminInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminInputView.swift; sourceTree = "<group>"; };
+		C5575EBD22E05EF6003FD540 /* DrinkStockTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkStockTable.swift; sourceTree = "<group>"; };
+		C5575EC322E0778C003FD540 /* PossibleStateSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PossibleStateSet.swift; sourceTree = "<group>"; };
 		C597B2EF22DC171A0027B579 /* MockVendingMachineCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockVendingMachineCreator.swift; sourceTree = "<group>"; };
 		C597B2F122DC17720027B579 /* MockDrinkCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDrinkCreator.swift; sourceTree = "<group>"; };
 		C597B2F322DC3DE10027B579 /* ModeSelectState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeSelectState.swift; sourceTree = "<group>"; };
@@ -224,9 +230,9 @@
 				C5F2EE9422D71B74006137E8 /* Views */,
 				C5F2EE9022D5C49F006137E8 /* Errors */,
 				C5F2EE7222D32B39006137E8 /* VendingMachineState */,
-				C5F2EE7122D32B24006137E8 /* VendingMachineProtocol */,
 				C5F2EE5322D2F157006137E8 /* VendingMachineDTO */,
 				839DA90B1F8D1F95009E05F3 /* VendingMachine */,
+				C5F2EE7122D32B24006137E8 /* VendingMachineProtocol */,
 				C5E942C822CB804B00589506 /* Enum */,
 				C5E942B222CB7D8A00589506 /* BeverageDTO */,
 				C5E942A022CB6A0700589506 /* BeverageProtocol */,
@@ -418,6 +424,8 @@
 			children = (
 				C5F2EE7A22D34AC9006137E8 /* DrinkItemList.swift */,
 				C5F2EE5422D3061E006137E8 /* VendingMachine.swift */,
+				C5575EC322E0778C003FD540 /* PossibleStateSet.swift */,
+				C5575EBD22E05EF6003FD540 /* DrinkStockTable.swift */,
 				C5F2EE7D22D46606006137E8 /* BeverageInfo.swift */,
 			);
 			path = VendingMachineDTO;
@@ -614,6 +622,7 @@
 				C597B30C22DC51930027B579 /* RemoveStockState.swift in Sources */,
 				C5E942E622CDD34500589506 /* Currency.swift in Sources */,
 				C597B2F422DC3DE10027B579 /* ModeSelectState.swift in Sources */,
+				C5575EBE22E05EF6003FD540 /* DrinkStockTable.swift in Sources */,
 				C5F2EE5A22D30A3E006137E8 /* SellingState.swift in Sources */,
 				C597B2FD22DC4BEF0027B579 /* AdminMode.swift in Sources */,
 				C5F2EE6122D312A2006137E8 /* ProductSoldable.swift in Sources */,
@@ -630,6 +639,7 @@
 				C5E9432922CF220F00589506 /* SugaryContainable.swift in Sources */,
 				C597B2FA22DC4BE80027B579 /* UserMode.swift in Sources */,
 				C5F2EE8422D47BEB006137E8 /* VendingMachineError.swift in Sources */,
+				C5575EC422E0778C003FD540 /* PossibleStateSet.swift in Sources */,
 				C5F2EE5522D3061E006137E8 /* VendingMachine.swift in Sources */,
 				C5AC5F8822DF03D1005EADC8 /* AuxiliaryStockStateModifying.swift in Sources */,
 				C5575EB522E051D0003FD540 /* AdminOutputView.swift in Sources */,
@@ -678,6 +688,7 @@
 				C5AC5F8622DEED4F005EADC8 /* MockVendingMachineCreator.swift in Sources */,
 				C5F2EE5222D2EFDE006137E8 /* Fruitable.swift in Sources */,
 				C5E9431422CEF11000589506 /* Fruit.swift in Sources */,
+				C5575EBF22E05EF6003FD540 /* DrinkStockTable.swift in Sources */,
 				C5F2EE6222D312A9006137E8 /* ProductSoldable.swift in Sources */,
 				C5E9431C22CEF6E300589506 /* Antihypnotical.swift in Sources */,
 				C5AC5F8322DEED10005EADC8 /* ModeSelectState.swift in Sources */,
@@ -694,6 +705,7 @@
 				C5F2EE8B22D48499006137E8 /* InputView.swift in Sources */,
 				C5E9432A22CF220F00589506 /* SugaryContainable.swift in Sources */,
 				C597B30D22DC51930027B579 /* RemoveStockState.swift in Sources */,
+				C5575EC522E0778C003FD540 /* PossibleStateSet.swift in Sources */,
 				C5F2EE5622D30622006137E8 /* VendingMachine.swift in Sources */,
 				C5AC5F8922DF03D1005EADC8 /* AuxiliaryStockStateModifying.swift in Sources */,
 				C5575EB622E051D0003FD540 /* AdminOutputView.swift in Sources */,
