@@ -39,16 +39,16 @@ class AdminMode{
             }
             
             if vendingMachine.fromState == .addStock {
-                printAddStockStateMessage(vendingMachine, message: printMessage)
+                printAddStockStateMessage(message: printMessage)
             }
             if vendingMachine.fromState == .removeStock{
-                printRemoveStockStateMessage(vendingMachine, message: printMessage)
+                printRemoveStockStateMessage(message: printMessage)
             }
         }
     }
     
     private func readDrinkNumberQuantity() throws -> (instruction: Int, quantity: Int) {
-        OutputView.printDrinkNumberQuantity()
+        AdminOutputView.printDrinkNumberQuantity()
         let pair = try InputView.readInstruction()
         return pair
     }
@@ -58,7 +58,7 @@ class AdminMode{
         var pair: (instruction: Int, quantity: Int)!
         do {
             printAdminReadyStateMessage(vendingMachine)
-            instruction = try InputView.readAdminInstruction()
+            instruction = try AdminInputView.readAdminInstruction()
             let currentState = vendingMachine.vendingMachineState! as! AdminReadyState
             currentState.receiveInstruction(instruction: instruction)
             if StateType.init(value: instruction) != .modeSelect {
@@ -67,41 +67,41 @@ class AdminMode{
             }
             return true
         }catch(let errorType as VendingMachineError) {
-            OutputView.printErrorMessage(errorType)
+            CommonOutputView.printErrorMessage(errorType)
             return false
         }catch {
-            OutputView.printErrorMessage(.unknownError)
+            CommonOutputView.printErrorMessage(.unknownError)
             return false
         }
     }
     
     private func handleError(_ error: VendingMachineError?){
         guard let errorMessage = error else {
-            OutputView.printErrorMessage(VendingMachineError.unknownError)
+            CommonOutputView.printErrorMessage(VendingMachineError.unknownError)
             return
         }
-        OutputView.printErrorMessage(errorMessage)
+        CommonOutputView.printErrorMessage(errorMessage)
     }
     
     private func printAdminInitialStateMessage(_ vendingMachine: VendingMachine){
-        OutputView.showCurrentEarningInfo(vendingMachine)
-        OutputView.printInitialDrinkMenuList(vendingMachine)
+        AdminOutputView.showCurrentEarningInfo(vendingMachine)
+        CommonOutputView.printInitialDrinkMenuList(vendingMachine)
     }
     
     private func printAdminReadyStateMessage(_ vendingMachine: VendingMachine){
-        OutputView.showCurrentEarningInfo(vendingMachine)
-        OutputView.printDrinkMenuListWithNumber(vendingMachine)
+        AdminOutputView.showCurrentEarningInfo(vendingMachine)
+        CommonOutputView.printDrinkMenuListWithNumber(vendingMachine)
         print()
-        OutputView.selectAdminMenuInfo()
+        AdminOutputView.selectAdminMenuInfo()
     }
     
-    private func printAddStockStateMessage(_ vendingMachine: VendingMachine, message: String){
+    private func printAddStockStateMessage( message: String){
         let addStockInfo = message.components(separatedBy: ",")
-        OutputView.printAddStockMessage(name: addStockInfo[0], count: addStockInfo[1])
+        AdminOutputView.printAddStockMessage(name: addStockInfo[0], count: addStockInfo[1])
     }
     
-    private func printRemoveStockStateMessage(_ vendingMAchine: VendingMachine, message: String){
+    private func printRemoveStockStateMessage( message: String){
         let removeStockInfo = message.components(separatedBy: ",")
-        OutputView.printRemoveStockMessage(name: removeStockInfo[0], count: removeStockInfo[1])
+        AdminOutputView.printRemoveStockMessage(name: removeStockInfo[0], count: removeStockInfo[1])
     }
 }

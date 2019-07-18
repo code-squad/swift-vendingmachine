@@ -50,38 +50,38 @@ class UserMode{
             currentState.receiveInstruction(instruction: pair.instruction, quantity: pair.quantity)
             return true
         }catch(let errorType as VendingMachineError) {
-            OutputView.printErrorMessage(errorType)
+            CommonOutputView.printErrorMessage(errorType)
             return false
         }catch {
-            OutputView.printErrorMessage(.unknownError)
+            CommonOutputView.printErrorMessage(.unknownError)
             return false
         }
     }
     
     private func handleError(_ error: VendingMachineError?){
         guard let errorMessage = error else {
-            OutputView.printErrorMessage(VendingMachineError.unknownError)
+            CommonOutputView.printErrorMessage(VendingMachineError.unknownError)
             return
         }
-        OutputView.printErrorMessage(errorMessage)
+        CommonOutputView.printErrorMessage(errorMessage)
     }
     
 
     private func printInitialStateMessage(_ vendingMachine: VendingMachine){
-        OutputView.showCurrentBalanceInfo(vendingMachine)
-        OutputView.printInitialDrinkMenuList(vendingMachine)
+        UserOutputView.showCurrentBalanceInfo(vendingMachine)
+        CommonOutputView.printInitialDrinkMenuList(vendingMachine)
     }
     
     private func printReadyStateMessage(_ vendingMachine: VendingMachine){
-        OutputView.showCurrentBalanceInfo(vendingMachine)
-        OutputView.printDrinkMenuListWithNumber(vendingMachine)
-        OutputView.selectMenuInfo()
+        UserOutputView.showCurrentBalanceInfo(vendingMachine)
+        CommonOutputView.printDrinkMenuListWithNumber(vendingMachine)
+        UserOutputView.selectMenuInfo()
     }
     
     private func printSellingStateMessage(_ vendingMachine: VendingMachine, message: String){
         if vendingMachine.vendingMachineState! is SellingState {
             let sellingInfo = message.components(separatedBy: ",")
-            OutputView.printSellingMessage(name: sellingInfo[0], price: sellingInfo[1])
+            UserOutputView.printSellingMessage(name: sellingInfo[0], price: sellingInfo[1])
         }
     }
 }
