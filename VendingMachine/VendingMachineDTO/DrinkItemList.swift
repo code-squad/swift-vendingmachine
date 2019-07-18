@@ -11,13 +11,8 @@ import Foundation
 class DrinkItemList : CustomStringConvertible{
     private (set) var drinkStockInfo: BeverageInfo
     private var notForSaleList: [Drink] = [Drink]()
-    private (set) var drinkStockList: [Drink] {
-        didSet {
-            self.drinkStockList.sort{ (first: Drink, second: Drink ) in
-                first.date < second.date
-            }
-        }
-    }
+    private (set) var drinkStockList: [Drink]
+    
     var isEmpty : Bool {
         return self.drinkStockList.isEmpty
     }
