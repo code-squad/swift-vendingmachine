@@ -43,22 +43,22 @@ class Main {
             currentState.recieveInstruction(number)
             return ModeType.init(value: number)
         }catch(let errorType as VendingMachineError) {
-            OutputView.printErrorMessage(errorType)
+            CommonOutputView.printErrorMessage(errorType)
             return nil
         }catch {
-            OutputView.printErrorMessage(.unknownError)
+            CommonOutputView.printErrorMessage(.unknownError)
             return nil
         }
     }
     
     private static func printModeSelectMessage(_ vendingMachie: VendingMachine){
-        OutputView.selectModeInfo()
+        CommonOutputView.selectModeInfo()
     }
    
     static func start(){
         let result = MockDrinkCreator.generateBeverages()
         result.forEach { (Drinkable) in
-            OutputView.printBeverage(Drinkable)
+            UserOutputView.printBeverage(Drinkable)
         }
     }
 }
