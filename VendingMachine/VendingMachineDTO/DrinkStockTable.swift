@@ -47,7 +47,7 @@ class DrinkStockTable {
         for offsetElementpair in stockTable.enumerated() {
             let drinkStockList = offsetElementpair.element.value
             if drinkStockList.isAvailable(balance) {
-                buyableDrinkList.append(drinkStockList.drinkItemInfo)
+                buyableDrinkList.append(drinkStockList.drinkStockInfo.drinkItemInfo)
             }
         }
         return buyableDrinkList
@@ -58,7 +58,7 @@ class DrinkStockTable {
             throw VendingMachineError.notFoundDrinkIdError
         }
         if productList.drinkStockList.isEmpty {
-            return productList.drinkItemInfo
+            return productList.drinkStockInfo.drinkItemInfo
         }
         return productList.drinkStockList[0]
     }

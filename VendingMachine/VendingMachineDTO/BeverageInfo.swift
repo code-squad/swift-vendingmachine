@@ -13,7 +13,8 @@ class BeverageInfo {
     private var priceInfo: Int!
     private (set) var quantityInfo: Int!
     private (set) var brandInfo: String!
-    
+    private (set) var drinkItemInfo: Drink!
+
     var name: String {
         guard let name = nameInfo else{
             return ""
@@ -33,12 +34,13 @@ class BeverageInfo {
     }
     
     init(drink: Drink){
-        drink.displayDrinkInfo { (brand, name, price, quantity) in
+        drink.displayDrinkInfo{ (brand, name, price, quantity) in
             nameInfo = name
             priceInfo = price
             quantityInfo = quantity
             brandInfo = brand
         }
+        drinkItemInfo = drink
     }
     
     func isSameDrinkGroup(_ drink: Drink ) -> Bool {
