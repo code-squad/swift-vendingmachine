@@ -7,19 +7,22 @@
 //
 
 import Foundation
+
 class VendingMachine: ProductSoldable {
     private var balance : Int
     private var earning: Int = 0
     private (set) var fromState : StateType
     private var shoppingHistory: [Drink]
     /// 메뉴번호별 음료수 리스트 1~6
-    private (set) var drinkStockTable: [Int : DrinkItemList]
+    private var drinkStockTable: DrinkStockTable
     /// drinkName과 메뉴번호 매핑한 딕셔너리
     private (set) lazy var drinkNameMenuTable : [String : Int] = buildMenuTable(drinkStockTable)
     
     var vendingMachineState : StateTransitionable?
     
     private (set) lazy var modeSelectState: StateTransitionable = initializeModeSelectState()
+    
+//    private (set) lazy var possibleState: PossibleStateSet
     /// user mode state
     private (set) lazy var initialState : StateTransitionable = initializeInitialState()
     private (set) lazy var readyState : StateTransitionable = initializeReadyState()
@@ -30,24 +33,24 @@ class VendingMachine: ProductSoldable {
     private (set) lazy var adminReadyState : StateTransitionable =  initializeAdminReadyState()
     private (set) lazy var addStockState : StateTransitionable = initializeAddStockState()
     private (set) lazy var removeStockState : StateTransitionable = initializeRemoveStockState()
-
-
-
-    init(drinkStockTable : [Int : DrinkItemList] = [Int : DrinkItemList]()){
+    
+    
+    
+    init(drinkStockTable : DrinkStockTable){
         self.drinkStockTable = drinkStockTable
         balance = 0
         shoppingHistory = [Drink]()
         fromState = StateType.modeSelect
         vendingMachineState = ModeSelectState.init(machine: self)//InitialState.init(machine: self)
     }
-
+    
     ///자판기 금액을 원하는 금액만큼 올리는 메소드
     func chargeBalance(_ money: Int){
         balance += money
     }
-
+    
     ///전체 상품 재고를 (사전으로 표현하는) 종류별로 리턴하는 메소드
-    func showDrinkStockTable() -> [Int : DrinkItemList]{
+    func showDrinkStockTable() -> DrinkStockTable{
         return drinkStockTable
     }
     
@@ -58,46 +61,23 @@ class VendingMachine: ProductSoldable {
     
     ///유통기한이 지난 재고만 리턴하는 메소드
     func showValidateOverDrink() -> [Drink]{
-        var totalNotForSaleList = [Drink]()
-        for offsetElementpair in drinkStockTable.enumerated() {
-            let drinkStockList = offsetElementpair.element.value
-            let stockNotForSaleList = drinkStockList.makeNotForSaleList()
-            totalNotForSaleList += stockNotForSaleList
-        }
+        let totalNotForSaleList = drinkStockTable.showValidateOverDrink()
         return totalNotForSaleList
+        
     }
     ///따뜻한 음료만 리턴하는 메소드
     ///동일한 상품 카테고리 물건이라도 서로 다른 온도를 지닐 수 있음을 가정
     func showHotterDrinkList() -> [Drink]{
-        var hotDrinkList = [Drink]()
-        for offsetElementpair in drinkStockTable.enumerated() {
-            let drinkStockList = offsetElementpair.element.value
-            hotDrinkList += drinkStockList.getHotDrinkList()
-        }
+        let hotDrinkList = drinkStockTable.showHotterDrinkList()
         return hotDrinkList
     }
     
     /// 현재 금액으로 구매가능한 음료수 목록을 리턴하는 메소드
-    func showBuyableDrinkList() -> [BeverageInfo]{
-        var buyableDrinkList = [BeverageInfo]()
-        for offsetElementpair in drinkStockTable.enumerated() {
-            let drinkStockList = offsetElementpair.element.value
-            if drinkStockList.isAvailable(balance) {
-                buyableDrinkList.append(drinkStockList.drinkStockInfo)
-            }
-        }
+    func showBuyableDrinkList() -> [Drink]{
+        let buyableDrinkList = drinkStockTable.showBuyableDrinkList(balance)
         return buyableDrinkList
     }
     
-    func selectProduct(productId: Int) throws -> Drink{
-        guard let productList = drinkStockTable[productId] else{
-            throw VendingMachineError.notFoundDrinkIdError
-        }
-        if productList.drinkStockList.isEmpty {
-            return productList.drinkItemInfo
-        }
-        return productList.drinkStockList[0]
-    }
     ///특정 상품 인스턴스를 넘겨서 재고를 추가하는 메소드
     ///만약 해당 상품인스턴스가 기존 재고에 없다면 넘버링을 새로하여 메뉴테이블과 재고테이블에 추가한다.
     func addDrinkStock(_ drink: Drink, quantity: Int) throws {
@@ -111,27 +91,33 @@ class VendingMachine: ProductSoldable {
         }
     }
     
-    func removeDrinkStock(number: Int, quantity: Int) throws -> (Drink, actualRemoved: Int){
-        if let itemList = drinkStockTable[number]{
-            let removeItemInfo = itemList.removeElement(quantity: quantity)
-            return removeItemInfo
+    func selectProduct(productId: Int) throws -> Drink{
+        do{
+            let productList = try drinkStockTable.selectProduct(productId: productId)
+            return productList
+        }catch let error as VendingMachineError{
+            throw error
         }
-        throw VendingMachineError.notFoundDrinkIdError
     }
     
-   
+    func removeDrinkStock(number: Int, quantity: Int) throws -> (Drink, actualRemoved: Int){
+        do{
+            let removeItemInfo = try drinkStockTable.removeDrinkStock(number: number, quantity: quantity)
+            return removeItemInfo
+        }catch{
+            throw VendingMachineError.notFoundDrinkIdError
+        }
+    }
     
     private func addStockDefault(drink: Drink, number : Int, quantity: Int) throws {
-        let drinkList = drinkStockTable[number]!
+        let drinkList = drinkStockTable.stockTable[number]!
         try drinkList.addItem(drink, quantity: quantity)
     }
     
-   
-
     private func updateDrinkStockTable (nextIndex newMenuNumber: Int, drinkElement : Drink){
         let drinkItemListInfoSet = makeNewDrinkItemInfo(drinkElement)
         let newDrinkItemList = DrinkItemList(drinkList: drinkItemListInfoSet.drinkList, stockInfo: drinkItemListInfoSet.info)
-        drinkStockTable.updateValue(newDrinkItemList, forKey: newMenuNumber)
+        drinkStockTable.updateDrinkItemList(newDrinkItemList, forKey: newMenuNumber)
     }
     
     private func updateMenuTable(nextIndex newMenuNumber: Int, name newDrinkName : String) {
@@ -158,7 +144,7 @@ class VendingMachine: ProductSoldable {
     
     ///음료수를 구매(판매)하는 메소드
     func sellProduct(productId: Int) throws -> Drink {
-        guard let productList = drinkStockTable[productId] else {
+        guard let productList = drinkStockTable.stockTable[productId] else {
             throw VendingMachineError.notFoundDrinkIdError
         }
         if productList.isAvailable(balance){  /// 판매 가능하면 업데이트
@@ -170,7 +156,7 @@ class VendingMachine: ProductSoldable {
             let price = productList.drinkStockInfo.price
             minusProductPriceFromBalance(price)
             updateEarning(price)
-            drinkStockTable.updateValue(productList, forKey: productId)
+            drinkStockTable.updateDrinkItemList(productList, forKey: productId)
             shoppingHistory.append(soldProduct)
             return soldProduct
         }
@@ -192,7 +178,7 @@ class VendingMachine: ProductSoldable {
     }
     ///initialState
     func displayDrinkMenuList(printFormat: ([(key: Int, value: DrinkItemList)]) -> Void ) {
-        let sortedMenutable = drinkStockTable.sorted{$0.key < $1.key }
+        let sortedMenutable = drinkStockTable.stockTable.sorted{$0.key < $1.key }
         printFormat(sortedMenutable)
     }
     
@@ -226,9 +212,9 @@ class VendingMachine: ProductSoldable {
     }
     
     ///lazy property initialize
-    private func buildMenuTable(_ drinkStockTable: [Int: DrinkItemList]) -> [String: Int]{
+    private func buildMenuTable(_ drinkStockTable: DrinkStockTable) -> [String: Int]{
         var menuTempTable = [String: Int]()
-        for element in drinkStockTable{
+        for element in drinkStockTable.stockTable{
             menuTempTable.updateValue(element.key, forKey: "\(element.value.drinkName)")
         }
         return menuTempTable
