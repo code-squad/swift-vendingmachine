@@ -20,27 +20,16 @@ class VendingMachine: ProductSoldable {
     
     var vendingMachineState: StateTransitionable?
     
-    private (set) lazy var modeSelectState: StateTransitionable = initializeModeSelectState()
-    
-//    private (set) lazy var possibleState: PossibleStateSet
-    /// user mode state
-    private (set) lazy var initialState: StateTransitionable = initializeInitialState()
-    private (set) lazy var readyState: StateTransitionable = initializeReadyState()
-    private (set) lazy var chargeMoneyState: StateTransitionable = initializeChargeMoneyState()
-    private (set) lazy var sellingState: StateTransitionable = initializeSellingState()
-    /// admin mode state
-    private (set) lazy var adminInitialState: StateTransitionable = initializeAdminInitialState()
-    private (set) lazy var adminReadyState: StateTransitionable =  initializeAdminReadyState()
-    private (set) lazy var addStockState: StateTransitionable = initializeAddStockState()
-    private (set) lazy var removeStockState: StateTransitionable = initializeRemoveStockState()
-    
+    private (set) lazy var possibleStateSet: PossibleStateSet = PossibleStateSet.init(machine: self)
+        
     init(drinkStockTable: DrinkStockTable){
         self.drinkStockTable = drinkStockTable
         balance = 0
         shoppingHistory = [Drink]()
         fromState = StateType.modeSelect
+        
         menuTable = MenuTable.init(drinkStockTable: drinkStockTable)
-        vendingMachineState = ModeSelectState.init(machine: self)//InitialState.init(machine: self)
+        vendingMachineState = ModeSelectState.init(machine: self)
     }
     
     ///자판기 금액을 원하는 금액만큼 올리는 메소드
@@ -162,34 +151,5 @@ class VendingMachine: ProductSoldable {
     func displayDrinkMenuList(printFormat: ([(key: Int, value: DrinkItemList)]) -> Void ) {
         let sortedMenutable = drinkStockTable.stockTable.sorted{$0.key < $1.key }
         printFormat(sortedMenutable)
-    }
-    
-    /// lazy properties initializer
-    func initializeSellingState() -> StateTransitionable{
-        return SellingState(machine: self)
-    }
-    func initializeReadyState() -> StateTransitionable {
-        return ReadyState(machine: self)
-    }
-    func initializeChargeMoneyState() -> StateTransitionable {
-        return ChargingMoneyState(machine: self)
-    }
-    func initializeInitialState() -> StateTransitionable {
-        return InitialState(machine: self)
-    }
-    func initializeModeSelectState() -> StateTransitionable{
-        return ModeSelectState(machine: self)
-    }
-    func initializeAdminInitialState() -> StateTransitionable {
-        return AdminInitialState.init(machine: self)
-    }
-    func initializeAdminReadyState() -> StateTransitionable {
-        return AdminReadyState.init(machine: self)
-    }
-    func initializeAddStockState() -> StateTransitionable {
-        return AddStockState.init(machine: self)
-    }
-    func initializeRemoveStockState() -> StateTransitionable {
-        return RemoveStockState.init(machine: self)
     }
 }

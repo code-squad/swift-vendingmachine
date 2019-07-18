@@ -24,7 +24,7 @@ class ChargingMoneyState: StateTransitionable{
         do {
             try insertMoney(chargableMoney)
             resetCurrentMoney()
-            moveToNextState(nextTo: vendingMachine.readyState)
+            moveToNextState(nextTo: vendingMachine.possibleStateSet.selectState(type: .ready))
             return InstructionResult("\(chargableMoney)", nil)
         } catch let error as VendingMachineError{
             return InstructionResult(nil, error)

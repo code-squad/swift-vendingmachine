@@ -66,7 +66,7 @@ class UserMode{
         CommonOutputView.printErrorMessage(errorMessage)
     }
     
-
+    
     private func printInitialStateMessage(_ vendingMachine: VendingMachine){
         UserOutputView.showCurrentBalanceInfo(vendingMachine)
         CommonOutputView.printInitialDrinkMenuList(vendingMachine)

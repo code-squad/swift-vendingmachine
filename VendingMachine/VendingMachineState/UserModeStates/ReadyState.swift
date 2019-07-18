@@ -30,11 +30,11 @@ class ReadyState: StateTransitionable{
         let stateType = StateType.init(value: instruction)
         switch stateType {
         case .chargeMoney:
-            shiftChargeMoneyStateWithMoney(quantity)
+            shiftChargeMoneyStateWithMoney(quantity, type: stateType)
         case .sell:
-            shiftSellingStateWithDrinkNumber(quantity)
+            shiftSellingStateWithDrinkNumber(quantity, type: stateType)
         case .modeSelect:
-            shiftModeSelectState()
+            shiftModeSelectState(stateType)
         default:
             break
         }
@@ -46,21 +46,23 @@ class ReadyState: StateTransitionable{
         return message
     }
     
-    private func shiftModeSelectState(){
-        moveToNextState(nextTo: vendingMachine.modeSelectState)
+    private func shiftModeSelectState(_ stateType: StateType){
+        moveToNextState(nextTo: vendingMachine.possibleStateSet.selectState(type: stateType))
     }
     
-    private func shiftChargeMoneyStateWithMoney(_ money: Int){
-        moveToNextState(nextTo: vendingMachine.chargeMoneyState)
-        guard let nextState = vendingMachine.chargeMoneyState as? ChargingMoneyState else {
+    private func shiftChargeMoneyStateWithMoney(_ money: Int, type: StateType){
+        let selectState = vendingMachine.possibleStateSet.selectState(type: type)
+        moveToNextState(nextTo: selectState)
+        guard let nextState = selectState as? ChargingMoneyState else {
             return
         }
         nextState.receiveMoneyInput(money)
     }
     
-    private func shiftSellingStateWithDrinkNumber(_ number: Int){
-        moveToNextState(nextTo: vendingMachine.sellingState)
-        guard let nextState = vendingMachine.sellingState as? SellingState else {
+    private func shiftSellingStateWithDrinkNumber(_ number: Int, type: StateType){
+        let selectState = vendingMachine.possibleStateSet.selectState(type: type)
+        moveToNextState(nextTo: selectState)
+        guard let nextState = selectState as? SellingState else {
             return
         }
         nextState.receiveDrinkNumberInput(number)

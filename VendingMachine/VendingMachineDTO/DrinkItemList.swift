@@ -116,9 +116,9 @@ class DrinkItemList : CustomStringConvertible{
         for _ in 0..<quantity {
             drinkStockList.append(drink)
         }
-        guard let drinkItemInfo = self.drinkItemInfo else{
-            self.drinkItemInfo = drink
+        if let drinkItemInfo = drinkItemInfo {
             return
         }
+        self.drinkItemInfo = drink
     }
 }

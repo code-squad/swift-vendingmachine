@@ -26,7 +26,7 @@ class AddStockState: StateTransitionable, StockManipulatable{
             let drink = try vendingMachine.selectProduct(productId: number)
             drink.updateDateInfo(days: 90)
             try vendingMachine.addDrinkStock(drink, quantity: quantity)
-            moveToNextState(nextTo: vendingMachine.adminReadyState)
+            moveToNextState(nextTo: vendingMachine.possibleStateSet.selectState(type: .adminReady))
             guard let quantity = quantity else {
                 return InstructionResult(nil, .invalidDrinkQuantity)
             }

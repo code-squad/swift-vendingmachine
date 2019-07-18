@@ -16,7 +16,6 @@ class AdminMode{
     
     func play(){
         while true {
-            let value = vendingMachine.vendingMachineState!
             if vendingMachine.vendingMachineState! is AdminInitialState {
                 printAdminInitialStateMessage(vendingMachine)
                 vendingMachine.vendingMachineState!.implementStateInstruction()
@@ -37,7 +36,6 @@ class AdminMode{
                 handleError(resultPair.failure)
                 continue
             }
-            
             if vendingMachine.fromState == .addStock {
                 printAddStockStateMessage(message: printMessage)
             }
@@ -55,7 +53,6 @@ class AdminMode{
     
     private func handleReadyState(_ vendingMachine: VendingMachine) -> Bool{
         var instruction: Int!
-        var pair: (instruction: Int, quantity: Int)!
         do {
             printAdminReadyStateMessage(vendingMachine)
             instruction = try AdminInputView.readAdminInstruction()
