@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
+		C2088DDB22F1B6170071F520 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2088DDA22F1B6170071F520 /* Milk.swift */; };
 		C273FF5722EEE17B0038B48E /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C273FF5622EEE17B0038B48E /* Beverage.swift */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +27,7 @@
 /* Begin PBXFileReference section */
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		C2088DDA22F1B6170071F520 /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 		C273FF5622EEE17B0038B48E /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -61,6 +63,7 @@
 			children = (
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
 				C273FF5622EEE17B0038B48E /* Beverage.swift */,
+				C2088DDA22F1B6170071F520 /* Milk.swift */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";
@@ -124,6 +127,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C273FF5722EEE17B0038B48E /* Beverage.swift in Sources */,
+				C2088DDB22F1B6170071F520 /* Milk.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
