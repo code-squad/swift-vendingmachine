@@ -17,7 +17,7 @@ class Beverage: CustomStringConvertible {
     private let price: Int
     
     var productName: String {
-        return "\(brand)\(name)"
+        return "\(brand) \(name)"
     }
     
     init(manufacturer: String, dateOfManufacture: String, brand: String, name: String, capacity: Int, unit: UnitVolume, price: Int) {
