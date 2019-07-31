@@ -7,8 +7,8 @@
 ### Beverage class
 
 - 음료수의 공통 property & `CustomStringConvertible` 준수
-- `productName` property  = brand 이름 + 특성(있을 경우)
-  - 제품 이름은 주로 brand 이름 뒤에 해당 브랜드 내의 카테고리 중 하나이므로 출력시에 사용될 `productName` computed property 를 지정하여 사용함
+- `productName` computed property  = brand 이름 + 특성(있을 경우)
+  - 제품 이름은 주로 brand 이름 뒤에 해당 브랜드 내의 카테고리 중 하나이므로 출력시에 사용될 `productName` property 를 지정하여 사용함
 
 ### Milk class
 
@@ -30,3 +30,7 @@
 
 - 내부 enum `Flavor` 으로 오렌지/포도 맛 등을 구분
 - Fanta 는 단일 브랜드, 제조사는 한국코카콜라에서만 제조하므로 type property 로 지정함
+
+### DateConverter class
+
+`DateFormatter` class 사용하여 "yyyyMMdd" 형태로 String <-> Date 간 변환 담당
