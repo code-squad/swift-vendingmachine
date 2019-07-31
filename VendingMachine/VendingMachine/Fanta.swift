@@ -19,12 +19,13 @@ class Fanta: Soda {
         }
     }
     
+    static let manufacturer = "한국코카콜라"
     static let brandName = "환타"
     private let variant: Variant
     
-    init(variant: Variant, manufacturer: String, dateOfManufacture: String, capacity: Int, unit: UnitVolume, price: Int) {
+    init(variant: Variant, dateOfManufacture: String, capacity: Int, unit: UnitVolume, price: Int) {
         self.variant = variant
         let compositeName = "\(variant)"
-        super.init(manufacturer: manufacturer, dateOfManufacture: dateOfManufacture, brand: Fanta.brandName, name: compositeName, capacity: capacity, unit: unit, price: price)
+        super.init(manufacturer: Fanta.manufacturer, dateOfManufacture: dateOfManufacture, brand: Fanta.brandName, name: compositeName, capacity: capacity, unit: unit, price: price)
     }
 }
