@@ -9,12 +9,12 @@
 import Foundation
 
 class Beverage: CustomStringConvertible {
-    private let manufacturer: String
-    private let dateOfManufacture: Date
-    private let brand: String
-    private let name: String
-    private let capacity: Measurement<UnitVolume>
-    private let price: Int
+    let manufacturer: String
+    let dateOfManufacture: Date
+    let capacity: Measurement<UnitVolume>
+    let price: Int
+    let brand: String
+    let name: String
     
     var productName: String {
         return "\(brand) \(name)"
