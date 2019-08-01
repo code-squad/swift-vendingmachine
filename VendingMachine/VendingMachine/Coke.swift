@@ -21,12 +21,19 @@ class Coke: Soda {
     
     private let variant: Variant
     
-    init(variant: Variant, manufacturer: String, dateOfManufacture: String, brand: String, capacity: Int, unit: UnitVolume, price: Int) {
     override var productName: String {
         return "\(brand) \(variant)"
     }
+    
+    init(variant: Variant,
+         manufacturer: String,
+         dateOfManufacture: String,
+         brand: String,
+         capacity: Int,
+         unit: UnitVolume,
+         price: Int) {
+        
         self.variant = variant
-        let compositeName = "\(variant)"
-        super.init(manufacturer: manufacturer, dateOfManufacture: dateOfManufacture, brand: brand, name: compositeName, capacity: capacity, unit: unit, price: price)
+        super.init(manufacturer: manufacturer, dateOfManufacture: dateOfManufacture, brand: brand, name: "", capacity: capacity, unit: unit, price: price)
     }
 }
