@@ -22,6 +22,9 @@ class Coffee: Beverage {
     }
     
     private let variation: Variation
+    override var productName: String {
+        return "\(brand) \(variation)"
+    }
     
     init(variation: Variation,
          manufacturer: String,
