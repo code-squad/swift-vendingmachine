@@ -33,9 +33,9 @@ class Coffee: Beverage {
          capacity: Int,
          unit: UnitVolume,
          price: Int) {
+        
         self.variation = variation
-        let compositeName = "\(variation)"
-        super.init(manufacturer: manufacturer, dateOfManufacture: dateOfManufacture, brand: brand, name: compositeName, capacity: capacity, unit: unit, price: price)
+        super.init(manufacturer: manufacturer, dateOfManufacture: dateOfManufacture, brand: brand, name: "", capacity: capacity, unit: unit, price: price)
     }
     
 }
