@@ -20,7 +20,14 @@ class Beverage: CustomStringConvertible {
         return "\(brand) \(name)"
     }
     
-    init(manufacturer: String, dateOfManufacture: String, brand: String, name: String, capacity: Int, unit: UnitVolume, price: Int) {
+    init(manufacturer: String,
+         dateOfManufacture: String,
+         brand: String,
+         name: String,
+         capacity: Int,
+         unit: UnitVolume,
+         price: Int) {
+        
         self.manufacturer = manufacturer
         self.dateOfManufacture = DateConverter.toDate(from: dateOfManufacture)
         self.brand = brand
