@@ -25,6 +25,9 @@ class Milk: Beverage {
     private let flavor: Flavor
     
     init(flavor: Flavor, manufacturer: String, dateOfManufacture: String, brand: String, capacity: Int, unit: UnitVolume, price: Int) {
+    override var productName: String {
+        return "\(brand) \(flavor)\(Milk.categoryName)"
+    }
         self.flavor = flavor
         let compositeName = "\(flavor)\(Milk.categoryName)"
         super.init(manufacturer: manufacturer, dateOfManufacture: dateOfManufacture, brand: brand, name: compositeName, capacity: capacity, unit: unit, price: price)
