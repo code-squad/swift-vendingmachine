@@ -1,5 +1,5 @@
 //
-//  CocaCola.swift
+//  Coke.swift
 //  VendingMachine
 //
 //  Created by CHOMINJI on 12/08/2019.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CocaCola: SoftDrink {
+class Coke: SoftDrink {
     let sugarContent: Int
     
     init(sugarContent: Int) {
