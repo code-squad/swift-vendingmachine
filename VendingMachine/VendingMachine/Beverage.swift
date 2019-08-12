@@ -24,6 +24,6 @@ class Beverage: CustomStringConvertible {
     }
     
     var description: String {
-        return "\(brand), \(capacity)ml, \(price)원, \(name), \(dateOfManufactured.convertToString())"
+        return "\(type(of: self)) - \(brand), \(capacity)ml, \(price)원, \(name), \(dateOfManufactured.convertToString())"
     }
 }
