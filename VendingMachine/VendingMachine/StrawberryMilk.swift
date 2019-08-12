@@ -9,10 +9,11 @@
 import Foundation
 
 class StrawberryMilk: Milk {
-    let strawberryContent: Int
+    private let strawberryContent: Int
     
     init(strawberryContent: Int) {
         self.strawberryContent = strawberryContent
+        
         super.init(
             brand: "서울우유",
             capacity: 200,
