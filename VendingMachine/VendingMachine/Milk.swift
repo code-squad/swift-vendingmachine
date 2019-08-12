@@ -9,9 +9,11 @@
 import Foundation
 
 class Milk: Beverage {
-    let dateOfExpiration: Date
+    private let dateOfExpiration: Date
+    
     init(brand: String, capacity: Int, price: Int, name: String, dateOfManufactured: Date, dateOfExpiration: Date) {
         self.dateOfExpiration = dateOfExpiration
+        
         super.init(brand: brand, capacity: capacity, price: price, name: name, dateOfManufactured: dateOfManufactured)
     }
 }
