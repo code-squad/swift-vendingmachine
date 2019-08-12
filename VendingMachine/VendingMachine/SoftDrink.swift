@@ -9,7 +9,9 @@
 import Foundation
 
 class SoftDrink: Beverage {
-    override init(brand: String, capacity: Int, price: Int, name: String, dateOfManufactured: Date) {
+    let calorie: Int
+    override init(brand: String, capacity: Int, price: Int, name: String, dateOfManufactured: Date, calorie: Int) {
+        self.calorie = calorie
         super.init(brand: brand, capacity: capacity, price: price, name: name, dateOfManufactured: dateOfManufactured)
     }
 }

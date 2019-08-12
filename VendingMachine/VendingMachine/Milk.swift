@@ -9,7 +9,9 @@
 import Foundation
 
 class Milk: Beverage {
-    override init(brand: String, capacity: Int, price: Int, name: String, dateOfManufactured: Date) {
+    let dateOfExpiration: Date
+    init(brand: String, capacity: Int, price: Int, name: String, dateOfManufactured: Date, dateOfExpiration: Date) {
+        self.dateOfExpiration = dateOfExpiration
         super.init(brand: brand, capacity: capacity, price: price, name: name, dateOfManufactured: dateOfManufactured)
     }
 }

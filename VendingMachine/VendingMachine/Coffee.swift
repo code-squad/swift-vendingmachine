@@ -9,7 +9,9 @@
 import Foundation
 
 class Coffee: Beverage {
-    override init(brand: String, capacity: Int, price: Int, name: String, dateOfManufactured: Date) {
+    let temperature: Int
+    init(brand: String, capacity: Int, price: Int, name: String, dateOfManufactured: Date, temperature: Int) {
+        self.temperature = temperature
         super.init(brand: brand, capacity: capacity, price: price, name: name, dateOfManufactured: dateOfManufactured)
     }
 }
