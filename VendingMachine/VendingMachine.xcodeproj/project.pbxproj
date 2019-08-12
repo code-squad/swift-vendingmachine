@@ -14,6 +14,7 @@
 		FA59632B2301468600F53935 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA59632A2301468600F53935 /* Coffee.swift */; };
 		FA59632D230146A000F53935 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA59632C230146A000F53935 /* Date+Extension.swift */; };
 		FA59633523014F4600F53935 /* VendingMachineTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA59633423014F4600F53935 /* VendingMachineTest.swift */; };
+		FA59633E23015B7100F53935 /* StrawberryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA59633D23015B7100F53935 /* StrawberryMilk.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,6 +40,7 @@
 		FA59633223014F4600F53935 /* VendingMachineTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA59633423014F4600F53935 /* VendingMachineTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineTest.swift; sourceTree = "<group>"; };
 		FA59633623014F4600F53935 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA59633D23015B7100F53935 /* StrawberryMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrawberryMilk.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
 				FA5963242301456E00F53935 /* Beverage.swift */,
 				FA5963262301462B00F53935 /* Milk.swift */,
+				FA59633D23015B7100F53935 /* StrawberryMilk.swift */,
 				FA5963282301466E00F53935 /* SoftDrink.swift */,
 				FA59632A2301468600F53935 /* Coffee.swift */,
 				FA59632C230146A000F53935 /* Date+Extension.swift */,
@@ -189,6 +192,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA59633E23015B7100F53935 /* StrawberryMilk.swift in Sources */,
 				FA5963252301456E00F53935 /* Beverage.swift in Sources */,
 				FA5963272301462B00F53935 /* Milk.swift in Sources */,
 				FA5963292301466E00F53935 /* SoftDrink.swift in Sources */,
