@@ -14,6 +14,13 @@ class TOPCoffee: Coffee {
     init(caffeineContent: Int) {
         self.caffeineContent = caffeineContent
         
-        super.init(brand: "맥심커피", capacity: 400, price: 3000, name: "TOP아메리카노", dateOfManufactured: Date("20190812"), temperature: 10)
+        super.init(
+            brand: "맥심커피",
+            capacity: 400,
+            price: 3000,
+            name: "TOP아메리카노",
+            dateOfManufactured: Date("20190812"),
+            temperature: 10
+        )
     }
 }
