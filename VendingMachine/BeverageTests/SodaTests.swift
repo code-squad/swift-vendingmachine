@@ -10,7 +10,6 @@ import XCTest
 
 class SodaTests: XCTestCase {
     
-    
     func testSodaDescription() {
         
         //Given
@@ -61,7 +60,6 @@ class SodaTests: XCTestCase {
     }
     
     func testStrawberryMilk() {
-        
         
         //Given
         let brand = "레드불 컴퍼니"

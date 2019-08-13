@@ -56,7 +56,6 @@ class CoffeeTests: XCTestCase {
         XCTAssertEqual(result, expected)
     }
     
-    
     func testCafeLatte() {
             //Given
             let brand = "스타벅스"

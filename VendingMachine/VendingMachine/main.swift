@@ -13,11 +13,11 @@ let beverage = Beverage()
 print(beverage: beverage)
 print("=================================================")
 let milk = Milk()
-let strawberryMilk = StrawberryMilk(brand:"서울우유",
+let strawberryMilk = StrawberryMilk(brand: "서울우유",
                                     capacity: 200,
                                     price: 900,
                                     name: "딸기우유")
-let chocolateMilk = ChocolateMilk(brand:"GS25",
+let chocolateMilk = ChocolateMilk(brand: "GS25",
                                   capacity: 500,
                                   price: 1500,
                                   name: "스누피 초코우유")
@@ -41,14 +41,14 @@ print(beverage: coke)
 print(beverage: redBull)
 print("=================================================")
 print(beverage: Coffee())
-let americano  = Americano(brand:"빽다방",
+let americano  = Americano(brand: "빽다방",
                            capacity: 750,
                            price: 2000,
-                           name:"앗!메리카노")
-let cafeLatte = CafeLatte(brand:"스타벅스",
+                           name: "앗!메리카노")
+let cafeLatte = CafeLatte(brand: "스타벅스",
                           capacity: 500,
                           price: 5300,
-                          name:"돌체라떼")
+                          name: "돌체라떼")
 print(beverage: americano)
 print(beverage: cafeLatte)
 

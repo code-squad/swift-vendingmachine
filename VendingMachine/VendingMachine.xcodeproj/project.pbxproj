@@ -167,6 +167,7 @@
 		839DA9001F8D1F95009E05F3 = {
 			isa = PBXGroup;
 			children = (
+				0E150D1123037E2F003F928F /* .swiftlint.yml */,
 				839DA90B1F8D1F95009E05F3 /* VendingMachine */,
 				0E3F1DA42302835700FC08DC /* BeverageTests */,
 				839DA90A1F8D1F95009E05F3 /* Products */,
@@ -190,7 +191,6 @@
 				0E3F1D982302822300FC08DC /* Util */,
 				0E3F1D95230281F700FC08DC /* Class */,
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
-				0E150D1123037E2F003F928F /* .swiftlint.yml */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";
