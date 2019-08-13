@@ -34,6 +34,7 @@
 		0E3F1DB92302A31F00FC08DC /* CafeLatte.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3F1DB82302A31F00FC08DC /* CafeLatte.swift */; };
 		0E3F1DBA2302A34100FC08DC /* CafeLatte.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3F1DB82302A31F00FC08DC /* CafeLatte.swift */; };
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
+		9F300279A87BABAE92F95450 /* Pods_VendingMachine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFD65AA3BB7CF46929BDD741 /* Pods_VendingMachine.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -68,6 +69,9 @@
 		0E3F1DB82302A31F00FC08DC /* CafeLatte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeLatte.swift; sourceTree = "<group>"; };
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		898DF366FEC6F82668986051 /* Pods-VendingMachine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VendingMachine.debug.xcconfig"; path = "Target Support Files/Pods-VendingMachine/Pods-VendingMachine.debug.xcconfig"; sourceTree = "<group>"; };
+		A61E9FD29F9288D60E8918E9 /* Pods-VendingMachine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VendingMachine.release.xcconfig"; path = "Target Support Files/Pods-VendingMachine/Pods-VendingMachine.release.xcconfig"; sourceTree = "<group>"; };
+		FFD65AA3BB7CF46929BDD741 /* Pods_VendingMachine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VendingMachine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F300279A87BABAE92F95450 /* Pods_VendingMachine.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,12 +154,23 @@
 			path = Coffee;
 			sourceTree = "<group>";
 		};
+		31DCB2DACB2F1EEB2AE03EBF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				898DF366FEC6F82668986051 /* Pods-VendingMachine.debug.xcconfig */,
+				A61E9FD29F9288D60E8918E9 /* Pods-VendingMachine.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		839DA9001F8D1F95009E05F3 = {
 			isa = PBXGroup;
 			children = (
 				839DA90B1F8D1F95009E05F3 /* VendingMachine */,
 				0E3F1DA42302835700FC08DC /* BeverageTests */,
 				839DA90A1F8D1F95009E05F3 /* Products */,
+				31DCB2DACB2F1EEB2AE03EBF /* Pods */,
+				A7E91A6B80EBB6FF77AAC8D8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -175,6 +191,14 @@
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
 			);
 			path = VendingMachine;
+			sourceTree = "<group>";
+		};
+		A7E91A6B80EBB6FF77AAC8D8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FFD65AA3BB7CF46929BDD741 /* Pods_VendingMachine.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,9 +225,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 839DA9101F8D1F95009E05F3 /* Build configuration list for PBXNativeTarget "VendingMachine" */;
 			buildPhases = (
+				3F2490C758744385328C8D19 /* [CP] Check Pods Manifest.lock */,
 				839DA9051F8D1F95009E05F3 /* Sources */,
 				839DA9061F8D1F95009E05F3 /* Frameworks */,
 				839DA9071F8D1F95009E05F3 /* CopyFiles */,
+				0E150D0E23037C95003F928F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -261,6 +287,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0E150D0E23037C95003F928F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint\n";
+		};
+		3F2490C758744385328C8D19 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VendingMachine-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0E3F1D9F2302835700FC08DC /* Sources */ = {
@@ -456,6 +524,7 @@
 		};
 		839DA9111F8D1F95009E05F3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 898DF366FEC6F82668986051 /* Pods-VendingMachine.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -465,6 +534,7 @@
 		};
 		839DA9121F8D1F95009E05F3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A61E9FD29F9288D60E8918E9 /* Pods-VendingMachine.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";

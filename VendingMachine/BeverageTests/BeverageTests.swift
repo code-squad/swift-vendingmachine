@@ -10,7 +10,6 @@ import XCTest
 
 class BeverageTests: XCTestCase {
 
-   
     func testBeverageDescription() {
         
         //Given
@@ -19,7 +18,7 @@ class BeverageTests: XCTestCase {
         let price = 500
         let name = "스위프 티"
         let current =  Date()
-        
+
         let beverage = Beverage(
             brand: brand,
             capacity: capacity,
@@ -34,8 +33,5 @@ class BeverageTests: XCTestCase {
         //Then
         XCTAssertEqual(result, expected)
     }
-    
-    
-   
     
 }

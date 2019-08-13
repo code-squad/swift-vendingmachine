@@ -17,7 +17,7 @@ class Beverage {
     private let productDate: Date
     
     // MARK: - Methods
-    init(brand:String = "제조사",
+    init(brand: String = "제조사",
          capacity: Int = 0,
          price: Int = 0,
          name: String = "음료",

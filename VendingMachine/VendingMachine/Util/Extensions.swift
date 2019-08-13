@@ -16,8 +16,6 @@ extension Date {
     }
 }
 
-
 func print<T: Beverage>(beverage: T) {
     print("\(type(of: beverage)) - \(beverage.description)")
 }
-

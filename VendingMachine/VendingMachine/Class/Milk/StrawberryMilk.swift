@@ -46,4 +46,3 @@ class StrawberryMilk: Milk, Sweetable {
     }
     
 }
-
