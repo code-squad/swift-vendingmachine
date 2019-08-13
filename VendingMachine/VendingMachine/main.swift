@@ -10,5 +10,6 @@ import Foundation
 
 print(StrawberryMilk(strawberryContent: 20))
 print(ChocolateMilk(chocolateContent: 80))
-print(Coke(sugarContent: 30))
-print(Americano(caffeineContent: 24))
+print(Coke(caffeineContent: 5))
+print(Americano(waterContent: 70))
+print(CaffeLatte(milkContent: 20))
