@@ -1,5 +1,5 @@
 //
-//  TOPCoffee.swift
+//  Americano.swift
 //  VendingMachine
 //
 //  Created by CHOMINJI on 12/08/2019.
@@ -8,11 +8,11 @@
 
 import Foundation
 
-class TOPCoffee: Coffee {
-    let caffeineContent: Int
+class Americano: Coffee {
+    private let waterContent: Int
     
-    init(caffeineContent: Int) {
-        self.caffeineContent = caffeineContent
+    init(waterContent: Int) {
+        self.waterContent = waterContent
         
         super.init(
             brand: "맥심커피",

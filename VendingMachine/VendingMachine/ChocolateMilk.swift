@@ -18,7 +18,7 @@ class ChocolateMilk: Milk {
             brand: "매일유업",
             capacity: 235,
             price: 2000,
-            name: "허쉬초콜렛드링크",
+            name: "초코우유",
             dateOfManufactured: Date("20190811"),
             dateOfExpiration: Date("20190819")
         )
