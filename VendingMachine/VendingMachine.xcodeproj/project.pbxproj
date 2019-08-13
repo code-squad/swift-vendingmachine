@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
+		FA4BF1A9230198FA00CB2ACE /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4BF1A8230198FA00CB2ACE /* Sprite.swift */; };
 		FA5963252301456E00F53935 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5963242301456E00F53935 /* Beverage.swift */; };
 		FA5963272301462B00F53935 /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5963262301462B00F53935 /* Milk.swift */; };
 		FA5963292301466E00F53935 /* SoftDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5963282301466E00F53935 /* SoftDrink.swift */; };
@@ -35,6 +36,7 @@
 /* Begin PBXFileReference section */
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		FA4BF1A8230198FA00CB2ACE /* Sprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sprite.swift; sourceTree = "<group>"; };
 		FA5963242301456E00F53935 /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 		FA5963262301462B00F53935 /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 		FA5963282301466E00F53935 /* SoftDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoftDrink.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				FA59633F23018A5C00F53935 /* ChocolateMilk.swift */,
 				FA5963282301466E00F53935 /* SoftDrink.swift */,
 				FA59634123018C0400F53935 /* Coke.swift */,
+				FA4BF1A8230198FA00CB2ACE /* Sprite.swift */,
 				FA59632A2301468600F53935 /* Coffee.swift */,
 				FA59634323018E3F00F53935 /* TOPCoffee.swift */,
 				FA59632C230146A000F53935 /* Date+Extension.swift */,
@@ -203,6 +206,7 @@
 			files = (
 				FA59633E23015B7100F53935 /* StrawberryMilk.swift in Sources */,
 				FA59634423018E3F00F53935 /* TOPCoffee.swift in Sources */,
+				FA4BF1A9230198FA00CB2ACE /* Sprite.swift in Sources */,
 				FA59634223018C0400F53935 /* Coke.swift in Sources */,
 				FA5963252301456E00F53935 /* Beverage.swift in Sources */,
 				FA5963272301462B00F53935 /* Milk.swift in Sources */,
