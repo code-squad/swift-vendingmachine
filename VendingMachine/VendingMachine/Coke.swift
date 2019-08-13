@@ -20,6 +20,7 @@ class Coke: SoftDrink {
             price: 1900,
             name: "코카콜라",
             dateOfManufactured: Date("20190630"),
-            calorie: 160)
+            calorie: 160
+        )
     }
 }
