@@ -9,6 +9,6 @@
 import Foundation
 
 print(Beverage())
-print(Beverage())
-print(Beverage())
-print(Beverage())
+print(Milk())
+print(Soda())
+print(Coffee())
