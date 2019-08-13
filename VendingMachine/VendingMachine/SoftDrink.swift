@@ -16,4 +16,8 @@ class SoftDrink: Beverage {
         
         super.init(brand: brand, capacity: capacity, price: price, name: name, dateOfManufactured: dateOfManufactured)
     }
+    
+    var isLowCalorie: Bool {
+        return calorie < 50 ? true : false
+    }
 }
