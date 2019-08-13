@@ -1,0 +1,14 @@
+disabled_rules: # rule identifiers to exclude from running
+  - colon
+  - comma
+  - control_statement
+  - switch_case_alignment
+  - vertical_whitespace
+  - trailing_whitespace
+  - trailing_newline
+
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+    -  /VendingMachine/BevarageTests/CoffeeTests.swift
+    - /VendingMachine/BeverageTests/CoffeeTests.swift
+    - /VendingMachine/BeverageTests/SodaTests.swift
+    - Pods
