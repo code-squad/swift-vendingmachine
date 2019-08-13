@@ -9,16 +9,16 @@
 import Foundation
 
 class Coke: SoftDrink {
-    let sugarContent: Int
+    private let caffeineContent: Int
     
-    init(sugarContent: Int) {
-        self.sugarContent = sugarContent
+    init(caffeineContent: Int) {
+        self.caffeineContent = caffeineContent
         
         super.init(
             brand: "코카콜라컴퍼니",
             capacity: 250,
             price: 1900,
-            name: "코카콜라",
+            name: "콜라",
             dateOfManufactured: Date("20190630"),
             calorie: 160
         )

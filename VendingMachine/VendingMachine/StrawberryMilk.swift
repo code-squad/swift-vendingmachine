@@ -18,7 +18,7 @@ class StrawberryMilk: Milk {
             brand: "서울우유",
             capacity: 200,
             price: 1000,
-            name: "날마다딸기우유",
+            name: "딸기우유",
             dateOfManufactured: Date("20190812"),
             dateOfExpiration: Date("20190820")
         )
