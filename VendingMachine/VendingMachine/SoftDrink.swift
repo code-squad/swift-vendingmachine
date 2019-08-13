@@ -18,6 +18,6 @@ class SoftDrink: Beverage {
     }
     
     var isLowCalorie: Bool {
-        return calorie < 50 ? true : false
+        return calorie < 50 
     }
 }

@@ -18,6 +18,6 @@ class Coffee: Beverage {
     }
     
     var isHot: Bool {
-        return temperature > 70 ? true : false
+        return temperature > 70
     }
 }
