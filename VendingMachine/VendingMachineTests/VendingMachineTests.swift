@@ -1,14 +1,14 @@
 //
-//  VendingMachineTest.swift
-//  VendingMachineTest
+//  VendingMachineTests.swift
+//  VendingMachineTests
 //
-//  Created by CHOMINJI on 12/08/2019.
+//  Created by CHOMINJI on 13/08/2019.
 //  Copyright © 2019 JK. All rights reserved.
 //
 
 import XCTest
 
-class VendingMachineTest: XCTestCase {
+class VendingMachineTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
