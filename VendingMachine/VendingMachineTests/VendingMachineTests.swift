@@ -9,25 +9,27 @@
 import XCTest
 
 class VendingMachineTests: XCTestCase {
-
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testMilk() {
+        let strawberryMilk = StrawberryMilk(strawberryContent: 20)
+        let chocolateMilk = ChocolateMilk(chocolateContent: 14)
+        
+        XCTAssertTrue(strawberryMilk.validate(with: Date("20190809")))
+        XCTAssertFalse(chocolateMilk.validate(with: Date("20190820")))
     }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func testCoke() {
+        let coke = Coke(caffeineContent: 5)
+        let cider = Cider(lemonScentContent: 2)
+        
+        XCTAssertFalse(coke.isLowCalorie)
+        XCTAssertFalse(cider.isLowCalorie)
     }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testCoffee() {
+        let top = Americano(waterContent: 70)
+        let cantata = CaffeLatte(milkContent: 20)
+        
+        XCTAssertFalse(top.isHot)
+        XCTAssertTrue(cantata.isHot)
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }
