@@ -9,10 +9,10 @@
 import Foundation
 
 class Cider: SoftDrink {
-    private let sugarContent: Int
+    private let lemonScentContent: Int
     
-    init(sugarContent: Int) {
-        self.sugarContent = sugarContent
+    init(lemonScentContent: Int) {
+        self.lemonScentContent = lemonScentContent
         
         super.init(
             brand: "코카콜라컴퍼니",
