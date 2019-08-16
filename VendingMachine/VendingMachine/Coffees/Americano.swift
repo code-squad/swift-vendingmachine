@@ -11,7 +11,7 @@ import Foundation
 class Americano: Coffee {
     private let waterContent: Int
     
-    init(waterContent: Int) {
+    init(waterContent: Int = 70) {
         self.waterContent = waterContent
         
         super.init(

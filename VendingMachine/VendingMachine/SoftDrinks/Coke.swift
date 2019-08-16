@@ -11,7 +11,7 @@ import Foundation
 class Coke: SoftDrink {
     private let caffeineContent: Int
     
-    init(caffeineContent: Int) {
+    init(caffeineContent: Int = 5) {
         self.caffeineContent = caffeineContent
         
         super.init(

@@ -11,7 +11,7 @@ import Foundation
 class CaffeLatte: Coffee {
     private let milkContent: Int
     
-    init(milkContent: Int) {
+    init(milkContent: Int = 20) {
         self.milkContent = milkContent
         
         super.init(

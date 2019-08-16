@@ -11,7 +11,7 @@ import Foundation
 class Cider: SoftDrink {
     private let lemonScentContent: Int
     
-    init(lemonScentContent: Int) {
+    init(lemonScentContent: Int = 10) {
         self.lemonScentContent = lemonScentContent
         
         super.init(

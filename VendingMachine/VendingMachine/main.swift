@@ -8,8 +8,8 @@
 
 import Foundation
 
-print(StrawberryMilk(strawberryContent: 20))
-print(ChocolateMilk(chocolateContent: 80))
-print(Coke(caffeineContent: 5))
-print(Americano(waterContent: 70))
-print(CaffeLatte(milkContent: 20))
+print(StrawberryMilk())
+print(ChocolateMilk())
+print(Coke())
+print(Americano())
+print(CaffeLatte())

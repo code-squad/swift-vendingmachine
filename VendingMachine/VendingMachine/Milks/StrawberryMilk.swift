@@ -11,7 +11,7 @@ import Foundation
 class StrawberryMilk: Milk {
     private let strawberryContent: Int
     
-    init(strawberryContent: Int) {
+    init(strawberryContent: Int = 20) {
         self.strawberryContent = strawberryContent
         
         super.init(
