@@ -27,3 +27,8 @@ class Beverage: CustomStringConvertible {
         return "\(type(of: self)) - \(brand), \(capacity)ml, \(price)원, \(name), \(dateOfManufactured.convertToString())"
     }
 }
+
+struct BeverageStandard {
+    static let calorie = 50
+    static let temperature = 60
+}
