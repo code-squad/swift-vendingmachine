@@ -105,13 +105,21 @@
 			isa = PBXGroup;
 			children = (
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
+				FA4179072307D60A00300699 /* Beverages */,
+				FA4BF1DD23028D1900CB2ACE /* Utils */,
+			);
+			path = VendingMachine;
+			sourceTree = "<group>";
+		};
+		FA4179072307D60A00300699 /* Beverages */ = {
+			isa = PBXGroup;
+			children = (
 				FA5963242301456E00F53935 /* Beverage.swift */,
 				FA4BF1DA23028CD900CB2ACE /* Milks */,
 				FA4BF1DB23028CEC00CB2ACE /* SoftDrinks */,
 				FA4BF1DC23028CFB00CB2ACE /* Coffees */,
-				FA4BF1DD23028D1900CB2ACE /* Utils */,
 			);
-			path = VendingMachine;
+			path = Beverages;
 			sourceTree = "<group>";
 		};
 		FA4BF1C523026EBF00CB2ACE /* VendingMachineTests */ = {
