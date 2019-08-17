@@ -34,6 +34,7 @@
 		FA59634423018E3F00F53935 /* Americano.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA59634323018E3F00F53935 /* Americano.swift */; };
 		FA6AE95E2307D9D100BC9414 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6AE95D2307D9D100BC9414 /* InputView.swift */; };
 		FA6AE9602307DBE800BC9414 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6AE95F2307DBE800BC9414 /* VendingMachine.swift */; };
+		FA6AE962230823AC00BC9414 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6AE961230823AC00BC9414 /* OutputView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -67,6 +68,7 @@
 		FA59634323018E3F00F53935 /* Americano.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Americano.swift; sourceTree = "<group>"; };
 		FA6AE95D2307D9D100BC9414 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		FA6AE95F2307DBE800BC9414 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
+		FA6AE961230823AC00BC9414 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
 				FA6AE95F2307DBE800BC9414 /* VendingMachine.swift */,
 				FA6AE95D2307D9D100BC9414 /* InputView.swift */,
+				FA6AE961230823AC00BC9414 /* OutputView.swift */,
 				FA4179072307D60A00300699 /* Beverages */,
 				FA4BF1DD23028D1900CB2ACE /* Utils */,
 			);
@@ -270,6 +273,7 @@
 				FA59634423018E3F00F53935 /* Americano.swift in Sources */,
 				FA4BF1A9230198FA00CB2ACE /* Cider.swift in Sources */,
 				FA59634223018C0400F53935 /* Coke.swift in Sources */,
+				FA6AE962230823AC00BC9414 /* OutputView.swift in Sources */,
 				FA5963252301456E00F53935 /* Beverage.swift in Sources */,
 				FA5963272301462B00F53935 /* Milk.swift in Sources */,
 				FA4BF1D8230288B100CB2ACE /* CaffeLatte.swift in Sources */,
