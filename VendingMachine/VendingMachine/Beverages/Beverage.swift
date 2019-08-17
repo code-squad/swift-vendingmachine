@@ -8,6 +8,11 @@
 
 import Foundation
 
+struct BeverageStandard {
+    static let calorie = 50
+    static let temperature = 60
+}
+
 class Beverage: CustomStringConvertible {
     private let brand: String
     private let capacity: Int
@@ -28,7 +33,28 @@ class Beverage: CustomStringConvertible {
     }
 }
 
-struct BeverageStandard {
-    static let calorie = 50
-    static let temperature = 60
+extension Beverage: Comparable {
+    static func < (lhs: Beverage, rhs: Beverage) -> Bool {
+        return lhs.price < rhs.price
+    }
+    
+    static func < (lhs: Beverage, rhs: Int) -> Bool {
+        return lhs.price < rhs
+    }
+    
+    static func < (lhs: Int, rhs: Beverage) -> Bool {
+        return lhs < rhs.price
+    }
+}
+
+extension Beverage: Equatable {
+    static func == (lhs: Beverage, rhs: Beverage) -> Bool {
+        return lhs.name == rhs.name
+    }
+}
+
+extension Beverage: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+    }
 }
