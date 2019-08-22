@@ -9,10 +9,18 @@
 import Foundation
 
 struct InputView {
-    static func readAnswer(for question: String) -> Int {
-        print(question)
+    static func menuNumber() -> Int {
+        for menu in Menu.allCases {
+            print(menu)
+        }
+        let input = readPrompt()
+        return input
+    }
+    
+    static func readPrompt() -> Int {
+        let inputSymbol = ">"
+        print(inputSymbol, terminator: " ")
         let prompt = readLine() ?? ""
-        let answer = Int(prompt) ?? -1
-        return answer
+        return Int(prompt) ?? -1
     }
 }
