@@ -36,6 +36,7 @@
 		FA6AE9602307DBE800BC9414 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6AE95F2307DBE800BC9414 /* VendingMachine.swift */; };
 		FA6AE962230823AC00BC9414 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6AE961230823AC00BC9414 /* OutputView.swift */; };
 		FA80C446230E68F40012A94F /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80C445230E68F40012A94F /* Menu.swift */; };
+		FA80C448230E93D50012A94F /* VendingMachineService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80C447230E93D50012A94F /* VendingMachineService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -71,6 +72,7 @@
 		FA6AE95F2307DBE800BC9414 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 		FA6AE961230823AC00BC9414 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		FA80C445230E68F40012A94F /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		FA80C447230E93D50012A94F /* VendingMachineService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 			children = (
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
 				FA6AE95F2307DBE800BC9414 /* VendingMachine.swift */,
+				FA80C447230E93D50012A94F /* VendingMachineService.swift */,
 				FA6AE95D2307D9D100BC9414 /* InputView.swift */,
 				FA6AE961230823AC00BC9414 /* OutputView.swift */,
 				FA80C445230E68F40012A94F /* Menu.swift */,
@@ -283,6 +286,7 @@
 				FA5963292301466E00F53935 /* SoftDrink.swift in Sources */,
 				FA80C446230E68F40012A94F /* Menu.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
+				FA80C448230E93D50012A94F /* VendingMachineService.swift in Sources */,
 				FA59634023018A5C00F53935 /* ChocolateMilk.swift in Sources */,
 				FA59632B2301468600F53935 /* Coffee.swift in Sources */,
 				FA59632D230146A000F53935 /* Date+Extension.swift in Sources */,

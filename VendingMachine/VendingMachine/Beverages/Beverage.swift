@@ -16,8 +16,8 @@ struct BeverageStandard {
 class Beverage: CustomStringConvertible {
     private let brand: String
     private let capacity: Int
-    private let price: Int
-    private let name: String
+    private(set) var price: Int
+    private(set) var name: String
     private let dateOfManufactured: Date
     
     init(brand: String, capacity: Int, price: Int, name: String, dateOfManufactured: Date) {
