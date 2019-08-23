@@ -20,7 +20,8 @@ class Americano: Coffee {
             price: 3000,
             name: "TOP아메리카노",
             dateOfManufactured: Date("20190812"),
-            temperature: 10
+            temperature: 10,
+            shelfLife: 3
         )
     }
 }

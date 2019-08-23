@@ -20,7 +20,9 @@ class Coke: SoftDrink {
             price: 1900,
             name: "콜라",
             dateOfManufactured: Date("20190630"),
-            calorie: 160
+            temperature: 10,
+            calorie: 160,
+            shelfLife: 12
         )
     }
 }

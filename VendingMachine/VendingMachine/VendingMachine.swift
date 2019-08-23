@@ -10,15 +10,16 @@ import Foundation
 
 class VendingMachine {
     private var balance = 0
-    var stock: [Beverage: Int] = [:]
+    var inventory = Inventory()
+    var purchaseList: [Beverage] = []
     
     func showBalance(with completion: (Int) -> Void) {
         completion(balance)
     }
     
-    func showStock(with completion: ([(name: String, price: Int, value: Int)]) -> Void) {
-        let names = stock.map { ($0.key.name, $0.key.price, $0.value) }
-        completion(names)
+    /// 재고를 출력한다.
+    func printStock() {
+        inventory.showStock(with: OutputView.beverageListForm)
     }
     
     /// 자판기 금액을 원하는 금액만큼 올린다.
@@ -28,21 +29,20 @@ class VendingMachine {
     
     ///특정 상품 인스턴스를 넘겨서 재고를 추가한다.
     func addStock(of beverage: Beverage, count: Int) {
-        stock[beverage, default: 0] += count
+        inventory.append(beverage, count: count)
     }
     
     /// 현재 금액으로 구매 가능한 음료수 목록을 리턴한다.
     func fetchPurchaseableList() -> [String] {
-        let beveragePrices = stock.keys
-            .filter { $0.price <= balance }
-            .map { $0.name }
-        return beveragePrices
+        return inventory.fetchPurchaseableList(with: balance)
     }
     
     /// 음료수를 구매한다.
     func purchase(beverage: Beverage) -> Beverage? {
-        if stock[beverage] != nil {
-            stock[beverage]! -= 1
+        if inventory.canPurchaseBeverage(beverage, with: balance) {
+            inventory.purchase(beverage)
+            purchaseList.append(beverage)
+            balance -= beverage.price
             return beverage
         }
         return nil
@@ -54,22 +54,22 @@ class VendingMachine {
     }
     
     /// 전체 상품 재고를 종류별로 리턴한다.
-    func fetchCategorizedStock() {
-        
+    func fetchCategorizedStock() -> Inventory {
+        return inventory
     }
     
     /// 유통기한이 지난 재고만 리턴한다.
-    func fetchExpiredStock() {
-        
+    func fetchExpiredStock() -> [Beverage] {
+        return inventory.filter(by: .expired)
     }
     
     /// 따뜻한 음료만 리턴한다.
-    func fetchHotBeverages() {
-        
+    func fetchHotBeverages() -> [Beverage] {
+        return inventory.filter(by: .hot)
     }
     
     /// 시작이후 구매 상품 이력을 배열로 리턴한다.
-    func fetchPurchaseHistory() {
-        
+    func fetchPurchaseHistory() -> [Beverage] {
+        return purchaseList
     }
 }

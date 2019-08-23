@@ -19,17 +19,29 @@ class Beverage: CustomStringConvertible {
     private(set) var price: Int
     private(set) var name: String
     private let dateOfManufactured: Date
+    private let temperature: Int
+    private let shelfLife: Double
     
-    init(brand: String, capacity: Int, price: Int, name: String, dateOfManufactured: Date) {
+    init(brand: String, capacity: Int, price: Int, name: String, dateOfManufactured: Date, temperature: Int, shelfLife: Double) {
         self.brand = brand
         self.capacity = capacity
         self.price = price
         self.name = name
         self.dateOfManufactured = dateOfManufactured
+        self.temperature = temperature
+        self.shelfLife = TimeInterval(SecondOfDay.second) * 7
     }
     
     var description: String {
         return "\(type(of: self)) - \(brand), \(capacity)ml, \(price)원, \(name), \(dateOfManufactured.convertToString())"
+    }
+    
+    var isHot: Bool {
+        return temperature > BeverageStandard.temperature
+    }
+    
+    var isExpired: Bool {
+        return dateOfManufactured + shelfLife < Date()
     }
 }
 

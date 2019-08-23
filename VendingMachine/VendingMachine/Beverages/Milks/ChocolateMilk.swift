@@ -20,7 +20,8 @@ class ChocolateMilk: Milk {
             price: 2000,
             name: "초코우유",
             dateOfManufactured: Date("20190811"),
-            dateOfExpiration: Date("20190819")
+            temperature: 40,
+            shelfLife: 3
         )
     }
 }

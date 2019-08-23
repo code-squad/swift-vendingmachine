@@ -24,3 +24,8 @@ extension Date {
         return dateString
     }
 }
+
+struct SecondOfDay {
+    static let second = 86400
+}
+

@@ -20,7 +20,8 @@ class StrawberryMilk: Milk {
             price: 1000,
             name: "딸기우유",
             dateOfManufactured: Date("20190812"),
-            dateOfExpiration: Date("20190820")
+            temperature: 10,
+            shelfLife: 7
         )
     }
 }
