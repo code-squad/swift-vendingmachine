@@ -32,8 +32,10 @@
 		FA59634023018A5C00F53935 /* ChocolateMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA59633F23018A5C00F53935 /* ChocolateMilk.swift */; };
 		FA59634223018C0400F53935 /* Coke.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA59634123018C0400F53935 /* Coke.swift */; };
 		FA59634423018E3F00F53935 /* Americano.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA59634323018E3F00F53935 /* Americano.swift */; };
+		FA5FBD3C230FCD4700735177 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6AE95F2307DBE800BC9414 /* VendingMachine.swift */; };
+		FA5FBD3E230FCE0600735177 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6AE961230823AC00BC9414 /* OutputView.swift */; };
+		FA5FBD40230FE58700735177 /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5FBD3F230FE58700735177 /* Inventory.swift */; };
 		FA6AE95E2307D9D100BC9414 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6AE95D2307D9D100BC9414 /* InputView.swift */; };
-		FA6AE9602307DBE800BC9414 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6AE95F2307DBE800BC9414 /* VendingMachine.swift */; };
 		FA6AE962230823AC00BC9414 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6AE961230823AC00BC9414 /* OutputView.swift */; };
 		FA80C446230E68F40012A94F /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80C445230E68F40012A94F /* Menu.swift */; };
 		FA80C448230E93D50012A94F /* VendingMachineService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80C447230E93D50012A94F /* VendingMachineService.swift */; };
@@ -68,6 +70,7 @@
 		FA59633F23018A5C00F53935 /* ChocolateMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocolateMilk.swift; sourceTree = "<group>"; };
 		FA59634123018C0400F53935 /* Coke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coke.swift; sourceTree = "<group>"; };
 		FA59634323018E3F00F53935 /* Americano.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Americano.swift; sourceTree = "<group>"; };
+		FA5FBD3F230FE58700735177 /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
 		FA6AE95D2307D9D100BC9414 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		FA6AE95F2307DBE800BC9414 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 		FA6AE961230823AC00BC9414 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
@@ -116,6 +119,7 @@
 			children = (
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
 				FA6AE95F2307DBE800BC9414 /* VendingMachine.swift */,
+				FA5FBD3F230FE58700735177 /* Inventory.swift */,
 				FA80C447230E93D50012A94F /* VendingMachineService.swift */,
 				FA6AE95D2307D9D100BC9414 /* InputView.swift */,
 				FA6AE961230823AC00BC9414 /* OutputView.swift */,
@@ -283,14 +287,15 @@
 				FA5963252301456E00F53935 /* Beverage.swift in Sources */,
 				FA5963272301462B00F53935 /* Milk.swift in Sources */,
 				FA4BF1D8230288B100CB2ACE /* CaffeLatte.swift in Sources */,
+				FA5FBD3C230FCD4700735177 /* VendingMachine.swift in Sources */,
 				FA5963292301466E00F53935 /* SoftDrink.swift in Sources */,
 				FA80C446230E68F40012A94F /* Menu.swift in Sources */,
+				FA5FBD40230FE58700735177 /* Inventory.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
 				FA80C448230E93D50012A94F /* VendingMachineService.swift in Sources */,
 				FA59634023018A5C00F53935 /* ChocolateMilk.swift in Sources */,
 				FA59632B2301468600F53935 /* Coffee.swift in Sources */,
 				FA59632D230146A000F53935 /* Date+Extension.swift in Sources */,
-				FA6AE9602307DBE800BC9414 /* VendingMachine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +308,7 @@
 				FA4BF1CD23026F2C00CB2ACE /* Beverage.swift in Sources */,
 				FA4BF1CF23026F3200CB2ACE /* StrawberryMilk.swift in Sources */,
 				FA4BF1D9230289AB00CB2ACE /* CaffeLatte.swift in Sources */,
+				FA5FBD3E230FCE0600735177 /* OutputView.swift in Sources */,
 				FA4BF1CC23026F2100CB2ACE /* main.swift in Sources */,
 				FA4BF1D623026F5700CB2ACE /* Date+Extension.swift in Sources */,
 				FA4BF1D023026F3500CB2ACE /* ChocolateMilk.swift in Sources */,
