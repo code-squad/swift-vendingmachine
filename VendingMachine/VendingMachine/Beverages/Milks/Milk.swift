@@ -9,15 +9,10 @@
 import Foundation
 
 class Milk: Beverage {
-    private let dateOfExpiration: Date
+//    private let dateOfExpiration: Date
     
-    init(brand: String, capacity: Int, price: Int, name: String, dateOfManufactured: Date, dateOfExpiration: Date) {
-        self.dateOfExpiration = dateOfExpiration
+    override init(brand: String, capacity: Int, price: Int, name: String, dateOfManufactured: Date, temperature: Int, shelfLife: Double) {
         
-        super.init(brand: brand, capacity: capacity, price: price, name: name, dateOfManufactured: dateOfManufactured)
-    }
-    
-    func validate(with date: Date) -> Bool {
-        return date < dateOfExpiration
+        super.init(brand: brand, capacity: capacity, price: price, name: name, dateOfManufactured: dateOfManufactured, temperature: temperature, shelfLife: shelfLife)
     }
 }

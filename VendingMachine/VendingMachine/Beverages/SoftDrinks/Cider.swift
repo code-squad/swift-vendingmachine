@@ -20,7 +20,9 @@ class Cider: SoftDrink {
             price: 1900,
             name: "스프라이트",
             dateOfManufactured: Date("20190219"),
-            calorie: 200
+            temperature: 20,
+            calorie: 200,
+            shelfLife: 29
         )
     }
 }

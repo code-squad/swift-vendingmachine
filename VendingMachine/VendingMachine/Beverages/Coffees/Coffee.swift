@@ -9,15 +9,12 @@
 import Foundation
 
 class Coffee: Beverage {
-    private let temperature: Int
     
-    init(brand: String, capacity: Int, price: Int, name: String, dateOfManufactured: Date, temperature: Int) {
-        self.temperature = temperature
+    override init(brand: String, capacity: Int, price: Int, name: String, dateOfManufactured: Date, temperature: Int, shelfLife: Double) {
+//        self.temperature = temperature
         
-        super.init(brand: brand, capacity: capacity, price: price, name: name, dateOfManufactured: dateOfManufactured)
+        super.init(brand: brand, capacity: capacity, price: price, name: name, dateOfManufactured: dateOfManufactured, temperature: temperature, shelfLife: shelfLife)
     }
     
-    var isHot: Bool {
-        return temperature > BeverageStandard.temperature
-    }
+    
 }
