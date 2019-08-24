@@ -44,8 +44,7 @@ struct VendingMachine {
     mutating func resultHandle(_ result: Result<State, Error>) throws {
         switch result {
         case .success(let newState):
-            self.balance = newState.balence
-            self.inventory = newState.inventory
+            (self.balance, self.inventory) = newState
             self.strategy?.complete()
         case .failure(let error):
             throw error
