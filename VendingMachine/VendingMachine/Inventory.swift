@@ -23,15 +23,16 @@ class Inventory {
         inventory[beverage]! -= 1
     }
     
-    func showStock(with completion: ([(name: String, price: Int, value: Int)]) -> Void) {
-        let names = inventory.map { ($0.key.name, $0.key.price, $0.value) }
+    func showInventory(with completion: ([(name: String, price: Int, value: Int)]) -> Void) {
+        let names = inventory.map { ($0.key.productName, $0.key.productPrice, $0.value) }
         completion(names)
+        
     }
     
     func fetchPurchaseableList(with balance: Int) -> [String] {
         let beveragePrices = beverages
-            .filter { $0.price <= balance }
-            .map { $0.name }
+            .filter { $0.productPrice <= balance }
+            .map { $0.productName }
         return beveragePrices
     }
     
@@ -43,8 +44,8 @@ class Inventory {
         guard hasBeverage(beverage) else {
             return false
         }
-        let temp = beverages.filter { $0.price <= balance }
-        return temp.contains(beverage)
+        let purchaseableList = beverages.filter { $0.productPrice <= balance }
+        return purchaseableList.contains(beverage)
     }
     
     func filter(by condition: Condition) -> [Beverage] {
