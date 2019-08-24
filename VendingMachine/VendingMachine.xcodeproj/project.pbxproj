@@ -211,6 +211,14 @@
 			path = Coffee;
 			sourceTree = "<group>";
 		};
+		0E40C8CE23113F53007576F0 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				0E6491032306F95C0088907F /* Request.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
 		0E5EC98423069CC2008C7C95 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,7 +231,6 @@
 		0E5EC9892306A0B0008C7C95 /* Structure */ = {
 			isa = PBXGroup;
 			children = (
-				0E6491032306F95C0088907F /* Request.swift */,
 				0E3AB988230D580800C662FE /* Strategy */,
 				0E5EC98223069470008C7C95 /* VendingMachine.swift */,
 				0E5EC98A2306A0C4008C7C95 /* Money.swift */,
@@ -267,6 +274,7 @@
 		839DA90B1F8D1F95009E05F3 /* VendingMachine */ = {
 			isa = PBXGroup;
 			children = (
+				0E40C8CE23113F53007576F0 /* Enum */,
 				0E5EC9892306A0B0008C7C95 /* Structure */,
 				0E5EC98423069CC2008C7C95 /* View */,
 				0E3F1D982302822300FC08DC /* Util */,
