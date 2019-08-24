@@ -13,11 +13,18 @@ struct BeverageStandard {
     static let temperature = 60
 }
 
-class Beverage: CustomStringConvertible {
+protocol Product {
+    var productName: String { get }
+    var productPrice: Int { get }
+    var isHot: Bool { get }
+    var isExpired: Bool { get }
+}
+
+class Beverage: CustomStringConvertible, Product {
     private let brand: String
     private let capacity: Int
-    private(set) var price: Int
-    private(set) var name: String
+    private let price: Int
+    private let name: String
     private let dateOfManufactured: Date
     private let temperature: Int
     private let shelfLife: Double
@@ -43,19 +50,17 @@ class Beverage: CustomStringConvertible {
     var isExpired: Bool {
         return dateOfManufactured + shelfLife < Date()
     }
-}
-
-extension Beverage: Comparable {
-    static func < (lhs: Beverage, rhs: Beverage) -> Bool {
-        return lhs.price < rhs.price
+    
+    func showBeverage(with completion: (String, Int) -> Void) {
+        completion(name, price)
     }
     
-    static func < (lhs: Beverage, rhs: Int) -> Bool {
-        return lhs.price < rhs
+    var productName: String {
+        return name
     }
     
-    static func < (lhs: Int, rhs: Beverage) -> Bool {
-        return lhs < rhs.price
+    var productPrice: Int {
+        return price
     }
 }
 

@@ -11,15 +11,15 @@ import Foundation
 class VendingMachine {
     private var balance = 0
     var inventory = Inventory()
-    var purchaseList: [Beverage] = []
+    var purchaseList: [Beverage] = []    
     
     func showBalance(with completion: (Int) -> Void) {
         completion(balance)
     }
     
     /// 재고를 출력한다.
-    func printStock() {
-        inventory.showStock(with: OutputView.beverageListForm)
+    func printInventory() {
+        inventory.showInventory(with: OutputView.beverageListForm)
     }
     
     /// 자판기 금액을 원하는 금액만큼 올린다.
@@ -42,7 +42,7 @@ class VendingMachine {
         if inventory.canPurchaseBeverage(beverage, with: balance) {
             inventory.purchase(beverage)
             purchaseList.append(beverage)
-            balance -= beverage.price
+            balance -= beverage.productPrice
             return beverage
         }
         return nil

@@ -20,15 +20,22 @@ class VendingMachineService {
 
     func selectMenu() {
         vendingMachine.showBalance(with: OutputView.balanceForm)
-        vendingMachine.printStock()
+        vendingMachine.printInventory()
 
         let selectedNumber = InputView.menuNumber()
         guard let selected = Menu.init(rawValue: selectedNumber) else {
             return
         }
-        if let selectedMenu = menuTable[selected] {
-            let value = InputView.readPrompt()
-            selectedMenu(self)(value)
+        let value = InputView.readPrompt()
+        
+        switch selected {
+        case .insertMoney:
+            vendingMachine.insertMoney(amount: value)
+        case .purchaseBeverage:
+            let beverage = vendingMachine.inventory[value - 1]
+            if let purchased = vendingMachine.purchase(beverage: beverage) {
+                purchased.showBeverage(with: OutputView.purchaseForm)
+            }
         }
     }
 
@@ -36,8 +43,13 @@ class VendingMachineService {
         vendingMachine.insertMoney(amount: amount)
     }
 
-    func purchaseBeverage(number: Int) {
+    func purchaseBeverage(number: Int) -> Bool {
         let beverage = vendingMachine.inventory[number - 1]
-        let purchased = vendingMachine.purchase(beverage: beverage)
+        if let purchased = vendingMachine.purchase(beverage: beverage) {
+            print("\(purchased)를 구매했습니다.")
+            return true
+        } else {
+            return false
+        }
     }
 }
