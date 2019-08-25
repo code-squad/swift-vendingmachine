@@ -118,9 +118,8 @@
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
 				FA6AE95F2307DBE800BC9414 /* VendingMachine.swift */,
 				FA5FBD3F230FE58700735177 /* Inventory.swift */,
-				FA6AE95D2307D9D100BC9414 /* InputView.swift */,
-				FA6AE961230823AC00BC9414 /* OutputView.swift */,
 				FA80C445230E68F40012A94F /* Menu.swift */,
+				FAC3C2CD231284F100E28908 /* Views */,
 				FA4179072307D60A00300699 /* Beverages */,
 				FA4BF1DD23028D1900CB2ACE /* Utils */,
 			);
@@ -183,6 +182,15 @@
 				FA59632C230146A000F53935 /* Date+Extension.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		FAC3C2CD231284F100E28908 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FA6AE95D2307D9D100BC9414 /* InputView.swift */,
+				FA6AE961230823AC00BC9414 /* OutputView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
