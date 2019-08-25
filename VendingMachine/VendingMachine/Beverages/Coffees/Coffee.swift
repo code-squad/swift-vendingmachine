@@ -9,12 +9,17 @@
 import Foundation
 
 class Coffee: Beverage {
+    let bean: CoffeeBean
     
-    override init(brand: String, capacity: Int, price: Int, name: String, dateOfManufactured: Date, temperature: Int, shelfLife: Double) {
-//        self.temperature = temperature
+    init(brand: String, capacity: Int, price: Int, name: String, dateOfManufactured: Date, temperature: Int, shelfLife: Double, bean: CoffeeBean) {
+        self.bean = bean
         
         super.init(brand: brand, capacity: capacity, price: price, name: name, dateOfManufactured: dateOfManufactured, temperature: temperature, shelfLife: shelfLife)
     }
-    
-    
+}
+
+enum CoffeeBean {
+    case robusta
+    case arabica
+    case liberica
 }

@@ -21,7 +21,8 @@ class StrawberryMilk: Milk {
             name: "딸기우유",
             dateOfManufactured: Date("20190812"),
             temperature: 10,
-            shelfLife: 7
+            shelfLife: 7,
+            calciumContent: 1
         )
     }
 }

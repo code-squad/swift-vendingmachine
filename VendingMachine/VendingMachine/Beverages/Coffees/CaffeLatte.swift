@@ -21,7 +21,8 @@ class CaffeLatte: Coffee {
             name: "칸타타카페라떼",
             dateOfManufactured: Date("20190719"),
             temperature: 70,
-            shelfLife: 2
+            shelfLife: 2,
+            bean: .robusta
         )
     }
 }

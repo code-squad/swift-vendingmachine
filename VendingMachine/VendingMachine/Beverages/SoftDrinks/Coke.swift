@@ -21,8 +21,8 @@ class Coke: SoftDrink {
             name: "콜라",
             dateOfManufactured: Date("20190630"),
             temperature: 10,
-            calorie: 160,
-            shelfLife: 12
+            shelfLife: 12,
+            calorie: 160
         )
     }
 }

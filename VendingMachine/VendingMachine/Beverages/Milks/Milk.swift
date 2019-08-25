@@ -9,10 +9,15 @@
 import Foundation
 
 class Milk: Beverage {
-//    private let dateOfExpiration: Date
+    private let calciumContent: Int
     
-    override init(brand: String, capacity: Int, price: Int, name: String, dateOfManufactured: Date, temperature: Int, shelfLife: Double) {
+    init(brand: String, capacity: Int, price: Int, name: String, dateOfManufactured: Date, temperature: Int, shelfLife: Double, calciumContent: Int) {
+        self.calciumContent = calciumContent
         
         super.init(brand: brand, capacity: capacity, price: price, name: name, dateOfManufactured: dateOfManufactured, temperature: temperature, shelfLife: shelfLife)
+    }
+    
+    var isHighCalcium: Bool {
+        return calciumContent > BeverageStandard.calcium
     }
 }
