@@ -8,6 +8,8 @@
 
 import Foundation
 
+typealias InventoryInfo = ([(name: String, price: Int, value: Int)]) -> Void
+
 class Inventory {
     private var inventory: [Beverage: Int] = [:]
     private var beverages: [Beverage] {
@@ -23,16 +25,16 @@ class Inventory {
     }
     
     /// 모든 재고 리스트를 보여준다.
-    func showAllList(with show: ([(name: String, price: Int, value: Int)]) -> Void) {
+    func showAllList(with show: InventoryInfo) {
         let names = inventory.map { ($0.key.itemName, $0.key.itemPrice, $0.value) }
         show(names)
     }
     
     /// 구매 가능한 재고 리스트를 보여준다.
-    func showPurchaseableList(money: Int, with show: ([(name: String, price: Int, value: Int)]) -> Void) {
-        let list = fetchPurchaseableList(with: money)
+    func showPurchaseableList(money: Int, with show: InventoryInfo) {
+        let purchaseable = fetchPurchaseableList(with: money)
             .map { ($0.key.itemName, $0.key.itemPrice, $0.value) }
-        show(list)
+        show(purchaseable)
     }
     
     /// 잔액으로 구매 가능한 재고를 리턴한다.

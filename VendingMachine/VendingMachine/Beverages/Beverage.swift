@@ -53,8 +53,8 @@ class Beverage: CustomStringConvertible {
         return price
     }
     
-    func showBeverage(with completion: (String, Int) -> Void) {
-        completion(name, price)
+    func showBeverage(with show: (String, Int) -> Void) {
+        show(name, price)
     }
 }
 
