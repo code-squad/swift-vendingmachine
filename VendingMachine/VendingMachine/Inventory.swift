@@ -20,7 +20,7 @@ class Inventory {
     }
     
     func purchase(_ beverage: Beverage) {
-        inventory[beverage]! -= 1
+        inventory[beverage]? -= 1
     }
     
     func showInventory(with completion: ([(name: String, price: Int, value: Int)]) -> Void) {
@@ -52,12 +52,14 @@ class Inventory {
         return beverages.filter { condition.filteringCommand($0) }
     }
     
-    subscript(index: Int) -> Beverage {
+    subscript(index: Int) -> Beverage? {
         get {
-            return Array(inventory)[index].key
+            guard index > -1 && index < beverages.endIndex else {
+                return nil
+            }
+            return beverages[index]
         }
     }
-    
 }
 
 extension Inventory {
