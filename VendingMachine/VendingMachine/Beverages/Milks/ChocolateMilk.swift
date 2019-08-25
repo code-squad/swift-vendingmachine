@@ -21,7 +21,8 @@ class ChocolateMilk: Milk {
             name: "초코우유",
             dateOfManufactured: Date("20190811"),
             temperature: 40,
-            shelfLife: 3
+            shelfLife: 3,
+            calciumContent: 3
         )
     }
 }

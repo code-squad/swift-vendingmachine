@@ -21,7 +21,8 @@ class Americano: Coffee {
             name: "TOP아메리카노",
             dateOfManufactured: Date("20190812"),
             temperature: 10,
-            shelfLife: 3
+            shelfLife: 3,
+            bean: .arabica
         )
     }
 }

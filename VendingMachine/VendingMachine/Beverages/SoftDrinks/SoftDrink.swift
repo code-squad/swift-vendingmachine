@@ -11,7 +11,7 @@ import Foundation
 class SoftDrink: Beverage {
     private let calorie: Int
     
-    init(brand: String, capacity: Int, price: Int, name: String, dateOfManufactured: Date, temperature: Int, calorie: Int, shelfLife: Double) {
+    init(brand: String, capacity: Int, price: Int, name: String, dateOfManufactured: Date, temperature: Int, shelfLife: Double, calorie: Int) {
         self.calorie = calorie
         
         super.init(brand: brand, capacity: capacity, price: price, name: name, dateOfManufactured: dateOfManufactured, temperature: temperature, shelfLife: shelfLife)

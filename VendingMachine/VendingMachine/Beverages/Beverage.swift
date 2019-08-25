@@ -11,6 +11,7 @@ import Foundation
 struct BeverageStandard {
     static let calorie = 50
     static let temperature = 60
+    static let calcium = 2
 }
 
 class Beverage: CustomStringConvertible {
@@ -44,16 +45,16 @@ class Beverage: CustomStringConvertible {
         return dateOfManufactured + shelfLife < Date()
     }
     
-    func showBeverage(with completion: (String, Int) -> Void) {
-        completion(name, price)
-    }
-    
     var itemName: String {
         return name
     }
     
     var itemPrice: Int {
         return price
+    }
+    
+    func showBeverage(with completion: (String, Int) -> Void) {
+        completion(name, price)
     }
 }
 
