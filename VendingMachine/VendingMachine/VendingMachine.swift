@@ -10,8 +10,8 @@ import Foundation
 
 class VendingMachine {
     private var balance = 0
-    var inventory = Inventory()
-    var purchaseList: [Beverage] = []    
+    var inventory: Inventory
+    var purchaseHistory: [Beverage] = []
     
     func showBalance(with completion: (Int) -> Void) {
         completion(balance)
@@ -20,6 +20,8 @@ class VendingMachine {
     /// 재고를 출력한다.
     func printInventory() {
         inventory.showInventory(with: OutputView.beverageListForm)
+    init(inventory: Inventory) {
+        self.inventory = inventory
     }
     
     /// 자판기 금액을 원하는 금액만큼 올린다.
