@@ -32,7 +32,7 @@ class VendingMachine {
         if inventory.canPurchaseBeverage(beverage, with: balance) {
             inventory.purchase(beverage)
             purchaseHistory.append(beverage)
-            balance -= beverage.productPrice
+            balance -= beverage.itemPrice
             return beverage
         }
         return nil

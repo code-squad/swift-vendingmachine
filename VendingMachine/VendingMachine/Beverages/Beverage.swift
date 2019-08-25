@@ -13,14 +13,7 @@ struct BeverageStandard {
     static let temperature = 60
 }
 
-protocol Product {
-    var productName: String { get }
-    var productPrice: Int { get }
-    var isHot: Bool { get }
-    var isExpired: Bool { get }
-}
-
-class Beverage: CustomStringConvertible, Product {
+class Beverage: CustomStringConvertible {
     private let brand: String
     private let capacity: Int
     private let price: Int
@@ -55,11 +48,11 @@ class Beverage: CustomStringConvertible, Product {
         completion(name, price)
     }
     
-    var productName: String {
+    var itemName: String {
         return name
     }
     
-    var productPrice: Int {
+    var itemPrice: Int {
         return price
     }
 }

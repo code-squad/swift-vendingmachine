@@ -24,21 +24,21 @@ class Inventory {
     
     /// 모든 재고 리스트를 보여준다.
     func showAllList(with show: ([(name: String, price: Int, value: Int)]) -> Void) {
-        let names = inventory.map { ($0.key.productName, $0.key.productPrice, $0.value) }
+        let names = inventory.map { ($0.key.itemName, $0.key.itemPrice, $0.value) }
         show(names)
     }
     
     /// 구매 가능한 재고 리스트를 보여준다.
     func showPurchaseableList(money: Int, with show: ([(name: String, price: Int, value: Int)]) -> Void) {
         let list = fetchPurchaseableList(with: money)
-            .map { ($0.key.productName, $0.key.productPrice, $0.value) }
+            .map { ($0.key.itemName, $0.key.itemPrice, $0.value) }
         show(list)
     }
     
     /// 잔액으로 구매 가능한 재고를 리턴한다.
     private func fetchPurchaseableList(with balance: Int) -> [Beverage: Int] {
         let purchaseableList = inventory
-            .filter { $0.key.productPrice <= balance }
+            .filter { $0.key.itemPrice <= balance }
         return purchaseableList
     }
     
