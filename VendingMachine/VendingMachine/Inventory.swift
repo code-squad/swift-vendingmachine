@@ -31,17 +31,17 @@ class Inventory {
     }
     
     /// 구매 가능한 재고 리스트를 보여준다.
-    func showPurchaseableList(money: Int, with show: InventoryInfo) {
-        let purchaseable = fetchPurchaseableList(with: money)
+    func showPurchasableList(money: Int, with show: InventoryInfo) {
+        let purchasable = fetchPurchasableList(with: money)
             .map { ($0.key.itemName, $0.key.itemPrice, $0.value) }
-        show(purchaseable)
+        show(purchasable)
     }
     
     /// 잔액으로 구매 가능한 재고를 리턴한다.
-    private func fetchPurchaseableList(with balance: Int) -> [Beverage: Int] {
-        let purchaseableList = inventory
+    private func fetchPurchasableList(with balance: Int) -> [Beverage: Int] {
+        let purchasableList = inventory
             .filter { $0.key.itemPrice <= balance }
-        return purchaseableList
+        return purchasableList
     }
     
     /// 잔액으로 음료가 구매 가능한지 여부를 리턴한다.
@@ -49,8 +49,8 @@ class Inventory {
         guard haveInStock(beverage) else {
             return false
         }
-        let purchaseableList = fetchPurchaseableList(with: balance)
-        return purchaseableList.keys.contains(beverage)
+        let purchasableList = fetchPurchasableList(with: balance)
+        return purchasableList.keys.contains(beverage)
     }
     
     /// 음료의 재고가 있는지 없는지 리턴한다.

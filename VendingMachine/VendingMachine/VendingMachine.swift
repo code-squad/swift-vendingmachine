@@ -68,7 +68,7 @@ extension VendingMachine {
     }
     
     /// 현재 금액으로 구매 가능한 음료수 목록을 출력한다.
-    func printPurchaseableList() {
-        inventory.showPurchaseableList(money: balance, with: OutputView.beverageListForm)
+    func printPurchasableList() {
+        inventory.showPurchasableList(money: balance, with: OutputView.beverageListForm)
     }
 }
