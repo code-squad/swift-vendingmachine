@@ -9,7 +9,7 @@
 import Foundation
 
 class Coffee: Beverage {
-    let bean: CoffeeBean
+    private let bean: CoffeeBean
     
     init(brand: String, capacity: Int, price: Int, name: String, dateOfManufactured: Date, temperature: Int, shelfLife: Double, bean: CoffeeBean) {
         self.bean = bean
