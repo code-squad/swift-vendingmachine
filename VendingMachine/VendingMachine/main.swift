@@ -15,7 +15,8 @@ let inventory = Inventory(products: [ChocolateMilk(),
                                      Americano()])
 var vendingMachine = VendingMachine(
     balance: Money(value: 0),
-    inventory: inventory)
+    inventory: inventory,
+    history: History())
 
 while vendingMachine.isOnSale {
     vendingMachine.handleMoney(OutputView.showBalance)

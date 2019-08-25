@@ -8,7 +8,7 @@
 
 import Foundation
 
-typealias State = (balence: Money, inventory: Inventory)
+typealias State = (balence: Money, inventory: Inventory, history: History)
 
 struct VendingMachine {
     var isOnSale: Bool {
@@ -16,12 +16,15 @@ struct VendingMachine {
     }
     private var balance: Money
     private var inventory: Inventory
+    private var history: History
     private var strategy: StateHandleable?
     
     init(balance: Money,
-         inventory: Inventory) {
+         inventory: Inventory,
+         history: History) {
         self.balance = balance
         self.inventory = inventory
+        self.history = history
     }
     
     mutating func setStrategy(_ strategy: StateHandleable?) {
@@ -29,7 +32,7 @@ struct VendingMachine {
     }
     
     mutating func execute() throws {
-        let state = (balence: balance, inventory: inventory)
+        let state = (balence: balance, inventory: inventory, history: history)
         guard let result = strategy?.handle(state) else { return }
         try resultHandle(result)
     }
@@ -44,7 +47,7 @@ struct VendingMachine {
     mutating func resultHandle(_ result: Result<State, Error>) throws {
         switch result {
         case .success(let newState):
-            (self.balance, self.inventory) = newState
+            (self.balance, self.inventory, self.history) = newState
             self.strategy?.complete()
         case .failure(let error):
             throw error

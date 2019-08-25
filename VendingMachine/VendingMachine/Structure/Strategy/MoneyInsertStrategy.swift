@@ -20,7 +20,7 @@ struct MoneyInsertStrategy: StateHandleable {
     func handle(_ before: State) -> Result<State, Error> {
         let balence  = before.balence + moneyToAdd
         
-        return .success((balence, before.inventory))
+        return .success((balence, before.inventory, before.history))
     }
     
     func complete() {
