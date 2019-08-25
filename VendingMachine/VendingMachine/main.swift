@@ -9,7 +9,7 @@
 import Foundation
 
 func main() {
-    let vendingMachine = VendingMachine()
+    let vendingMachine = VendingMachine(inventory: Inventory())
     vendingMachine.addStock(of: StrawberryMilk(), count: 3)
     vendingMachine.addStock(of: ChocolateMilk(), count: 5)
     vendingMachine.addStock(of: Coke(), count: 2)
@@ -29,9 +29,9 @@ func main() {
         switch selected {
         case .insertMoney:
             vendingMachine.insertMoney(amount: value)
-        case .purchaseBeverage:
-            let beverage = vendingMachine.inventory[value - 1]
-            if let purchased = vendingMachine.purchase(beverage: beverage) {
+        case .purchaseBeverage:            
+            if let beverage = vendingMachine.inventory[value - 1],
+                let purchased = vendingMachine.purchase(beverage: beverage) {
                 purchased.showBeverage(with: OutputView.purchaseForm)
             }
         }
