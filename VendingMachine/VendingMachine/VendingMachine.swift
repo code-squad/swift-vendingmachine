@@ -13,13 +13,6 @@ class VendingMachine {
     var inventory: Inventory
     var purchaseHistory: [Beverage] = []
     
-    func showBalance(with completion: (Int) -> Void) {
-        completion(balance)
-    }
-    
-    /// 재고를 출력한다.
-    func printInventory() {
-        inventory.showInventory(with: OutputView.beverageListForm)
     init(inventory: Inventory) {
         self.inventory = inventory
     }
@@ -34,30 +27,15 @@ class VendingMachine {
         inventory.append(beverage, count: count)
     }
     
-    /// 현재 금액으로 구매 가능한 음료수 목록을 리턴한다.
-    func fetchPurchaseableList() -> [String] {
-        return inventory.fetchPurchaseableList(with: balance)
-    }
-    
     /// 음료수를 구매한다.
     func purchase(beverage: Beverage) -> Beverage? {
         if inventory.canPurchaseBeverage(beverage, with: balance) {
             inventory.purchase(beverage)
-            purchaseList.append(beverage)
+            purchaseHistory.append(beverage)
             balance -= beverage.productPrice
             return beverage
         }
         return nil
-    }
-    
-    /// 잔액을 확인한다.
-    func checkBalance() -> Int {
-        return balance
-    }
-    
-    /// 전체 상품 재고를 종류별로 리턴한다.
-    func fetchCategorizedStock() -> Inventory {
-        return inventory
     }
     
     /// 유통기한이 지난 재고만 리턴한다.
@@ -72,6 +50,25 @@ class VendingMachine {
     
     /// 시작이후 구매 상품 이력을 배열로 리턴한다.
     func fetchPurchaseHistory() -> [Beverage] {
-        return purchaseList
+        return purchaseHistory
+    }
+}
+
+// MARK: - Show, Print Methods
+
+extension VendingMachine {
+    /// 잔액을 보여준다.
+    func showBalance(with show: (Int) -> Void) {
+        show(balance)
+    }
+    
+    /// 재고를 출력한다.
+    func printInventory() {
+        inventory.showAllList(with: OutputView.beverageListForm)
+    }
+    
+    /// 현재 금액으로 구매 가능한 음료수 목록을 출력한다.
+    func printPurchaseableList() {
+        inventory.showPurchaseableList(money: balance, with: OutputView.beverageListForm)
     }
 }

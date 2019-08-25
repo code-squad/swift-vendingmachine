@@ -10,7 +10,6 @@ import Foundation
 
 class Inventory {
     private var inventory: [Beverage: Int] = [:]
-    
     private var beverages: [Beverage] {
         return Array(inventory.keys)
     }
@@ -23,33 +22,38 @@ class Inventory {
         inventory[beverage]? -= 1
     }
     
-    func showInventory(with completion: ([(name: String, price: Int, value: Int)]) -> Void) {
+    /// 모든 재고 리스트를 보여준다.
+    func showAllList(with show: ([(name: String, price: Int, value: Int)]) -> Void) {
         let names = inventory.map { ($0.key.productName, $0.key.productPrice, $0.value) }
-        completion(names)
-        
+        show(names)
     }
     
-    func fetchPurchaseableList(with balance: Int) -> [String] {
-        let beveragePrices = beverages
-            .filter { $0.productPrice <= balance }
-            .map { $0.productName }
-        return beveragePrices
+    /// 구매 가능한 재고 리스트를 보여준다.
+    func showPurchaseableList(money: Int, with show: ([(name: String, price: Int, value: Int)]) -> Void) {
+        let list = fetchPurchaseableList(with: money)
+            .map { ($0.key.productName, $0.key.productPrice, $0.value) }
+        show(list)
     }
     
-    func hasBeverage(_ beverage: Beverage) -> Bool {
-        return inventory[beverage] != nil && inventory[beverage] != 0
+    /// 잔액으로 구매 가능한 재고를 리턴한다.
+    private func fetchPurchaseableList(with balance: Int) -> [Beverage: Int] {
+        let purchaseableList = inventory
+            .filter { $0.key.productPrice <= balance }
+        return purchaseableList
     }
     
+    /// 잔액으로 음료가 구매 가능한지 여부를 리턴한다.
     func canPurchaseBeverage(_ beverage: Beverage, with balance: Int) -> Bool {
-        guard hasBeverage(beverage) else {
+        guard haveInStock(beverage) else {
             return false
         }
-        let purchaseableList = beverages.filter { $0.productPrice <= balance }
-        return purchaseableList.contains(beverage)
+        let purchaseableList = fetchPurchaseableList(with: balance)
+        return purchaseableList.keys.contains(beverage)
     }
     
-    func filter(by condition: Condition) -> [Beverage] {
-        return beverages.filter { condition.filteringCommand($0) }
+    /// 음료의 재고가 있는지 없는지 리턴한다.
+    private func haveInStock(_ beverage: Beverage) -> Bool {
+        return inventory[beverage] != nil && inventory[beverage]! > 0
     }
     
     subscript(index: Int) -> Beverage? {
@@ -62,7 +66,13 @@ class Inventory {
     }
 }
 
+// MARK: - Filter by conditions
 extension Inventory {
+    /// 재고를 조건에 따라 필터링한 결과를 리턴한다.
+    func filter(by condition: Condition) -> [Beverage] {
+        return beverages.filter { condition.filteringCommand($0) }
+    }
+    
     enum Condition {
         case all
         case hot
