@@ -16,11 +16,25 @@ func main() {
     vendingMachine.addStock(of: Cider(), count: 1)
     vendingMachine.addStock(of: Americano(), count: 4)
     vendingMachine.addStock(of: CaffeLatte(), count: 3)
-    
-    let vendingMachineService = VendingMachineService(vendingMachine: vendingMachine)
 
     while true {
-        vendingMachineService.selectMenu()
+        vendingMachine.showBalance(with: OutputView.balanceForm)
+        vendingMachine.printInventory()
+        
+        let selectedNumber = InputView.menuNumber()
+        guard let selected = Menu.init(rawValue: selectedNumber) else {
+            return
+        }
+        let value = InputView.readPrompt()
+        switch selected {
+        case .insertMoney:
+            vendingMachine.insertMoney(amount: value)
+        case .purchaseBeverage:
+            let beverage = vendingMachine.inventory[value - 1]
+            if let purchased = vendingMachine.purchase(beverage: beverage) {
+                purchased.showBeverage(with: OutputView.purchaseForm)
+            }
+        }
     }
 }
 
