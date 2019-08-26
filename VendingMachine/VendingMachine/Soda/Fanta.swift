@@ -22,17 +22,17 @@ class Fanta: Soda {
     static let manufacturer = "한국코카콜라"
     static let brandName = "환타"
     private let variant: Variant
-    override var productName: String {
-        return "\(brand) \(variant)"
-    }
     
     init(variant: Variant,
-         dateOfManufacture: String,
+         dateOfManufactured: String,
+         expirationDate: String,
          capacity: Int,
          unit: UnitVolume,
          price: Int) {
     
         self.variant = variant
-        super.init(manufacturer: Fanta.manufacturer, dateOfManufacture: dateOfManufacture, brand: Fanta.brandName, name: "", capacity: capacity, unit: unit, price: price)
+        let name = "\(variant)"
+        
+        super.init(manufacturer: Fanta.manufacturer, dateOfManufactured: dateOfManufactured, expirationDate: expirationDate, brand: Fanta.brandName, name: name, capacity: capacity, unit: unit, price: price, hasSugar: true)
     }
 }
