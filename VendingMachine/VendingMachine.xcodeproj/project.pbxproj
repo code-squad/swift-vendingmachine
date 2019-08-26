@@ -17,6 +17,8 @@
 		C27D29E722F1E0A3005A1C3D /* Coke.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27D29E622F1E0A3005A1C3D /* Coke.swift */; };
 		C27D29E922F1E139005A1C3D /* Fanta.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27D29E822F1E139005A1C3D /* Fanta.swift */; };
 		C2B3E2E4230EC2FA00EC0D68 /* VendingMachineUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B3E2E3230EC2FA00EC0D68 /* VendingMachineUnitTests.swift */; };
+		C2C90DE02313AB2400B0D19F /* StrawberryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C90DDF2313AB2400B0D19F /* StrawberryMilk.swift */; };
+		C2C90DE22313AB3600B0D19F /* ChocolateMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C90DE12313AB3600B0D19F /* ChocolateMilk.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -45,6 +47,8 @@
 		C2B3E2E1230EC2FA00EC0D68 /* VendingMachineUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2B3E2E3230EC2FA00EC0D68 /* VendingMachineUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineUnitTests.swift; sourceTree = "<group>"; };
 		C2B3E2E5230EC2FA00EC0D68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C2C90DDF2313AB2400B0D19F /* StrawberryMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrawberryMilk.swift; sourceTree = "<group>"; };
+		C2C90DE12313AB3600B0D19F /* ChocolateMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocolateMilk.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,8 @@
 			isa = PBXGroup;
 			children = (
 				C2088DDA22F1B6170071F520 /* Milk.swift */,
+				C2C90DDF2313AB2400B0D19F /* StrawberryMilk.swift */,
+				C2C90DE12313AB3600B0D19F /* ChocolateMilk.swift */,
 			);
 			path = Milk;
 			sourceTree = "<group>";
@@ -243,6 +249,7 @@
 				C27D29E922F1E139005A1C3D /* Fanta.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
 				C2088DDD22F1B6E40071F520 /* Soda.swift in Sources */,
+				C2C90DE22313AB3600B0D19F /* ChocolateMilk.swift in Sources */,
 				C2088DDF22F1B6E90071F520 /* Coffee.swift in Sources */,
 				C26D1F55230FCD2600339B03 /* Date.swift in Sources */,
 				C27D29E722F1E0A3005A1C3D /* Coke.swift in Sources */,
