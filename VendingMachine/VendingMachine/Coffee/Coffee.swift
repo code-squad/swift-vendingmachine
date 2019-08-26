@@ -22,20 +22,19 @@ class Coffee: Beverage {
     }
     
     private let variation: Variation
-    override var productName: String {
-        return "\(brand) \(variation)"
-    }
     
     init(variation: Variation,
          manufacturer: String,
-         dateOfManufacture: String,
+         dateOfManufactured: String,
+         expirationDate: String,
          brand: String,
          capacity: Int,
          unit: UnitVolume,
          price: Int) {
         
         self.variation = variation
-        super.init(manufacturer: manufacturer, dateOfManufacture: dateOfManufacture, brand: brand, name: "", capacity: capacity, unit: unit, price: price)
+        let name = "\(variation)"
+        super.init(manufacturer: manufacturer, dateOfManufactured: dateOfManufactured, expirationDate: expirationDate, brand: brand, name: name, capacity: capacity, unit: unit, price: price)
     }
     
 }
