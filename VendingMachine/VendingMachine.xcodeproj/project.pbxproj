@@ -21,9 +21,22 @@
 		C2B3E2E4230EC2FA00EC0D68 /* VendingMachineUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B3E2E3230EC2FA00EC0D68 /* VendingMachineUnitTests.swift */; };
 		C2C90DE02313AB2400B0D19F /* StrawberryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C90DDF2313AB2400B0D19F /* StrawberryMilk.swift */; };
 		C2C90DE22313AB3600B0D19F /* ChocolateMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C90DE12313AB3600B0D19F /* ChocolateMilk.swift */; };
-		C2C90DE42313B2B300B0D19F /* TOPCoffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C90DE32313B2B300B0D19F /* TOPCoffee.swift */; };
 		C2C90DE62313B33900B0D19F /* EnergyDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C90DE52313B33900B0D19F /* EnergyDrink.swift */; };
 		C2C90DE82313B37F00B0D19F /* HotSix.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C90DE72313B37F00B0D19F /* HotSix.swift */; };
+		C2C90DED2313C86900B0D19F /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C273FF5622EEE17B0038B48E /* Beverage.swift */; };
+		C2C90DEE2313C86C00B0D19F /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2088DDA22F1B6170071F520 /* Milk.swift */; };
+		C2C90DEF2313C86F00B0D19F /* StrawberryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C90DDF2313AB2400B0D19F /* StrawberryMilk.swift */; };
+		C2C90DF02313C87100B0D19F /* ChocolateMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C90DE12313AB3600B0D19F /* ChocolateMilk.swift */; };
+		C2C90DF12313C87500B0D19F /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2088DDC22F1B6E40071F520 /* Soda.swift */; };
+		C2C90DF22313C87500B0D19F /* Coke.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27D29E622F1E0A3005A1C3D /* Coke.swift */; };
+		C2C90DF32313C87500B0D19F /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26D1F56230FD11900339B03 /* Sprite.swift */; };
+		C2C90DF42313C87500B0D19F /* Fanta.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27D29E822F1E139005A1C3D /* Fanta.swift */; };
+		C2C90DF52313C87900B0D19F /* EnergyDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C90DE52313B33900B0D19F /* EnergyDrink.swift */; };
+		C2C90DF62313C87900B0D19F /* HotSix.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C90DE72313B37F00B0D19F /* HotSix.swift */; };
+		C2C90DF72313C87C00B0D19F /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2088DDE22F1B6E90071F520 /* Coffee.swift */; };
+		C2C90DF82313C87C00B0D19F /* Cantata.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26D1F5823136D8E00339B03 /* Cantata.swift */; };
+		C2C90DF92313C87F00B0D19F /* DateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27D29E422F1D40E005A1C3D /* DateConverter.swift */; };
+		C2C90DFA2313C87F00B0D19F /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26D1F54230FCD2600339B03 /* Date.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -56,7 +69,6 @@
 		C2B3E2E5230EC2FA00EC0D68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2C90DDF2313AB2400B0D19F /* StrawberryMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrawberryMilk.swift; sourceTree = "<group>"; };
 		C2C90DE12313AB3600B0D19F /* ChocolateMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocolateMilk.swift; sourceTree = "<group>"; };
-		C2C90DE32313B2B300B0D19F /* TOPCoffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOPCoffee.swift; sourceTree = "<group>"; };
 		C2C90DE52313B33900B0D19F /* EnergyDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyDrink.swift; sourceTree = "<group>"; };
 		C2C90DE72313B37F00B0D19F /* HotSix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotSix.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -137,7 +149,6 @@
 			children = (
 				C2088DDE22F1B6E90071F520 /* Coffee.swift */,
 				C26D1F5823136D8E00339B03 /* Cantata.swift */,
-				C2C90DE32313B2B300B0D19F /* TOPCoffee.swift */,
 			);
 			path = Coffee;
 			sourceTree = "<group>";
@@ -272,7 +283,6 @@
 				C2C90DE22313AB3600B0D19F /* ChocolateMilk.swift in Sources */,
 				C2088DDF22F1B6E90071F520 /* Coffee.swift in Sources */,
 				C26D1F55230FCD2600339B03 /* Date.swift in Sources */,
-				C2C90DE42313B2B300B0D19F /* TOPCoffee.swift in Sources */,
 				C27D29E722F1E0A3005A1C3D /* Coke.swift in Sources */,
 				C26D1F5923136D8E00339B03 /* Cantata.swift in Sources */,
 			);
@@ -282,7 +292,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2C90DF12313C87500B0D19F /* Soda.swift in Sources */,
+				C2C90DF52313C87900B0D19F /* EnergyDrink.swift in Sources */,
+				C2C90DF62313C87900B0D19F /* HotSix.swift in Sources */,
+				C2C90DFA2313C87F00B0D19F /* Date.swift in Sources */,
+				C2C90DF32313C87500B0D19F /* Sprite.swift in Sources */,
+				C2C90DED2313C86900B0D19F /* Beverage.swift in Sources */,
+				C2C90DEF2313C86F00B0D19F /* StrawberryMilk.swift in Sources */,
+				C2C90DF02313C87100B0D19F /* ChocolateMilk.swift in Sources */,
+				C2C90DF82313C87C00B0D19F /* Cantata.swift in Sources */,
+				C2C90DEE2313C86C00B0D19F /* Milk.swift in Sources */,
 				C2B3E2E4230EC2FA00EC0D68 /* VendingMachineUnitTests.swift in Sources */,
+				C2C90DF72313C87C00B0D19F /* Coffee.swift in Sources */,
+				C2C90DF42313C87500B0D19F /* Fanta.swift in Sources */,
+				C2C90DF22313C87500B0D19F /* Coke.swift in Sources */,
+				C2C90DF92313C87F00B0D19F /* DateConverter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
