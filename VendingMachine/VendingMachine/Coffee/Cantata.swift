@@ -24,7 +24,7 @@ class Cantata: Coffee {
     }
     
     private let containerType: ContainerType
-    private(set) var isHot: Bool = false
+    var isHot: Bool = false
     
     init(variation: Variation,
          containerType: ContainerType,
