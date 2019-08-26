@@ -17,12 +17,17 @@ class Beverage: CustomStringConvertible {
     private let brand: String
     private let name: String
     
-    var productName: String {
-        return "\(brand) \(name)"
+    var duration: DateInterval {
+        return DateInterval(start: dateOfManufactured, end: expirationDate)
+    }
+    
+    func validate(with date: Date) -> Bool {
+        return duration.contains(date)
     }
     
     init(manufacturer: String,
-         dateOfManufacture: String,
+         dateOfManufactured: String,
+         expirationDate: String,
          brand: String,
          name: String,
          capacity: Int,
@@ -30,15 +35,20 @@ class Beverage: CustomStringConvertible {
          price: Int) {
         
         self.manufacturer = manufacturer
-        self.dateOfManufacture = DateConverter.toDate(from: dateOfManufacture)
+        self.dateOfManufactured = Date(string: dateOfManufactured)
+        self.expirationDate = Date(string: expirationDate)
         self.brand = brand
         self.name = name
         self.capacity = Measurement(value: Double(capacity), unit: unit)
         self.price = price
     }
     
+    var productName: String {
+        return "\(brand) \(name)"
+    }
+    
     var description: String {
-        let formattedDate = DateConverter.toString(from: dateOfManufacture)
-        return "\(self.manufacturer), \(self.capacity), \(self.price)원, \(self.productName), \(formattedDate)"
+        let formattedDate = DateConverter.toString(from: dateOfManufactured)
+        return "\(type(of: self)) - \(self.manufacturer), \(self.capacity), \(self.price)원, \(self.productName), \(formattedDate)"
     }
 }
