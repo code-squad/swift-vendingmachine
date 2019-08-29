@@ -8,3 +8,7 @@ excluded: # paths to ignore during linting. Takes precedence over `included`.
   - VendingMachine/BeverageTests/SodaTests.swift
   - VendingMachine/BeverageTests/BeverageTests.swift
   - Pods
+
+line_length:
+warning: 99
+error: 120

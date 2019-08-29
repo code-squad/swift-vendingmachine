@@ -8,11 +8,8 @@
 
 import Foundation
 // - MARK: - Set Up
-let inventory = Inventory(products: [ChocolateMilk(),
-                                     StrawberryMilk(),
-                                     Cola(),
-                                     Americano(),
-                                     Americano()])
+let inventory = StorableFactory.create(quantity: 10)
+
 var vendingMachine = VendingMachine(
     balance: Money(value: 0),
     inventory: inventory,
@@ -24,7 +21,7 @@ while vendingMachine.isOnSale {
     let inputString = InputView.fetchInput()
     do {
         let request = try Request.init(input: inputString)
-        let order = StrategyFactory.create(request)
+        let order = StateHandleableFactory.create(request)
         vendingMachine.setStrategy(order)
         try vendingMachine.execute()
     } catch {

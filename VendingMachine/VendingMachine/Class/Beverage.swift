@@ -14,6 +14,7 @@ protocol Product: class {
     var isHot: Bool { get }
     var isDue: Bool { get }
 }
+
 extension Product {
     var productDescription: String {
         return "\(productName) \(productPrice)"
@@ -61,6 +62,7 @@ extension Beverage: CustomStringConvertible {
 }
 // MARK: - + CustomStringConvertible
 extension Beverage: Product {
+    
     var productName: String {
         return self.name
     }

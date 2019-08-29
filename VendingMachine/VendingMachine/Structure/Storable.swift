@@ -12,18 +12,14 @@ protocol Storable {
     var statistic: [(menu: String, count: Int)] { get }
     
     init(products: [Product])
-    
     mutating func addStock(_ product: Product)
-    
     func search(at index: Int) -> Product?
-    
     func filter(by option: Option) -> [Product]
-    
     mutating func takeOut(_ product: Product) -> Product?
     
 }
 
-struct Storable: Storable {
+struct Inventory: Storable {
     private var stocks: [Product]
     
     var statistic: [(menu: String, count: Int)] {

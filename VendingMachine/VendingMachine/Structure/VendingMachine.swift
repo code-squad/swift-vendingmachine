@@ -8,19 +8,19 @@
 
 import Foundation
 
-typealias State = (balence: Money, inventory: Inventory, history: History)
+typealias State = (balance: Money, inventory: Storable, history: History)
 
 struct VendingMachine {
     var isOnSale: Bool {
         return !inventory.filter(by: .all).isEmpty
     }
     private var balance: Money
-    private var inventory: Inventory
+    private var inventory: Storable
     private var history: History
     private var strategy: StateHandleable?
     
     init(balance: Money,
-         inventory: Inventory,
+         inventory: Storable,
          history: History) {
         self.balance = balance
         self.inventory = inventory
@@ -32,7 +32,7 @@ struct VendingMachine {
     }
     
     mutating func execute() throws {
-        let state = (balence: balance, inventory: inventory, history: history)
+        let state = (balance: balance, inventory: inventory, history: history)
         guard let result = strategy?.handle(state) else { return }
         try resultHandle(result)
     }
