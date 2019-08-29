@@ -18,7 +18,7 @@ struct MoneyInsertStrategy: StateHandleable {
     }
     
     func handle(_ before: State) -> Result<State, Error> {
-        let balence  = before.balence + moneyToAdd
+        let balence  = before.balance + moneyToAdd
         
         return .success((balence, before.inventory, before.history))
     }

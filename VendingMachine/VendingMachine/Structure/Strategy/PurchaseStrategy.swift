@@ -26,11 +26,11 @@ struct PurchaseStrategy: StateHandleable {
             let productToPurchase = inventory.search(at: productToPurchaseIndex)
             else { return .failure(PurchaseError.outOfStock) }
         guard
-            before.balence >= productToPurchase.productPrice,
+            before.balance >= productToPurchase.productPrice,
             let buyingProduct = inventory.takeOut(productToPurchase)
             else { return .failure(PurchaseError.lowBalance) }
         soldProduct = buyingProduct
-        let balence = before.balence - buyingProduct.productPrice
+        let balence = before.balance - buyingProduct.productPrice
         history.record(soldProduct: buyingProduct)
         return .success((balence, inventory, history))
     }
