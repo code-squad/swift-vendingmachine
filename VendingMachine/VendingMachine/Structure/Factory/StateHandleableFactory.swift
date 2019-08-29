@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct StrategyFactory {
+struct StateHandleableFactory {
     static func create(_ request: Request) -> StateHandleable {
         switch request {
         case .insert(amount: let value):

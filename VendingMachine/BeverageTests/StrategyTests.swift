@@ -18,7 +18,7 @@ class StrategyTests: XCTestCase {
     let dueCola = Cola(productDate: Date(timeIntervalSince1970: 1))
     var products: [Product] = []
     var inventory: Inventory!
-    lazy var state: State = (balence: givenMoney, inventory: inventory!)
+    lazy var state: State = (balance: givenMoney, inventory: inventory!, history:  History())
     var strategy: StateHandleable!
     
     override func setUp() {
@@ -36,7 +36,7 @@ class StrategyTests: XCTestCase {
     
     func testMoneyInsert() {
         //Given
-        strategy = MoneyInsertStrategy(moneyToAdd: Money(value: 5000), completion: nil)
+        strategy = MoneyInsertStrategy(moneyToAdd: Money(value: 5000), completion: { _ in })
         
         //When
         let result = strategy?.handle(state)
@@ -46,67 +46,65 @@ class StrategyTests: XCTestCase {
                 XCTAssertTrue(false)
                 return }
         //Then
-        XCTAssertTrue(state.balence == Money(value: 15000))
+        XCTAssertTrue(state.balance == Money(value: 15000))
     }
     
-//    func testPurchaseWithSuccess() {
-//        //Given
-//        let cola = Cola()
-//        let before = state.inventory.statistic[0].count
-//        strategy = PurchaseStrategy(productToPurchase: cola)
-//
-//        //When
-//        let result = strategy?.handle(state)
-//
-//        guard
-//            case .success(let state)?  = result
-//            else {
-//                XCTAssertTrue(false)
-//                return }
-//        //Then
-//        XCTAssertEqual(state.balence, givenMoney - cola.productPrice)
-//        let coke = state.inventory.statistic.filter { $0.menu == cola.productDescription }
-//
-//        XCTAssertEqual(coke[0].count, before.advanced(by: -1))
-//
-//    }
-//
-//    func testPurchaseWithFailAboutBalance() {
-//        //Given
-//        let cola = Cola(price: 2000)
-//        strategy = PurchaseStrategy(productToPurchase: cola)
-//
-//        //When
-//        state.balence = Money(value: 1000)
-//        let result = strategy?.handle(state)
-//        guard
-//            case .failure(let error)? = result
-//            else {
-//                XCTAssertTrue(false)
-//                return }
-//
-//        //Then
-//        XCTAssertEqual(error.localizedDescription, PurchaseStrategy.PurchaseError.lowBalance.localizedDescription)
-//
-//    }
-//    
-//    func testPurchaseWithFailAboutStock() {
-//        //Given
-//        let cola = Cola(price: 2000)
-//        strategy = PurchaseStrategy(productToPurchaseIndex: cola)
-//
-//        //When
-//        state.balence = Money(value: 1000)
-//        let result = strategy?.handle(state)
-//        guard
-//            case .failure(let error)? = result
-//            else {
-//                XCTAssertTrue(false)
-//                return }
-//
-//        //Then
-//        XCTAssertEqual(error.localizedDescription, PurchaseStrategy.PurchaseError.lowBalance.localizedDescription)
-//
-//    }
+    func testPurchaseWithSuccess() {
+        //Given
+        let cola = Cola()
+        let before = state.inventory.statistic[0].count
+        strategy = PurchaseStrategy(productToPurchaseIndex: 4, completion: { _, _  in })
+
+        //When
+        let result = strategy?.handle(state)
+
+        guard
+            case .success(let state)?  = result
+            else {
+                XCTAssertTrue(false)
+                return }
+        //Then
+        XCTAssertEqual(state.balance, givenMoney - cola.productPrice)
+        let coke = state.inventory.statistic.filter { $0.menu == cola.productDescription }
+
+        XCTAssertEqual(coke[0].count, before.advanced(by: -1))
+
+    }
+
+    func testPurchaseWithFailAboutBalance() {
+        //Given
+        strategy = PurchaseStrategy(productToPurchaseIndex: 4, completion: { _, _ in })
+
+        //When
+        state.balance = Money(value: 1000)
+        let result = strategy?.handle(state)
+        guard
+            case .failure(let error)? = result
+            else {
+                XCTAssertTrue(false)
+                return }
+
+        //Then
+        XCTAssertEqual(error.localizedDescription, PurchaseStrategy.PurchaseError.lowBalance.localizedDescription)
+
+    }
+    
+    func testPurchaseWithFailAboutStock() {
+        //Given
+        strategy = PurchaseStrategy(productToPurchaseIndex: 4, completion: { _, _ in })
+
+        //When
+        state.balance = Money(value: 1000)
+        let result = strategy?.handle(state)
+        guard
+            case .failure(let error)? = result
+            else {
+                XCTAssertTrue(false)
+                return }
+
+        //Then
+        XCTAssertEqual(error.localizedDescription, PurchaseStrategy.PurchaseError.lowBalance.localizedDescription)
+
+    }
     
 }
