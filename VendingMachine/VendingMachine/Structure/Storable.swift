@@ -23,7 +23,7 @@ protocol Storable {
     
 }
 
-struct Inventory: Storable {
+struct Storable: Storable {
     private var stocks: [Product]
     
     var statistic: [(menu: String, count: Int)] {
