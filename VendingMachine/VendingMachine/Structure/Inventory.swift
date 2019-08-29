@@ -8,13 +8,7 @@
 
 import Foundation
 
-protocol FilteringOption {
-    var condition: (Product) -> Bool { get } 
-}
-
 protocol Storable {
-    associatedtype Option: FilteringOption
-    
     var statistic: [(menu: String, count: Int)] { get }
     
     init(products: [Product])
@@ -30,8 +24,6 @@ protocol Storable {
 }
 
 struct Inventory: Storable {
-    typealias Option = BeverageFilteringOption
-    
     private var stocks: [Product]
     
     var statistic: [(menu: String, count: Int)] {
@@ -67,27 +59,25 @@ struct Inventory: Storable {
         return stocks.remove(at: index)
     } 
 }
-// MARK: - + Nested Enum 'Option'
-extension Inventory {
+
+enum Option {
+    case all
+    case available(balence: Money)
+    case hot
+    case due
     
-    enum BeverageFilteringOption: FilteringOption {
-        case all
-        case available(balence: Money)
-        case hot
-        case due
-        
-        var condition: (Product) -> Bool {
-            switch self {
-            case .all:
-                return { _ in true }
-            case .available(let balence):
-                return { $0.productPrice < balence }
-            case .hot:
-                return { $0.isHot }
-            case .due:
-                return { $0.isDue }
-                
-            }
+    var condition: (Product) -> Bool {
+        switch self {
+        case .all:
+            return { _ in true }
+        case .available(let balence):
+            return { $0.productPrice < balence }
+        case .hot:
+            return { $0.isHot }
+        case .due:
+            return { $0.isDue }
+            
         }
+        
     }
 }
