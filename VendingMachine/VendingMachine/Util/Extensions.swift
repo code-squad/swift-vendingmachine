@@ -28,7 +28,7 @@ extension Int {
 }
 // MARK: - Array Extension
 extension Array where Element == String {
-    var dictionary: [String: Int] {
+    var countDictionary: [String: Int] {
         var statistic = [String: Int]()
         self.forEach { statistic[$0] = (statistic[$0] ?? 0) + 1 }
         return statistic
@@ -36,7 +36,7 @@ extension Array where Element == String {
 }
 // MARK: - Dictionary Extension
 extension Dictionary where Key == String, Value == Int {
-    var list: [(String, Int)] {
+    var sortedList: [(String, Int)] {
         return self.sorted(by: <)
     }
 }
