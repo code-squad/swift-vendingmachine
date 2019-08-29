@@ -8,14 +8,37 @@
 
 import Foundation
 
-struct Inventory {
+protocol FilteringOption {
+    var condition: (Product) -> Bool { get } 
+}
+
+protocol Storable {
+    associatedtype Option: FilteringOption
+    
+    var statistic: [(menu: String, count: Int)] { get }
+    
+    init(products: [Product])
+    
+    mutating func addStock(_ product: Product)
+    
+    func search(at index: Int) -> Product?
+    
+    func filter(by option: Option) -> [Product]
+    
+    mutating func takeOut(_ product: Product) -> Product?
+    
+}
+
+struct Inventory: Storable {
+    typealias Option = BeverageFilteringOption
+    
     private var stocks: [Product]
     
     var statistic: [(menu: String, count: Int)] {
         return stocks
             .map { $0.productDescription }
-            .dictionary
-            .list
+            .countDictionary
+            .sortedList
     }
     
     init(products: [Product]) {
@@ -44,9 +67,10 @@ struct Inventory {
         return stocks.remove(at: index)
     } 
 }
-// MARK: + Nested Enum 'Option'
+// MARK: - + Nested Enum 'Option'
 extension Inventory {
-    enum Option {
+    
+    enum BeverageFilteringOption: FilteringOption {
         case all
         case available(balence: Money)
         case hot
