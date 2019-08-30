@@ -19,7 +19,7 @@ func main() {
 
     while true {
         vendingMachine.showBalance(with: OutputView.balanceForm)
-        vendingMachine.printInventory()
+        vendingMachine.showInventory(with: OutputView.beverageListForm)
         
         let selectedNumber = InputView.menuNumber()
         guard let selected = Menu.init(rawValue: selectedNumber) else {
