@@ -9,17 +9,17 @@
 import Foundation
 
 class Coffee: Beverage {
-    private let bean: CoffeeBean
+    private let bean: Bean
     
-    init(brand: String, capacity: Int, price: Int, name: String, dateOfManufactured: Date, temperature: Int, shelfLife: Double, bean: CoffeeBean) {
+    init(brand: String, capacity: Int, price: Int, name: String, dateOfManufactured: Date, temperature: Int, shelfLife: Double, bean: Bean) {
         self.bean = bean
         
         super.init(brand: brand, capacity: capacity, price: price, name: name, dateOfManufactured: dateOfManufactured, temperature: temperature, shelfLife: shelfLife)
     }
-}
-
-enum CoffeeBean {
-    case robusta
-    case arabica
-    case liberica
+    
+    enum Bean {
+        case robusta
+        case arabica
+        case liberica
+    }
 }
