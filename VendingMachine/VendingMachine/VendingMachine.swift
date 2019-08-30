@@ -55,7 +55,6 @@ class VendingMachine {
 }
 
 // MARK: - Show, Print Methods
-
 extension VendingMachine {
     /// 잔액을 보여준다.
     func showBalance(with show: (Int) -> Void) {
@@ -63,12 +62,12 @@ extension VendingMachine {
     }
     
     /// 재고를 출력한다.
-    func printInventory() {
-        inventory.showAllList(with: OutputView.beverageListForm)
+    func showInventory(with form: InventoryInfo) {
+        inventory.showAllList(with: form)
     }
     
     /// 현재 금액으로 구매 가능한 음료수 목록을 출력한다.
-    func printPurchasableList() {
-        inventory.showPurchasableList(money: balance, with: OutputView.beverageListForm)
+    func showPurchasableList(with form: InventoryInfo) {
+        inventory.showPurchasableList(money: balance, with: form)
     }
 }
