@@ -10,8 +10,8 @@ import Foundation
 
 class VendingMachine {
     private var balance = 0
-    var inventory: Inventory
-    var purchaseHistory: [Beverage] = []
+    private var inventory: Inventory
+    private var purchaseHistory: [Beverage] = []
     
     init(inventory: Inventory) {
         self.inventory = inventory
