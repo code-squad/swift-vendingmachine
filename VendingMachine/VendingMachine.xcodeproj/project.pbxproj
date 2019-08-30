@@ -46,9 +46,9 @@
 		0E40C8CD23112A27007576F0 /* Errorhandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E40C8C823112518007576F0 /* Errorhandler.swift */; };
 		0E5341342312739A00FF8823 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5341332312739A00FF8823 /* History.swift */; };
 		0E5341352312757500FF8823 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5341332312739A00FF8823 /* History.swift */; };
-		0E5981FD230772F300C09957 /* Storable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5981FC230772F300C09957 /* Storable.swift */; };
+		0E5981FD230772F300C09957 /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5981FC230772F300C09957 /* Inventory.swift */; };
 		0E5981FF2307FDE100C09957 /* InventoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5981FE2307FDE100C09957 /* InventoryTests.swift */; };
-		0E5982002307FDE400C09957 /* Storable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5981FC230772F300C09957 /* Storable.swift */; };
+		0E5982002307FDE400C09957 /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5981FC230772F300C09957 /* Inventory.swift */; };
 		0E5EC98323069470008C7C95 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5EC98223069470008C7C95 /* VendingMachine.swift */; };
 		0E5EC98623069CD7008C7C95 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5EC98523069CD7008C7C95 /* InputView.swift */; };
 		0E5EC9882306A052008C7C95 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5EC9872306A052008C7C95 /* OutputView.swift */; };
@@ -65,6 +65,7 @@
 		0EF72D3C2317D2670017BFEE /* StorableFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF72D3B2317D2670017BFEE /* StorableFactory.swift */; };
 		0EF72D3E2317FEF80017BFEE /* StorableFacotoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF72D3D2317FEF80017BFEE /* StorableFacotoryTests.swift */; };
 		0EF72D3F2317FF050017BFEE /* StorableFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF72D3B2317D2670017BFEE /* StorableFactory.swift */; };
+		0EF72D432318E1120017BFEE /* ProductStatistic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF72D422318E1120017BFEE /* ProductStatistic.swift */; };
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 		9F300279A87BABAE92F95450 /* Pods_VendingMachine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFD65AA3BB7CF46929BDD741 /* Pods_VendingMachine.framework */; };
 /* End PBXBuildFile section */
@@ -107,7 +108,7 @@
 		0E40C8C823112518007576F0 /* Errorhandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errorhandler.swift; sourceTree = "<group>"; };
 		0E40C8CA2311293F007576F0 /* Handleable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Handleable.swift; sourceTree = "<group>"; };
 		0E5341332312739A00FF8823 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
-		0E5981FC230772F300C09957 /* Storable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storable.swift; sourceTree = "<group>"; };
+		0E5981FC230772F300C09957 /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
 		0E5981FE2307FDE100C09957 /* InventoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTests.swift; sourceTree = "<group>"; };
 		0E5EC98223069470008C7C95 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 		0E5EC98523069CD7008C7C95 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
@@ -118,6 +119,7 @@
 		0E9B7B0F230EE289008727B3 /* StateHandleableFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateHandleableFactory.swift; sourceTree = "<group>"; };
 		0EF72D3B2317D2670017BFEE /* StorableFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorableFactory.swift; sourceTree = "<group>"; };
 		0EF72D3D2317FEF80017BFEE /* StorableFacotoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorableFacotoryTests.swift; sourceTree = "<group>"; };
+		0EF72D422318E1120017BFEE /* ProductStatistic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductStatistic.swift; sourceTree = "<group>"; };
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		898DF366FEC6F82668986051 /* Pods-VendingMachine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VendingMachine.debug.xcconfig"; path = "Target Support Files/Pods-VendingMachine/Pods-VendingMachine.debug.xcconfig"; sourceTree = "<group>"; };
@@ -243,10 +245,11 @@
 				0E3AB988230D580800C662FE /* Strategy */,
 				0E5EC98223069470008C7C95 /* VendingMachine.swift */,
 				0E5EC98A2306A0C4008C7C95 /* Money.swift */,
-				0E5981FC230772F300C09957 /* Storable.swift */,
+				0E5981FC230772F300C09957 /* Inventory.swift */,
 				0E40C8C823112518007576F0 /* Errorhandler.swift */,
 				0E40C8CA2311293F007576F0 /* Handleable.swift */,
 				0E5341332312739A00FF8823 /* History.swift */,
+				0EF72D422318E1120017BFEE /* ProductStatistic.swift */,
 			);
 			path = Structure;
 			sourceTree = "<group>";
@@ -468,7 +471,7 @@
 				0E3F1DBA2302A34100FC08DC /* CafeLatte.swift in Sources */,
 				0E40C8CC23112972007576F0 /* Handleable.swift in Sources */,
 				0E3EF1742303466500B27341 /* StrawberryMilk.swift in Sources */,
-				0E5982002307FDE400C09957 /* Storable.swift in Sources */,
+				0E5982002307FDE400C09957 /* Inventory.swift in Sources */,
 				0E3F1DB12302903800FC08DC /* Soda.swift in Sources */,
 				0E3EF16E2303458E00B27341 /* SodaTests.swift in Sources */,
 				0E3F1DB52302928E00FC08DC /* Coffee.swift in Sources */,
@@ -496,6 +499,7 @@
 				0E3F1D9B2302824900FC08DC /* Extensions.swift in Sources */,
 				0E3AB98C230D6B9100C662FE /* MoneyInsertStrategy.swift in Sources */,
 				0E5EC9882306A052008C7C95 /* OutputView.swift in Sources */,
+				0EF72D432318E1120017BFEE /* ProductStatistic.swift in Sources */,
 				0E3AB98A230D584200C662FE /* StateHandleable.swift in Sources */,
 				0E5341342312739A00FF8823 /* History.swift in Sources */,
 				0E3EF1622303326B00B27341 /* EnergyDrink.swift in Sources */,
@@ -506,7 +510,7 @@
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
 				0E3F1DB023028D9F00FC08DC /* Soda.swift in Sources */,
 				0E3EF1662303361900B27341 /* Cola.swift in Sources */,
-				0E5981FD230772F300C09957 /* Storable.swift in Sources */,
+				0E5981FD230772F300C09957 /* Inventory.swift in Sources */,
 				0E3EF16A23033BF700B27341 /* ChocolateMilk.swift in Sources */,
 				0E3F1DB42302906800FC08DC /* Coffee.swift in Sources */,
 				0E6491042306F95C0088907F /* Request.swift in Sources */,

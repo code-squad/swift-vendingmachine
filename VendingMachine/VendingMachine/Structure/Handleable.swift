@@ -12,9 +12,7 @@ protocol MoneyHandleable {
     func handleMoney(_ handler: (Money) -> Void)
 }
 
-protocol TupleListHandleable {
-    associatedtype Key
-    associatedtype Value
-    func handleTupleList(_ handler: ([(Key, Value)]) -> Void)
+protocol ProductStatisticHandleable {
+    func handleProductStatistic(_ handler: ([ProductStatistic]) -> Void)
 }
 

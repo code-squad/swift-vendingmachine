@@ -14,11 +14,9 @@ struct OutputView {
         print("현재 투입한 금액은 \($0)입니다.💵💰 ")
     }
     
-    static let showStatistic: ([(key: String, value: Int)]) -> Void = {
-        var index = 0
+    static let showStatistic: ([ProductStatistic]) -> Void = {
         let sentence = $0.reduce("🥛🥤☕️ 다음과 같은 음료가 있습니다. 🥛🥤☕️\n") {
-            index += 1
-            return "\($0) \(index)) \($1.key)\t (\($1.value)개)\n"
+            return "\($0) \($1.index)) \($1.productDescription)\t (\($1.productQuantity)개)\n"
         }
         print(sentence)
     }

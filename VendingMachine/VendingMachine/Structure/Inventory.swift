@@ -9,7 +9,7 @@
 import Foundation
 
 protocol Storable {
-    var statistic: [(menu: String, count: Int)] { get }
+    var statistic: [ProductStatistic] { get }
     
     init(products: [Product])
     mutating func addStock(_ product: Product)
@@ -22,11 +22,17 @@ protocol Storable {
 struct Inventory: Storable {
     private var stocks: [Product]
     
-    var statistic: [(menu: String, count: Int)] {
+    var statistic: [ProductStatistic] {
+        var index = 0
         return stocks
             .map { $0.productDescription }
             .countDictionary
             .sortedList
+            .map {
+                index += 1
+                return ProductStatistic(index: index,
+                                        productDescription: $0.0,
+                                        productQuantity: $0.1) }
     }
     
     init(products: [Product]) {
@@ -39,7 +45,7 @@ struct Inventory: Storable {
     
     func search(at index: Int) -> Product? {
         guard index < statistic.count else { return nil }
-        let productDescription = statistic[index].menu
+        let productDescription = statistic[index].productDescription
         var product = stocks.filter { $0.productDescription == productDescription }
         return product.popLast()
     }

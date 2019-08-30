@@ -64,11 +64,9 @@ extension VendingMachine: MoneyHandleable {
     
 }
 // MARK: - + MoneyHandleable
-extension VendingMachine: TupleListHandleable {
-    typealias Key = String
-    typealias Value = Int
+extension VendingMachine: ProductStatisticHandleable {
     
-    func handleTupleList(_ handler: ([(String, Int)]) -> Void) {
+    func handleProductStatistic(_ handler: ([ProductStatistic]) -> Void) {
           handler(inventory.statistic)
     }
 }
