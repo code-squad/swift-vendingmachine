@@ -69,3 +69,11 @@ extension Beverage: Hashable {
         hasher.combine(name)
     }
 }
+
+extension Beverage {
+    var objectID: ObjectIdentifier {
+        let beverageType = type(of: self)
+        let objectID = ObjectIdentifier(beverageType)
+        return objectID
+    }
+}
