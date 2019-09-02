@@ -28,24 +28,35 @@ class VendingMachine {
     }
     
     /// 음료수를 구매한다.
-    func purchase(beverage: Beverage) -> Beverage? {
-        if inventory.canPurchaseBeverage(beverage, with: balance) {
-            inventory.purchase(beverage)
-            purchaseHistory.append(beverage)
-            balance -= beverage.itemPrice
-            return beverage
+    func purchase(beverage: Beverage, completion: (String, Int) -> Void) -> Beverage? {
+        let purchasableBeverages = fetchPurchasableBeverages()
+        guard !purchasableBeverages.isEmpty else {
+            return nil
         }
-        return nil
+        inventory.purchase(beverage)
+        purchaseHistory.append(beverage)
+        balance -= beverage.itemPrice
+        completion(beverage.itemName,beverage.itemPrice)
+        return beverage
+    }
+    
+    func fetchBeverage(at index: Int) -> Beverage? {
+        return inventory.fetchBeverage(at: index)
     }
     
     /// 유통기한이 지난 재고만 리턴한다.
     func fetchExpiredStock() -> [Beverage] {
         return inventory.filter(by: .expired)
     }
-    
+
     /// 따뜻한 음료만 리턴한다.
     func fetchHotBeverages() -> [Beverage] {
         return inventory.filter(by: .hot)
+    }
+    
+    /// 현재 금액으로 구매 가능한 음료수 목록을 리턴한다.
+    func fetchPurchasableBeverages() -> [Beverage] {
+        return inventory.filter(by: .purchasable(balance))
     }
     
     /// 시작이후 구매 상품 이력을 배열로 리턴한다.
@@ -64,10 +75,5 @@ extension VendingMachine {
     /// 재고를 출력한다.
     func showInventory(with form: InventoryInfo) {
         inventory.showAllList(with: form)
-    }
-    
-    /// 현재 금액으로 구매 가능한 음료수 목록을 출력한다.
-    func showPurchasableList(with form: InventoryInfo) {
-        inventory.showPurchasableList(money: balance, with: form)
     }
 }
