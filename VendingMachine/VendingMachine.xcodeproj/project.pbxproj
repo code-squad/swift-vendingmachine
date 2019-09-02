@@ -13,6 +13,7 @@
 		FA02F91C231D036200708F7F /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80C445230E68F40012A94F /* Menu.swift */; };
 		FA02F91D231D037100708F7F /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6AE95F2307DBE800BC9414 /* VendingMachine.swift */; };
 		FA02F91F231D3E7A00708F7F /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA02F91E231D3E7A00708F7F /* Item.swift */; };
+		FA02F920231D3FC800708F7F /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA02F91E231D3E7A00708F7F /* Item.swift */; };
 		FA4BF1A9230198FA00CB2ACE /* Cider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4BF1A8230198FA00CB2ACE /* Cider.swift */; };
 		FA4BF1C723026EBF00CB2ACE /* VendingMachineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4BF1C623026EBF00CB2ACE /* VendingMachineTests.swift */; };
 		FA4BF1CC23026F2100CB2ACE /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
@@ -329,6 +330,7 @@
 				FA4BF1C723026EBF00CB2ACE /* VendingMachineTests.swift in Sources */,
 				FA4BF1D223026F4E00CB2ACE /* Coke.swift in Sources */,
 				FA02F91C231D036200708F7F /* Menu.swift in Sources */,
+				FA02F920231D3FC800708F7F /* Item.swift in Sources */,
 				FA02F91A231D034A00708F7F /* Inventory.swift in Sources */,
 				FA4BF1D523026F5500CB2ACE /* Americano.swift in Sources */,
 				FA4BF1D423026F5300CB2ACE /* Coffee.swift in Sources */,
