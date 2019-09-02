@@ -16,6 +16,7 @@ func main() {
     vendingMachine.addStock(of: Cider(), count: 1)
     vendingMachine.addStock(of: Americano(), count: 4)
     vendingMachine.addStock(of: CaffeLatte(), count: 3)
+    
     while true {
         vendingMachine.showBalance(with: OutputView.balanceForm)
         vendingMachine.showInventory(with: OutputView.beverageListForm)

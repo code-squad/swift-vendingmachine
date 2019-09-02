@@ -24,7 +24,8 @@ class Item {
     }
     
     func append(beverage: Beverage, count: Int = 0) {
-        beverages.append(beverage)
+        let bundle = Array(repeating: beverage, count: count)
+        beverages.append(contentsOf: bundle)
     }
     
     func remove(beverage: Beverage) {
