@@ -27,7 +27,7 @@ class Inventory {
     
     func append(_ beverage: Beverage, count: Int = 0) {
         let items = findItems(key: beverage.objectID)
-        items.append(beverage: beverage)
+        items.append(beverage: beverage, count: count)
     }
     
     
