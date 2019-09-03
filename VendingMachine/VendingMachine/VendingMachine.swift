@@ -18,8 +18,12 @@ class VendingMachine {
     }
     
     /// 자판기 금액을 원하는 금액만큼 올린다.
-    func insertMoney(amount: Int) {
+    func insertMoney(amount: Int) -> Bool {
+        guard amount > 0 else {
+            return false
+        }
         balance += amount
+        return true
     }
     
     ///특정 상품 인스턴스를 넘겨서 재고를 추가한다.

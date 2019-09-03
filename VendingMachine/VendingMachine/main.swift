@@ -28,7 +28,9 @@ func main() {
         let value = InputView.readPrompt()
         switch selected {
         case .insertMoney:
-            vendingMachine.insertMoney(amount: value)
+            guard vendingMachine.insertMoney(amount: value) else {
+                continue
+            }
         case .purchaseBeverage:
             guard let beverage = vendingMachine.fetchBeverage(at: value - 1),
                 let _ = vendingMachine.purchase(beverage: beverage, completion: OutputView.purchaseForm) else {
