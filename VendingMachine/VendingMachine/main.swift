@@ -9,7 +9,7 @@
 import Foundation
 
 func main() {
-    let vendingMachine = VendingMachine(inventory: Inventory())
+    let vendingMachine = VendingMachine(storage: Storage())
     vendingMachine.addStock(of: StrawberryMilk(), count: 3)
     vendingMachine.addStock(of: ChocolateMilk(), count: 5)
     vendingMachine.addStock(of: Coke(), count: 2)
