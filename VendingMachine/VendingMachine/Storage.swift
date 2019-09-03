@@ -1,5 +1,5 @@
 //
-//  Inventory.swift
+//  Storage.swift
 //  VendingMachine
 //
 //  Created by CHOMINJI on 23/08/2019.
@@ -10,7 +10,7 @@ import Foundation
 
 typealias InventoryInfo = ([(name: String, price: Int, value: Int)]) -> Void
 
-class Inventory {
+class Storage {
     private var inventory: [ObjectIdentifier: Item] = [:]
     private var objectIDs: [ObjectIdentifier] {
         return Array(inventory.keys)
@@ -58,7 +58,7 @@ class Inventory {
 
 // MARK: - Show Methods
 
-extension Inventory {
+extension Storage {
     /// 모든 재고 리스트를 보여준다.
     func showAllList(with show: InventoryInfo) {
         let bundle = inventory.values

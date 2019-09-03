@@ -10,11 +10,11 @@ import Foundation
 
 class VendingMachine {
     private var balance = 0
-    private var inventory: Inventory
+    private var storage: Storage
     private var purchaseHistory: [Beverage] = []
     
-    init(inventory: Inventory) {
-        self.inventory = inventory
+    init(storage: Storage) {
+        self.storage = storage
     }
     
     /// 자판기 금액을 원하는 금액만큼 올린다.
@@ -24,7 +24,7 @@ class VendingMachine {
     
     ///특정 상품 인스턴스를 넘겨서 재고를 추가한다.
     func addStock(of beverage: Beverage, count: Int) {
-        inventory.append(beverage, count: count)
+        storage.append(beverage, count: count)
     }
     
     /// 음료수를 구매한다.
@@ -33,30 +33,30 @@ class VendingMachine {
         guard !purchasableBeverages.isEmpty else {
             return nil
         }
-        inventory.purchase(beverage)
+        storage.purchase(beverage)
         purchaseHistory.append(beverage)
         balance -= beverage.itemPrice
-        completion(beverage.itemName,beverage.itemPrice)
+        completion(beverage.itemName, beverage.itemPrice)
         return beverage
     }
     
     func fetchBeverage(at index: Int) -> Beverage? {
-        return inventory.fetchBeverage(at: index)
+        return storage.fetchBeverage(at: index)
     }
     
     /// 유통기한이 지난 재고만 리턴한다.
     func fetchExpiredStock() -> [Beverage] {
-        return inventory.filter(by: .expired)
+        return storage.filter(by: .expired)
     }
 
     /// 따뜻한 음료만 리턴한다.
     func fetchHotBeverages() -> [Beverage] {
-        return inventory.filter(by: .hot)
+        return storage.filter(by: .hot)
     }
     
     /// 현재 금액으로 구매 가능한 음료수 목록을 리턴한다.
     func fetchPurchasableBeverages() -> [Beverage] {
-        return inventory.filter(by: .purchasable(balance))
+        return storage.filter(by: .purchasable(balance))
     }
     
     /// 시작이후 구매 상품 이력을 배열로 리턴한다.
@@ -75,6 +75,6 @@ extension VendingMachine {
     
     /// 재고를 출력한다.
     func showInventory(with form: InventoryInfo) {
-        inventory.showAllList(with: form)
+        storage.showAllList(with: form)
     }
 }
