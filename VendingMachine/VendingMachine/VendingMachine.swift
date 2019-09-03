@@ -65,7 +65,8 @@ class VendingMachine {
     }
 }
 
-// MARK: - Show, Print Methods
+// MARK: - Show Methods
+
 extension VendingMachine {
     /// 잔액을 보여준다.
     func showBalance(with show: (Int) -> Void) {
