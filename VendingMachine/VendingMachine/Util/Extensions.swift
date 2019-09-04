@@ -34,6 +34,24 @@ extension Array where Element == String {
         return statistic
     }
 }
+
+extension Array where Element == Product {
+    private var allProductDictionary: [String: Int] {
+        return [ StrawberryMilk().productDescription: 0,
+                 ChocolateMilk().productDescription: 0,
+                 Cola().productDescription: 0,
+                 EnergyDrink().productDescription: 0,
+                 Americano().productDescription: 0,
+                 CafeLatte().productDescription: 0] }
+    
+    var countDictionary: [String: Int] {
+        var temp = allProductDictionary
+        for product in self {
+            temp[product.productDescription] = (temp[product.productDescription] ?? 0) + 1
+        }
+        return temp
+    }
+}
 // MARK: - Dictionary Extension
 extension Dictionary where Key == String, Value == Int {
     var sortedList: [(String, Int)] {
