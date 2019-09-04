@@ -25,7 +25,6 @@ struct Inventory: Storable {
     var statistic: [ProductStatistic] {
         var index = 0
         return stocks
-            .map { $0.productDescription }
             .countDictionary
             .sortedList
             .map {
