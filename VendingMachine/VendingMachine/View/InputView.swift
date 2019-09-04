@@ -14,6 +14,7 @@ protocol InputView {
 }
 extension InputView {
     func fetchInput() -> String {
+        showMenu()
         return readLine() ?? ""
     }
 }

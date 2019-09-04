@@ -24,7 +24,6 @@ var inputString = ""
 while vendingMachine.isOnSale {
     
     inputView = InputViewFactory.create(.none)
-    inputView.showMenu()
     inputString = inputView.fetchInput()
     mode = Authority(input: inputString)
     
@@ -32,7 +31,6 @@ while vendingMachine.isOnSale {
     vendingMachine.handleMoney(OutputView.showBalance)
     
     inputView = InputViewFactory.create(mode)
-    inputView.showMenu()
     inputString = inputView.fetchInput()
     
     do {
