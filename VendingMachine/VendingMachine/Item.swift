@@ -10,6 +10,8 @@ import Foundation
 
 class Item {
     private var beverages: [Beverage]
+    private var beverageName = ""
+    private var beveragePrice = 0
     
     init(beverages: [Beverage] = []) {
         self.beverages = beverages
@@ -26,6 +28,8 @@ class Item {
     func append(beverage: Beverage, count: Int = 0) {
         let bundle = Array(repeating: beverage, count: count)
         beverages.append(contentsOf: bundle)
+        beverageName = beverage.itemName
+        beveragePrice = beverage.itemPrice
     }
     
     func remove(beverage: Beverage) {
@@ -39,8 +43,7 @@ class Item {
     }
     
     var info: (name: String, price: Int, value: Int)  {
-        let beverage = beverages.first!
-        return (beverage.itemName, beverage.itemPrice, count)
+        return (beverageName, beveragePrice, count)
     }
 }
 

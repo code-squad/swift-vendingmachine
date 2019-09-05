@@ -62,7 +62,6 @@ extension Storage {
     /// 모든 재고 리스트를 보여준다.
     func showAllList(with show: InventoryInfo) {
         let bundle = inventory.values
-            .filter { !$0.isEmpty }
             .map { $0.info }
         show(bundle)
     }
