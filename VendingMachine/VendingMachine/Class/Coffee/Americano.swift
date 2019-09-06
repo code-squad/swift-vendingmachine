@@ -51,4 +51,7 @@ class Americano: Coffee {
                    temperature: temperature,
                    coffeeBean: coffeeBean)
     }
+    required convenience init(required: Bool) {
+        self.init()
+    }
 }

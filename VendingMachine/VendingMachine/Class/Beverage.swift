@@ -53,6 +53,10 @@ class Beverage {
         self.storeDuration = storeDuration.dayDuration
         self.temperature = temperature
     }
+    // MARK: - Methods
+    required convenience init(required: Bool) {
+        self.init()
+    }
 }
 // MARK: - + CustomStringConvertible
 extension Beverage: CustomStringConvertible {

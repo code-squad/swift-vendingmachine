@@ -51,5 +51,7 @@ class EnergyDrink: Soda {
                    temperature: temperature,
                    isSugerFree: isSugerFree)
     }
-    
+    required convenience init(required: Bool) {
+        self.init()
+    }
 }

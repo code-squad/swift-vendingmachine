@@ -37,4 +37,7 @@ class Coffee: Beverage {
                    storeDuration: storeDuration,
                    temperature: temperature)
     }
+    required convenience init(required: Bool) {
+        self.init()
+    }
 }

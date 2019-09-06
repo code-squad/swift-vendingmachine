@@ -54,4 +54,8 @@ class StrawberryMilk: Milk, Sweetable {
                    lactaseContent: lactaseContent)
     }
     
+    required convenience init(required: Bool) {
+        self.init()
+    }
+    
 }
