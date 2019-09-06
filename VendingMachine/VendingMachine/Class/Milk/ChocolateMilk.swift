@@ -51,7 +51,9 @@ class ChocolateMilk: Milk, Sweetable {
                    fatContent: fatContent,
                    lactaseContent: lactaseContent)
     }
-    required convenience init(required: Bool) {
-        self.init()
+    
+    required convenience init () {
+        self.init(price: ChocolateMilk.recommendedConsumerPrice,
+                  name: "초코우유")
     }
 }

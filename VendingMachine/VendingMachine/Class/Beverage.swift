@@ -40,8 +40,8 @@ class Beverage {
     // MARK: - Methods
     init(brand: String = "제조사",
          capacity: Int = 0,
-         price: Int = 0,
-         name: String = "음료",
+         price: Int,
+         name: String,
          productDate: Date = Date(),
          storeDuration: Int = 5,
          temperature: Int = standardTemperature) {
@@ -53,9 +53,10 @@ class Beverage {
         self.storeDuration = storeDuration.dayDuration
         self.temperature = temperature
     }
-    // MARK: - Methods
-    required convenience init(required: Bool) {
-        self.init()
+    
+    required convenience init () {
+        self.init(price: 0,
+                  name: "음료")
     }
 }
 // MARK: - + CustomStringConvertible
