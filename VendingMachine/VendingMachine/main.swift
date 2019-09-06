@@ -8,7 +8,7 @@
 
 import Foundation
 // - MARK: - Set Up
-let products = ProductFactory.create(quantity: 10)
+let products = ProductFactory.createAll(quantity: 3)
 
 let inventory = Inventory(products: products)
 
@@ -21,15 +21,15 @@ var mode: Authority
 var inputView: InputView
 var inputString = ""
 
+inputView = InputViewFactory.create(.none)
+inputString = inputView.fetchInput()
+mode = Authority(input: inputString)
+
 while vendingMachine.isOnSale {
-    
-    inputView = InputViewFactory.create(.none)
-    inputString = inputView.fetchInput()
-    mode = Authority(input: inputString)
-    
+
     vendingMachine.handleProductStatistic(OutputView.showStatistic)
     vendingMachine.handleMoney(OutputView.showBalance)
-    
+
     inputView = InputViewFactory.create(mode)
     inputString = inputView.fetchInput()
     

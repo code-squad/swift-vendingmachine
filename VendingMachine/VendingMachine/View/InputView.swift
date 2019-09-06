@@ -9,12 +9,5 @@
 import Foundation
 
 protocol InputView {
-    func showMenu()
     func fetchInput() -> String
-}
-extension InputView {
-    func fetchInput() -> String {
-        showMenu()
-        return readLine() ?? ""
-    }
 }

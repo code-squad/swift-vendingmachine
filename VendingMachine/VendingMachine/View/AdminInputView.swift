@@ -23,8 +23,8 @@ struct AdminInputView: InputView {
         }
     }
     
-    func showMenu() {
+    func fetchInput() -> String {
         Menu.allCases.forEach { print($0) }
+        return readLine() ?? ""
     }
-    
 }
