@@ -9,6 +9,7 @@
 import Foundation
 
 func main() {
+    
     let vendingMachine = VendingMachine(storage: Storage())
     vendingMachine.addStock(of: StrawberryMilk(), count: 3)
     vendingMachine.addStock(of: ChocolateMilk(), count: 5)
@@ -18,15 +19,26 @@ func main() {
     vendingMachine.addStock(of: CaffeLatte(), count: 3)
     
     while true {
+        let selectedMode = InputView.readMode()
+        guard let mode = Mode.init(rawValue: selectedMode) else {
+            return
+        }
+        switch mode {
+        case .manager:
+            print("관리자")
+        case .user:
+            print("user")
+        }
+        
         vendingMachine.showBalance(with: OutputView.balanceForm)
         vendingMachine.showInventory(with: OutputView.beverageListForm)
         
-        let selectedNumber = InputView.menuNumber()
-        guard let selected = Menu.init(rawValue: selectedNumber) else {
+        let selectedMenu = InputView.readMenu()
+        guard let menu = Menu.init(rawValue: selectedMenu) else {
             return
         }
         let value = InputView.readPrompt()
-        switch selected {
+        switch menu {
         case .insertMoney:
             guard vendingMachine.insertMoney(amount: value) else {
                 continue
