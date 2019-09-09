@@ -44,6 +44,8 @@
 		FA6AE95E2307D9D100BC9414 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6AE95D2307D9D100BC9414 /* InputView.swift */; };
 		FA6AE962230823AC00BC9414 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6AE961230823AC00BC9414 /* OutputView.swift */; };
 		FA80C446230E68F40012A94F /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80C445230E68F40012A94F /* Menu.swift */; };
+		FAD8BAC4232647BF005AEFC4 /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF8CA723210B61004B4E09 /* Mode.swift */; };
+		FAFF8CA823210B61004B4E09 /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF8CA723210B61004B4E09 /* Mode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -81,6 +83,7 @@
 		FA6AE95F2307DBE800BC9414 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 		FA6AE961230823AC00BC9414 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		FA80C445230E68F40012A94F /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		FAFF8CA723210B61004B4E09 /* Mode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +130,7 @@
 				FA5FBD3F230FE58700735177 /* Storage.swift */,
 				FA02F91E231D3E7A00708F7F /* Item.swift */,
 				FA80C445230E68F40012A94F /* Menu.swift */,
+				FAFF8CA723210B61004B4E09 /* Mode.swift */,
 				FAC3C2CD231284F100E28908 /* Views */,
 				FA4179072307D60A00300699 /* Beverages */,
 				FA4BF1DD23028D1900CB2ACE /* Utils */,
@@ -305,6 +309,7 @@
 				FA5963292301466E00F53935 /* SoftDrink.swift in Sources */,
 				FA80C446230E68F40012A94F /* Menu.swift in Sources */,
 				FA5FBD40230FE58700735177 /* Storage.swift in Sources */,
+				FAFF8CA823210B61004B4E09 /* Mode.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
 				FA59634023018A5C00F53935 /* ChocolateMilk.swift in Sources */,
 				FA59632B2301468600F53935 /* Coffee.swift in Sources */,
@@ -322,6 +327,7 @@
 				FA4BF1CF23026F3200CB2ACE /* StrawberryMilk.swift in Sources */,
 				FA4BF1D9230289AB00CB2ACE /* CaffeLatte.swift in Sources */,
 				FA02F91B231D035B00708F7F /* InputView.swift in Sources */,
+				FAD8BAC4232647BF005AEFC4 /* Mode.swift in Sources */,
 				FA5FBD3E230FCE0600735177 /* OutputView.swift in Sources */,
 				FA4BF1CC23026F2100CB2ACE /* main.swift in Sources */,
 				FA4BF1D623026F5700CB2ACE /* Date+Extension.swift in Sources */,
