@@ -8,16 +8,33 @@
 
 import Foundation
 
-enum Menu: Int, CaseIterable, CustomStringConvertible {
-    case insertMoney = 1
-    case purchaseBeverage
+struct Menu {
+    enum Manager: Int, CaseIterable, CustomStringConvertible {
+        case addStock = 1
+        case takeOutStock
+        
+        var description: String {
+            switch self {
+            case .addStock:
+                return "\(rawValue). 재고 추가"
+            case .takeOutStock:
+                return "\(rawValue). 재고 삭제"
+            }
+        }
+    }
     
-    var description: String {
-        switch self {
-        case .insertMoney:
-            return "\(rawValue). 금액 추가"
-        case .purchaseBeverage:
-            return "\(rawValue). 음료 구매"
+    enum User: Int, CaseIterable, CustomStringConvertible {
+        case insertMoney = 1
+        case purchaseBeverage
+        
+        var description: String {
+            switch self {
+            case .insertMoney:
+                return "\(rawValue). 금액 추가"
+            case .purchaseBeverage:
+                return "\(rawValue). 음료 구매"
+            }
         }
     }
 }
+
