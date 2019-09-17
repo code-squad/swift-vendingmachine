@@ -19,3 +19,4 @@ struct ErrorHandler {
         logic(error)
     }
 }
+
