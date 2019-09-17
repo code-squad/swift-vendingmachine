@@ -9,13 +9,18 @@
 import Foundation
 
 enum Authority: Int {
+    case none
     case admin = 1
     case user
-    case none
     
-    init(input: String) {
-        let modeIndex = Int(input) ?? -1
-        self = Authority.init(rawValue: modeIndex) ?? .none
+    init(index: Int?) {
+        guard
+            let index = index
+            else {
+                self = .none
+                return
+        }
+        self = Authority.init(rawValue: index) ?? .none
     }
     
 }
