@@ -18,8 +18,12 @@ struct ProductFactory {
     
     static func createAll(quantity: Int) -> [Product] {
         return Array.init(0..<quantity)
-            .map { _ in supportedTypes.map { $0.init() } }
-            .reduce(into: [Product]()) { $0.append(contentsOf: $1) }
+            .map { _ in
+                supportedTypes.map { $0.init() }
+            }
+            .reduce(into: [Product]()) {
+                $0.append(contentsOf: $1)
+        }
     }
     
     static func create(index: Int) -> Product? {
