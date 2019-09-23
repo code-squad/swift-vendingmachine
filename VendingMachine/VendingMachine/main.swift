@@ -18,35 +18,53 @@ func main() {
     vendingMachine.addStock(of: Americano(), count: 4)
     vendingMachine.addStock(of: CaffeLatte(), count: 3)
     
+    let selectedMode = InputView.readMode()
+    guard let mode = Mode.init(rawValue: selectedMode) else {
+        return
+    }
+    
     while true {
-        let selectedMode = InputView.readMode()
-        guard let mode = Mode.init(rawValue: selectedMode) else {
-            return
-        }
         switch mode {
         case .manager:
-            print("관리자")
-        case .user:
-            print("user")
-        }
-        
-        vendingMachine.showBalance(with: OutputView.balanceForm)
-        vendingMachine.showInventory(with: OutputView.beverageListForm)
-        
-        let selectedMenu = InputView.readMenu()
-        guard let menu = Menu.init(rawValue: selectedMenu) else {
-            return
-        }
-        let value = InputView.readPrompt()
-        switch menu {
-        case .insertMoney:
-            guard vendingMachine.insertMoney(amount: value) else {
+            vendingMachine.showInventory(with: OutputView.beverageListForm)
+            
+            let selectedMenu = InputView.readManagerMenu()
+            guard let menu = Menu.Manager.init(rawValue: selectedMenu) else {
+                return
+            }
+            let value = InputView.readPrompt()
+            guard let beverage = vendingMachine.fetchBeverage(at: value - 1) else {
                 continue
             }
-        case .purchaseBeverage:
-            guard let beverage = vendingMachine.fetchBeverage(at: value - 1),
-                let _ = vendingMachine.purchase(beverage: beverage, completion: OutputView.purchaseForm) else {
+            switch menu {
+            case .addStock:
+                ////
+                let addCount = InputView.readPrompt()
+                vendingMachine.addStock(of: beverage, count: addCount)
+            case .takeOutStock:
+                /////
+                let removeCount = InputView.readPrompt()
+                vendingMachine.takeOutStock(of: beverage, count: removeCount)
+            }
+        case .user:
+            vendingMachine.showBalance(with: OutputView.balanceForm)
+            vendingMachine.showInventory(with: OutputView.beverageListForm)
+            
+            let selectedMenu = InputView.readUserMenu()
+            guard let menu = Menu.User.init(rawValue: selectedMenu) else {
+                return
+            }
+            let value = InputView.readPrompt()
+            switch menu {
+            case .insertMoney:
+                guard vendingMachine.insertMoney(amount: value) else {
                     continue
+                }
+            case .purchaseBeverage:
+                guard let beverage = vendingMachine.fetchBeverage(at: value - 1),
+                    let _ = vendingMachine.purchase(beverage: beverage, completion: OutputView.purchaseForm) else {
+                        continue
+                }
             }
         }
     }
