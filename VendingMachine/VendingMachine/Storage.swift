@@ -21,9 +21,11 @@ class Storage {
         items.append(beverage: beverage, count: count)
     }
     
-    func purchase(_ beverage: Beverage) {
+    func remove(_ beverage: Beverage, count: Int = 0) {
         let items = findItems(key: beverage.objectID)
-        items.remove(beverage: beverage)
+        for _ in 0..<count {
+            items.remove(beverage: beverage)
+        }
     }
     
     func filter(by condition: Item.Condition) -> [Beverage] {
@@ -38,11 +40,7 @@ class Storage {
         }
         let id = objectIDs[index]
         let item = findItems(key: id)
-        
-        guard let beverage = item.fetchFirst() else {
-            return nil
-        }
-        return beverage
+        return item.fetchFirst()
     }
     
     func findItems(key objectID: ObjectIdentifier) -> Item {
@@ -62,7 +60,7 @@ extension Storage {
     /// 모든 재고 리스트를 보여준다.
     func showAllList(with show: InventoryInfo) {
         let bundle = inventory.values
-            .map { $0.info }
+            .compactMap { $0.info }
         show(bundle)
     }
 }
