@@ -42,7 +42,7 @@ class VendingMachine {
         guard purchasableBeverages.contains(beverage) else {
             return nil
         }
-        storage.purchase(beverage)
+        storage.remove(beverage, count: 1)
         purchaseHistory.append(beverage)
         balance -= beverage.itemPrice
         completion(beverage.itemName, beverage.itemPrice)
