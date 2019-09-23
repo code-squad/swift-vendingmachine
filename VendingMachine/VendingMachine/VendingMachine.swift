@@ -31,6 +31,11 @@ class VendingMachine {
         storage.append(beverage, count: count)
     }
     
+    /// 특정 상품 인스턴스를 넘겨서 재고를 삭제한다.
+    func takeOutStock(of beverage: Beverage, count: Int = 0) {
+        storage.remove(beverage, count: count)
+    }
+    
     /// 음료수를 구매한다.
     func purchase(beverage: Beverage, completion: (String, Int) -> Void) -> Beverage? {
         let purchasableBeverages = fetchPurchasableBeverages()
