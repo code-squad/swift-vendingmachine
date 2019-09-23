@@ -39,7 +39,7 @@ class VendingMachine {
     /// 음료수를 구매한다.
     func purchase(beverage: Beverage, completion: (String, Int) -> Void) -> Beverage? {
         let purchasableBeverages = fetchPurchasableBeverages()
-        guard !purchasableBeverages.isEmpty else {
+        guard purchasableBeverages.contains(beverage) else {
             return nil
         }
         storage.purchase(beverage)
