@@ -26,29 +26,29 @@ func main() {
     while true {
         switch mode {
         case .manager:
-            vendingMachine.showInventory(with: OutputView.beverageListForm)
+            let managerMode = vendingMachine as ManagerMode
+            managerMode.showInventory(with: OutputView.beverageListForm)
             
             let selectedMenu = InputView.readManagerMenu()
             guard let menu = Menu.Manager.init(rawValue: selectedMenu) else {
                 return
             }
             let value = InputView.readPrompt()
-            guard let beverage = vendingMachine.fetchBeverage(at: value - 1) else {
+            guard let beverage = managerMode.fetchBeverage(at: value - 1) else {
                 continue
             }
             switch menu {
             case .addStock:
-                ////
                 let addCount = InputView.readPrompt()
-                vendingMachine.addStock(of: beverage, count: addCount)
+                managerMode.addStock(of: beverage, count: addCount)
             case .takeOutStock:
-                /////
                 let removeCount = InputView.readPrompt()
-                vendingMachine.takeOutStock(of: beverage, count: removeCount)
+                managerMode.takeOutStock(of: beverage, count: removeCount)
             }
         case .user:
-            vendingMachine.showBalance(with: OutputView.balanceForm)
-            vendingMachine.showInventory(with: OutputView.beverageListForm)
+            let userMode = vendingMachine as UserMode
+            userMode.showBalance(with: OutputView.balanceForm)
+            userMode.showInventory(with: OutputView.beverageListForm)
             
             let selectedMenu = InputView.readUserMenu()
             guard let menu = Menu.User.init(rawValue: selectedMenu) else {
@@ -57,12 +57,12 @@ func main() {
             let value = InputView.readPrompt()
             switch menu {
             case .insertMoney:
-                guard vendingMachine.insertMoney(amount: value) else {
+                guard userMode.insertMoney(amount: value) else {
                     continue
                 }
             case .purchaseBeverage:
-                guard let beverage = vendingMachine.fetchBeverage(at: value - 1),
-                    let _ = vendingMachine.purchase(beverage: beverage, completion: OutputView.purchaseForm) else {
+                guard let beverage = userMode.fetchBeverage(at: value - 1),
+                    let _ = userMode.purchase(beverage: beverage, completion: OutputView.purchaseForm) else {
                         continue
                 }
             }
@@ -71,5 +71,3 @@ func main() {
 }
 
 main()
-
-
