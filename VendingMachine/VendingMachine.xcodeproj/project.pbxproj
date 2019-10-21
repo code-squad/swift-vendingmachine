@@ -44,6 +44,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		141F8DD3235DA770008FD09A /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				141F8DCD235D9D91008FD09A /* Beverage.swift */,
+				141F8DD4235DA783008FD09A /* Milk */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		141F8DD4235DA783008FD09A /* Milk */ = {
+			isa = PBXGroup;
+			children = (
+				141F8DD1235DA3FB008FD09A /* Milk.swift */,
+			);
+			path = Milk;
+			sourceTree = "<group>";
+		};
 		839DA9001F8D1F95009E05F3 = {
 			isa = PBXGroup;
 			children = (
@@ -63,9 +80,8 @@
 		839DA90B1F8D1F95009E05F3 /* VendingMachine */ = {
 			isa = PBXGroup;
 			children = (
+				141F8DD3235DA770008FD09A /* Class */,
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
-				141F8DCD235D9D91008FD09A /* Beverage.swift */,
-				141F8DD1235DA3FB008FD09A /* Milk.swift */,
 				141F8DCF235D9FBE008FD09A /* Date+Extension.swift */,
 			);
 			path = VendingMachine;
