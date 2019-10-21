@@ -11,6 +11,7 @@
 		141F8DD0235D9FBE008FD09A /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141F8DCF235D9FBE008FD09A /* Date+Extension.swift */; };
 		141F8DD2235DA3FB008FD09A /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141F8DD1235DA3FB008FD09A /* Milk.swift */; };
 		141F8DD7235DA7FB008FD09A /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141F8DD6235DA7FA008FD09A /* Soda.swift */; };
+		141F8DDA235DA956008FD09A /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141F8DD9235DA956008FD09A /* Coffee.swift */; };
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		141F8DCF235D9FBE008FD09A /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		141F8DD1235DA3FB008FD09A /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
 		141F8DD6235DA7FA008FD09A /* Soda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soda.swift; sourceTree = "<group>"; };
+		141F8DD9235DA956008FD09A /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -50,6 +52,7 @@
 			isa = PBXGroup;
 			children = (
 				141F8DCD235D9D91008FD09A /* Beverage.swift */,
+				141F8DD8235DA92B008FD09A /* Coffee */,
 				141F8DD5235DA7CB008FD09A /* Soda */,
 				141F8DD4235DA783008FD09A /* Milk */,
 			);
@@ -70,6 +73,14 @@
 				141F8DD6235DA7FA008FD09A /* Soda.swift */,
 			);
 			path = Soda;
+			sourceTree = "<group>";
+		};
+		141F8DD8235DA92B008FD09A /* Coffee */ = {
+			isa = PBXGroup;
+			children = (
+				141F8DD9235DA956008FD09A /* Coffee.swift */,
+			);
+			path = Coffee;
 			sourceTree = "<group>";
 		};
 		839DA9001F8D1F95009E05F3 = {
@@ -161,6 +172,7 @@
 				141F8DD2235DA3FB008FD09A /* Milk.swift in Sources */,
 				141F8DD0235D9FBE008FD09A /* Date+Extension.swift in Sources */,
 				141F8DD7235DA7FB008FD09A /* Soda.swift in Sources */,
+				141F8DDA235DA956008FD09A /* Coffee.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
