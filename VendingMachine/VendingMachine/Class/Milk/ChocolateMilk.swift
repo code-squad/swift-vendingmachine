@@ -9,9 +9,9 @@
 import Foundation
 
 class ChocolateMilk: Milk {
-    private let chocolateContent: Int
+    private let chocolateContent: Double
     
-    init(brand: String, capacity: Int, price: Int, name: String, date: Date, fatContent: Double, chocolateContent: Int) {
+    init(brand: String = "서울우유", capacity: Int = 200, price: Int = 1000, name: String = "초코우유", date: Date = Date("20191023"), fatContent: Double = 3, chocolateContent: Double = 1) {
         self.chocolateContent = chocolateContent
         
         super.init(brand: brand, capacity: capacity, price: price, name: name, date: date, fatContent: fatContent)
