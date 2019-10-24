@@ -13,6 +13,7 @@
 		141F8DD7235DA7FB008FD09A /* Soda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141F8DD6235DA7FA008FD09A /* Soda.swift */; };
 		141F8DDA235DA956008FD09A /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141F8DD9235DA956008FD09A /* Coffee.swift */; };
 		1439C73923616A7500C0FB0A /* VendingMachineUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1439C73823616A7500C0FB0A /* VendingMachineUnitTest.swift */; };
+		1439C73F23616AEF00C0FB0A /* StrawberryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1439C73E23616AEF00C0FB0A /* StrawberryMilk.swift */; };
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		1439C73623616A7500C0FB0A /* VendingMachineUnitTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineUnitTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1439C73823616A7500C0FB0A /* VendingMachineUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineUnitTest.swift; sourceTree = "<group>"; };
 		1439C73A23616A7500C0FB0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1439C73E23616AEF00C0FB0A /* StrawberryMilk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrawberryMilk.swift; sourceTree = "<group>"; };
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				141F8DD1235DA3FB008FD09A /* Milk.swift */,
+				1439C73E23616AEF00C0FB0A /* StrawberryMilk.swift */,
 			);
 			path = Milk;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1439C73F23616AEF00C0FB0A /* StrawberryMilk.swift in Sources */,
 				141F8DCE235D9D91008FD09A /* Beverage.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
 				141F8DD2235DA3FB008FD09A /* Milk.swift in Sources */,
