@@ -22,6 +22,10 @@ class Beverage {
         self.name = name
         self.expirationDate = expirationDate
     }
+    
+    func validate(with date: Date) -> Bool {
+        return expirationDate > date
+    }
 }
 
 extension Beverage: CustomStringConvertible {
