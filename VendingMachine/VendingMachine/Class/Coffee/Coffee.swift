@@ -11,10 +11,10 @@ import Foundation
 class Coffee: Beverage {
     private let coffeeType: CoffeeType
     
-    init(brand: String, capacity: Int, price: Int, name: String, date: Date, coffeeType: CoffeeType = .americano) {
+    init(brand: String, capacity: Int, price: Int, name: String, expirationDate: Date, coffeeType: CoffeeType = .americano) {
         self.coffeeType = coffeeType
         
-        super.init(brand: brand, capacity: capacity, price: price, name: name, date: date)
+        super.init(brand: brand, capacity: capacity, price: price, name: name, expirationDate: expirationDate)
     }
 }
 

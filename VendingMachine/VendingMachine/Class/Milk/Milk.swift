@@ -13,11 +13,11 @@ class Milk: Beverage {
     private let fatContent: Double
     private let capacity: Int
     
-    init(brand: String, capacity: Int, price: Int, name: String, date: Date, fatContent: Double) {
+    init(brand: String, capacity: Int, price: Int, name: String, expirationDate: Date, fatContent: Double) {
         self.fatContent = fatContent
         self.capacity = capacity
         
-        super.init(brand: brand, capacity: capacity, price: price, name: name, date: date)
+        super.init(brand: brand, capacity: capacity, price: price, name: name, expirationDate: expirationDate)
     }
     
     var isLowFat: Bool {
