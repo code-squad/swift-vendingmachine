@@ -31,6 +31,7 @@
 		1439C75423619EE000C0FB0A /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141F8DCF235D9FBE008FD09A /* Date+Extension.swift */; };
 		1439C75623619FF800C0FB0A /* MilkTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1439C75523619FF800C0FB0A /* MilkTest.swift */; };
 		14D223B22361A1570093B659 /* SodaTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D223B12361A1570093B659 /* SodaTest.swift */; };
+		14D223B42361A4830093B659 /* CoffeeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D223B32361A4830093B659 /* CoffeeTest.swift */; };
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 		1439C74823619A5200C0FB0A /* CafeLatte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeLatte.swift; sourceTree = "<group>"; };
 		1439C75523619FF800C0FB0A /* MilkTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilkTest.swift; sourceTree = "<group>"; };
 		14D223B12361A1570093B659 /* SodaTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SodaTest.swift; sourceTree = "<group>"; };
+		14D223B32361A4830093B659 /* CoffeeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeTest.swift; sourceTree = "<group>"; };
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -130,6 +132,7 @@
 			children = (
 				1439C75523619FF800C0FB0A /* MilkTest.swift */,
 				14D223B12361A1570093B659 /* SodaTest.swift */,
+				14D223B32361A4830093B659 /* CoffeeTest.swift */,
 				1439C73A23616A7500C0FB0A /* Info.plist */,
 			);
 			path = VendingMachineUnitTest;
@@ -254,6 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1439C74E23619ED100C0FB0A /* Soda.swift in Sources */,
+				14D223B42361A4830093B659 /* CoffeeTest.swift in Sources */,
 				1439C75223619EDA00C0FB0A /* StrawberryMilk.swift in Sources */,
 				1439C75123619ED800C0FB0A /* Milk.swift in Sources */,
 				14D223B22361A1570093B659 /* SodaTest.swift in Sources */,
