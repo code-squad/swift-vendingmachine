@@ -13,19 +13,19 @@ class Beverage {
     private let capacity: Int
     private let price: Int
     private let name: String
-    private let date: Date
+    private let expirationDate: Date
     
-    init(brand: String, capacity: Int, price: Int, name: String, date: Date) {
+    init(brand: String, capacity: Int, price: Int, name: String, expirationDate: Date) {
         self.brand = brand
         self.capacity = capacity
         self.price = price
         self.name = name
-        self.date = date
+        self.expirationDate = expirationDate
     }
 }
 
 extension Beverage: CustomStringConvertible {
     var description: String {
-        return "\(brand), \(capacity)ml, \(price)원, \(name), \(date.text)"
+        return "\(brand), \(capacity)ml, \(price)원, \(name), \(expirationDate.text)"
     }
 }

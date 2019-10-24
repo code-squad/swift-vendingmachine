@@ -11,9 +11,9 @@ import Foundation
 class CafeLatte: Coffee {
     private let milkRatio: Double
     
-    init(brand: String = "동서식품", capacity: Int = 275, price: Int = 2200, name: String = "티오피 마스터 라떼", date: Date = Date("20191002"), coffeeType: CoffeeType = .cafeLatte, milkRatio: Double = 15) {
+    init(brand: String = "동서식품", capacity: Int = 275, price: Int = 2200, name: String = "티오피 마스터 라떼", expirationDate: Date = Date("20191002"), coffeeType: CoffeeType = .cafeLatte, milkRatio: Double = 15) {
         self.milkRatio = milkRatio
         
-        super.init(brand: brand, capacity: capacity, price: price, name: name, date: date, coffeeType: coffeeType)
+        super.init(brand: brand, capacity: capacity, price: price, name: name, expirationDate: expirationDate, coffeeType: coffeeType)
     }
 }

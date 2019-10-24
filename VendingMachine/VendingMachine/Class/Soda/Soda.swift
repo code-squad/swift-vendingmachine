@@ -11,10 +11,10 @@ import Foundation
 class Soda: Beverage {
     private let sugarContent: Double
     
-    init(brand: String, capacity: Int, price: Int, name: String, date: Date, sugarContent: Double) {
+    init(brand: String, capacity: Int, price: Int, name: String, expirationDate: Date, sugarContent: Double) {
         self.sugarContent = sugarContent
         
-        super.init(brand: brand, capacity: capacity, price: price, name: name, date: date)
+        super.init(brand: brand, capacity: capacity, price: price, name: name, expirationDate: expirationDate)
     }
     
     var isSugarFree: Bool {
