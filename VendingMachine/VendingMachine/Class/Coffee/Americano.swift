@@ -11,9 +11,9 @@ import Foundation
 class Americano: Coffee {
     private let espressoRatio: Double
     
-    init(brand: String = "동서식품", capacity: Int = 275, price: Int = 2200, name: String = "티오피 더블랙", expirationDate: Date = Date("20191001"), coffeeType: CoffeeType = .americano, espressoRatio: Double = 12.6) {
+    init(brand: String = "동서식품", capacity: Int = 275, price: Int = 2200, name: String = "티오피 더블랙", expirationDate: Date = Date("20191001"), coffeeType: CoffeeType = .americano, temperature: Int = 20, espressoRatio: Double = 12.6) {
         self.espressoRatio = espressoRatio
         
-        super.init(brand: brand, capacity: capacity, price: price, name: name, expirationDate: expirationDate, coffeeType: coffeeType)
+        super.init(brand: brand, capacity: capacity, price: price, name: name, expirationDate: expirationDate, coffeeType: coffeeType, temperature: temperature)
     }
 }
