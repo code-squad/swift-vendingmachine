@@ -10,10 +10,10 @@ import Foundation
 
 class Milk: Beverage {
     private let lowFatBasis = 0.026
-    private let fatContent: Int
+    private let fatContent: Double
     private let capacity: Int
     
-    init(brand: String, capacity: Int, price: Int, name: String, date: Date, fatContent: Int) {
+    init(brand: String, capacity: Int, price: Int, name: String, date: Date, fatContent: Double) {
         self.fatContent = fatContent
         self.capacity = capacity
         
@@ -21,6 +21,6 @@ class Milk: Beverage {
     }
     
     var isLowFat: Bool {
-        return Double(fatContent) < Double(capacity) * lowFatBasis
+        return fatContent < Double(capacity) * lowFatBasis
     }
 }
