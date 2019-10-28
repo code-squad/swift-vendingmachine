@@ -33,3 +33,15 @@ extension Beverage: CustomStringConvertible {
         return "\(brand), \(capacity)ml, \(price)원, \(name), \(expirationDate.text)"
     }
 }
+
+extension Beverage: Equatable {
+    static func == (lhs: Beverage, rhs: Beverage) -> Bool {
+        return lhs.name == rhs.name
+    }
+}
+
+extension Beverage: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+    }
+}
