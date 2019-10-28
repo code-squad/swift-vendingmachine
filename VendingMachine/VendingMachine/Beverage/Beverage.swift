@@ -23,8 +23,8 @@ class Beverage {
         self.expirationDate = expirationDate
     }
     
-    func validate(with date: Date) -> Bool {
-        return expirationDate > date
+    func validate() -> Bool {
+        return expirationDate > Date()
     }
 }
 
