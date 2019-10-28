@@ -10,6 +10,7 @@
 		140A0DB82366BE3F009826C9 /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140A0DB72366BE3F009826C9 /* Inventory.swift */; };
 		140A0DB92366BE3F009826C9 /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140A0DB72366BE3F009826C9 /* Inventory.swift */; };
 		140A0DBB2366D39C009826C9 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140A0DBA2366D39C009826C9 /* Menu.swift */; };
+		140A0DBE2366D561009826C9 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140A0DBD2366D561009826C9 /* InputView.swift */; };
 		141F8DCE235D9D91008FD09A /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141F8DCD235D9D91008FD09A /* Beverage.swift */; };
 		141F8DD0235D9FBE008FD09A /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141F8DCF235D9FBE008FD09A /* Date+Extension.swift */; };
 		141F8DD2235DA3FB008FD09A /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141F8DD1235DA3FB008FD09A /* Milk.swift */; };
@@ -56,6 +57,7 @@
 /* Begin PBXFileReference section */
 		140A0DB72366BE3F009826C9 /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
 		140A0DBA2366D39C009826C9 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		140A0DBD2366D561009826C9 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		141F8DCD235D9D91008FD09A /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 		141F8DCF235D9FBE008FD09A /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		141F8DD1235DA3FB008FD09A /* Milk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
@@ -96,6 +98,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		140A0DBC2366D552009826C9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				140A0DBD2366D561009826C9 /* InputView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		141F8DD3235DA770008FD09A /* Beverage */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +180,7 @@
 		839DA90B1F8D1F95009E05F3 /* VendingMachine */ = {
 			isa = PBXGroup;
 			children = (
+				140A0DBC2366D552009826C9 /* Views */,
 				141F8DD3235DA770008FD09A /* Beverage */,
 				839DA90C1F8D1F95009E05F3 /* main.swift */,
 				141F8DCF235D9FBE008FD09A /* Date+Extension.swift */,
@@ -299,6 +310,7 @@
 				140A0DB82366BE3F009826C9 /* Inventory.swift in Sources */,
 				14D223BB2366A1B40093B659 /* VendingMachine.swift in Sources */,
 				141F8DCE235D9D91008FD09A /* Beverage.swift in Sources */,
+				140A0DBE2366D561009826C9 /* InputView.swift in Sources */,
 				1439C745236185E200C0FB0A /* LemonlimeDrink.swift in Sources */,
 				839DA90D1F8D1F95009E05F3 /* main.swift in Sources */,
 				141F8DD2235DA3FB008FD09A /* Milk.swift in Sources */,
