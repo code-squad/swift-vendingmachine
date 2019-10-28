@@ -14,17 +14,25 @@ class Beverage {
     private let price: Int
     private let name: String
     private let expirationDate: Date
+    private let temperature: Int
     
-    init(brand: String, capacity: Int, price: Int, name: String, expirationDate: Date) {
+    private let hotTemperatureCriterion = 20
+    
+    init(brand: String, capacity: Int, price: Int, name: String, expirationDate: Date, temperature: Int) {
         self.brand = brand
         self.capacity = capacity
         self.price = price
         self.name = name
         self.expirationDate = expirationDate
+        self.temperature = temperature
     }
     
-    func validate() -> Bool {
-        return expirationDate > Date()
+    var isValidate: Bool {
+        return expirationDate >= Date()
+    }
+    
+    var isHot: Bool {
+        return temperature > hotTemperatureCriterion
     }
 }
 

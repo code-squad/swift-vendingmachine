@@ -10,18 +10,11 @@ import Foundation
 
 class Coffee: Beverage {
     private let coffeeType: CoffeeType
-    private let temperature: Int
-    private let hotTemperatureCriterion = 65
     
-    init(brand: String, capacity: Int, price: Int, name: String, expirationDate: Date, coffeeType: CoffeeType = .americano, temperature: Int) {
+    init(brand: String, capacity: Int, price: Int, name: String, expirationDate: Date, temperature: Int, coffeeType: CoffeeType = .americano) {
         self.coffeeType = coffeeType
-        self.temperature = temperature
         
-        super.init(brand: brand, capacity: capacity, price: price, name: name, expirationDate: expirationDate)
-    }
-    
-    var isHot: Bool {
-        return hotTemperatureCriterion < temperature
+        super.init(brand: brand, capacity: capacity, price: price, name: name, expirationDate: expirationDate, temperature: temperature)
     }
 }
 

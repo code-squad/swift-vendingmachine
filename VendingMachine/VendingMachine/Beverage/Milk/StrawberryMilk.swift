@@ -11,9 +11,9 @@ import Foundation
 class StrawberryMilk: Milk {
     private let strawberryContent: Double
     
-    init(brand: String = "서울우유", capacity: Int = 200, price: Int = 1000, name: String = "딸기우유", expirationDate: Date = Date("20191023"), fatContent: Double = 3, strawberryContent: Double = 1) {
+    init(brand: String = "서울우유", capacity: Int = 200, price: Int = 1000, name: String = "딸기우유", expirationDate: Date = Date("20191023"), temperature: Int = 12, fatContent: Double = 3, strawberryContent: Double = 1) {
         self.strawberryContent = strawberryContent
         
-        super.init(brand: brand, capacity: capacity, price: price, name: name, expirationDate: expirationDate, fatContent: fatContent)
+        super.init(brand: brand, capacity: capacity, price: price, name: name, expirationDate: expirationDate, temperature: temperature, fatContent: fatContent)
     }
 }
