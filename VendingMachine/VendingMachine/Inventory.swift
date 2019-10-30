@@ -10,36 +10,26 @@ import Foundation
 
 protocol Storable {
     mutating func addStock(_ beverage: Beverage)
-    mutating func addStock(beverage: Beverage, count: Int)
-    var hotBeverages: Stock { get }
+    var hotBeverages: [Beverage] { get }
+    var expiredBeverages: [Beverage] { get }
 }
 
-typealias Stock = [Beverage : Int]
-
 struct Inventory: Storable {
-    private var stock: Stock
+    private var stock: [Beverage]
     
-    init(stock: Stock) {
+    init(stock: [Beverage]) {
         self.stock = stock
     }
     
     mutating func addStock(_ beverage: Beverage) {
-        stock[beverage] = (stock[beverage] ?? 0) + 1
+        stock.append(beverage)
     }
     
-    mutating func addStock(beverage: Beverage, count: Int) {
-        stock[beverage] = (stock[beverage] ?? 0) + count
+    var hotBeverages: [Beverage] {
+        return stock.filter() { $0.isHot == true }
     }
     
-    var hotBeverages: Stock {
-        return stock.filter() {
-            return $0.key.isHot == true
-        }
-    }
-    
-    var expiredBeverages: Stock {
-        return stock.filter() {
-            return $0.key.isValidate == false
-        }
+    var expiredBeverages: [Beverage] {
+        return stock.filter() { $0.isValidate == false }
     }
 }
