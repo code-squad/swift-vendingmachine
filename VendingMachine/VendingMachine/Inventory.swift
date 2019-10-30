@@ -10,6 +10,7 @@ import Foundation
 
 protocol Storable {
     mutating func addStock(_ beverage: Beverage)
+    mutating func takeOutBeverage(at index: Int) -> Beverage
     var hotBeverages: [Beverage] { get }
     var expiredBeverages: [Beverage] { get }
 }
@@ -33,6 +34,17 @@ struct Inventory: Storable {
     
     mutating func addStock(_ beverage: Beverage) {
         stock.append(beverage)
+    }
+    
+    mutating func takeOutBeverage(at index: Int) -> Beverage {
+        let stockCounter = countStock()
+        let beverage = stockCounter[index].0
+
+        if let firstIndex = stock.firstIndex(of: beverage) {
+            stock.remove(at: firstIndex)
+        }
+        
+        return beverage
     }
     
     var hotBeverages: [Beverage] {
