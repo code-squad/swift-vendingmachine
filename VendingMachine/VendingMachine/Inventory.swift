@@ -11,6 +11,7 @@ import Foundation
 protocol Storable {
     mutating func addStock(_ beverage: Beverage)
     mutating func takeOutBeverage(at index: Int) -> Beverage
+    func purchasableBeverages(balance: Int) -> [Beverage]
     var hotBeverages: [Beverage] { get }
     var expiredBeverages: [Beverage] { get }
 }
@@ -33,7 +34,7 @@ struct Inventory: Storable {
         
         let sortResult = countResult
             .sorted(by: <)
-            .map{ beverageStock($0, $1) }
+            .map { beverageStock($0, $1) }
         
         return sortResult
     }
@@ -44,13 +45,17 @@ struct Inventory: Storable {
     
     mutating func takeOutBeverage(at index: Int) -> Beverage {
         let stockCounter = countStock()
-        let beverage = stockCounter[index].beverage
+        let beverage = stockCounter[index - 1].beverage
         
         if let firstIndex = stock.firstIndex(of: beverage) {
             stock.remove(at: firstIndex)
         }
         
         return beverage
+    }
+    
+    func purchasableBeverages(balance: Int) -> [Beverage] {
+        return stock.filter() { ($0 < balance) == true }
     }
     
     var hotBeverages: [Beverage] {
