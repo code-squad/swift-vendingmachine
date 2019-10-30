@@ -21,6 +21,16 @@ struct Inventory: Storable {
         self.stock = stock
     }
     
+    private func countStock() -> [(Beverage, Int)] {
+        let countResult = stock.reduce([Beverage : Int](), { (countResult: [Beverage : Int], beverage : Beverage) -> [Beverage : Int] in
+            var countResult = countResult
+            countResult[beverage] = (countResult[beverage] ?? 0) + 1
+            return countResult
+        }).sorted(by: <)
+        
+        return countResult
+    }
+    
     mutating func addStock(_ beverage: Beverage) {
         stock.append(beverage)
     }
