@@ -15,6 +15,8 @@ protocol Storable {
     var expiredBeverages: [Beverage] { get }
 }
 
+typealias beverageStock = (beverage: Beverage, count: Int)
+
 struct Inventory: Storable {
     private var stock: [Beverage]
     
@@ -22,14 +24,18 @@ struct Inventory: Storable {
         self.stock = stock
     }
     
-    private func countStock() -> [(Beverage, Int)] {
+    private func countStock() -> [beverageStock] {
         let countResult = stock.reduce([Beverage : Int](), { (countResult: [Beverage : Int], beverage : Beverage) -> [Beverage : Int] in
             var countResult = countResult
             countResult[beverage] = (countResult[beverage] ?? 0) + 1
             return countResult
-        }).sorted(by: <)
+        })
         
-        return countResult
+        let sortResult = countResult
+            .sorted(by: <)
+            .map{ beverageStock($0, $1) }
+        
+        return sortResult
     }
     
     mutating func addStock(_ beverage: Beverage) {
@@ -38,8 +44,8 @@ struct Inventory: Storable {
     
     mutating func takeOutBeverage(at index: Int) -> Beverage {
         let stockCounter = countStock()
-        let beverage = stockCounter[index].0
-
+        let beverage = stockCounter[index].beverage
+        
         if let firstIndex = stock.firstIndex(of: beverage) {
             stock.remove(at: firstIndex)
         }
