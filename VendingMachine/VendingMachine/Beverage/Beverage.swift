@@ -58,4 +58,8 @@ extension Beverage: Comparable {
     static func < (lhs: Beverage, rhs: Beverage) -> Bool {
         return lhs.name < rhs.name
     }
+    
+    static func < (lhs: Beverage, rhs: Int) -> Bool {
+        return lhs.price < rhs
+    }
 }
