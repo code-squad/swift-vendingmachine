@@ -8,6 +8,12 @@
 
 import Foundation
 
+protocol Product {
+    var isValidate: Bool { get }
+    var isHot: Bool { get }
+    var objectID: ObjectIdentifier { get }
+}
+
 class Beverage {
     private let brand: String
     private let capacity: Int
@@ -26,13 +32,21 @@ class Beverage {
         self.expirationDate = expirationDate
         self.temperature = temperature
     }
-    
+}
+
+extension Beverage: Product {
     var isValidate: Bool {
         return expirationDate >= Date()
     }
     
     var isHot: Bool {
         return temperature > hotTemperatureCriterion
+    }
+    
+    var objectID: ObjectIdentifier {
+        let objectType = type(of: self)
+        
+        return ObjectIdentifier(objectType)
     }
 }
 
