@@ -9,33 +9,20 @@
 import Foundation
 
 class Coffee: Beverage {
-    private let coffeeType: CoffeeType
+    private let bean: Bean
     
-    init(brand: String, capacity: Int, price: Int, name: String, expirationDate: Date, temperature: Int, coffeeType: CoffeeType = .americano) {
-        self.coffeeType = coffeeType
+    init(brand: String, capacity: Int, price: Int, name: String, expirationDate: Date, temperature: Int, bean: Bean = .arabica) {
+        self.bean = bean
         
         super.init(brand: brand, capacity: capacity, price: price, name: name, expirationDate: expirationDate, temperature: temperature)
     }
 }
 
+//Bean
 extension Coffee {
-    enum CoffeeType: CustomStringConvertible {
-        case espresso
-        case americano
-        case cafeLatte
-        case coldBrew
-        
-        var description: String {
-            switch self {
-            case .espresso:
-                return "에스프레소"
-            case .americano:
-                return "아메리카노"
-            case .cafeLatte:
-                return "카페라테"
-            case .coldBrew:
-                return "콜드브루"
-            }
-        }
+    enum Bean {
+        case arabica
+        case robusta
+        case liberica
     }
 }
