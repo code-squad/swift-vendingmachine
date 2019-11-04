@@ -12,6 +12,8 @@ protocol Product {
     var isValidate: Bool { get }
     var isHot: Bool { get }
     var objectID: ObjectIdentifier { get }
+    
+    func availablePurchase(balance: Int) -> Bool
 }
 
 class Beverage {
@@ -48,26 +50,14 @@ extension Beverage: Product {
         
         return ObjectIdentifier(objectType)
     }
+    
+    func availablePurchase(balance: Int) -> Bool {
+        return self.price <= balance
+    }
 }
 
 extension Beverage: CustomStringConvertible {
     var description: String {
         return "\(brand), \(capacity)ml, \(price)원, \(name), \(expirationDate.text)"
-    }
-}
-
-extension Beverage: Equatable {
-    static func == (lhs: Beverage, rhs: Beverage) -> Bool {
-        return lhs.name == rhs.name
-    }
-}
-
-extension Beverage: Comparable {
-    static func < (lhs: Beverage, rhs: Beverage) -> Bool {
-        return lhs.name < rhs.name
-    }
-    
-    static func < (lhs: Beverage, rhs: Int) -> Bool {
-        return lhs.price < rhs
     }
 }
