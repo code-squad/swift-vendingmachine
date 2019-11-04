@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol Product {
+protocol Sellable {
     var isValidate: Bool { get }
     var isHot: Bool { get }
     var objectID: ObjectIdentifier { get }
@@ -36,7 +36,7 @@ class Beverage {
     }
 }
 
-extension Beverage: Product {
+extension Beverage: Sellable {
     var isValidate: Bool {
         return expirationDate >= Date()
     }
