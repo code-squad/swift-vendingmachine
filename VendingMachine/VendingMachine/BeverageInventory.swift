@@ -9,12 +9,12 @@
 import Foundation
 
 protocol Storable {
-    mutating func addStock(_ product: Product)
-    mutating func takeProduct(at index: Int) -> Product?
+    mutating func addStock(_ product: Sellable)
+    mutating func takeProduct(at index: Int) -> Sellable?
 }
 
 struct BeverageInventory: Storable {
-    private var stock: [Product]
+    private var stock: [Sellable]
     
     init(stock: [Beverage]) {
         self.stock = stock
@@ -28,11 +28,11 @@ struct BeverageInventory: Storable {
         return countResult.sorted(by: <)
     }
     
-    mutating func addStock(_ product: Product) {
+    mutating func addStock(_ product: Sellable) {
         stock.append(product)
     }
     
-    mutating func takeProduct(at index: Int) -> Product? {
+    mutating func takeProduct(at index: Int) -> Sellable? {
         let id = stockCounter[index - 1].0
         
         guard let index = stock.firstIndex(where: { $0.objectID == id }) else {
