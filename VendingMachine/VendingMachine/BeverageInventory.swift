@@ -11,6 +11,20 @@ import Foundation
 protocol Storable {
     mutating func addStock(_ product: Sellable)
     mutating func takeProduct(at index: Int) -> Sellable?
+    func search(option: ProductStatus, balance: Int) -> [Sellable]
+}
+
+extension Storable {
+    func search(option: ProductStatus, balance: Int = 0) -> [Sellable] {
+        return search(option: option, balance: balance)
+    }
+}
+
+enum ProductStatus {
+    case hot
+    case expired
+    case purchasable
+    case all
 }
 
 struct BeverageInventory: Storable {
@@ -42,5 +56,16 @@ struct BeverageInventory: Storable {
         return stock.remove(at: index)
     }
     
-    
+    func search(option: ProductStatus, balance: Int = 0) -> [Sellable] {
+        switch option {
+        case .hot:
+            return stock.filter { $0.isHot }
+        case .expired:
+            return stock.filter { !$0.isValidate }
+        case .all:
+            return stock
+        case .purchasable:
+            return stock.filter { $0.availablePurchase(balance: balance) }
+        }
+    }
 }
