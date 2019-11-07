@@ -34,12 +34,22 @@ struct BeverageInventory: Storable {
         self.stock = stock
     }
     
-    private var stockCounter: [(ObjectIdentifier, Int)] {
+    private var stockCounter: [(product: Sellable, count: Int)] {
         var countResult = [ObjectIdentifier : Int]()
         
         stock.forEach { countResult[$0.objectID] = (countResult[$0.objectID] ?? 0) + 1 }
         
-        return countResult.sorted(by: <)
+        let sortResult = countResult.sorted(by: <)
+        
+        var result: [(Sellable, Int)] = []
+        
+        sortResult.forEach { (objectID, count) in
+            if let index = stock.firstIndex(where: { $0.objectID == objectID }) {
+                result.append((stock[index], count))
+            }
+        }
+        
+        return result
     }
     
     mutating func addStock(_ product: Sellable) {
@@ -47,9 +57,9 @@ struct BeverageInventory: Storable {
     }
     
     mutating func takeProduct(at index: Int) -> Sellable? {
-        let id = stockCounter[index - 1].0
+        let product = stockCounter[index - 1].product
         
-        guard let index = stock.firstIndex(where: { $0.objectID == id }) else {
+        guard let index = stock.firstIndex(where: { $0.objectID == product.objectID }) else {
             return nil
         }
         
