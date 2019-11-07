@@ -58,6 +58,6 @@ extension Beverage: Sellable {
 
 extension Beverage: CustomStringConvertible {
     var description: String {
-        return "\(brand), \(capacity)ml, \(price)원, \(name), \(expirationDate.text)"
+        return "\(name) \(price)원"
     }
 }
