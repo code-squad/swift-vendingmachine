@@ -12,6 +12,7 @@ protocol Storable {
     mutating func addStock(_ product: Sellable)
     mutating func takeProduct(at index: Int) -> Sellable?
     func search(option: ProductStatus, balance: Int) -> [Sellable]
+    func showInventory(form: ([(product: Sellable, count: Int)]) -> ())
 }
 
 extension Storable {
@@ -77,5 +78,9 @@ struct BeverageInventory: Storable {
         case .purchasable:
             return stock.filter { $0.productPrice <= balance }
         }
+    }
+    
+    func showInventory(form: ([(product: Sellable, count: Int)]) -> ()) {
+        form(stockCounter)
     }
 }
