@@ -14,8 +14,6 @@ protocol Sellable {
     var objectID: ObjectIdentifier { get }
     var productName: String { get }
     var productPrice: Int { get }
-    
-    func availablePurchase(balance: Int) -> Bool
 }
 
 class Beverage {
@@ -59,9 +57,5 @@ extension Beverage: Sellable {
     
     var productPrice: Int {
         return self.price
-    }
-    
-    func availablePurchase(balance: Int) -> Bool {
-        return self.price <= balance
     }
 }
