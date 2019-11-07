@@ -12,6 +12,8 @@ protocol Sellable {
     var isValidate: Bool { get }
     var isHot: Bool { get }
     var objectID: ObjectIdentifier { get }
+    var productName: String { get }
+    var productPrice: Int { get }
     
     func availablePurchase(balance: Int) -> Bool
 }
@@ -51,13 +53,15 @@ extension Beverage: Sellable {
         return ObjectIdentifier(objectType)
     }
     
+    var productName: String {
+        return self.name
+    }
+    
+    var productPrice: Int {
+        return self.price
+    }
+    
     func availablePurchase(balance: Int) -> Bool {
         return self.price <= balance
-    }
-}
-
-extension Beverage: CustomStringConvertible {
-    var description: String {
-        return "\(name) \(price)원"
     }
 }
