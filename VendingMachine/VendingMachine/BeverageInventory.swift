@@ -75,7 +75,7 @@ struct BeverageInventory: Storable {
         case .all:
             return stock
         case .purchasable:
-            return stock.filter { $0.availablePurchase(balance: balance) }
+            return stock.filter { $0.productPrice <= balance }
         }
     }
 }
