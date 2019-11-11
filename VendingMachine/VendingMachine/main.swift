@@ -8,9 +8,43 @@
 
 import Foundation
 
-print(CafeLatte())
-print(Americano())
-print(Coke())
-print(LemonlimeDrink())
-print(StrawberryMilk())
-print(ChocolateMilk())
+func main() {
+    let beverages = BeverageGenerator.generateBeverage()
+    let beverageInventory = BeverageInventory(stock: beverages)
+    let vendingMachine = VendingMachine(inventory: beverageInventory)
+    
+    gameLoop: while true {
+        vendingMachine.showBalance(form: OutputView.showBalance)
+        vendingMachine.showInventory(form: OutputView.showInventory)
+        
+        let menuInput = InputView.readMenu()
+        guard let menu = Menu.init(rawValue: menuInput) else {
+            OutputView.printInvalidInputMessage()
+            
+            continue gameLoop
+        }
+        
+        let input = InputView.readInput()
+        
+        switch menu {
+        case .insertMoney:
+            if !vendingMachine.insert(money: input) {
+                OutputView.printInvalidInputMessage()
+                
+                continue gameLoop
+            }
+        case .purchaseBeverage:
+            guard let beverage = vendingMachine.purchaseProduct(index: input) else {
+                OutputView.printUnableToPurchaseMessage()
+                
+                continue gameLoop
+            }
+            
+            OutputView.showPurchase(beverage)
+        }
+    }
+}
+
+main()
+
+
