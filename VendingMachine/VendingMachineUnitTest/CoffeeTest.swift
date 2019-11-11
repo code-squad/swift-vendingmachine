@@ -18,7 +18,7 @@ class CoffeeTest: XCTestCase {
     func testCafeLatte_isNotHot() {
         let cafeLatte = CafeLatte()
         
-        XCTAssertFalse(cafeLatte.isHot)
+        XCTAssertTrue(cafeLatte.isHot)
     }
     
     func testAmericano_isHot() {

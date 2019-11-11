@@ -10,14 +10,14 @@ import XCTest
 
 class BeverageTest: XCTestCase {
     func testBeverage_pastExpirationDate() {
-        let beverage = Beverage(brand: "브랜드", capacity: 100, price: 1000, name: "음료수", expirationDate: Date("20190101"))
+        let beverage = Beverage(brand: "브랜드", capacity: 100, price: 1000, name: "음료수", expirationDate: Date("20190101"), temperature: 20)
         
-        XCTAssertFalse(beverage.validate(with: Date()))
+        XCTAssertFalse(beverage.isValidate)
     }
     
     func testBeverage_validExpirationDate() {
-        let beverage = Beverage(brand: "브랜드", capacity: 100, price: 1000, name: "음료수", expirationDate: Date("20191001"))
+        let beverage = Beverage(brand: "브랜드", capacity: 100, price: 1000, name: "음료수", expirationDate: Date("20201001"), temperature: 20)
         
-        XCTAssertTrue(beverage.validate(with: Date("20190901")))
+        XCTAssertTrue(beverage.isValidate)
     }
 }

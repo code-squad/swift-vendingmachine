@@ -10,7 +10,7 @@ import XCTest
 
 class MilkTest: XCTestCase {
     func testMilk_isNotLowFat() {
-        let milk = Milk(brand: "서울우유", capacity: 100, price: 1000, name: "나100%", expirationDate: Date(), fatContent: 4)
+        let milk = Milk(brand: "서울우유", capacity: 100, price: 1000, name: "나100%", expirationDate: Date(), temperature: 10, fatContent: 4)
         
         XCTAssertFalse(milk.isLowFat)
     }
