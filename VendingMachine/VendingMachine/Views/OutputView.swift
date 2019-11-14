@@ -9,8 +9,8 @@
 import Foundation
 
 struct OutputView {
-    static let showBalance: (Int) -> () = { balance in
-        print("현재 투입한 금액이 \(balance)원입니다.")
+    static let showBalance: (Money) -> () = { balance in
+        print("현재 투입한 금액이 \(balance)입니다.")
     }
     
     static let showInventory: ([(product: Sellable, count: Int)]) -> () = { inventory in

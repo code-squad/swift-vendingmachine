@@ -9,7 +9,7 @@
 import Foundation
 
 class VendingMachine {
-    private var balance = 0
+    private var balance: Money = Money()
     private var history: [Sellable] = []
     private var inventory: Storable
     
@@ -27,7 +27,7 @@ class VendingMachine {
         return false
     }
     
-    func inquireBalance() -> Int {
+    func inquireBalance() -> Money {
         return balance
     }
     
@@ -71,7 +71,7 @@ class VendingMachine {
         return inventory.search(option: .all)
     }
     
-    func showBalance(form: (Int) -> ()) {
+    func showBalance(form: (Money) -> ()) {
         form(balance)
     }
     
