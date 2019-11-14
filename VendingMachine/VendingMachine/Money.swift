@@ -9,12 +9,10 @@
 import Foundation
 
 struct Money {
-    private var value: Int = 0
+    private var value: Int
     private var monetaryUnit: Unit = .won
     
-    init() { }
-    
-    private init(value: Int) {
+    init(value: Int = 0) {
         self.value = value
     }
     
@@ -50,29 +48,17 @@ extension Money: Comparable {
         return lhs.value < rhs.value
     }
     
-    static func < (lhs: Money, rhs: Int) -> Bool {
-        return lhs.value < rhs
-    }
-    
-    static func < (lhs: Int, rhs: Money) -> Bool {
-        return lhs < rhs.value
+    static func <= (lhs: Int, rhs: Money) -> Bool {
+        return lhs <= rhs.value
     }
 }
 
 extension Money {
-    static func + (lhs: Money, rhs: Money) -> Money {
-        return Money(value: lhs.value + rhs.value)
+    static func += (lhs: inout Money, rhs: Int) {
+        lhs.value += rhs
     }
     
-    static func + (lhs: Money, rhs: Int) -> Money {
-        return Money(value: lhs.value + rhs)
-    }
-    
-    static func - (lhs: Money, rhs: Money) -> Money {
-        return Money(value: lhs.value - rhs.value)
-    }
-    
-    static func - (lhs: Money, rhs: Int) -> Money {
-        return Money(value: lhs.value - rhs)
+    static func -= (lhs: inout Money, rhs: Int) {
+        lhs.value -= rhs
     }
 }
