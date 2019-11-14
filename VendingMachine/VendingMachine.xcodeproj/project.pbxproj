@@ -43,6 +43,7 @@
 		14D223B62361A6DC0093B659 /* BeverageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D223B52361A6DC0093B659 /* BeverageTest.swift */; };
 		14D223BB2366A1B40093B659 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D223BA2366A1B40093B659 /* VendingMachine.swift */; };
 		14D223BC2366A1B60093B659 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D223BA2366A1B40093B659 /* VendingMachine.swift */; };
+		14F7EFD5237D3381005ABF8C /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F7EFD4237D3381005ABF8C /* Money.swift */; };
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +84,7 @@
 		14D223B32361A4830093B659 /* CoffeeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeTest.swift; sourceTree = "<group>"; };
 		14D223B52361A6DC0093B659 /* BeverageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageTest.swift; sourceTree = "<group>"; };
 		14D223BA2366A1B40093B659 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
+		14F7EFD4237D3381005ABF8C /* Money.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -197,6 +199,7 @@
 				140A0DB72366BE3F009826C9 /* BeverageInventory.swift */,
 				140A0DBA2366D39C009826C9 /* Menu.swift */,
 				1441C44E2373D53100773348 /* BeverageGenerator.swift */,
+				14F7EFD4237D3381005ABF8C /* Money.swift */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				141F8DD0235D9FBE008FD09A /* Date+Extension.swift in Sources */,
 				140A0DBB2366D39C009826C9 /* Menu.swift in Sources */,
 				1439C7412361781000C0FB0A /* ChocolateMilk.swift in Sources */,
+				14F7EFD5237D3381005ABF8C /* Money.swift in Sources */,
 				141F8DD7235DA7FB008FD09A /* Soda.swift in Sources */,
 				141F8DDA235DA956008FD09A /* Coffee.swift in Sources */,
 				1439C7472361941100C0FB0A /* Americano.swift in Sources */,
