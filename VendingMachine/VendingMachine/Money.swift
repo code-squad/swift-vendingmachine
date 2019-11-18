@@ -16,6 +16,16 @@ struct Money {
         self.value = value
     }
     
+    mutating func add(money: Int) -> Bool {
+        if money > 0 {
+            value += money
+            
+            return true
+        }
+        
+        return false
+    }
+    
     enum Unit: CustomStringConvertible {
         case won, dollar, euro
         
@@ -53,11 +63,7 @@ extension Money: Comparable {
     }
 }
 
-extension Money {
-    static func += (lhs: inout Money, rhs: Int) {
-        lhs.value += rhs
-    }
-    
+extension Money {    
     static func -= (lhs: inout Money, rhs: Int) {
         lhs.value -= rhs
     }
