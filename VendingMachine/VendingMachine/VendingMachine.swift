@@ -40,6 +40,8 @@ class VendingMachine {
             return beverage
         }
         
+        addStock(beverage)
+        
         return nil
     }
     

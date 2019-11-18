@@ -82,7 +82,7 @@ struct BeverageInventory: Storable {
     
     func showInventory(form: (Int, String, Int, Int) -> ()) {
         for (index, stock) in stockCounter.enumerated() {
-            form(index, stock.product.productName, stock.product.productPrice, stock.count)
+            form(index + 1, stock.product.productName, stock.product.productPrice, stock.count)
         }
     }
 }
