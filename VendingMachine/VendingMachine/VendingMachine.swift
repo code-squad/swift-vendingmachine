@@ -71,7 +71,7 @@ class VendingMachine {
         form(balance)
     }
     
-    func showInventory(form: ([(product: Sellable, count: Int)]) -> ()) {
+    func showInventory(form: (Int, String, Int, Int) -> ()) {
         inventory.showInventory(form: form)
     }
 }

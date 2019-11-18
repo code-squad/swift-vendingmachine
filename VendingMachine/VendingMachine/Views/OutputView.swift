@@ -13,12 +13,8 @@ struct OutputView {
         print("현재 투입한 금액이 \(balance)입니다.")
     }
     
-    static let showInventory: ([(product: Sellable, count: Int)]) -> () = { inventory in
-        print("다음과 같은 음료가 있습니다.")
-        
-        for (index, stock) in inventory.enumerated() {
-            print("\(index + 1)) \(stock.product.productName) \(stock.product.productPrice) (\(stock.count))")
-        }
+    static let showInventory: (Int, String, Int, Int) -> () = { index, name, price, count in
+        print("\(index)) \(name) \(price) (\(count))")
     }
     
     static let showPurchase: (Sellable) -> () = { product in

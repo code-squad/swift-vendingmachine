@@ -12,7 +12,7 @@ protocol Storable {
     mutating func addStock(_ product: Sellable)
     mutating func takeProduct(at index: Int) -> Sellable?
     func search(option: ProductStatus, balance: Money) -> [Sellable]
-    func showInventory(form: ([(product: Sellable, count: Int)]) -> ())
+    func showInventory(form: (Int, String, Int, Int) -> ())
 }
 
 extension Storable {
@@ -80,7 +80,9 @@ struct BeverageInventory: Storable {
         }
     }
     
-    func showInventory(form: ([(product: Sellable, count: Int)]) -> ()) {
-        form(stockCounter)
+    func showInventory(form: (Int, String, Int, Int) -> ()) {
+        for (index, stock) in stockCounter.enumerated() {
+            form(index, stock.product.productName, stock.product.productPrice, stock.count)
+        }
     }
 }
