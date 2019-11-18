@@ -18,7 +18,7 @@ func main() {
         vendingMachine.showInventory(form: OutputView.showInventory)
         
         let menuInput = InputView.readMenu()
-        guard let menu = Menu.init(rawValue: menuInput) else {
+        guard let menu = UserMenu.init(rawValue: menuInput) else {
             OutputView.printInvalidInputMessage()
             
             continue gameLoop

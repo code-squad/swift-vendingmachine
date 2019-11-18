@@ -10,7 +10,7 @@ import Foundation
 
 struct InputView {
     static func readMenu() -> Int {
-        for menu in Menu.allCases {
+        for menu in UserMenu.allCases {
             print(menu)
         }
         

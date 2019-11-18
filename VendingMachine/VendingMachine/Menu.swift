@@ -1,5 +1,5 @@
 //
-//  Menu.swift
+//  UserMenu.swift
 //  VendingMachine
 //
 //  Created by 이진영 on 2019/10/28.
@@ -8,7 +8,11 @@
 
 import Foundation
 
-enum Menu: Int, CustomStringConvertible, CaseIterable {
+protocol Menu: CustomStringConvertible {
+    
+}
+
+enum UserMenu: Int, CaseIterable {
     case insertMoney = 1
     case purchaseBeverage
     
