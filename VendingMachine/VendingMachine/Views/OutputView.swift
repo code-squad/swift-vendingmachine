@@ -25,11 +25,7 @@ struct OutputView {
         print("\(product.productName) 구매하셨습니다. \(product.productPrice)원을 차감합니다.")
     }
     
-    static func printInvalidInputMessage() {
-        print("잘못된 입력")
-    }
-    
-    static func printUnableToPurchaseMessage() {
-        print("상품 구매 불가")
+    static func show(failMessage: FailMessage) {
+        print(failMessage)
     }
 }

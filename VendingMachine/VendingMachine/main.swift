@@ -19,7 +19,7 @@ func main() {
         
         let menuInput = InputView.readMenu()
         guard let menu = UserMenu.init(rawValue: menuInput) else {
-            OutputView.printInvalidInputMessage()
+            OutputView.show(failMessage: .invalidInputMessage)
             
             continue gameLoop
         }
@@ -29,13 +29,13 @@ func main() {
         switch menu {
         case .insertMoney:
             if !vendingMachine.insert(money: input) {
-                OutputView.printInvalidInputMessage()
+                OutputView.show(failMessage: .invalidInputMessage)
                 
                 continue gameLoop
             }
         case .purchaseBeverage:
             guard let beverage = vendingMachine.purchaseProduct(index: input) else {
-                OutputView.printUnableToPurchaseMessage()
+                OutputView.show(failMessage: .unableToPurchaseMessage)
                 
                 continue gameLoop
             }
@@ -46,5 +46,3 @@ func main() {
 }
 
 main()
-
-
