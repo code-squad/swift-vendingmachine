@@ -18,13 +18,9 @@ class VendingMachine {
     }
     
     func insert(money: Int) -> Bool {
-        if money > 0 {
-            balance += money
-            
-            return true
-        }
+        let insertResult = balance.add(money: money)
         
-        return false
+        return insertResult
     }
     
     func inquireBalance() -> Money {
