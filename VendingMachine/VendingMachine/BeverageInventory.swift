@@ -29,9 +29,9 @@ enum ProductStatus {
 }
 
 struct BeverageInventory: Storable {
-    private var stock: [Sellable]
+    private var stock: [SellEdible]
     
-    init(stock: [Beverage]) {
+    init(stock: [SellEdible]) {
         self.stock = stock
     }
     
@@ -54,7 +54,9 @@ struct BeverageInventory: Storable {
     }
     
     mutating func addStock(_ product: Sellable) {
-        stock.append(product)
+        if let edibleProduct = product as? SellEdible {
+            stock.append(edibleProduct)
+        }
     }
     
     mutating func takeProduct(at index: Int) -> Sellable? {

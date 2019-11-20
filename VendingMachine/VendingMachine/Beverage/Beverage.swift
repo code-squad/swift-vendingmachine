@@ -9,11 +9,14 @@
 import Foundation
 
 protocol Sellable {
-    var isValidate: Bool { get }
-    var isHot: Bool { get }
     var objectID: ObjectIdentifier { get }
     var productName: String { get }
     var productPrice: Int { get }
+}
+
+protocol SellEdible: Sellable {
+    var isValidate: Bool { get }
+    var isHot: Bool { get }
 }
 
 class Beverage {
@@ -36,7 +39,7 @@ class Beverage {
     }
 }
 
-extension Beverage: Sellable {
+extension Beverage: SellEdible {
     var isValidate: Bool {
         return expirationDate >= Date()
     }
