@@ -8,6 +8,11 @@
 
 import Foundation
 
+protocol Printable {
+    func showBalance(form: (Money) -> ())
+    func showInventory(form: (Int, String, Int, Int) -> ())
+}
+
 protocol VendingMachineManagerable {
     func addStock(_ product: Sellable)
     func removeStock(_ product: Sellable)
@@ -31,7 +36,9 @@ class VendingMachine {
     init(inventory: Storable) {
         self.inventory = inventory
     }
-    
+}
+
+extension VendingMachine: Printable {
     func showBalance(form: (Money) -> ()) {
         form(balance)
     }
