@@ -15,6 +15,12 @@ struct InputView {
         return readInput()
     }
     
+    static func readManagerMenu() -> Int {
+        ManagerMenu.allCases.forEach { print($0) }
+        
+        return readInput()
+    }
+    
     static func readUserMenu() -> Int {
         UserMenu.allCases.forEach { print($0) }
         
