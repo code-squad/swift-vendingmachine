@@ -39,17 +39,3 @@ enum UserMenu: Int, CaseIterable, Menu {
         }
     }
 }
-
-enum FailMessage: Menu {
-    case invalidInputMessage
-    case unableToPurchaseMessage
-    
-    var description: String {
-        switch self {
-        case .invalidInputMessage:
-            return "잘못된 입력"
-        case .unableToPurchaseMessage:
-            return "상품 구매 불가"
-        }
-    }
-}
