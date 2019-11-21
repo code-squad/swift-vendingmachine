@@ -12,20 +12,6 @@ protocol Menu: CustomStringConvertible {
     var description: String { get }
 }
 
-enum VendingMachineModeMenu: Int, CaseIterable, Menu {
-    case managerMode = 1
-    case userMode
-    
-    var description: String {
-        switch self {
-        case .managerMode:
-            return "\(rawValue). 관리자 모드"
-        case .userMode:
-            return "\(rawValue). 사용자 모드"
-        }
-    }
-}
-
 enum ManagerMenu: Int, CaseIterable, Menu {
     case addStock = 1
     case removeStock

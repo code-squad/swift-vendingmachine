@@ -9,8 +9,8 @@
 import Foundation
 
 struct InputView {
-    static func readVendingMachineModeMenu() -> Int {
-        VendingMachineModeMenu.allCases.forEach { print($0) }
+    static func readVendingMachineMode() -> Int {
+        VendingMachineMode.allCases.forEach { print($0) }
         
         return readInput()
     }
