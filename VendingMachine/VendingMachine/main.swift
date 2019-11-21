@@ -13,7 +13,7 @@ func main() {
     let beverageInventory = BeverageInventory(stock: beverages)
     let vendingMachine = VendingMachine(inventory: beverageInventory)
     
-    gameLoop: while true {
+    vendingMachineLoop: while true {
         vendingMachine.showBalance(form: OutputView.showBalance)
         vendingMachine.showInventory(form: OutputView.showInventory)
         
@@ -21,7 +21,7 @@ func main() {
         guard let menu = UserMenu.init(rawValue: menuInput) else {
             OutputView.show(failMessage: .invalidInputMessage)
             
-            continue gameLoop
+            continue vendingMachineLoop
         }
         
         let input = InputView.readInput()
@@ -31,13 +31,13 @@ func main() {
             if !vendingMachine.insert(money: input) {
                 OutputView.show(failMessage: .invalidInputMessage)
                 
-                continue gameLoop
+                continue vendingMachineLoop
             }
         case .purchaseBeverage:
             guard let beverage = vendingMachine.purchaseProduct(index: input) else {
                 OutputView.show(failMessage: .unableToPurchaseMessage)
                 
-                continue gameLoop
+                continue vendingMachineLoop
             }
             
             OutputView.showPurchase(beverage)
