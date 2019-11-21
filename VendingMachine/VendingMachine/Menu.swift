@@ -19,9 +19,9 @@ enum ManagerMenu: Int, CaseIterable, Menu {
     var description: String {
         switch self {
         case .addStock:
-            return "\(rawValue) 음료 추가"
+            return "\(rawValue). 음료 추가"
         case .removeStock:
-            return "\(rawValue) 음료 제거"
+            return "\(rawValue). 음료 제거"
         }
     }
 }
