@@ -10,6 +10,7 @@ import Foundation
 
 protocol Storable {
     mutating func addStock(_ product: Sellable)
+    mutating func removeStock(_ product: Sellable)
     mutating func takeProduct(at index: Int) -> Sellable?
     func search(option: ProductStatus, balance: Money) -> [Sellable]
     func showInventory(form: (Int, String, Int, Int) -> ())
@@ -56,6 +57,12 @@ struct BeverageInventory: Storable {
     mutating func addStock(_ product: Sellable) {
         if let edibleProduct = product as? SellEdible {
             stock.append(edibleProduct)
+        }
+    }
+    
+    mutating func removeStock(_ product: Sellable) {
+        if let index = stock.firstIndex(where: { $0.objectID == product.objectID }) {
+            stock.remove(at: index)
         }
     }
     
