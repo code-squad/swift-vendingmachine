@@ -16,6 +16,7 @@ protocol Printable {
 protocol VendingMachineManagerable {
     func addStock(_ product: Sellable)
     func removeStock(_ product: Sellable)
+    func fetchProduct(at index: Int) -> Sellable
     func fetchHistory() -> [Sellable]
     func fetchHotProducts() -> [Sellable]
     func fetchExpiredProducts() -> [Sellable]
@@ -55,6 +56,10 @@ extension VendingMachine: VendingMachineManagerable {
     
     func removeStock(_ product: Sellable) {
         inventory.removeStock(product)
+    }
+    
+    func fetchProduct(at index: Int) -> Sellable {
+        return inventory.fetchProduct(at: index)
     }
     
     func fetchHistory() -> [Sellable] {

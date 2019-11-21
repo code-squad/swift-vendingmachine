@@ -12,6 +12,7 @@ protocol Storable {
     mutating func addStock(_ product: Sellable)
     mutating func removeStock(_ product: Sellable)
     mutating func takeProduct(at index: Int) -> Sellable?
+    func fetchProduct(at index: Int) -> Sellable
     func search(option: ProductStatus, balance: Money) -> [Sellable]
     func showInventory(form: (Int, String, Int, Int) -> ())
 }
@@ -67,13 +68,19 @@ struct BeverageInventory: Storable {
     }
     
     mutating func takeProduct(at index: Int) -> Sellable? {
-        let product = stockCounter[index - 1].product
+        let product = fetchProduct(at: index)
         
         guard let index = stock.firstIndex(where: { $0.objectID == product.objectID }) else {
             return nil
         }
         
         return stock.remove(at: index)
+    }
+    
+    func fetchProduct(at index: Int) -> Sellable {
+        let product = stockCounter[index - 1].product
+        
+        return product
     }
     
     func search(option: ProductStatus, balance: Money = Money()) -> [Sellable] {
