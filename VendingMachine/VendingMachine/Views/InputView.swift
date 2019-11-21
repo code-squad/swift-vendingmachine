@@ -9,10 +9,14 @@
 import Foundation
 
 struct InputView {
-    static func readMenu() -> Int {
-        for menu in UserMenu.allCases {
-            print(menu)
-        }
+    static func readVendingMachineModeMenu() -> Int {
+        VendingMachineModeMenu.allCases.forEach { print($0) }
+        
+        return readInput()
+    }
+    
+    static func readUserMenu() -> Int {
+        UserMenu.allCases.forEach { print($0) }
         
         return readInput()
     }

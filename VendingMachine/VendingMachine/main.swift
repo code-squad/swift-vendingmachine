@@ -17,7 +17,7 @@ func main() {
         vendingMachine.showBalance(form: OutputView.showBalance)
         vendingMachine.showInventory(form: OutputView.showInventory)
         
-        let menuInput = InputView.readMenu()
+        let menuInput = InputView.readUserMenu()
         guard let menu = UserMenu.init(rawValue: menuInput) else {
             OutputView.show(failMessage: .invalidInputMessage)
             
