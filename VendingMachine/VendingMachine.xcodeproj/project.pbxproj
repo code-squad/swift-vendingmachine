@@ -48,6 +48,7 @@
 		14F7EFD823863428005ABF8C /* FailMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F7EFD723863428005ABF8C /* FailMessage.swift */; };
 		14F7EFFE2386814C005ABF8C /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F7EFFD2386814C005ABF8C /* Mode.swift */; };
 		14F7F000238BDB7D005ABF8C /* ManagerMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F7EFFF238BDB7D005ABF8C /* ManagerMode.swift */; };
+		14F7F002238BDD19005ABF8C /* UserMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F7F001238BDD19005ABF8C /* UserMode.swift */; };
 		839DA90D1F8D1F95009E05F3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839DA90C1F8D1F95009E05F3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +93,7 @@
 		14F7EFD723863428005ABF8C /* FailMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailMessage.swift; sourceTree = "<group>"; };
 		14F7EFFD2386814C005ABF8C /* Mode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mode.swift; sourceTree = "<group>"; };
 		14F7EFFF238BDB7D005ABF8C /* ManagerMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerMode.swift; sourceTree = "<group>"; };
+		14F7F001238BDD19005ABF8C /* UserMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMode.swift; sourceTree = "<group>"; };
 		839DA9091F8D1F95009E05F3 /* VendingMachine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VendingMachine; sourceTree = BUILT_PRODUCTS_DIR; };
 		839DA90C1F8D1F95009E05F3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -210,6 +212,7 @@
 				14F7EFD4237D3381005ABF8C /* Money.swift */,
 				14F7EFD723863428005ABF8C /* FailMessage.swift */,
 				14F7EFFF238BDB7D005ABF8C /* ManagerMode.swift */,
+				14F7F001238BDD19005ABF8C /* UserMode.swift */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				1439C7472361941100C0FB0A /* Americano.swift in Sources */,
 				14F7EFD823863428005ABF8C /* FailMessage.swift in Sources */,
 				1439C74923619A5200C0FB0A /* CafeLatte.swift in Sources */,
+				14F7F002238BDD19005ABF8C /* UserMode.swift in Sources */,
 				1441C4512373DA7A00773348 /* OutputView.swift in Sources */,
 				14F7EFFE2386814C005ABF8C /* Mode.swift in Sources */,
 			);
