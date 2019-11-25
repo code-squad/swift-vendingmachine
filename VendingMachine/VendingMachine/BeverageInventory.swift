@@ -17,17 +17,24 @@ protocol Storable {
     func showInventory(form: (Int, String, Int, Int) -> ())
 }
 
-extension Storable {
-    func search(option: ProductStatus, balance: Money = Money()) -> [Sellable] {
-        return search(option: option, balance: balance)
-    }
-}
-
 enum ProductStatus {
     case hot
     case expired
     case purchasable
     case all
+    
+    func condition(balance: Money = Money()) -> (SellEdible) -> Bool {
+        switch self {
+        case .hot:
+            return { $0.isHot }
+        case .expired:
+            return { !$0.isValidate }
+        case .all:
+            return { _ in true }
+        case .purchasable:
+            return { $0.productPrice <= balance }
+        }
+    }
 }
 
 struct BeverageInventory: Storable {
@@ -83,17 +90,8 @@ struct BeverageInventory: Storable {
         return product
     }
     
-    func search(option: ProductStatus, balance: Money = Money()) -> [Sellable] {
-        switch option {
-        case .hot:
-            return stock.filter { $0.isHot }
-        case .expired:
-            return stock.filter { !$0.isValidate }
-        case .all:
-            return stock
-        case .purchasable:
-            return stock.filter { $0.productPrice <= balance }
-        }
+    func search(option: ProductStatus, balance: Money) -> [Sellable] {
+        return stock.filter { option.condition(balance: balance)($0) }
     }
     
     func showInventory(form: (Int, String, Int, Int) -> ()) {
