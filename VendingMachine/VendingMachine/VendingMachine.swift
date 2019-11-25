@@ -18,10 +18,7 @@ protocol VendingMachineManagerable {
     func removeStock(_ product: Sellable)
     func fetchProduct(at index: Int) -> Sellable
     func fetchHistory() -> [Sellable]
-    func fetchHotProducts() -> [Sellable]
-    func fetchExpiredProducts() -> [Sellable]
-    func fetchPurchasableProducts() -> [Sellable]
-    func fetchAllProducts() -> [Sellable]
+    func fetchProducts(option: ProductStatus) -> [Sellable]
 }
 
 protocol VendingMachineUserable {
@@ -65,21 +62,9 @@ extension VendingMachine: VendingMachineManagerable {
     func fetchHistory() -> [Sellable] {
         return history
     }
-    
-    func fetchHotProducts() -> [Sellable] {
-        return inventory.search(option: .hot)
-    }
-    
-    func fetchExpiredProducts() -> [Sellable] {
-        return inventory.search(option: .expired)
-    }
-    
-    func fetchPurchasableProducts() -> [Sellable] {
-        return inventory.search(option: .purchasable, balance: balance)
-    }
-    
-    func fetchAllProducts() -> [Sellable] {
-        return inventory.search(option: .all)
+
+    func fetchProducts(option: ProductStatus) -> [Sellable] {
+        return inventory.search(option: option, balance: balance)
     }
 }
 
@@ -91,7 +76,7 @@ extension VendingMachine: VendingMachineUserable {
     }
     
     func purchaseProduct(index: Int) -> Sellable? {
-        let purchasableProduct = fetchPurchasableProducts()
+        let purchasableProduct = fetchProducts(option: .purchasable)
         guard let beverage = inventory.takeProduct(at: index) else {
             return nil
         }
