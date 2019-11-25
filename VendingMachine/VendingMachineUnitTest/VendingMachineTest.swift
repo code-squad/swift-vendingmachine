@@ -36,7 +36,7 @@ class VendingMachineTest: XCTestCase {
     }
     
     func testFetchPurchasableProducts() {
-        let fetchPurchasableProducts = vendingMachine.fetchPurchasableProducts()
+        let fetchPurchasableProducts = vendingMachine.fetchProducts(option: .purchasable)
         let purchasableProducts = [Coke(), LemonlimeDrink(), StrawberryMilk(), ChocolateMilk()]
         let unpurchasableProducts = [CafeLatte(), Americano()]
         
@@ -52,7 +52,7 @@ class VendingMachineTest: XCTestCase {
     }
     
     func testFetchHotProducts() {
-        let fetchHotProducts = vendingMachine.fetchHotProducts()
+        let fetchHotProducts = vendingMachine.fetchProducts(option: .hot)
         let hotProducts = [CafeLatte(), Americano()]
         let notHotProducts = [Coke(), LemonlimeDrink(), StrawberryMilk(), ChocolateMilk()]
         
@@ -68,7 +68,7 @@ class VendingMachineTest: XCTestCase {
     }
 
     func testFetchExpiredProducts() {
-        let fetchExpiredProducts = vendingMachine.fetchExpiredProducts()
+        let fetchExpiredProducts = vendingMachine.fetchProducts(option: .expired)
         let expiredProducts = [Americano(), StrawberryMilk(), LemonlimeDrink()]
         let validateProducts = [CafeLatte(), ChocolateMilk(), Coke()]
         
